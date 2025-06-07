@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推演 specul.com 区块链数字币导航</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6cf7;
+            --primary-dark: #3a56d8;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-color: #f8f9fa;
+            --card-bg: #fff;
+            --border-color: #eaeaea;
+            --shadow: 0 4px 12px rgba(0,0,0,0.05);
+            --transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            --text-color: #eaeaea;
+            --text-light: #b0b0b0;
+            --bg-color: #121826;
+            --card-bg: #1e293b;
+            --border-color: #2d3748;
+            --shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.8rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 0 10px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-color), #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 450px;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.2);
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(74, 108, 247, 0.1);
+            color: var(--primary-color);
+        }
+
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            gap: 6px;
+            padding: 0.6rem 0;
+            margin-bottom: 12px;
+            scrollbar-width: thin;
+            flex-wrap: wrap;
+        }
+
+        .categories::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .categories::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .category-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 30px;
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            min-width: fit-content;
+            width: auto;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .site-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 15px;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .site-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .site-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .site-card h3 i {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+
+        .site-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            word-break: break-all;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .site-card a:hover {
+            text-decoration: underline;
+        }
+
+        .site-card p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(74, 108, 247, 0.1);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        footer {
+            background-color: var(--card-bg);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .search-container {
+                width: 100%;
+                margin: 10px 0;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .categories {
+                padding-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-project-diagram"></i>
+                    <h1>推演</h1>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="搜索网站名称、描述或标签...">
+                </div>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    <span>深色模式</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="categories">
+            <button class="category-btn active" data-category="all">全部网站</button>
+            <button class="category-btn" data-category="exchange">交易平台</button>
+            <button class="category-btn" data-category="wallet">钱包服务</button>
+            <button class="category-btn" data-category="news">资讯平台</button>
+            <button class="category-btn" data-category="community">社区论坛</button>
+            <button class="category-btn" data-category="explorer">区块链浏览器</button>
+            <button class="category-btn" data-category="project">项目官网</button>
+            <button class="category-btn" data-category="tools">工具资源</button>
+        </div>
+
+        <div class="grid" id="sites-container">
+            <!-- 网站卡片将通过JavaScript动态生成 -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2001-2025 specul.com 推演 - 数字货币导航网站</p>
+        </div>
+    </footer>
+
+    <script>
+        // 网站数据
+        const sites = [
+            // 交易平台 (15个)
+            {
+                name: "Binance",
+                url: "https://www.binance.com",
+                desc: "全球最大的加密货币交易所，提供多样化的交易对和低手续费。",
+                category: "exchange",
+            },
+            {
+                name: "Coinbase",
+                url: "https://www.coinbase.com",
+                desc: "美国最大的数字货币交易所，用户友好，适合新手使用。",
+                category: "exchange",
+            },
+            {
+                name: "Kraken",
+                url: "https://www.kraken.com",
+                desc: "老牌加密货币交易所，安全性高，支持多种法币交易。",
+                category: "exchange",
+            },
+            {
+                name: "Huobi",
+                url: "https://www.huobi.com",
+                desc: "全球知名的数字资产交易平台，提供现货、合约等多种交易服务。",
+                category: "exchange",
+            },
+            {
+                name: "OKX",
+                url: "https://www.okx.com",
+                desc: "全球领先的数字资产交易平台，提供多样化的金融产品。",
+                category: "exchange",
+            },
+            {
+                name: "KuCoin",
+                url: "https://www.kucoin.com",
+                desc: "全球知名的数字货币交易所，支持多种数字资产交易。",
+                category: "exchange",
+            },
+            {
+                name: "Bybit",
+                url: "https://www.bybit.com",
+                desc: "专注于衍生品交易的加密货币交易所，提供永续合约等产品。",
+                category: "exchange",
+            },
+            {
+                name: "Gate.io",
+                url: "https://www.gate.io",
+                desc: "提供多种数字货币交易，包括新上市代币。",
+                category: "exchange",
+            },
+            {
+                name: "Bitget",
+                url: "https://www.bitget.com",
+                desc: "提供合约交易、现货交易等多种交易服务的平台。",
+                category: "exchange",
+            },
+            {
+                name: "MEXC Global",
+                url: "https://www.mexc.com",
+                desc: "全球用户多样化的数字资产交易服务平台。",
+                category: "exchange",
+            },
+            {
+                name: "Bitfinex",
+                url: "https://www.bitfinex.com",
+                desc: "提供多种数字货币交易和杠杆交易服务。",
+                category: "exchange",
+            },
+            {
+                name: "Bittrex",
+                url: "https://global.bittrex.com",
+                desc: "美国交易所，提供多种数字货币交易对，安全性高。",
+                category: "exchange",
+            },
+            {
+                name: "Poloniex",
+                url: "https://poloniex.com",
+                desc: "美国交易所，提供多种交易对，界面友好。",
+                category: "exchange",
+            },
+            {
+                name: "Bitstamp",
+                url: "https://www.bitstamp.net",
+                desc: "欧洲老牌交易所，支持法币交易。",
+                category: "exchange",
+            },
+            {
+                name: "Bithumb",
+                url: "https://www.bithumb.com",
+                desc: "韩国最大的数字货币交易所之一。",
+                category: "exchange",
+            },
+            
+            // 钱包服务 (10个)
+            {
+                name: "MetaMask",
+                url: "https://metamask.io",
+                desc: "流行的以太坊钱包，支持浏览器插件和移动应用。",
+                category: "wallet",
+            },
+            {
+                name: "Trust Wallet",
+                url: "https://trustwallet.com",
+                desc: "币安旗下的多链钱包，支持多种代币。",
+                category: "wallet",
+            },
+            {
+                name: "Ledger",
+                url: "https://www.ledger.com",
+                desc: "硬件钱包，提供高安全性的数字资产存储方案。",
+                category: "wallet",
+            },
+            {
+                name: "Trezor",
+                url: "https://trezor.io",
+                desc: "硬件钱包，安全存储数字资产。",
+                category: "wallet",
+            },
+            {
+                name: "Coinbase Wallet",
+                url: "https://wallet.coinbase.com",
+                desc: "Coinbase推出的去中心化钱包，支持多种数字资产。",
+                category: "wallet",
+            },
+            {
+                name: "Exodus",
+                url: "https://www.exodus.com",
+                desc: "多资产桌面和移动钱包，界面美观易用。",
+                category: "wallet",
+            },
+            {
+                name: "MyEtherWallet",
+                url: "https://www.myetherwallet.com",
+                desc: "开源的以太坊钱包，支持创建和管理钱包。",
+                category: "wallet",
+            },
+            {
+                name: "Blockchain Wallet",
+                url: "https://www.blockchain.com/wallet",
+                desc: "提供比特币、以太坊等主流币种的钱包服务。",
+                category: "wallet",
+            },
+            {
+                name: "TokenPocket",
+                url: "https://www.tokenpocket.pro",
+                desc: "多链数字钱包，支持多种区块链。",
+                category: "wallet",
+            },
+            {
+                name: "SafePal",
+                url: "https://www.safepal.com",
+                desc: "硬件钱包和移动应用结合的数字资产管理方案。",
+                category: "wallet",
+            },
+            
+            // 资讯平台 (15个)
+            {
+                name: "CoinDesk",
+                url: "https://www.coindesk.com",
+                desc: "领先的数字货币新闻网站，提供市场分析和行业动态。",
+                category: "news",
+            },
+            {
+                name: "CoinTelegraph",
+                url: "https://cointelegraph.com",
+                desc: "全球区块链新闻、分析和评论的重要来源。",
+                category: "news",
+            },
+            {
+                name: "Decrypt",
+                url: "https://decrypt.co",
+                desc: "提供加密货币新闻、指南和教程的媒体平台。",
+                category: "news",
+            },
+            {
+                name: "巴比特",
+                url: "https://www.8btc.com",
+                desc: "中国最大的区块链和数字货币新闻网站。",
+                category: "news",
+            },
+            {
+                name: "金色财经",
+                url: "https://www.jinse.com",
+                desc: "中国知名的区块链资讯平台，涵盖行业动态和市场分析。",
+                category: "news",
+            },
+            {
+                name: "链闻",
+                url: "https://www.chainnews.com",
+                desc: "提供区块链和加密货币领域的深度报道。",
+                category: "news",
+            },
+            {
+                name: "The Block",
+                url: "https://www.theblockcrypto.com",
+                desc: "提供加密货币市场数据、新闻和分析的媒体。",
+                category: "news",
+            },
+            {
+                name: "CryptoSlate",
+                url: "https://cryptoslate.com",
+                desc: "提供加密货币新闻、项目信息和市场数据的平台。",
+                category: "news",
+            },
+            {
+                name: "Bitcoin Magazine",
+                url: "https://bitcoinmagazine.com",
+                desc: "专注于比特币的新闻和分析的媒体。",
+                category: "news",
+            },
+            {
+                name: "NewsBTC",
+                url: "https://www.newsbtc.com",
+                desc: "提供比特币和加密货币市场新闻和分析的网站。",
+                category: "news",
+            },
+            {
+                name: "Crypto News",
+                url: "https://cryptonews.com",
+                desc: "全球加密货币新闻平台，覆盖行业最新动态。",
+                category: "news",
+            },
+            {
+                name: "Bitcoinist",
+                url: "https://bitcoinist.com",
+                desc: "提供比特币和区块链相关新闻的媒体。",
+                category: "news",
+            },
+            {
+                name: "Cryptopotato",
+                url: "https://cryptopotato.com",
+                desc: "提供加密货币新闻、指南和评测的网站。",
+                category: "news",
+            },
+            {
+                name: "区块律动",
+                url: "https://www.theblockbeats.com",
+                desc: "中国区块链行业深度媒体，提供专业分析。",
+                category: "news",
+            },
+            {
+                name: "PANews",
+                url: "https://www.panewslab.com",
+                desc: "区块链智库媒体，提供行业深度内容。",
+                category: "news",
+            },
+            
+            // 社区论坛 (5个)
+            {
+                name: "BitcoinTalk",
+                url: "https://bitcointalk.org",
+                desc: "最古老的比特币和加密货币论坛，拥有大量讨论话题。",
+                category: "community",
+            },
+            {
+                name: "Reddit r/cryptocurrency",
+                url: "https://www.reddit.com/r/CryptoCurrency",
+                desc: "Reddit上的加密货币社区，讨论各种加密货币话题。",
+                category: "community",
+            },
+            {
+                name: "Reddit r/Bitcoin",
+                url: "https://www.reddit.com/r/Bitcoin",
+                desc: "Reddit上的比特币社区，专注于比特币相关讨论。",
+                category: "community",
+            },
+            {
+                name: "Reddit r/ethereum",
+                url: "https://www.reddit.com/r/ethereum",
+                desc: "Reddit上的以太坊社区，讨论以太坊相关话题。",
+                category: "community",
+            },
+            {
+                name: "知乎区块链",
+                url: "https://www.zhihu.com/topic/19559724/hot",
+                desc: "知乎上关于区块链和数字货币的讨论话题。",
+                category: "community",
+            },
+            
+            // 区块链浏览器 (5个)
+            {
+                name: "Etherscan",
+                url: "https://etherscan.io",
+                desc: "以太坊区块链浏览器，提供交易、地址查询等功能。",
+                category: "explorer",
+            },
+            {
+                name: "Blockchain.com Explorer",
+                url: "https://www.blockchain.com/explorer",
+                desc: "比特币和以太坊等区块链浏览器，支持多种加密货币。",
+                category: "explorer",
+            },
+            {
+                name: "BTC.com",
+                url: "https://btc.com",
+                desc: "比特币区块链浏览器，提供区块、交易和地址信息。",
+                category: "explorer",
+            },
+            {
+                name: "BscScan",
+                url: "https://bscscan.com",
+                desc: "币安智能链区块链浏览器，支持BEP-20代币查询。",
+                category: "explorer",
+            },
+            {
+                name: "Solscan",
+                url: "https://solscan.io",
+                desc: "Solana区块链浏览器，提供Solana生态的交易和账户信息。",
+                category: "explorer",
+            },
+            
+            // 项目官网 (10个)
+            {
+                name: "Bitcoin",
+                url: "https://bitcoin.org",
+                desc: "比特币官方网站，提供比特币核心信息和资源。",
+                category: "project",
+            },
+            {
+                name: "Ethereum",
+                url: "https://ethereum.org",
+                desc: "以太坊官方网站，提供以太坊核心信息和开发资源。",
+                category: "project",
+            },
+            {
+                name: "Cardano",
+                url: "https://cardano.org",
+                desc: "Cardano项目官方网站，介绍项目技术和路线图。",
+                category: "project",
+            },
+            {
+                name: "Polkadot",
+                url: "https://polkadot.network",
+                desc: "Polkadot项目官方网站，提供跨链技术信息。",
+                category: "project",
+            },
+            {
+                name: "Solana",
+                url: "https://solana.com",
+                desc: "Solana官方网站，介绍高性能区块链解决方案。",
+                category: "project",
+            },
+            {
+                name: "Chainlink",
+                url: "https://chain.link",
+                desc: "Chainlink项目官方网站，提供去中心化预言机解决方案。",
+                category: "project",
+            },
+            {
+                name: "Polygon",
+                url: "https://polygon.technology",
+                desc: "Polygon官方网站，以太坊扩容解决方案。",
+                category: "project",
+            },
+            {
+                name: "Avalanche",
+                url: "https://www.avax.network",
+                desc: "Avalanche官方网站，提供高性能区块链平台信息。",
+                category: "project",
+            },
+            {
+                name: "Cosmos",
+                url: "https://cosmos.network",
+                desc: "Cosmos项目官方网站，区块链互联网解决方案。",
+                category: "project",
+            },
+            {
+                name: "Algorand",
+                url: "https://www.algorand.com",
+                desc: "Algorand官方网站，提供纯权益证明区块链信息。",
+                category: "project",
+            },
+            
+            // 工具资源 (10个)
+            {
+                name: "CoinMarketCap",
+                url: "https://coinmarketcap.com",
+                desc: "提供数字货币价格、市值、交易量等实时数据的平台。",
+                category: "tools",
+            },
+            {
+                name: "CoinGecko",
+                url: "https://www.coingecko.com",
+                desc: "提供数字货币市场数据和分析工具的平台。",
+                category: "tools",
+            },
+            {
+                name: "DefiLlama",
+                url: "https://defillama.com",
+                desc: "DeFi项目数据追踪和分析平台，提供TVL等指标。",
+                category: "tools",
+            },
+            {
+                name: "Dune Analytics",
+                url: "https://dune.xyz",
+                desc: "区块链数据分析平台，支持自定义查询和可视化。",
+                category: "tools",
+            },
+            {
+                name: "CryptoCompare",
+                url: "https://www.cryptocompare.com",
+                desc: "提供数字货币市场数据和比较工具的平台。",
+                category: "tools",
+            },
+            {
+                name: "Glassnode",
+                url: "https://glassnode.com",
+                desc: "提供链上数据分析和市场情报的平台。",
+                category: "tools",
+            },
+            {
+                name: "Messari",
+                url: "https://messari.io",
+                desc: "提供加密货币研究、数据和工具的平台。",
+                category: "tools",
+            },
+            {
+                name: "TradingView",
+                url: "https://www.tradingview.com",
+                desc: "提供数字货币图表和技术分析工具的平台。",
+                category: "tools",
+                
+            },
+            {
+                name: "CryptoPanic",
+                url: "https://cryptopanic.com",
+                desc: "加密货币新闻聚合平台，实时显示市场情绪。",
+                category: "tools",
+                
+            },
+            {
+                name: "Whale Alert",
+                url: "https://whale-alert.io",
+                desc: "追踪大额加密货币交易的服务平台。",
+                category: "tools",
+                
+            }
+        ];
+
+        // DOM元素
+        const sitesContainer = document.getElementById('sites-container');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const searchInput = document.getElementById('search-input');
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const themeText = themeToggle.querySelector('span');
+
+        // 图标映射
+        const categoryIcons = {
+            exchange: 'fa-exchange-alt',
+            wallet: 'fa-wallet',
+            news: 'fa-newspaper',
+            community: 'fa-comments',
+            explorer: 'fa-search',
+            project: 'fa-project-diagram',
+            tools: 'fa-tools'
+        };
+
+        // 初始化网站显示
+        function renderSites(category = 'all', searchTerm = '') {
+            sitesContainer.innerHTML = '';
+            
+            let filteredSites = sites;
+            
+            // 按类别过滤
+            if (category !== 'all') {
+                filteredSites = sites.filter(site => site.category === category);
+            }
+            
+            // 按搜索词过滤
+            if (searchTerm) {
+                const term = searchTerm.toLowerCase();
+                filteredSites = filteredSites.filter(site => 
+                    site.name.toLowerCase().includes(term) || 
+                    site.desc.toLowerCase().includes(term) ||
+                    false
+                );
+            }
+            
+            // 显示结果
+            if (filteredSites.length === 0) {
+                sitesContainer.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search fa-2x" style="margin-bottom: 15px;"></i>
+                        <h3>未找到匹配的结果</h3>
+                        <p>请尝试其他搜索词或选择其他分类</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredSites.forEach(site => {
+                const siteCard = document.createElement('div');
+                siteCard.className = 'site-card';
+                siteCard.innerHTML = `
+                    <h3><i class="fas ${categoryIcons[site.category]}"></i>${site.name}</h3>
+                    <a href="${site.url}" target="_blank">${site.url}</a>
+                    <p>${site.desc}</p>
+                    
+                `;
+                sitesContainer.appendChild(siteCard);
+            });
+        }
+
+        // 分类按钮事件
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // 移除所有active类
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                // 为当前按钮添加active类
+                button.classList.add('active');
+                // 渲染对应分类的网站
+                renderSites(button.dataset.category, searchInput.value);
+            });
+        });
+
+        // 搜索功能
+        searchInput.addEventListener('input', () => {
+            const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+            renderSites(activeCategory, searchInput.value);
+        });
+
+        // 主题切换
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.className = 'fas fa-sun';
+                themeText.textContent = '浅色模式';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                themeText.textContent = '深色模式';
+            }
+            
+            // 保存主题偏好
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+
+        // 初始化
+        function init() {
+            // 检查保存的主题偏好
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeIcon.className = 'fas fa-sun';
+                themeText.textContent = '浅色模式';
+            }
+            
+            // 初始渲染
+            renderSites();
+        }
+
+        // 页面加载时初始化
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+    
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7ee8ffb7c08117461beb1dcc46d48bfb";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
+</body>
+</html>
