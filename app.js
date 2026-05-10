@@ -64,7 +64,7 @@
 
   function getFilteredCards() {
     var filtered = cards;
-    if (activeCat !== 'all' && activeCat !== 'tags') {
+    if (activeCat && activeCat !== 'all' && activeCat !== 'tags') {
       filtered = filtered.filter(function(c) { return c.c === activeCat; });
     }
     var q = searchInput.value.trim().toLowerCase();

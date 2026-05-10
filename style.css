@@ -59,36 +59,36 @@ body {
 .header-inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 6px 12px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .logo-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
   background: var(--gradient);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 20px;
   color: #fff;
   font-weight: 900;
 }
 
 .logo-text {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 800;
   background: var(--gradient);
   -webkit-background-clip: text;
@@ -97,7 +97,7 @@ body {
 }
 
 .logo-sub {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--text-muted);
   letter-spacing: 1px;
   margin-left: 2px;
@@ -105,18 +105,18 @@ body {
 
 .search-wrap {
   flex: 1;
-  max-width: 400px;
+  max-width: 420px;
   position: relative;
 }
 
 .search-input {
   width: 100%;
-  padding: 6px 10px 6px 30px;
+  padding: 8px 12px 8px 36px;
   border: 2px solid var(--border);
-  border-radius: 16px;
+  border-radius: 18px;
   background: var(--bg-search);
   color: var(--text);
-  font-size: 12px;
+  font-size: 13px;
   outline: none;
   transition: all var(--transition);
 }
@@ -130,24 +130,24 @@ body {
 
 .search-icon {
   position: absolute;
-  left: 12px;
+  left: 14px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-muted);
   pointer-events: none;
 }
 
-.header-actions{display:flex;align-items:center;gap:6px}
+.header-actions{display:flex;align-items:center;gap:8px}
 
 .theme-toggle {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1px solid var(--border);
   background: var(--bg-toggle);
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,21 +159,21 @@ body {
 .nav-categories {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 3px 12px;
+  padding: 5px 16px;
   display: flex;
-  gap: 3px;
+  gap: 4px;
   flex-wrap: wrap;
   border-top: 1px solid var(--border);
 }
 
 .nav-cat {
-  padding: 2px 8px;
-  border-radius: 12px;
+  padding: 5px 14px;
+  border-radius: 14px;
   border: 1px solid transparent;
   background: var(--bg-tag);
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 11px;
+  font-size: 13px;
   white-space: nowrap;
   transition: all var(--transition);
   text-decoration: none;
@@ -196,13 +196,13 @@ body {
 }
 
 .sub-nav-link {
-  padding: 3px 10px;
-  border-radius: 10px;
+  padding: 4px 12px;
+  border-radius: 12px;
   border: 1px solid var(--border);
   background: var(--bg-tag);
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 11px;
+  font-size: 12px;
   white-space: nowrap;
   transition: all var(--transition);
   text-decoration: none;
@@ -213,7 +213,7 @@ body {
 
 .main{max-width:1400px;margin:0 auto;padding:8px 12px 14px}
 
-.section{margin-top:10px;animation:fadeInUp .35s ease both}
+.section{margin-top:10px;animation:fadeInUp .35s ease both;content-visibility:auto;contain-intrinsic-size:0 500px}
 
 @keyframes fadeInUp{
   from{opacity:0;transform:translateY(12px)}
@@ -252,6 +252,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 6px;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 90px;
 }
 
 .card {
