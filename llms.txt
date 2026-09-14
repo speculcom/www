@@ -1,0 +1,52 @@
+# 推演 specul.com 硅基文明
+> 专注于硅基生命时代的上网导航站，汇聚人工智能、机器人、区块链、数字币、大模型、芯片算力等领域 700+ 精选资源与工具，支持分类检索与标签筛选。
+
+## 人工智能
+- [ChatGPT](https://chat.openai.com): OpenAI 推出的顶级对话式 AI，支持文本、图像、语音多模态交互
+- [Claude](https://claude.ai): Anthropic 开发的安全可靠大模型，擅长长文本分析与深度推理
+- [Gemini](https://gemini.google.com): Google DeepMind 打造的新一代多模态大模型
+- [DeepSeek](https://chat.deepseek.com): 深度求索推出的高性能开源大模型，编程与推理能力突出
+- [Kimi](https://kimi.moonshot.cn): 月之暗面推出的超长上下文 AI 助手
+- [Perplexity](https://www.perplexity.ai): AI 驱动的智能搜索引擎
+
+## 机器人
+- [Boston Dynamics](https://bostondynamics.com): 全球最知名的高动态机器人公司
+- [Tesla Optimus](https://www.tesla.com/optimus): 特斯拉推出的通用人形机器人
+- [Figure AI](https://www.figure.ai): OpenAI 投资的通用人形机器人公司
+- [Unitree](https://www.unitree.com): 中国领先的四足与人形机器人公司
+- [Waymo](https://waymo.com): Alphabet 旗下自动驾驶公司
+
+## 大模型与平台
+- [Hugging Face](https://huggingface.co): 全球最大的 AI 模型社区与开源平台
+- [ModelScope](https://modelscope.cn): 阿里云推出的中文 AI 模型开源社区
+- [Ollama](https://ollama.ai): 本地运行大语言模型的最简单方式
+- [Replicate](https://replicate.com): 一键运行和部署开源 AI 模型的云平台
+
+## 区块链
+- [Ethereum](https://ethereum.org): 全球最大的智能合约平台
+- [Solana](https://solana.com): 高性能 Layer1 公链
+- [Arbitrum](https://arbitrum.io): 以太坊最受欢迎的 Layer2 网络
+
+## 数字币
+- [CoinMarketCap](https://coinmarketcap.com): 全球最权威的加密货币市值排名平台
+- [Binance](https://www.binance.com): 全球交易量最大的加密货币交易所
+- [Uniswap](https://uniswap.org): 以太坊上最大的去中心化交易所
+
+## 芯片算力
+- [NVIDIA](https://www.nvidia.com): GPU 领域全球领导者
+- [台积电](https://www.tsmc.com): 全球最大半导体代工企业
+- [ASML](https://www.asml.com): 荷兰光刻机巨头
+
+## 开发工具
+- [GitHub](https://github.com): 全球最大的代码托管与协作平台
+- [Vercel](https://vercel.com): 前端部署平台领导者
+- [Figma](https://www.figma.com): 全球领先的 UI/UX 在线协作设计工具
+- [VS Code](https://code.visualstudio.com): 微软开源代码编辑器
+
+## 学习资源
+- [arXiv](https://arxiv.org): AI 前沿研究预印本论文平台
+- [Coursera](https://www.coursera.org): 全球顶级大学在线课程平台
+- [LeetCode](https://leetcode.com): 全球最流行的算法编程练习平台
+
+## 更多
+全站共 705 个精选外链，覆盖 8 大类别 50+ 子分类。访问 [https://specul.com](https://specul.com) 浏览完整导航。

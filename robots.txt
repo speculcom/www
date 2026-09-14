@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: /_check_urls.ps1
+
+Sitemap: https://specul.com/sitemap.xml
+
+# LLMs / AI crawlers
+User-agent: GPTBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
