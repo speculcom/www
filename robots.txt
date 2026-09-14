@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /_check_urls.ps1
 
 Sitemap: https://specul.com/sitemap.xml
 
