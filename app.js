@@ -1,216 +1,246 @@
-(function() {
-  var body = document.body;
+/* ==========================================================================
+   硅基导航（nav.html）交互逻辑 · v2
+   --------------------------------------------------------------------------
+   布局：搜索框 / 左栏（分类 + 热门标签）/ 右栏（子分类 chips + 卡片网格）
+   状态：{ cat, type, tag, q } 四维过滤，全部即时生效。
+   快捷键："/" 聚焦搜索，Esc 清空。
+   数据：data.js 提供 cards / catMeta / catOrder。
+   语言与明暗主题统一由 brand.js 处理（存储键 specul-lang / specul-theme）。
+   ========================================================================== */
+(function () {
   var searchInput = document.getElementById('searchInput');
   var content = document.getElementById('content');
   var navCategories = document.getElementById('navCategories');
   var subNav = document.getElementById('subNav');
+  var sideTags = document.getElementById('sideTags');
+  var dirStat = document.getElementById('dirStat');
+  var contentTitle = document.getElementById('contentTitle');
+  var contentSub = document.getElementById('contentSub');
   var toTop = document.getElementById('toTop');
-  var activeCat = 'all';
-  var selectedTag = null;
-  var searchTimer;
 
-  function getAllTags() {
-    var map = {};
-    cards.forEach(function(c) {
-      c.tag.split('·').forEach(function(t) {
-        var v = t.trim();
-        if (v) map[v] = (map[v] || 0) + 1;
-      });
+  if (!content || !navCategories) return;
+
+  var state = { cat: 'all', type: null, tag: null, q: '' };
+  var searchTimer = null;
+
+  /* ---------- 统计 ---------- */
+  var catCounts = {};
+  var tagCounts = {};
+  cards.forEach(function (c) {
+    catCounts[c.c] = (catCounts[c.c] || 0) + 1;
+    String(c.tag).split('·').forEach(function (t) {
+      var v = t.trim();
+      if (v) tagCounts[v] = (tagCounts[v] || 0) + 1;
     });
-    return Object.keys(map).sort(function(a, b) {
-      return map[b] - map[a];
-    }).map(function(t) { return { name: t, count: map[t] }; });
+  });
+  var topTags = Object.keys(tagCounts)
+    .sort(function (a, b) { return tagCounts[b] - tagCounts[a]; })
+    .slice(0, 14);
+
+  if (dirStat) {
+    dirStat.textContent =
+      cards.length + ' 个资源 · ' + catOrder.length + ' 个分类 · ' +
+      Object.keys(tagCounts).length + ' 个标签 · 持续精选维护';
   }
 
-  /* 语言与明暗主题统一由 brand.js 处理（存储键 specul-lang / specul-theme），
-     本文件只负责目录本身。 */
+  /* ---------- 左栏：分类 + 标签 ---------- */
+  function catItem(key, ic, name, count) {
+    return '<a class="side-cat' + (state.cat === key ? ' active' : '') +
+      '" data-cat="' + key + '" href="' + (key === 'all' ? '#' : '#cat-' + key) + '">' +
+      '<span class="side-cat-ic">' + ic + '</span>' +
+      '<span class="side-cat-name">' + name + '</span>' +
+      '<span class="side-cat-count">' + count + '</span></a>';
+  }
 
-  function buildNav() {
-    var h = '<a href="#" class="nav-cat active" data-cat="all">📋 全部</a>';
-    catOrder.forEach(function(key) {
-      var m = catMeta[key];
-      h += '<a href="#cat-' + key + '" class="nav-cat" data-cat="' + key + '">' + m.emoji + ' ' + m.name + '</a>';
+  function renderSide() {
+    var h = catItem('all', '🗂️', '全部资源', cards.length);
+    catOrder.forEach(function (key) {
+      var m = catMeta[key] || { emoji: '📦', name: key };
+      h += catItem(key, m.emoji, m.name, catCounts[key] || 0);
     });
-    h += '<a href="#" class="nav-cat nav-tags" data-cat="tags">🏷️ 标签</a>';
     navCategories.innerHTML = h;
-  }
 
-  function setActiveNav(cat) {
-    navCategories.querySelectorAll('.nav-cat').forEach(function(el) {
-      el.classList.toggle('active', el.getAttribute('data-cat') === cat);
-    });
-  }
-
-  function getFilteredCards() {
-    var filtered = cards;
-    if (activeCat && activeCat !== 'all' && activeCat !== 'tags') {
-      filtered = filtered.filter(function(c) { return c.c === activeCat; });
+    if (sideTags) {
+      sideTags.innerHTML = topTags.map(function (t) {
+        return '<a class="side-tag' + (state.tag === t ? ' active' : '') +
+          '" data-tag="' + t + '" href="#">' + t +
+          '<span class="side-tag-count">' + tagCounts[t] + '</span></a>';
+      }).join('');
     }
-    var q = searchInput.value.trim().toLowerCase();
-    if (q) {
-      filtered = filtered.filter(function(c) {
-        return c.n.toLowerCase().indexOf(q) !== -1 ||
-               c.d.toLowerCase().indexOf(q) !== -1 ||
-               c.tag.toLowerCase().indexOf(q) !== -1 ||
-               c.t.toLowerCase().indexOf(q) !== -1 ||
-               (catMeta[c.c] && catMeta[c.c].name.toLowerCase().indexOf(q) !== -1);
-      });
+  }
+
+  /* ---------- 过滤 ---------- */
+  function cardMatches(c) {
+    if (state.cat !== 'all' && c.c !== state.cat) return false;
+    if (state.type && c.t !== state.type) return false;
+    if (state.tag &&
+        String(c.tag).split('·').map(function (s) { return s.trim(); })
+          .indexOf(state.tag) === -1) return false;
+    if (state.q) {
+      var hay = (c.n + ' ' + c.d + ' ' + c.tag + ' ' + c.t + ' ' +
+        ((catMeta[c.c] || {}).name || '')).toLowerCase();
+      if (hay.indexOf(state.q) === -1) return false;
     }
-    return filtered;
+    return true;
   }
 
-  function groupByType(list) {
-    var order = [];
-    var groups = {};
-    list.forEach(function(c) {
-      if (!groups[c.t]) { groups[c.t] = []; order.push(c.t); }
-      groups[c.t].push(c);
+  /* ---------- 右栏 ---------- */
+  function renderTypeChips() {
+    if (!subNav) return;
+    if (state.cat === 'all') { subNav.innerHTML = ''; return; }
+    var types = [];
+    var seen = {};
+    var counts = {};
+    cards.forEach(function (c) {
+      if (c.c !== state.cat) return;
+      counts[c.t] = (counts[c.t] || 0) + 1;
+      if (!seen[c.t]) { seen[c.t] = true; types.push(c.t); }
     });
-    return order.map(function(t) { return { type: t, cards: groups[t] }; });
-  }
-
-  function subId(catKey, typeName) {
-    return 'su-' + catKey + '-' + typeName.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '');
+    subNav.innerHTML = types.map(function (t) {
+      return '<button class="sub-chip' + (state.type === t ? ' active' : '') +
+        '" type="button" data-type="' + t + '">' + t +
+        '<span class="sub-chip-count">' + counts[t] + '</span></button>';
+    }).join('');
   }
 
   function renderCard(c) {
-    return '<a href="' + c.u + '" target="_blank" rel="noopener noreferrer" class="card">' +
-      '<div class="card-top"><span class="card-icon">' + c.ic + '</span>' +
-      '<div class="card-info"><span class="card-name">' + c.n + '</span>' +
-      '<span class="card-desc">' + c.d + '</span></div></div>' +
-      '<div class="card-tags"><span class="card-tag">' + c.t + '</span><span class="card-tag">' + c.tag + '</span></div>' +
-      '<span class="card-link-hint">🔗 ' + c.u.replace(/https?:\/\//, '') + '</span></a>';
+    return '<a class="dcard" href="' + c.u + '" target="_blank" rel="noopener noreferrer">' +
+      '<div class="dcard-top"><span class="dcard-ic">' + (c.ic || '🔗') + '</span>' +
+      '<span class="dcard-name">' + c.n + '<i class="dcard-ext">↗</i></span></div>' +
+      '<p class="dcard-desc">' + c.d + '</p>' +
+      '<div class="dcard-foot"><span class="dcard-type">' + c.t + '</span>' +
+      '<span class="dcard-tags">' + c.tag + '</span></div></a>';
   }
 
-  function renderTagsView(filtered) {
-    var tags = getAllTags();
-    if (!selectedTag) {
-      var h = '<div class="section"><div class="section-header">';
-      h += '<span class="section-icon">🏷️</span><h2 class="section-title">标签分类</h2>';
-      h += '<span class="section-count">共 ' + tags.length + ' 个标签 · ' + cards.length + ' 个资源</span>';
-      h += '</div><p style="color:var(--text-muted);font-size:11px;margin-bottom:6px">点击下方标签查看对应资源</p>';
-      h += '<div class="tag-selector">';
-      tags.forEach(function(t) {
-        h += '<span class="tag-btn" data-tag="' + t.name + '">' + t.name + '<span class="btn-count">' + t.count + '</span></span>';
-      });
-      return h + '</div></div>';
+  function render() {
+    var list = cards.filter(cardMatches);
+    renderTypeChips();
+
+    var m = catMeta[state.cat];
+    var hasFilters = !!(state.type || state.tag || state.q);
+    if (contentTitle) {
+      contentTitle.textContent = state.cat === 'all' ? '全部资源' : (m ? m.name : state.cat);
     }
-    var tagCards = filtered.filter(function(c) {
-      return c.tag.split('·').map(function(t) { return t.trim(); }).indexOf(selectedTag) !== -1;
-    });
-    var grouped = {};
-    tagCards.forEach(function(c) {
-      if (!grouped[c.c]) grouped[c.c] = [];
-      grouped[c.c].push(c);
-    });
-    var h = '<div class="section"><div class="tag-result-header">';
-    h += '<span class="tag-result-title">' + selectedTag + '<span class="result-count">（' + tagCards.length + ' 个资源）</span></span>';
-    h += '<button class="back-to-tags" id="backToTags">← 返回标签列表</button></div>';
-    if (!tagCards.length) return h + '<div class="no-results">🔍 没有找到匹配的资源</div></div>';
-    catOrder.forEach(function(key) {
-      var cc = grouped[key];
-      if (!cc || !cc.length) return;
-      var m = catMeta[key];
-      h += '<div class="sub-section"><h3 class="sub-heading">' + m.emoji + ' ' + m.name + '<span class="sub-count">（' + cc.length + '）</span></h3>';
-      h += '<div class="card-grid">' + cc.map(renderCard).join('') + '</div></div>';
-    });
-    return h + '</div>';
-  }
+    if (contentSub) {
+      contentSub.innerHTML =
+        '<span>' + list.length + ' 个资源</span>' +
+        (hasFilters
+          ? '<button class="dir-clear" id="clearFilters" type="button">清除筛选 ×</button>'
+          : '');
+    }
 
-  function renderCategoryView(filtered, singleCat) {
-    var cats = singleCat ? [singleCat] : catOrder;
-    var h = '';
-    cats.forEach(function(key) {
-      var catCards = filtered.filter(function(c) { return c.c === key; });
-      if (!catCards.length) return;
-      var m = catMeta[key];
-      var groups = groupByType(catCards);
-      h += '<section class="section"><div class="section-header">';
-      h += '<span class="section-icon">' + m.emoji + '</span><h2 class="section-title" id="cat-' + key + '">' + m.name + '</h2>';
-      h += '<span class="section-count">' + catCards.length + ' 个资源</span></div>';
-      groups.forEach(function(g) {
-        var id = subId(key, g.type);
-        h += '<div class="sub-section"><h3 class="sub-heading" id="' + id + '">📌 ' + g.type + '<span class="sub-count">（' + g.cards.length + '）</span></h3>';
-        h += '<div class="card-grid">' + g.cards.map(renderCard).join('') + '</div></div>';
-      });
-      h += '</section>';
-    });
-    return h || '<div class="section"><div class="no-results">🔍 没有找到匹配的资源</div></div>';
-  }
+    if (!list.length) {
+      content.innerHTML =
+        '<div class="dir-empty"><div class="dir-empty-ic">🔍</div>' +
+        '<p>没有找到匹配的资源，换个关键词或清除筛选试试</p>' +
+        '<button class="dir-clear" id="clearFilters" type="button">清除全部筛选</button></div>';
+      return;
+    }
 
-  function renderAll() {
-    var filtered = getFilteredCards();
-    if (activeCat === 'tags') {
-      if (subNav) subNav.style.display = 'none';
-      content.innerHTML = renderTagsView(filtered);
+    if (state.cat === 'all' && !hasFilters) {
+      // 全部视图：按分类分组，便于扫读
+      content.innerHTML = catOrder.map(function (key) {
+        var cm = catMeta[key] || { emoji: '📦', name: key };
+        var cc = list.filter(function (c) { return c.c === key; });
+        if (!cc.length) return '';
+        return '<section class="cat-section">' +
+          '<div class="cat-head"><span class="cat-head-ic">' + cm.emoji + '</span>' +
+          '<h3 class="cat-head-name">' + cm.name + '</h3>' +
+          '<span class="cat-head-count">' + cc.length + ' 个</span></div>' +
+          '<div class="card-grid">' + cc.map(renderCard).join('') + '</div></section>';
+      }).join('');
     } else {
-      var single = activeCat !== 'all' ? activeCat : null;
-      if (single) {
-        var scCards = filtered.filter(function(c) { return c.c === single; });
-        var groups = groupByType(scCards);
-        if (subNav) {
-          subNav.style.display = '';
-          subNav.innerHTML = groups.map(function(g) {
-            var id = subId(single, g.type);
-            return '<a href="#' + id + '" class="sub-nav-link" data-to="' + id + '">' + g.type + '<span class="sn-count">' + g.cards.length + '</span></a>';
-          }).join('');
-        }
-      } else {
-        if (subNav) subNav.style.display = 'none';
-      }
-      content.innerHTML = renderCategoryView(filtered, single);
+      content.innerHTML =
+        '<div class="card-grid">' + list.map(renderCard).join('') + '</div>';
     }
-    content.querySelectorAll('.section').forEach(function(s, i) {
-      s.style.animationDelay = (i * 0.03) + 's';
+  }
+
+  function clearFilters() {
+    state.type = null; state.tag = null; state.q = '';
+    if (searchInput) searchInput.value = '';
+    renderSide();
+    render();
+  }
+
+  /* ---------- 事件 ---------- */
+  navCategories.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('.side-cat') : null;
+    if (!el) return;
+    e.preventDefault();
+    // 切换分类 = 全新上下文：清掉子分类与标签过滤（保留搜索词）
+    state.cat = el.getAttribute('data-cat');
+    state.type = null;
+    state.tag = null;
+    renderSide();
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  if (sideTags) {
+    sideTags.addEventListener('click', function (e) {
+      var el = e.target.closest ? e.target.closest('.side-tag') : null;
+      if (!el) return;
+      e.preventDefault();
+      var t = el.getAttribute('data-tag');
+      state.tag = state.tag === t ? null : t;
+      renderSide();
+      render();
     });
   }
 
-  content.addEventListener('click', function(e) {
-    var btn = e.target.closest('.tag-btn');
-    if (btn) { selectedTag = btn.getAttribute('data-tag'); renderAll(); return; }
-    var back = e.target.closest('#backToTags');
-    if (back) { selectedTag = null; renderAll(); }
+  if (subNav) {
+    subNav.addEventListener('click', function (e) {
+      var el = e.target.closest ? e.target.closest('.sub-chip') : null;
+      if (!el) return;
+      var t = el.getAttribute('data-type');
+      state.type = state.type === t ? null : t;
+      render();
+    });
+  }
+
+  // 「清除筛选」按钮渲染在动态区域，统一委托到 document
+  document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'clearFilters') clearFilters();
   });
 
-  if (subNav) subNav.addEventListener('click', function(e) {
-    var link = e.target.closest('.sub-nav-link');
-    if (!link) return;
-    e.preventDefault();
-    var el = document.getElementById(link.getAttribute('data-to'));
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-
-  if (navCategories) navCategories.addEventListener('click', function(e) {
-    var t = e.target;
-    if (!t.classList.contains('nav-cat')) return;
-    e.preventDefault();
-    var cat = t.getAttribute('data-cat');
-    activeCat = cat;
-    selectedTag = null;
-    setActiveNav(cat);
-    renderAll();
-  });
-
-  if (searchInput) searchInput.addEventListener('input', function() {
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(function() {
-      var hasText = !!searchInput.value.trim();
-      if (hasText) activeCat = null;
-      else if (!activeCat) activeCat = 'all';
-      setActiveNav(hasText ? 'all' : activeCat);
-      renderAll();
-    }, 200);
-  });
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(function () {
+        state.q = searchInput.value.trim().toLowerCase();
+        render();
+      }, 160);
+    });
+    searchInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        state.q = '';
+        searchInput.blur();
+        render();
+      }
+    });
+    // "/" 聚焦搜索（焦点不在输入控件时）
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;
+      var ae = document.activeElement;
+      if (ae && ae.tagName && /^(input|textarea|select)$/i.test(ae.tagName)) return;
+      e.preventDefault();
+      searchInput.focus();
+    });
+  }
 
   if (toTop) {
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       toTop.classList.toggle('visible', window.scrollY > 300);
     }, { passive: true });
-    toTop.addEventListener('click', function() {
+    toTop.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  buildNav();
-  renderAll();
+  /* ---------- 初始化（支持 #cat-xxx 深链） ---------- */
+  var hashCat = (location.hash || '').replace(/^#cat-/, '');
+  if (hashCat && catMeta[hashCat]) state.cat = hashCat;
+  renderSide();
+  render();
 })();

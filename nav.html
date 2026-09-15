@@ -39,31 +39,52 @@
     </div>
   </header>
 
-  <div class="dir-tools">
-    <div class="container dir-tools-inner">
-      <div class="search-wrap">
-        <span class="search-icon" aria-hidden="true">🔍</span>
-        <input class="search-input" id="searchInput" type="search" autocomplete="off"
-               placeholder="搜索资源 / 描述 / 标签…" aria-label="搜索资源" />
+  <!-- ============ 目录主体 ============ -->
+  <main class="dir-main">
+    <div class="dir-shell">
+
+      <!-- 搜索区 -->
+      <div class="dir-hero">
+        <label class="dir-search">
+          <span class="dir-search-icon" aria-hidden="true">🔍</span>
+          <input id="searchInput" type="search" autocomplete="off"
+                 placeholder="搜索名称、描述、标签…" aria-label="搜索资源" />
+          <kbd class="dir-kbd" aria-hidden="true">/</kbd>
+        </label>
+        <div class="dir-stat" id="dirStat"></div>
       </div>
-      <div class="dir-stat" id="dirStat">
-        <span data-zh>精选目录 · 持续维护</span><span data-en>Curated · maintained</span>
+
+      <div class="dir-body">
+        <!-- 左栏：分类 + 标签 -->
+        <aside class="dir-side">
+          <div class="side-block side-cats">
+            <h3 class="side-title">分类</h3>
+            <nav id="navCategories" aria-label="资源分类"></nav>
+          </div>
+          <div class="side-block side-tags">
+            <h3 class="side-title">标签</h3>
+            <div id="sideTags" aria-label="热门标签"></div>
+          </div>
+        </aside>
+
+        <!-- 右栏：子分类过滤 + 卡片 -->
+        <section class="dir-content">
+          <div class="dir-content-head">
+            <h2 class="dir-content-title" id="contentTitle">全部资源</h2>
+            <div class="dir-content-meta" id="contentSub"></div>
+          </div>
+          <div class="dir-subnav" id="subNav" aria-label="子分类"></div>
+          <div id="content"></div>
+        </section>
       </div>
+
     </div>
-  </div>
-
-  <nav class="nav-categories" id="navCategories" aria-label="资源分类"></nav>
-  <nav class="sub-nav" id="subNav" aria-label="子分类"></nav>
-
-  <main class="main">
-    <div id="content"></div>
   </main>
 
   <button class="to-top" id="toTop" type="button" title="回到顶部" aria-label="回到页面顶部">⬆</button>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="foot-row">
+    <div class="container foot-row">
         <div class="foot-brand">
           <span class="brand-dot" aria-hidden="true"></span>
           <span class="foot-copy">© 2026 Specul · <span data-zh>投机 · 推演</span><span data-en>Speculation · Speculate</span></span>
@@ -74,15 +95,13 @@
           <a href="https://keel.specul.com/">龙骨 Keel</a>
           <a href="https://github.com/lifeidle/keel3d" target="_blank" rel="noopener">GitHub</a>
         </nav>
-      </div>
-      <div class="foot-legal-links">
-        <span class="foot-legal-label" data-zh>法律</span>
-        <span class="foot-legal-label" data-en>Legal</span>
+      <nav class="foot-legal-links" aria-label="法律">
+
         <a href="./legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
         <a href="./legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
         <a href="./legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
         <a href="https://keel.specul.com/credits.html"><span data-zh>素材与致谢</span><span data-en>Credits</span></a>
-      </div>
+      </nav>
     </div>
   </footer>
 
