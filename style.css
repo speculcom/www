@@ -42,7 +42,7 @@
   font-size: 13px; font-family: inherit; outline: none;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
-.search-input:focus { border-color: rgba(34, 211, 197, .55); box-shadow: 0 0 0 3px rgba(34, 211, 197, .12); }
+.search-input:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(34, 211, 197, .12); }
 .search-input::placeholder { color: var(--dim); }
 .dir-stat { font-size: 12px; color: var(--dim); }
 
@@ -78,7 +78,7 @@
   white-space: nowrap; text-decoration: none;
   transition: all var(--transition);
 }
-.sub-nav-link:hover { color: var(--ink); border-color: rgba(34, 211, 197, .5); }
+.sub-nav-link:hover { color: var(--ink); border-color: var(--cyan); }
 .sub-nav-link .sn-count { font-size: 9px; opacity: .6; margin-left: 4px; }
 
 /* 内容区 ----------------------------------------------------------------- */
@@ -126,7 +126,7 @@
   background: var(--gradient); opacity: 0; transition: opacity var(--transition);
 }
 .card:hover {
-  border-color: rgba(34, 211, 197, .5);
+  border-color: var(--cyan);
   box-shadow: 0 6px 18px rgba(34, 211, 197, .1);
   transform: translateY(-1px);
 }
@@ -162,7 +162,7 @@
   white-space: nowrap; transition: all var(--transition); user-select: none;
 }
 .tag-btn:hover {
-  color: var(--ink); border-color: rgba(34, 211, 197, .5);
+  color: var(--ink); border-color: var(--cyan);
   transform: translateY(-1px);
 }
 .tag-btn .btn-count { font-size: 9px; opacity: .6; margin-left: 4px; }
@@ -180,7 +180,7 @@
   color: var(--ink); cursor: pointer; font-size: 10px;
   transition: all var(--transition);
 }
-.back-to-tags:hover { border-color: rgba(34, 211, 197, .5); }
+.back-to-tags:hover { border-color: var(--cyan); }
 
 .no-results { text-align: center; padding: 32px 20px; color: var(--dim); font-size: 13px; }
 
@@ -208,3 +208,12 @@
 @media (max-width: 480px) {
   .card-grid { grid-template-columns: 1fr; }
 }
+
+/* 浅色模式修正 ----------------------------------------------------------- */
+/* 渐变底（--gradient）在浅色下换成深紫→深青，深色字会读不清 → 一律改白字 */
+[data-theme="light"] .nav-cat:hover,
+[data-theme="light"] .nav-cat.active,
+[data-theme="light"] .tag-result-title,
+[data-theme="light"] .to-top { color: #fff; }
+[data-theme="light"] .card:hover { box-shadow: 0 8px 20px -10px rgba(15, 23, 42, .25); }
+[data-theme="light"] .card-link-hint { color: var(--vio); }

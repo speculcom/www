@@ -81,18 +81,20 @@
     <div class="container site-bar">
       <a class="brand" href="./" title="Specul 首页">
         <span class="brand-dot" aria-hidden="true"></span>
-        <span class="brand-name">SPECUL</span>
-        <span class="brand-sub" id="markSub"
-              data-zh-sub="投机 · 推演" data-en-sub="speculation · speculate">投机 · 推演</span>
+        <span class="brand-text">
+          <span class="brand-name">SPECUL</span>
+          <span class="brand-sub" id="markSub"
+                data-zh-sub="投机 · 推演" data-en-sub="speculation · speculate">投机 · 推演</span>
+        </span>
       </a>
       <nav class="nav-links" aria-label="站点导航">
         <a href="./"><span data-zh>首页</span><span data-en>Home</span></a>
         <a href="./nav.html"><span data-zh>导航</span><span data-en>Directory</span></a>
         <a href="https://keel.specul.com/"><span data-zh>龙骨 Keel</span><span data-en>Keel</span></a>
-        <a href="https://keel.specul.com/3d/hub.html"><span data-zh>3D 演示</span><span data-en>3D demos</span></a>
-        <a href="./legal.html"><span data-zh>法律</span><span data-en>Legal</span></a>
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题">☾</button>
-        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
+        <span class="nav-tools">
+          <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题">☾</button>
+          <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
+        </span>
       </nav>
     </div>
   </header>
@@ -482,34 +484,26 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container foot-row">
-      <div>
-        <div>© 2026 Specul · <span data-zh>投机 · 推演</span><span data-en>Speculation · Speculate</span></div>
-        <div class="foot-legal">
-          <details>
-            <summary><span data-zh>版权 · 免责 · 许可</span><span data-en>Copyright · Disclaimer · Licensing</span></summary>
-            <p data-zh>
-              本站自有文案、界面设计、标识与编排版权归 Specul 所有。开源代码（龙骨 Keel）以对应仓库的 MIT 许可为准；
-              在线演示中的第三方素材（CC0 / CC-BY / CC-BY-SA）权利归原作者，完整清单见「素材与致谢」。
-              演示按「现状」提供，不构成任何担保或服务承诺；军事、战斗类内容纯属虚构。
-            </p>
-            <p data-en>
-              Original copy, UI design, marks, and compilation are © Specul. Open-source code (Keel) is MIT per its
-              repository; third-party assets in the demos (CC0 / CC-BY / CC-BY-SA) remain with their authors — see Credits.
-              Demos are provided “as is”, are not a service commitment, and any combat content is fictional.
-            </p>
-            <p>
-              <a href="./legal.html"><span data-zh>法律条款</span><span data-en>Legal</span></a> ·
-              <a href="https://keel.specul.com/credits.html"><span data-zh>素材与致谢</span><span data-en>Credits</span></a>
-            </p>
-          </details>
+    <div class="container">
+      <div class="foot-row">
+        <div class="foot-brand">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="foot-copy">© 2026 Specul · <span data-zh>投机 · 推演</span><span data-en>Speculation · Speculate</span></span>
         </div>
+        <nav class="foot-links" aria-label="页脚导航">
+          <a href="./"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="./nav.html"><span data-zh>导航</span><span data-en>Directory</span></a>
+          <a href="https://keel.specul.com/">龙骨 Keel</a>
+          <a href="https://github.com/lifeidle/keel3d" target="_blank" rel="noopener">GitHub</a>
+        </nav>
       </div>
-      <div class="foot-links">
-        <a href="./"><span data-zh>首页</span><span data-en>Home</span></a> ·
-        <a href="./nav.html"><span data-zh>导航</span><span data-en>Directory</span></a> ·
-        <a href="https://keel.specul.com/">龙骨 Keel</a> ·
-        <a href="https://github.com/lifeidle/keel3d" target="_blank" rel="noopener">GitHub</a>
+      <div class="foot-legal-links">
+        <span class="foot-legal-label" data-zh>法律</span>
+        <span class="foot-legal-label" data-en>Legal</span>
+        <a href="./legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="./legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="./legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+        <a href="https://keel.specul.com/credits.html"><span data-zh>素材与致谢</span><span data-en>Credits</span></a>
       </div>
     </div>
   </footer>
