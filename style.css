@@ -1,15 +1,15 @@
 @charset "UTF-8";
 /* ==========================================================================
-   硅基导航（specul.com/nav.html）专用样式 · v2
+   硅基导航（specul.com/nav.html）专用样式 · v3
    --------------------------------------------------------------------------
-   布局：搜索区 → [左栏：分类/标签 | 右栏：子分类过滤 + 卡片网格]
+   布局：搜索区 → 分类轨/标签轨（flex-wrap，任意宽度无滚动条）→ 卡片网格
    顶部/底部/主题 token 一律来自 brand.css，本文件只描述目录本身。
    ========================================================================== */
 
 :root {
   --gradient: linear-gradient(135deg, var(--vio), var(--cyan));
   --gradient-text: #061018;              /* 渐变底上的文字（暗色底用深字） */
-  --bg-soft: rgba(148, 163, 184, .09);   /* 轻量块底色 */
+  --bg-soft: rgba(148, 163, 184, .09);
   --t: .18s;
 }
 [data-theme="light"] {
@@ -21,98 +21,89 @@
 .dir-main {
   position: relative; z-index: 1;
   width: var(--container); margin: 0 auto;
-  padding: 26px 0 56px;
+  padding: 30px 0 56px;
 }
 
 /* ===== 搜索区 ============================================================ */
-.dir-hero { margin-bottom: 24px; }
+.dir-hero { margin-bottom: 26px; }
 .dir-search {
-  display: flex; align-items: center; gap: 11px;
-  max-width: 660px;
-  background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
-  padding: 11px 15px;
+  display: flex; align-items: center; gap: 12px;
+  max-width: 720px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+  padding: 13px 18px;
+  box-shadow: var(--shadow);
   transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease);
 }
 .dir-search:focus-within {
   border-color: var(--cyan);
-  box-shadow: 0 0 0 3px rgba(34, 211, 197, .14);
+  box-shadow: 0 0 0 3px rgba(34, 211, 197, .16), var(--shadow);
 }
 [data-theme="light"] .dir-search { background: #fff; }
-.dir-search-icon { font-size: 15px; opacity: .85; }
+.dir-search-icon { font-size: 16px; opacity: .85; }
 .dir-search input {
   flex: 1; min-width: 0;
   border: 0; outline: 0; background: transparent;
-  color: var(--ink); font: 14px var(--font);
+  color: var(--ink); font: 15px var(--font);
 }
 .dir-search input::placeholder { color: var(--dim); }
 .dir-kbd {
   font: 11px var(--mono); color: var(--dim);
   border: 1px solid var(--line); border-bottom-width: 2px;
-  border-radius: 5px; padding: 1px 7px; line-height: 1.5;
+  border-radius: 6px; padding: 1px 8px; line-height: 1.6;
 }
-.dir-stat { margin-top: 11px; font-size: 12px; color: var(--dim); letter-spacing: .02em; }
+.dir-stat { margin-top: 12px; font-size: 12.5px; color: var(--dim); letter-spacing: .02em; }
 
-/* ===== 两栏布局 ========================================================== */
-.dir-body {
-  display: grid; grid-template-columns: 236px minmax(0, 1fr);
-  gap: 24px; align-items: start;
-}
-
-/* ===== 左栏：分类 / 标签 ================================================= */
-.dir-side {
-  position: sticky; top: 76px;
-  display: flex; flex-direction: column; gap: 18px;
-  max-height: calc(100vh - 96px); overflow-y: auto;
-  scrollbar-width: thin;
-}
-.side-block {
+/* ===== 分类轨 + 标签轨（自然换行，永不出现滚动条） ======================= */
+.dir-rails {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 14px; margin-bottom: 28px;
   background: var(--panel); border: 1px solid var(--line);
-  border-radius: 14px; padding: 14px;
+  border-radius: 16px;
 }
-.side-title {
-  font-size: 11px; font-weight: 700; letter-spacing: .16em;
-  color: var(--dim); margin-bottom: 10px;
+.rail { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.rail-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  color: var(--dim); margin-right: 4px;
 }
-.side-cat {
-  display: flex; align-items: center; gap: 9px;
-  padding: 6.5px 9px; border-radius: 9px;
-  color: var(--dim); font-size: 13px;
+.rail-cat {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px; border-radius: 999px;
+  border: 1px solid var(--line); background: transparent;
+  color: var(--dim); font-size: 13px; font-weight: 550;
   text-decoration: none;
-  transition: color var(--t) var(--ease), background var(--t) var(--ease);
+  transition: color var(--t) var(--ease), border-color var(--t) var(--ease),
+              background var(--t) var(--ease), box-shadow var(--t) var(--ease);
 }
-.side-cat:hover { color: var(--ink); background: var(--bg-soft); }
-.side-cat.active {
-  color: var(--ink); font-weight: 650;
-  background: rgba(34, 211, 197, .1);
-  box-shadow: inset 0 0 0 1px rgba(34, 211, 197, .28);
+.rail-cat:hover { color: var(--ink); border-color: var(--cyan); }
+.rail-cat.active {
+  background: var(--gradient); color: var(--gradient-text);
+  border-color: transparent; font-weight: 700;
+  box-shadow: 0 6px 18px -8px rgba(34, 211, 197, .55);
 }
-.side-cat-ic { width: 20px; text-align: center; font-size: 15px; flex-shrink: 0; }
-.side-cat-name { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.side-cat-count {
-  font: 11px var(--mono); color: var(--dim); opacity: .75;
-  flex-shrink: 0;
-}
-.side-tag {
+.rail-cat-ic { font-size: 15px; }
+.rail-cat-count { font: 10.5px var(--mono); opacity: .65; }
+.rail-tag {
   display: inline-flex; align-items: center; gap: 5px;
   font-size: 12px; color: var(--dim);
   border: 1px solid var(--line); border-radius: 999px;
-  padding: 3px 10px; margin: 0 6px 6px 0;
+  padding: 4px 12px;
   text-decoration: none;
-  transition: color var(--t) var(--ease), border-color var(--t) var(--ease), background var(--t) var(--ease);
+  transition: color var(--t) var(--ease), border-color var(--t) var(--ease),
+              background var(--t) var(--ease);
 }
-.side-tag:hover { color: var(--ink); border-color: var(--cyan); }
-.side-tag.active {
+.rail-tag:hover { color: var(--ink); border-color: var(--cyan); }
+.rail-tag.active {
   background: var(--gradient); color: var(--gradient-text);
-  border-color: transparent; font-weight: 600;
+  border-color: transparent; font-weight: 650;
 }
-.side-tag-count { font: 10px var(--mono); opacity: .6; }
+.rail-tag-count { font: 10px var(--mono); opacity: .6; }
 
-/* ===== 右栏：标题 + 子分类 + 卡片 ======================================== */
+/* ===== 内容区 ============================================================ */
 .dir-content-head {
   display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
-  margin-bottom: 13px;
+  margin-bottom: 14px;
 }
-.dir-content-title { font-size: 20px; font-weight: 750; letter-spacing: -.01em; }
+.dir-content-title { font-size: 21px; font-weight: 750; letter-spacing: -.01em; }
 .dir-content-meta {
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
   font-size: 12.5px; color: var(--dim);
@@ -120,7 +111,7 @@
 .dir-clear {
   font: 12px var(--font); color: var(--dim);
   border: 1px solid var(--line); border-radius: 999px;
-  padding: 2.5px 11px; background: var(--panel); cursor: pointer;
+  padding: 3px 12px; background: var(--panel); cursor: pointer;
   transition: color var(--t) var(--ease), border-color var(--t) var(--ease);
 }
 .dir-clear:hover { color: var(--ink); border-color: var(--line-strong); }
@@ -138,30 +129,30 @@
 .sub-chip:hover { color: var(--ink); border-color: var(--cyan); }
 .sub-chip.active {
   background: var(--gradient); color: var(--gradient-text);
-  border-color: transparent; font-weight: 600;
+  border-color: transparent; font-weight: 650;
 }
 .sub-chip-count { font: 10px var(--mono); opacity: .65; margin-left: 4px; }
 
 /* 分类区块（"全部"视图） */
-.cat-section { margin-bottom: 26px; }
+.cat-section { margin-bottom: 30px; }
 .cat-head {
   display: flex; align-items: center; gap: 10px;
-  padding-bottom: 10px; margin-bottom: 12px;
+  padding-bottom: 10px; margin-bottom: 14px;
   border-bottom: 1px solid var(--line);
 }
 .cat-head-ic { font-size: 17px; }
-.cat-head-name { font-size: 15.5px; font-weight: 700; margin: 0; }
+.cat-head-name { font-size: 16px; font-weight: 700; margin: 0; letter-spacing: -.01em; }
 .cat-head-count { font: 11px var(--mono); color: var(--dim); }
 
 /* 卡片网格 */
 .card-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 268px), 1fr));
   gap: 10px;
 }
 .dcard {
   display: block;
   background: var(--panel); border: 1px solid var(--line);
-  border-radius: 12px; padding: 13px 14px 11px;
+  border-radius: 14px; padding: 14px 15px 12px;
   text-decoration: none; color: inherit;
   position: relative; overflow: hidden;
   transition: border-color var(--t) var(--ease), transform var(--t) var(--ease),
@@ -174,7 +165,7 @@
 }
 .dcard:hover {
   border-color: var(--cyan); transform: translateY(-2px);
-  box-shadow: 0 10px 26px -14px rgba(34, 211, 197, .4);
+  box-shadow: 0 12px 28px -14px rgba(34, 211, 197, .4);
 }
 .dcard:hover::before { opacity: 1; }
 .dcard-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
@@ -207,7 +198,7 @@
 .dir-empty {
   text-align: center; padding: 64px 24px;
   color: var(--dim); font-size: 13.5px;
-  border: 1px dashed var(--line-strong); border-radius: 14px;
+  border: 1px dashed var(--line-strong); border-radius: 16px;
 }
 .dir-empty-ic { font-size: 30px; margin-bottom: 14px; }
 .dir-empty p { margin-bottom: 18px; }
@@ -228,28 +219,10 @@
 .to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .to-top:hover { border-color: var(--cyan); }
 
-/* ===== 移动端 ============================================================ */
-@media (max-width: 979px) {
-  .dir-body { grid-template-columns: 1fr; gap: 14px; }
-  /* 左栏改为横向滚动条，标签块隐藏 */
-  .dir-side {
-    position: static; max-height: none; overflow: visible;
-    flex-direction: row; align-items: center;
-    gap: 10px; padding-bottom: 2px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; scrollbar-width: none;
-  }
-  .dir-side::-webkit-scrollbar { display: none; }
-  .side-block { flex-shrink: 0; }
-  .side-tags { display: none; }
-  .side-cats { display: flex; align-items: center; gap: 6px; padding: 8px; }
-  .side-title { margin: 0 2px 0 0; flex-shrink: 0; }
-  .side-cat { white-space: nowrap; padding: 5px 10px; }
-  .side-cat-count { display: none; }
-  .dir-content-title { font-size: 18px; }
-}
+/* ===== 窄屏微调（全部靠 flex-wrap / auto-fill，无滚动条） ================= */
 @media (max-width: 560px) {
-  .card-grid { grid-template-columns: 1fr; }
   .dir-search { max-width: none; }
   .dir-kbd { display: none; }
+  .rail-label { width: 100%; }
+  .dir-content-title { font-size: 18px; }
 }

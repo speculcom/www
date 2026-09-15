@@ -15,90 +15,204 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%23070b14'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="brand.css" />
   <style>
-    .hero { padding: 88px 0 56px; }
-    .kicker {
-      font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--cyan); margin-bottom: 18px;
+    /* ===== Specul 首页 v2：沉浸式现代布局，320 → 3440 全自适应 ===== */
+    .hero2 {
+      position: relative; overflow: hidden;
+      padding: clamp(56px, 12vh, 130px) 0 clamp(44px, 9vh, 96px);
+      min-height: min(86vh, 920px);
+      display: flex; align-items: center;
     }
-    .title-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; margin-bottom: 10px; }
-    h1 {
-      font-size: clamp(42px, 9vw, 72px);
-      font-weight: 800; letter-spacing: .06em; line-height: 1;
+    .hero2 > .container { width: min(1280px, 94vw); margin: 0 auto; position: relative; z-index: 1; }
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(clamp(50px, 7vw, 90px)); opacity: .5; pointer-events: none;
+    }
+    .hero-orb-a {
+      width: clamp(300px, 46vw, 820px); height: clamp(300px, 46vw, 820px);
+      top: -14%; right: -10%;
+      background: radial-gradient(circle at 35% 35%, rgba(139, 124, 248, .55), transparent 65%);
+      animation: orb-a 18s ease-in-out infinite alternate;
+    }
+    .hero-orb-b {
+      width: clamp(260px, 38vw, 660px); height: clamp(260px, 38vw, 660px);
+      bottom: -18%; left: -8%;
+      background: radial-gradient(circle at 60% 60%, rgba(34, 211, 197, .42), transparent 65%);
+      animation: orb-b 24s ease-in-out infinite alternate;
+    }
+    @keyframes orb-a { to { transform: translate(-4%, 7%) scale(1.1); } }
+    @keyframes orb-b { to { transform: translate(6%, -6%) scale(1.07); } }
+    [data-theme="light"] .hero-orb { opacity: .38; }
+    @media (prefers-reduced-motion: reduce) { .hero-orb { animation: none; } }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--dim);
+      border: 1px solid var(--line); background: var(--panel);
+      border-radius: 999px; padding: 7px 16px; margin-bottom: clamp(20px, 4vh, 34px);
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 0 rgba(34, 211, 197, .5);
+      animation: pulse 2.4s ease-out infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 211, 197, .45); }
+      70% { box-shadow: 0 0 0 9px rgba(34, 211, 197, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 211, 197, 0); }
+    }
+    .hero-title {
+      font-size: clamp(2.6rem, 7.4vw, 5.6rem);
+      font-weight: 800; line-height: 1.05; letter-spacing: -.015em;
+      margin-bottom: clamp(18px, 3.4vh, 30px);
+    }
+    .hero-title .line { display: block; }
+    .hero-title .grad {
       background: var(--grad-text);
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
-    .cn { font-size: clamp(20px, 3vw, 28px); font-weight: 650; color: var(--ink); }
-    .cn i { font-style: normal; color: var(--dim); font-weight: 400; margin: 0 6px; }
-    .mission {
-      margin-top: 22px;
-      font-size: clamp(20px, 3.2vw, 30px);
-      font-weight: 650; line-height: 1.45; max-width: 16em;
+    .hero-sub {
+      font-size: clamp(15px, 1.6vw, 18px); line-height: 1.7;
+      color: var(--dim); max-width: 34em;
+      margin-bottom: clamp(26px, 5vh, 44px);
     }
-    .mission em { font-style: normal; color: var(--gold); }
-    .lead { margin-top: 16px; color: var(--dim); font-size: 15px; max-width: 40em; }
-    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-
-    /* 本页锚点（顶部导航全站统一，页内跳转单独一行） */
-    .toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; align-items: center; }
-    .toc .toc-label { font-size: 12px; color: var(--dim); letter-spacing: .1em; }
-    .toc a {
-      font-size: 12px; color: var(--dim); border: 1px solid var(--line);
-      border-radius: 999px; padding: 4px 12px;
+    .hero-sub strong { color: var(--ink); font-weight: 650; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-stats {
+      display: flex; flex-wrap: wrap;
+      gap: clamp(16px, 3.4vw, 44px);
+      margin-top: clamp(34px, 7vh, 64px);
     }
-    .toc a:hover { color: var(--ink); border-color: rgba(34,211,197,.5); }
-
-    section { padding: 52px 0; border-top: 1px solid var(--line); }
-    .sec-label {
-      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--dim); margin-bottom: 14px;
+    .hero-stat { display: flex; flex-direction: column; gap: 5px; }
+    .hero-stat + .hero-stat {
+      padding-left: clamp(16px, 3.4vw, 44px);
+      border-left: 1px solid var(--line);
     }
-    h2 { font-size: clamp(22px, 3vw, 28px); font-weight: 700; margin-bottom: 10px; letter-spacing: -.02em; }
-    .sec-desc { color: var(--dim); font-size: 14px; max-width: 42em; margin-bottom: 28px; }
-
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    @media (max-width: 800px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
-
-    .panel {
-      background: var(--panel); border: 1px solid var(--line);
-      border-radius: 16px; padding: 22px 22px 20px;
-    }
-    .panel h3 { font-size: 18px; margin-bottom: 8px; }
-    .panel .en {
+    .hero-stat b {
+      font-size: clamp(24px, 2.8vw, 34px); font-weight: 750; line-height: 1;
       font-family: var(--mono);
-      font-size: 12px; color: var(--cyan); margin-bottom: 10px; letter-spacing: .04em;
+      background: var(--grad-text);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
     }
-    .panel p { font-size: 14px; color: var(--dim); }
-    .panel p strong { color: var(--ink); font-weight: 600; }
+    .hero-stat span { font-size: 12px; color: var(--dim); letter-spacing: .04em; }
 
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    @media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
+    /* ===== 区块通用 ===== */
+    section.sec { padding: clamp(44px, 8vh, 84px) 0; border-top: 1px solid var(--line); }
+    .sec-head { margin-bottom: clamp(24px, 4.5vh, 44px); }
+    .sec-label {
+      font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--cyan); font-weight: 650; margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(24px, 3.4vw, 34px); font-weight: 750;
+      letter-spacing: -.02em; margin-bottom: 10px;
+    }
+    .sec-desc { color: var(--dim); font-size: 14.5px; line-height: 1.7; max-width: 44em; }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px; }
+    .panel {
+      position: relative; overflow: hidden;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 18px; padding: clamp(20px, 2.6vw, 30px);
+      transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .panel::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--vio), var(--cyan));
+      opacity: 0; transition: opacity .18s var(--ease);
+    }
+    .panel:hover { border-color: var(--cyan); transform: translateY(-3px); box-shadow: 0 14px 34px -18px rgba(34, 211, 197, .35); }
+    .panel:hover::before { opacity: 1; }
+    .panel h3 { font-size: 19px; margin-bottom: 6px; }
+    .panel .en {
+      font-family: var(--mono); font-size: 12px;
+      color: var(--cyan); letter-spacing: .05em; margin-bottom: 12px;
+    }
+    .panel p { font-size: 14px; line-height: 1.75; color: var(--dim); }
+    .panel p strong { color: var(--ink); font-weight: 650; }
+
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; }
     .step {
-      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
-      padding: 22px; position: relative; overflow: hidden;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 18px; padding: clamp(20px, 2.4vw, 28px);
+      position: relative; overflow: hidden;
+      transition: border-color .18s var(--ease), transform .18s var(--ease);
     }
     .step::before {
-      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
       background: linear-gradient(180deg, var(--vio), var(--cyan));
     }
+    .step:hover { border-color: var(--cyan); transform: translateY(-3px); }
     .step .n {
-      font-size: 12px; color: var(--cyan); letter-spacing: .16em; margin-bottom: 10px;
-      font-family: var(--mono);
+      font-size: 12px; color: var(--cyan); letter-spacing: .18em;
+      margin-bottom: 12px; font-family: var(--mono); font-weight: 650;
     }
     .step h3 { font-size: 17px; margin-bottom: 8px; }
-    .step p { font-size: 13px; color: var(--dim); }
+    .step p { font-size: 13.5px; line-height: 1.7; color: var(--dim); }
 
-    .tool {
-      display: flex; flex-direction: column; gap: 8px;
-      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
-      padding: 22px;
+    /* ===== 产品 ===== */
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .product {
+      display: flex; flex-direction: column; gap: 10px;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 18px; padding: clamp(20px, 2.4vw, 28px);
+      transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
     }
-    .tool h3 { font-size: 17px; }
-    .tool p { font-size: 13px; color: var(--dim); flex: 1; }
-    .pill {
+    .product:hover {
+      border-color: var(--cyan); transform: translateY(-3px);
+      box-shadow: 0 14px 34px -18px rgba(34, 211, 197, .35);
+    }
+    .product .pill {
       align-self: flex-start; font-size: 11px; color: var(--gold);
-      border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px;
+      border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px;
+      letter-spacing: .04em;
     }
+    .product h3 { font-size: 19px; }
+    .product p { font-size: 13.5px; line-height: 1.7; color: var(--dim); flex: 1; }
+    .product .go {
+      font-size: 13px; font-weight: 650; color: var(--cyan);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .product .go .arr { transition: transform .18s var(--ease); }
+    .product .go:hover .arr { transform: translateX(4px); }
+
+    /* ===== 分类快速入口 ===== */
+    .cat-rail { display: flex; flex-wrap: wrap; gap: 10px; }
+    .cat-chip {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 10px 18px; border: 1px solid var(--line);
+      background: var(--panel); border-radius: 999px;
+      font-size: 13.5px; font-weight: 550; color: var(--ink);
+      text-decoration: none;
+      transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .cat-chip .ic { font-size: 16px; }
+    .cat-chip .cnt { font: 11px var(--mono); color: var(--dim); }
+    .cat-chip:hover {
+      border-color: var(--cyan); transform: translateY(-2px);
+      box-shadow: 0 10px 24px -14px rgba(34, 211, 197, .4);
+    }
+
+    /* ===== CTA 收尾 ===== */
+    .cta-band {
+      position: relative; overflow: hidden;
+      border: 1px solid var(--line); border-radius: 24px;
+      background: var(--panel);
+      padding: clamp(36px, 7vw, 72px) clamp(24px, 5vw, 56px);
+      text-align: center;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: -40% -20% auto;
+      height: 140%;
+      background:
+        radial-gradient(40% 60% at 30% 20%, rgba(139, 124, 248, .16), transparent 70%),
+        radial-gradient(40% 60% at 75% 30%, rgba(34, 211, 197, .14), transparent 70%);
+      pointer-events: none;
+    }
+    .cta-band > * { position: relative; }
+    .cta-band h2 { font-size: clamp(24px, 3.6vw, 36px); margin-bottom: 12px; }
+    .cta-band p { color: var(--dim); font-size: 14.5px; margin-bottom: 28px; }
   </style>
 </head>
 <body class="brand-ambient">
@@ -125,51 +239,62 @@
   </header>
 
   <main>
-    <div class="container hero">
-      <div class="kicker" data-zh>SPECUL · 硅基时代的研究与创造</div>
-      <div class="kicker" data-en>SPECUL · Research &amp; creation for the silicon age</div>
-      <div class="title-row">
-        <h1>SPECUL</h1>
-        <div class="cn" data-zh>投机<i>·</i>推演</div>
-      </div>
-      <p class="mission" data-zh>我们用 <em>投机策略</em> 让 AI <em>推演一切</em>，把结果做成人人可用的工具。</p>
-      <p class="mission" data-en>We use <em>speculative strategy</em> to have AI <em>speculate everything</em>, then ship tools anyone can use.</p>
-      <p class="lead" data-zh>
-        在大模型时代，「投机」不是盲目下注，而是像 speculative decoding 一样：先假设多条可能路径，再让模型并行验证、择优兑现。
-        Specul 把这套策略用在产品与研究上——大胆假设，推演验证，固化交付。
-      </p>
-      <p class="lead" data-en>
-        In the age of large models, speculation is not blind betting. It is closer to speculative decoding:
-        assume several paths at once, let the model verify them in parallel, then cash the best one.
-        Specul applies that discipline to research and product—assume, simulate, ship.
-      </p>
-      <div class="cta">
-        <a class="btn pri" href="https://keel.specul.com/">
-          <span data-zh>体验龙骨 Keel</span><span data-en>Try Keel</span>
-        </a>
-        <a class="btn" href="./nav.html">
-          <span data-zh>进入导航</span><span data-en>Open directory</span>
-        </a>
-      </div>
-      <div class="toc">
-        <span class="toc-label" data-zh>本页</span><span class="toc-label" data-en>On this page</span>
-        <a href="#speculate"><span data-zh>释义</span><span data-en>Meaning</span></a>
-        <a href="#method"><span data-zh>方法</span><span data-en>Method</span></a>
-        <a href="#tools"><span data-zh>工具</span><span data-en>Tools</span></a>
-      </div>
-    </div>
-
-    <section id="speculate">
+    <!-- ====== Hero ====== -->
+    <section class="hero2" aria-label="Specul">
+      <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
       <div class="container">
-        <div class="sec-label">01 — <span data-zh>释义</span><span data-en>Meaning</span></div>
-        <h2 data-zh>一个词根，两种动作</h2>
-        <h2 data-en>One root, two moves</h2>
-        <p class="sec-desc" data-zh>
-          Specul 来自拉丁语「观察 / 推测」。在中文里我们故意保留张力：投机是策略，推演是方法。
+        <div class="hero-badge">
+          <span class="dot" aria-hidden="true"></span>
+          <span data-zh>SPECUL · 硅基时代的研究与创造</span>
+          <span data-en>SPECUL · research &amp; creation for the silicon age</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="line"><span data-zh>大胆假设</span><span data-en>Bold bets,</span></span>
+          <span class="line grad"><span data-zh>并行推演</span><span data-en>parallel simulation,</span></span>
+          <span class="line"><span data-zh>固化交付</span><span data-en>shipped tools.</span></span>
+        </h1>
+        <p class="hero-sub" data-zh>
+          我们用<strong>投机策略</strong>让 AI 推演一切，把结果做成人人可用的工具。
+          像 speculative decoding 一样：先假设多条路径，并行验证，择优兑现。
         </p>
-        <p class="sec-desc" data-en>
-          From Latin <em>specula</em>—watch, infer. In Chinese we keep the tension: speculation as strategy, simulation as method.
+        <p class="hero-sub" data-en>
+          We run <strong>speculative strategies</strong> so AI can reason about everything —
+          then ship the results as tools anyone can use.
+          Like speculative decoding: assume many paths, verify in parallel, keep the best.
         </p>
+        <div class="hero-cta">
+          <a class="btn pri" href="./nav.html">
+            <span data-zh>进入硅基导航</span><span data-en>Open the directory</span> <span aria-hidden="true">→</span>
+          </a>
+          <a class="btn" href="https://keel.specul.com/">
+            <span data-zh>体验龙骨 Keel</span><span data-en>Try Keel</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>487+</b><span data-zh>精选资源</span><span data-en>curated resources</span></div>
+          <div class="hero-stat"><b>9</b><span data-zh>大品类</span><span data-en>categories</span></div>
+          <div class="hero-stat"><b>3</b><span data-zh>产品线</span><span data-en>product lines</span></div>
+          <div class="hero-stat"><b>MIT</b><span data-zh>开源协议</span><span data-en>open source</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== 理念 ====== -->
+    <section class="sec" id="speculate">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-label">01 · <span data-zh>理念</span><span data-en>Philosophy</span></div>
+          <h2 data-zh>一个词根，两种动作</h2>
+          <h2 data-en>One root, two moves</h2>
+          <p class="sec-desc" data-zh>
+            Specul 来自拉丁语「观察 / 推测」。在中文里我们故意保留张力：投机是策略，推演是方法。
+          </p>
+          <p class="sec-desc" data-en>
+            From Latin <em>specula</em> — watch, infer. In Chinese we keep the tension:
+            speculation as strategy, simulation as method.
+          </p>
+        </div>
         <div class="grid-2">
           <div class="panel">
             <h3 data-zh>投机</h3><h3 data-en>Speculation</h3>
@@ -181,7 +306,7 @@
             <p data-en>
               Borrowed from <strong>speculative strategies</strong> in LLMs: when compute and time are scarce,
               bet on multiple hypotheses in parallel and let verification kill the wrong branches.
-              We pick markets, stacks, and products the same way—<strong>structured bets</strong>, not luck.
+              We pick markets, stacks, and products the same way — <strong>structured bets</strong>, not luck.
             </p>
           </div>
           <div class="panel">
@@ -193,7 +318,7 @@
             </p>
             <p data-en>
               Use models, data, and runnable prototypes to <strong>push the world forward</strong>:
-              playtests, tool shapes, distribution paths. Simulation is not a slide deck—
+              playtests, tool shapes, distribution paths. Simulation is not a slide deck —
               it is something you can open, play, and fork.
             </p>
           </div>
@@ -201,11 +326,14 @@
       </div>
     </section>
 
-    <section id="method">
+    <!-- ====== 方法 ====== -->
+    <section class="sec" id="method">
       <div class="container">
-        <div class="sec-label">02 — <span data-zh>方法</span><span data-en>Method</span></div>
-        <h2 data-zh>从假设到工具</h2>
-        <h2 data-en>From bet to tool</h2>
+        <div class="sec-head">
+          <div class="sec-label">02 · <span data-zh>方法</span><span data-en>Method</span></div>
+          <h2 data-zh>从假设到工具</h2>
+          <h2 data-en>From bet to tool</h2>
+        </div>
         <div class="steps">
           <div class="step">
             <div class="n">01</div>
@@ -229,34 +357,87 @@
       </div>
     </section>
 
-    <section id="tools">
+    <!-- ====== 产品 ====== -->
+    <section class="sec" id="products">
       <div class="container">
-        <div class="sec-label">03 — <span data-zh>交付</span><span data-en>Shipping</span></div>
-        <h2 data-zh>现在可用的东西</h2>
-        <h2 data-en>What you can use now</h2>
-        <div class="grid-3">
-          <div class="tool">
+        <div class="sec-head">
+          <div class="sec-label">03 · <span data-zh>产品</span><span data-en>Products</span></div>
+          <h2 data-zh>现在可用的东西</h2>
+          <h2 data-en>What you can use now</h2>
+        </div>
+        <div class="products">
+          <div class="product">
             <span class="pill">WebGPU · MIT</span>
             <h3 data-zh>龙骨 Keel 3D</h3><h3 data-en>Keel 3D</h3>
-            <p data-zh>开源浏览器 3D 游戏基座：骨架与积木，把推演变成可玩原型。</p>
-            <p data-en>Open browser 3D game base: skeletons and blocks—simulation you can play.</p>
-            <a class="btn pri sm" href="https://keel.specul.com/3d/hub.html">
-              <span data-zh>在线演示</span><span data-en>Live demo</span>
+            <p data-zh>
+              开源浏览器 3D 游戏基座：20+ 品类骨架、积木化拼装，15 分钟做出可玩原型。
+            </p>
+            <p data-en>
+              Open browser 3D game base: 20+ category skeletons, block-style assembly,
+              playable prototypes in 15 minutes.
+            </p>
+            <a class="go" href="https://keel.specul.com/3d/hub.html">
+              <span data-zh>在线演示</span><span data-en>Live demo</span><span class="arr" aria-hidden="true">→</span>
             </a>
           </div>
-          <div class="tool">
+          <div class="product">
             <span class="pill"><span data-zh>规划中</span><span data-en>Planned</span></span>
             <h3 data-zh>龙骨 Keel 2D</h3><h3 data-en>Keel 2D</h3>
-            <p data-zh>二维基座，与 Keel 3D 同门，演示将统一挂在 keel.specul.com。</p>
+            <p data-zh>二维游戏基座，与 Keel 3D 同品牌、同演示站。</p>
             <p data-en>The 2D sibling of Keel 3D; demos will live on keel.specul.com.</p>
+            <a class="go" href="https://keel.specul.com/#2d">
+              <span data-zh>了解规划</span><span data-en>See plans</span><span class="arr" aria-hidden="true">→</span>
+            </a>
           </div>
-          <div class="tool">
+          <div class="product">
             <span class="pill"><span data-zh>精选目录</span><span data-en>Curated</span></span>
             <h3 data-zh>硅基导航</h3><h3 data-en>Directory</h3>
-            <p data-zh>精简后的 AI、机器人、算力与链上资源入口。</p>
-            <p data-en>A lean map of AI, robotics, compute, and on-chain resources.</p>
-            <a class="btn sm" href="./nav.html">
-              <span data-zh>浏览</span><span data-en>Browse</span>
+            <p data-zh>487 条精选：AI、机器人、大模型、链上、算力与开发工具。</p>
+            <p data-en>487 curated entries across AI, robotics, models, on-chain, compute and dev tools.</p>
+            <a class="go" href="./nav.html">
+              <span data-zh>浏览目录</span><span data-en>Browse</span><span class="arr" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== 分类入口 ====== -->
+    <section class="sec" id="categories">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-label">04 · <span data-zh>按品类浏览</span><span data-en>Browse by category</span></div>
+          <h2 data-zh>九大品类，直达分类</h2>
+          <h2 data-en>Nine categories, one click in</h2>
+        </div>
+        <div class="cat-rail">
+          <a class="cat-chip" href="./nav.html#cat-ai"><span class="ic">🤖</span><span data-zh>人工智能</span><span data-en>AI</span><span class="cnt">99</span></a>
+          <a class="cat-chip" href="./nav.html#cat-robot"><span class="ic">🦾</span><span data-zh>机器人</span><span data-en>Robotics</span><span class="cnt">64</span></a>
+          <a class="cat-chip" href="./nav.html#cat-models"><span class="ic">🧩</span><span data-zh>大模型</span><span data-en>Models</span><span class="cnt">45</span></a>
+          <a class="cat-chip" href="./nav.html#cat-blockchain"><span class="ic">⛓️</span><span data-zh>区块链</span><span data-en>Blockchain</span><span class="cnt">61</span></a>
+          <a class="cat-chip" href="./nav.html#cat-crypto"><span class="ic">💰</span><span data-zh>数字币</span><span data-en>Crypto</span><span class="cnt">61</span></a>
+          <a class="cat-chip" href="./nav.html#cat-silicon"><span class="ic">💠</span><span data-zh>芯片算力</span><span data-en>Silicon</span><span class="cnt">41</span></a>
+          <a class="cat-chip" href="./nav.html#cat-tools"><span class="ic">🛠️</span><span data-zh>开发工具</span><span data-en>Dev tools</span><span class="cnt">51</span></a>
+          <a class="cat-chip" href="./nav.html#cat-learn"><span class="ic">📚</span><span data-zh>学习资源</span><span data-en>Learning</span><span class="cnt">58</span></a>
+          <a class="cat-chip" href="./nav.html#cat-game"><span class="ic">🎮</span><span data-zh>游戏框架</span><span data-en>Game</span><span class="cnt">7</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CTA ====== -->
+    <section class="sec" style="border-top:0">
+      <div class="container">
+        <div class="cta-band">
+          <h2 data-zh>开始你的推演</h2>
+          <h2 data-en>Start your own simulation</h2>
+          <p data-zh>从一个大胆的假设开始，让 AI 帮你并行验证。</p>
+          <p data-en>Start with a bold hypothesis; let AI verify it in parallel.</p>
+          <div class="hero-cta" style="justify-content:center">
+            <a class="btn pri" href="./nav.html">
+              <span data-zh>进入导航</span><span data-en>Open directory</span> <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn" href="https://keel.specul.com/">
+              <span data-zh>体验 Keel</span><span data-en>Try Keel</span>
             </a>
           </div>
         </div>

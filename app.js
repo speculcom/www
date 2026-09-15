@@ -43,17 +43,18 @@
       Object.keys(tagCounts).length + ' 个标签 · 持续精选维护';
   }
 
-  /* ---------- 左栏：分类 + 标签 ---------- */
+  /* ---------- 分类轨 + 标签轨 ---------- */
   function catItem(key, ic, name, count) {
-    return '<a class="side-cat' + (state.cat === key ? ' active' : '') +
+    return '<a class="rail-cat' + (state.cat === key ? ' active' : '') +
       '" data-cat="' + key + '" href="' + (key === 'all' ? '#' : '#cat-' + key) + '">' +
-      '<span class="side-cat-ic">' + ic + '</span>' +
-      '<span class="side-cat-name">' + name + '</span>' +
-      '<span class="side-cat-count">' + count + '</span></a>';
+      '<span class="rail-cat-ic">' + ic + '</span>' +
+      name +
+      '<span class="rail-cat-count">' + count + '</span></a>';
   }
 
-  function renderSide() {
-    var h = catItem('all', '🗂️', '全部资源', cards.length);
+  function renderRails() {
+    var h = '<span class="rail-label">分类</span>' +
+      catItem('all', '🗂️', '全部', cards.length);
     catOrder.forEach(function (key) {
       var m = catMeta[key] || { emoji: '📦', name: key };
       h += catItem(key, m.emoji, m.name, catCounts[key] || 0);
@@ -61,10 +62,10 @@
     navCategories.innerHTML = h;
 
     if (sideTags) {
-      sideTags.innerHTML = topTags.map(function (t) {
-        return '<a class="side-tag' + (state.tag === t ? ' active' : '') +
+      sideTags.innerHTML = '<span class="rail-label">标签</span>' + topTags.map(function (t) {
+        return '<a class="rail-tag' + (state.tag === t ? ' active' : '') +
           '" data-tag="' + t + '" href="#">' + t +
-          '<span class="side-tag-count">' + tagCounts[t] + '</span></a>';
+          '<span class="rail-tag-count">' + tagCounts[t] + '</span></a>';
       }).join('');
     }
   }
@@ -158,32 +159,32 @@
   function clearFilters() {
     state.type = null; state.tag = null; state.q = '';
     if (searchInput) searchInput.value = '';
-    renderSide();
+    renderRails();
     render();
   }
 
   /* ---------- 事件 ---------- */
   navCategories.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('.side-cat') : null;
+    var el = e.target.closest ? e.target.closest('.rail-cat') : null;
     if (!el) return;
     e.preventDefault();
     // 切换分类 = 全新上下文：清掉子分类与标签过滤（保留搜索词）
     state.cat = el.getAttribute('data-cat');
     state.type = null;
     state.tag = null;
-    renderSide();
+    renderRails();
     render();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   if (sideTags) {
     sideTags.addEventListener('click', function (e) {
-      var el = e.target.closest ? e.target.closest('.side-tag') : null;
+      var el = e.target.closest ? e.target.closest('.rail-tag') : null;
       if (!el) return;
       e.preventDefault();
       var t = el.getAttribute('data-tag');
       state.tag = state.tag === t ? null : t;
-      renderSide();
+      renderRails();
       render();
     });
   }
@@ -241,6 +242,6 @@
   /* ---------- 初始化（支持 #cat-xxx 深链） ---------- */
   var hashCat = (location.hash || '').replace(/^#cat-/, '');
   if (hashCat && catMeta[hashCat]) state.cat = hashCat;
-  renderSide();
+  renderRails();
   render();
 })();

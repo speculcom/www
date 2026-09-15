@@ -50,11 +50,29 @@
     .card-note.warn { border-left-color: var(--warn); }
     .card-note p:last-child { margin-bottom: 0; }
 
-    .tbl-wrap { overflow-x: auto; margin: 12px 0 16px; }
-    table { border-collapse: collapse; width: 100%; font-size: 12.5px; min-width: 620px; }
+    .tbl-wrap { margin: 12px 0 16px; }
+    table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
     th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
-    th { background: rgba(148,163,184,.1); color: var(--ink); font-weight: 650; white-space: nowrap; }
+    th { background: rgba(148,163,184,.1); color: var(--ink); font-weight: 650; }
     td { color: var(--dim); }
+    @media (max-width: 480px) {
+      /* 窄屏：表格 → 卡片式堆叠（列名取自 data-label），无横向滚动条 */
+      table { font-size: 12px; }
+      table, thead, tbody, tr, td, th { display: block; }
+      thead { display: none; }
+      tr {
+        border: 1px solid var(--line); border-radius: 12px;
+        margin-bottom: 10px; background: var(--panel);
+        overflow: hidden;
+      }
+      td { border: 0; border-bottom: 1px solid var(--line); padding: 9px 12px; }
+      tr td:last-child { border-bottom: 0; }
+      td::before {
+        content: attr(data-label);
+        display: block; font-size: 10.5px; letter-spacing: .08em;
+        color: var(--dim); font-weight: 650; margin-bottom: 3px;
+      }
+    }
     td strong { color: var(--ink); }
     .tag-lic {
       display: inline-block; font-size: 10.5px; padding: 1px 7px; border-radius: 999px;
@@ -177,17 +195,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td><strong>three.js</strong></td><td><span data-zh>3D 渲染引擎</span><span data-en>3D rendering engine</span></td><td><span class="tag-lic lic-mit">MIT</span></td></tr>
-            <tr><td><strong>@dimforge/rapier3d</strong></td><td><span data-zh>物理引擎（WASM）</span><span data-en>Physics engine (WASM)</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
-            <tr><td><strong>Draco</strong>（<code>3d/draco/</code>）</td><td><span data-zh>网格压缩解码器</span><span data-en>Mesh compression decoder</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
-            <tr><td><strong>Basis Universal</strong>（<code>3d/basis/</code>）</td><td><span data-zh>纹理转码器</span><span data-en>Texture transcoder</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
-            <tr><td><strong>Vite</strong></td><td><span data-zh>构建工具</span><span data-en>Build tool</span></td><td><span class="tag-lic lic-mit">MIT</span></td></tr>
-            <tr><td><strong>TypeScript</strong></td><td><span data-zh>类型检查</span><span data-en>Type checking</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
-            <tr><td><strong>Playwright</strong></td><td><span data-zh>开发期测试（不随产品分发）</span><span data-en>Dev-time testing (not shipped)</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
-            <tr><td><strong>@gltf-transform/*</strong></td><td><span data-zh>开发期资产转码</span><span data-en>Dev-time asset transcoding</span></td><td><span class="tag-lic lic-mit">MIT</span></td></tr>
-            <tr><td><strong>meshoptimizer</strong></td><td><span data-zh>开发期网格优化</span><span data-en>Dev-time mesh optimization</span></td><td><span class="tag-lic lic-mit">MIT</span></td></tr>
-            <tr><td><strong>sharp</strong></td><td><span data-zh>开发期图像处理</span><span data-en>Dev-time image processing</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
-            <tr><td><strong>wrangler</strong></td><td><span data-zh>部署 CLI（不随产品分发）</span><span data-en>Deploy CLI (not shipped)</span></td><td><span class="tag-lic lic-mit">MIT OR Apache-2.0</span></td></tr>
+            <tr><td data-label="组件"><strong>three.js</strong></td><td data-label="用途"><span data-zh>3D 渲染引擎</span><span data-en>3D rendering engine</span></td><td data-label="许可"><span class="tag-lic lic-mit">MIT</span></td></tr>
+            <tr><td data-label="组件"><strong>@dimforge/rapier3d</strong></td><td data-label="用途"><span data-zh>物理引擎（WASM）</span><span data-en>Physics engine (WASM)</span></td><td data-label="许可"><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td data-label="组件"><strong>Draco</strong>（<code>3d/draco/</code>）</td><td data-label="用途"><span data-zh>网格压缩解码器</span><span data-en>Mesh compression decoder</span></td><td data-label="许可"><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td data-label="组件"><strong>Basis Universal</strong>（<code>3d/basis/</code>）</td><td data-label="用途"><span data-zh>纹理转码器</span><span data-en>Texture transcoder</span></td><td data-label="许可"><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td data-label="组件"><strong>Vite</strong></td><td data-label="用途"><span data-zh>构建工具</span><span data-en>Build tool</span></td><td data-label="许可"><span class="tag-lic lic-mit">MIT</span></td></tr>
+            <tr><td data-label="组件"><strong>TypeScript</strong></td><td data-label="用途"><span data-zh>类型检查</span><span data-en>Type checking</span></td><td data-label="许可"><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td data-label="组件"><strong>Playwright</strong></td><td data-label="用途"><span data-zh>开发期测试（不随产品分发）</span><span data-en>Dev-time testing (not shipped)</span></td><td data-label="许可"><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td data-label="组件"><strong>@gltf-transform/*</strong></td><td data-label="用途"><span data-zh>开发期资产转码</span><span data-en>Dev-time asset transcoding</span></td><td data-label="许可"><span class="tag-lic lic-mit">MIT</span></td></tr>
+            <tr><td data-label="组件"><strong>meshoptimizer</strong></td><td data-label="用途"><span data-zh>开发期网格优化</span><span data-en>Dev-time mesh optimization</span></td><td data-label="许可"><span class="tag-lic lic-mit">MIT</span></td></tr>
+            <tr><td data-label="组件"><strong>sharp</strong></td><td data-label="用途"><span data-zh>开发期图像处理</span><span data-en>Dev-time image processing</span></td><td data-label="许可"><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td data-label="组件"><strong>wrangler</strong></td><td data-label="用途"><span data-zh>部署 CLI（不随产品分发）</span><span data-en>Deploy CLI (not shipped)</span></td><td data-label="许可"><span class="tag-lic lic-mit">MIT OR Apache-2.0</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -224,82 +242,82 @@
           </thead>
           <tbody>
             <tr>
-              <td><code>audio/music/layer_battle.mp3</code><br />（"Open Warfare"）</td>
-              <td><span data-zh>背景音乐</span><span data-en>Background music</span></td>
-              <td>Ruskerdax · OpenGameArt</td>
-              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+              <td data-label="文件 / 分组"><code>audio/music/layer_battle.mp3</code><br />（"Open Warfare"）</td>
+              <td data-label="类型"><span data-zh>背景音乐</span><span data-en>Background music</span></td>
+              <td data-label="作者 / 来源">Ruskerdax · OpenGameArt</td>
+              <td data-label="许可"><span class="tag-lic lic-cc0">CC0 1.0</span></td>
             </tr>
             <tr>
-              <td><code>audio/music/layer_tense.mp3</code><br />（"Crypto"）</td>
-              <td><span data-zh>背景音乐</span><span data-en>Background music</span></td>
-              <td>Kevin MacLeod · incompetech.com</td>
-              <td><span class="tag-lic lic-cb">CC-BY 4.0</span></td>
+              <td data-label="文件 / 分组"><code>audio/music/layer_tense.mp3</code><br />（"Crypto"）</td>
+              <td data-label="类型"><span data-zh>背景音乐</span><span data-en>Background music</span></td>
+              <td data-label="作者 / 来源">Kevin MacLeod · incompetech.com</td>
+              <td data-label="许可"><span class="tag-lic lic-cb">CC-BY 4.0</span></td>
             </tr>
             <tr>
-              <td><code>audio/music/layer_calm.mp3</code><br />（"Long Note Two"）</td>
-              <td><span data-zh>背景音乐</span><span data-en>Background music</span></td>
-              <td>Kevin MacLeod · incompetech.com</td>
-              <td><span class="tag-lic lic-cb">CC-BY 4.0</span></td>
+              <td data-label="文件 / 分组"><code>audio/music/layer_calm.mp3</code><br />（"Long Note Two"）</td>
+              <td data-label="类型"><span data-zh>背景音乐</span><span data-en>Background music</span></td>
+              <td data-label="作者 / 来源">Kevin MacLeod · incompetech.com</td>
+              <td data-label="许可"><span class="tag-lic lic-cb">CC-BY 4.0</span></td>
             </tr>
             <tr>
-              <td><code>audio/music/menu.mp3</code>, <code>audio/music/jingle_*.ogg</code></td>
-              <td><span data-zh>菜单音乐 / 胜负音效</span><span data-en>Menu music / win &amp; lose jingles</span></td>
-              <td>Kenney · kenney.nl</td>
-              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+              <td data-label="文件 / 分组"><code>audio/music/menu.mp3</code>, <code>audio/music/jingle_*.ogg</code></td>
+              <td data-label="类型"><span data-zh>菜单音乐 / 胜负音效</span><span data-en>Menu music / win &amp; lose jingles</span></td>
+              <td data-label="作者 / 来源">Kenney · kenney.nl</td>
+              <td data-label="许可"><span class="tag-lic lic-cc0">CC0 1.0</span></td>
             </tr>
             <tr>
-              <td><code>audio/sfx/weapons/cz.wav</code> · <code>mosin.wav</code> · <code>shotty.wav</code> · <code>sks.wav</code></td>
-              <td><span data-zh>枪声</span><span data-en>Gun sounds</span></td>
-              <td>Vincent Sevedge · OpenGameArt</td>
-              <td><span class="tag-lic lic-cb">CC-BY 3.0</span></td>
+              <td data-label="文件 / 分组"><code>audio/sfx/weapons/cz.wav</code> · <code>mosin.wav</code> · <code>shotty.wav</code> · <code>sks.wav</code></td>
+              <td data-label="类型"><span data-zh>枪声</span><span data-en>Gun sounds</span></td>
+              <td data-label="作者 / 来源">Vincent Sevedge · OpenGameArt</td>
+              <td data-label="许可"><span class="tag-lic lic-cb">CC-BY 3.0</span></td>
             </tr>
             <tr>
-              <td><code>audio/sfx/weapons/boom_new.wav</code></td>
-              <td><span data-zh>爆炸音效</span><span data-en>Explosion SFX</span></td>
-              <td>OpenGameArt</td>
-              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+              <td data-label="文件 / 分组"><code>audio/sfx/weapons/boom_new.wav</code></td>
+              <td data-label="类型"><span data-zh>爆炸音效</span><span data-en>Explosion SFX</span></td>
+              <td data-label="作者 / 来源">OpenGameArt</td>
+              <td data-label="许可"><span class="tag-lic lic-cc0">CC0 1.0</span></td>
             </tr>
             <tr>
-              <td><code>audio/sfx/impact/*</code> · <code>mechanical/*</code> · <code>vehicles/*</code> · <code>ambience/s_bird_a.ogg</code></td>
-              <td><span data-zh>打击 / 机械 / 载具 / 环境音</span><span data-en>Impacts / mechanical / vehicles / ambience</span></td>
-              <td>Kenney · isaiah658（OpenGameArt）</td>
-              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+              <td data-label="文件 / 分组"><code>audio/sfx/impact/*</code> · <code>mechanical/*</code> · <code>vehicles/*</code> · <code>ambience/s_bird_a.ogg</code></td>
+              <td data-label="类型"><span data-zh>打击 / 机械 / 载具 / 环境音</span><span data-en>Impacts / mechanical / vehicles / ambience</span></td>
+              <td data-label="作者 / 来源">Kenney · isaiah658（OpenGameArt）</td>
+              <td data-label="许可"><span class="tag-lic lic-cc0">CC0 1.0</span></td>
             </tr>
             <tr>
-              <td><code>audio/sfx/voice_en/02._hostiles_inbound.wav</code> 等（"Radio Soldier" 播报组）</td>
-              <td><span data-zh>英语无线电播报</span><span data-en>English radio announcements</span></td>
-              <td>SoundBiterSFX · OpenGameArt</td>
-              <td><span class="tag-lic lic-sa">CC-BY-SA 4.0</span></td>
+              <td data-label="文件 / 分组"><code>audio/sfx/voice_en/02._hostiles_inbound.wav</code> 等（"Radio Soldier" 播报组）</td>
+              <td data-label="类型"><span data-zh>英语无线电播报</span><span data-en>English radio announcements</span></td>
+              <td data-label="作者 / 来源">SoundBiterSFX · OpenGameArt</td>
+              <td data-label="许可"><span class="tag-lic lic-sa">CC-BY-SA 4.0</span></td>
             </tr>
             <tr>
-              <td><code>audio/sfx/voice_en/v_en_*.wav</code> · <code>battlecries.ogg</code> · <code>wounded.ogg</code></td>
-              <td><span data-zh>英语士兵语音</span><span data-en>English soldier voice</span></td>
-              <td>Bigz1983 · OpenGameArt</td>
-              <td><span class="tag-lic lic-cb">CC-BY 3.0</span></td>
+              <td data-label="文件 / 分组"><code>audio/sfx/voice_en/v_en_*.wav</code> · <code>battlecries.ogg</code> · <code>wounded.ogg</code></td>
+              <td data-label="类型"><span data-zh>英语士兵语音</span><span data-en>English soldier voice</span></td>
+              <td data-label="作者 / 来源">Bigz1983 · OpenGameArt</td>
+              <td data-label="许可"><span class="tag-lic lic-cb">CC-BY 3.0</span></td>
             </tr>
             <tr>
-              <td><code>audio/sfx/voice_cn/*</code>（15 条）</td>
-              <td><span data-zh>中文播报语音</span><span data-en>Chinese announcer lines</span></td>
-              <td><span data-zh><strong>本项目自制</strong>（Windows TTS「Huihui」本地合成）</span><span data-en><strong>Own work</strong> (local Windows TTS)</span></td>
-              <td><span class="tag-lic lic-mit" data-zh>自有 · 无第三方权利</span><span class="tag-lic lic-mit" data-en>Own work</span></td>
+              <td data-label="文件 / 分组"><code>audio/sfx/voice_cn/*</code>（15 条）</td>
+              <td data-label="类型"><span data-zh>中文播报语音</span><span data-en>Chinese announcer lines</span></td>
+              <td data-label="作者 / 来源"><span data-zh><strong>本项目自制</strong>（Windows TTS「Huihui」本地合成）</span><span data-en><strong>Own work</strong> (local Windows TTS)</span></td>
+              <td data-label="许可"><span class="tag-lic lic-mit" data-zh>自有 · 无第三方权利</span><span class="tag-lic lic-mit" data-en>Own work</span></td>
             </tr>
             <tr>
-              <td><code>audio/kit/*</code>（9 条）</td>
-              <td><span data-zh>配方通用音效</span><span data-en>Recipe kit SFX</span></td>
-              <td><span data-zh><strong>本项目自制</strong>（<code>scripts/gen-sfx.mjs</code> 程序化合成）</span><span data-en><strong>Own work</strong> (procedural, <code>scripts/gen-sfx.mjs</code>)</span></td>
-              <td><span class="tag-lic lic-mit">MIT · <span data-zh>自有</span><span data-en>own work</span></span></td>
+              <td data-label="文件 / 分组"><code>audio/kit/*</code>（9 条）</td>
+              <td data-label="类型"><span data-zh>配方通用音效</span><span data-en>Recipe kit SFX</span></td>
+              <td data-label="作者 / 来源"><span data-zh><strong>本项目自制</strong>（<code>scripts/gen-sfx.mjs</code> 程序化合成）</span><span data-en><strong>Own work</strong> (procedural, <code>scripts/gen-sfx.mjs</code>)</span></td>
+              <td data-label="许可"><span class="tag-lic lic-mit">MIT · <span data-zh>自有</span><span data-en>own work</span></span></td>
             </tr>
             <tr>
-              <td><code>models/soldier.glb</code> · <code>rifle.glb</code> · <code>tank.glb</code></td>
-              <td><span data-zh>3D 模型</span><span data-en>3D models</span></td>
-              <td>Quaternius</td>
-              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+              <td data-label="文件 / 分组"><code>models/soldier.glb</code> · <code>rifle.glb</code> · <code>tank.glb</code></td>
+              <td data-label="类型"><span data-zh>3D 模型</span><span data-en>3D models</span></td>
+              <td data-label="作者 / 来源">Quaternius</td>
+              <td data-label="许可"><span class="tag-lic lic-cc0">CC0 1.0</span></td>
             </tr>
             <tr>
-              <td><code>textures/*.webp</code>（12 张 diffuse + normal）</td>
-              <td><span data-zh>PBR 纹理</span><span data-en>PBR textures</span></td>
-              <td>AmbientCG</td>
-              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+              <td data-label="文件 / 分组"><code>textures/*.webp</code>（12 张 diffuse + normal）</td>
+              <td data-label="类型"><span data-zh>PBR 纹理</span><span data-en>PBR textures</span></td>
+              <td data-label="作者 / 来源">AmbientCG</td>
+              <td data-label="许可"><span class="tag-lic lic-cc0">CC0 1.0</span></td>
             </tr>
           </tbody>
         </table>

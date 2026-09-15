@@ -39,7 +39,7 @@
     </div>
   </header>
 
-  <!-- ============ 目录主体 ============ -->
+  <!-- ============ 目录主体 v3：搜索 + 分类/标签轨 + 卡片网格，全宽自适应无滚动条 ============ -->
   <main class="dir-main">
     <div class="dir-shell">
 
@@ -54,29 +54,21 @@
         <div class="dir-stat" id="dirStat"></div>
       </div>
 
-      <div class="dir-body">
-        <!-- 左栏：分类 + 标签 -->
-        <aside class="dir-side">
-          <div class="side-block side-cats">
-            <h3 class="side-title">分类</h3>
-            <nav id="navCategories" aria-label="资源分类"></nav>
-          </div>
-          <div class="side-block side-tags">
-            <h3 class="side-title">标签</h3>
-            <div id="sideTags" aria-label="热门标签"></div>
-          </div>
-        </aside>
-
-        <!-- 右栏：子分类过滤 + 卡片 -->
-        <section class="dir-content">
-          <div class="dir-content-head">
-            <h2 class="dir-content-title" id="contentTitle">全部资源</h2>
-            <div class="dir-content-meta" id="contentSub"></div>
-          </div>
-          <div class="dir-subnav" id="subNav" aria-label="子分类"></div>
-          <div id="content"></div>
-        </section>
+      <!-- 分类轨 + 标签轨（flex-wrap，任何宽度都不出现滚动条） -->
+      <div class="dir-rails">
+        <nav class="rail" id="navCategories" aria-label="资源分类"></nav>
+        <div class="rail rail-tags" id="sideTags" aria-label="热门标签"></div>
       </div>
+
+      <!-- 内容区 -->
+      <section class="dir-content">
+        <div class="dir-content-head">
+          <h2 class="dir-content-title" id="contentTitle">全部资源</h2>
+          <div class="dir-content-meta" id="contentSub"></div>
+        </div>
+        <div class="dir-subnav" id="subNav" aria-label="子分类"></div>
+        <div id="content"></div>
+      </section>
 
     </div>
   </main>
