@@ -3,271 +3,517 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>法律条款 — Specul 投机 · 推演</title>
-  <meta name="description" content="Specul 版权、免责声明、隐私与使用条款。" />
+  <title>法律条款 · 版权 · 第三方许可 — Specul 投机 · 推演</title>
+  <meta name="description" content="Specul 版权归属、第三方开源组件与素材许可清单、免责声明、隐私与使用条款。" />
   <link rel="canonical" href="https://specul.com/legal.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Specul" />
+  <meta property="og:url" content="https://specul.com/legal.html" />
+  <meta property="og:title" content="法律条款 — Specul" />
+  <meta property="og:description" content="版权归属、第三方开源组件与素材许可清单、免责声明与隐私条款。" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="brand.css" />
   <style>
-    :root {
-      --bg: #05080f; --panel: rgba(16,24,40,.72); --line: rgba(148,163,184,.14);
-      --ink: #f4f7fb; --dim: #94a3b8; --vio: #8b7cf8; --cyan: #22d3c5;
+    .legal-head { padding: 56px 0 8px; }
+    .legal-head h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -.02em; }
+    .legal-head .sub { color: var(--dim); font-size: 13px; margin-top: 8px; }
+    .toc-legal {
+      margin: 22px 0 0; padding: 16px 18px;
+      border: 1px solid var(--line); border-radius: 14px; background: var(--panel);
     }
-    [data-theme="light"] {
-      --bg: #f6f8fc; --panel: #fff; --line: rgba(15,23,42,.12);
-      --ink: #0f172a; --dim: #475569;
+    .toc-legal ol { margin: 8px 0 0 1.2em; color: var(--dim); font-size: 13px; }
+    .toc-legal li { margin-bottom: 4px; }
+    .toc-legal a:hover { color: var(--ink); }
+
+    main section { padding: 30px 0; border-top: 1px solid var(--line); }
+    main section:first-of-type { border-top: none; }
+    h2 {
+      font-size: clamp(17px, 2.4vw, 20px); font-weight: 700;
+      margin-bottom: 12px; letter-spacing: -.01em;
+      scroll-margin-top: 90px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-      background: var(--bg); color: var(--ink); line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1040px, 92vw); margin: 0 auto; }
-    header {
-      position: sticky; top: 0; z-index: 40;
-      border-bottom: 1px solid var(--line);
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      backdrop-filter: blur(14px);
-    }
-    .bar { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 12px; }
-    .mark { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .12em; font-size: 15px; }
-    .mark:hover { text-decoration: none; }
-    .mark .dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--vio), var(--cyan));
-      box-shadow: 0 0 16px rgba(34,211,197,.45);
-    }
-    .mark span.sub { color: var(--dim); font-weight: 500; letter-spacing: .16em; font-size: 12px; }
-    nav.links { display: flex; gap: 14px; align-items: center; font-size: 13px; flex-wrap: wrap; }
-    nav.links a { color: var(--dim); }
-    nav.links a:hover { color: var(--ink); }
-    .lang, .theme {
-      border: 1px solid var(--line); background: transparent; color: var(--dim);
-      border-radius: 999px; padding: 5px 12px; font-size: 12px; cursor: pointer;
-    }
-    .lang:hover, .theme:hover { color: var(--ink); border-color: rgba(34,211,197,.5); }
-    main { padding: 48px 0 64px; }
-    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; margin-bottom: 8px; }
-    .sub { color: var(--dim); font-size: 14px; margin-bottom: 28px; }
-    h2 { font-size: 18px; margin: 28px 0 10px; }
+    h3 { font-size: 14px; font-weight: 650; margin: 18px 0 8px; }
     p, li { font-size: 14px; color: var(--dim); }
     p { margin-bottom: 10px; }
-    ul { margin: 0 0 10px 1.2em; }
+    ul, ol { margin: 0 0 12px 1.3em; }
     li { margin-bottom: 6px; }
-    strong { color: var(--ink); }
-    footer {
-      border-top: 1px solid var(--line); padding: 28px 0 48px;
-      color: var(--dim); font-size: 12px;
+    strong { color: var(--ink); font-weight: 650; }
+    code {
+      font-family: var(--mono); font-size: 12.5px;
+      background: rgba(148,163,184,.12); border-radius: 4px; padding: 1px 5px;
+      color: var(--ink);
     }
-    footer .row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; }
-    [data-en] { display: none; }
-    html[lang="en"] [data-zh] { display: none; }
-    html[lang="en"] [data-en] { display: revert; }
+    .card-note {
+      background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--cyan);
+      border-radius: 12px; padding: 16px 18px; margin: 14px 0;
+    }
+    .card-note.warn { border-left-color: var(--warn); }
+    .card-note p:last-child { margin-bottom: 0; }
+
+    .tbl-wrap { overflow-x: auto; margin: 12px 0 16px; }
+    table { border-collapse: collapse; width: 100%; font-size: 12.5px; min-width: 620px; }
+    th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: rgba(148,163,184,.1); color: var(--ink); font-weight: 650; white-space: nowrap; }
+    td { color: var(--dim); }
+    td strong { color: var(--ink); }
+    .tag-lic {
+      display: inline-block; font-size: 10.5px; padding: 1px 7px; border-radius: 999px;
+      border: 1px solid var(--line); white-space: nowrap;
+    }
+    .lic-cc0 { color: var(--cyan); }
+    .lic-cb  { color: var(--gold); }
+    .lic-sa  { color: var(--warn); }
+    .lic-mit { color: var(--vio); }
+
+    blockquote.attr {
+      margin: 12px 0; padding: 14px 16px;
+      background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--gold);
+      border-radius: 10px; font-size: 12.5px; color: var(--dim);
+      font-family: var(--mono); line-height: 1.65;
+    }
+    blockquote.attr p { margin-bottom: 10px; font-size: 12.5px; }
+    blockquote.attr p:last-child { margin-bottom: 0; }
   </style>
 </head>
-<body>
-  <header>
-    <div class="wrap bar">
-      <a class="mark" href="./index.html">
-        <span class="dot" aria-hidden="true"></span>
-        SPECUL
-        <span class="sub" id="markSub">投机 · 推演</span>
+<body class="brand-ambient">
+
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="./" title="Specul 首页">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-name">SPECUL</span>
+        <span class="brand-sub" id="markSub"
+              data-zh-sub="投机 · 推演" data-en-sub="speculation · speculate">投机 · 推演</span>
       </a>
-      <nav class="links">
-        <a href="./index.html"><span data-zh>首页</span><span data-en>Home</span></a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="./"><span data-zh>首页</span><span data-en>Home</span></a>
         <a href="./nav.html"><span data-zh>导航</span><span data-en>Directory</span></a>
-        <a href="https://keel.specul.com"><span data-zh>龙骨 Keel</span><span data-en>Keel</span></a>
+        <a href="https://keel.specul.com/"><span data-zh>龙骨 Keel</span><span data-en>Keel</span></a>
+        <a href="https://keel.specul.com/3d/hub.html"><span data-zh>3D 演示</span><span data-en>3D demos</span></a>
         <a href="./legal.html"><span data-zh>法律</span><span data-en>Legal</span></a>
-        <button class="theme" id="themeBtn" type="button" aria-label="Theme">☾</button>
-        <button class="lang" id="langBtn" type="button">EN</button>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <h1 data-zh>法律条款</h1>
-    <h1 data-en>Legal</h1>
-    <p class="sub" data-zh>最后更新：2026 年 · Specul（投机 · 推演）</p>
-    <p class="sub" data-en>Last updated: 2026 · Specul</p>
+  <main class="container">
+    <div class="legal-head">
+      <h1 data-zh>法律条款</h1>
+      <h1 data-en>Legal</h1>
+      <p class="sub" data-zh>最后更新：2026 年 9 月 · Specul（投机 · 推演）· 适用站点：specul.com、keel.specul.com</p>
+      <p class="sub" data-en>Last updated: September 2026 · Specul · applies to specul.com and keel.specul.com</p>
+    </div>
 
-    <section>
-      <h2 data-zh>一、版权</h2>
-      <h2 data-en>1. Copyright</h2>
+    <div class="toc-legal">
+      <strong data-zh>目录</strong><strong data-en>Contents</strong>
+      <ol>
+        <li><a href="#s1" data-zh>本站自有内容与版权归属</a><a href="#s1" data-en>Original content and ownership</a></li>
+        <li><a href="#s2" data-zh>第三方开源软件组件</a><a href="#s2" data-en>Third-party open-source components</a></li>
+        <li><a href="#s3" data-zh>第三方素材清单（音频 / 模型 / 纹理）</a><a href="#s3" data-en>Third-party assets register</a></li>
+        <li><a href="#s4" data-zh>必需的第三方署名（完整文本）</a><a href="#s4" data-en>Required attributions (full text)</a></li>
+        <li><a href="#s5" data-zh>CC-BY-SA 与 ShareAlike 提示</a><a href="#s5" data-en>CC-BY-SA and ShareAlike</a></li>
+        <li><a href="#s6" data-zh>免责声明</a><a href="#s6" data-en>Disclaimer</a></li>
+        <li><a href="#s7" data-zh>第三方链接与内容</a><a href="#s7" data-en>Third-party links</a></li>
+        <li><a href="#s8" data-zh>隐私与本地存储</a><a href="#s8" data-en>Privacy and local storage</a></li>
+        <li><a href="#s9" data-zh>商标与名称</a><a href="#s9" data-en>Trademarks</a></li>
+        <li><a href="#s10" data-zh>条款变更与适用法律</a><a href="#s10" data-en>Changes and governing terms</a></li>
+        <li><a href="#s11" data-zh>联系与侵权通知</a><a href="#s11" data-en>Contact and takedown</a></li>
+      </ol>
+    </div>
+
+    <!-- ============ 1 ============ -->
+    <section id="s1">
+      <h2 data-zh>一、本站自有内容与版权归属</h2>
+      <h2 data-en>1. Original content and ownership</h2>
+
       <p data-zh>
-        除非另有注明，本站（specul.com）自有文案、界面设计、标识与编排版权归 <strong>Specul</strong> 所有。
-        转载或引用请注明出处并保留本页链接；商业使用请事先取得书面授权。
+        除非另有注明，下列内容由 <strong>Specul</strong> 自行创作并保留所有权利，未经书面许可不得复制、再分发或用于商业用途（合理引用需注明出处并保留本页链接）：
       </p>
       <p data-en>
-        Unless noted otherwise, original copy, UI design, marks, and compilation on this site
-        (specul.com) are © <strong>Specul</strong>. Please attribute with a link to this page;
-        commercial reuse requires prior written permission.
+        Unless noted otherwise, the following is created by <strong>Specul</strong> and all rights are reserved.
       </p>
+      <ul data-zh>
+        <li><strong>站点文案与编排</strong>：specul.com 与 keel.specul.com 全部页面的文字、结构、信息架构与版式设计。</li>
+        <li><strong>界面设计与视觉资产</strong>：配色体系、组件样式、页面图形、favicon 等。</li>
+        <li><strong>品牌名称与标识</strong>：「Specul」「投机 · 推演」「龙骨」「Keel」「Keel 3D」「Keel 2D」及相关图形标识。</li>
+        <li><strong>原创源代码</strong>：龙骨 Keel 框架与其全部骨架、积木、配方源码，以及站点页面的自有 HTML / CSS / JS。该部分以 <strong>MIT</strong> 许可发布（见仓库根目录 <code>LICENSE</code>），可自由使用、修改、商用、再分发，但需保留版权与许可声明。</li>
+        <li><strong>本项目自制音频</strong>：中文播报语音 15 条（由本项目在 Windows 平台用本地 TTS「Huihui」合成）；配方 Kit 音效 9 条（由仓库脚本 <code>scripts/gen-sfx.mjs</code> 程序化合成）。二者均无第三方权利负担。</li>
+      </ul>
+      <ul data-en>
+        <li><strong>Site copy and compilation</strong>: all text, structure, information architecture and layout of specul.com and keel.specul.com.</li>
+        <li><strong>UI design and visual assets</strong>: colour system, component styles, page graphics, favicon.</li>
+        <li><strong>Brand names and marks</strong>: “Specul”, “Keel”, “Keel 3D”, “Keel 2D” and their logos.</li>
+        <li><strong>Original source code</strong>: the Keel framework and all skeletons, blocks and recipes, plus the sites' own HTML/CSS/JS — released under <strong>MIT</strong> (see <code>LICENSE</code>); retain the copyright and licence notice.</li>
+        <li><strong>Project-made audio</strong>: 15 Chinese announcer lines (local Windows TTS) and 9 procedurally generated kit SFX — no third-party rights attached.</li>
+      </ul>
+
+      <div class="card-note warn">
+        <p data-zh><strong>MIT 不覆盖什么</strong>：MIT 许可只作用于源代码。它<strong>不</strong>授予对站点文案、品牌标识、以及任何第三方素材（见第三节）的权利，也<strong>不</strong>授予商标权。</p>
+        <p data-en><strong>What MIT does not cover</strong>: the MIT licence applies to source code only. It grants no rights over site copy, brand marks, any third-party assets (section 3), or trademarks.</p>
+      </div>
+    </section>
+
+    <!-- ============ 2 ============ -->
+    <section id="s2">
+      <h2 data-zh>二、第三方开源软件组件</h2>
+      <h2 data-en>2. Third-party open-source components</h2>
       <p data-zh>
-        开源代码（例如龙骨 Keel）以对应仓库中的 <strong>MIT</strong> 许可为准；该许可仅覆盖代码本身，不自动覆盖站点文案、品牌标识或第三方素材。
+        下列组件由第三方开发，通过 npm 依赖或随构建分发的方式被使用。各自的权利与许可义务归属其作者；Specul 未对其作出任何修改性主张。
       </p>
       <p data-en>
-        Open-source code (e.g. Keel) is licensed under <strong>MIT</strong> in its repository.
-        That license covers code only—not site copy, brand marks, or third-party assets.
+        The components below are developed by third parties and used either as npm dependencies or shipped with the build.
+        Rights and licence obligations belong to their respective authors.
+      </p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th><span data-zh>组件</span><span data-en>Component</span></th>
+              <th><span data-zh>用途</span><span data-en>Purpose</span></th>
+              <th><span data-zh>许可</span><span data-en>License</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>three.js</strong></td><td><span data-zh>3D 渲染引擎</span><span data-en>3D rendering engine</span></td><td><span class="tag-lic lic-mit">MIT</span></td></tr>
+            <tr><td><strong>@dimforge/rapier3d</strong></td><td><span data-zh>物理引擎（WASM）</span><span data-en>Physics engine (WASM)</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td><strong>Draco</strong>（<code>3d/draco/</code>）</td><td><span data-zh>网格压缩解码器</span><span data-en>Mesh compression decoder</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td><strong>Basis Universal</strong>（<code>3d/basis/</code>）</td><td><span data-zh>纹理转码器</span><span data-en>Texture transcoder</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td><strong>Vite</strong></td><td><span data-zh>构建工具</span><span data-en>Build tool</span></td><td><span class="tag-lic lic-mit">MIT</span></td></tr>
+            <tr><td><strong>TypeScript</strong></td><td><span data-zh>类型检查</span><span data-en>Type checking</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td><strong>Playwright</strong></td><td><span data-zh>开发期测试（不随产品分发）</span><span data-en>Dev-time testing (not shipped)</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td><strong>@gltf-transform/*</strong></td><td><span data-zh>开发期资产转码</span><span data-en>Dev-time asset transcoding</span></td><td><span class="tag-lic lic-mit">MIT</span></td></tr>
+            <tr><td><strong>meshoptimizer</strong></td><td><span data-zh>开发期网格优化</span><span data-en>Dev-time mesh optimization</span></td><td><span class="tag-lic lic-mit">MIT</span></td></tr>
+            <tr><td><strong>sharp</strong></td><td><span data-zh>开发期图像处理</span><span data-en>Dev-time image processing</span></td><td><span class="tag-lic">Apache-2.0</span></td></tr>
+            <tr><td><strong>wrangler</strong></td><td><span data-zh>部署 CLI（不随产品分发）</span><span data-en>Deploy CLI (not shipped)</span></td><td><span class="tag-lic lic-mit">MIT OR Apache-2.0</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p data-zh>
+        义务说明：<strong>MIT</strong> 要求保留版权声明与许可文本；<strong>Apache-2.0</strong> 要求保留版权、许可与（若有）NOTICE 文件，并说明修改。
+        完整清单与版本见仓库 <code>docs/THIRD_PARTY_NOTICES.md</code>。
+      </p>
+      <p data-en>
+        MIT requires retaining the copyright and licence text; Apache-2.0 requires retaining copyright, licence and any NOTICE file.
+        See <code>docs/THIRD_PARTY_NOTICES.md</code> in the repository.
       </p>
     </section>
 
-    <section>
-      <h2 data-zh>二、免责声明</h2>
-      <h2 data-en>2. Disclaimer</h2>
+    <!-- ============ 3 ============ -->
+    <section id="s3">
+      <h2 data-zh>三、第三方素材清单（音频 / 模型 / 纹理）</h2>
+      <h2 data-en>3. Third-party assets register</h2>
       <p data-zh>
-        本站内容按「现状」提供，仅供<strong>一般信息与产品演示</strong>之用，不构成投资、法律、会计、医疗或其他专业建议。
-        你应自行判断并承担使用本站信息的全部风险。
+        在线演示（龙骨 Keel 3D）随构建分发的音频、3D 模型与纹理来自下列开放素材库。本清单按<strong>实际发布的文件</strong>逐项列出，可与 <code>keel.specul.com/3d/</code> 下的目录一一对应。
       </p>
       <p data-en>
-        Content is provided <strong>“as is”</strong> for general information and product demos only.
-        Nothing here is investment, legal, accounting, medical, or other professional advice.
-        You use the information at your own risk.
+        The audio, 3D models and textures shipped with the Keel 3D demos come from the open asset libraries below.
+        This register is itemised against the actual published files under <code>keel.specul.com/3d/</code>.
       </p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th><span data-zh>文件 / 分组</span><span data-en>Files</span></th>
+              <th><span data-zh>类型</span><span data-en>Type</span></th>
+              <th><span data-zh>作者 / 来源</span><span data-en>Author / source</span></th>
+              <th><span data-zh>许可</span><span data-en>License</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>audio/music/layer_battle.mp3</code><br />（"Open Warfare"）</td>
+              <td><span data-zh>背景音乐</span><span data-en>Background music</span></td>
+              <td>Ruskerdax · OpenGameArt</td>
+              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+            </tr>
+            <tr>
+              <td><code>audio/music/layer_tense.mp3</code><br />（"Crypto"）</td>
+              <td><span data-zh>背景音乐</span><span data-en>Background music</span></td>
+              <td>Kevin MacLeod · incompetech.com</td>
+              <td><span class="tag-lic lic-cb">CC-BY 4.0</span></td>
+            </tr>
+            <tr>
+              <td><code>audio/music/layer_calm.mp3</code><br />（"Long Note Two"）</td>
+              <td><span data-zh>背景音乐</span><span data-en>Background music</span></td>
+              <td>Kevin MacLeod · incompetech.com</td>
+              <td><span class="tag-lic lic-cb">CC-BY 4.0</span></td>
+            </tr>
+            <tr>
+              <td><code>audio/music/menu.mp3</code>, <code>audio/music/jingle_*.ogg</code></td>
+              <td><span data-zh>菜单音乐 / 胜负音效</span><span data-en>Menu music / win &amp; lose jingles</span></td>
+              <td>Kenney · kenney.nl</td>
+              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+            </tr>
+            <tr>
+              <td><code>audio/sfx/weapons/cz.wav</code> · <code>mosin.wav</code> · <code>shotty.wav</code> · <code>sks.wav</code></td>
+              <td><span data-zh>枪声</span><span data-en>Gun sounds</span></td>
+              <td>Vincent Sevedge · OpenGameArt</td>
+              <td><span class="tag-lic lic-cb">CC-BY 3.0</span></td>
+            </tr>
+            <tr>
+              <td><code>audio/sfx/weapons/boom_new.wav</code></td>
+              <td><span data-zh>爆炸音效</span><span data-en>Explosion SFX</span></td>
+              <td>OpenGameArt</td>
+              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+            </tr>
+            <tr>
+              <td><code>audio/sfx/impact/*</code> · <code>mechanical/*</code> · <code>vehicles/*</code> · <code>ambience/s_bird_a.ogg</code></td>
+              <td><span data-zh>打击 / 机械 / 载具 / 环境音</span><span data-en>Impacts / mechanical / vehicles / ambience</span></td>
+              <td>Kenney · isaiah658（OpenGameArt）</td>
+              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+            </tr>
+            <tr>
+              <td><code>audio/sfx/voice_en/02._hostiles_inbound.wav</code> 等（"Radio Soldier" 播报组）</td>
+              <td><span data-zh>英语无线电播报</span><span data-en>English radio announcements</span></td>
+              <td>SoundBiterSFX · OpenGameArt</td>
+              <td><span class="tag-lic lic-sa">CC-BY-SA 4.0</span></td>
+            </tr>
+            <tr>
+              <td><code>audio/sfx/voice_en/v_en_*.wav</code> · <code>battlecries.ogg</code> · <code>wounded.ogg</code></td>
+              <td><span data-zh>英语士兵语音</span><span data-en>English soldier voice</span></td>
+              <td>Bigz1983 · OpenGameArt</td>
+              <td><span class="tag-lic lic-cb">CC-BY 3.0</span></td>
+            </tr>
+            <tr>
+              <td><code>audio/sfx/voice_cn/*</code>（15 条）</td>
+              <td><span data-zh>中文播报语音</span><span data-en>Chinese announcer lines</span></td>
+              <td><span data-zh><strong>本项目自制</strong>（Windows TTS「Huihui」本地合成）</span><span data-en><strong>Own work</strong> (local Windows TTS)</span></td>
+              <td><span class="tag-lic lic-mit" data-zh>自有 · 无第三方权利</span><span class="tag-lic lic-mit" data-en>Own work</span></td>
+            </tr>
+            <tr>
+              <td><code>audio/kit/*</code>（9 条）</td>
+              <td><span data-zh>配方通用音效</span><span data-en>Recipe kit SFX</span></td>
+              <td><span data-zh><strong>本项目自制</strong>（<code>scripts/gen-sfx.mjs</code> 程序化合成）</span><span data-en><strong>Own work</strong> (procedural, <code>scripts/gen-sfx.mjs</code>)</span></td>
+              <td><span class="tag-lic lic-mit">MIT · <span data-zh>自有</span><span data-en>own work</span></span></td>
+            </tr>
+            <tr>
+              <td><code>models/soldier.glb</code> · <code>rifle.glb</code> · <code>tank.glb</code></td>
+              <td><span data-zh>3D 模型</span><span data-en>3D models</span></td>
+              <td>Quaternius</td>
+              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+            </tr>
+            <tr>
+              <td><code>textures/*.webp</code>（12 张 diffuse + normal）</td>
+              <td><span data-zh>PBR 纹理</span><span data-en>PBR textures</span></td>
+              <td>AmbientCG</td>
+              <td><span class="tag-lic lic-cc0">CC0 1.0</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-note">
+        <p data-zh><strong>许可差异速读</strong>：<span class="tag-lic lic-cc0">CC0</span> 已放弃全部权利，使用时无需署名；<span class="tag-lic lic-cb">CC-BY</span> 必须署名；<span class="tag-lic lic-sa">CC-BY-SA</span> 必须署名，且对素材本身<strong>改编后再分发</strong>时须以相同许可发布改编部分。</p>
+        <p data-en><strong>Licence cheat-sheet</strong>: CC0 — no attribution required; CC-BY — attribution required; CC-BY-SA — attribution required, and <em>adaptations of the asset</em> must be shared under the same licence.</p>
+      </div>
+    </section>
+
+    <!-- ============ 4 ============ -->
+    <section id="s4">
+      <h2 data-zh>四、必需的第三方署名（完整文本）</h2>
+      <h2 data-en>4. Required attributions (full text)</h2>
       <p data-zh>
-        本站出现的「投机 / Speculative」均指大模型与产品方法中的 <strong>speculative strategy（投机策略）</strong>，
-        不鼓励赌博、内幕交易或任何违法金融活动。
+        以下为全部 CC-BY / CC-BY-SA 素材对应的<strong>必需署名</strong>。相同文本同时展示在游戏内「操作说明 → 素材与致谢」，以及 <a href="https://keel.specul.com/credits.html">keel.specul.com/credits.html</a>。
       </p>
       <p data-en>
-        “Speculative” on this site refers to <strong>speculative strategy</strong> in AI and product method—
-        not gambling, insider trading, or unlawful finance.
+        These are the mandatory attributions for every CC-BY / CC-BY-SA asset. The same text appears in-game under
+        “Help → Credits” and at <a href="https://keel.specul.com/credits.html">keel.specul.com/credits.html</a>.
       </p>
+      <blockquote class="attr">
+        <p>Gun sounds by <strong>Vincent Sevedge</strong>, licensed under Creative Commons Attribution 3.0 Unported.<br />
+        http://creativecommons.org/licenses/by/3.0/</p>
+        <p>"Radio Soldier" announcer lines by <strong>SoundBiterSFX</strong>, licensed under Creative Commons<br />
+        Attribution-ShareAlike 4.0. http://creativecommons.org/licenses/by-sa/4.0/</p>
+        <p>Soldier voice acting from OpenGameArt (user "<strong>Bigz1983</strong>"), CC-BY 3.0.</p>
+        <p>"Crypto" and "Long Note Two" by <strong>Kevin MacLeod</strong> (incompetech.com), licensed under<br />
+        Creative Commons: By Attribution 4.0. http://creativecommons.org/licenses/by/4.0/</p>
+        <p>three.js, Rapier, Draco, Basis Universal transcoder — see their respective licences (MIT / Apache-2.0).</p>
+      </blockquote>
       <p data-zh>
-        在法律允许的最大范围内，Specul 不对因使用或无法使用本站而导致的任何直接、间接、附带或后果性损失承担责任。
+        若你在自己的项目里复用了上述任意素材，请同样保留这段署名——这是 CC-BY 系列的许可条件，而不是可选的致谢。
       </p>
       <p data-en>
-        To the maximum extent permitted by law, Specul is not liable for any direct, indirect,
-        incidental, or consequential loss arising from use of—or inability to use—this site.
+        If you reuse any of those assets, keep this attribution — it is a licence condition, not a courtesy.
       </p>
     </section>
 
-    <section>
-      <h2 data-zh>三、第三方链接与内容</h2>
-      <h2 data-en>3. Third-party links</h2>
+    <!-- ============ 5 ============ -->
+    <section id="s5">
+      <h2 data-zh>五、CC-BY-SA 4.0 与 ShareAlike 提示</h2>
+      <h2 data-en>5. CC-BY-SA 4.0 and ShareAlike</h2>
       <p data-zh>
-        导航页所列外部网站、工具与资源由第三方运营。链接仅为便利而提供，
-        不表示 Specul 对其内容、准确性、安全性、可用性或合法性作出认可或担保。
-        访问前请阅读对方的服务条款与隐私政策。
+        <code>audio/sfx/voice_en/</code> 中来自「Radio Soldier」（SoundBiterSFX）的录音采用 <strong>CC-BY-SA 4.0</strong>。
+        本站在线演示将这些音频文件<strong>原样（as-is）随构建分发</strong>，未做剪辑、混音或再演绎，因此：
+      </p>
+      <ul data-zh>
+        <li>我们履行的是 <strong>署名</strong> 义务（见第四节）；</li>
+        <li>游戏其余部分（自有代码、自有模型、CC0 素材）<strong>不因此被传染</strong>为 CC-BY-SA。</li>
+      </ul>
+      <p data-zh>
+        相反，如果你（或任何再分发者）<strong>修改了这些音频本身</strong>（例如剪辑、变调、混音后再发布），那么该改编作品必须以 CC-BY-SA 4.0 或兼容许可发布，并保留署名。
+        若不愿承担该义务，可从 <code>audio/sfx/voice_en/</code> 中移除这些文件，或替换为 CC0 / 自有语音。
       </p>
       <p data-en>
-        External sites, tools, and resources listed in the directory are operated by third parties.
-        Links are provided for convenience and do not imply endorsement or warranty of their content,
-        accuracy, safety, availability, or legality. Review their terms and privacy policies first.
+        The “Radio Soldier” recordings (SoundBiterSFX) in <code>audio/sfx/voice_en/</code> are <strong>CC-BY-SA 4.0</strong>.
+        We ship them <strong>as-is</strong> without editing or remixing, so our only obligation is attribution (section 4);
+        the rest of the game is not “infected” by ShareAlike. If you <em>adapt</em> those audio files and redistribute them,
+        your adaptation must be released under CC-BY-SA 4.0 or a compatible licence.
       </p>
     </section>
 
-    <section>
-      <h2 data-zh>四、演示与软件</h2>
-      <h2 data-en>4. Demos &amp; software</h2>
+    <!-- ============ 6 ============ -->
+    <section id="s6">
+      <h2 data-zh>六、免责声明</h2>
+      <h2 data-en>6. Disclaimer</h2>
       <p data-zh>
-        在线演示（含龙骨 Keel 游戏骨架）可能包含占位美术、程序化生成内容或第三方开源素材。
-        演示不构成任何服务水平承诺；浏览器需支持相应技术（例如 <strong>WebGPU</strong>）方可运行部分演示。
-        软件按「现状」提供，不附带任何明示或默示担保。
+        本站内容与在线演示按<strong>「现状」（AS IS）</strong>提供，仅供一般信息与产品演示之用，不附带任何明示或默示的保证，包括但不限于适销性、特定用途适用性与不侵权的默示保证。
+        本站内容<strong>不构成</strong>投资、法律、会计、医疗或其他专业建议。
       </p>
       <p data-en>
-        Online demos (including Keel skeletons) may use placeholder art, procedural content,
-        or third-party open assets. Demos are not a service-level commitment; some require
-        browser support such as <strong>WebGPU</strong>. Software is provided “as is” without warranties.
+        Content and demos are provided <strong>“as is”</strong> for general information and product demonstration only,
+        without warranties of any kind. Nothing here is investment, legal, accounting, medical, or other professional advice.
+      </p>
+      <p data-zh>
+        在适用法律允许的最大范围内，Specul 及其作者、版权人与分发者<strong>不对任何直接、间接、附带、特殊、惩罚性或后果性损害承担责任</strong>（包括但不限于利润损失、数据丢失、业务中断），即使已被告知此类损害的可能性。
+      </p>
+      <p data-en>
+        To the maximum extent permitted by law, Specul and its authors, copyright holders and distributors are
+        <strong>not liable for any direct, indirect, incidental, special, punitive or consequential damages</strong>.
+      </p>
+      <p data-zh>
+        「投机 / Speculative」在本站均指大模型与产品方法中的 <strong>speculative strategy（投机策略）</strong>，不鼓励赌博、内幕交易或任何违法金融活动。
+        演示中的军事、战斗、开放世界类内容<strong>纯属虚构</strong>，与任何真实人物、组织、国家或事件无关。
+      </p>
+      <p data-en>
+        “Speculative” here refers to <strong>speculative strategy</strong> in AI and product method — not gambling or unlawful finance.
+        Military and combat content in the demos is <strong>entirely fictional</strong>.
+      </p>
+      <p data-zh>
+        部分演示需要浏览器支持 <strong>WebGPU</strong>（较新的 Chrome / Edge，Safari 17+），且不提供 WebGL 回退。演示不构成任何服务水平承诺。
+      </p>
+      <p data-en>
+        Some demos require <strong>WebGPU</strong> (recent Chrome / Edge, Safari 17+) with no WebGL fallback, and are not a service-level commitment.
       </p>
     </section>
 
-    <section>
-      <h2 data-zh>五、隐私</h2>
-      <h2 data-en>5. Privacy</h2>
+    <!-- ============ 7 ============ -->
+    <section id="s7">
+      <h2 data-zh>七、第三方链接与内容</h2>
+      <h2 data-en>7. Third-party links</h2>
       <p data-zh>
-        本站可能使用本地存储保存界面偏好（如语言、主题）。我们可能接入匿名访问统计（例如百度统计）以了解页面使用情况。
-        我们不会出售你的个人信息。若你通过站外链接访问第三方服务，其隐私实践由该第三方负责。
+        导航页所列外部网站、工具与资源由第三方运营。链接仅为便利而提供，不表示 Specul 对其内容、准确性、安全性、可用性或合法性作出认可或担保。
+        我们无法控制这些站点，也不会对其内容或实践负责；访问前请阅读对方的服务条款与隐私政策。
       </p>
       <p data-en>
-        We may store UI preferences (language, theme) locally. We may use anonymous analytics
-        (e.g. Baidu Tongji) to understand page usage. We do not sell personal information.
-        Third-party services linked from here have their own privacy practices.
+        External sites, tools and resources in the directory are operated by third parties. Links are provided for convenience
+        and imply no endorsement or warranty. We do not control them and are not responsible for their content or practices.
       </p>
     </section>
 
-    <section>
-      <h2 data-zh>六、商标与名称</h2>
-      <h2 data-en>6. Trademarks</h2>
+    <!-- ============ 8 ============ -->
+    <section id="s8">
+      <h2 data-zh>八、隐私与本地存储</h2>
+      <h2 data-en>8. Privacy and local storage</h2>
+      <ul data-zh>
+        <li><strong>本地存储</strong>：站点使用浏览器 <code>localStorage</code> 保存界面偏好——<code>specul-lang</code>（中/英）、<code>specul-theme</code>（明/暗），游戏内另有音量、按键等设置。这些数据只存在你的设备上，不会上传。</li>
+        <li><strong>匿名统计</strong>：specul.com 页面接入百度统计（<code>hm.baidu.com</code>），用于了解页面访问量等聚合指标。它不使用本站自有账号信息，我们不会据此识别个人身份。</li>
+        <li><strong>数据出售</strong>：我们<strong>不出售</strong>任何个人信息，也不建立用户画像。</li>
+        <li><strong>联机功能</strong>：部分演示支持 WebRTC 联机，房间信令经过部署方的中转服务；传输内容为对战数据，不含账号体系。</li>
+        <li><strong>如何拒绝</strong>：可通过浏览器的「阻止第三方脚本 / 广告拦截」或 Do-Not-Track 设置屏蔽统计脚本；清除站点数据即可删除本地偏好。</li>
+      </ul>
+      <ul data-en>
+        <li><strong>Local storage</strong>: UI preferences only (<code>specul-lang</code>, <code>specul-theme</code>, in-game volume/keys). Data never leaves your device.</li>
+        <li><strong>Anonymous analytics</strong>: specul.com uses Baidu Tongji for aggregate page-view metrics; no personal identification.</li>
+        <li><strong>No selling</strong> of personal information and no user profiling.</li>
+        <li><strong>Netplay</strong>: some demos use WebRTC with a relay for room signalling; only match data is transmitted, with no account system.</li>
+        <li><strong>Opting out</strong>: block third-party scripts or use Do-Not-Track; clear site data to remove local preferences.</li>
+      </ul>
+    </section>
+
+    <!-- ============ 9 ============ -->
+    <section id="s9">
+      <h2 data-zh>九、商标与名称</h2>
+      <h2 data-en>9. Trademarks</h2>
       <p data-zh>
-        「Specul」「投机」「推演」「龙骨」「Keel」等为 Specul 相关名称与标识。未经许可不得用于暗示背书或商业混淆的用途。
+        「Specul」「投机 · 推演」「龙骨」「Keel」「Keel 3D」「Keel 2D」及相关标识为 Specul 使用的名称与品牌资产。
+        开源许可（MIT / Apache-2.0）<strong>不包含商标授权</strong>：你可以自由使用代码，但不得以暗示官方背书、合作或易致混淆的方式使用上述名称与标识。
       </p>
       <p data-en>
-        “Specul”, “Keel”, and related names and marks belong to Specul. Do not use them to imply
-        endorsement or to cause commercial confusion without permission.
+        “Specul”, “Keel”, “Keel 3D”, “Keel 2D” and related marks are brand assets of Specul. Open-source licences
+        (MIT / Apache-2.0) <strong>grant no trademark rights</strong>.
       </p>
     </section>
 
-    <section>
-      <h2 data-zh>七、条款变更与适用</h2>
-      <h2 data-en>7. Changes &amp; governing terms</h2>
+    <!-- ============ 10 ============ -->
+    <section id="s10">
+      <h2 data-zh>十、条款变更与适用法律</h2>
+      <h2 data-en>10. Changes and governing terms</h2>
       <p data-zh>
-        我们可能不时修订本页；修订后继续使用本站即视为接受更新条款。
-        本条款适用法律以运营方所在地强制性规定为准。若某条款被认定无效，其余条款仍继续有效。
+        我们可能不时修订本页；修订后继续使用本站即视为接受更新条款，重要变更会在本页更新「最后更新」日期。
+        本条款适用运营方所在地的强制性法律规定；若某条款被认定无效或不可执行，其余条款仍继续有效。
       </p>
       <p data-en>
-        We may revise this page from time to time; continued use after changes means acceptance.
-        Mandatory law of the operator’s jurisdiction governs. If any clause is held invalid,
-        the remainder stays in effect.
+        We may revise this page; continued use after changes means acceptance. Mandatory law of the operator's jurisdiction
+        applies. If any clause is held invalid, the remainder stays in effect.
       </p>
     </section>
 
-    <section>
-      <h2 data-zh>八、联系</h2>
-      <h2 data-en>8. Contact</h2>
+    <!-- ============ 11 ============ -->
+    <section id="s11">
+      <h2 data-zh>十一、联系与侵权通知</h2>
+      <h2 data-en>11. Contact and takedown</h2>
       <p data-zh>
-        版权与法律事务可通过站点所属组织 Specul 的公开渠道联系；具体邮箱与地址以官网公示为准。
+        版权、许可或法律事务，或认为本站内容侵犯了你的权利，请通过项目仓库
+        <a href="https://github.com/lifeidle/keel3d/issues" target="_blank" rel="noopener">github.com/lifeidle/keel3d</a>
+        的 Issue 渠道联系维护者，并附上：涉及的具体页面或文件、你的权利证明、以及期望的处理方式。
+        我们会在核实后<strong>及时处理</strong>（更正署名、替换素材或移除内容）。
       </p>
       <p data-en>
-        For copyright and legal matters, contact Specul through the public channels listed on our sites.
+        For copyright, licensing or legal matters — or to report infringement — contact the maintainers via the
+        <a href="https://github.com/lifeidle/keel3d/issues" target="_blank" rel="noopener">project issue tracker</a>,
+        including the specific page or file, proof of your rights, and the action you request. We will act promptly
+        (correct the attribution, replace the asset, or remove the content).
       </p>
+      <div class="card-note">
+        <p data-zh>相关页面：<a href="https://keel.specul.com/credits.html">素材与致谢（完整许可清单）</a> · <a href="./nav.html">硅基导航</a></p>
+        <p data-en>Related: <a href="https://keel.specul.com/credits.html">Credits &amp; licensing</a> · <a href="./nav.html">Directory</a></p>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap row">
-      <div>© 2026 Specul · <span data-zh>投机 · 推演</span><span data-en>Speculation · Speculate</span></div>
+  <footer class="site-footer">
+    <div class="container foot-row">
       <div>
-        <a href="./index.html"><span data-zh>首页</span><span data-en>Home</span></a>
-        ·
-        <a href="./nav.html"><span data-zh>导航</span><span data-en>Directory</span></a>
-        ·
-        <a href="https://keel.specul.com">Keel</a>
+        <div>© 2026 Specul · <span data-zh>投机 · 推演</span><span data-en>Speculation · Speculate</span></div>
+        <div class="foot-legal">
+          <details>
+            <summary><span data-zh>版权 · 免责 · 许可</span><span data-en>Copyright · Disclaimer · Licensing</span></summary>
+            <p data-zh>
+              本站自有文案、界面设计、标识与编排版权归 Specul 所有。开源代码（龙骨 Keel）以对应仓库的 MIT 许可为准；
+              在线演示中的第三方素材（CC0 / CC-BY / CC-BY-SA）权利归原作者，完整清单见「素材与致谢」。
+              演示按「现状」提供，不构成任何担保或服务承诺；军事、战斗类内容纯属虚构。
+            </p>
+            <p data-en>
+              Original copy, UI design, marks, and compilation are © Specul. Open-source code (Keel) is MIT per its
+              repository; third-party assets in the demos (CC0 / CC-BY / CC-BY-SA) remain with their authors — see Credits.
+              Demos are provided “as is”, are not a service commitment, and any combat content is fictional.
+            </p>
+            <p>
+              <a href="./legal.html"><span data-zh>法律条款</span><span data-en>Legal</span></a> ·
+              <a href="https://keel.specul.com/credits.html"><span data-zh>素材与致谢</span><span data-en>Credits</span></a>
+            </p>
+          </details>
+        </div>
+      </div>
+      <div class="foot-links">
+        <a href="./"><span data-zh>首页</span><span data-en>Home</span></a> ·
+        <a href="./nav.html"><span data-zh>导航</span><span data-en>Directory</span></a> ·
+        <a href="https://keel.specul.com/">龙骨 Keel</a> ·
+        <a href="https://github.com/lifeidle/keel3d" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var langBtn = document.getElementById('langBtn');
-      var themeBtn = document.getElementById('themeBtn');
-      var sub = document.getElementById('markSub');
-      function applyLang(lang) {
-        var en = lang === 'en';
-        document.documentElement.lang = en ? 'en' : 'zh-CN';
-        langBtn.textContent = en ? '中文' : 'EN';
-        sub.textContent = en ? 'speculation · speculate' : '投机 · 推演';
-        try { localStorage.setItem('specul-lang', en ? 'en' : 'zh'); } catch (e) {}
-      }
-      function applyTheme(theme) {
-        var light = theme === 'light';
-        if (light) document.documentElement.setAttribute('data-theme', 'light');
-        else document.documentElement.removeAttribute('data-theme');
-        themeBtn.textContent = light ? '☀' : '☾';
-        try { localStorage.setItem('specul-theme', light ? 'light' : 'dark'); } catch (e) {}
-      }
-      var lang = 'zh';
-      var theme = 'dark';
-      try { lang = localStorage.getItem('specul-lang') || 'zh'; } catch (e) {}
-      try { theme = localStorage.getItem('specul-theme') || 'dark'; } catch (e) {}
-      applyLang(lang);
-      applyTheme(theme);
-      langBtn.addEventListener('click', function () {
-        applyLang(document.documentElement.lang === 'en' ? 'zh' : 'en');
-      });
-      themeBtn.addEventListener('click', function () {
-        applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
-      });
-    })();
-  </script>
+  <script src="brand.js" defer></script>
 </body>
 </html>

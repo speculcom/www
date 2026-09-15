@@ -5,7 +5,6 @@
   var navCategories = document.getElementById('navCategories');
   var subNav = document.getElementById('subNav');
   var toTop = document.getElementById('toTop');
-  var themeToggle = document.getElementById('themeToggle');
   var activeCat = 'all';
   var selectedTag = null;
   var searchTimer;
@@ -23,28 +22,8 @@
     }).map(function(t) { return { name: t, count: map[t] }; });
   }
 
-  function initTheme() {
-    var saved = localStorage.getItem('tuiyan-theme');
-    if (saved === 'dark') {
-      body.setAttribute('data-theme', 'dark');
-      themeToggle.textContent = '☀️';
-    } else {
-      body.removeAttribute('data-theme');
-      themeToggle.textContent = '🌙';
-    }
-  }
-
-  themeToggle.addEventListener('click', function() {
-    if (body.getAttribute('data-theme') === 'dark') {
-      body.removeAttribute('data-theme');
-      themeToggle.textContent = '🌙';
-      localStorage.setItem('tuiyan-theme', 'light');
-    } else {
-      body.setAttribute('data-theme', 'dark');
-      themeToggle.textContent = '☀️';
-      localStorage.setItem('tuiyan-theme', 'dark');
-    }
-  });
+  /* 语言与明暗主题统一由 brand.js 处理（存储键 specul-lang / specul-theme），
+     本文件只负责目录本身。 */
 
   function buildNav() {
     var h = '<a href="#" class="nav-cat active" data-cat="all">📋 全部</a>';
@@ -162,20 +141,22 @@
   function renderAll() {
     var filtered = getFilteredCards();
     if (activeCat === 'tags') {
-      subNav.style.display = 'none';
+      if (subNav) subNav.style.display = 'none';
       content.innerHTML = renderTagsView(filtered);
     } else {
       var single = activeCat !== 'all' ? activeCat : null;
       if (single) {
         var scCards = filtered.filter(function(c) { return c.c === single; });
         var groups = groupByType(scCards);
-        subNav.style.display = '';
-        subNav.innerHTML = groups.map(function(g) {
-          var id = subId(single, g.type);
-          return '<a href="#' + id + '" class="sub-nav-link" data-to="' + id + '">' + g.type + '<span class="sn-count">' + g.cards.length + '</span></a>';
-        }).join('');
+        if (subNav) {
+          subNav.style.display = '';
+          subNav.innerHTML = groups.map(function(g) {
+            var id = subId(single, g.type);
+            return '<a href="#' + id + '" class="sub-nav-link" data-to="' + id + '">' + g.type + '<span class="sn-count">' + g.cards.length + '</span></a>';
+          }).join('');
+        }
       } else {
-        subNav.style.display = 'none';
+        if (subNav) subNav.style.display = 'none';
       }
       content.innerHTML = renderCategoryView(filtered, single);
     }
@@ -191,7 +172,7 @@
     if (back) { selectedTag = null; renderAll(); }
   });
 
-  subNav.addEventListener('click', function(e) {
+  if (subNav) subNav.addEventListener('click', function(e) {
     var link = e.target.closest('.sub-nav-link');
     if (!link) return;
     e.preventDefault();
@@ -199,7 +180,7 @@
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  navCategories.addEventListener('click', function(e) {
+  if (navCategories) navCategories.addEventListener('click', function(e) {
     var t = e.target;
     if (!t.classList.contains('nav-cat')) return;
     e.preventDefault();
@@ -210,7 +191,7 @@
     renderAll();
   });
 
-  searchInput.addEventListener('input', function() {
+  if (searchInput) searchInput.addEventListener('input', function() {
     clearTimeout(searchTimer);
     searchTimer = setTimeout(function() {
       var hasText = !!searchInput.value.trim();
@@ -221,15 +202,15 @@
     }, 200);
   });
 
-  window.addEventListener('scroll', function() {
-    toTop.classList.toggle('visible', window.scrollY > 300);
-  }, { passive: true });
+  if (toTop) {
+    window.addEventListener('scroll', function() {
+      toTop.classList.toggle('visible', window.scrollY > 300);
+    }, { passive: true });
+    toTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
-  toTop.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  initTheme();
   buildNav();
   renderAll();
 })();

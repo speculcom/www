@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://specul.com/</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh" href="https://specul.com/"/>
@@ -12,7 +12,7 @@
 
   <url>
     <loc>https://specul.com/nav.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="zh" href="https://specul.com/nav.html"/>
@@ -20,7 +20,7 @@
 
   <url>
     <loc>https://specul.com/legal.html</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="zh" href="https://specul.com/legal.html"/>
@@ -28,7 +28,7 @@
 
   <url>
     <loc>https://specul.com/llms.txt</loc>
-    <lastmod>2026-09-14</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
