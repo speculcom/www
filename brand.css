@@ -126,6 +126,166 @@ code, kbd, pre, .mono { overflow-wrap: anywhere; }
   -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 70%);
   mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 70%);
 }
+
+/* ==========================================================================
+   共享排版尺度 + 内容组件（五个站点共用）
+   --------------------------------------------------------------------------
+   各站内容层只允许设置 --accent（主色）与内容区内的局部排版；
+   字号、行高、间距、卡片与按钮形态一律用下面这套类，
+   这样任何一页都不会自己长出一套尺度。
+   ========================================================================== */
+
+/* 排版尺度（语义命名，页面不要写 px） */
+:root {
+  --t-hero:  clamp(34px, 5.4vw, 52px);   /* 站首页大标题 */
+  --t-h1:    clamp(28px, 4.2vw, 40px);   /* 内容页标题 */
+  --t-h2:    clamp(21px, 2.6vw, 26px);   /* 区块标题 */
+  --t-h3:    18px;                        /* 卡片标题 */
+  --t-body:  15px;                        /* 正文 */
+  --t-sm:    13.5px;                      /* 次要正文 */
+  --t-xs:    12px;                        /* 标签、meta */
+  --t-micro: 10.5px;                      /* kicker、计数 */
+
+  --lh-tight: 1.18;
+  --lh-snug:  1.45;
+  --lh-body:  1.78;
+
+  --sp-section: clamp(52px, 6vw, 84px);
+  --sp-block:   28px;
+  --sp-gap:     18px;
+  --sp-tight:   10px;
+}
+
+body { font-size: var(--t-body); line-height: var(--lh-body); }
+
+/* 标题基线 ---------------------------------------------------------- */
+.t-hero {
+  font-size: var(--t-hero); line-height: var(--lh-tight);
+  font-weight: 800; letter-spacing: -.025em; margin: 0 0 18px;
+}
+.t-h1 {
+  font-size: var(--t-h1); line-height: var(--lh-tight);
+  font-weight: 750; letter-spacing: -.02em; margin: 0 0 14px;
+}
+.t-h2 {
+  font-size: var(--t-h2); line-height: var(--lh-snug);
+  font-weight: 700; letter-spacing: -.012em; margin: 0 0 10px;
+}
+.t-h3 { font-size: var(--t-h3); line-height: var(--lh-snug); font-weight: 650; margin: 0; }
+.t-lede { font-size: 17px; line-height: 1.75; color: var(--dim); max-width: 62ch; margin: 0; }
+.t-body { font-size: var(--t-body); line-height: var(--lh-body); }
+.t-sm { font-size: var(--t-sm); line-height: 1.7; color: var(--dim); }
+.t-xs { font-size: var(--t-xs); line-height: 1.6; color: var(--dim); }
+
+/* kicker：小号大字距标签，各站统一 */
+.t-kicker {
+  font-size: var(--t-micro); letter-spacing: .2em; text-transform: uppercase;
+  color: var(--accent, var(--cyan)); margin: 0 0 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+
+/* 区块 ---------------------------------------------------------------- */
+.t-section { padding: var(--sp-section) 0; border-bottom: 1px solid var(--line); }
+.t-section:last-of-type { border-bottom: 0; }
+.t-section-intro { color: var(--dim); font-size: var(--t-sm); line-height: 1.75; max-width: 70ch; margin: 0 0 var(--sp-block); }
+
+/* 卡片：五站同一形态 */
+.t-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex; flex-direction: column; gap: var(--sp-tight);
+  min-width: 0;
+  transition: border-color .18s var(--ease), transform .18s var(--ease);
+}
+.t-card:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.t-card > p { margin: 0; font-size: var(--t-sm); line-height: 1.7; color: var(--dim); }
+
+/* 标签 */
+.t-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: var(--t-micro); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent, var(--cyan));
+  border: 1px solid color-mix(in srgb, var(--accent, var(--cyan)) 40%, transparent);
+  background: color-mix(in srgb, var(--accent, var(--cyan)) 9%, transparent);
+  border-radius: 20px; padding: 3px 10px; align-self: flex-start;
+}
+
+/* 按钮：主次两级，全站同一形态 */
+.t-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: var(--t-sm); font-weight: 550; line-height: 1.5;
+  padding: 11px 20px; border-radius: 9px; text-decoration: none;
+  border: 1px solid var(--line-strong); color: var(--ink); background: transparent;
+  transition: transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+}
+.t-btn:hover { transform: translateY(-2px); border-color: var(--accent, var(--cyan)); }
+.t-btn-primary {
+  background: var(--accent, var(--cyan)); border-color: var(--accent, var(--cyan));
+  color: #06131a; font-weight: 650;
+}
+.t-btn-primary:hover { filter: brightness(1.06); }
+
+/* 指标块 */
+.t-metrics { display: flex; flex-wrap: wrap; gap: var(--sp-block) clamp(24px, 4vw, 48px); }
+.t-metrics > div { min-width: 88px; }
+.t-metrics strong {
+  display: block; font-size: 26px; font-weight: 700; line-height: 1.2;
+  color: var(--accent, var(--cyan)); font-variant-numeric: tabular-nums;
+}
+.t-metrics span { font-size: var(--t-xs); color: var(--dim); }
+
+/* 分隔与网格 */
+.t-grid { display: grid; gap: var(--sp-gap); }
+.t-grid-auto { grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); }
+.t-hairline { height: 1px; background: var(--line); border: 0; margin: 0; }
+
+/* 可访问性：跳转链接 */
+.t-skip {
+  position: absolute; left: 12px; top: 10px; z-index: 100;
+  transform: translateY(-160%);
+  background: var(--accent, var(--cyan)); color: #06131a;
+  padding: 10px 14px; border-radius: 8px; font-size: var(--t-xs); text-decoration: none;
+  transition: transform .16s var(--ease);
+}
+.t-skip:focus { transform: translateY(0); }
+
+/* 浅色主题下强调色需加深，否则白底对比度不足（AA 4.5:1） */
+[data-theme="light"] .t-tag,
+[data-theme="light"] .t-kicker { color: color-mix(in srgb, var(--accent, #0891b2) 78%, #000); }
+[data-theme="light"] .t-btn-primary { color: #fff; }
+[data-theme="light"] .t-metrics strong { color: color-mix(in srgb, var(--accent, #0891b2) 82%, #000); }
+
+/* 窄屏 */
+@media (max-width: 640px) {
+  :root { --sp-section: 44px; --sp-block: 22px; --t-lede: 15.5px; }
+}
+
+/* ==========================================================================
+   语言显隐（全站共用，勿在页面里重写）
+   --------------------------------------------------------------------------
+   brand.js 只切换 <html lang>；要按语言显隐双语节点，
+   页面需要 html[data-lang] 作为钩子 —— 由 brand.js 同步（见 BRIDGE 脚本）。
+   三条规则的 !important 都不能省：任一条漏掉，
+   都会被元素自身的 display 声明覆盖级联，导致中英同显。
+   ========================================================================== */
+[data-en] { display: none !important; }
+html[data-lang="en"] [data-zh] { display: none !important; }
+html[data-lang="en"] [data-en] { display: revert !important; }
+
+/* 块级语义的元素显式给值，revert 才会回到正确的 display */
+h1[data-en], h2[data-en], h3[data-en], h4[data-en], h5[data-en],
+p[data-en], li[data-en], figcaption[data-en],
+.t-lede[data-en], .t-section-intro[data-en], .t-body[data-en], .t-sm[data-en] { display: block; }
+.t-btn[data-en], .site-card[data-en] { display: inline-flex; }
+.t-btn { display: inline-flex; }
+/* 标签类元素（无需翻译的标记如 3D / IDE / MCP）两种语言下都显示 */
+[data-zh].t-tag, [data-zh].site-tag { display: inline-block !important; }
+/* 指标块的说明文字是块级 */
+.t-metrics span { display: block; }
+/* hero 里的整段标语与描述 */
+.hero-title .line, .hero-sub[data-en], .hero-sub[data-zh] { display: block; }
 /* 浅色：属性在 <html>、类在 <body>，必须是后代选择器 */
 [data-theme="light"] .brand-ambient::before {
   background:
