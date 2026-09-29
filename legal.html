@@ -16,12 +16,12 @@
   <style>
     .legal-head { padding: 56px 0 8px; }
     .legal-head h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -.02em; }
-    .legal-head .sub { color: var(--dim); font-size: 13px; margin-top: 8px; }
+    .legal-head .sub { color: var(--ink-mid); font-size: 13px; margin-top: 8px; }
     .toc-legal {
       margin: 22px 0 0; padding: 16px 18px;
-      border: 1px solid var(--line); border-radius: 14px; background: var(--panel);
+      border: 1px solid var(--line); border-radius: 14px; background: var(--bg-panel);
     }
-    .toc-legal ol { margin: 8px 0 0 1.2em; color: var(--dim); font-size: 13px; }
+    .toc-legal ol { margin: 8px 0 0 1.2em; color: var(--ink-mid); font-size: 13px; }
     .toc-legal li { margin-bottom: 4px; }
     .toc-legal a:hover { color: var(--ink); }
 
@@ -33,7 +33,7 @@
       scroll-margin-top: 90px;
     }
     h3 { font-size: 14px; font-weight: 650; margin: 18px 0 8px; }
-    p, li { font-size: 14px; color: var(--dim); }
+    p, li { font-size: 14px; color: var(--ink-mid); }
     p { margin-bottom: 10px; }
     ul, ol { margin: 0 0 12px 1.3em; }
     li { margin-bottom: 6px; }
@@ -44,7 +44,7 @@
       color: var(--ink);
     }
     .card-note {
-      background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--cyan);
+      background: var(--bg-panel); border: 1px solid var(--line); border-left: 3px solid var(--cyan);
       border-radius: 12px; padding: 16px 18px; margin: 14px 0;
     }
     .card-note.warn { border-left-color: var(--warn); }
@@ -54,7 +54,7 @@
     table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
     th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
     th { background: rgba(148,163,184,.1); color: var(--ink); font-weight: 650; }
-    td { color: var(--dim); }
+    td { color: var(--ink-mid); }
     @media (max-width: 480px) {
       /* 窄屏：表格 → 卡片式堆叠（列名取自 data-label），无横向滚动条 */
       table { font-size: 12px; }
@@ -62,7 +62,7 @@
       thead { display: none; }
       tr {
         border: 1px solid var(--line); border-radius: 12px;
-        margin-bottom: 10px; background: var(--panel);
+        margin-bottom: 10px; background: var(--bg-panel);
         overflow: hidden;
       }
       td { border: 0; border-bottom: 1px solid var(--line); padding: 9px 12px; }
@@ -70,7 +70,7 @@
       td::before {
         content: attr(data-label);
         display: block; font-size: 10.5px; letter-spacing: .08em;
-        color: var(--dim); font-weight: 650; margin-bottom: 3px;
+        color: var(--ink-mid); font-weight: 650; margin-bottom: 3px;
       }
     }
     td strong { color: var(--ink); }
@@ -79,14 +79,14 @@
       border: 1px solid var(--line); white-space: nowrap;
     }
     .lic-cc0 { color: var(--cyan); }
-    .lic-cb  { color: var(--gold); }
+    .lic-cb  { color: var(--warn); }
     .lic-sa  { color: var(--warn); }
     .lic-mit { color: var(--vio); }
 
     blockquote.attr {
       margin: 12px 0; padding: 14px 16px;
-      background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--gold);
-      border-radius: 10px; font-size: 12.5px; color: var(--dim);
+      background: var(--bg-panel); border: 1px solid var(--line); border-left: 3px solid var(--warn);
+      border-radius: 10px; font-size: 12.5px; color: var(--ink-mid);
       font-family: var(--mono); line-height: 1.65;
     }
     blockquote.attr p { margin-bottom: 10px; font-size: 12.5px; }
