@@ -704,14 +704,16 @@ var cards=[
 {c:'robot',t:'仿生机器人',n:'Open Bionics',d:'英国轻量仿生义肢公司，Hero Arm 是首获医疗认证的 3D 打印。',u:'https://openbionics.com',tag:'义肢·3D打印',ic:'🦾'},
 {c:'robot',t:'仿生机器人',n:'RoboBees',d:'哈佛微机器人实验室研制的微型飞行机器人，仿蜜蜂群智能。',u:'https://wyss.harvard.edu/technology/robobees',tag:'微型·飞行',ic:'🐝'},
 {c:'tools',t:'开发者工具',n:'Notion',d:'全能型笔记与知识管理工具，集成 AI 写作辅助强大功能。',u:'https://www.notion.so',tag:'笔记·AI',ic:'📝'},
-{c:'game',t:'龙骨 Keel',n:'Keel 3D',d:'Specul 开源 WebGPU 浏览器 3D 游戏基座：20+ 品类骨架、积木化拼装、15 分钟做出可玩原型。',u:'https://keel.specul.com',tag:'开源·WebGPU·3D',ic:'🐉'},
-{c:'game',t:'龙骨 Keel',n:'Keel 2D',d:'龙骨二维游戏基座（规划中），与 Keel 3D 同品牌、同演示站。',u:'https://keel.specul.com#2d',tag:'开源·2D·规划',ic:'🧱'},
-{c:'game',t:'龙骨 Keel',n:'Keel 3D 源码',d:'GitHub 上的 keel3d 仓库：配方、积木、完整 FPS 样例与文档。',u:'https://github.com/lifeidle/keel3d',tag:'GitHub·MIT',ic:'💻'},
-{c:'game',t:'游戏开发',n:'three.js',d:'Keel 3D 底层所用的 JavaScript 3D 库，WebGL / WebGPU 双后端。',u:'https://threejs.org',tag:'3D·开源',ic:'🔺'},
-{c:'game',t:'游戏开发',n:'Rapier',d:'Keel 3D 采用的 Rust 物理引擎 WASM 版，碰撞与刚体模拟。',u:'https://rapier.rs',tag:'物理·Rust',ic:'⚙️'},
+{c:'ai',t:'投机取巧',n:'基座 Keel',d:'开源 AI 应用基座：会话续接、工具接入、权限收口、长任务状态，固化成可直接复用的骨架。',u:'https://keel.specul.com',tag:'开源·MIT·基座',ic:'🧱'},
+{c:'ai',t:'投机取巧',n:'IDE 图谱',d:'Cursor、Claude Code、Copilot、Windsurf、Zed、Cline、Aider、Codex 的 8 维度对比，每条挂官方源。',u:'https://ide.specul.com',tag:'对比·IDE·8维度',ic:'📊'},
+{c:'ai',t:'投机取巧',n:'CLI 图谱',d:'Claude Code CLI、Codex CLI、Gemini CLI、OpenCode、Aider、Crush 的终端编码工具对比。',u:'https://cli.specul.com',tag:'对比·CLI·8维度',ic:'⌨️'},
+{c:'ai',t:'投机取巧',n:'MCP 图谱',d:'filesystem、git、memory、fetch、playwright 等 MCP server 的权限范围与传输方式对比。',u:'https://mcp.specul.com',tag:'对比·MCP·11维度',ic:'🔌'},
+{c:'ai',t:'投机取巧',n:'基座 Keel 源码',d:'GitHub 上的 keel3d 仓库：AI 应用基座的实现源码与文档。',u:'https://github.com/lifeidle/keel3d',tag:'GitHub·MIT',ic:'💻'},
+{c:'game',t:'游戏开发',n:'three.js',d:'基座 Keel 底层所用的 JavaScript 3D 库，WebGL / WebGPU 双后端。',u:'https://threejs.org',tag:'3D·开源',ic:'🔺'},
+{c:'game',t:'游戏开发',n:'Rapier',d:'基座 Keel 采用的 Rust 物理引擎 WASM 版，碰撞与刚体模拟。',u:'https://rapier.rs',tag:'物理·Rust',ic:'⚙️'},
 {c:'game',t:'游戏开发',n:'Babylon.js',d:'成熟的 Web 3D 引擎，适合对照选型的开源方案。',u:'https://www.babylonjs.com',tag:'引擎·Web',ic:'🏛️'},
 {c:'game',t:'游戏开发',n:'PlayCanvas',d:'开源 WebGL 游戏引擎与编辑器，偏移动端与协作。',u:'https://playcanvas.com',tag:'引擎·协作',ic:'🎮'},
-{c:'game',t:'游戏开发',n:'Phaser',d:'最流行的 HTML5 2D 游戏框架，可与龙骨 2D 路线对照。',u:'https://phaser.io',tag:'2D·HTML5',ic:'👾'}
+{c:'game',t:'游戏开发',n:'Phaser',d:'最流行的 HTML5 2D 游戏框架，可与基座的轻量运行时路线对照。',u:'https://phaser.io',tag:'2D·HTML5',ic:'👾'}
 ];
 
 var catMeta={ai:{emoji:"🤖",name:"人工智能"},robot:{emoji:"🦾",name:"机器人"},models:{emoji:"🧩",name:"大模型"},blockchain:{emoji:"⛓️",name:"区块链"},crypto:{emoji:"💰",name:"数字币"},silicon:{emoji:"💠",name:"芯片算力"},tools:{emoji:"🛠️",name:"开发工具"},learn:{emoji:"📚",name:"学习资源"},game:{emoji:"🎮",name:"游戏框架"}};
