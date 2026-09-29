@@ -22,7 +22,31 @@
       min-height: min(86vh, 920px);
       display: flex; align-items: center;
     }
-    .hero2 > .container { width: min(1280px, 94vw); margin: 0 auto; position: relative; z-index: 1; }
+    /* 内容区与全站其他站同一容器宽度（brand.css 的 --container = min(1080px, 92vw)）。
+       原先这里写死 1280px/94vw，导致首页比子站宽，是全站不一致的源头。 */
+    .hero2 > .container { width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+
+    /* 四站导览 */
+    .sites-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    .site-card {
+      background: var(--bg2); padding: 26px 24px 24px;
+      display: flex; flex-direction: column; gap: 10px; position: relative;
+      text-decoration: none; color: inherit; min-width: 0;
+      transition: background .18s var(--ease);
+    }
+    .site-card:hover { background: color-mix(in srgb, var(--vio) 7%, var(--bg2)); }
+    .site-card:hover .site-go { transform: translateX(4px); color: var(--cyan); }
+    .site-tag {
+      align-self: flex-start;
+      font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--cyan); border: 1px solid color-mix(in srgb, var(--cyan) 40%, transparent);
+      background: color-mix(in srgb, var(--cyan) 9%, transparent);
+      border-radius: 20px; padding: 3px 10px;
+    }
+    .site-card h3 { font-size: 18px; font-weight: 650; margin: 0; line-height: 1.45; }
+    .site-card p { margin: 0; font-size: 13.5px; line-height: 1.7; color: var(--dim); }
+    .site-go { position: absolute; top: 26px; right: 24px; color: var(--dim); font-size: 15px; transition: transform .18s var(--ease), color .18s var(--ease); }
+    @media (min-width: 900px) { .sites-grid { grid-template-columns: 1fr 1fr; } }
     .hero-orb {
       position: absolute; border-radius: 50%;
       filter: blur(clamp(50px, 7vw, 90px)); opacity: .5; pointer-events: none;
@@ -63,8 +87,11 @@
       100% { box-shadow: 0 0 0 0 rgba(34, 211, 197, 0); }
     }
     .hero-title {
-      font-size: clamp(2.6rem, 7.4vw, 5.6rem);
-      font-weight: 800; line-height: 1.05; letter-spacing: -.015em;
+      /* 走 brand.css 的共享尺度（--t-hero = clamp(34px, 5.4vw, 52px)），
+         原先这里是 clamp(2.6rem, 7.4vw, 5.6rem) = 最高 89.6px，
+         与其他站的 46px 差近两倍，是全站不像同一个站的主要原因之一。 */
+      font-size: var(--t-hero);
+      font-weight: 800; line-height: var(--lh-tight); letter-spacing: -.025em;
       margin-bottom: clamp(18px, 3.4vh, 30px);
     }
     .hero-title .line { display: block; }
@@ -218,18 +245,21 @@
 <body class="brand-ambient">
   <header class="site-header">
     <div class="container site-bar">
-      <a class="brand" href="./" title="Specul 首页">
+      <a class="brand" href="./" title="投机取巧">
         <span class="brand-dot" aria-hidden="true"></span>
         <span class="brand-text">
-          <span class="brand-name">SPECUL</span>
+          <span class="brand-name">投机取巧</span>
           <span class="brand-sub" id="markSub"
-                data-zh-sub="投机取巧" data-en-sub="speculation · craft">投机取巧</span>
+                data-zh-sub="投机取巧" data-en-sub="Speculation · Craft">投机取巧</span>
         </span>
       </a>
       <nav class="nav-links" aria-label="站点导航">
-        <a href="./"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="./" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
         <a href="./nav.html"><span data-zh>导航</span><span data-en>Directory</span></a>
-        <a href="https://keel.specul.com/"><span data-zh>基座 Keel</span><span data-en>Keel</span></a>
+        <a href="https://keel.specul.com/"><span data-zh>基座</span><span data-en>Keel</span></a>
+        <a href="https://ide.specul.com/"><span data-zh>IDE 图谱</span><span data-en>IDE</span></a>
+        <a href="https://cli.specul.com/"><span data-zh>CLI 图谱</span><span data-en>CLI</span></a>
+        <a href="https://mcp.specul.com/"><span data-zh>MCP 图谱</span><span data-en>MCP</span></a>
         <span class="nav-tools">
           <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题">☾</button>
           <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
@@ -238,7 +268,8 @@
     </div>
   </header>
 
-  <main>
+  <a class="t-skip" href="#main">跳到主要内容</a>
+  <main id="main">
     <!-- ====== Hero ====== -->
     <section class="hero2" aria-label="Specul">
       <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
@@ -264,11 +295,14 @@
           Like speculative decoding: assume many paths, verify in parallel, keep the best.
         </p>
         <div class="hero-cta">
-          <a class="btn pri" href="./nav.html">
-            <span data-zh>进入硅基导航</span><span data-en>Open the directory</span> <span aria-hidden="true">→</span>
+          <a class="btn pri" href="https://ide.specul.com/">
+            <span data-zh>看工具图谱</span><span data-en>Browse the atlases</span> <span aria-hidden="true">→</span>
           </a>
           <a class="btn" href="https://keel.specul.com/">
-            <span data-zh>了解基座 Keel</span><span data-en>Explore Keel</span>
+            <span data-zh>了解基座</span><span data-en>Explore Keel</span>
+          </a>
+          <a class="btn" href="./nav.html">
+            <span data-zh>硅基导航</span><span data-en>Directory</span>
           </a>
         </div>
         <div class="hero-stats">
@@ -276,6 +310,55 @@
           <div class="hero-stat"><b>9</b><span data-zh>大品类</span><span data-en>categories</span></div>
           <div class="hero-stat"><b>3</b><span data-zh>产品线</span><span data-en>product lines</span></div>
           <div class="hero-stat"><b>MIT</b><span data-zh>开源协议</span><span data-en>open source</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== 四站导览 ====== -->
+    <section class="sec" id="sites" aria-label="站点导览">
+      <div class="container">
+        <p class="sec-kicker" data-zh>SITES · 四个站</p>
+        <h2 data-zh>各有一件事要做</h2>
+        <h2 data-en>Four sites, four jobs</h2>
+        <p class="sec-lede" data-zh>
+          同一个团队，四种交付形态：一个可复用基座、三个有证据的对比图谱、一份精选目录。
+        </p>
+        <p class="sec-lede" data-en>
+          One team, four delivery forms: a reusable base, three evidence-backed atlases, one curated directory.
+        </p>
+        <div class="sites-grid">
+          <a class="site-card" href="https://keel.specul.com/">
+            <span class="site-tag" data-zh>基座</span>
+            <h3 data-zh>基座 Keel</h3>
+            <h3 data-en>Keel</h3>
+            <p data-zh>开源 AI 应用基座。会话续接、工具接入、权限收口、长任务状态——每次都要重做的事，固化成可直接复用的骨架。</p>
+            <p data-en>An open base for AI apps: resumable sessions, tool wiring, contained permissions and long-task state, frozen into a reusable skeleton.</p>
+            <span class="site-go" aria-hidden="true">→</span>
+          </a>
+          <a class="site-card" href="https://ide.specul.com/">
+            <span class="site-tag">IDE</span>
+            <h3 data-zh>AI 编程 IDE 图谱</h3>
+            <h3 data-en>IDE atlas</h3>
+            <p data-zh>8 个编辑器与编码工具，按固定 8 维度对比。每条判断挂官方源，查不到就写「未知」。</p>
+            <p data-en>Eight editors and coding tools on a fixed 8-axis schema. Every judgement links to a primary source; unknowns stay unknown.</p>
+            <span class="site-go" aria-hidden="true">→</span>
+          </a>
+          <a class="site-card" href="https://cli.specul.com/">
+            <span class="site-tag">CLI</span>
+            <h3 data-zh>终端 AI 编码工具图谱</h3>
+            <h3 data-en>CLI atlas</h3>
+            <p data-zh>6 个终端工具的非交互模式、CI 可用性与 Git 集成深度。</p>
+            <p data-en>Six terminal tools compared on non-interactive mode, CI usability and Git integration depth.</p>
+            <span class="site-go" aria-hidden="true">→</span>
+          </a>
+          <a class="site-card" href="https://mcp.specul.com/">
+            <span class="site-tag">MCP</span>
+            <h3 data-zh>MCP 服务器图谱</h3>
+            <h3 data-en>MCP atlas</h3>
+            <p data-zh>9 个 server 的权限范围、传输方式与输出可用性。第一个问题是安全，不是能力。</p>
+            <p data-en>Permission scope, transport and output usability across nine servers. The first question is safety, not capability.</p>
+            <span class="site-go" aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>
@@ -483,6 +566,16 @@
   </footer>
 
   <script src="brand.js" defer></script>
+  <script>
+    /* 语言桥接：brand.js 只切 <html lang>，而 data-zh/data-en 的显隐
+       依赖 html[data-lang]（规则在 brand.css）。这里做同步。 */
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
+      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
+      sync();
+    })();
+  </script>
   <script>
     var _hmt = _hmt || [];
     (function () {
