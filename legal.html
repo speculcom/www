@@ -100,7 +100,7 @@
       <a class="brand" href="./" title="Specul 首页">
         <span class="brand-dot" aria-hidden="true"></span>
         <span class="brand-text">
-          <span class="brand-name">SPECUL</span>
+          <span class="brand-name">投机取巧</span>
           <span class="brand-sub" id="markSub"
                 data-zh-sub="投机取巧" data-en-sub="speculation · craft">投机取巧</span>
         </span>
@@ -120,7 +120,8 @@
     </div>
   </header>
 
-  <main class="container">
+    <a class="t-skip" href="#main">跳到主要内容</a>
+  <main id="main" class="container">
     <div class="legal-head">
       <h1 data-zh>法律条款</h1>
       <h1 data-en>Legal</h1>
@@ -535,5 +536,15 @@
   </footer>
 
   <script src="brand.js" defer></script>
+  <script>
+    /* 语言桥接：brand.js 只切 <html lang>，而双语节点的显隐依赖
+       html[data-lang]（规则见 brand.css，全站共用）。 */
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
+      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
+      sync();
+    })();
+  </script>
 </body>
 </html>
