@@ -29,12 +29,12 @@
     /* 四站导览 */
     .sites-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
     .site-card {
-      background: var(--bg2); padding: 26px 24px 24px;
+      background: var(--bg-raise); padding: 26px 24px 24px;
       display: flex; flex-direction: column; gap: 10px; position: relative;
       text-decoration: none; color: inherit; min-width: 0;
       transition: background .18s var(--ease);
     }
-    .site-card:hover { background: color-mix(in srgb, var(--vio) 7%, var(--bg2)); }
+    .site-card:hover { background: color-mix(in srgb, var(--vio) 7%, var(--bg-raise)); }
     .site-card:hover .site-go { transform: translateX(4px); color: var(--cyan); }
     .site-tag {
       align-self: flex-start;
@@ -44,8 +44,8 @@
       border-radius: 20px; padding: 3px 10px;
     }
     .site-card h3 { font-size: 18px; font-weight: 650; margin: 0; line-height: 1.45; }
-    .site-card p { margin: 0; font-size: 13.5px; line-height: 1.7; color: var(--dim); }
-    .site-go { position: absolute; top: 26px; right: 24px; color: var(--dim); font-size: 15px; transition: transform .18s var(--ease), color .18s var(--ease); }
+    .site-card p { margin: 0; font-size: 13.5px; line-height: 1.7; color: var(--ink-mid); }
+    .site-go { position: absolute; top: 26px; right: 24px; color: var(--ink-mid); font-size: 15px; transition: transform .18s var(--ease), color .18s var(--ease); }
     @media (min-width: 900px) { .sites-grid { grid-template-columns: 1fr 1fr; } }
     .hero-orb {
       position: absolute; border-radius: 50%;
@@ -71,8 +71,8 @@
     .hero-badge {
       display: inline-flex; align-items: center; gap: 9px;
       font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--dim);
-      border: 1px solid var(--line); background: var(--panel);
+      color: var(--ink-mid);
+      border: 1px solid var(--line); background: var(--bg-panel);
       border-radius: 999px; padding: 7px 16px; margin-bottom: clamp(20px, 4vh, 34px);
     }
     .hero-badge .dot {
@@ -90,7 +90,7 @@
       /* 走 brand.css 的共享尺度（--t-hero = clamp(34px, 5.4vw, 52px)），
          原先这里是 clamp(2.6rem, 7.4vw, 5.6rem) = 最高 89.6px，
          与其他站的 46px 差近两倍，是全站不像同一个站的主要原因之一。 */
-      font-size: var(--t-hero);
+      font-size: var(--fs-3xl);
       font-weight: 800; line-height: var(--lh-tight); letter-spacing: -.025em;
       margin-bottom: clamp(18px, 3.4vh, 30px);
     }
@@ -101,7 +101,7 @@
     }
     .hero-sub {
       font-size: clamp(15px, 1.6vw, 18px); line-height: 1.7;
-      color: var(--dim); max-width: 34em;
+      color: var(--ink-mid); max-width: 34em;
       margin-bottom: clamp(26px, 5vh, 44px);
     }
     .hero-sub strong { color: var(--ink); font-weight: 650; }
@@ -122,7 +122,7 @@
       background: var(--grad-text);
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
-    .hero-stat span { font-size: 12px; color: var(--dim); letter-spacing: .04em; }
+    .hero-stat span { font-size: 12px; color: var(--ink-mid); letter-spacing: .04em; }
 
     /* ===== 区块通用 ===== */
     section.sec { padding: clamp(44px, 8vh, 84px) 0; border-top: 1px solid var(--line); }
@@ -135,12 +135,12 @@
       font-size: clamp(24px, 3.4vw, 34px); font-weight: 750;
       letter-spacing: -.02em; margin-bottom: 10px;
     }
-    .sec-desc { color: var(--dim); font-size: 14.5px; line-height: 1.7; max-width: 44em; }
+    .sec-desc { color: var(--ink-mid); font-size: 14.5px; line-height: 1.7; max-width: 44em; }
 
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px; }
     .panel {
       position: relative; overflow: hidden;
-      background: var(--panel); border: 1px solid var(--line);
+      background: var(--bg-panel); border: 1px solid var(--line);
       border-radius: 18px; padding: clamp(20px, 2.6vw, 30px);
       transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
     }
@@ -156,12 +156,12 @@
       font-family: var(--mono); font-size: 12px;
       color: var(--cyan); letter-spacing: .05em; margin-bottom: 12px;
     }
-    .panel p { font-size: 14px; line-height: 1.75; color: var(--dim); }
+    .panel p { font-size: 14px; line-height: 1.75; color: var(--ink-mid); }
     .panel p strong { color: var(--ink); font-weight: 650; }
 
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; }
     .step {
-      background: var(--panel); border: 1px solid var(--line);
+      background: var(--bg-panel); border: 1px solid var(--line);
       border-radius: 18px; padding: clamp(20px, 2.4vw, 28px);
       position: relative; overflow: hidden;
       transition: border-color .18s var(--ease), transform .18s var(--ease);
@@ -176,13 +176,13 @@
       margin-bottom: 12px; font-family: var(--mono); font-weight: 650;
     }
     .step h3 { font-size: 17px; margin-bottom: 8px; }
-    .step p { font-size: 13.5px; line-height: 1.7; color: var(--dim); }
+    .step p { font-size: 13.5px; line-height: 1.7; color: var(--ink-mid); }
 
     /* ===== 产品 ===== */
     .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
     .product {
       display: flex; flex-direction: column; gap: 10px;
-      background: var(--panel); border: 1px solid var(--line);
+      background: var(--bg-panel); border: 1px solid var(--line);
       border-radius: 18px; padding: clamp(20px, 2.4vw, 28px);
       transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
     }
@@ -191,12 +191,12 @@
       box-shadow: 0 14px 34px -18px rgba(34, 211, 197, .35);
     }
     .product .pill {
-      align-self: flex-start; font-size: 11px; color: var(--gold);
+      align-self: flex-start; font-size: 11px; color: var(--warn);
       border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px;
       letter-spacing: .04em;
     }
     .product h3 { font-size: 19px; }
-    .product p { font-size: 13.5px; line-height: 1.7; color: var(--dim); flex: 1; }
+    .product p { font-size: 13.5px; line-height: 1.7; color: var(--ink-mid); flex: 1; }
     .product .go {
       font-size: 13px; font-weight: 650; color: var(--cyan);
       text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
@@ -209,13 +209,13 @@
     .cat-chip {
       display: inline-flex; align-items: center; gap: 9px;
       padding: 10px 18px; border: 1px solid var(--line);
-      background: var(--panel); border-radius: 999px;
+      background: var(--bg-panel); border-radius: 999px;
       font-size: 13.5px; font-weight: 550; color: var(--ink);
       text-decoration: none;
       transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
     }
     .cat-chip .ic { font-size: 16px; }
-    .cat-chip .cnt { font: 11px var(--mono); color: var(--dim); }
+    .cat-chip .cnt { font: 11px var(--mono); color: var(--ink-mid); }
     .cat-chip:hover {
       border-color: var(--cyan); transform: translateY(-2px);
       box-shadow: 0 10px 24px -14px rgba(34, 211, 197, .4);
@@ -225,7 +225,7 @@
     .cta-band {
       position: relative; overflow: hidden;
       border: 1px solid var(--line); border-radius: 24px;
-      background: var(--panel);
+      background: var(--bg-panel);
       padding: clamp(36px, 7vw, 72px) clamp(24px, 5vw, 56px);
       text-align: center;
     }
@@ -239,7 +239,7 @@
     }
     .cta-band > * { position: relative; }
     .cta-band h2 { font-size: clamp(24px, 3.6vw, 36px); margin-bottom: 12px; }
-    .cta-band p { color: var(--dim); font-size: 14.5px; margin-bottom: 28px; }
+    .cta-band p { color: var(--ink-mid); font-size: 14.5px; margin-bottom: 28px; }
   </style>
 </head>
 <body class="brand-ambient">
