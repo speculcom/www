@@ -1,52 +1,71 @@
-# 推演 specul.com 硅基文明
-> 专注于硅基生命时代的上网导航站，汇聚人工智能、机器人、区块链、数字币、大模型、芯片算力等领域 700+ 精选资源与工具，支持分类检索与标签筛选。
+# Specul · 投机取巧
 
-## 人工智能
-- [ChatGPT](https://chat.openai.com): OpenAI 推出的顶级对话式 AI，支持文本、图像、语音多模态交互
-- [Claude](https://claude.ai): Anthropic 开发的安全可靠大模型，擅长长文本分析与深度推理
-- [Gemini](https://gemini.google.com): Google DeepMind 打造的新一代多模态大模型
-- [DeepSeek](https://chat.deepseek.com): 深度求索推出的高性能开源大模型，编程与推理能力突出
-- [Kimi](https://kimi.moonshot.cn): 月之暗面推出的超长上下文 AI 助手
-- [Perplexity](https://www.perplexity.ai): AI 驱动的智能搜索引擎
+> 面向 AI 使用者的分层决策图谱站群。每一层解决一个不同的问题，四层协作而非竞争。
 
-## 机器人
-- [Boston Dynamics](https://bostondynamics.com): 全球最知名的高动态机器人公司
-- [Tesla Optimus](https://www.tesla.com/optimus): 特斯拉推出的通用人形机器人
-- [Figure AI](https://www.figure.ai): OpenAI 投资的通用人形机器人公司
-- [Unitree](https://www.unitree.com): 中国领先的四足与人形机器人公司
-- [Waymo](https://waymo.com): Alphabet 旗下自动驾驶公司
+## 站点群结构
 
-## 大模型与平台
-- [Hugging Face](https://huggingface.co): 全球最大的 AI 模型社区与开源平台
-- [ModelScope](https://modelscope.cn): 阿里云推出的中文 AI 模型开源社区
-- [Ollama](https://ollama.ai): 本地运行大语言模型的最简单方式
-- [Replicate](https://replicate.com): 一键运行和部署开源 AI 模型的云平台
+Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 
-## 区块链
-- [Ethereum](https://ethereum.org): 全球最大的智能合约平台
-- [Solana](https://solana.com): 高性能 Layer1 公链
-- [Arbitrum](https://arbitrum.io): 以太坊最受欢迎的 Layer2 网络
+| 层 | 站点 | 回答的问题 |
+|---|---|---|
+| 产品层 | https://ide.specul.com/ | 我在哪个界面里用？顺手不顺手？ |
+| 产品层 | https://cli.specul.com/ | 我在终端里怎么用？能不能进 CI？ |
+| 组件层 | https://mcp.specul.com/ | Agent 能调用哪些工具？权限安不安全？ |
+| 模型层 | https://models.specul.com/ | 同一模型几十个量化版，我该下哪个？ |
+| 编排层（规划中） | https://harness.specul.com/ | 长时间任务靠不靠得住？ |
+| 导航 | https://nav.specul.com/ | AI 相关网站目录，529 条 / 11 类 |
+| 首页 | https://specul.com/ | 总入口与理念 |
 
-## 数字币
-- [CoinMarketCap](https://coinmarketcap.com): 全球最权威的加密货币市值排名平台
-- [Binance](https://www.binance.com): 全球交易量最大的加密货币交易所
-- [Uniswap](https://uniswap.org): 以太坊上最大的去中心化交易所
+## 各站说明
 
-## 芯片算力
-- [NVIDIA](https://www.nvidia.com): GPU 领域全球领导者
-- [台积电](https://www.tsmc.com): 全球最大半导体代工企业
-- [ASML](https://www.asml.com): 荷兰光刻机巨头
+### IDE 图谱 — https://ide.specul.com/
+8 个 AI 编码 IDE（Cursor / Windsurf / Zed / Cline / Aider / Copilot / Codex IDE / Claude Code IDE），
+按固定 8 维度记录能力边界。**未知就写未知**，不给总分排名。
 
-## 开发工具
-- [GitHub](https://github.com): 全球最大的代码托管与协作平台
-- [Vercel](https://vercel.com): 前端部署平台领导者
-- [Figma](https://www.figma.com): 全球领先的 UI/UX 在线协作设计工具
-- [VS Code](https://code.visualstudio.com): 微软开源代码编辑器
+### CLI 图谱 — https://cli.specul.com/
+6 个终端 AI 编码工具，非交互模式、CI 可用性、Git 集成深度。
 
-## 学习资源
-- [arXiv](https://arxiv.org): AI 前沿研究预印本论文平台
-- [Coursera](https://www.coursera.org): 全球顶级大学在线课程平台
-- [LeetCode](https://leetcode.com): 全球最流行的算法编程练习平台
+### MCP 图谱 — https://mcp.specul.com/
+9 个 MCP server，按 11 维度（比 IDE/CLI 多 3 个维度，因为要谈权限与传输）。
+第一个问题是安全，不是能力。
 
-## 更多
-全站共 705 个精选外链，覆盖 8 大类别 50+ 子分类。访问 [https://specul.com](https://specul.com) 浏览完整导航。
+### Models 图谱 — https://models.specul.com/
+本地部署量化模型对比。按显存倒推该下哪一档 GGUF；
+文件体积是实测值，许可逐条标注发布页原文。
+**不跑 benchmark，不给质量与速度结论，不托管任何权重文件。**
+
+### 导航 — https://nav.specul.com/
+529 条 AI 相关网站，11 个分类，链接逐条核验。系统性介绍每个站点「做什么、适合谁」。
+
+## 共同的方法论
+
+图谱站共用同一套方法论：
+
+1. **固定维度对比** —— 不因对象不同而改维度，这样横向才可比
+2. **每条判断挂官方源** —— 不凭印象，链接指向发布页或源码
+3. **未知是合法答案** —— 查不到就说查不到，不编
+4. **不给总分排名** —— 加权总分掩盖了取舍，而取舍才是决策依据
+5. **只索引，不托管** —— 不复制、不再分发第三方内容
+
+Models 站额外遵守：只引述不解读许可、遇 gated 仓库跳过不绕过。
+
+## 核心判据
+
+- **能否离线/自托管**：全部数据公开，站点静态托管在 GitHub Pages
+- **量化可复现**：字段来源、处理规则、推导公式全部公开（各站 `METHODOLOGY.md`）
+- **审计强制**：数据不合规则构建中止，不允许「差不多就行」
+
+## 数据仓
+
+- 图谱数据层：https://github.com/speculcom/ai-coding-agent-atlas
+- Models 数据层：https://github.com/speculcom/ai-quantized-llm
+- 导航目录：https://github.com/speculcom/ai-sites-directory
+
+## 法律
+
+自有内容与第三方内容的界限见 https://specul.com/legal.html
+本站不提供法律意见；涉及第三方模型许可，请以各 Hugging Face 发布页原文为准。
+
+---
+
+最后更新：2026-09-30
