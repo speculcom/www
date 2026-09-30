@@ -11,14 +11,6 @@
   </url>
 
   <url>
-    <loc>https://specul.com/nav.html</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://specul.com/nav.html"/>
-  </url>
-
-  <url>
     <loc>https://specul.com/legal.html</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
