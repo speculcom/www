@@ -248,9 +248,7 @@
       <a class="brand" href="./" title="投机取巧">
         <span class="brand-dot" aria-hidden="true"></span>
         <span class="brand-text">
-          <span class="brand-name">投机取巧</span>
-          <span class="brand-sub" id="markSub"
-                data-zh-sub="投机取巧" data-en-sub="Speculation · Craft">投机取巧</span>
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
         </span>
       </a>
       <nav class="nav-links" aria-label="站点导航">
@@ -260,6 +258,7 @@
         <a href="https://ide.specul.com/"><span data-zh>IDE 图谱</span><span data-en>IDE</span></a>
         <a href="https://cli.specul.com/"><span data-zh>CLI 图谱</span><span data-en>CLI</span></a>
         <a href="https://mcp.specul.com/"><span data-zh>MCP 图谱</span><span data-en>MCP</span></a>
+        <a href="https://harness.specul.com/"><span data-zh>Harness 图谱</span><span data-en>Harness</span></a>
         <a href="https://models.specul.com/"><span data-zh>Models 图谱</span><span data-en>Models</span></a>
         <span class="nav-tools">
           <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题">☾</button>
@@ -358,6 +357,14 @@
             <h3 data-en>MCP atlas</h3>
             <p data-zh>9 个 server 的权限范围、传输方式与输出可用性。第一个问题是安全，不是能力。</p>
             <p data-en>Permission scope, transport and output usability across nine servers. The first question is safety, not capability.</p>
+            <span class="site-go" aria-hidden="true">→</span>
+          </a>
+          <a class="site-card" href="https://harness.specul.com/">
+            <span class="site-tag">HARNESS</span>
+            <h3 data-zh>Agent Harness 图谱</h3>
+            <h3 data-en>Agent harness atlas</h3>
+            <p data-zh>要不要自己搭 Agent？10 套运行时的责任边界、状态持久化与权限模型。</p>
+            <p data-en>Should you build your own agent? Ten runtimes compared on responsibility, state persistence and permission model.</p>
             <span class="site-go" aria-hidden="true">→</span>
           </a>
           <a class="site-card" href="https://models.specul.com/">
@@ -476,11 +483,11 @@
             <span class="pill"><span data-zh>对比索引</span><span data-en>Comparison</span></span>
             <h3 data-zh>AI 编程工具图谱</h3><h3 data-en>Tool atlases</h3>
             <p data-zh>
-              IDE · CLI · MCP 三赛道 23 个对象，按固定 8 维度记录能力边界，
+              IDE · CLI · MCP · Harness 四赛道 33 个对象，按固定 8 维度记录能力边界，
               每条判断挂官方源，未知就写未知。
             </p>
             <p data-en>
-              23 objects across IDE, CLI and MCP, recorded on a fixed 8-axis schema.
+              33 objects across IDE, CLI, MCP and Harness, recorded on a fixed 8-axis schema.
               Every judgement links to a primary source; unknowns stay unknown.
             </p>
             <a class="go" href="https://ide.specul.com/">
@@ -491,6 +498,9 @@
             </a>
             <a class="go" href="https://mcp.specul.com/">
               <span data-zh>MCP 图谱</span><span data-en>MCP atlas</span><span class="arr" aria-hidden="true">→</span>
+            </a>
+            <a class="go" href="https://harness.specul.com/">
+              <span data-zh>Harness 图谱</span><span data-en>Harness atlas</span><span class="arr" aria-hidden="true">→</span>
             </a>
           </div>
           <div class="product">
@@ -579,8 +589,9 @@
           <a href="https://ide.specul.com/">IDE 图谱</a>
           <a href="https://cli.specul.com/">CLI 图谱</a>
           <a href="https://mcp.specul.com/">MCP 图谱</a>
+          <a href="https://harness.specul.com/">Harness 图谱</a>
           <a href="https://models.specul.com/">Models 图谱</a>
-          <a href="https://specul.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/speculcom/www" target="_blank" rel="noopener">GitHub</a>
         </nav>
       <nav class="foot-legal-links" aria-label="法律">
 
