@@ -88,8 +88,10 @@
       background: var(--bg-panel); border: 1px solid var(--line); border-left: 3px solid var(--warn);
       border-radius: 10px; font-size: 12.5px; color: var(--ink-mid);
       font-family: var(--mono); line-height: 1.65;
+      /* 等宽字体排长 URL 时默认不换行 → 320px 视口溢出，必须显式允许任意位置断行 */
+      overflow-wrap: anywhere;
     }
-    blockquote.attr p { margin-bottom: 10px; font-size: 12.5px; }
+    blockquote.attr p { margin-bottom: 10px; font-size: 12.5px; overflow-wrap: anywhere; }
     blockquote.attr p:last-child { margin-bottom: 0; }
   </style>
 </head>
@@ -100,9 +102,7 @@
       <a class="brand" href="./" title="Specul 首页">
         <span class="brand-dot" aria-hidden="true"></span>
         <span class="brand-text">
-          <span class="brand-name">投机取巧</span>
-          <span class="brand-sub" id="markSub"
-                data-zh-sub="投机取巧" data-en-sub="speculation · craft">投机取巧</span>
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
         </span>
       </a>
       <nav class="nav-links" aria-label="站点导航">
@@ -112,6 +112,7 @@
         <a href="https://ide.specul.com/"><span data-zh>IDE 图谱</span><span data-en>IDE</span></a>
         <a href="https://cli.specul.com/"><span data-zh>CLI 图谱</span><span data-en>CLI</span></a>
         <a href="https://mcp.specul.com/"><span data-zh>MCP 图谱</span><span data-en>MCP</span></a>
+        <a href="https://harness.specul.com/"><span data-zh>Harness 图谱</span><span data-en>Harness</span></a>
         <a href="https://models.specul.com/"><span data-zh>Models 图谱</span><span data-en>Models</span></a>
         <span class="nav-tools">
           <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题">☾</button>
@@ -126,8 +127,8 @@
     <div class="legal-head">
       <h1 data-zh>法律条款</h1>
       <h1 data-en>Legal</h1>
-      <p class="sub" data-zh>最后更新：2026 年 9 月 · 投机取巧（Specul）· 适用站点：specul.com、keel.specul.com、ide.specul.com、cli.specul.com、mcp.specul.com</p>
-      <p class="sub" data-en>Last updated: September 2026 · Specul · applies to specul.com, keel.specul.com, ide.specul.com, cli.specul.com, mcp.specul.com</p>
+      <p class="sub" data-zh>最后更新：2026 年 9 月 · 投机取巧（Specul）· 适用站点：specul.com、keel.specul.com、ide.specul.com、cli.specul.com、mcp.specul.com、harness.specul.com、nav.specul.com、models.specul.com</p>
+      <p class="sub" data-en>Last updated: September 2026 · Specul · applies to specul.com, keel.specul.com, ide.specul.com, cli.specul.com, mcp.specul.com, harness.specul.com, nav.specul.com, models.specul.com</p>
     </div>
 
     <div class="toc-legal">
@@ -522,8 +523,9 @@
           <a href="https://ide.specul.com/">IDE 图谱</a>
           <a href="https://cli.specul.com/">CLI 图谱</a>
           <a href="https://mcp.specul.com/">MCP 图谱</a>
+          <a href="https://harness.specul.com/">Harness 图谱</a>
           <a href="https://models.specul.com/">Models 图谱</a>
-          <a href="https://specul.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/speculcom/www" target="_blank" rel="noopener">GitHub</a>
         </nav>
       <nav class="foot-legal-links" aria-label="法律">
 
