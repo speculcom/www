@@ -29,7 +29,7 @@
 .dir-search {
   display: flex; align-items: center; gap: 12px;
   max-width: 720px;
-  background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+  background: var(--panel); border: 1px solid var(--line); border-radius:var(--r);
   padding: 13px 18px;
   box-shadow: var(--shadow);
   transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease);
@@ -49,7 +49,7 @@
 .dir-kbd {
   font: 11px var(--mono); color: var(--dim);
   border: 1px solid var(--line); border-bottom-width: 2px;
-  border-radius: 6px; padding: 1px 8px; line-height: 1.6;
+  border-radius:var(--r-sm); padding: 1px 8px; line-height: 1.6;
 }
 .dir-stat { margin-top: 12px; font-size: 13px; color: var(--dim); letter-spacing: .02em; }
 
@@ -58,7 +58,7 @@
   display: flex; flex-direction: column; gap: 12px;
   padding: 14px; margin-bottom: 28px;
   background: var(--panel); border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius:var(--r);
 }
 .rail { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .rail-label {
@@ -152,7 +152,7 @@
 .dcard {
   display: block;
   background: var(--panel); border: 1px solid var(--line);
-  border-radius: 14px; padding: 14px 15px 12px;
+  border-radius:var(--r); padding: 14px 15px 12px;
   text-decoration: none; color: inherit;
   position: relative; overflow: hidden;
   transition: border-color var(--t) var(--ease), transform var(--t) var(--ease),
@@ -201,7 +201,7 @@
      仍保留首屏比内页更宽的结构差 —— 大气靠层级，不靠全站一样空。 */
   text-align: center; padding: var(--section-pad) 24px;
   color: var(--dim); font-size: 14px;
-  border: 1px dashed var(--line-strong); border-radius: 16px;
+  border: 1px dashed var(--line-strong); border-radius:var(--r);
 }
 .dir-empty-ic { font-size: 30px; margin-bottom: 14px; }
 .dir-empty p { margin-bottom: 18px; }
