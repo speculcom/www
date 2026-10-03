@@ -18,13 +18,16 @@
     /* ===== Specul 首页 v2：沉浸式现代布局，320 → 3440 全自适应 ===== */
     .hero2 {
       position: relative; overflow: hidden;
-      /* 2026-10-03：原 padding: clamp(56px, 12vh, 130px) 0 clamp(44px, 9vh, 96px)。
-         用 vh 导致留白随视口高度漂移 —— 实测 1440×900 下算出 108px，
-         是全站最大（models 32 / nav 52 / agent 80），用户反馈「留空都小一点」。
-         改用 --section-pad（40px 档）：全站同一档，且不随视口高度变化。
-         首屏仍保留比内页更宽的层级差（2 倍），大气靠层级不靠全站一样空。 */
-      padding: calc(var(--section-pad) * 2) 0 var(--section-pad);
-      min-height: min(86vh, 920px);
+      /* 2026-10-03 三轮调整（留白→ 版式），实测驱动：
+         ① 原 padding: clamp(56px, 12vh, 130px) → vh 让留白随视口漂移，
+            1440×900 下算出 108px（全站最大）；
+         ② 改 --section-pad（40px）后仍有 **232px 首屏空白带** ——
+            真凶是 min-height: min(86vh, 920px)：它按**视口高**撑高，
+            而标题只有三行，于是内容被压到中间，上下各空一片。
+         现代设计的判据是「大标题要立刻有内容跟上」，不是「首屏填满」。
+         所以去掉 min-height，改由 padding + 内容自然决定高度。
+         实测目标：空白带 ≤120px，与其他五站（96~176）同档。 */
+      padding: var(--section-pad) 0;
       display: flex; align-items: center;
     }
     /* 内容区与全站其他站同一容器宽度（brand.css 的 --container = min(1080px, 92vw)）。
@@ -32,7 +35,7 @@
     .hero2 > .container { width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
 
     /* 四站导览 */
-    .sites-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    .sites-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius:var(--r); overflow: hidden; }
     .site-card {
       background: var(--bg-raise); padding: 26px 24px 24px;
       display: flex; flex-direction: column; gap: 10px; position: relative;
@@ -46,7 +49,7 @@
       font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
       color: var(--cyan); border: 1px solid color-mix(in srgb, var(--cyan) 40%, transparent);
       background: color-mix(in srgb, var(--cyan) 9%, transparent);
-      border-radius: 20px; padding: 3px 10px;
+      border-radius:var(--r-lg); padding: 3px 10px;
     }
     .site-card h3 { font-size: 18px; font-weight: 650; margin: 0; line-height: 1.45; }
     .site-card p { margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-mid); }
@@ -149,7 +152,7 @@
     .panel {
       position: relative; overflow: hidden;
       background: var(--bg-panel); border: 1px solid var(--line);
-      border-radius: 18px; padding: clamp(20px, 2.6vw, 30px);
+      border-radius:var(--r-lg); padding: clamp(20px, 2.6vw, 30px);
       transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
     }
     .panel::before {
@@ -170,7 +173,7 @@
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; }
     .step {
       background: var(--bg-panel); border: 1px solid var(--line);
-      border-radius: 18px; padding: clamp(20px, 2.4vw, 28px);
+      border-radius:var(--r-lg); padding: clamp(20px, 2.4vw, 28px);
       position: relative; overflow: hidden;
       transition: border-color .18s var(--ease), transform .18s var(--ease);
     }
@@ -191,7 +194,7 @@
     .product {
       display: flex; flex-direction: column; gap: 10px;
       background: var(--bg-panel); border: 1px solid var(--line);
-      border-radius: 18px; padding: clamp(20px, 2.4vw, 28px);
+      border-radius:var(--r-lg); padding: clamp(20px, 2.4vw, 28px);
       transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
     }
     .product:hover {
@@ -232,7 +235,7 @@
     /* ===== CTA 收尾 ===== */
     .cta-band {
       position: relative; overflow: hidden;
-      border: 1px solid var(--line); border-radius: 24px;
+      border: 1px solid var(--line); border-radius:var(--r-lg);
       background: var(--bg-panel);
       padding: clamp(36px, 7vw, 72px) clamp(24px, 5vw, 56px);
       text-align: center;
