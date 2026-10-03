@@ -252,14 +252,11 @@
         </span>
       </a>
       <nav class="nav-links" aria-label="站点导航">
-        <a href="./" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
+        <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
         <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-        <a href="https://keel.specul.com/"><span data-zh>规划中</span><span data-en>Plan</span></a>
-        <a href="https://ide.specul.com/"><span data-zh>IDE 图谱</span><span data-en>IDE</span></a>
-        <a href="https://cli.specul.com/"><span data-zh>CLI 图谱</span><span data-en>CLI</span></a>
-        <a href="https://mcp.specul.com/"><span data-zh>MCP 图谱</span><span data-en>MCP</span></a>
-        <a href="https://harness.specul.com/"><span data-zh>Harness 图谱</span><span data-en>Harness</span></a>
-        <a href="https://models.specul.com/"><span data-zh>Models 图谱</span><span data-en>Models</span></a>
         <span class="nav-tools">
           <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题">☾</button>
           <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
@@ -295,11 +292,11 @@
           Like speculative decoding: assume many paths, verify in parallel, keep the best.
         </p>
         <div class="hero-cta">
-          <a class="btn pri" href="https://ide.specul.com/">
-            <span data-zh>看工具图谱</span><span data-en>Browse the atlases</span> <span aria-hidden="true">→</span>
+          <a class="btn pri" href="https://agent.specul.com/">
+            <span data-zh>看 Agent 图谱</span><span data-en>Browse the atlases</span> <span aria-hidden="true">→</span>
           </a>
-          <a class="btn" href="https://keel.specul.com/">
-            <span data-zh>看规划</span><span data-en>Plan</span>
+          <a class="btn" href="https://learn.specul.com/">
+            <span data-zh>学 AI</span><span data-en>Learn</span>
           </a>
           <a class="btn" href="https://nav.specul.com/">
             <span data-zh>硅基导航</span><span data-en>Directory</span>
@@ -315,64 +312,48 @@
     </section>
 
     <!-- ====== 四站导览 ====== -->
-    <section class="sec" id="sites" aria-label="站点导览">
+        <section class="sec" id="sites" aria-label="站点导览">
       <div class="container">
         <p class="sec-kicker" data-zh>SITES · 四个站</p>
         <h2 data-zh>各有一件事要做</h2>
         <h2 data-en>Four sites, four jobs</h2>
         <p class="sec-lede" data-zh>
-          同一个团队，四种交付形态：一个规划中的基座、三个有证据的对比图谱、一份精选目录。
+          同一个团队，四种交付形态：一份术语表、一张Agent 图谱、一份模型索引、一份精选目录。
         </p>
         <p class="sec-lede" data-en>
-          One team, four delivery forms: a base in planning, three evidence-backed atlases, one curated directory.
+          One team, four delivery forms: a glossary, an agent atlas, a model index, and a curated directory.
         </p>
         <div class="sites-grid">
-          <a class="site-card" href="https://keel.specul.com/">
-            <span class="site-tag" data-zh>规划中</span>
-            <h3 data-zh>Keel</h3>
-            <h3 data-en>Keel</h3>
-            <p data-zh>正在重新打造，与过去的 Keel 3D 完全无关。新方向确定后，会在这个页面更新。</p>
-            <p data-en>Being rebuilt from scratch, unrelated to the old Keel 3D. This page updates as the new direction takes shape.</p>
+          <a class="site-card" href="https://learn.specul.com/">
+            <span class="site-tag" data-zh>学 AI</span>
+            <h3 data-zh>AI 术语表</h3>
+            <h3 data-en>AI glossary</h3>
+            <p data-zh>116 个词，分六层。有零基础入门路径，每词都能回到原始出处。</p>
+            <p data-en>116 terms in six layers, with a zero-prerequisite path and a primary source for every entry.</p>
             <span class="site-go" aria-hidden="true">→</span>
           </a>
-          <a class="site-card" href="https://ide.specul.com/">
-            <span class="site-tag">IDE</span>
-            <h3 data-zh>AI 编程 IDE 图谱</h3>
-            <h3 data-en>IDE atlas</h3>
-            <p data-zh>8 个编辑器与编码工具，按固定 8 维度对比。每条判断挂官方源，查不到就写「未知」。</p>
-            <p data-en>Eight editors and coding tools on a fixed 8-axis schema. Every judgement links to a primary source; unknowns stay unknown.</p>
-            <span class="site-go" aria-hidden="true">→</span>
-          </a>
-          <a class="site-card" href="https://cli.specul.com/">
-            <span class="site-tag">CLI</span>
-            <h3 data-zh>终端 AI 编码工具图谱</h3>
-            <h3 data-en>CLI atlas</h3>
-            <p data-zh>6 个终端工具的非交互模式、CI 可用性与 Git 集成深度。</p>
-            <p data-en>Six terminal tools compared on non-interactive mode, CI usability and Git integration depth.</p>
-            <span class="site-go" aria-hidden="true">→</span>
-          </a>
-          <a class="site-card" href="https://mcp.specul.com/">
-            <span class="site-tag">MCP</span>
-            <h3 data-zh>MCP 服务器图谱</h3>
-            <h3 data-en>MCP atlas</h3>
-            <p data-zh>9 个 server 的权限范围、传输方式与输出可用性。第一个问题是安全，不是能力。</p>
-            <p data-en>Permission scope, transport and output usability across nine servers. The first question is safety, not capability.</p>
-            <span class="site-go" aria-hidden="true">→</span>
-          </a>
-          <a class="site-card" href="https://harness.specul.com/">
-            <span class="site-tag">HARNESS</span>
-            <h3 data-zh>Agent Harness 图谱</h3>
-            <h3 data-en>Agent harness atlas</h3>
-            <p data-zh>要不要自己搭 Agent？10 套运行时的责任边界、状态持久化与权限模型。</p>
-            <p data-en>Should you build your own agent? Ten runtimes compared on responsibility, state persistence and permission model.</p>
+          <a class="site-card" href="https://agent.specul.com/">
+            <span class="site-tag">AGENT</span>
+            <h3 data-zh>Agent 图谱</h3>
+            <h3 data-en>Agent atlas</h3>
+            <p data-zh>33 个对象分三层：自己跑的成品 agent、自己搭的运行时与 SDK、给 agent 装的 MCP 工具。不给总分排名。</p>
+            <p data-en>33 entries in three layers: finished agents, runtimes and SDKs you build yourself, and MCP tools you install. No rankings.</p>
             <span class="site-go" aria-hidden="true">→</span>
           </a>
           <a class="site-card" href="https://models.specul.com/">
             <span class="site-tag">MODELS</span>
-            <h3 data-zh>量化模型图谱</h3>
-            <h3 data-en>Quantized models</h3>
-            <p data-zh>同一模型几十个 GGUF 量化版，该下哪一个。按你的显存倒推，不做质量排名。</p>
-            <p data-en>Dozens of GGUF quants per model. Pick by VRAM budget. No quality rankings.</p>
+            <h3 data-zh>本地模型索引</h3>
+            <h3 data-en>Local model index</h3>
+            <p data-zh>7 个系列、11 种规格、846 个量化档位。按你的显存倒推该下哪一个，不做质量排名。</p>
+            <p data-en>7series, 11 specs, 846 quantization tiers. Pick by VRAM budget. No quality rankings.</p>
+            <span class="site-go" aria-hidden="true">→</span>
+          </a>
+          <a class="site-card" href="https://nav.specul.com/">
+            <span class="site-tag">NAV</span>
+            <h3 data-zh>硅基导航</h3>
+            <h3 data-en>Directory</h3>
+            <p data-zh>487+ 个精选 AI 资源，按 9 个大品类归类，每条都有说明与出处。</p>
+            <p data-en>487+ curated AI resources across 9 categories, each with notes and a source.</p>
             <span class="site-go" aria-hidden="true">→</span>
           </a>
         </div>
@@ -466,41 +447,40 @@
         </div>
         <div class="products">
           <div class="product">
-            <span class="pill">规划中</span>
-            <h3 data-zh>Keel</h3><h3 data-en>Keel</h3>
+            <span class="pill"><span data-zh>入门</span><span data-en>Learn</span></span>
+            <h3 data-zh>AI 术语表</h3><h3 data-en>AI glossary</h3>
             <p data-zh>
-              Keel 正在重新打造，与过去的 Keel 3D 完全无关。新方向确定后，会回到这个页面更新。
+              116 个词分六层，配一条零基础入门路径。不按字母排，按「先学什么后学什么」排——
+              因为大多数人不做本地部署，第 5 层可以先跳过。
             </p>
             <p data-en>
-              Keel is being rebuilt from scratch, unrelated to the old Keel 3D.
-              This page updates as the new direction takes shape.
+              116 terms in six layers with a zero-prerequisite path. Ordered by what to learn first,
+              not alphabetically — most people never deploy locally, so layer 5 can be skipped.
             </p>
-            <a class="go" href="https://keel.specul.com/">
-              <span data-zh>看规划</span><span data-en>Plan</span><span class="arr" aria-hidden="true">→</span>
+            <a class="go" href="https://learn.specul.com/">
+              <span data-zh>从第一层开始</span><span data-en>Start at layer 1</span><span class="arr" aria-hidden="true">→</span>
             </a>
           </div>
           <div class="product">
             <span class="pill"><span data-zh>对比索引</span><span data-en>Comparison</span></span>
-            <h3 data-zh>AI 编程工具图谱</h3><h3 data-en>Tool atlases</h3>
+            <h3 data-zh>Agent 图谱</h3><h3 data-en>Agent atlas</h3>
             <p data-zh>
-              IDE · CLI · MCP · Harness 四赛道 33 个对象，按固定 8 维度记录能力边界，
-              每条判断挂官方源，未知就写未知。
+              33 个对象分三层：自己跑的成品 agent、自己搭的运行时与 SDK、给 agent 装的 MCP 工具。
+              每条判断挂官方源，未知就写未知——<strong>不给总分排名</strong>。
             </p>
             <p data-en>
-              33 objects across IDE, CLI, MCP and Harness, recorded on a fixed 8-axis schema.
-              Every judgement links to a primary source; unknowns stay unknown.
+              33 entries in three layers: finished agents, runtimes and SDKs you build yourself,
+              and MCP tools you install. Every judgement links to a primary source;
+              <strong>no rankings</strong>.
             </p>
-            <a class="go" href="https://ide.specul.com/">
-              <span data-zh>IDE 图谱</span><span data-en>IDE atlas</span><span class="arr" aria-hidden="true">→</span>
+            <a class="go" href="https://agent.specul.com/">
+              <span data-zh>成品 Agent</span><span data-en>Finished agents</span><span class="arr" aria-hidden="true">→</span>
             </a>
-            <a class="go" href="https://cli.specul.com/">
-              <span data-zh>CLI 图谱</span><span data-en>CLI atlas</span><span class="arr" aria-hidden="true">→</span>
+            <a class="go" href="https://agent.specul.com/harness/">
+              <span data-zh>自己搭的底座</span><span data-en>Runtimes &amp; SDKs</span><span class="arr" aria-hidden="true">→</span>
             </a>
-            <a class="go" href="https://mcp.specul.com/">
-              <span data-zh>MCP 图谱</span><span data-en>MCP atlas</span><span class="arr" aria-hidden="true">→</span>
-            </a>
-            <a class="go" href="https://harness.specul.com/">
-              <span data-zh>Harness 图谱</span><span data-en>Harness atlas</span><span class="arr" aria-hidden="true">→</span>
+            <a class="go" href="https://agent.specul.com/tools/">
+              <span data-zh>给 agent 装的工具</span><span data-en>MCP tools</span><span class="arr" aria-hidden="true">→</span>
             </a>
           </div>
           <div class="product">
@@ -567,8 +547,8 @@
             <a class="btn pri" href="https://nav.specul.com/">
               <span data-zh>进入导航</span><span data-en>Open directory</span> <span aria-hidden="true">→</span>
             </a>
-            <a class="btn" href="https://keel.specul.com/">
-              <span data-zh>看规划</span><span data-en>Plan</span>
+            <a class="btn" href="https://learn.specul.com/">
+              <span data-zh>从术语开始</span><span data-en>Start with terms</span>
             </a>
           </div>
         </div>
@@ -583,16 +563,13 @@
           <span class="foot-copy">© 2026 Specul · <span data-zh>投机取巧</span><span data-en>Speculation · Speculate</span></span>
         </div>
         <nav class="foot-links" aria-label="页脚导航">
-          <a href="./"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/">学 AI</a>
+          <a href="https://agent.specul.com/">Agent</a>
+          <a href="https://models.specul.com/">本地模型</a>
           <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-          <a href="https://keel.specul.com/">规划中</a>
-          <a href="https://ide.specul.com/">IDE 图谱</a>
-          <a href="https://cli.specul.com/">CLI 图谱</a>
-          <a href="https://mcp.specul.com/">MCP 图谱</a>
-          <a href="https://harness.specul.com/">Harness 图谱</a>
-          <a href="https://models.specul.com/">Models 图谱</a>
           <a href="https://github.com/speculcom/www" target="_blank" rel="noopener">GitHub</a>
-        </nav>
+      </nav>
       <nav class="foot-legal-links" aria-label="法律">
 
         <a href="./legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
