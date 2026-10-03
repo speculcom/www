@@ -102,14 +102,27 @@
       font-weight: 800; line-height: var(--lh-tight); letter-spacing: -.025em;
       margin-bottom: var(--sp-3);
     }
-    .hero-title .line { display: block; }
+    /* 2026-10-03：不强制每个短句独占一行。
+       原先 .line { display: block } 让「大胆假设 / 并行推演 / 固化交付」
+       各占一行 —— 三行短句在 1440px 下每行只到容器 40% 处，
+       用户报「横向没占满、内容集中在左侧」。实测首屏空白带 232px。
+       现在改成 inline：浏览器按容器宽度自然折行，宽屏一行放得下更多。
+       `.grad` 只给「并行推演」着色，所以它仍需独占一段——
+       用 inline-block 保证渐变背景完整（inline 会被拆成两半）。 */
+    .hero-title .line { display: inline-block; }
+    /* 短句之间的分隔符 —— 让 inline 排列的三句读起来是三段，
+       而不是「大胆假设并行推演固化交付」连成一团。 */
+    .hero-title .sep { color: var(--ink-faint); padding: 0 .18em; }
     .hero-title .grad {
       background: var(--grad-text);
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
     .hero-sub {
       font-size: clamp(15px, 1.6vw, 18px); line-height: 1.7;
-      color: var(--ink-mid); max-width: 34em;
+      /* 2026-10-03：原 max-width: 34em（@18px = 612px）→ 实测只占容器 55%，
+         用户报「横向没占满」。改用全站 --measure-wide 变量，
+         宽屏（≥1600px）自动放宽到 40em。 */
+      color: var(--ink-mid); max-width: var(--measure-wide);
       margin-bottom: var(--sp-4);
     }
     .hero-sub strong { color: var(--ink); font-weight: 650; }
@@ -290,7 +303,9 @@
         </div>
         <h1 class="hero-title">
           <span class="line"><span data-zh>大胆假设</span><span data-en>Bold bets,</span></span>
+          <span class="sep" aria-hidden="true">·</span>
           <span class="line grad"><span data-zh>并行推演</span><span data-en>parallel simulation,</span></span>
+          <span class="sep" aria-hidden="true">·</span>
           <span class="line"><span data-zh>固化交付</span><span data-en>shipped tools.</span></span>
         </h1>
         <p class="hero-sub" data-zh>
