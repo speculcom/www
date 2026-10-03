@@ -51,7 +51,7 @@
   border: 1px solid var(--line); border-bottom-width: 2px;
   border-radius: 6px; padding: 1px 8px; line-height: 1.6;
 }
-.dir-stat { margin-top: 12px; font-size: 12.5px; color: var(--dim); letter-spacing: .02em; }
+.dir-stat { margin-top: 12px; font-size: 13px; color: var(--dim); letter-spacing: .02em; }
 
 /* ===== 分类轨 + 标签轨（自然换行，永不出现滚动条） ======================= */
 .dir-rails {
@@ -106,7 +106,7 @@
 .dir-content-title { font-size: 21px; font-weight: 750; letter-spacing: -.01em; }
 .dir-content-meta {
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-  font-size: 12.5px; color: var(--dim);
+  font-size: 13px; color: var(--dim);
 }
 .dir-clear {
   font: 12px var(--font); color: var(--dim);
@@ -172,7 +172,7 @@
 .dcard-ic { font-size: 16px; flex-shrink: 0; }
 .dcard-name {
   flex: 1; min-width: 0;
-  font-size: 13.5px; font-weight: 650; color: var(--ink);
+  font-size: 14px; font-weight: 650; color: var(--ink);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .dcard-ext {
@@ -187,12 +187,12 @@
 }
 .dcard-foot { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .dcard-type {
-  font-size: 10.5px; font-weight: 600; color: var(--cyan);
+  font-size: 11px; font-weight: 600; color: var(--cyan);
   border: 1px solid rgba(34, 211, 197, .32); border-radius: 999px;
   padding: 1.5px 8px; white-space: nowrap;
 }
 [data-theme="light"] .dcard-type { border-color: rgba(15, 118, 110, .35); }
-.dcard-tags { font-size: 10.5px; color: var(--dim); opacity: .85; }
+.dcard-tags { font-size: 11px; color: var(--dim); opacity: .85; }
 
 /* 空状态 */
 .dir-empty {
@@ -200,7 +200,7 @@
      用户要求「留空都小一点」，收到 --section-pad 档（40px）+ 上下差异化。
      仍保留首屏比内页更宽的结构差 —— 大气靠层级，不靠全站一样空。 */
   text-align: center; padding: var(--section-pad) 24px;
-  color: var(--dim); font-size: 13.5px;
+  color: var(--dim); font-size: 14px;
   border: 1px dashed var(--line-strong); border-radius: 16px;
 }
 .dir-empty-ic { font-size: 30px; margin-bottom: 14px; }
