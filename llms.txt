@@ -1,6 +1,6 @@
 # Specul · 投机取巧
 
-> 面向 AI 使用者的分层决策图谱站群。每一层解决一个不同的问题，四层协作而非竞争。
+> 面向 AI 使用者的分层决策图谱站群。每一层解决一个不同的问题，各层协作而非竞争。
 
 ## 站点群结构
 
@@ -8,34 +8,37 @@ Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 
 | 层 | 站点 | 回答的问题 |
 |---|---|---|
-| 产品层 | https://ide.specul.com/ | 我在哪个界面里用？顺手不顺手？ |
-| 产品层 | https://cli.specul.com/ | 我在终端里怎么用？能不能进 CI？ |
-| 组件层 | https://mcp.specul.com/ | Agent 能调用哪些工具？权限安不安全？ |
-| 模型层 | https://models.specul.com/ | 同一模型几十个量化版，我该下哪个？ |
-| 编排层（规划中） | https://harness.specul.com/ | 长时间任务靠不靠得住？ |
-| 导航 | https://nav.specul.com/ | AI 相关网站目录，529 条 / 11 类 |
 | 首页 | https://specul.com/ | 总入口与理念 |
+| 概念层 | https://learn.specul.com/ | 这些名词是什么、为什么要知道它？ |
+| 产品层 | https://agent.specul.com/ | 该用哪个 agent / 运行时 / 工具？ |
+| 模型层 | https://models.specul.com/ | 同一模型几十个量化版，我该下哪个？ |
+| 实践层 | https://vg.specul.com/ | 用 AI 做游戏，哪些环节变了、哪些没变？ |
+| 导航 | https://nav.specul.com/ | AI 相关网站目录，527 条 / 11 类 |
 
 ## 各站说明
 
-### IDE 图谱 — https://ide.specul.com/
-8 个 AI 编码 IDE（Cursor / Windsurf / Zed / Cline / Aider / Copilot / Codex IDE / Claude Code IDE），
-按固定 8 维度记录能力边界。**未知就写未知**，不给总分排名。
+### 学 AI — https://learn.specul.com/
+116 个术语，按「先学什么后学什么」排成六层，另有 8 + 3 个维度对照表。
+每词能回到原始出处，**未知就写未知**，不给总分排名。
 
-### CLI 图谱 — https://cli.specul.com/
-6 个终端 AI 编码工具，非交互模式、CI 可用性、Git 集成深度。
-
-### MCP 图谱 — https://mcp.specul.com/
-9 个 MCP server，按 11 维度（比 IDE/CLI 多 3 个维度，因为要谈权限与传输）。
-第一个问题是安全，不是能力。
+### Agent 图谱 — https://agent.specul.com/
+36 份产品档案分三个分区：自己能跑的成品 agent（17）、自己搭的运行时与 SDK（10）、
+给 agent 装的 MCP 工具（9）。固定八维对比（工具分区另加传输 / 认证 / 范围三维）。
+**不给总分排名**——加权总分掩盖取舍，而取舍才是决策依据。
 
 ### Models 图谱 — https://models.specul.com/
-本地部署量化模型对比。按显存倒推该下哪一档 GGUF；
-文件体积是实测值，许可逐条标注发布页原文。
+本地部署量化模型索引：7 个系列、91 个量化仓、846 个量化档位。
+按显存倒推该下哪一档 GGUF；文件体积是发布页实测值，许可逐条标注原文。
 **不跑 benchmark，不给质量与速度结论，不托管任何权重文件。**
 
+### AI 做游戏 — https://vg.specul.com/
+25 页：17 个术语 + 5 个引擎档案，讲清 AI 在游戏开发里到底改变了哪些环节。
+含边界判定表与五阶段教学路径。
+
 ### 导航 — https://nav.specul.com/
-529 条 AI 相关网站，11 个分类，链接逐条核验。系统性介绍每个站点「做什么、适合谁」。
+527 条 AI 相关网站（在站条目，不含延伸领域），11 个分类，链接逐条核验。
+系统性介绍每个站点「做什么、适合谁」。核验日期与探测口径写在页面上，
+**探测失败不判死**——宁可漏判不可误杀。
 
 ## 共同的方法论
 
@@ -52,12 +55,13 @@ Models 站额外遵守：只引述不解读许可、遇 gated 仓库跳过不绕
 ## 核心判据
 
 - **能否离线/自托管**：全部数据公开，站点静态托管在 GitHub Pages
-- **量化可复现**：字段来源、处理规则、推导公式全部公开（各站 `METHODOLOGY.md`）
+- **可复现**：字段来源、处理规则、推导公式全部公开（各数据仓 `README.md` / `METHODOLOGY.md`）
 - **审计强制**：数据不合规则构建中止，不允许「差不多就行」
 
 ## 数据仓
 
-- 图谱数据层：https://github.com/speculcom/ai-coding-agent-atlas
+- 术语数据层：https://github.com/speculcom/ai-glossary
+- Agent 数据层：https://github.com/speculcom/ai-agent-guide
 - Models 数据层：https://github.com/speculcom/ai-quantized-llm
 - 导航目录：https://github.com/speculcom/ai-sites-directory
 
@@ -68,4 +72,4 @@ Models 站额外遵守：只引述不解读许可、遇 gated 仓库跳过不绕
 
 ---
 
-最后更新：2026-09-30
+最后更新：2026-10-08
