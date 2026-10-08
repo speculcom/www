@@ -14,611 +14,598 @@
   <meta property="og:description" content="我们用投机策略让 AI 推演一切，把结果做成人人可用的工具。" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%23070b14'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="brand.css" />
-  <style>
-    /* ===== Specul 首页 v2：沉浸式现代布局，320 → 3440 全自适应 ===== */
-    .hero2 {
-      position: relative; overflow: hidden;
-      /* 2026-10-03 三轮调整（留白→ 版式），实测驱动：
-         ① 原 padding: clamp(56px, 12vh, 130px) → vh 让留白随视口漂移，
-            1440×900 下算出 108px（全站最大）；
-         ② 改 --section-pad（40px）后仍有 **232px 首屏空白带** ——
-            真凶是 min-height: min(86vh, 920px)：它按**视口高**撑高，
-            而标题只有三行，于是内容被压到中间，上下各空一片。
-         现代设计的判据是「大标题要立刻有内容跟上」，不是「首屏填满」。
-         所以去掉 min-height，改由 padding + 内容自然决定高度。
-         实测目标：空白带 ≤120px，与其他五站（96~176）同档。 */
-      padding: var(--section-pad) 0;
-      display: flex; align-items: center;
-    }
-    /* 内容区与全站其他站同一容器宽度（brand.css 的 --container = min(1080px, 92vw)）。
-       原先这里写死 1280px/94vw，导致首页比子站宽，是全站不一致的源头。 */
-    .hero2 > .container { width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<style>
+/* =========================================================================
+ * 首页 v3 —— 内联样式，作用域限定在 body.brand-ambient（方案 A：不改共享的 brand.css）
+ *
+ * 为什么所有规则都带 .hp- 前缀：
+ *   brand.css 是六站共用的唯一定义源。方案 A 只改首页、不动它，
+ *   所以新样式必须**自带作用域**，否则会漏到其他站去
+ *   （首页写裸 .route / .hero 会污染 agent 站的同名选择器）。
+ *   代价是 HTML 上多一层类名；换来的是零跨站影响、随时可回滚。
+ *
+ * ⚠ token 基底是**暗色**，亮色在 html[data-theme="light"] 下覆盖。
+ *   因为 brand.js 的 applyTheme 对暗色是 removeAttribute（brand.js:59），
+ *   暗色态在 DOM 上没有 data-theme —— 写成 body[data-theme="dark"] 的话
+ *   深色态永远匹配不上，页面会一直是亮色而按钮显示 ☾（看着像坏了）。
+ * ========================================================================= */
 
-    /* 四站导览 */
-    .sites-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius:var(--r); overflow: hidden; }
-    .site-card {
-      background: var(--bg-raise); padding: 26px 24px 24px;
-      display: flex; flex-direction: column; gap: 10px; position: relative;
-      text-decoration: none; color: inherit; min-width: 0;
-      transition: background .18s var(--ease);
-    }
-    .site-card:hover { background: color-mix(in srgb, var(--vio) 7%, var(--bg-raise)); }
-    .site-card:hover .site-go { transform: translateX(4px); color: var(--cyan); }
-    .site-tag {
-      align-self: flex-start;
-      font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--cyan); border: 1px solid color-mix(in srgb, var(--cyan) 40%, transparent);
-      background: color-mix(in srgb, var(--cyan) 9%, transparent);
-      border-radius:var(--r-lg); padding: 3px 10px;
-    }
-    .site-card h3 { font-size: 18px; font-weight: 650; margin: 0; line-height: 1.45; }
-    .site-card p { margin: 0; font-size: 14px; line-height: 1.7; color: var(--ink-mid); }
-    .site-go { position: absolute; top: 26px; right: 24px; color: var(--ink-mid); font-size: 15px; transition: transform .18s var(--ease), color .18s var(--ease); }
-    @media (min-width: 900px) { .sites-grid { grid-template-columns: 1fr 1fr; } }
-    .hero-orb {
-      position: absolute; border-radius: 50%;
-      filter: blur(clamp(50px, 7vw, 90px)); opacity: .5; pointer-events: none;
-    }
-    .hero-orb-a {
-      width: clamp(300px, 46vw, 820px); height: clamp(300px, 46vw, 820px);
-      top: -14%; right: -10%;
-      background: radial-gradient(circle at 35% 35%, rgba(139, 124, 248, .55), transparent 65%);
-      animation: orb-a 18s ease-in-out infinite alternate;
-    }
-    .hero-orb-b {
-      width: clamp(260px, 38vw, 660px); height: clamp(260px, 38vw, 660px);
-      bottom: -18%; left: -8%;
-      background: radial-gradient(circle at 60% 60%, rgba(34, 211, 197, .42), transparent 65%);
-      animation: orb-b 24s ease-in-out infinite alternate;
-    }
-    @keyframes orb-a { to { transform: translate(-4%, 7%) scale(1.1); } }
-    @keyframes orb-b { to { transform: translate(6%, -6%) scale(1.07); } }
-    [data-theme="light"] .hero-orb { opacity: .38; }
-    @media (prefers-reduced-motion: reduce) { .hero-orb { animation: none; } }
+/* ---------- token：暗色为基底 ---------- */
+body.brand-ambient {
+  --hp-bg:        #16121f;
+  --hp-raise:     #221c34;
+  --hp-inset:     #1a1528;
+  --hp-line:      rgba(255, 255, 255, .1);
+  --hp-line-mid:  rgba(255, 255, 255, .18);
 
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 9px;
-      font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--ink-mid);
-      border: 1px solid var(--line); background: var(--bg-panel);
-      border-radius: 999px; padding: 7px 16px; margin-bottom: var(--sp-4);
-    }
-    .hero-badge .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 0 0 rgba(34, 211, 197, .5);
-      animation: pulse 2.4s ease-out infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(34, 211, 197, .45); }
-      70% { box-shadow: 0 0 0 9px rgba(34, 211, 197, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(34, 211, 197, 0); }
-    }
-    .hero-title {
-      /* 走 brand.css 的共享尺度（--t-hero = clamp(34px, 5.4vw, 52px)），
-         原先这里是 clamp(2.6rem, 7.4vw, 5.6rem) = 最高 89.6px，
-         与其他站的 46px 差近两倍，是全站不像同一个站的主要原因之一。 */
-      font-size: var(--fs-3xl);
-      font-weight: 800; line-height: var(--lh-tight); letter-spacing: -.025em;
-      margin-bottom: var(--sp-3);
-    }
-    /* 2026-10-03：不强制每个短句独占一行。
-       原先 .line { display: block } 让「大胆假设 / 并行推演 / 固化交付」
-       各占一行 —— 三行短句在 1440px 下每行只到容器 40% 处，
-       用户报「横向没占满、内容集中在左侧」。实测首屏空白带 232px。
-       现在改成 inline：浏览器按容器宽度自然折行，宽屏一行放得下更多。
-       `.grad` 只给「并行推演」着色，所以它仍需独占一段——
-       用 inline-block 保证渐变背景完整（inline 会被拆成两半）。 */
-    .hero-title .line { display: inline-block; }
-    /* 短句之间的分隔符 —— 让 inline 排列的三句读起来是三段，
-       而不是「大胆假设并行推演固化交付」连成一团。 */
-    .hero-title .sep { color: var(--ink-faint); padding: 0 .18em; }
-    .hero-title .grad {
-      background: var(--grad-text);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .hero-sub {
-      font-size: clamp(15px, 1.6vw, 18px); line-height: 1.7;
-      /* 2026-10-03：原 max-width: 34em（@18px = 612px）→ 实测只占容器 55%，
-         用户报「横向没占满」。改用全站 --measure-wide 变量，
-         宽屏（≥1600px）自动放宽到 40em。 */
-      color: var(--ink-mid); max-width: var(--measure-wide);
-      margin-bottom: var(--sp-4);
-    }
-    .hero-sub strong { color: var(--ink); font-weight: 650; }
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
-    .hero-stats {
-      display: flex; flex-wrap: wrap;
-      gap: clamp(16px, 3.4vw, 44px);
-      margin-top: var(--section-pad);
-    }
-    .hero-stat { display: flex; flex-direction: column; gap: 5px; }
-    .hero-stat + .hero-stat {
-      padding-left: clamp(16px, 3.4vw, 44px);
-      border-left: 1px solid var(--line);
-    }
-    .hero-stat b {
-      font-size: clamp(24px, 2.8vw, 34px); font-weight: 750; line-height: 1;
-      font-family: var(--mono);
-      background: var(--grad-text);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .hero-stat span { font-size: 12px; color: var(--ink-mid); letter-spacing: .04em; }
+  --hp-ink:       #f6f2ff;
+  --hp-ink-mid:   #c3b8dd;
+  --hp-ink-dim:   #9b8fb8;
 
-    /* ===== 区块通用 ===== */
-    /* 2026-10-03：原 padding clamp(44px, 8vh, 84px) 0 → 1440×900 下算出 72px。
-       与 .hero2 同因：vh 让留白随视口高度漂移，全站无法共用一档。
-       改用 --section-pad（40px），全站六站同一档。 */
-    section.sec { padding: var(--section-pad) 0; border-top: 1px solid var(--line); }
-    .sec-head { margin-bottom: var(--sp-4); }
-    .sec-label {
-      font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--cyan); font-weight: 650; margin-bottom: 12px;
-    }
-    h2 {
-      font-size: clamp(24px, 3.4vw, 34px); font-weight: 750;
-      letter-spacing: -.02em; margin-bottom: 10px;
-    }
-    .sec-desc { color: var(--ink-mid); font-size: 15px; line-height: 1.7; max-width: 44em; }
+  --hp-violet:    #a78bfa;  --hp-violet-ink: #c4b0ff;  --hp-violet-soft: rgba(167, 139, 250, .2);
+  --hp-rose:      #ff7ba1;  --hp-rose-ink:   #ff9ab8;  --hp-rose-soft:   rgba(255, 92, 138, .2);
+  --hp-amber:     #ffc35c;  --hp-amber-ink:  #ffcf7a;  --hp-amber-soft:  rgba(255, 176, 58, .2);
+  --hp-teal:      #3ad4cc;  --hp-teal-ink:   #5fd8d2;  --hp-teal-soft:   rgba(18, 184, 176, .2);
+  --hp-blue:      #63b0ff;  --hp-blue-ink:   #8cc6ff;  --hp-blue-soft:   rgba(59, 158, 255, .2);
+  --hp-lime:      #a3e34a;  --hp-lime-ink:   #b6e56a;  --hp-lime-soft:   rgba(132, 204, 22, .2);
 
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px; }
-    .panel {
-      position: relative; overflow: hidden;
-      background: var(--bg-panel); border: 1px solid var(--line);
-      border-radius:var(--r-lg); padding: clamp(20px, 2.6vw, 30px);
-      transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
-    }
-    .panel::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--vio), var(--cyan));
-      opacity: 0; transition: opacity .18s var(--ease);
-    }
-    .panel:hover { border-color: var(--cyan); transform: translateY(-3px); box-shadow: 0 14px 34px -18px rgba(34, 211, 197, .35); }
-    .panel:hover::before { opacity: 1; }
-    .panel h3 { font-size: 19px; margin-bottom: 6px; }
-    .panel .en {
-      font-family: var(--mono); font-size: 12px;
-      color: var(--cyan); letter-spacing: .05em; margin-bottom: 12px;
-    }
-    .panel p { font-size: 14px; line-height: 1.75; color: var(--ink-mid); }
-    .panel p strong { color: var(--ink); font-weight: 650; }
+  --hp-shadow:    0 2px 6px -2px rgba(0, 0, 0, .4), 0 14px 30px -20px rgba(0, 0, 0, .7);
+  --hp-shadow-hi: 0 4px 12px -4px rgba(0, 0, 0, .5), 0 22px 44px -24px rgba(0, 0, 0, .8);
+  --hp-container: min(1560px, 92vw);
+  --hp-glass:     rgba(22, 18, 31, .88);
 
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; }
-    .step {
-      background: var(--bg-panel); border: 1px solid var(--line);
-      border-radius:var(--r-lg); padding: clamp(20px, 2.4vw, 28px);
-      position: relative; overflow: hidden;
-      transition: border-color .18s var(--ease), transform .18s var(--ease);
-    }
-    .step::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-      background: linear-gradient(180deg, var(--vio), var(--cyan));
-    }
-    .step:hover { border-color: var(--cyan); transform: translateY(-3px); }
-    .step .n {
-      font-size: 12px; color: var(--cyan); letter-spacing: .18em;
-      margin-bottom: 12px; font-family: var(--mono); font-weight: 650;
-    }
-    .step h3 { font-size: 17px; margin-bottom: 8px; }
-    .step p { font-size: 14px; line-height: 1.7; color: var(--ink-mid); }
+  margin: 0;
+  color: var(--hp-ink);
+  font: 15px/1.6 "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  background: var(--hp-bg);
+  background-image:
+    radial-gradient(circle at 6% 0%,  rgba(255, 92, 138, .09), transparent 26%),
+    radial-gradient(circle at 96% 8%, rgba(124, 92, 255, .1), transparent 28%);
+  background-attachment: fixed;
+}
 
-    /* ===== 产品 ===== */
-    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
-    .product {
-      display: flex; flex-direction: column; gap: 10px;
-      background: var(--bg-panel); border: 1px solid var(--line);
-      border-radius:var(--r-lg); padding: clamp(20px, 2.4vw, 28px);
-      transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
-    }
-    .product:hover {
-      border-color: var(--cyan); transform: translateY(-3px);
-      box-shadow: 0 14px 34px -18px rgba(34, 211, 197, .35);
-    }
-    .product .pill {
-      align-self: flex-start; font-size: 11px; color: var(--warn);
-      border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px;
-      letter-spacing: .04em;
-    }
-    .product h3 { font-size: 19px; }
-    .product p { font-size: 14px; line-height: 1.7; color: var(--ink-mid); flex: 1; }
-    .product .go {
-      font-size: 13px; font-weight: 650; color: var(--cyan);
-      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
-    }
-    .product .go .arr { transition: transform .18s var(--ease); }
-    .product .go:hover .arr { transform: translateX(4px); }
+/* ---------- token：亮色覆盖 ---------- */
+html[data-theme="light"] body.brand-ambient {
+  --hp-bg:        #fffdfa;
+  --hp-raise:     #ffffff;
+  --hp-inset:     #f7f3ff;
+  --hp-line:      rgba(60, 25, 90, .1);
+  --hp-line-mid:  rgba(60, 25, 90, .16);
 
-    /* ===== 分类快速入口 ===== */
-    .cat-rail { display: flex; flex-wrap: wrap; gap: 10px; }
-    .cat-chip {
-      display: inline-flex; align-items: center; gap: 9px;
-      padding: 10px 18px; border: 1px solid var(--line);
-      background: var(--bg-panel); border-radius: 999px;
-      font-size: 14px; font-weight: 550; color: var(--ink);
-      text-decoration: none;
-      transition: border-color .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
-    }
-    .cat-chip .ic { font-size: 16px; }
-    .cat-chip .cnt { font: 11px var(--mono); color: var(--ink-mid); }
-    .cat-chip:hover {
-      border-color: var(--cyan); transform: translateY(-2px);
-      box-shadow: 0 10px 24px -14px rgba(34, 211, 197, .4);
-    }
+  --hp-ink:       #231635;
+  --hp-ink-mid:   #4d3f66;
+  --hp-ink-dim:   #6d5c85;
 
-    /* ===== CTA 收尾 ===== */
-    .cta-band {
-      position: relative; overflow: hidden;
-      border: 1px solid var(--line); border-radius:var(--r-lg);
-      background: var(--bg-panel);
-      padding: clamp(36px, 7vw, 72px) clamp(24px, 5vw, 56px);
-      text-align: center;
-    }
-    .cta-band::before {
-      content: ''; position: absolute; inset: -40% -20% auto;
-      height: 140%;
-      background:
-        radial-gradient(40% 60% at 30% 20%, rgba(139, 124, 248, .16), transparent 70%),
-        radial-gradient(40% 60% at 75% 30%, rgba(34, 211, 197, .14), transparent 70%);
-      pointer-events: none;
-    }
-    .cta-band > * { position: relative; }
-    .cta-band h2 { font-size: clamp(24px, 3.6vw, 36px); margin-bottom: 12px; }
-    .cta-band p { color: var(--ink-mid); font-size: 15px; margin-bottom: 28px; }
-  </style>
+  --hp-violet:    #7c5cff;  --hp-violet-ink: #5b34e8;  --hp-violet-soft: rgba(124, 92, 255, .13);
+  --hp-rose:      #ff5c8a;  --hp-rose-ink:   #c81e56;  --hp-rose-soft:   rgba(255, 92, 138, .13);
+  --hp-amber:     #ffb03a;  --hp-amber-ink:  #a86a00;  --hp-amber-soft:  rgba(255, 176, 58, .16);
+  --hp-teal:      #12b8b0;  --hp-teal-ink:   #0a7c76;  --hp-teal-soft:   rgba(18, 184, 176, .13);
+  --hp-blue:      #3b9eff;  --hp-blue-ink:   #0b6fc4;  --hp-blue-soft:   rgba(59, 158, 255, .13);
+  --hp-lime:      #84cc16;  --hp-lime-ink:   #4d8a00;  --hp-lime-soft:   rgba(132, 204, 22, .14);
+
+  --hp-shadow:    0 2px 6px -2px rgba(60, 25, 90, .1), 0 12px 28px -20px rgba(60, 25, 90, .28);
+  --hp-shadow-hi: 0 4px 10px -4px rgba(60, 25, 90, .14), 0 20px 40px -24px rgba(60, 25, 90, .34);
+  --hp-glass:     rgba(255, 253, 250, .9);
+
+  background-image:
+    radial-gradient(circle at 6% 0%,  rgba(255, 92, 138, .07), transparent 24%),
+    radial-gradient(circle at 96% 8%, rgba(124, 92, 255, .08), transparent 26%);
+}
+
+.hp-c { max-width: var(--hp-container); margin: 0 auto; padding: 0 24px; position: relative; }
+
+/* ---------- 顶部 ---------- */
+.site-header { position: sticky; top: 0; z-index: 30; background: var(--hp-glass);
+  backdrop-filter: blur(14px); border-bottom: 1px solid var(--hp-line); }
+.site-bar { display: flex; align-items: center; gap: 24px; min-height: 62px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--hp-ink); }
+.brand-dot { width: 11px; height: 11px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--hp-rose), var(--hp-violet));
+  box-shadow: 0 0 0 4px var(--hp-violet-soft); flex: 0 0 auto; }
+.brand-text { display: flex; flex-direction: column; gap: 1px; line-height: 1.15; }
+.brand-name { font-size: 15px; font-weight: 800; letter-spacing: .01em; }
+.brand-sub { font-size: 11px; font-weight: 500; letter-spacing: .03em;
+  color: var(--hp-ink-dim); white-space: nowrap; opacity: .85; }
+.nav-links { display: flex; gap: 3px; margin-left: auto; }
+/* nav-links 与 brand.css 共用类名（探针与 brand.js 的 aria-current 都靠它），
+   所以这里必须显式给整数字号 —— brand.css 给的是 13.5px（半像素）。 */
+.nav-links a { color: var(--hp-ink-mid); text-decoration: none; padding: 8px 14px;
+  border-radius: 999px; font-size: 13px; font-weight: 700;
+  transition: color .18s, background .18s; }
+.nav-links a:hover { color: var(--hp-violet-ink); background: var(--hp-violet-soft); }
+/* 当前页只用 brand.css 自带的下划线（.nav-links > a[aria-current]::after），
+   不再叠一层药丸底色 —— 两处指示同时出现会显得吵。 */
+.nav-links a[aria-current="page"] { color: var(--hp-violet-ink); font-weight: 800; }
+.hp-tools { display: flex; align-items: center; gap: 8px; }
+/* 主题/语言按钮沿用 brand.css 的 .icon-btn（固定 32×32 + grid 居中）。
+   ⚠ 之前给它们写了 .hp-btn 的 padding 尺寸，结果 brand.js 切换语言时
+   文案从「EN」变「中」，padding 撑出来的宽度跟着变（实测 45px → 40px），
+   顶栏会横向抖一下；.icon-btn 的固定宽度正是为这个存在的
+   （brand.css:421 的注释解释了为什么语言按钮只能用单字）。
+   这里只覆盖配色与圆角，不碰 width/height/display。 */
+body.brand-ambient .icon-btn { border-radius: 999px; border-color: var(--hp-line-mid);
+  color: var(--hp-ink-mid); background: var(--hp-raise); font-size: 13px; font-weight: 700; }
+body.brand-ambient .icon-btn:hover { border-color: var(--hp-violet); color: var(--hp-violet-ink); }
+
+/* 汉堡：桌面隐藏 */
+.hp-burger { display: none; flex-direction: column; justify-content: center; gap: 4px;
+  width: 38px; height: 34px; padding: 0 8px; background: var(--hp-raise);
+  border: 1px solid var(--hp-line-mid); border-radius: 10px; cursor: pointer; }
+.hp-burger i { display: block; height: 2px; background: var(--hp-ink-mid); border-radius: 2px; transition: transform .2s, opacity .2s; }
+.hp-burger[aria-expanded="true"] i:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hp-burger[aria-expanded="true"] i:nth-child(2) { opacity: 0; }
+.hp-burger[aria-expanded="true"] i:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.hp-scrim { display: none; }
+.hp-drawer { display: none; }
+
+/* ---------- Hero ---------- */
+.hp-hero { padding: 44px 0 26px; }
+/* ⚠ 字号必须是整数。
+   这里原本用 clamp(24px, 1.05vw + 20px, 40px) 做平滑插值，但 1.05vw 是连续值：
+   1440px 下解析成 35.12px，而 _audit/_design-audit.mjs 第 4 项判定
+   「出现非整数字号（半像素会让节奏失准）」会直接判失败。
+   CSS round() 能解决，但老浏览器不支持会整条声明失效、字号掉回继承值，
+   风险比收益大。所以改成分档整数 + 断点，任何宽度下都是整数。 */
+.hp-hero h1 { font-size: 26px; line-height: 1.3;
+  font-weight: 850; letter-spacing: -.022em; margin: 0 0 10px; max-width: min(88%, 24em); }
+.hp-hero h1 em { font-style: normal;
+  background: linear-gradient(100deg, var(--hp-rose), var(--hp-violet) 48%, var(--hp-teal));
+  -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hp-hero .hp-meta { margin: 0; color: var(--hp-ink-dim); font-size: 13px;
+  font-weight: 650; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center;
+  max-width: min(100%, 46em); }
+.hp-hero .hp-meta b { color: var(--hp-ink-mid); font-weight: 750; }
+
+.hp-sec { padding: 30px 0; }
+.hp-sec.first { padding-top: 4px; }
+.hp-sec.tight { padding: 22px 0; }
+.hp-h2 { font-size: 19px; font-weight: 850; letter-spacing: -.012em; margin: 0 0 14px; }
+.hp-h2 .hint { font-weight: 650; color: var(--hp-ink-dim); font-size: 13px; margin-left: 10px; }
+
+/* ---------- 需求路由卡（整页主角）----------
+   5 张卡在宽屏排 3+2，用「隐式 6 轨」实现：前 3 张各占 2 轨、
+   后 2 张各占 3 轨 → 两张拼满第二行，右侧不留洞。
+   ⚠ 不用 auto-fit：它会算出 4 列，末行空 3 格（实测填充率仅 58%）。
+   ⚠ 不用 nth-child 硬指定起始列：grid 不回填空位，会把卡挤成 4 行。 */
+.hp-routes { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+.hp-route { grid-column: span 2; position: relative; display: flex; flex-direction: column;
+  background: var(--hp-raise); border: 1px solid var(--hp-line); border-radius: var(--hp-r-lg, 26px);
+  padding: 20px 22px; text-decoration: none; color: inherit; overflow: hidden;
+  transition: transform .2s, box-shadow .2s, border-color .2s; }
+.hp-route::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; }
+.hp-route.r1::before { background: linear-gradient(90deg, var(--hp-violet), var(--hp-rose)); }
+.hp-route.r2::before { background: linear-gradient(90deg, var(--hp-rose), var(--hp-amber)); }
+.hp-route.r3::before { background: linear-gradient(90deg, var(--hp-teal), var(--hp-blue)); }
+.hp-route.r4::before { background: linear-gradient(90deg, var(--hp-amber), var(--hp-lime)); }
+.hp-route.r5::before { background: linear-gradient(90deg, var(--hp-blue), var(--hp-violet)); }
+/* 末两张各占 3 轨，与前 3 张的 2 轨拼满第二行（6 轨 = 整行）。
+   ⚠ 这条曾经只存在于注释里 —— 重写构建器时把规则丢了，5 张卡全成 2 轨，
+   第二行右侧空 2 列、填充率掉到 78%。注释写了不等于规则在，写完要回读。 */
+.hp-route:nth-last-child(2), .hp-route:nth-last-child(1) { grid-column: span 3; }
+.hp-route:hover { transform: translateY(-4px); box-shadow: var(--hp-shadow-hi); border-color: var(--hp-line-mid); }
+.hp-route .ask { font-size: 17px; font-weight: 850; letter-spacing: -.012em;
+  margin: 0 0 7px; line-height: 1.4; }
+.hp-route.r1 .ask { color: var(--hp-violet-ink); }
+.hp-route.r2 .ask { color: var(--hp-rose-ink); }
+.hp-route.r3 .ask { color: var(--hp-teal-ink); }
+.hp-route.r4 .ask { color: var(--hp-amber-ink); }
+.hp-route.r5 .ask { color: var(--hp-blue-ink); }
+.hp-route .get { color: var(--hp-ink-mid); font-size: 13px; margin: 0 0 13px; flex: 1; }
+.hp-route .rfoot { display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding-top: 12px; border-top: 1px solid var(--hp-line); }
+.hp-route .to { font-size: 12px; font-weight: 800; }
+.hp-route.r1 .to { color: var(--hp-violet-ink); } .hp-route.r2 .to { color: var(--hp-rose-ink); }
+.hp-route.r3 .to { color: var(--hp-teal-ink); }   .hp-route.r4 .to { color: var(--hp-amber-ink); }
+.hp-route.r5 .to { color: var(--hp-blue-ink); }
+.hp-route .num { font-size: 11px; font-weight: 750; padding: 3px 10px; border-radius: 999px; }
+.hp-route.r1 .num { background: var(--hp-violet-soft); color: var(--hp-violet-ink); }
+.hp-route.r2 .num { background: var(--hp-rose-soft); color: var(--hp-rose-ink); }
+.hp-route.r3 .num { background: var(--hp-teal-soft); color: var(--hp-teal-ink); }
+.hp-route.r4 .num { background: var(--hp-amber-soft); color: var(--hp-amber-ink); }
+.hp-route.r5 .num { background: var(--hp-blue-soft); color: var(--hp-blue-ink); }
+
+/* ---------- 三问自测 ---------- */
+.hp-picker { margin-top: 14px; background: var(--hp-inset);
+  border-radius: 20px; padding: 6px 20px; }
+.hp-picker .ph { font-size: 12px; font-weight: 800; color: var(--hp-violet-ink);
+  padding: 13px 0 9px; display: flex; align-items: center; gap: 8px; }
+.hp-picker .ph::before { content: ""; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--hp-violet); flex: 0 0 5px; }
+.hp-pq { display: flex; align-items: baseline; gap: 12px; padding: 9px 0; border-top: 1px solid var(--hp-line); }
+.hp-pq .qq { flex: 1; font-size: 13px; color: var(--hp-ink-mid); }
+.hp-pq .qq b { color: var(--hp-ink); font-weight: 750; }
+.hp-pq .to { font-size: 12px; font-weight: 800; color: var(--hp-violet-ink); white-space: nowrap; }
+
+/* ---------- 品类 chip ---------- */
+.hp-chips { display: flex; flex-wrap: wrap; gap: 9px; }
+.hp-chip { display: inline-flex; align-items: center; gap: 7px; padding: 8px 15px;
+  border-radius: 999px; background: var(--hp-raise); border: 1px solid var(--hp-line);
+  color: var(--hp-ink); font-size: 13px; font-weight: 700; text-decoration: none;
+  transition: transform .2s, box-shadow .2s; box-shadow: var(--hp-shadow); }
+.hp-chip b { font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 850; }
+.hp-chip.k1 b { background: var(--hp-rose-soft);  color: var(--hp-rose-ink); }
+.hp-chip.k2 b { background: var(--hp-violet-soft); color: var(--hp-violet-ink); }
+.hp-chip.k3 b { background: var(--hp-blue-soft);  color: var(--hp-blue-ink); }
+.hp-chip.k4 b { background: var(--hp-teal-soft);  color: var(--hp-teal-ink); }
+.hp-chip.k5 b { background: var(--hp-amber-soft); color: var(--hp-amber-ink); }
+.hp-chip.k6 b { background: var(--hp-lime-soft);  color: var(--hp-lime-ink); }
+.hp-chip:hover { transform: translateY(-2px); box-shadow: var(--hp-shadow-hi); }
+
+/* ---------- 尾段三列 ---------- */
+.hp-tail { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.hp-panel { background: var(--hp-raise); border: 1px solid var(--hp-line);
+  border-radius: 20px; padding: 16px 18px; box-shadow: var(--hp-shadow); }
+.hp-panel h3 { font-size: 15px; font-weight: 850; margin: 0 0 5px; }
+.hp-panel.r1 h3 { color: var(--hp-rose-ink); }
+.hp-panel.r2 h3 { color: var(--hp-teal-ink); }
+.hp-panel.r3 h3 { color: var(--hp-amber-ink); }
+.hp-panel p { margin: 0; color: var(--hp-ink-mid); font-size: 13px; line-height: 1.6; }
+
+/* ---------- 页脚：单行授权摘要 + 药丸链接 ----------
+   ⚠ 这里原本用 details 元素折叠细则（手机上展开「明细」），已移除。
+   两个原因：
+     1. 项目在 _audit/fix-footer-single-line.mjs 里定过案 —— 页脚法律区
+        直接给链接、**不再用 details 折叠**；consistency.mjs 的品牌外壳
+        检查也硬性要求 hasDetails === false（双重内容对读屏与 SEO 都是负担）。
+        注：注释里刻意不写带尖括号的标签名 —— 这段 CSS 会被原样输出进
+        HTML，任何按字符串找标签的探针都会把注释当成真元素。
+     2. 真正的问题不是「需要折叠」，而是**信息量太大**：把三段授权细则
+        整段塞进页脚，390px 下折成十几行、独占 459px，是手机留白率 73%
+        的最大单一来源。
+   所以改成：页脚只留一句摘要（细则本来就在 legal.html，链接过去即可），
+   链接压成药丸。留白靠**减少信息**解决，不靠交互折叠。 */
+.site-footer { border-top: 1px solid var(--hp-line); padding: 22px 0 26px; margin-top: 10px; }
+.hp-line { display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; }
+.hp-lic { margin: 0; flex: 1 1 320px; min-width: 0; color: var(--hp-ink-dim);
+  font-size: 11px; line-height: 1.7; }
+.hp-lic b { color: var(--hp-ink-mid); font-weight: 750; }
+.hp-lic .attr { color: var(--hp-violet-ink); font-weight: 800; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 6px; flex: 0 0 auto; }
+.foot-links a { display: inline-flex; align-items: center; padding: 5px 12px;
+  border-radius: 999px; color: var(--hp-ink-mid); background: var(--hp-raise);
+  border: 1px solid var(--hp-line); font-size: 11px; font-weight: 750;
+  text-decoration: none; transition: border-color .18s, color .18s; }
+.foot-links a:hover { border-color: var(--hp-violet); color: var(--hp-violet-ink); }
+.foot-links a[aria-current] { color: var(--hp-violet-ink); border-color: var(--hp-violet); }
+.foot-legal-links { display: flex; gap: 8px; flex: 0 0 auto; margin-left: auto; }
+.foot-legal-links a { display: inline-flex; align-items: center; padding: 5px 13px;
+  border-radius: 999px; border: 1px solid var(--hp-line); color: var(--hp-ink-mid);
+  font-size: 11px; font-weight: 750; text-decoration: none; transition: border-color .18s, color .18s; }
+.foot-legal-links a:hover { border-color: var(--hp-violet); color: var(--hp-violet-ink);
+  background: var(--hp-violet-soft); }
+
+/* ---------- 底部 tab bar：只有窄屏 ---------- */
+.hp-tabs { display: none; }
+
+/* ---------- 响应式 ---------- */
+@media (min-width: 1100px) { .hp-hero h1 { font-size: 30px; } }
+@media (min-width: 1440px) { .hp-hero h1 { font-size: 34px; } }
+@media (min-width: 1800px) { .hp-hero h1 { font-size: 38px; } }
+
+@media (max-width: 1100px) {
+  /* 中屏两列：5 = 2+2+1，最后一张占满整行 */
+  .hp-routes { grid-template-columns: repeat(4, 1fr); }
+  .hp-route, .hp-route:nth-last-child(2) { grid-column: span 2; }
+  .hp-route:nth-last-child(1) { grid-column: span 4; }
+}
+@media (max-width: 900px) {
+  /* 六项横排在 390px 塞不下（实测占 3 行、挤掉半个首屏）→ 改汉堡 */
+  .nav-links { display: none; }
+  .hp-burger { display: flex; }
+  .brand-sub { display: none; }          /* 只藏副名，主名保留 */
+  .hp-tail { grid-template-columns: 1fr; }
+  .hp-scrim { display: block; position: fixed; inset: 0; z-index: 50;
+    background: rgba(0, 0, 0, .45); opacity: 0; pointer-events: none; transition: opacity .24s; }
+  .hp-scrim.open { opacity: 1; pointer-events: auto; }
+  .hp-drawer { display: flex; flex-direction: column; position: fixed; top: 0; right: 0; bottom: 0;
+    z-index: 60; width: min(78vw, 300px); background: var(--hp-raise);
+    border-left: 1px solid var(--hp-line); box-shadow: -14px 0 40px -20px rgba(0, 0, 0, .5);
+    transform: translateX(102%); transition: transform .28s cubic-bezier(.4, 0, .2, 1);
+    padding: 16px 0 calc(14px + env(safe-area-inset-bottom, 0px)); overflow-y: auto; }
+  .hp-drawer.open { transform: none; }
+  .hp-dh { display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px 14px; border-bottom: 1px solid var(--hp-line); }
+  .hp-dclose { width: 32px; height: 32px; border: 1px solid var(--hp-line-mid);
+    background: transparent; color: var(--hp-ink-mid); border-radius: 9px;
+    font-size: 18px; cursor: pointer; line-height: 1; }
+  .hp-dlist { display: flex; flex-direction: column; padding: 8px 12px; }
+  .hp-dlist a { display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 12px; border-radius: 12px; color: var(--hp-ink);
+    font-size: 15px; font-weight: 750; text-decoration: none; }
+  .hp-dlist a:active { background: var(--hp-violet-soft); color: var(--hp-violet-ink); }
+  .hp-dlist a .ar { color: var(--hp-ink-dim); font-size: 14px; }
+  .hp-dfoot { margin-top: auto; padding: 14px 20px 0; border-top: 1px solid var(--hp-line); }
+  .hp-dfoot p { margin: 0 0 8px; color: var(--hp-ink-dim); font-size: 12px; }
+  .hp-dfoot nav { display: flex; gap: 14px; }
+  .hp-dfoot nav a { color: var(--hp-ink-mid); font-size: 12px; font-weight: 750; }
+}
+@media (max-width: 768px) {
+  .hp-tabs { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    background: var(--hp-glass); backdrop-filter: blur(18px) saturate(160%);
+    border-top: 1px solid var(--hp-line);
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)); }
+  .hp-tabs a, .hp-tabs button { flex: 1; display: flex; flex-direction: column;
+    align-items: center; gap: 2px; padding: 7px 2px 6px; background: transparent; border: 0;
+    color: var(--hp-ink-dim); font: inherit; font-size: 10px; font-weight: 700;
+    text-decoration: none; cursor: pointer; }
+  .hp-tabs .ti { font-size: 17px; line-height: 1; }
+  .site-footer { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
+  /* 窄屏隐藏页脚的六站链接：底部 tab bar + 汉堡抽屉已经覆盖同样的入口，
+     再放一遍只会在 390px 下多占三行。HTML 里仍然保留（无脚本也可达，
+     consistency.mjs 比的是 HTML 不是渲染结果）。 */
+  .foot-links { display: none; }
+  /* ⚠ .hp-lic 的 flex: 1 1 320px 是给**行**布局写的宽度基准。
+     窄屏 .hp-line 变成 column，主轴翻转，同一个 320px 就变成了**高度** ——
+     实测页脚被撑到 492px（其中 320px 全是这行授权文字的空盒）。
+     这里必须把基准显式归零，否则「减少留白」在窄屏完全失效。 */
+  .hp-lic { flex: 0 0 auto; }
+  .hp-line { flex-direction: column; align-items: stretch; gap: 10px; }
+  .foot-legal-links { margin-left: 0; justify-content: flex-start; }
+}
+@media (max-width: 640px) {
+  .hp-c { padding: 0 16px; }
+  .hp-hero { padding: 26px 0 18px; }
+  .hp-sec { padding: 20px 0; }
+  .hp-routes { grid-template-columns: 1fr; }
+  .hp-route, .hp-route:nth-last-child(2), .hp-route:nth-last-child(1) { grid-column: 1; }
+  .hp-route { padding: 16px 17px; border-radius: 20px; }
+  .hp-route .ask { font-size: 16px; margin-bottom: 5px; }
+  .hp-route .get { font-size: 13px; margin-bottom: 11px; line-height: 1.58; }
+  .hp-panel { padding: 15px 16px; }
+  .hp-picker { padding: 4px 16px; }
+  .hp-pq { padding: 11px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hp-route, .hp-chip, .hp-drawer, .hp-scrim, .hp-burger i { transition: none !important; }
+}
+</style>
 </head>
 <body class="brand-ambient">
-  <header class="site-header">
-    <div class="container site-bar">
-      <a class="brand" href="./" title="投机取巧">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span class="brand-text">
-          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="站点导航">
-        <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
-        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
-        <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
-        <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
-        <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-        <span class="nav-tools">
-          <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题">☾</button>
-          <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
-        </span>
-      </nav>
+
+<header class="site-header">
+  <div class="hp-c site-bar">
+    <a class="brand" href="https://specul.com/">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="brand-text">
+        <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+        <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
+      <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+      <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
+      <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
+      <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+      <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+    </nav>
+    <div class="hp-tools">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+      <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      <button class="hp-burger" id="burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="hpDrawer">
+        <i></i><i></i><i></i>
+      </button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
-  <main id="main">
-    <!-- ====== Hero ====== -->
-    <section class="hero2" aria-label="Specul">
-      <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
-      <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
-      <div class="container">
-        <div class="hero-badge">
-          <span class="dot" aria-hidden="true"></span>
-          <span data-zh>SPECUL · 硅基时代的研究与创造</span>
-          <span data-en>SPECUL · research &amp; creation for the silicon age</span>
-        </div>
-        <h1 class="hero-title">
-          <span class="line"><span data-zh>大胆假设</span><span data-en>Bold bets,</span></span>
-          <span class="sep" aria-hidden="true">·</span>
-          <span class="line grad"><span data-zh>并行推演</span><span data-en>parallel simulation,</span></span>
-          <span class="sep" aria-hidden="true">·</span>
-          <span class="line"><span data-zh>固化交付</span><span data-en>shipped tools.</span></span>
-        </h1>
-        <p class="hero-sub" data-zh>
-          我们用<strong>投机策略</strong>让 AI 推演一切，把结果做成人人可用的工具。
-          像 speculative decoding 一样：先假设多条路径，并行验证，择优兑现。
-        </p>
-        <p class="hero-sub" data-en>
-          We run <strong>speculative strategies</strong> so AI can reason about everything —
-          then ship the results as tools anyone can use.
-          Like speculative decoding: assume many paths, verify in parallel, keep the best.
-        </p>
-        <div class="hero-cta">
-          <a class="btn pri" href="https://agent.specul.com/">
-            <span data-zh>看 Agent 图谱</span><span data-en>Browse the atlases</span> <span aria-hidden="true">→</span>
-          </a>
-          <a class="btn" href="https://learn.specul.com/">
-            <span data-zh>学 AI</span><span data-en>Learn</span>
-          </a>
-          <a class="btn" href="https://nav.specul.com/">
-            <span data-zh>硅基导航</span><span data-en>Directory</span>
-          </a>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat"><b>527</b><span data-zh>精选资源</span><span data-en>curated resources</span></div>
-          <div class="hero-stat"><b>11</b><span data-zh>大品类</span><span data-en>categories</span></div>
-          <div class="hero-stat"><b>3</b><span data-zh>产品线</span><span data-en>product lines</span></div>
-          <div class="hero-stat"><b>MIT</b><span data-zh>开源协议</span><span data-en>open source</span></div>
-        </div>
-      </div>
-    </section>
+<div class="hp-scrim" id="hpScrim"></div>
+<aside class="hp-drawer" id="hpDrawer" aria-hidden="true" aria-label="站点导航">
+  <div class="hp-dh">
+    <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+    <button class="hp-dclose" id="hpDclose" type="button" aria-label="关闭">×</button>
+  </div>
+  <nav class="hp-dlist">
+    <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+    <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+    <a href="https://agent.specul.com/"><span><span data-zh>Agent</span><span data-en>Agent</span></span><span class="ar" aria-hidden="true">→</span></a>
+    <a href="https://models.specul.com/"><span><span data-zh>本地模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+    <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
+    <a href="https://nav.specul.com/"><span><span data-zh>导航</span><span data-en>Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+  </nav>
+  <div class="hp-dfoot">
+    <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+    <nav><a href="./legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a><a href="https://github.com/speculcom/www" target="_blank" rel="noopener">GitHub</a></nav>
+  </div>
+</aside>
 
-    <!-- ====== 四站导览 ====== -->
-        <section class="sec" id="sites" aria-label="站点导览">
-      <div class="container">
-        <p class="sec-kicker" data-zh>SITES · 四个站</p>
-        <h2 data-zh>各有一件事要做</h2>
-        <h2 data-en>Four sites, four jobs</h2>
-        <p class="sec-lede" data-zh>
-          同一个团队，四种交付形态：一份术语表、一张Agent 图谱、一份模型索引、一份精选目录。
-        </p>
-        <p class="sec-lede" data-en>
-          One team, four delivery forms: a glossary, an agent atlas, a model index, and a curated directory.
-        </p>
-        <div class="sites-grid">
-          <a class="site-card" href="https://learn.specul.com/">
-            <span class="site-tag" data-zh>学 AI</span>
-            <h3 data-zh>AI 术语表</h3>
-            <h3 data-en>AI glossary</h3>
-            <p data-zh>116 个词，分六层。有零基础入门路径，每词都能回到原始出处。</p>
-            <p data-en>116 terms in six layers, with a zero-prerequisite path and a primary source for every entry.</p>
-            <span class="site-go" aria-hidden="true">→</span>
-          </a>
-          <a class="site-card" href="https://agent.specul.com/">
-            <span class="site-tag">AGENT</span>
-            <h3 data-zh>Agent 图谱</h3>
-            <h3 data-en>Agent atlas</h3>
-            <p data-zh>33 个对象分三层：自己跑的成品 agent、自己搭的运行时与 SDK、给 agent 装的 MCP 工具。不给总分排名。</p>
-            <p data-en>33 entries in three layers: finished agents, runtimes and SDKs you build yourself, and MCP tools you install. No rankings.</p>
-            <span class="site-go" aria-hidden="true">→</span>
-          </a>
-          <a class="site-card" href="https://models.specul.com/">
-            <span class="site-tag">MODELS</span>
-            <h3 data-zh>本地模型索引</h3>
-            <h3 data-en>Local model index</h3>
-            <p data-zh>7 个系列、11 种规格、846 个量化档位。按你的显存倒推该下哪一个，不做质量排名。</p>
-            <p data-en>7series, 11 specs, 846 quantization tiers. Pick by VRAM budget. No quality rankings.</p>
-            <span class="site-go" aria-hidden="true">→</span>
-          </a>
-          <a class="site-card" href="https://nav.specul.com/">
-            <span class="site-tag">NAV</span>
-            <h3 data-zh>硅基导航</h3>
-            <h3 data-en>Directory</h3>
-            <p data-zh>527 个精选 AI 资源，按 11 个大品类归类，每条都有说明与出处。</p>
-            <p data-en>527 curated AI resources across 11 categories, each with notes and a source.</p>
-            <span class="site-go" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== 理念 ====== -->
-    <section class="sec" id="speculate">
-      <div class="container">
-        <div class="sec-head">
-          <div class="sec-label">01 · <span data-zh>理念</span><span data-en>Philosophy</span></div>
-          <h2 data-zh>一个词根，两种动作</h2>
-          <h2 data-en>One root, two moves</h2>
-          <p class="sec-desc" data-zh>
-            Specul 来自拉丁语「观察 / 推测」。在中文里我们故意保留张力：投机是策略，推演是方法。
-          </p>
-          <p class="sec-desc" data-en>
-            From Latin <em>specula</em> — watch, infer. In Chinese we keep the tension:
-            speculation as strategy, simulation as method.
-          </p>
-        </div>
-        <div class="grid-2">
-          <div class="panel">
-            <h3 data-zh>投机</h3><h3 data-en>Speculation</h3>
-            <div class="en">speculative strategy</div>
-            <p data-zh>
-              借用大模型里的<strong>投机策略</strong>思路：在算力与时间有限时，并行押注多条假设，用后续验证淘汰错误分支。
-              我们用同样的方式选赛道、选技术、选产品——不是赌运气，而是<strong>结构化地下注</strong>。
-            </p>
-            <p data-en>
-              Borrowed from <strong>speculative strategies</strong> in LLMs: when compute and time are scarce,
-              bet on multiple hypotheses in parallel and let verification kill the wrong branches.
-              We pick markets, stacks, and products the same way — <strong>structured bets</strong>, not luck.
-            </p>
-          </div>
-          <div class="panel">
-            <h3 data-zh>推演</h3><h3 data-en>Speculate / Simulate</h3>
-            <div class="en">simulate everything</div>
-            <p data-zh>
-              用模型、数据与可运行原型<strong>把世界往前推</strong>：推演玩法手感、推演工具形态、推演分发路径。
-              推演不是报告，而是能点开、能玩、能改的产物。
-            </p>
-            <p data-en>
-              Use models, data, and runnable prototypes to <strong>push the world forward</strong>:
-              playtests, tool shapes, distribution paths. Simulation is not a slide deck —
-              it is something you can open, play, and fork.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== 方法 ====== -->
-    <section class="sec" id="method">
-      <div class="container">
-        <div class="sec-head">
-          <div class="sec-label">02 · <span data-zh>方法</span><span data-en>Method</span></div>
-          <h2 data-zh>从假设到工具</h2>
-          <h2 data-en>From bet to tool</h2>
-        </div>
-        <div class="steps">
-          <div class="step">
-            <div class="n">01</div>
-            <h3 data-zh>投机假设</h3><h3 data-en>Speculative bet</h3>
-            <p data-zh>用最小假设锁定问题：谁需要什么、哪里有结构性机会。</p>
-            <p data-en>Lock a minimal hypothesis: who needs what, where the structural edge is.</p>
-          </div>
-          <div class="step">
-            <div class="n">02</div>
-            <h3 data-zh>AI 推演</h3><h3 data-en>AI simulation</h3>
-            <p data-zh>让大模型与工具并行展开可能性，用可运行结果替代空想。</p>
-            <p data-en>Let models fan out possibilities in parallel; replace opinion with runnable results.</p>
-          </div>
-          <div class="step">
-            <div class="n">03</div>
-            <h3 data-zh>固化交付</h3><h3 data-en>Ship the tool</h3>
-            <p data-zh>把验证过的结论做成人人可用的基座与目录。</p>
-            <p data-en>Freeze what survived verification into tools anyone can use.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== 产品 ====== -->
-    <section class="sec" id="products">
-      <div class="container">
-        <div class="sec-head">
-          <div class="sec-label">03 · <span data-zh>产品</span><span data-en>Products</span></div>
-          <h2 data-zh>现在可用的东西</h2>
-          <h2 data-en>What you can use now</h2>
-        </div>
-        <div class="products">
-          <div class="product">
-            <span class="pill"><span data-zh>入门</span><span data-en>Learn</span></span>
-            <h3 data-zh>AI 术语表</h3><h3 data-en>AI glossary</h3>
-            <p data-zh>
-              116 个词分六层，配一条零基础入门路径。不按字母排，按「先学什么后学什么」排——
-              因为大多数人不做本地部署，第 5 层可以先跳过。
-            </p>
-            <p data-en>
-              116 terms in six layers with a zero-prerequisite path. Ordered by what to learn first,
-              not alphabetically — most people never deploy locally, so layer 5 can be skipped.
-            </p>
-            <a class="go" href="https://learn.specul.com/">
-              <span data-zh>从第一层开始</span><span data-en>Start at layer 1</span><span class="arr" aria-hidden="true">→</span>
-            </a>
-          </div>
-          <div class="product">
-            <span class="pill"><span data-zh>对比索引</span><span data-en>Comparison</span></span>
-            <h3 data-zh>Agent 图谱</h3><h3 data-en>Agent atlas</h3>
-            <p data-zh>
-              33 个对象分三层：自己跑的成品 agent、自己搭的运行时与 SDK、给 agent 装的 MCP 工具。
-              每条判断挂官方源，未知就写未知——<strong>不给总分排名</strong>。
-            </p>
-            <p data-en>
-              33 entries in three layers: finished agents, runtimes and SDKs you build yourself,
-              and MCP tools you install. Every judgement links to a primary source;
-              <strong>no rankings</strong>.
-            </p>
-            <a class="go" href="https://agent.specul.com/">
-              <span data-zh>成品 Agent</span><span data-en>Finished agents</span><span class="arr" aria-hidden="true">→</span>
-            </a>
-            <a class="go" href="https://agent.specul.com/harness/">
-              <span data-zh>自己搭的底座</span><span data-en>Runtimes &amp; SDKs</span><span class="arr" aria-hidden="true">→</span>
-            </a>
-            <a class="go" href="https://agent.specul.com/tools/">
-              <span data-zh>给 agent 装的工具</span><span data-en>MCP tools</span><span class="arr" aria-hidden="true">→</span>
-            </a>
-          </div>
-          <div class="product">
-            <span class="pill"><span data-zh>模型层</span><span data-en>Model layer</span></span>
-            <h3 data-zh>量化模型图谱</h3><h3 data-en>Quantized models</h3>
-            <p data-zh>
-              定了模型之后还有一关：同一模型有几十个 GGUF 量化版。
-              按你的显存倒推该下哪一档，体积是实测值，许可逐条标原文。
-            </p>
-            <p data-en>
-              After picking a model, one more question: which GGUF quant to download?
-              Resolved by VRAM budget, with measured sizes and per-quant licences.
-            </p>
-            <a class="go" href="https://models.specul.com/">
-              <span data-zh>Models 图谱</span><span data-en>Models atlas</span><span class="arr" aria-hidden="true">→</span>
-            </a>
-          </div>
-          <div class="product">
-            <span class="pill"><span data-zh>精选目录</span><span data-en>Directory</span></span>
-            <h3 data-zh>硅基导航</h3><h3 data-en>Directory</h3>
-            <p data-zh>527 条精选：模型、编程、多模态、算力、机器人与开发工具，按 11 类组织。</p>
-            <p data-en>527 curated entries across models, coding, multimodal, compute, robotics and dev tools, in 11 categories.</p>
-            <a class="go" href="https://nav.specul.com/">
-              <span data-zh>浏览目录</span><span data-en>Browse</span><span class="arr" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== 分类入口 ====== -->
-    <section class="sec" id="categories">
-      <div class="container">
-        <div class="sec-head">
-          <div class="sec-label">04 · <span data-zh>按品类浏览</span><span data-en>Browse by category</span></div>
-          <h2 data-zh>十一个品类，直达分类</h2>
-          <h2 data-en>Eleven categories, one click in</h2>
-        </div>
-        <div class="cat-rail">
-          <a class="cat-chip" href="https://nav.specul.com/#llm"><span class="ic">💬</span><span data-zh>大模型对话</span><span data-en>LLM</span><span class="cnt">44</span></a>
-          <a class="cat-chip" href="https://nav.specul.com/#coding"><span class="ic">⌨️</span><span data-zh>AI 编程</span><span data-en>Coding</span><span class="cnt">30</span></a>
-          <a class="cat-chip" href="https://nav.specul.com/#gen"><span class="ic">🎨</span><span data-zh>多模态生成</span><span data-en>Multimodal</span><span class="cnt">56</span></a>
-          <a class="cat-chip" href="https://nav.specul.com/#app"><span class="ic">📋</span><span data-zh>办公与垂直</span><span data-en>Apps</span><span class="cnt">49</span></a>
-          <a class="cat-chip" href="https://nav.specul.com/#model"><span class="ic">🧩</span><span data-zh>模型权重</span><span data-en>Models</span><span class="cnt">26</span></a>
-          <a class="cat-chip" href="https://nav.specul.com/#dev"><span class="ic">🛠️</span><span data-zh>框架与工具</span><span data-en>Dev</span><span class="cnt">42</span></a>
-          <a class="cat-chip" href="https://nav.specul.com/#infra"><span class="ic">💠</span><span data-zh>算力芯片</span><span data-en>Compute</span><span class="cnt">55</span></a>
-          <a class="cat-chip" href="https://nav.specul.com/#robot"><span class="ic">🦾</span><span data-zh>机器人</span><span data-en>Robotics</span><span class="cnt">87</span></a>
-          <a class="cat-chip" href="https://nav.specul.com/#learn"><span class="ic">📚</span><span data-zh>学习资源</span><span data-en>Learning</span><span class="cnt">43</span></a>
-          <a class="cat-chip" href="https://nav.specul.com/#community"><span class="ic">📣</span><span data-zh>社区资讯</span><span data-en>Community</span><span class="cnt">25</span></a>
-          <a class="cat-chip" href="https://nav.specul.com/#tools"><span class="ic">🧰</span><span data-zh>开发工具</span><span data-en>Dev tools</span><span class="cnt">72</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== CTA ====== -->
-    <section class="sec" style="border-top:0">
-      <div class="container">
-        <div class="cta-band">
-          <h2 data-zh>开始你的推演</h2>
-          <h2 data-en>Start your own simulation</h2>
-          <p data-zh>从一个大胆的假设开始，让 AI 帮你并行验证。</p>
-          <p data-en>Start with a bold hypothesis; let AI verify it in parallel.</p>
-          <div class="hero-cta" style="justify-content:center">
-            <a class="btn pri" href="https://nav.specul.com/">
-              <span data-zh>进入导航</span><span data-en>Open directory</span> <span aria-hidden="true">→</span>
-            </a>
-            <a class="btn" href="https://learn.specul.com/">
-              <span data-zh>从术语开始</span><span data-en>Start with terms</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container foot-row">
-        <div class="foot-brand">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="foot-copy">© 2026 Specul · <span data-zh>投机取巧</span><span data-en>Speculation · Speculate</span></span>
-        </div>
-        <nav class="foot-links" aria-label="页脚导航">
-          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
-          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
-          <a href="https://agent.specul.com/">Agent</a>
-          <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
-          <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
-          <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-          <a href="https://github.com/speculcom/www" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-      <nav class="foot-legal-links" aria-label="法律">
-
-        <a href="./legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
-        <a href="./legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
-        <a href="./legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
-      </nav>
+<main id="main">
+  <section class="hp-hero">
+    <div class="hp-c">
+      <h1><em><span data-zh>AI 入门不用拜师，摸黑走一段就有手感了</span><span data-en>You do not need a master to start with AI — poke at it for a while and it clicks.</span></em></h1>
+      <p class="hp-meta">
+        <b><span data-zh>6 个站</span><span data-en>Six sites</span></b>
+        <span data-zh>，各管一件事。卡在哪儿就翻哪儿，不卡的地方跳过也完全没问题。</span>
+        <span data-en>, one job each. Look up whatever you are stuck on; skip the rest, that is fine.</span>
+      </p>
     </div>
-  </footer>
+  </section>
 
-  <script src="brand.js" defer></script>
-  <script>
-    /* 语言桥接：brand.js 只切 <html lang>，而 data-zh/data-en 的显隐
-       依赖 html[data-lang]（规则在 brand.css）。这里做同步。 */
-    (function () {
-      var root = document.documentElement;
-      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
-      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
-      sync();
-    })();
-  </script>
-  <script>
+  <section class="hp-sec first">
+    <div class="hp-c">
+      <div class="hp-routes">
+        <a class="hp-route r1" href="https://learn.specul.com/">
+          <p class="ask"><span data-zh>名词看不懂，我们先给你铺个路</span><span data-en>Terms made no sense — here is a path in</span></p>
+          <p class="get"><span data-zh>116 个词按「先学什么后学什么」排成六层，每个配一句大白话和官方出处。今天挑用得上的看两三个就够，不用一次看完。</span><span data-en>116 terms ordered by what to learn first, each with a plain-language explanation and its primary source. Read two or three today; you do not have to finish it in one go.</span></p>
+          <span class="rfoot">
+            <span class="to"><span data-zh>学 AI</span><span data-en>Learn AI</span></span>
+            <span class="num"><span data-zh>116 词 · 六层</span><span data-en>116 terms · 6 layers</span></span>
+          </span>
+        </a>
+        <a class="hp-route r2" href="https://agent.specul.com/">
+          <p class="ask"><span data-zh>工具挑不动，我们摊开给你对比</span><span data-en>Too many tools to choose from — laid out side by side</span></p>
+          <p class="get"><span data-zh>36 份主流工具用同一套标准过一遍：各自能做什么、装在哪、权限多大。分数我们不替你排，你按自己需求挑就行。</span><span data-en>36 mainstream tools run through one yardstick: what each can do, where it installs, how much permission it wants. We do not rank them for you — pick by your own needs.</span></p>
+          <span class="rfoot">
+            <span class="to"><span data-zh>Agent 图谱</span><span data-en>Agent atlas</span></span>
+            <span class="num"><span data-zh>36 份 · 同一套标准</span><span data-en>36 entries · same yardstick</span></span>
+          </span>
+        </a>
+        <a class="hp-route r3" href="https://models.specul.com/">
+          <p class="ask"><span data-zh>想在本地跑模型，我们帮你算清楚</span><span data-en>Want to run models on your own machine — here is the arithmetic</span></p>
+          <p class="get"><span data-zh>7 个系列、91 个量化仓、846 个档位。报一下显卡型号，我们倒推该下哪一档 —— 调参那些先放着。许可也逐条抄自发布页。</span><span data-en>7 series, 91 quantisation repos, 846 tiers. Tell us your GPU and we work backwards to the tier that fits. Skip the tuning for now. Licences are quoted from their release pages.</span></p>
+          <span class="rfoot">
+            <span class="to"><span data-zh>Models 图谱</span><span data-en>Models atlas</span></span>
+            <span class="num"><span data-zh>846 个量化档</span><span data-en>846 quant tiers</span></span>
+          </span>
+        </a>
+        <a class="hp-route r4" href="https://vg.specul.com/">
+          <p class="ask"><span data-zh>想做个游戏，我们陪你少踩坑</span><span data-en>Want to make a game — fewer detours</span></p>
+          <p class="get"><span data-zh>哪些环节 AI 真能省事、哪些其实一点没变。五阶段教学 + 5 个引擎档案，顺带说清美术和音频能不能商用。</span><span data-en>Which parts AI genuinely speeds up, and which it has not touched at all. Five teaching stages plus 5 engine profiles, and where the commercial rights on art and audio actually sit.</span></p>
+          <span class="rfoot">
+            <span class="to"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span>
+            <span class="num"><span data-zh>25 页 · 5 引擎</span><span data-en>25 pages · 5 engines</span></span>
+          </span>
+        </a>
+        <a class="hp-route r5" href="https://nav.specul.com/">
+          <p class="ask"><span data-zh>不知道搜什么，我们先替你逛一遍</span><span data-en>No idea what to search for — we did the walk first</span></p>
+          <p class="get"><span data-zh>527 个 AI 网站按 11 类归好，每条一句话说清「做什么、适合谁」。链接我们挨个点过，失效的没偷偷留着。</span><span data-en>527 AI sites filed into 11 categories, each in one line: what it does, who it suits. We opened every link; the dead ones are not quietly kept.</span></p>
+          <span class="rfoot">
+            <span class="to"><span data-zh>硅基导航</span><span data-en>Directory</span></span>
+            <span class="num"><span data-zh>527 条 · 11 类</span><span data-en>527 links · 11 cats</span></span>
+          </span>
+        </a>
+      </div>
+
+      <div class="hp-picker">
+        <p class="ph"><span data-zh>还是对不上？换个说法找找看</span><span data-en>Still nothing matching? Try another way of asking</span></p>
+        <div class="hp-pq">
+          <span class="qq"><b><span data-zh>「训练」和「推理」老是分不清</span><span data-en>I still cannot tell training from inference</span></b></span>
+          <span class="to"><span data-zh>→ 学 AI</span><span data-en>→ Learn AI</span></span>
+        </div>
+        <div class="hp-pq">
+          <span class="qq"><b><span data-zh>在用了，说不清它到底动了我的什么</span><span data-en>I use one but cannot say what it touches</span></b></span>
+          <span class="to"><span data-zh>→ Agent 图谱</span><span data-en>→ Agent atlas</span></span>
+        </div>
+        <div class="hp-pq">
+          <span class="qq"><b><span data-zh>怕东西传出去，或者账单按住不住</span><span data-en>Worried about data leaving, or a runaway bill</span></b></span>
+          <span class="to"><span data-zh>→ Models 图谱</span><span data-en>→ Models atlas</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hp-sec tight">
+    <div class="hp-c">
+      <h2 class="hp-h2"><span data-zh>按品类逛</span><span data-en>Browse by category</span><span class="hint"><span data-zh>527 条 AI 资源，每条一句话说清「做什么、适合谁」</span><span data-en>527 AI resources, one line each on what it does and who it suits</span></span></h2>
+      <div class="hp-chips">
+        <a class="hp-chip k1" href="https://nav.specul.com/" title="大模型与对话 / llm"><span aria-hidden="true">💬</span><span data-zh>大模型与对话</span><span data-en>LLMs &amp; chat</span><b>44</b></a>
+        <a class="hp-chip k2" href="https://nav.specul.com/" title="AI 编程与 Agent / coding"><span aria-hidden="true">⌨️</span><span data-zh>AI 编程与 Agent</span><span data-en>AI coding &amp; agents</span><b>30</b></a>
+        <a class="hp-chip k3" href="https://nav.specul.com/" title="多模态生成 / gen"><span aria-hidden="true">🎨</span><span data-zh>多模态生成</span><span data-en>Multimodal generation</span><b>56</b></a>
+        <a class="hp-chip k4" href="https://nav.specul.com/" title="AI 办公与垂直应用 / app"><span aria-hidden="true">🧰</span><span data-zh>AI 办公与垂直应用</span><span data-en>Applications</span><b>47</b></a>
+        <a class="hp-chip k6" href="https://nav.specul.com/" title="模型与权重 / model"><span aria-hidden="true">🧩</span><span data-zh>模型与权重</span><span data-en>Model providers</span><b>26</b></a>
+        <a class="hp-chip k2" href="https://nav.specul.com/" title="开发框架与工具 / dev"><span aria-hidden="true">🔧</span><span data-zh>开发框架与工具</span><span data-en>Developer tools</span><b>42</b></a>
+        <a class="hp-chip k5" href="https://nav.specul.com/" title="算力与芯片 / infra"><span aria-hidden="true">💠</span><span data-zh>算力与芯片</span><span data-en>Infrastructure</span><b>55</b></a>
+        <a class="hp-chip k6" href="https://nav.specul.com/" title="机器人与具身智能 / robot"><span aria-hidden="true">🦾</span><span data-zh>机器人与具身智能</span><span data-en>Robotics &amp; embodied</span><b>87</b></a>
+        <a class="hp-chip k3" href="https://nav.specul.com/" title="学习资源 / learn"><span aria-hidden="true">📚</span><span data-zh>学习资源</span><span data-en>Learning</span><b>43</b></a>
+        <a class="hp-chip k1" href="https://nav.specul.com/" title="社区与资讯 / community"><span aria-hidden="true">🗣</span><span data-zh>社区与资讯</span><span data-en>Community</span><b>25</b></a>
+        <a class="hp-chip k4" href="https://nav.specul.com/" title="开发者工具 / tools"><span aria-hidden="true">🔩</span><span data-zh>开发者工具</span><span data-en>Tools &amp; utilities</span><b>72</b></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="hp-sec tight">
+    <div class="hp-c">
+      <div class="hp-tail">
+        <div class="hp-panel r1">
+          <h3><span data-zh>投机：多押几条路</span><span data-en>Speculate: hedge across several paths</span></h3>
+          <p><span data-zh>与其赌对一条，不如同时试几条，让能跑起来的东西替你把错的淘汰掉。</span><span data-en>Rather than betting on one path, try several at once and let whatever actually runs eliminate the wrong ones.</span></p>
+        </div>
+        <div class="hp-panel r2">
+          <h3><span data-zh>推演：先做出能跑的</span><span data-en>Simulate: get something running first</span></h3>
+          <p><span data-zh>与其写一份报告，不如先搭个原型试试手。我们喜欢能点开、能玩、能改的东西。</span><span data-en>Rather than writing a report, build a rough prototype and feel it out. We like things you can open, play with and change.</span></p>
+        </div>
+        <div class="hp-panel r3">
+          <h3><span data-zh>我们的底线</span><span data-en>What we will not do</span></h3>
+          <p><span data-zh>不排总分名次，查不到的就写查不到，来源链接都点得开。你要是当广告看，那就当广告看。</span><span data-en>No overall rankings. If we cannot verify it, we write that we cannot. Every source link opens. If this reads as advertising to you, then it is advertising.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="hp-c hp-line">
+    <p class="hp-lic"><b><span data-zh>内容</span><span data-en>Content</span></b> CC BY 4.0 · <b><span data-zh>源码</span><span data-en>Source</span></b> MIT · <span data-zh>署名</span><span data-en>Attribution</span> <span class="attr"><span data-zh>specul.com · 投机取巧</span><span data-en>specul.com · Specul</span></span> · <span data-zh>第三方内容归各自权利人</span><span data-en>Third-party content belongs to its owners</span></p>
+    <nav class="foot-links" aria-label="六个站">
+      <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
+      <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+      <a href="https://agent.specul.com/"><span data-zh>Agent</span><span data-en>Agent</span></a>
+      <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
+      <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+      <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+    </nav>
+    <nav class="foot-legal-links" aria-label="法律">
+      <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+      <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+      <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      <a href="https://github.com/speculcom/www" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<nav class="hp-tabs" aria-label="快捷导航">
+  <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://agent.specul.com/"><span class="ti" aria-hidden="true">◈</span>Agent</a>
+  <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="hpDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+
+<script src="brand.js" defer></script>
+<script>
+/* 语言桥接：brand.js 只切 <html lang> 与 data-lang，但品牌副名 #markSub
+   是本页为了显示「投机取巧 / Speculative Speculation」两行而加的，
+   brand.js 只认 id="markName"（brand.js:18, 49-52），不认识副名。
+   英文态主名已是英文，副名必须清空，否则是同一句话显示两遍。
+   顺带在这里同步 data-lang：brand.js 的 applyLang 也会写同一个属性，
+   两边写同一个值，不会打架。 */
+(function () {
+  var root = document.documentElement;
+  function sync() {
+    root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh');
+    var sub = document.getElementById('markSub');
+    if (!sub) return;
+    var t = root.lang === 'en'
+      ? (sub.getAttribute('data-en-sub') || '')
+      : (sub.getAttribute('data-zh-sub') || '');
+    sub.textContent = t;
+    sub.style.display = t ? '' : 'none';
+  }
+  new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
+  sync();
+})();
+
+/* 汉堡抽屉：顶部菜单与底部 tab bar 并存，两条路都能到六个站。
+   Esc / 点遮罩 / 点关闭键 / 点导航项都收起；打开时锁 body 滚动。 */
+(function () {
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('hpDrawer');
+  var scrim = document.getElementById('hpScrim');
+  var close = document.getElementById('hpDclose');
+  var more = document.getElementById('tabMore');
+  if (!burger || !drawer) return;
+  function set(open) {
+    drawer.classList.toggle('open', open);
+    scrim.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (more) more.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  function toggle() { set(!drawer.classList.contains('open')); }
+  burger.addEventListener('click', toggle);
+  more.addEventListener('click', toggle);
+  close.addEventListener('click', function () { set(false); });
+  scrim.addEventListener('click', function () { set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+  drawer.querySelectorAll('.hp-dlist a').forEach(function (a) {
+    a.addEventListener('click', function () { set(false); });
+  });
+})();
+</script>
+<script>
     var _hmt = _hmt || [];
     (function () {
       var hm = document.createElement('script');
