@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>法律条款 · 版权 · 第三方许可 — 投机取巧</title>
-  <meta name="description" content="Specul 版权归属、第三方开源组件与素材许可清单、免责声明、隐私与使用条款。" />
+  <meta name="description" content="Specul 站群的法律条款：版权归属、第三方开源组件与素材许可清单、免责声明、隐私与本地存储说明，以及各站的使用条款。" />
   <link rel="canonical" href="https://specul.com/legal.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Specul" />
@@ -94,6 +94,20 @@
     blockquote.attr p { margin-bottom: 10px; font-size: 12.5px; overflow-wrap: anywhere; }
     blockquote.attr p:last-child { margin-bottom: 0; }
   </style>
+  <!-- B5（2026-10-09）：法律页的结构性数据。用 WebPage（不是 WebSite）——
+       它是站群里的一个子页，不是站点本身。 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "法律条款 · Specul",
+    "url": "https://specul.com/legal.html",
+    "description": "Specul 站群的法律条款：版权归属、第三方开源组件与素材许可清单、免责声明、隐私与本地存储说明。",
+    "inLanguage": "zh-Hans",
+    "isPartOf": { "@type": "WebSite", "name": "Specul · 投机取巧", "url": "https://specul.com/" },
+    "dateModified": "2026-10-08"
+  }
+  </script>
 </head>
 <body class="brand-ambient">
 
@@ -123,8 +137,11 @@
     <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
   <main id="main" class="container">
     <div class="legal-head">
-      <h1 data-zh>法律条款</h1>
-      <h1 data-en>Legal</h1>
+      <!-- B5（2026-10-09）：原先这里是**两个 <h1>**（一个 data-zh、一个 data-en）。
+           双语切换靠 CSS 显隐，所以视觉上只看到一个 —— 但 DOM 里确实有两个 h1，
+           对屏幕阅读器与结构判读都是噪声，也与站内其他页（一个 h1 + 两个 span）不一致。
+           已合并成一个 h1，双语仍用 data-zh / data-en 两个 span。 -->
+      <h1><span data-zh>法律条款</span><span data-en>Legal</span></h1>
       <p class="sub" data-zh>最后更新：2026 年 10 月 8 日 · 投机取巧（Specul）· 适用站点：specul.com、learn.specul.com、agent.specul.com、models.specul.com、vg.specul.com、nav.specul.com</p>
       <p class="sub" data-en>Last updated: 8 October 2026 · Specul · applies to specul.com, learn.specul.com, agent.specul.com, models.specul.com, vg.specul.com, nav.specul.com</p>
     </div>
