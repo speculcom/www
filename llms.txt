@@ -18,21 +18,21 @@ Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 ## 各站说明
 
 ### 学 AI — https://learn.specul.com/
-116 个术语，按「先学什么后学什么」排成六层，另有 8 + 3 个维度对照表。
+116 个术语，按「先学什么后学什么」排成六层（一 / 二 / 三 / 四 / 五 / 六）；187 条出处；英文覆盖 116/116。
 每词能回到原始出处，**未知就写未知**，不给总分排名。
 
 ### Agent 图谱 — https://agent.specul.com/
-36 份产品档案分三个分区：自己能跑的成品 agent（17）、自己搭的运行时与 SDK（10）、
-给 agent 装的 MCP 工具（9）。固定八维对比（工具分区另加传输 / 认证 / 范围三维）。
+52 份档案，分三个分区（agents 27、harness 15、tools 10），按 8 个固定维度横向对比。
+固定八维对比（工具分区另加传输 / 认证 / 范围三维）。
 **不给总分排名**——加权总分掩盖取舍，而取舍才是决策依据。
 
 ### Models 图谱 — https://models.specul.com/
-本地部署量化模型索引：7 个系列、91 个量化仓、846 个量化档位。
+本地部署量化模型索引：11 个系列 / 16 个模型仓 / 132 个量化档 / 1253 个 GGUF 文件，来自 55 位量化者。
 按显存倒推该下哪一档 GGUF；文件体积是发布页实测值，许可逐条标注原文。
 **不跑 benchmark，不给质量与速度结论，不托管任何权重文件。**
 
 ### AI 做游戏 — https://vg.specul.com/
-25 页：17 个术语 + 5 个引擎档案，讲清 AI 在游戏开发里到底改变了哪些环节。
+17 条词条（阶段 12 · 关键词 5）+ 5 个引擎档案 + 2 个贯穿页，构建出 27 个页面。
 含边界判定表与五阶段教学路径。
 
 ### 导航 — https://nav.specul.com/
@@ -57,12 +57,14 @@ Models 站额外遵守：只引述不解读许可、遇 gated 仓库跳过不绕
 - **能否离线/自托管**：全部数据公开，站点静态托管在 GitHub Pages
 - **可复现**：字段来源、处理规则、推导公式全部公开（各数据仓 `README.md` / `METHODOLOGY.md`）
 - **审计强制**：数据不合规则构建中止，不允许「差不多就行」
+- **五个内容仓各有规范与校验器**：字段规范 `SCHEMA.md`，校验器不合规直接失败退出
 
 ## 数据仓
 
 - 术语数据层：https://github.com/speculcom/ai-glossary
 - Agent 数据层：https://github.com/speculcom/ai-agent-guide
 - Models 数据层：https://github.com/speculcom/ai-quantized-llm
+- AI 做游戏数据层：https://github.com/speculcom/ai-vibe-gaming
 - 导航目录：https://github.com/speculcom/ai-sites-directory
 
 ## 法律
@@ -72,4 +74,6 @@ Models 站额外遵守：只引述不解读许可、遇 gated 仓库跳过不绕
 
 ---
 
-最后更新：2026-10-08
+<!-- 本文件由 _audit/gen-repo-docs.mjs 从各仓数据生成，勿手改。
+     ⚠ 这里**不写「最后更新：某日」** —— 那既不能从内容推导（违反 R4），又会让 --check 每天必然失败
+     （把不确定性混进了校验对象）。数据的采集时间在 https://models.specul.com/ 页脚。 -->
