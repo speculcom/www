@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>投机取巧 — Specul</title>
-  <meta name="description" content="Specul：我们用投机策略让 AI 推演一切，把结果做成人人可用的工具。" />
+  <meta name="description" content="Specul：用投机策略让 AI 推演一切，把结果做成人人可用的工具。六个站点按层分工 —— 概念、产品、模型、实践、导航各回答一个问题。" />
   <link rel="canonical" href="https://specul.com/" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <meta property="og:type" content="website" />
@@ -80,7 +80,7 @@ html[data-theme="light"] body.brand-ambient {
   --hp-violet:    #7c5cff;  --hp-violet-ink: #5b34e8;  --hp-violet-soft: rgba(124, 92, 255, .13);
   --hp-rose:      #ff5c8a;  --hp-rose-ink:   #c81e56;  --hp-rose-soft:   rgba(255, 92, 138, .13);
   --hp-amber:     #ffb03a;  --hp-amber-ink:  #a86a00;  --hp-amber-soft:  rgba(255, 176, 58, .16);
-  --hp-teal:      #12b8b0;  --hp-teal-ink:   #0a7c76;  --hp-teal-soft:   rgba(18, 184, 176, .13);
+  --hp-teal:      #12b8b0;  --hp-teal-ink:   #07706a;  --hp-teal-soft:   rgba(18, 184, 176, .13);
   --hp-blue:      #3b9eff;  --hp-blue-ink:   #0b6fc4;  --hp-blue-soft:   rgba(59, 158, 255, .13);
   --hp-lime:      #84cc16;  --hp-lime-ink:   #4d8a00;  --hp-lime-soft:   rgba(132, 204, 22, .14);
 
@@ -129,17 +129,6 @@ body.brand-ambient .icon-btn { border-radius: 999px; border-color: var(--hp-line
 body.brand-ambient .icon-btn:hover { border-color: var(--hp-violet); color: var(--hp-violet-ink); }
 
 /* 汉堡：桌面隐藏 */
-.hp-burger { display: none; flex-direction: column; justify-content: center; gap: 4px;
-  width: 38px; height: 34px; padding: 0 8px; background: var(--hp-raise);
-  border: 1px solid var(--hp-line-mid); border-radius: 10px; cursor: pointer; }
-.hp-burger i { display: block; height: 2px; background: var(--hp-ink-mid); border-radius: 2px; transition: transform .2s, opacity .2s; }
-.hp-burger[aria-expanded="true"] i:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.hp-burger[aria-expanded="true"] i:nth-child(2) { opacity: 0; }
-.hp-burger[aria-expanded="true"] i:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-.hp-scrim { display: none; }
-.hp-drawer { display: none; }
-
 /* ---------- Hero ---------- */
 .hp-hero { padding: 44px 0 26px; }
 /* ⚠ 字号必须是整数。
@@ -277,7 +266,6 @@ body.brand-ambient .icon-btn:hover { border-color: var(--hp-violet); color: var(
   background: var(--hp-violet-soft); }
 
 /* ---------- 底部 tab bar：只有窄屏 ---------- */
-.hp-tabs { display: none; }
 
 /* ---------- 响应式 ---------- */
 @media (min-width: 1100px) { .hp-hero h1 { font-size: 30px; } }
@@ -293,44 +281,26 @@ body.brand-ambient .icon-btn:hover { border-color: var(--hp-violet); color: var(
 @media (max-width: 900px) {
   /* 六项横排在 390px 塞不下（实测占 3 行、挤掉半个首屏）→ 改汉堡 */
   .nav-links { display: none; }
-  .hp-burger { display: flex; }
   .brand-sub { display: none; }          /* 只藏副名，主名保留 */
   .hp-tail { grid-template-columns: 1fr; }
-  .hp-scrim { display: block; position: fixed; inset: 0; z-index: 50;
     background: rgba(0, 0, 0, .45); opacity: 0; pointer-events: none; transition: opacity .24s; }
-  .hp-scrim.open { opacity: 1; pointer-events: auto; }
-  .hp-drawer { display: flex; flex-direction: column; position: fixed; top: 0; right: 0; bottom: 0;
     z-index: 60; width: min(78vw, 300px); background: var(--hp-raise);
     border-left: 1px solid var(--hp-line); box-shadow: -14px 0 40px -20px rgba(0, 0, 0, .5);
     transform: translateX(102%); transition: transform .28s cubic-bezier(.4, 0, .2, 1);
     padding: 16px 0 calc(14px + env(safe-area-inset-bottom, 0px)); overflow-y: auto; }
-  .hp-drawer.open { transform: none; }
-  .hp-dh { display: flex; align-items: center; justify-content: space-between;
     padding: 0 20px 14px; border-bottom: 1px solid var(--hp-line); }
-  .hp-dclose { width: 32px; height: 32px; border: 1px solid var(--hp-line-mid);
     background: transparent; color: var(--hp-ink-mid); border-radius: 9px;
     font-size: 18px; cursor: pointer; line-height: 1; }
-  .hp-dlist { display: flex; flex-direction: column; padding: 8px 12px; }
-  .hp-dlist a { display: flex; align-items: center; justify-content: space-between;
     padding: 13px 12px; border-radius: 12px; color: var(--hp-ink);
     font-size: 15px; font-weight: 750; text-decoration: none; }
-  .hp-dlist a:active { background: var(--hp-violet-soft); color: var(--hp-violet-ink); }
-  .hp-dlist a .ar { color: var(--hp-ink-dim); font-size: 14px; }
-  .hp-dfoot { margin-top: auto; padding: 14px 20px 0; border-top: 1px solid var(--hp-line); }
-  .hp-dfoot p { margin: 0 0 8px; color: var(--hp-ink-dim); font-size: 12px; }
-  .hp-dfoot nav { display: flex; gap: 14px; }
-  .hp-dfoot nav a { color: var(--hp-ink-mid); font-size: 12px; font-weight: 750; }
 }
 @media (max-width: 768px) {
-  .hp-tabs { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
     background: var(--hp-glass); backdrop-filter: blur(18px) saturate(160%);
     border-top: 1px solid var(--hp-line);
     padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)); }
-  .hp-tabs a, .hp-tabs button { flex: 1; display: flex; flex-direction: column;
     align-items: center; gap: 2px; padding: 7px 2px 6px; background: transparent; border: 0;
     color: var(--hp-ink-dim); font: inherit; font-size: 10px; font-weight: 700;
     text-decoration: none; cursor: pointer; }
-  .hp-tabs .ti { font-size: 17px; line-height: 1; }
   .site-footer { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
   /* 窄屏隐藏页脚的六站链接：底部 tab bar + 汉堡抽屉已经覆盖同样的入口，
      再放一遍只会在 390px 下多占三行。HTML 里仍然保留（无脚本也可达，
@@ -358,11 +328,30 @@ body.brand-ambient .icon-btn:hover { border-color: var(--hp-violet); color: var(
   .hp-pq { padding: 11px 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hp-route, .hp-chip, .hp-drawer, .hp-scrim, .hp-burger i { transition: none !important; }
+  .hp-route, .hp-chip { transition: none !important; }   /* 抽屉/汉堡的 reduced-motion 已在共享 brand.css 里 */
 }
 </style>
+  <!-- B5（2026-10-09）：结构性数据。枢纽站声明自己是什么、以及由哪几个站组成 ——
+       这是「站群」这件事唯一能被机器读到的地方；hasPart 让搜索引擎知道六站是一个整体。 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Specul · 投机取巧",
+    "url": "https://specul.com/",
+    "description": "面向 AI 使用者的分层决策图谱站群：概念层、产品层、模型层、实践层与导航各回答一个问题。",
+    "inLanguage": "zh-Hans",
+    "hasPart": [
+      { "@type": "WebSite", "name": "学 AI", "url": "https://learn.specul.com/" },
+      { "@type": "WebSite", "name": "Agent 图谱", "url": "https://agent.specul.com/" },
+      { "@type": "WebSite", "name": "Models 图谱", "url": "https://models.specul.com/" },
+      { "@type": "WebSite", "name": "AI 做游戏", "url": "https://vg.specul.com/" },
+      { "@type": "WebSite", "name": "硅基导航", "url": "https://nav.specul.com/" }
+    ]
+  }
+  </script>
 </head>
-<body class="brand-ambient">
+<body class="brand-ambient has-tabbar">
 
 <header class="site-header">
   <div class="hp-c site-bar">
@@ -384,20 +373,20 @@ body.brand-ambient .icon-btn:hover { border-color: var(--hp-violet); color: var(
     <div class="hp-tools">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
       <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
-      <button class="hp-burger" id="burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="hpDrawer">
+      <button class="nav-burger" id="burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
         <i></i><i></i><i></i>
       </button>
     </div>
   </div>
 </header>
 
-<div class="hp-scrim" id="hpScrim"></div>
-<aside class="hp-drawer" id="hpDrawer" aria-hidden="true" aria-label="站点导航">
-  <div class="hp-dh">
+<div class="nav-scrim"></div>
+<aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+  <div class="nav-drawer-h">
     <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
-    <button class="hp-dclose" id="hpDclose" type="button" aria-label="关闭">×</button>
+    <button class="nav-dclose" type="button" aria-label="关闭">×</button>
   </div>
-  <nav class="hp-dlist">
+  <nav class="nav-drawer-list">
     <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
     <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
     <a href="https://agent.specul.com/"><span><span data-zh>Agent</span><span data-en>Agent</span></span><span class="ar" aria-hidden="true">→</span></a>
@@ -405,7 +394,7 @@ body.brand-ambient .icon-btn:hover { border-color: var(--hp-violet); color: var(
     <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
     <a href="https://nav.specul.com/"><span><span data-zh>导航</span><span data-en>Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
   </nav>
-  <div class="hp-dfoot">
+  <div class="nav-drawer-foot">
     <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
     <nav><a href="./legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a><a href="https://github.com/speculcom/www" target="_blank" rel="noopener">GitHub</a></nav>
   </div>
@@ -439,15 +428,15 @@ body.brand-ambient .icon-btn:hover { border-color: var(--hp-violet); color: var(
           <p class="get"><span data-zh>36 份主流工具用同一套标准过一遍：各自能做什么、装在哪、权限多大。分数我们不替你排，你按自己需求挑就行。</span><span data-en>36 mainstream tools run through one yardstick: what each can do, where it installs, how much permission it wants. We do not rank them for you — pick by your own needs.</span></p>
           <span class="rfoot">
             <span class="to"><span data-zh>Agent 图谱</span><span data-en>Agent atlas</span></span>
-            <span class="num"><span data-zh>36 份 · 同一套标准</span><span data-en>36 entries · same yardstick</span></span>
+            <span class="num"><span data-zh>52 份 · 同一套标准</span><span data-en>52 entries · same yardstick</span></span>
           </span>
         </a>
         <a class="hp-route r3" href="https://models.specul.com/">
           <p class="ask"><span data-zh>想在本地跑模型，我们帮你算清楚</span><span data-en>Want to run models on your own machine — here is the arithmetic</span></p>
-          <p class="get"><span data-zh>7 个系列、91 个量化仓、846 个档位。报一下显卡型号，我们倒推该下哪一档 —— 调参那些先放着。许可也逐条抄自发布页。</span><span data-en>7 series, 91 quantisation repos, 846 tiers. Tell us your GPU and we work backwards to the tier that fits. Skip the tuning for now. Licences are quoted from their release pages.</span></p>
+          <p class="get"><span data-zh>11 个系列、16 个模型仓、132 个量化档。报一下显卡型号，我们倒推该下哪一档 —— 调参那些先放着。许可也逐条抄自发布页。</span><span data-en>11 series, 16 model repos, 132 quantised builds. Tell us your GPU and we work backwards to the tier that fits. Skip the tuning for now. Licences are quoted from their release pages.</span></p>
           <span class="rfoot">
             <span class="to"><span data-zh>Models 图谱</span><span data-en>Models atlas</span></span>
-            <span class="num"><span data-zh>846 个量化档</span><span data-en>846 quant tiers</span></span>
+            <span class="num"><span data-zh>1253 个 GGUF 文件</span><span data-en>1253 GGUF files</span></span>
           </span>
         </a>
         <a class="hp-route r4" href="https://vg.specul.com/">
@@ -455,7 +444,7 @@ body.brand-ambient .icon-btn:hover { border-color: var(--hp-violet); color: var(
           <p class="get"><span data-zh>哪些环节 AI 真能省事、哪些其实一点没变。五阶段教学 + 5 个引擎档案，顺带说清美术和音频能不能商用。</span><span data-en>Which parts AI genuinely speeds up, and which it has not touched at all. Five teaching stages plus 5 engine profiles, and where the commercial rights on art and audio actually sit.</span></p>
           <span class="rfoot">
             <span class="to"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span>
-            <span class="num"><span data-zh>25 页 · 5 引擎</span><span data-en>25 pages · 5 engines</span></span>
+            <span class="num"><span data-zh>27 页 · 5 引擎</span><span data-en>27 pages · 5 engines</span></span>
           </span>
         </a>
         <a class="hp-route r5" href="https://nav.specul.com/">
@@ -545,12 +534,12 @@ body.brand-ambient .icon-btn:hover { border-color: var(--hp-violet); color: var(
   </div>
 </footer>
 
-<nav class="hp-tabs" aria-label="快捷导航">
+<nav class="nav-tabbar" aria-label="快捷导航">
   <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
   <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
   <a href="https://agent.specul.com/"><span class="ti" aria-hidden="true">◈</span>Agent</a>
   <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
-  <button type="button" id="tabMore" aria-controls="hpDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
 </nav>
 
 <script src="brand.js" defer></script>
@@ -579,31 +568,7 @@ body.brand-ambient .icon-btn:hover { border-color: var(--hp-violet); color: var(
 
 /* 汉堡抽屉：顶部菜单与底部 tab bar 并存，两条路都能到六个站。
    Esc / 点遮罩 / 点关闭键 / 点导航项都收起；打开时锁 body 滚动。 */
-(function () {
-  var burger = document.getElementById('burger');
-  var drawer = document.getElementById('hpDrawer');
-  var scrim = document.getElementById('hpScrim');
-  var close = document.getElementById('hpDclose');
-  var more = document.getElementById('tabMore');
-  if (!burger || !drawer) return;
-  function set(open) {
-    drawer.classList.toggle('open', open);
-    scrim.classList.toggle('open', open);
-    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (more) more.setAttribute('aria-expanded', open ? 'true' : 'false');
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-  function toggle() { set(!drawer.classList.contains('open')); }
-  burger.addEventListener('click', toggle);
-  more.addEventListener('click', toggle);
-  close.addEventListener('click', function () { set(false); });
-  scrim.addEventListener('click', function () { set(false); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
-  drawer.querySelectorAll('.hp-dlist a').forEach(function (a) {
-    a.addEventListener('click', function () { set(false); });
-  });
-})();
+
 </script>
 <script>
     var _hmt = _hmt || [];
