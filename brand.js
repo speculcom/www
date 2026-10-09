@@ -166,3 +166,44 @@
     });
   }
 })();
+
+/* ══════════════════════════════════════════════════════════════════════
+   B6（2026-10-09）· 移动端导航抽屉（共享行为）
+   ──────────────────────────────────────────────────────────────────────
+   来源：首页 S2 的页面内联 IIFE。提升到 brand.js 后，**六站是同一份实现**：
+   页面只要按 .nav-burger / .nav-scrim / .nav-drawer 的结构写标记即可，
+   不需要各自的脚本。
+
+   两个细节值得留着：
+   · 打开时锁 body 滚动，否则在抽屉上滑动会带着页面一起滚
+   · 无脚本时**不能**把导航藏进抽屉（<button> 点了没反应）—— 所以这里给
+     <html> 加 .js-on，CSS 只在 .js-on 存在时才显示汉堡、否则在窄屏放出 .nav-links
+   ══════════════════════════════════════════════════════════════════════ */
+(function () {
+  var root = document.documentElement;
+  var burger = document.querySelector('.nav-burger');
+  var drawer = document.querySelector('.nav-drawer');
+  var scrim = document.querySelector('.nav-scrim');
+  var close = document.querySelector('.nav-dclose');
+  var more = document.querySelector('.nav-tabbar [aria-controls]');
+  if (!burger || !drawer) return;
+  root.classList.add('js-on');
+
+  function set(open) {
+    drawer.classList.toggle('open', open);
+    if (scrim) scrim.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (more) more.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  function toggle() { set(!drawer.classList.contains('open')); }
+  burger.addEventListener('click', toggle);
+  if (more) more.addEventListener('click', toggle);
+  if (close) close.addEventListener('click', function () { set(false); });
+  if (scrim) scrim.addEventListener('click', function () { set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+  Array.prototype.forEach.call(drawer.querySelectorAll('a'), function (a) {
+    a.addEventListener('click', function () { set(false); });
+  });
+})();
