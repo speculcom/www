@@ -33,13 +33,25 @@
 
   --ink:       #eef2f7;
   --ink-mid:   #a8b3c4;
-  --ink-dim:   #6b7688;
-  /* ink-faint 只用于**装饰性**文字（页脚版权、大写字母间距的标签文字）。
-     WCAG 1.4.3 对装饰性文本用3:1 即达标 —— 它物理上无法达到 4.5:1，
-     硬拉亮度会失去「淡」的分层作用（实测 #6b7686 也只有 4.33:1）。
-     需要 4.5:1 的正文级弱化文字请用 --ink-dim（实测 4.34:1）。
-     2026-10-03 实测：2.45:1 → 3.43:1，仍属装饰档但已明显可读。 */
-  --ink-faint: #5c6675;
+  /* B5（2026-10-09）：--ink-dim / --ink-faint 提亮到满足 WCAG AA。
+   *
+   * 实测（`_audit/a11y-contrast.mjs`，浏览器里算有效背景 + WCAG 公式）：
+   *   旧 --ink-dim   #6b7688 → 3.95:1（最亮的深色底 #11161f）
+   *   旧 --ink-faint #5c6675 → 3.12:1
+   * 两者是**全站违规量最大**的色（1700 条聚类里的绝大多数）。
+   *
+   * 新值是**算出来的最小提亮量**（7% / 17%），不是随手调的：
+   *   #758090 → 4.52:1 · #78808c → 4.54:1（都过了 4.5 的线）
+   *
+   * ⚠ 这里推翻 2026-10-03 的一个判断。原注释写「ink-faint 只用于装饰性文字，
+   *   WCAG 1.4.3 对装饰性文本用 3:1 即达标」，并据此停在 3.43:1。两处不成立：
+   *   ① 3:1 那条豁免是给**大字号文本**（≥24px，或 ≥18.66px 加粗）与**非文本 UI 组件**的，
+   *      不是给「小字号的装饰性文本」的 —— 页脚版权与标签文字传达信息，属正文，要 4.5:1；
+   *   ② 「物理上无法达到 4.5:1」经复算不成立：#78808c 就达到了 4.54:1
+   *      （原注释里的 4.33:1 是拿另一个底色算的）。
+   *   「淡的分层」仍然保留：--ink-faint 依旧明显弱于 --ink-dim 与 --ink-mid。 */
+  --ink-dim:   #758090;
+  --ink-faint: #78808c;
 
   /* 品牌紫：唯一主色，用于强调与标识 */
   --brand:      #8b7cf8;
@@ -173,7 +185,16 @@
   --r-sm: 8px;    /* 标签、chip、按钮 */
   --r:    12px;   /* 卡片（主体，最常用） */
   --r-lg: 18px;   /* 大面板、对话框、modal */
+  /* B6：补两档大圆角（S2 的卡片用 20/26px）。 */
+  --r-xl: 20px;
+  --r-2xl: 26px;
   --container: min(1120px, 90vw);
+  /* B6：**宽容器**，只给「卡片 / 网格」类版面用。
+     ⚠ 为什么不直接把 --container 放宽到 1560px：正文站（learn 词条、legal）
+       一旦行宽到 1560px，15px 字号下每行约 150 字符，远超可读区间（45–90）。
+       www 之所以能用宽容器，是因为它的内容是卡片与 chip，不是散文。
+       所以宽度是**两种用途两个 token**，而不是一个数全局改大。 */
+  --container-wide: min(1560px, 92vw);
 
   /* ── 行宽（2026-10-03 新增）──────────────────────────────────────────
      为什么不能用 ch：1ch = 数字「0」的宽度（约 0.5em），而**汉字是全角 1em = 2ch**。
@@ -190,7 +211,14 @@
   --ring: rgba(139, 124, 248, .7);
 
   --ease: cubic-bezier(.4, 0, .2, 1);
+  /* B6（2026-10-09）：把首页 S2 的**表面与色系**提升到共享层，六站自动继承。
+     原先这套只在 `www.specul/index.html` 里内联（作用域限 body.brand-ambient），
+     于是六站看着像两套皮肤。提升的原则：**结构性与语义性的东西进共享层，
+     各站的身份色（--accent / --brand）留在各站**。 */
   --shadow: 0 20px 50px -28px rgba(0, 0, 0, .85);
+  --shadow-hi: 0 4px 12px -4px rgba(0, 0, 0, .5), 0 22px 44px -24px rgba(0, 0, 0, .8);
+  /* 玻璃表面：页头 / 底部 tab bar 用。必须跟着主题走（见亮色块）。 */
+  --glass: rgba(22, 18, 31, .88);
 
   /* ── 排版尺度（2026-10-03 新增，同日二次校准）─────────────────────────
      第一版的问题：把「大」理解成「留白更多」，于是 section-pad 给到 88px，
@@ -255,15 +283,15 @@
   --ink:       #0f172a;
   --ink-mid:   #3d4a5c;
   --ink-dim:   #5c6879;
-  /* 亮色主题下 ink-faint 同样只服务装饰性文字（页脚版权等）。
-     2.50:1 → 4.13:1，已达装饰档3:1 要求；实测无法再拉高而保住层次。 */
-  --ink-faint: #707c8c;
+  /* B5（2026-10-09）：与深色主题同理。#707c8c 在白底上 4.13:1，差一点点到 4.5；
+   * 压暗 5% 到 #6a7685 即 4.51:1（算出来的最小改动，层次几乎看不出差别）。 */
+  --ink-faint: #6a7685;
 
   --brand:      #6d4fd6;
   --brand-soft: rgba(109, 79, 214, .08);
   --brand-line: rgba(109, 79, 214, .28);
 
-  --cyan:      #0d9488;
+  --cyan:      #0b7c72;
   --cyan-soft: rgba(13, 148, 136, .1);
 
   --ok:    #15803d;
@@ -274,9 +302,15 @@
      亮色下用同色系更深一档 —— 对底色仍 ≥3.6:1，且配白字 ≥3.7:1 可读。 */
   --c-form:    #1f6fc4;  --c-form-on:    #ffffff;
   --c-layer:   #6d4fd6;  --c-layer-on:   #ffffff;
-  --c-use:     #0d9488;  --c-use-on:     #ffffff;
+  --c-use:     #0b7c72;  --c-use-on:     #ffffff;
   --c-state:   #15803d;  --c-state-on:   #ffffff;
-  --c-quant:   #a97a08;  --c-quant-on:   #ffffff;
+  /* B6（2026-10-09）：#a97a08 → #906807。
+     注意这里**推翻本文件原先的一句结论**：原注释写「实测 #0d9488(3.65) / #a97a08(3.74) 不够，
+     各自加深一档后达标」—— 但两处的**现值仍是 3.74/3.84**，也就是说那次并没有真的达标。
+     之所以一直没被发现：B5 的对比度探针**只测了默认（深色）主题**，
+     而这两个色只出现在亮色主题的覆盖块里。B6 把探针扩成双主题后一次报出 342 处。
+     现在按「白底 + 各自柔和底」双条件算出：#0b7c72（白 5.05 / 最坏底 4.53）· #906807（5.06 / 4.54）。 */
+  --c-quant:   #906807;  --c-quant-on:   #ffffff;
   --c-class:   #c2410c;  --c-class-on:   #ffffff;
   --c-form-soft:  rgba(31, 111, 196, .10);
   --c-layer-soft: rgba(109, 79, 214, .10);
@@ -451,12 +485,100 @@ code, kbd, pre { overflow-wrap: anywhere; }
 .t-skip {
   position: absolute; left: var(--sp-3); top: 10px; z-index: 100;
   transform: translateY(-180%);
-  background: var(--brand); color: #fff;
+  /* B5（2026-10-09）：原来是白字 + --brand 底，实测 1.62–3.31:1（各站 accent 不同），
+   * 全部不达标。改为**深色字 + 亮 accent 底**：白字在亮色上对比度天然不足，
+   * 而深字在同样底色上到 ~6:1。跳转链接是键盘用户第一个会遇到的东西，不能是低对比的。 */
+  background: var(--brand); color: #06080d;
   padding: 10px 16px; border-radius: var(--r-sm);
   font-size: var(--fs-xs); font-weight: 600;
   transition: transform .16s var(--ease);
 }
 .t-skip:focus { transform: translateY(0); }
+/* B6（2026-10-09）：亮色主题下跳转链接要**反过来**用白字。
+   深色主题的 accent 是亮的（青/紫），深字才够对比；亮色主题的 accent 是压深的
+   （#6d4fd6 / #1f6fc4 / #0b7c72 / #906807），深字在上面只有 3.3–4.0:1，白字才达标。
+   —— 同一个组件在两个主题下需要**相反**的前景色，这是「一套值走天下」行不通的地方。 */
+[data-theme="light"] .t-skip { color: #fff; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   B6（2026-10-09）· 移动端导航（汉堡抽屉 + 底部 tab bar）
+   ──────────────────────────────────────────────────────────────────────
+   来源：首页 S2 的内联实现（原先作用域限 body.brand-ambient，只有 www 有）。
+   提升到共享层的意义：**六站从此是同一套实现**，而不是六份各自演化。
+
+   移植时做了三件事（都不是照抄）：
+     1. token 映射：--hp-raise/--hp-line/--hp-ink* → --bg-panel/--line/--ink*；
+        --hp-glass → --glass（B6 新增，会随主题变）
+     2. 字号一律整数 px（设计系统硬规则，_design-audit 守着）
+     3. 抽屉只在 ≤900px 生效（与 .nav-links 的隐藏断点一致 —— 两者必须同时切换，
+        否则会出现「导航没了但没有替代入口」或「两个入口同时出现」）
+
+   ⚠ 底部 tab bar 只给 www 用，**没有**推给其余五站：那五站的页脚站群链接在窄屏
+     本来就可见（实测 390px 下六个站全部可达），再加一条 tab bar 只是把同一批入口
+     写两遍。推广的是组件与 token，用不用取决于它在该站是否冗余。
+   ══════════════════════════════════════════════════════════════════════ */
+.nav-burger {
+  display: none; flex-direction: column; justify-content: center; gap: 4px;
+  width: 34px; height: 34px; padding: 0 6px; background: transparent;
+  border: 1px solid var(--line-mid); border-radius: var(--r-sm); cursor: pointer;
+}
+.nav-burger i { display: block; height: 2px; background: var(--ink-mid); border-radius: 2px; transition: transform .2s var(--ease), opacity .2s var(--ease); }
+.nav-burger[aria-expanded="true"] i:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-burger[aria-expanded="true"] i:nth-child(2) { opacity: 0; }
+.nav-burger[aria-expanded="true"] i:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.nav-scrim { display: none; position: fixed; inset: 0; z-index: 50; background: rgba(0, 0, 0, .45); opacity: 0; pointer-events: none; transition: opacity .24s var(--ease); }
+.nav-scrim.open { opacity: 1; pointer-events: auto; }
+.nav-drawer {
+  display: none; flex-direction: column; position: fixed; top: 0; right: 0; bottom: 0; z-index: 60;
+  width: min(78vw, 300px); background: var(--bg-panel); border-left: 1px solid var(--line);
+  box-shadow: -14px 0 40px -20px rgba(0, 0, 0, .5);
+  transform: translateX(102%); transition: transform .28s var(--ease);
+  padding: 16px 0 calc(14px + env(safe-area-inset-bottom, 0px));
+  /* ⚠ 必须**显式**写 overflow-x: hidden。
+     只写 overflow-y: auto 时，CSS 的 overflow 耦合规则会把另一轴的 visible
+     计算成 auto —— 于是抽屉成了一个「横向可滚」的容器，被 models-check 的
+     「全站不允许横向滚动容器」约定判失败（24/24 全红）。显式写清就没有歧义。 */
+  overflow-x: hidden; overflow-y: auto;
+}
+.nav-drawer.open { transform: none; }
+.nav-drawer-h { display: flex; align-items: center; justify-content: space-between; padding: 0 20px 14px; border-bottom: 1px solid var(--line); }
+.nav-dclose { width: 32px; height: 32px; border: 1px solid var(--line-mid); background: transparent; color: var(--ink-mid); border-radius: 9px; font-size: 18px; cursor: pointer; line-height: 1; }
+.nav-drawer-list { display: flex; flex-direction: column; padding: 8px 12px; }
+.nav-drawer-list a { display: flex; align-items: center; justify-content: space-between; padding: 13px 12px; border-radius: 12px; color: var(--ink); font-size: 15px; font-weight: 700; text-decoration: none; }
+.nav-drawer-list a:active { background: var(--brand-soft); }
+.nav-drawer-list a .ar { color: var(--ink-dim); font-size: 14px; }
+.nav-drawer-foot { margin-top: auto; padding: 14px 20px 0; border-top: 1px solid var(--line); }
+.nav-drawer-foot p { margin: 0 0 8px; color: var(--ink-dim); font-size: 12px; }
+.nav-drawer-foot nav { display: flex; gap: 14px; }
+.nav-drawer-foot nav a { color: var(--ink-mid); font-size: 12px; font-weight: 700; }
+.nav-tabbar {
+  display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  background: var(--glass); backdrop-filter: blur(18px) saturate(160%);
+  border-top: 1px solid var(--line); padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+}
+.nav-tabbar a, .nav-tabbar button {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 7px 2px 6px; background: transparent; border: 0; color: var(--ink-dim);
+  font: inherit; font-size: 10px; font-weight: 700; text-decoration: none; cursor: pointer;
+}
+.nav-tabbar a[aria-current="page"], .nav-tabbar button[aria-expanded="true"] { color: var(--brand); }
+.nav-tabbar .ti { font-size: 17px; line-height: 1; }
+@media (max-width: 900px) {
+  .nav-burger { display: flex; }
+  .nav-scrim, .nav-drawer { display: flex; }
+}
+@media (max-width: 768px) {
+  .nav-tabbar { display: flex; }
+  /* 有 tab bar 的页面要给页脚留出底部空间，否则最后一行被挡住 */
+  body.has-tabbar .site-footer, body.has-tabbar .foot { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-burger i, .nav-scrim, .nav-drawer { transition: none !important; }
+}
+/* 无脚本时不能把导航藏进抽屉：汉堡按钮是 <button>，没有 JS 点了没反应。
+   所以 JS 可用时由 brand.js 给 <html> 加 .js-on，只有此时才启用抽屉。 */
+html:not(.js-on) .nav-burger { display: none; }
+@media (max-width: 900px) { html:not(.js-on) .nav-links { display: flex !important; } }
 
 /* ══════════════════════════════════════════════════════════════════════
    排版原语
