@@ -71,7 +71,15 @@ html[data-theme="light"] body.brand-ambient {
   /* 同上：亮色主题的两圈 radial 辉光也一并去掉 ✓ */
 }
 
-.hp-c { max-width: var(--container-wide); margin: 0 auto; padding: 0 24px; position: relative; }
+/* ⚠ 2026-10-10：容器宽度收敛到共享层。
+   原先 `max-width: var(--container-wide)`（=min(1560px,92vw)，1440 视口下解析成 1325）
+   且自带 `padding: 0 24px` —— 而其余五站的 `.site-bar` 走 `--container`
+   （min(1120px,90vw)）、左右内边距为 0。于是实测顶栏宽 **1325 vs 1120**、
+   正文区 1440 vs 1120：首页比所有分站宽 320px，跨站跳转会看到内容列「突然变窄」。
+   用户 2026-10-10 指出「顶部导航栏的宽度和字体全部都要一致」。
+   → 统一用 `--container`，并去掉额外的 24px（与五站一致）。
+   实测影响：首页三列卡片由 418px 变 349px，仍是三列，主标 46px 不变 ✓ */
+.hp-c { max-width: var(--container); margin: 0 auto; padding: 0; position: relative; }
 
 /* ---------- 顶部 ---------- */
 /* ⚠ 2026-10-10 删掉了原来这两条对 .site-header / .site-bar 的整块覆盖。
@@ -86,19 +94,23 @@ html[data-theme="light"] body.brand-ambient {
   box-shadow: 0 0 0 4px var(--cat-violet-soft); flex: 0 0 auto; }
 .brand-text { display: flex; flex-direction: column; gap: 1px; line-height: 1.15; }
 .brand-name { font-size:var(--fs-sm); font-weight: 800; letter-spacing: .01em; }
-.brand-sub { font-size:var(--fs-xs); font-weight: 500; letter-spacing: .03em;
-  color: var(--ink-dim); white-space: nowrap; opacity: .85; }
-.nav-links { display: flex; gap: 3px; margin-left: auto; }
-/* nav-links 与 brand.css 共用类名（探针与 brand.js 的 aria-current 都靠它），
-   所以这里必须显式给整数字号 —— brand.css 给的是 13.5px（半像素）。 */
-.nav-links a { color: var(--ink-mid); text-decoration: none; padding: 8px 14px;
-  border-radius: 999px; font-size:var(--fs-xs); font-weight: 700;
-  transition: color .18s, background .18s; }
-.nav-links a:hover { color: var(--cat-violet-ink); background: var(--cat-violet-soft); }
+/* ⚠ 2026-10-10：删掉了 `.brand-sub` 的本地规则（原 font-size:var(--fs-xs) = 14px）。
+   共享层 brand.css 写的是 10.5px —— 首页用 14px 而其余五站用 10.5px，
+   于是左上角品牌块宽 181px vs 143px（实测），肉眼可见大小不一。
+   现在一律继承共享层 ✓ 顺带 L290 的「窄屏藏副名」规则继续生效。 */
+/* nav：间距与内距一律继承 brand.css 的 .nav-links（gap var(--sp-5)=32px）。
+   原先这里写 `gap:3px` + `padding:8px 14px` 的药丸式，
+   而其余五站是 32px 间距 + 无横向内距 —— 顶栏导航的疏密与形状两套。
+   现在只保留配色与 hover 态，结构交给共享层 ✓ */
+/* ⚠ 2026-10-10 删除 `.hp-tools`：按钮组已移进 `.nav-links` 内的 `.nav-tools`，
+   与其余五站的共享 shell 结构一致（见下方注释）。 */
+.nav-links { margin-left: auto; }
+.nav-links a { color: var(--ink-mid); text-decoration: none;
+  transition: color .18s var(--ease); }
+.nav-links a:hover { color: var(--cat-violet-ink); }
 /* 当前页只用 brand.css 自带的下划线（.nav-links > a[aria-current]::after），
    不再叠一层药丸底色 —— 两处指示同时出现会显得吵。 */
 .nav-links a[aria-current="page"] { color: var(--cat-violet-ink); font-weight: 800; }
-.hp-tools { display: flex; align-items: center; gap: 8px; }
 /* 主题/语言按钮沿用 brand.css 的 .icon-btn（固定 32×32 + grid 居中）。
    ⚠ 之前给它们写了 .hp-btn 的 padding 尺寸，结果 brand.js 切换语言时
    文案从「EN」变「中」，padding 撑出来的宽度跟着变（实测 45px → 40px），
@@ -126,8 +138,10 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
    六站首屏主标同一个来源，改一处六站一起变。
    （--display-sub 在 ≤760px 时被共享层窄屏覆写为 clamp(24px,6.4vw,32px)，
      所以窄屏也不必再另写断点 —— 原来那两条 min-width 覆写已删除。） */
-.hp-hero h1 { font-size: var(--display-sub); line-height: 1.16;
-  font-weight: 850; letter-spacing: -.028em; margin: 0 0 10px; max-width: min(88%, 24em); }
+.hp-hero h1 {
+  /* 字重 / 行高 / 字号一律继承 brand.css 的 h1（800 / --lh-tight / --display-sub）。
+     原先这里是 850 —— 与其余五站的 800 不一致，现已收回共享层 ✓ */
+  letter-spacing: -.028em; margin: 0 0 10px; max-width: min(88%, 24em); }
 /* 渐变标题：改用共享层 token（2026-10-10）
    原来是这里自己写死三个色标 `var(--cat-rose) → --cat-violet → --cat-teal`，
    颜色值恰好相同但**公式没有共用** —— 以后调渐变要改两处。
@@ -276,7 +290,13 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
 }
 @media (max-width: 900px) {
   /* 六项横排在 390px 塞不下（实测占 3 行、挤掉半个首屏）→ 改汉堡 */
-  .nav-links { display: none; }
+  /* ⚠ 2026-10-10：原先是 `.nav-links { display: none }`。
+     按钮组移进 .nav-links 之后，这条会把**主题/语言/汉堡按钮一起藏掉** ——
+     手机端于是既没有汉堡也没有语言切换 ✗（mobile-nav 门禁当场报出）。
+     现在只藏导航**链接**，按钮组保留 ✓ */
+  .nav-links > a { display: none; }
+  .nav-links { width: auto; }
+  .nav-tools { margin-left: var(--sp-2); }
   .brand-sub { display: none; }          /* 只藏副名，主名保留 */
   .hp-tail { grid-template-columns: 1fr; }
     background: rgba(0, 0, 0, .45); opacity: 0; pointer-events: none; transition: opacity .24s; }
@@ -311,7 +331,7 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
   .foot-legal-links { margin-left: 0; justify-content: flex-start; }
 }
 @media (max-width: 640px) {
-  .hp-c { padding: 0 16px; }
+  .hp-c { padding: 0 var(--sp-4); }
   .hp-hero { padding: 26px 0 18px; }
   .hp-sec { padding: 20px 0; }
   .hp-routes { grid-template-columns: 1fr; }
@@ -365,14 +385,21 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
       <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
       <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
       <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-    </nav>
-    <div class="hp-tools">
+      <!-- ⚠ 2026-10-10：主题/语言/汉堡三个按钮**移进 <nav class="nav-links">**。
+        原来它们是 `.hp-tools`（.site-bar 的直接子元素），而其余五站用的
+        是共享 shell 的结构 —— `.nav-tools` 放在 .nav-links **内部**。
+        结构不同导致实测顶栏导航宽 398px vs 502px ✗（按钮组被算进了导航宽度）。
+        现在统一为共享层的写法，六站结构完全一致 ✓
+        （汉堡按钮是首页独有的移动端入口，仍保留，只是换了容器。）
+        <span class="nav-tools"> -->
+      <span class="nav-tools">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
       <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       <button class="nav-burger" id="burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
         <i></i><i></i><i></i>
       </button>
-    </div>
+    </span>
+    </nav>
   </div>
 </header>
 
