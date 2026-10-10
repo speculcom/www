@@ -52,10 +52,10 @@ body.brand-ambient {
    *   现在改为完全继承共享层，六站字体/行高一致。
    *   字重不受影响：brand.css 的 `body` 没有设 font-weight，继承仍是 400。 */
   background: var(--bg);
-  background-image:
-    radial-gradient(circle at 6% 0%,  rgba(255, 92, 138, .09), transparent 26%),
-    radial-gradient(circle at 96% 8%, rgba(124, 92, 255, .1), transparent 28%);
-  background-attachment: fixed;
+  /* ⚠ 2026-10-10 用户「底色里这些渐变可以去掉」→ 删掉两圈 radial 辉光
+     （左上玫红 / 右上紫），底色改为平涂 var(--bg)，与 brand.css 的
+     `.brand-ambient::before` 一致 —— 两处各画一遍底色，本就是重复配方。
+     页面里的彩色靠卡片、徽标、渐变标题承载，不靠背景。 */
 }
 
 /* ---------- token：亮色覆盖 ---------- */
@@ -68,9 +68,7 @@ html[data-theme="light"] body.brand-ambient {
   --cat-blue:      #3b9eff;  --cat-blue-ink:   #0b6fc4;  --cat-blue-soft:   rgba(59, 158, 255, .13);
   --cat-lime:      #84cc16;  --cat-lime-ink:   #4d8a00;  --cat-lime-soft:   rgba(132, 204, 22, .14);
 
-  background-image:
-    radial-gradient(circle at 6% 0%,  rgba(255, 92, 138, .07), transparent 24%),
-    radial-gradient(circle at 96% 8%, rgba(124, 92, 255, .08), transparent 26%);
+  /* 同上：亮色主题的两圈 radial 辉光也一并去掉 ✓ */
 }
 
 .hp-c { max-width: var(--container-wide); margin: 0 auto; padding: 0 24px; position: relative; }
@@ -130,8 +128,15 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
      所以窄屏也不必再另写断点 —— 原来那两条 min-width 覆写已删除。） */
 .hp-hero h1 { font-size: var(--display-sub); line-height: 1.16;
   font-weight: 850; letter-spacing: -.028em; margin: 0 0 10px; max-width: min(88%, 24em); }
+/* 渐变标题：改用共享层 token（2026-10-10）
+   原来是这里自己写死三个色标 `var(--cat-rose) → --cat-violet → --cat-teal`，
+   颜色值恰好相同但**公式没有共用** —— 以后调渐变要改两处。
+   现在指向共享 token `--grad-title-*`，与各分站的 `.grad-title` 同一份 ✓ */
 .hp-hero h1 em { font-style: normal;
-  background: linear-gradient(100deg, var(--cat-rose), var(--cat-violet) 48%, var(--cat-teal));
+  background: linear-gradient(100deg,
+    var(--grad-title-from),
+    var(--grad-title-mid) 48%,
+    var(--grad-title-to));
   -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hp-hero .hp-meta { margin: 0; color: var(--ink-dim); font-size:var(--fs-xs);
   font-weight: 650; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center;
@@ -535,27 +540,11 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
 
 <script src="brand.js" defer></script>
 <script>
-/* 语言桥接：brand.js 只切 <html lang> 与 data-lang，但品牌副名 #markSub
-   是本页为了显示「投机取巧 / Speculative Speculation」两行而加的，
-   brand.js 只认 id="markName"（brand.js:18, 49-52），不认识副名。
-   英文态主名已是英文，副名必须清空，否则是同一句话显示两遍。
-   顺带在这里同步 data-lang：brand.js 的 applyLang 也会写同一个属性，
-   两边写同一个值，不会打架。 */
-(function () {
-  var root = document.documentElement;
-  function sync() {
-    root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh');
-    var sub = document.getElementById('markSub');
-    if (!sub) return;
-    var t = root.lang === 'en'
-      ? (sub.getAttribute('data-en-sub') || '')
-      : (sub.getAttribute('data-zh-sub') || '');
-    sub.textContent = t;
-    sub.style.display = t ? '' : 'none';
-  }
-  new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
-  sync();
-})();
+/* ⚠ 2026-10-10：原先这里有一段「语言桥接」内联脚本，专门处理 #markSub
+   （中文态显示英文副名、英文态清空）—— 因为那时 brand.js 只认 #markName。
+   现在这段逻辑已**搬进共享的 brand.js**（applyLang 里），
+   六站与手机抽屉行为一致，所以这里整段删除 ✓
+   留着它就是两份配方 —— 改一处忘一处就会重影。 */
 
 /* 汉堡抽屉：顶部菜单与底部 tab bar 并存，两条路都能到六个站。
    Esc / 点遮罩 / 点关闭键 / 点导航项都收起；打开时锁 body 滚动。 */
