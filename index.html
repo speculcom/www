@@ -295,28 +295,15 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
      手机端于是既没有汉堡也没有语言切换 ✗（mobile-nav 门禁当场报出）。
      现在只藏导航**链接**，按钮组保留 ✓ */
   .nav-links > a { display: none; }
-  .nav-links { width: auto; }
+  /* 首页在 ≤900px 只留品牌 + 按钮 + 汉堡，所以 .nav-links 是空的 ——
+     必须把共享层 ≤520px 的 `flex: 0 0 100%` 撤掉，否则空盒子占满整行，
+     把按钮组挤到第二行（顶栏 66px → 134px）。 */
+  .nav-links { width: auto; flex: 0 0 auto; }
   .nav-tools { margin-left: var(--sp-2); }
   .brand-sub { display: none; }          /* 只藏副名，主名保留 */
   .hp-tail { grid-template-columns: 1fr; }
-    background: rgba(0, 0, 0, .45); opacity: 0; pointer-events: none; transition: opacity .24s; }
-    z-index: 60; width: min(78vw, 300px); background: var(--bg-panel);
-    border-left: 1px solid var(--line); box-shadow: -14px 0 40px -20px rgba(0, 0, 0, .5);
-    transform: translateX(102%); transition: transform .28s cubic-bezier(.4, 0, .2, 1);
-    padding: 16px 0 calc(14px + env(safe-area-inset-bottom, 0px)); overflow-y: auto; }
-    padding: 0 20px 14px; border-bottom: 1px solid var(--line); }
-    background: transparent; color: var(--ink-mid); border-radius: 9px;
-    font-size: 18px; cursor: pointer; line-height: 1; }
-    padding: 13px 12px; border-radius: 12px; color: var(--ink);
-    font-size:var(--fs-sm); font-weight: 750; text-decoration: none; }
 }
 @media (max-width: 768px) {
-    background: var(--glass); backdrop-filter: blur(18px) saturate(160%);
-    border-top: 1px solid var(--line);
-    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)); }
-    align-items: center; gap: 2px; padding: 7px 2px 6px; background: transparent; border: 0;
-    color: var(--ink-dim); font: inherit; font-size: 10px; font-weight: 700;
-    text-decoration: none; cursor: pointer; }
   .site-footer { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
   /* 窄屏隐藏页脚的六站链接：底部 tab bar + 汉堡抽屉已经覆盖同样的入口，
      再放一遍只会在 390px 下多占三行。HTML 里仍然保留（无脚本也可达，
@@ -385,21 +372,19 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
       <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
       <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
       <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-      <!-- ⚠ 2026-10-10：主题/语言/汉堡三个按钮**移进 <nav class="nav-links">**。
-        原来它们是 `.hp-tools`（.site-bar 的直接子元素），而其余五站用的
-        是共享 shell 的结构 —— `.nav-tools` 放在 .nav-links **内部**。
-        结构不同导致实测顶栏导航宽 398px vs 502px ✗（按钮组被算进了导航宽度）。
-        现在统一为共享层的写法，六站结构完全一致 ✓
-        （汉堡按钮是首页独有的移动端入口，仍保留，只是换了容器。）
-        <span class="nav-tools"> -->
-      <span class="nav-tools">
+    </nav>
+    <!-- ⚠ 2026-10-10：`.nav-tools` 是 `.site-bar` 的直接子元素（与 `.nav-links` 平级），
+        与其余五站共享 shell 的骨架一致。
+        ⚠ 2026-10-10 第二次修正：它一度被**放进 `<nav>` 内部**以对齐结构 ——
+        结构确实对齐了，但窄屏下它跟着链接一起换行，链接占满整行时按钮组被挤到第三条 ✗。
+        现在是平级兄弟：按钮与品牌同行，链接在窄屏独占第二行居中。 -->
+    <span class="nav-tools">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
       <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       <button class="nav-burger" id="burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
         <i></i><i></i><i></i>
       </button>
     </span>
-    </nav>
   </div>
 </header>
 
