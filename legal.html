@@ -15,7 +15,9 @@
   <link rel="stylesheet" href="brand.css" />
   <style>
     .legal-head { padding: 56px 0 8px; }
-    .legal-head h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -.02em; }
+    /* ⚠ 2026-10-10：删掉了本地的 `clamp(28px, 5vw, 40px)` —— 法律页主标因此
+   比其余 217 页小 6px（实测 40 vs 46）。现在一律继承 brand.css 的 h1。 */
+.legal-head h1 { font-weight: 800; letter-spacing: -.02em; }
     .legal-head .sub { color: var(--ink-mid); font-size: 13px; margin-top: 8px; }
     .toc-legal {
       margin: 22px 0 0; padding: 16px 18px;
