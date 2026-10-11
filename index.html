@@ -140,6 +140,15 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
   /* 字重 / 行高 / 字号一律继承 brand.css 的 h1（800 / --lh-tight / --display-sub）。
      原先这里是 850 —— 与其余五站的 800 不一致，现已收回共享层 ✓ */
   letter-spacing: -.028em; margin: 0 0 10px; max-width: min(88%, 24em); }
+/* ⚠ 2026-10-10：窄屏取消 88% 的主标宽度上限。
+   `max-width: min(88%, 24em)` 是**桌面**的排版宽度控制（控制标题行长）。
+   但容器在窄屏本来就是 90vw（390px 下 351px），再砍 12% → 主标只剩 309px、
+   左右各多缩进 20px，于是**首页在手机上明显比分站窄一圈**
+   （实测：www 主标 宽309/左40，其余五站 宽351/左20）。
+   窄屏下容器已经足够窄，不需要再限行长。 */
+@media (max-width: 760px) {
+  .hp-hero h1 { max-width: none; }
+}
 /* 渐变标题：改用共享层 token（2026-10-10）
    原来是这里自己写死三个色标 `var(--cat-rose) → --cat-violet → --cat-teal`，
    颜色值恰好相同但**公式没有共用** —— 以后调渐变要改两处。
@@ -303,7 +312,13 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
   .foot-legal-links { margin-left: 0; justify-content: flex-start; }
 }
 @media (max-width: 640px) {
-  .hp-c { padding: 0 var(--sp-4); }
+  /* ⚠ 2026-10-10：删掉了 `.hp-c { padding: 0 var(--sp-4) }`。
+     .hp-c 本身就是 `max-width: var(--container)`（窄屏 90vw，390px 下 351px），
+     与其余站的 .container 同宽；但窄屏又额外加了左右各 20px 内距，
+     于是首页正文列只剩 311px、左右留白 40px，
+     而其余五站是 351px / 留白 20px —— **首页在手机上明显比分站窄一圈**
+     （probe-insets 实测：www 左40右40宽311，其余站 左20右20宽351）。
+     留白已由容器宽度提供，这里再加内距就是重复扣两次。 */
   .hp-hero { padding: 26px 0 18px; }
   .hp-sec { padding: 20px 0; }
   .hp-routes { grid-template-columns: 1fr; }
