@@ -17,7 +17,10 @@
     .legal-head { padding: 56px 0 8px; }
     /* ⚠ 2026-10-10：删掉了本地的 `clamp(28px, 5vw, 40px)` —— 法律页主标因此
    比其余 217 页小 6px（实测 40 vs 46）。现在一律继承 brand.css 的 h1。 */
-.legal-head h1 { font-weight: 800; letter-spacing: -.02em; }
+/* ⚠ 2026-10-10：删掉了 `.legal-head h1` 的 `letter-spacing: -.02em` ——
+   共享层 brand.css 的 h1 字距是 -.028em（六站一致），这条带前缀的规则
+   权重更高、把它盖掉，于是 legal 的主标字距 -0.92px vs 其余站 -1.288px。 */
+.legal-head h1 { font-weight: 800; }
     .legal-head .sub { color: var(--ink-mid); font-size: 13px; margin-top: 8px; }
     .toc-legal {
       margin: 22px 0 0; padding: 16px 18px;
@@ -119,6 +122,10 @@
         <span class="brand-dot" aria-hidden="true"></span>
         <span class="brand-text">
           <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <!-- ⚠ 2026-10-10：legal 页原先**没有** .brand-sub 节点 —— 六站里唯一一个。
+               于是它的品牌块只有一行，品牌名宽度 65px vs 其余站 124px，
+               顶栏右侧的链接整排左移（ui-parity 实测）。补上，与全站一致。 -->
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
         </span>
       </a>
       <nav class="nav-links" aria-label="站点导航">
