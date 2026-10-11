@@ -309,7 +309,7 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
      这里必须把基准显式归零，否则「减少留白」在窄屏完全失效。 */
   .hp-lic { flex: 0 0 auto; }
   .hp-line { flex-direction: column; align-items: stretch; gap: 10px; }
-  .foot-legal-links { margin-left: 0; justify-content: flex-start; }
+  .foot-legal-links { justify-content: flex-start; }   /* margin-left:0 共享层已有，不重复 */
 }
 @media (max-width: 640px) {
   /* ⚠ 2026-10-10：删掉了 `.hp-c { padding: 0 var(--sp-4) }`。
