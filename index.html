@@ -206,8 +206,16 @@
 </main>
 
 <footer class="site-footer">
-  <div class="hp-c hp-line">
-    <p class="hp-lic"><b><span data-zh>内容</span><span data-en>Content</span></b> CC BY 4.0 · <b><span data-zh>源码</span><span data-en>Source</span></b> MIT · <span data-zh>署名</span><span data-en>Attribution</span> <span class="attr"><span data-zh>specul.com · 投机取巧</span><span data-en>specul.com · Specul</span></span> · <span data-zh>第三方内容归各自权利人</span><span data-en>Third-party content belongs to its owners</span></p>
+  <!-- ⚠ 2026-10-10：补上 .foot-brand（品牌点 + 版权行）。
+     其余五站的页脚都有这一块（共享 shell 的 .foot-row > .foot-brand），
+     只有首页缺 —— 于是首页页脚少了左上角的品牌标记，六站页脚骨架不一致。
+     顺带把「开源」链接从 .foot-legal-links 挪到 .foot-links 末尾，
+     与其余五站的位置一致（法律链接区只放法律链接）。 -->
+  <div class="container foot-row">
+    <div class="foot-brand">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span> · specul.com</span>
+    </div>
     <nav class="foot-links" aria-label="六个站">
       <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
       <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
@@ -215,13 +223,17 @@
       <a href="https://models.specul.com/"><span data-zh>本地模型</span><span data-en>Models</span></a>
       <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
       <a href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+      <a href="https://github.com/speculcom/ai-glossary" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
     </nav>
     <nav class="foot-legal-links" aria-label="法律">
       <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
       <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
       <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
-      <a href="https://github.com/speculcom/ai-glossary" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
     </nav>
+  </div>
+  <!-- 首页独有的授权声明 —— 内容，不是外壳，保持首页自己的结构。 -->
+  <div class="container hp-line">
+    <p class="hp-lic"><b><span data-zh>内容</span><span data-en>Content</span></b> CC BY 4.0 · <b><span data-zh>源码</span><span data-en>Source</span></b> MIT · <span data-zh>署名</span><span data-en>Attribution</span> <span class="attr"><span data-zh>specul.com · 投机取巧</span><span data-en>specul.com · Specul</span></span> · <span data-zh>第三方内容归各自权利人</span><span data-en>Third-party content belongs to its owners</span></p>
   </div>
 </footer>
 
