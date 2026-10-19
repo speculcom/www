@@ -1,0 +1,100 @@
+/* ============================================================
+ * legal.html 站级样式 —— S26（2026-10-19）从 legal.html 的内联 <style> 搬入。
+ *
+ * 为什么搬：宪章 4 说「存量内联按能进共享层的进共享层清理」。
+ * 这 49 条规则此前只活在 legal.html 一页的内联里，ui-core 只扫首页内联，
+ * 它不在任何尺子管辖内。搬进站级 CSS 后：www 产物页内联归零、
+ * 它进入 ui-core / token-purity 的扫描范围，改一处全站生效。
+ *
+ * 为什么文档排版类要加 `main` 前缀：原来 h2/h3/ul/ol 写在顶层，
+ * 与 brand.css 的顶层同名规则**同选择器不同值**（ui-core 扩扫产物页内联后
+ * 当场报出 4 个分叉：h2 字号/字距、h3 与 ul/ol 的 margin）。
+ * 限定到 main 之后：legal 页的文档排版归 legal.css，
+ * 外壳（header / 抽屉 / 页脚 / tabbar）归 brand.css，两层不再撞选择器。
+ * 渲染逐条不变 —— 这些元素本来就只出现在 main 里。
+ * ============================================================ */
+
+.legal-head { padding: 56px 0 8px; }
+/* ⚠ 2026-10-10：删掉了本地的 `clamp(28px, 5vw, 40px)` —— 法律页主标因此
+   比其余 217 页小 6px（实测 40 vs 46）。现在一律继承 brand.css 的 h1。 */
+/* ⚠ 2026-10-10：删掉了 `.legal-head h1` 的 `letter-spacing: -.02em` ——
+   共享层 brand.css 的 h1 字距是 -.028em（六站一致），这条带前缀的规则
+   权重更高、把它盖掉，于是 legal 的主标字距 -0.92px vs 其余站 -1.288px。 */
+.legal-head h1 { font-weight: 800; }
+.legal-head .sub { color: var(--ink-mid); font-size: var(--fs-micro); margin-top: 8px; }
+.toc-legal {
+  margin: 22px 0 0; padding: 16px 18px;
+  border: 1px solid var(--line); border-radius: 14px; background: var(--bg-panel);
+}
+.toc-legal ol { margin: 8px 0 0 1.2em; color: var(--ink-mid); font-size: var(--fs-micro); }
+.toc-legal li { margin-bottom: 4px; }
+.toc-legal a:hover { color: var(--ink); }
+
+main section { padding: 30px 0; border-top: 1px solid var(--line); }
+main section:first-of-type { border-top: none; }
+main h2 {
+  font-size: clamp(17px, 2.4vw, 20px); font-weight: 700;
+  margin-bottom: 12px; letter-spacing: -.01em;
+  scroll-margin-top: 90px;
+}
+main h3 { font-size: var(--fs-xs); font-weight: 650; margin: 18px 0 8px; }
+main p, main li { font-size: var(--fs-xs); color: var(--ink-mid); }
+main p { margin-bottom: 10px; }
+main ul, main ol { margin: 0 0 12px 1.3em; }
+main li { margin-bottom: 6px; }
+main strong { color: var(--ink); font-weight: 650; }
+main code {
+  font-family: var(--mono); font-size: var(--fs-micro);
+  background: rgba(148,163,184,.12); border-radius: 4px; padding: 1px 5px;
+  color: var(--ink);
+}
+.card-note {
+  background: var(--bg-panel); border: 1px solid var(--line); border-left: 3px solid var(--cyan);
+  border-radius: 12px; padding: 16px 18px; margin: 14px 0;
+}
+.card-note.warn { border-left-color: var(--warn); }
+.card-note p:last-child { margin-bottom: 0; }
+
+.tbl-wrap { margin: 12px 0 16px; }
+main table { border-collapse: collapse; width: 100%; font-size: var(--fs-micro); }
+main th, main td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+main th { background: rgba(148,163,184,.1); color: var(--ink); font-weight: 650; }
+main td { color: var(--ink-mid); }
+@media (max-width: 480px) {
+  /* 窄屏：表格 → 卡片式堆叠（列名取自 data-label），无横向滚动条 */
+  main table { font-size: var(--fs-micro); }
+  main table, main thead, main tbody, main tr, main td, main th { display: block; }
+  main thead { display: none; }
+  main tr {
+    border: 1px solid var(--line); border-radius: 12px;
+    margin-bottom: 10px; background: var(--bg-panel);
+    overflow: hidden;
+  }
+  main td { border: 0; border-bottom: 1px solid var(--line); padding: 9px 12px; }
+  main tr td:last-child { border-bottom: 0; }
+  main td::before {
+    content: attr(data-label);
+    display: block; font-size: var(--fs-micro); letter-spacing: .08em;
+    color: var(--ink-mid); font-weight: 650; margin-bottom: 3px;
+  }
+}
+main td strong { color: var(--ink); }
+.tag-lic {
+  display: inline-block; font-size: var(--fs-micro); padding: 1px 7px; border-radius: 999px;
+  border: 1px solid var(--line); white-space: nowrap;
+}
+.lic-cc0 { color: var(--cyan); }
+.lic-cb  { color: var(--warn); }
+.lic-sa  { color: var(--warn); }
+.lic-mit { color: var(--vio); }
+
+blockquote.attr {
+  margin: 12px 0; padding: 14px 16px;
+  background: var(--bg-panel); border: 1px solid var(--line); border-left: 3px solid var(--warn);
+  border-radius: 10px; font-size: var(--fs-micro); color: var(--ink-mid);
+  font-family: var(--mono); line-height: 1.65;
+  /* 等宽字体排长 URL 时默认不换行 → 320px 视口溢出，必须显式允许任意位置断行 */
+  overflow-wrap: anywhere;
+}
+blockquote.attr p { margin-bottom: 10px; font-size: var(--fs-micro); overflow-wrap: anywhere; }
+blockquote.attr p:last-child { margin-bottom: 0; }
