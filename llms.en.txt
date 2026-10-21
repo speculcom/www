@@ -10,7 +10,7 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 |---|---|---|
 | Home | https://specul.com/ | Main entry and philosophy |
 | Concepts | https://learn.specul.com/ | What are these terms, and why should you know them? |
-| Products | https://agent.specul.com/ | Which agent / runtime / tool should you use? |
+| Products | https://tools.specul.com/ | Which agent / runtime / tool should you use? |
 | Models | https://models.specul.com/ | With dozens of quantized builds of the same model, which should I download? |
 | Practice | https://vg.specul.com/ | Making games with AI: which steps changed, which did not? |
 | Directory | https://nav.specul.com/ | AI website directory, 527 entries / 11 categories |
@@ -21,7 +21,7 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 200 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 3 curated learning paths with checkpoints; 39 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 423 source entries; English coverage 200/200.
 Every term can be traced back to its original source, **unknown is written as unknown**, and there is no overall ranking.
 
-### Agent Atlas — https://agent.specul.com/
+### Agent Atlas — https://tools.specul.com/
 52 profiles across three divisions (agents 27, harness 15, tools 10), compared across a fixed set of 8 dimensions.
 Fixed eight-dimension comparison (the tools division adds three more: transport / auth / scope).
 **No overall ranking** — a weighted total hides trade-offs, and trade-offs are the decision basis.
