@@ -57,13 +57,11 @@ Models 站额外遵守：只引述不解读许可、遇 gated 仓库跳过不绕
 - **能否离线/自托管**：全部数据公开，站点静态托管在 GitHub Pages
 - **可复现**：字段来源、处理规则、推导公式全部公开（各数据仓 `README.md` / `METHODOLOGY.md`）
 - **审计强制**：数据不合规则构建中止，不允许「差不多就行」
-- **五个内容仓各有规范与校验器**：字段规范 `SCHEMA.md`，校验器不合规直接失败退出
+- **三个内容仓各有规范与校验器**（ai-handbook 的 terms / tools / models 三个子树各有 `SCHEMA.md` 与 `scripts/validate.mjs`），校验器不合规直接失败退出
 
 ## 数据仓
 
-- 术语数据层：https://github.com/speculcom/ai-glossary
-- Agent 数据层：https://github.com/speculcom/ai-agent-guide
-- Models 数据层：https://github.com/speculcom/ai-quantized-llm
+- AI 手册（学 AI + Agent 图谱 + Models 图谱，一仓三子树）：https://github.com/speculcom/ai-handbook
 - AI 做游戏数据层：https://github.com/speculcom/ai-vibe-gaming
 - 导航目录：https://github.com/speculcom/ai-sites-directory
 

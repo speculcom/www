@@ -57,13 +57,11 @@ The Models site additionally observes: quote licenses without interpreting them;
 - **Offline / self-hostable**: all data public, sites statically hosted on GitHub Pages
 - **Reproducible**: field sources, processing rules and derivation formulas all public (see each data repo `README.md` / `METHODOLOGY.md`)
 - **Audit-enforced**: builds abort on non-compliant data; "close enough" is not allowed
-- **Each of the five content repos has its own schema and validator**: field schema `SCHEMA.md`, non-compliant entries fail the build
+- **Each of the three content repos has its own schema and validator** (the terms / tools / models subtrees of ai-handbook each have a `SCHEMA.md` and `scripts/validate.mjs`); non-compliant entries fail the build
 
 ## Data repos
 
-- Terminology data layer: https://github.com/speculcom/ai-glossary
-- Agent data layer: https://github.com/speculcom/ai-agent-guide
-- Models data layer: https://github.com/speculcom/ai-quantized-llm
+- AI Handbook (Learn AI + Agent Atlas + Models Atlas, one repo with three subtrees): https://github.com/speculcom/ai-handbook
 - AI game dev data layer: https://github.com/speculcom/ai-vibe-gaming
 - Website directory: https://github.com/speculcom/ai-sites-directory
 
