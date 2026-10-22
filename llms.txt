@@ -13,7 +13,7 @@ Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 | 产品层 | https://tools.specul.com/ | 该用哪个 agent / 运行时 / 工具？ |
 | 模型层 | https://models.specul.com/ | 同一模型几十个量化版，我该下哪个？ |
 | 实践层 | https://vg.specul.com/ | 用 AI 做游戏，哪些环节变了、哪些没变？ |
-| 导航 | https://nav.specul.com/ | AI 相关网站目录，529 条 / 11 类 |
+| 导航 | https://nav.specul.com/ | AI 相关网站目录，531 条 / 11 类 |
 
 ## 各站说明
 
@@ -22,7 +22,7 @@ Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 每词能回到原始出处，**未知就写未知**，不给总分排名。
 
 ### Agent 图谱 — https://tools.specul.com/
-171 份档案，分 10 个大类（coding 39、chat 14、image 13、video 12、audio 10、research 11、automation 14、framework 22、mcp 24、runner 12），按 8 个固定维度横向对比。
+173 份档案，分 10 个大类（coding 41、chat 14、image 13、video 12、audio 10、research 11、automation 14、framework 22、mcp 24、runner 12），按 8 个固定维度横向对比。
 固定八维对比（工具分区另加传输 / 认证 / 范围三维）。
 **不给总分排名**——加权总分掩盖取舍，而取舍才是决策依据。
 
@@ -36,7 +36,7 @@ Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 含边界判定表与五阶段教学路径。
 
 ### 导航 — https://nav.specul.com/
-529 条 AI 相关网站（在站条目，不含延伸领域），11 个分类，链接逐条核验。
+531 条 AI 相关网站（在站条目，不含延伸领域），11 个分类，链接逐条核验。
 系统性介绍每个站点「做什么、适合谁」。核验日期与探测口径写在页面上，
 **探测失败不判死**——宁可漏判不可误杀。
 
