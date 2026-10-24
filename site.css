@@ -24,13 +24,6 @@
 /* ---------- token：暗色为基底 ---------- */
 body.brand-ambient {
 
-  --cat-violet:    #a78bfa;  --cat-violet-ink: #c4b0ff;  --cat-violet-soft: rgba(167, 139, 250, .2);
-  --cat-rose:      #ff7ba1;  --cat-rose-ink:   #ff9ab8;  --cat-rose-soft:   rgba(255, 92, 138, .2);
-  --cat-amber:     #ffc35c;  --cat-amber-ink:  #ffcf7a;  --cat-amber-soft:  rgba(255, 176, 58, .2);
-  --cat-teal:      #3ad4cc;  --cat-teal-ink:   #5fd8d2;  --cat-teal-soft:   rgba(18, 184, 176, .2);
-  --cat-blue:      #63b0ff;  --cat-blue-ink:   #8cc6ff;  --cat-blue-soft:   rgba(59, 158, 255, .2);
-  --cat-lime:      #a3e34a;  --cat-lime-ink:   #b6e56a;  --cat-lime-soft:   rgba(132, 204, 22, .2);
-
   margin: 0;
   color: var(--ink);
   /* ⚠ 2026-10-10 删掉原来的 `font: 16px/1.68 "PingFang SC", "Microsoft YaHei", system-ui, sans-serif`。
@@ -49,13 +42,6 @@ body.brand-ambient {
 
 /* ---------- token：亮色覆盖 ---------- */
 html[data-theme="light"] body.brand-ambient {
-
-  --cat-violet:    #7c5cff;  --cat-violet-ink: #5b34e8;  --cat-violet-soft: rgba(124, 92, 255, .13);
-  --cat-rose:      #ff5c8a;  --cat-rose-ink:   #c81e56;  --cat-rose-soft:   rgba(255, 92, 138, .13);
-  --cat-amber:     #ffb03a;  --cat-amber-ink:  #a86a00;  --cat-amber-soft:  rgba(255, 176, 58, .16);
-  --cat-teal:      #12b8b0;  --cat-teal-ink:   #07706a;  --cat-teal-soft:   rgba(18, 184, 176, .13);
-  --cat-blue:      #3b9eff;  --cat-blue-ink:   #0b6fc4;  --cat-blue-soft:   rgba(59, 158, 255, .13);
-  --cat-lime:      #84cc16;  --cat-lime-ink:   #4d8a00;  --cat-lime-soft:   rgba(132, 204, 22, .14);
 
   /* 同上：亮色主题的两圈 radial 辉光也一并去掉 ✓ */
 }
@@ -105,9 +91,8 @@ html[data-theme="light"] body.brand-ambient {
    胶囊圆角已**提进共享层** brand.css 的 .icon-btn（六站统一 999px），
    留在这里只会变成一处会漂移的重复配方。
    这里只覆盖配色，不碰 width/height/display/border-radius。 */
-body.brand-ambient .icon-btn { border-color: var(--line-mid);
-  color: var(--ink-mid); background: var(--bg-panel); font-size:var(--fs-xs); font-weight: 700; }
-body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var(--cat-violet-ink); }
+
+
 
 /* 汉堡：桌面隐藏 */
 /* ---------- Hero ---------- */
@@ -147,7 +132,7 @@ body.brand-ambient .icon-btn:hover { border-color: var(--cat-violet); color: var
     var(--grad-title-to));
   -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hp-hero .hp-meta { margin: 0; color: var(--ink-dim); font-size:var(--fs-xs);
-  font-weight: 650; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center;
+  font-weight: 650; display: block;
   max-width: min(100%, 46em); }
 .hp-hero .hp-meta b { color: var(--ink-mid); font-weight: 750; }
 

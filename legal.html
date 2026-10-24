@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>法律条款 · 版权 · 第三方许可 — 投机取巧</title>
   <meta name="description" content="Specul 站群的法律条款：版权归属、第三方开源组件与素材许可清单、免责声明、隐私与本地存储说明，以及各站的使用条款。" />
   <link rel="canonical" href="https://specul.com/legal.html" />
@@ -12,7 +12,8 @@
   <meta property="og:title" content="法律条款 — Specul" />
   <meta property="og:description" content="版权归属、第三方开源组件与素材许可清单、免责声明与隐私条款。" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="brand.css" />
+  <script src="brand.js?v=6a580ac0420e"></script>
+  <link rel="stylesheet" href="brand.css?v=6a580ac0420e" />
     <link rel="stylesheet" href="legal.css" />
   <!-- B5（2026-10-09）：法律页的结构性数据。用 WebPage（不是 WebSite）——
        它是站群里的一个子页，不是站点本身。 -->
@@ -31,15 +32,13 @@
 </head>
 <body class="brand-ambient has-tabbar">
 
+  <!-- SPECUL:HEADER:START -->
   <header class="site-header">
     <div class="container site-bar">
-      <a class="brand" href="./" title="Specul 首页">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
         <span class="brand-dot" aria-hidden="true"></span>
         <span class="brand-text">
           <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
-          <!-- ⚠ 2026-10-10：legal 页原先**没有** .brand-sub 节点 —— 六站里唯一一个。
-               于是它的品牌块只有一行，品牌名宽度 65px vs 其余站 124px，
-               顶栏右侧的链接整排左移（ui-parity 实测）。补上，与全站一致。 -->
           <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
         </span>
       </a>
@@ -51,20 +50,23 @@
         <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
         <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
       </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
       <span class="nav-tools">
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题">☾</button>
-        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
-        <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
-          <i></i><i></i><i></i>
-        </button>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
     </div>
   </header>
-
-  <!-- 窄屏抽屉：2026-10-10 随底部 tab bar 一起补上。
-       之前 legal 页只有顶栏那 6 个链接，没有汉堡/抽屉 ——
-       于是 tabMore 是个**点了没反应的死按钮**（brand.js 里 `if (!burger || !drawer) return`）。
-       标记与样式/行为全部来自共享 brand.css / brand.js，这里只出结构。 -->
   <div class="nav-scrim"></div>
   <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
     <div class="nav-drawer-h">
@@ -73,7 +75,7 @@
       <button class="nav-dclose" type="button" aria-label="关闭">×</button>
     </div>
     <nav class="nav-drawer-list">
-      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://tools.specul.com/"><span><span data-zh>AI 工具</span><span data-en>AI Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
       <a href="https://models.specul.com/"><span><span data-zh>AI 模型</span><span data-en>AI Models</span></span><span class="ar" aria-hidden="true">→</span></a>
@@ -85,6 +87,13 @@
       <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
     </div>
   </aside>
+<!-- SPECUL:HEADER:END -->
+
+  <!-- 窄屏抽屉：2026-10-10 随底部 tab bar 一起补上。
+       之前 legal 页只有顶栏那 6 个链接，没有汉堡/抽屉 ——
+       于是 tabMore 是个**点了没反应的死按钮**（brand.js 里 `if (!burger || !drawer) return`）。
+       标记与样式/行为全部来自共享 brand.css / brand.js，这里只出结构。 -->
+  
 
     <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
   <main id="main" class="container">
@@ -411,14 +420,14 @@
       <h2 data-zh>八、隐私与本地存储</h2>
       <h2 data-en>8. Privacy and local storage</h2>
       <ul data-zh>
-        <li><strong>本地存储</strong>：站点使用浏览器 <code>localStorage</code> 保存界面偏好——<code>specul-lang</code>（中/英）、<code>specul-theme</code>（明/暗），游戏内另有音量、按键等设置。这些数据只存在你的设备上，不会上传。</li>
+        <li><strong>本地存储</strong>：站点使用浏览器 <code>localStorage</code> 保存界面偏好——<code>specul-lang</code>（中/英）、<code>specul-theme</code>（明/暗），游戏内另有音量、按键等设置。界面偏好还会保存为 specul.com 各子域共享的 specul-ui 偏好 Cookie（中英与明暗两项，有效期一年），用于跨站及浏览器返回时保持一致；不包含身份标识，不用于追踪。可在浏览器中清除或禁用。</li>
         <li><strong>匿名统计</strong>：specul.com 页面接入百度统计（<code>hm.baidu.com</code>），用于了解页面访问量等聚合指标。它不使用本站自有账号信息，我们不会据此识别个人身份。</li>
         <li><strong>数据出售</strong>：我们<strong>不出售</strong>任何个人信息，也不建立用户画像。</li>
         <li><strong>联机功能</strong>：部分演示支持 WebRTC 联机，房间信令经过部署方的中转服务；传输内容为对战数据，不含账号体系。</li>
         <li><strong>如何拒绝</strong>：可通过浏览器的「阻止第三方脚本 / 广告拦截」或 Do-Not-Track 设置屏蔽统计脚本；清除站点数据即可删除本地偏好。</li>
       </ul>
       <ul data-en>
-        <li><strong>Local storage</strong>: UI preferences only (<code>specul-lang</code>, <code>specul-theme</code>, in-game volume/keys). Data never leaves your device.</li>
+        <li><strong>Local storage</strong>: UI preferences only (<code>specul-lang</code>, <code>specul-theme</code>, in-game volume/keys). A first-party specul-ui preference cookie shares only language and theme across specul.com subdomains for up to one year, including browser back/forward navigation. It contains no identifier and is not used for tracking. You can clear or block it in your browser.</li>
         <li><strong>Anonymous analytics</strong>: specul.com uses Baidu Tongji for aggregate page-view metrics; no personal identification.</li>
         <li><strong>No selling</strong> of personal information and no user profiling.</li>
         <li><strong>Netplay</strong>: some demos use WebRTC with a relay for room signalling; only match data is transmitted, with no account system.</li>
@@ -487,13 +496,14 @@
     </section>
   </main>
 
+  <!-- SPECUL:FOOTER:START -->
   <footer class="site-footer">
     <div class="container foot-row">
-        <div class="foot-brand">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="foot-copy">© 2026 Specul · <span data-zh>投机取巧</span><span data-en>Speculation · Speculate</span></span>
-        </div>
-        <nav class="foot-links" aria-label="页脚导航">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
           <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
           <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
           <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
@@ -503,19 +513,19 @@
           <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
       </nav>
       <nav class="foot-legal-links" aria-label="法律">
-
-        <a href="./legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
-        <a href="./legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
-        <a href="./legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
       </nav>
     </div>
-    <!-- v8 T8（L3 商标声明）：与共享 shell footer() 同一句，手写页手改同步。 -->
     <div class="container">
       <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
     </div>
   </footer>
+<!-- SPECUL:FOOTER:END -->
 
 <!-- 底部 tab bar（手机端 App 式固定导航）—— 与首页同一份标记，legal 页也保留。 -->
+<!-- SPECUL:TABBAR:START -->
 <nav class="nav-tabbar" aria-label="快捷导航">
   <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
   <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
@@ -523,17 +533,7 @@
   <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
   <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
 </nav>
-
-  <script src="brand.js" defer></script>
-  <script>
-    /* 语言桥接：brand.js 只切 <html lang>，而双语节点的显隐依赖
-       html[data-lang]（规则见 brand.css，全站共用）。 */
-    (function () {
-      var root = document.documentElement;
-      function sync() { root.setAttribute('data-lang', root.lang === 'en' ? 'en' : 'zh'); }
-      new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['lang'] });
-      sync();
-    })();
-  </script>
+<!-- SPECUL:TABBAR:END -->
+  
 </body>
 </html>
