@@ -77,6 +77,9 @@ main td { color: var(--ink-mid); }
     display: block; font-size: var(--fs-micro); letter-spacing: .08em;
     color: var(--ink-mid); font-weight: 650; margin-bottom: 3px;
   }
+  /* 英文态：卡片列名走 data-label-en（B5 素材表双语，2026-10-26）。
+     全部 td 均已带 data-label-en（守卫见下条断言脚本口径），直接取英文属性。 */
+  html[data-lang="en"] main td::before { content: attr(data-label-en); }
 }
 main td strong { color: var(--ink); }
 .tag-lic {
