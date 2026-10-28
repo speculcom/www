@@ -18,7 +18,7 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 ## About each site
 
 ### Learn AI — https://learn.specul.com/
-200 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 6 curated learning paths with checkpoints; 48 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 451 source entries; English coverage 200/200.
+200 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 8 curated learning paths with checkpoints; 48 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 451 source entries; English coverage 200/200.
 Every term can be traced back to its original source, **unknown is written as unknown**, and there is no overall ranking.
 
 ### Agent Atlas — https://tools.specul.com/
