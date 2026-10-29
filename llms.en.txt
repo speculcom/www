@@ -13,7 +13,7 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 | Products | https://tools.specul.com/ | Which agent / runtime / tool should you use? |
 | Models | https://models.specul.com/ | With dozens of quantized builds of the same model, which should I download? |
 | Practice | https://vg.specul.com/ | Making games with AI: which steps changed, which did not? |
-| Directory | https://nav.specul.com/ | AI website directory, 531 entries / 11 categories |
+| Directory | https://nav.specul.com/ | AI website directory, 539 entries / 11 categories |
 
 ## About each site
 
@@ -36,7 +36,7 @@ Work backwards from VRAM to which GGUF variant to download; file sizes are measu
 Includes a boundary-decision table and a five-stage teaching path.
 
 ### Directory — https://nav.specul.com/
-531 AI-related websites (entries on the site, excluding extended domains), 11 categories, every link verified.
+539 AI-related websites (entries on the site, excluding extended domains), 11 categories, every link verified.
 Each site is systematically introduced by "what it does and who it suits". Verification dates and probe methodology are written on the page,
 **probe failures do not declare death** — better to miss than to misjudge.
 
