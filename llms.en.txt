@@ -32,7 +32,7 @@ Work backwards from VRAM to which GGUF variant to download; file sizes are measu
 **No benchmarks, no quality or speed conclusions, no hosting of any weight files.**
 
 ### AI Game Dev — https://vg.specul.com/
-18 entries (stage 13 · keyword 5) + 6 engine profiles + 2 cross-cutting pages, building 29 pages.
+19 entries (stage 14 · keyword 5) + 6 engine profiles + 2 cross-cutting pages, building 30 pages.
 Includes a boundary-decision table and a five-stage teaching path.
 
 ### Directory — https://nav.specul.com/
