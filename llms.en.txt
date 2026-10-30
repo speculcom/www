@@ -22,7 +22,7 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 Every term can be traced back to its original source, **unknown is written as unknown**, and there is no overall ranking.
 
 ### Agent Atlas — https://tools.specul.com/
-177 profiles across 10 categories (coding 41, chat 14, image 13, video 12, audio 10, research 11, automation 14, framework 22, mcp 28, runner 12), compared across a fixed set of 8 dimensions.
+186 profiles across 10 categories (coding 41, chat 20, image 13, video 12, audio 12, research 11, automation 15, framework 22, mcp 28, runner 12), compared across a fixed set of 8 dimensions.
 Fixed eight-dimension comparison (the tools division adds three more: transport / auth / scope).
 **No overall ranking** — a weighted total hides trade-offs, and trade-offs are the decision basis.
 
