@@ -27,7 +27,7 @@ Fixed eight-dimension comparison (the tools division adds three more: transport 
 **No overall ranking** — a weighted total hides trade-offs, and trade-offs are the decision basis.
 
 ### Models Atlas — https://models.specul.com/
-Index of locally deployable quantized models: 11 series / 16 model repos / 132 quant variants / 1253 GGUF files, from 55 quantizers.
+Index of locally deployable quantized models: 11 series / 16 model repos / 129 quant variants / 1270 GGUF files, from 54 quantizers.
 Work backwards from VRAM to which GGUF variant to download; file sizes are measured values from release pages, licenses quoted verbatim entry by entry.
 **No benchmarks, no quality or speed conclusions, no hosting of any weight files.**
 
