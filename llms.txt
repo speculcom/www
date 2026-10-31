@@ -22,7 +22,7 @@ Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 每词能回到原始出处，**未知就写未知**，不给总分排名。
 
 ### Agent 图谱 — https://tools.specul.com/
-207 份档案，分 10 个大类（coding 41、chat 20、image 15、video 14、audio 17、research 11、automation 22、framework 27、mcp 28、runner 12），按 8 个固定维度横向对比。
+211 份档案，分 10 个大类（coding 41、chat 20、image 15、video 14、audio 17、research 11、automation 22、framework 27、mcp 32、runner 12），按 8 个固定维度横向对比。
 固定八维对比（工具分区另加传输 / 认证 / 范围三维）。
 **不给总分排名**——加权总分掩盖取舍，而取舍才是决策依据。
 
