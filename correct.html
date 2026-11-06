@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>纠错草稿 · Specul</title>
+  <meta name="description" content="把事实、来源、日期或翻译问题填成一份可复制的纠错草稿。本页不提交、不发送、不写服务端，只生成文本，由你自己决定要不要贴进内容仓议题。" />
+  <link rel="canonical" href="https://specul.com/correct.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="纠错草稿 · Specul" />
+  <meta property="og:url" content="https://specul.com/correct.html" />
+  <meta property="og:title" content="纠错草稿 · Specul" />
+  <meta property="og:description" content="把事实、来源、日期或翻译问题填成一份可复制的纠错草稿。本页不提交、不发送、不写服务端，只生成文本，由你自己决定要不要贴进内容仓议题。" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=bf69a6d205ad"></script>
+  <link rel="stylesheet" href="brand.css?v=bf69a6d205ad" />
+  <link rel="stylesheet" href="site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Specul correction draft","url":"https://specul.com/correct.html","inLanguage":["zh-CN","en"]}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+        <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>AI 工具</span><span data-en>AI Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>AI 模型</span><span data-en>AI Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://vg.specul.com/"><span><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>6 个站，各管一件事</span><span data-en>Six sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+  <main id="main">
+<div class="container correct-page">
+  <p class="kicker"><span data-zh>纠错与来源补充</span><span data-en>Corrections and source additions</span></p>
+  <h1><span data-zh>生成一份纠错草稿</span><span data-en>Compose a correction draft</span></h1>
+  <p><span data-zh>本站不跑产品实测，结论都挂在官方来源与核验日期上。如果你发现某页的事实、来源、日期或翻译有问题，可以在这里把要说明的几点填齐，生成一段可以直接贴进内容仓议题的文本。</span><span data-en>This site runs no product benchmarks; every conclusion hangs on an official source and a verification date. If a page has a wrong fact, a source that does not support it, a stale date or a translation mismatch, fill this in to get text you can paste into an issue in the content repository.</span></p>
+  <p class="t-sm"><span data-zh>这个页面不发送任何内容：不提交表单、不写服务端、不存到你的浏览器之外。复制之后由你自己决定要不要提交。</span><span data-en>Nothing is sent from this page: no submission, no server, nothing stored beyond your own browser. Copy the draft, then decide whether to file it yourself.</span></p>
+
+  <form class="correct-form" id="correct-form">
+    <label for="c-page"><span data-zh>页面地址</span><span data-en>Page URL</span>
+      <input type="url" id="c-page" name="page" maxlength="600" placeholder="https://learn.specul.com/term/..." autocomplete="off" />
+    </label>
+    <label for="c-locate"><span data-zh>原句或位置（可粘贴一小段）</span><span data-en>The sentence or spot (paste a short excerpt)</span>
+      <textarea id="c-locate" name="quote" rows="3" maxlength="1200"></textarea>
+    </label>
+    <label for="c-kind"><span data-zh>问题类型</span><span data-en>What kind of problem</span>
+      <select id="c-kind" name="kind"><option value="fact" data-ui-text-zh="事实或数字有误" data-ui-text-en="The fact or figure is wrong">事实或数字有误</option>
+      <option value="source" data-ui-text-zh="来源对不上或链接失效" data-ui-text-en="The source does not support it, or the link is dead">来源对不上或链接失效</option>
+      <option value="date" data-ui-text-zh="核验日期或版本已过期" data-ui-text-en="The verification date or version is out of date">核验日期或版本已过期</option>
+      <option value="translation" data-ui-text-zh="英文正文与中文不一致" data-ui-text-en="The English text disagrees with the Chinese">英文正文与中文不一致</option>
+      <option value="other" data-ui-text-zh="其他问题" data-ui-text-en="Something else">其他问题</option></select>
+    </label>
+    <label for="c-source"><span data-zh>你核到的依据：官方链接</span><span data-en>Your evidence: an official link</span>
+      <input type="url" id="c-source" name="source" maxlength="600" placeholder="https://…" autocomplete="off" />
+    </label>
+    <label for="c-date"><span data-zh>依据的发布日期或你的核验日期</span><span data-en>Published date of that source, or the date you checked</span>
+      <input type="text" id="c-date" name="date" maxlength="40" placeholder="YYYY-MM" data-ui-placeholder-zh="YYYY-MM 或 YYYY-MM-DD" data-ui-placeholder-en="YYYY-MM or YYYY-MM-DD" autocomplete="off" />
+    </label>
+    <label for="c-note"><span data-zh>补充说明（可选）</span><span data-en>Extra note (optional)</span>
+      <textarea id="c-note" name="note" rows="3" maxlength="1200"></textarea>
+    </label>
+    <p><span data-zh>范围说明：写清这条依据覆盖哪一点，不覆盖什么。本站不会因为一条链接就把整页事实判为已复核。</span><span data-en>Scope: say what that source covers and what it does not. A single link is not a re-verification of the whole page.</span></p>
+    <button type="button" id="c-build"><span data-zh>生成草稿</span><span data-en>Build the draft</span></button>
+    <button type="button" id="c-copy"><span data-zh>复制草稿</span><span data-en>Copy draft</span></button>
+  </form>
+
+  <section class="correct-draft" aria-live="polite">
+    <h2><span data-zh>草稿</span><span data-en>Draft</span></h2>
+    <pre id="c-out" class="correct-out"><code>页面：&lt;填页面地址&gt;
+类型：&lt;事实 / 来源 / 日期 / 翻译 / 其他&gt;
+原句或位置：&lt;粘一小段&gt;
+依据：&lt;官方链接&gt;
+日期：&lt;发布日期或核验日期&gt;
+覆盖范围：&lt;这条依据支持哪一点，不支持哪一点&gt;
+补充：&lt;可选说明&gt;
+
+（草稿由 specul.com/correct.html 生成，仅为你自己提交用）</code></pre>
+    <p id="c-status" class="t-sm" role="status"></p>
+    <noscript><p class="t-sm"><span data-zh>未开启脚本：上面的模板仍可手工照着填，把尖括号部分换成你的内容即可。</span><span data-en>Without JavaScript, fill in the template above by hand: replace each angle-bracket part with your own text.</span></p></noscript>
+  </section>
+
+  <section class="correct-where">
+    <h2><span data-zh>写完草稿之后</span><span data-en>Where to take the draft</span></h2>
+    <ul>
+      <li><span data-zh>学 AI、AI 工具、AI 模型三站的内容在 <code>speculcom/ai-handbook</code> 仓，用仓库里的议题模板贴上草稿即可。</span><span data-en>Learn, tools and models content lives in the <code>speculcom/ai-handbook</code> repository — paste the draft into that repository’s issue template.</span></li>
+      <li><span data-zh>AI 导航的内容在 <code>speculcom/ai-sites-directory</code>，AI 做游戏在 <code>speculcom/ai-vibe-gaming</code>。</span><span data-en>Directory content lives in <code>speculcom/ai-sites-directory</code>, game-making content in <code>speculcom/ai-vibe-gaming</code>.</span></li>
+      <li><span data-zh>如果你不确定属于哪个仓，把页面地址留在草稿里就行，维护者按地址分派。</span><span data-en>Not sure which repository? Leave the page URL in the draft and maintainers will route it.</span></li>
+    </ul>
+  </section>
+</div><script>
+(function () {
+  var form = document.getElementById('correct-form');
+  var out = document.getElementById('c-out');
+  var status = document.getElementById('c-status');
+  var q = new URLSearchParams(location.search);
+  if (q.get('page')) document.getElementById('c-page').value = q.get('page');
+  if (q.get('quote')) document.getElementById('c-locate').value = q.get('quote');
+  var lab = { fact: ['事实或数字有误', 'The fact or figure is wrong'], source: ['来源对不上或链接失效', 'Source does not support it or link is dead'], date: ['核验日期或版本过期', 'Verification date or version out of date'], translation: ['英文与中文不一致', 'English disagrees with Chinese'], other: ['其他', 'Other'] };
+  function zh() { return document.documentElement.lang !== 'en'; }
+  function build() {
+    var g = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+    var k = g('c-kind');
+    var lines = [
+      ['页面 Page', g('c-page') || '(missing)'],
+      ['类型 Type', (lab[k] ? (zh() ? lab[k][0] : lab[k][1]) : k) || '(missing)'],
+      ['原句或位置 Spot', g('c-locate') || '(missing)'],
+      ['依据 Evidence', g('c-source') || '(none supplied)'],
+      ['日期 Date', g('c-date') || '(none supplied)'],
+      ['覆盖范围 Scope', g('c-note') ? g('c-note') : '(not stated)'],
+    ];
+    out.textContent = lines.map(function (l) { return l[0] + ': ' + l[1]; }).join('\n') + '\n\n' + (zh() ? '（草稿仅为我自己提交用，未由本站发送）' : '(Draft for my own submission; not sent by this site.)');
+    status.textContent = zh() ? '草稿已生成，仍未发送。' : 'Draft built. Nothing was sent.';
+  }
+  document.getElementById('c-build').addEventListener('click', build);
+  document.getElementById('c-copy').addEventListener('click', function () {
+    var t = out.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(function () { status.textContent = zh() ? '已复制到剪贴板；本页未发送任何内容。' : 'Copied. Nothing was sent from this page.'; }, function () { status.textContent = zh() ? '复制被浏览器拒绝，请手动全选草稿。' : 'The browser blocked copying; select the draft manually.'; });
+    } else { status.textContent = zh() ? '此浏览器不支持一键复制，请手动全选草稿。' : 'No clipboard support here; select the draft manually.'; }
+  });
+  form.addEventListener('submit', function (e) { e.preventDefault(); build(); });
+})();
+</script>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+          <a href="https://vg.specul.com/"><span data-zh>AI 做游戏</span><span data-en>Vibe Gaming</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索六站内容</span><span data-en>Search all six sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+</body>
+</html>

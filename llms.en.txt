@@ -18,11 +18,11 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 ## About each site
 
 ### Learn AI — https://learn.specul.com/
-204 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 10 curated learning paths with checkpoints; 65 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 522 source entries; English coverage 204/204.
+228 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 12 curated learning paths with checkpoints; 81 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 633 source entries; English coverage 228/228.
 Every term can be traced back to its original source, **unknown is written as unknown**, and there is no overall ranking.
 
 ### Agent Atlas — https://tools.specul.com/
-225 profiles across 10 categories (coding 41, chat 21, image 15, video 14, audio 17, research 11, automation 23, framework 30, mcp 32, runner 21), compared across a fixed set of 8 dimensions.
+250 profiles across 11 categories (coding 41, chat 21, image 15, video 14, audio 17, research 11, automation 23, framework 30, mcp 32, runner 21, safety 25), compared across a fixed set of 8 dimensions.
 Fixed eight-dimension comparison (the tools division adds three more: transport / auth / scope).
 **No overall ranking** — a weighted total hides trade-offs, and trade-offs are the decision basis.
 
@@ -32,7 +32,7 @@ Work backwards from VRAM to which GGUF variant to download; file sizes are measu
 **No benchmarks, no quality or speed conclusions, no hosting of any weight files.**
 
 ### AI Game Dev — https://vg.specul.com/
-20 entries (stage 15 · keyword 5) + 9 engine profiles + 2 cross-cutting pages, building 34 pages.
+26 entries (stage 19 · keyword 7) + 9 engine profiles + 2 cross-cutting pages, building 41 pages.
 Includes a boundary-decision table and a five-stage teaching path.
 
 ### Directory — https://nav.specul.com/
