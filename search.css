@@ -5,6 +5,14 @@
 .search-form label { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
 .search-form input,.search-form select { width: 100%; min-width: 0; font: inherit; padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); color: var(--ink); }
 .search-page button { font: inherit; padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); color: var(--ink); cursor: pointer; }
+/* 主题域胶囊复用 brand.css 的 .fx-*；这里必须让出样式权，否则上面的 .search-page button 会盖掉胶囊外观。 */
+.search-page .fx-chip { padding: var(--sp-2) var(--sp-3); border-radius: 999px; background: var(--bg-inset); color: var(--ink-mid); font-size: var(--fs-xs); }
+.search-page .fx-chip[aria-pressed="true"] { background: var(--brand-soft); border-color: var(--brand-line); color: var(--ink); }
+.search-domains { margin-block: var(--sp-4) var(--sp-3); }
+.sf-leads { margin-top: var(--sp-3); }
+.sf-lead { margin: 0; font-size: var(--fs-sm); color: var(--ink-mid); max-width: 80ch; }
+.sf-lead[hidden] { display: none; }
+.search-domain { display: inline-block; margin-right: var(--sp-2); padding: 0 var(--sp-2); border-radius: var(--r-xs); background: var(--brand-soft); color: var(--ink); font-size: var(--fs-xs); }
 .search-results { list-style: none; padding: 0; display: grid; gap: var(--sp-4); margin-block: var(--sp-4); }
 .search-results li { border: 1px solid var(--line); border-radius: var(--r); padding: var(--sp-4); overflow-wrap: anywhere; }
 .search-results h2 { font-size: var(--fs-lg); line-height: 1.5; margin: 0; }
