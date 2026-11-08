@@ -304,3 +304,16 @@ html[data-theme="light"] body.brand-ambient {
 @media (prefers-reduced-motion: reduce) {
   .hp-route, .hp-chip { transition: none !important; }   /* 抽屉/汉堡的 reduced-motion 已在共享 brand.css 里 */
 }
+
+/* 外部站点出口卡（2026-11-08）：它收录的是其他网站，不与 8 个内容站同级。
+   用虚线框 + 功能青区分，选择器比 .hp-route.r5 更具体，不用 !important。 */
+.hp-route.r5.is-external { border-style: dashed; }
+.hp-route.r5.is-external::before { background: var(--cyan); }
+.hp-route.r5.is-external .to { color: var(--cyan); }
+
+/* 英文态长副标题（如 Credentials, provenance and authorised compute）在 390px
+   下被 .hp-pq .to 的 nowrap 撑出 13px 横向滚动。窄屏允许换行，桌面保持单行。 */
+@media (max-width: 560px) {
+  .hp-pq { flex-wrap: wrap; gap: 4px 12px; }
+  .hp-pq .to { white-space: normal; min-width: 0; overflow-wrap: anywhere; }
+}
