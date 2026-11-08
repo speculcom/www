@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>三颗星，一扇门：把同一个游戏逐步做完整 · 连续项目 · AI 做游戏</title>
+  <meta name="description" content="这是本站编写的浏览器小游戏。收齐三颗星后走到 E，逐步查看核心循环、暂停、存档、触屏、适配与发布。代码验证只针对这个样例，不是引擎或 AI 产品评测。" />
+  <link rel="canonical" href="https://specul.com/three-stars.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="三颗星，一扇门：把同一个游戏逐步做完整 · 连续项目 · AI 做游戏" />
+  <meta property="og:url" content="https://specul.com/three-stars.html" />
+  <meta property="og:title" content="三颗星，一扇门：把同一个游戏逐步做完整 · 连续项目 · AI 做游戏" />
+  <meta property="og:description" content="这是本站编写的浏览器小游戏。收齐三颗星后走到 E，逐步查看核心循环、暂停、存档、触屏、适配与发布。代码验证只针对这个样例，不是引擎或 AI 产品评测。" />
+  <meta name="theme-color" content="#16121f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=5e907aab579b"></script>
+  <link rel="stylesheet" href="brand.css?v=5e907aab579b" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="./three-stars/game.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"三颗星，一扇门：把同一个游戏逐步做完整","url":"https://specul.com/three-stars.html","description":"这是本站编写的浏览器小游戏。收齐三颗星后走到 E，逐步查看核心循环、暂停、存档、触屏、适配与发布。代码验证只针对这个样例，不是引擎或 AI 产品评测。","inLanguage":"zh-Hans","isPartOf":{"@type":"WebSite","name":"AI 做游戏","url":"https://specul.com/"},"mainEntity":{"@type":"Game","name":"三颗星，一扇门：把同一个游戏逐步做完整","description":"This site-authored browser game asks you to collect three stars and reach E. Explore its loop, pause, saves, touch controls, resizing and publication. Code checks concern this example only, not engines or AI products."}}</script>
+</head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar">
+  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
+  <!-- SPECUL:HEADER:START -->
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+        <a href="https://hardware.specul.com/"><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链 × AI</span><span data-en>Chain × AI</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>AI 工具</span><span data-en>AI Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>AI 模型</span><span data-en>AI Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品库</span><span data-en>Demos</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/"><span><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>论文</span><span data-en>Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链 × AI</span><span data-en>Chain × AI</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>9 个站，各管一件事</span><span data-en>Nine sites, one job each</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+<!-- SPECUL:HEADER:END -->
+  
+  <main id="main">
+<div class="container game-project">
+        <p class="kicker"><a href="./learn.html"><span data-zh>学习路径</span><span data-en>Learning path</span></a> · <span data-zh>连续项目</span><span data-en>Worked project</span></p>
+        <h1 class="t-hero"><span data-zh>三颗星，一扇门：把同一个游戏逐步做完整</span><span data-en>Three stars, one door: complete one game step by step</span></h1>
+        <p class="lede"><span data-zh>这是本站编写的浏览器小游戏。收齐三颗星后走到 E，逐步查看核心循环、暂停、存档、触屏、适配与发布。代码验证只针对这个样例，不是引擎或 AI 产品评测。</span><span data-en>This site-authored browser game asks you to collect three stars and reach E. Explore its loop, pause, saves, touch controls, resizing and publication. Code checks concern this example only, not engines or AI products.</span></p>
+
+        <div class="panel term-meta">
+          <p class="t-lead"><span data-zh><strong>这是什么</strong></span><span data-en><strong>What this is</strong></span><span data-zh>：</span><span data-en>: </span><span data-zh>本站编写的浏览器小游戏，配一段六阶段的连续教学。同一个样例逐步加入暂停、版本化存档、触屏、尺寸适配与发布检查，代码和说明一起改。</span><span data-en>a browser game written for this site with a six-stage teaching sequence. The same sample gains pause, versioned saves, touch controls, resizing and release checks — the code and the prose change together.</span></p>
+          <p class="t-sm"><span data-zh><strong>检查范围</strong></span><span data-en><strong>Scope of the checks</strong></span><span data-zh>：</span><span data-en>: </span><span data-zh>下方「本站检查过什么」只针对这一份样例与这一个下载包。它不是引擎评测，也不是 AI 产品评测，不构成任何通过率或正确率结论。</span><span data-en>the section "What this site checked" covers this sample and this package only. It is not an engine evaluation and not an AI-product evaluation, and it supports no pass-rate or accuracy claim.</span></p>
+          <p class="t-sm"><span data-zh><strong>数据流向</strong></span><span data-en><strong>Where the data goes</strong></span><span data-zh>：</span><span data-en>: </span><span data-zh>无账号、无后端、无网络请求。存档只写在你自己的浏览器里（键名 <code>specul-three-stars-v1</code>），导出的 JSON 也在本机。本页出现的示例数值均为虚构。</span><span data-en>no account, no backend, no network call. Saves go only to your own browser (key <code>specul-three-stars-v1</code>) and the exported JSON stays on your machine. Every example value on this page is fictional.</span></p>
+          <p class="t-xs muted"><span data-zh>相关页面：</span><span data-en>Related pages: </span><a href="./s2-核心循环.html"><span data-zh>核心循环</span><span data-en>the core loop</span></a> · <a href="./存档与离线行为.html"><span data-zh>存档与离线行为</span><span data-en>saves and offline behaviour</span></a> · <a href="./s5-导出发布.html"><span data-zh>导出发布</span><span data-en>export and ship</span></a> · <a href="./ai-资产台账.html"><span data-zh>AI 资产台账</span><span data-en>the AI asset ledger</span></a></p>
+        </div>
+
+        <div class="panel">
+          <h2 id="stages"><span data-zh>六个阶段</span><span data-en>The six stages</span></h2>
+          <p class="t-sm mb-3"><span data-zh>下面六节是完整教学内容，构建时就写进 HTML —— 脚本关掉也照样能读。想边读边试，用工作台的阶段选择器切换控件。</span><span data-en>The six sections below are the full teaching text, written into the HTML at build time — they read fine with scripting off. Use the workbench’s stage selector to try each one.</span></p>
+          <ol class="stage-list">
+            <li><a href="#stage-1"><span data-zh>1 · 先让核心循环成立</span><span data-en>1 · Establish the core loop</span></a></li>
+            <li><a href="#stage-2"><span data-zh>2 · 暂停与重新开始</span><span data-en>2 · Pause and restart</span></a></li>
+            <li><a href="#stage-3"><span data-zh>3 · 版本化存档与失败降级</span><span data-en>3 · Versioned saves and fallback</span></a></li>
+            <li><a href="#stage-4"><span data-zh>4 · 让触屏与键盘走同一条逻辑</span><span data-en>4 · Share movement between touch and keyboard</span></a></li>
+            <li><a href="#stage-5"><span data-zh>5 · 改变显示尺寸，保留游戏状态</span><span data-en>5 · Resize the view without resetting state</span></a></li>
+            <li><a href="#stage-6"><span data-zh>6 · 打包、回放与发布检查</span><span data-en>6 · Package, replay and check publication</span></a></li>
+          </ol>
+        </div>
+
+        <section class="star-workbench" id="three-stars">
+          <h2 id="workbench-title"><span data-zh>游戏本体：7×5 棋盘，三颗星，一扇门</span><span data-en>The game itself: a 7×5 board, three stars, one door</span></h2>
+          <p class="t-sm"><span data-zh>方向键或 WASD 移动；踩到 ★ 收星，收齐三颗之后走到 E 才算完成。下面的「阶段」选择器决定哪些控件出现 —— 那些控件正是这六个阶段要讲的东西。</span><span data-en>Arrows or WASD move. Step on ★ to collect a star; reaching E only completes the round after all three. The stage selector below decides which controls appear — those controls are the six lessons.</span></p>
+          <div class="star-tools">
+            <label><span data-zh>阶段（决定可见控件）</span><span data-en>Stage (decides which controls show)</span>
+              <select id="game-stage" aria-label="教学阶段" data-ui-aria-label-zh="教学阶段" data-ui-aria-label-en="Teaching stage">
+                <option value="1" data-ui-text-zh="阶段 1 · 先让核心循环成立" data-ui-text-en="Stage 1 · Establish the core loop">阶段 1 · 先让核心循环成立</option>
+                <option value="2" data-ui-text-zh="阶段 2 · 暂停与重新开始" data-ui-text-en="Stage 2 · Pause and restart">阶段 2 · 暂停与重新开始</option>
+                <option value="3" data-ui-text-zh="阶段 3 · 版本化存档与失败降级" data-ui-text-en="Stage 3 · Versioned saves and fallback">阶段 3 · 版本化存档与失败降级</option>
+                <option value="4" data-ui-text-zh="阶段 4 · 让触屏与键盘走同一条逻辑" data-ui-text-en="Stage 4 · Share movement between touch and keyboard">阶段 4 · 让触屏与键盘走同一条逻辑</option>
+                <option value="5" data-ui-text-zh="阶段 5 · 改变显示尺寸，保留游戏状态" data-ui-text-en="Stage 5 · Resize the view without resetting state">阶段 5 · 改变显示尺寸，保留游戏状态</option>
+                <option value="6" data-ui-text-zh="阶段 6 · 打包、回放与发布检查" data-ui-text-en="Stage 6 · Package, replay and check publication">阶段 6 · 打包、回放与发布检查</option>
+              </select>
+            </label>
+            <button type="button" id="game-pause" hidden><span data-zh>暂停</span><span data-en>Pause</span></button>
+            <button type="button" id="game-restart"><span data-zh>重新开始</span><span data-en>Restart</span></button>
+          </div>
+          <div class="star-tools" id="game-viewport-controls" hidden>
+            <label><span data-zh>棋盘宽度（显示练习，不改存档坐标）</span><span data-en>Board width (a display exercise; saved coordinates stay grid coordinates)</span>
+              <select id="game-viewport" aria-label="棋盘宽度" data-ui-aria-label-zh="棋盘宽度" data-ui-aria-label-en="Board width">
+                <option value="default" data-ui-text-zh="默认宽度" data-ui-text-en="Default width">默认宽度</option>
+                <option value="narrow" data-ui-text-zh="窄棋盘" data-ui-text-en="Narrow board">窄棋盘</option>
+              </select>
+            </label>
+          </div>
+          <div class="star-grid" id="game-board" role="grid" tabindex="0"
+               aria-label="三颗星棋盘：方向键或 WASD 移动"
+               data-ui-aria-label-zh="三颗星棋盘：方向键或 WASD 移动"
+               data-ui-aria-label-en="Three-star board: use arrows or WASD to move"></div>
+          <p class="t-sm" id="game-status" role="status" aria-live="polite"><span data-zh>位置 1,1 · 星星 0/3 · 步数 0。收集三颗星，再到 E 出口。</span><span data-en>Position 1,1 · Stars 0/3 · Moves 0. Collect three stars, then reach E.</span></p>
+          <div class="star-touch" id="game-touch" hidden>
+            <button type="button" data-move="up" aria-label="向上移动" data-ui-aria-label-zh="向上移动" data-ui-aria-label-en="Move up">▲</button>
+            <button type="button" data-move="left" aria-label="向左移动" data-ui-aria-label-zh="向左移动" data-ui-aria-label-en="Move left">◀</button>
+            <button type="button" data-move="down" aria-label="向下移动" data-ui-aria-label-zh="向下移动" data-ui-aria-label-en="Move down">▼</button>
+            <button type="button" data-move="right" aria-label="向右移动" data-ui-aria-label-zh="向右移动" data-ui-aria-label-en="Move right">▶</button>
+          </div>
+          <div id="game-save-controls" hidden>
+            <div class="star-tools">
+              <button type="button" id="game-save"><span data-zh>保存到浏览器</span><span data-en>Save in this browser</span></button>
+              <button type="button" id="game-load"><span data-zh>载入浏览器存档</span><span data-en>Load browser save</span></button>
+              <button type="button" id="game-delete-save"><span data-zh>删除本项目存档</span><span data-en>Delete this project’s save</span></button>
+              <button type="button" id="game-export"><span data-zh>下载存档文件</span><span data-en>Download save file</span></button>
+              <label><span data-zh>读入存档文件</span><span data-en>Import save file</span>
+                <input type="file" id="game-import" accept=".json,application/json">
+              </label>
+            </div>
+            <p class="t-xs" id="game-storage"><span data-zh>还没有此项目存档。保存仅在当前浏览器与当前站点；不上传。</span><span data-en>No project save yet. Saving stays in this browser and origin; it is not uploaded.</span></p>
+          </div>
+          <div class="star-publish" id="game-publish-checks" hidden>
+            <h3><span data-zh>阶段 6 · 发布前自己勾一遍</span><span data-en>Stage 6 · tick these before you ship</span></h3>
+            <label><input type="checkbox"><span><span data-zh>在<strong>别人的机器</strong>上解包并打开过，不是只在自己开发机跑过</span><span data-en>Unpacked and opened on <strong>someone else’s machine</strong>, not only your own</span></span></label>
+            <label><input type="checkbox"><span><span data-zh>用解包后的文件实际玩过：移动、暂停、存档、导入与导出</span><span data-en>Played the extracted files: movement, pause, saves, import and export</span></span></label>
+            <label><input type="checkbox"><span><span data-zh>台账里每条素材的来源与再分发权利都能当场指出</span><span data-en>Every ledger row’s origin and redistribution right can be named on the spot</span></span></label>
+            <label><input type="checkbox"><span><span data-zh>路径大小写与相对路径检查过（本地能跑不等于服务器能跑）</span><span data-en>Path case and relative paths checked (works locally does not mean works served)</span></span></label>
+            <label><input type="checkbox"><span><span data-zh>目标浏览器、窄屏与实际协议下的存储行为确认过</span><span data-en>Target browsers, a narrow screen and storage behaviour under the protocol you ship were confirmed</span></span></label>
+          </div>
+          <p class="t-xs"><span data-zh>棋盘由构建时复制过来的 <code>./three-stars/game.js</code> 画，样式是同目录的 <code>game.css</code>；两者都不是手写进页面的。</span><span data-en>The board is drawn by <code>./three-stars/game.js</code>, copied at build time; its styles are the sibling <code>game.css</code>. Neither is hand-written into the page.</span></p>
+        </section>
+
+        <noscript>
+          <div class="panel is-slim">
+            <p class="t-sm"><span data-zh>脚本未启用：上面的棋盘是空的，方向按钮也不会动 —— 棋盘要脚本才画得出来。六个阶段的说明、代码片段、检查项、素材台账与下载说明都在正文里，不依赖脚本。要玩这一局，请到 <a href="https://specul.com/three-stars.html">线上页面</a> 并允许脚本。</span><span data-en>Scripting is off: the board above stays empty and the buttons do nothing — the grid needs scripting to be drawn. The six stages, their code, the checks, the asset ledger and the package notes are in the page text and need no script. To play this round, open the <a href="https://specul.com/three-stars.html">online page</a> and allow scripting.</span></p>
+          </div>
+        </noscript>
+
+        <div class="panel game-stages">
+        <section id="stage-1">
+          <h3><span data-zh>阶段 1 · 先让核心循环成立</span><span data-en>Stage 1 · Establish the core loop</span></h3>
+          <p class="t-sm"><span data-zh><strong>这一步改什么</strong></span><span data-en><strong>What changes here</strong></span><span data-zh>：</span><span data-en>: </span><span data-zh>把关卡、玩家位置、已收集星星和步数分开保存。方向键或 WASD 改状态，再重画棋盘；碰墙不增加步数，出口在收齐星星后才算完成。</span><span data-en>Keep level, position, collected stars and moves separate. Arrows/WASD update state before repainting. Walls do not add moves; reaching the exit completes the game only after collecting all stars.</span></p>
+          <p class="t-sm"><span data-zh><strong>代码在哪一层</strong></span><span data-en><strong>Where the code sits</strong></span></p>
+          <pre class="code"><code>state = { x: 1, y: 1, moves: 0, collected: [] };
+// Input -&gt; legal move -&gt; update state -&gt; render
+// Completion is derived from position and collected stars.</code></pre>
+          <p class="t-sm"><span data-zh><strong>怎么检查它真的成立</strong></span><span data-en><strong>How to check it actually holds</strong></span></p>
+          <ul>
+            <li><span data-zh>从</span><span data-en>起</span></li>
+            <li><span data-zh>M</span><span data-en>o</span></li>
+          </ul>
+          <p class="t-sm"><span data-zh><strong>不成立时先看哪里</strong></span><span data-en><strong>Where to look when it does not</strong></span></p>
+          <ul>
+            <li><span data-zh>若</span><span data-en>出</span></li>
+            <li><span data-zh>F</span><span data-en>o</span></li>
+          </ul>
+          <p class="t-sm"><a href="#stage-2"><span data-zh>→ 下一阶段：暂停与重新开始</span><span data-en>→ Next stage: Pause and restart</span></a></p>
+        </section>
+        <section id="stage-2">
+          <h3><span data-zh>阶段 2 · 暂停与重新开始</span><span data-en>Stage 2 · Pause and restart</span></h3>
+          <p class="t-sm"><span data-zh><strong>这一步改什么</strong></span><span data-en><strong>What changes here</strong></span><span data-zh>：</span><span data-en>: </span><span data-zh>暂停是独立状态，不改关卡和收集进度。页面隐藏时自动暂停，回来后主动继续。重新开始只重置盘面，不删除已有浏览器存档。</span><span data-en>Pause is independent of level/progress. A hidden page pauses; returning requires explicit resume. Restart resets the board without deleting a browser save.</span></p>
+          <p class="t-sm"><span data-zh><strong>代码在哪一层</strong></span><span data-en><strong>Where the code sits</strong></span></p>
+          <pre class="code"><code>if (paused) return;
+// On visibilitychange: if document.hidden, pause.
+// Restart creates a fresh state; it does not call localStorage.clear().</code></pre>
+          <p class="t-sm"><span data-zh><strong>怎么检查它真的成立</strong></span><span data-en><strong>How to check it actually holds</strong></span></p>
+          <ul>
+            <li><span data-zh>暂</span><span data-en>停</span></li>
+            <li><span data-zh>M</span><span data-en>o</span></li>
+          </ul>
+          <p class="t-sm"><span data-zh><strong>不成立时先看哪里</strong></span><span data-en><strong>Where to look when it does not</strong></span></p>
+          <ul>
+            <li><span data-zh>若</span><span data-en>暂</span></li>
+            <li><span data-zh>I</span><span data-en>f</span></li>
+          </ul>
+          <p class="t-sm"><a href="#stage-3"><span data-zh>→ 下一阶段：版本化存档与失败降级</span><span data-en>→ Next stage: Versioned saves and fallback</span></a></p>
+        </section>
+        <section id="stage-3">
+          <h3><span data-zh>阶段 3 · 版本化存档与失败降级</span><span data-en>Stage 3 · Versioned saves and fallback</span></h3>
+          <p class="t-sm"><span data-zh><strong>这一步改什么</strong></span><span data-en><strong>What changes here</strong></span><span data-zh>：</span><span data-en>: </span><span data-zh>只保存关卡 ID、版本、坐标、步数和已收集项。读入时校验字段、位置和关卡，不信任文件中的完成标记。存储受限仍能玩，并可下载/读入 JSON 文件；不上传存档。</span><span data-en>Save only level ID, schema version, coordinates, moves and collected items. Validate fields, position and level; derive completion rather than trusting a flag. Storage-blocked play still works with JSON download/import. Saves are not uploaded.</span></p>
+          <p class="t-sm"><span data-zh><strong>代码在哪一层</strong></span><span data-en><strong>Where the code sits</strong></span></p>
+          <pre class="code"><code>{ schema: 1, level: 'three-stars-1', x, y, moves, collected }
+// Parse -&gt; validate -&gt; replace state. Invalid saves keep the current board.
+// Browser save and file import are separate explicit actions.</code></pre>
+          <p class="t-sm"><span data-zh><strong>怎么检查它真的成立</strong></span><span data-en><strong>How to check it actually holds</strong></span></p>
+          <ul>
+            <li><span data-zh>走</span><span data-en>几</span></li>
+            <li><span data-zh>S</span><span data-en>a</span></li>
+          </ul>
+          <p class="t-sm"><span data-zh><strong>不成立时先看哪里</strong></span><span data-en><strong>Where to look when it does not</strong></span></p>
+          <ul>
+            <li><span data-zh>l</span><span data-en>o</span></li>
+            <li><span data-zh>l</span><span data-en>o</span></li>
+          </ul>
+          <p class="t-sm"><a href="#stage-4"><span data-zh>→ 下一阶段：让触屏与键盘走同一条逻辑</span><span data-en>→ Next stage: Share movement between touch and keyboard</span></a></p>
+        </section>
+        <section id="stage-4">
+          <h3><span data-zh>阶段 4 · 让触屏与键盘走同一条逻辑</span><span data-en>Stage 4 · Share movement between touch and keyboard</span></h3>
+          <p class="t-sm"><span data-zh><strong>这一步改什么</strong></span><span data-en><strong>What changes here</strong></span><span data-zh>：</span><span data-en>: </span><span data-zh>四个方向按钮调用相同的 move 函数，不另写一套触屏规则。按钮保留可点尺寸与键盘焦点；只在棋盘聚焦时接管方向键，不阻止整页滚动与缩放。</span><span data-en>Directional buttons call the same move function as keyboard input. Keep usable targets/focus. Capture arrows only while the board has focus; do not block page scrolling or zooming.</span></p>
+          <p class="t-sm"><span data-zh><strong>代码在哪一层</strong></span><span data-en><strong>Where the code sits</strong></span></p>
+          <pre class="code"><code>button.addEventListener('click', () =&gt; move(dx, dy));
+// Direction buttons: touch-action: manipulation.
+// Keyboard handling belongs to the focusable board, not the whole document.</code></pre>
+          <p class="t-sm"><span data-zh><strong>怎么检查它真的成立</strong></span><span data-en><strong>How to check it actually holds</strong></span></p>
+          <ul>
+            <li><span data-zh>用</span><span data-en>屏</span></li>
+            <li><span data-zh>T</span><span data-en>h</span></li>
+          </ul>
+          <p class="t-sm"><span data-zh><strong>不成立时先看哪里</strong></span><span data-en><strong>Where to look when it does not</strong></span></p>
+          <ul>
+            <li><span data-zh>若</span><span data-en>触</span></li>
+            <li><span data-zh>F</span><span data-en>o</span></li>
+          </ul>
+          <p class="t-sm"><a href="#stage-5"><span data-zh>→ 下一阶段：改变显示尺寸，保留游戏状态</span><span data-en>→ Next stage: Resize the view without resetting state</span></a></p>
+        </section>
+        <section id="stage-5">
+          <h3><span data-zh>阶段 5 · 改变显示尺寸，保留游戏状态</span><span data-en>Stage 5 · Resize the view without resetting state</span></h3>
+          <p class="t-sm"><span data-zh><strong>这一步改什么</strong></span><span data-en><strong>What changes here</strong></span><span data-zh>：</span><span data-en>: </span><span data-zh>棋盘用七列弹性网格，尺寸由容器控制；坐标存在状态里，不以屏幕像素存档。窄棋盘选项只是显示练习，所有阶段都保留基础窄屏可读性。</span><span data-en>Use seven flexible columns within the container. Store coordinates in state, not screen pixels. The narrow-board option is a display exercise; every stage retains basic narrow-screen usability.</span></p>
+          <p class="t-sm"><span data-zh><strong>代码在哪一层</strong></span><span data-en><strong>Where the code sits</strong></span></p>
+          <pre class="code"><code>grid-template-columns: repeat(7, minmax(0, 1fr));
+// Layout changes do not recreate initial game state.
+// Saved coordinates remain grid coordinates.</code></pre>
+          <p class="t-sm"><span data-zh><strong>怎么检查它真的成立</strong></span><span data-en><strong>How to check it actually holds</strong></span></p>
+          <ul>
+            <li><span data-zh>走</span><span data-en>几</span></li>
+            <li><span data-zh>A</span><span data-en>f</span></li>
+          </ul>
+          <p class="t-sm"><span data-zh><strong>不成立时先看哪里</strong></span><span data-en><strong>Where to look when it does not</strong></span></p>
+          <ul>
+            <li><span data-zh>若</span><span data-en>缩</span></li>
+            <li><span data-zh>I</span><span data-en>f</span></li>
+          </ul>
+          <p class="t-sm"><a href="#stage-6"><span data-zh>→ 下一阶段：打包、回放与发布检查</span><span data-en>→ Next stage: Package, replay and check publication</span></a></p>
+        </section>
+        <section id="stage-6">
+          <h3><span data-zh>阶段 6 · 打包、回放与发布检查</span><span data-en>Stage 6 · Package, replay and check publication</span></h3>
+          <p class="t-sm"><span data-zh><strong>这一步改什么</strong></span><span data-en><strong>What changes here</strong></span><span data-zh>：</span><span data-en>: </span><span data-zh>下载包包含 HTML、脚本、样式、品牌资源、素材记录和哈希清单。游戏本身没有网络请求或后端；站群与文档链接另需联网。发布自己的作品时检查代码/素材许可、资源路径、大小写、HTTPS 和目标浏览器。</span><span data-en>The download includes HTML, scripts, styles, brand assets, an asset ledger and hashes. The game itself has no network calls/backend; site/document links need connectivity. For your own publication, check code/asset rights, paths/case, HTTPS and target browsers.</span></p>
+          <p class="t-sm"><span data-zh><strong>代码在哪一层</strong></span><span data-en><strong>Where the code sits</strong></span></p>
+          <pre class="code"><code>index.html + game.js + game.css + brand.js + brand.css
+asset-ledger.json + manifest.json + README.txt + NOTICE.txt
+// Extract, serve on localhost, then test the actual packaged files.</code></pre>
+          <p class="t-sm"><span data-zh><strong>怎么检查它真的成立</strong></span><span data-en><strong>How to check it actually holds</strong></span></p>
+          <ul>
+            <li><span data-zh>对</span><span data-en>解</span></li>
+            <li><span data-zh>P</span><span data-en>l</span></li>
+          </ul>
+          <p class="t-sm"><span data-zh><strong>不成立时先看哪里</strong></span><span data-en><strong>Where to look when it does not</strong></span></p>
+          <ul>
+            <li><span data-zh>路</span><span data-en>径</span></li>
+            <li><span data-zh>F</span><span data-en>o</span></li>
+          </ul>
+          <p class="t-sm"><span data-zh>这是最后一个阶段。勾一遍上面工作台里「发布前自己勾一遍」那几条，再按下一节的清单核对包内文件。</span><span data-en>This is the last stage. Tick the release list in the workbench above, then check the package files against the next section.</span></p>
+        </section>
+        </div>
+        <div class="panel" id="ledger">
+          <h2><span data-zh>素材与许可台账</span><span data-en>Asset and licensing ledger</span></h2>
+          <p class="t-sm"><span data-zh>下表逐项写明来源、用途与再分发权利。素材由 AI 起草不自动改变授权范围：本站没有因为「AI 生成」就给任何条目套 CC BY 或 MIT。例外只可能写在条目自己的许可列里，目前实测没有例外。</span><span data-en>Each row states origin, purpose and redistribution rights. AI drafting does not change the scope of rights: nothing here is labelled CC BY or MIT merely because a model produced it. An exception could only appear in the licence column of that row; the current ledger has none.</span></p>
+          <p class="t-sm"><span data-zh>许可口径与法律页第 1 节一致：除非另有注明，内容由 Specul 自行创作并保留所有权利，本站未对文案与设计单独授予复制、改编、再分发或商业使用许可。正常链接与单句引用欢迎，整篇转载或商业使用请先联系本站。</span><span data-en>The licence wording follows section 1 of the legal page: unless noted otherwise the content is created by Specul and all rights are reserved — no separate licence is granted for copying, adapting, redistributing or commercial use. Links and single-sentence quotation are welcome; full republication or commercial use needs contact first.</span> <a href="https://specul.com/legal.html#s1" target="_blank" rel="noopener"><span data-zh>法律页第 1 节</span><span data-en>section 1 of the legal page</span></a> · <a href="https://specul.com/legal.html#s8" target="_blank" rel="noopener"><span data-zh>第 8 节（隐私与本地存储）</span><span data-en>section 8 on privacy and local storage</span></a></p>
+          <div class="table-wrap">
+            <table class="src">
+              <thead><tr>
+                <th><span data-zh>条目</span><span data-en>Item</span></th>
+                <th><span data-zh>来源</span><span data-en>Origin</span></th>
+                <th><span data-zh>用途</span><span data-en>Role</span></th>
+                <th><span data-zh>许可</span><span data-en>Licence</span></th>
+                <th><span data-zh>再分发权利</span><span data-en>Redistribution</span></th>
+              </tr></thead>
+              <tbody>
+              <tr>
+                <td><b><span data-zh>game.js · 游戏逻辑与棋盘渲染</span><span data-en>game.js (game logic and board rendering)</span></b></td>
+                <td><span data-zh>本站源仓 projects/three-stars/game.js；由 AI 起草，本站按文件与实际行为逐项核对后收录</span><span data-en>Source file projects/three-stars/game.js in this repository; drafted by AI and checked file-by-file against its actual behaviour before inclusion</span></td>
+                <td><span data-zh>棋盘渲染、键盘与触屏输入、暂停、版本化存档与导入导出；无网络请求</span><span data-en>Board rendering, keyboard and touch input, pause, versioned saves and file import/export; no network calls</span></td>
+                <td><span data-zh>Specul 站点条款（法律页第 1 节）</span><span data-en>Specul site terms (legal page, section 1)</span></td>
+                <td><span data-zh>未另行授予再分发或商业使用许可；可链接、可引用</span><span data-en>No separate redistribution or commercial licence; linking and quotation allowed</span></td>
+              </tr>
+              <tr>
+                <td><b><span data-zh>game.css · 工作台样式</span><span data-en>game.css (workbench styles)</span></b></td>
+                <td><span data-zh>本站源仓 projects/three-stars/game.css；只引用 brand.css 的 token，不写裸色值</span><span data-en>Source file projects/three-stars/game.css in this repository; it uses only brand.css tokens and declares no raw colour values</span></td>
+                <td><span data-zh>棋盘网格、方向按钮、阶段工具条与打印样式</span><span data-en>Board grid, direction buttons, stage toolbar and print rules</span></td>
+                <td><span data-zh>Specul 站点条款（法律页第 1 节）</span><span data-en>Specul site terms (legal page, section 1)</span></td>
+                <td><span data-zh>未另行授予再分发许可</span><span data-en>No separate redistribution licence</span></td>
+              </tr>
+              <tr>
+                <td><b><span data-zh>project.json · 六阶段教学文案</span><span data-en>project.json (the six-stage teaching copy)</span></b></td>
+                <td><span data-zh>本站编写的教学文案（中英两列同批修订）</span><span data-en>Teaching copy authored for this site (the Chinese and English fields are revised in the same pass)</span></td>
+                <td><span data-zh>六个阶段的「改什么 · 代码 · 怎么检查 · 失败时先看」文本，构建期内嵌进页面</span><span data-en>The six stages' what / code / check / failure text, inlined into the page at build time</span></td>
+                <td><span data-zh>Specul 站点条款（法律页第 1 节）</span><span data-en>Specul site terms (legal page, section 1)</span></td>
+                <td><span data-zh>未另行授予再分发许可；引用请注明来源</span><span data-en>No separate redistribution licence; credit the source when quoting</span></td>
+              </tr>
+              <tr>
+                <td><b><span data-zh>three-stars.html · 页面文案与台账</span><span data-en>three-stars.html (page copy and ledger)</span></b></td>
+                <td><span data-zh>本站编写；台账条目逐条来自本仓源文件与共享品牌资产的真相源路径</span><span data-en>Authored for this site; each ledger row points at a source path in this repository or at a shared brand asset</span></td>
+                <td><span data-zh>承载六阶段说明、可玩游戏本体、下载说明与素材台账</span><span data-en>Carries the stage explanations, the playable game, the download notes and the asset ledger</span></td>
+                <td><span data-zh>Specul 站点条款（法律页第 1 节）</span><span data-en>Specul site terms (legal page, section 1)</span></td>
+                <td><span data-zh>未另行授予再分发许可</span><span data-en>No separate redistribution licence</span></td>
+              </tr>
+              <tr>
+                <td><b><span data-zh>brand.css · brand.js · 站群共享品牌资产</span><span data-en>brand.css · brand.js (shared site-brand assets)</span></b></td>
+                <td><span data-zh>真相源 www.specul/brand.css 与 www.specul/brand.js；本仓有 vendored 副本，构建时按同一份复制</span><span data-en>Truth sources are www.specul/brand.css and www.specul/brand.js; this repository keeps a vendored copy and the build ships that same content</span></td>
+                <td><span data-zh>全站外壳、明暗与语言切换、字号与配色 token</span><span data-en>Site shell, theme and language switching, the type and colour tokens</span></td>
+                <td><span data-zh>Specul 站点条款（法律页第 1 节）；品牌标识另受第 9 节商标条款约束</span><span data-en>Specul site terms (legal page, section 1); the marks themselves fall under section 9 on trademarks</span></td>
+                <td><span data-zh>随包复制只为让样例离线可开；不授予再分发或商业使用许可，也不授予商标权</span><span data-en>Copied into the package only so the sample opens offline; no redistribution, commercial or trademark licence is granted</span></td>
+              </tr>
+              <tr>
+                <td><b><span data-zh>site.css · 内容层排版</span><span data-en>site.css (content-layer typography)</span></b></td>
+                <td><span data-zh>构建时由 _sites/_template/site.css 与 _data/game/css/vg.css 拼接</span><span data-en>Assembled at build time from _sites/_template/site.css plus _data/game/css/vg.css</span></td>
+                <td><span data-zh>面板、表格、正文节奏等 vg 站内容层样式</span><span data-en>Panels, tables and body rhythm for the vg site</span></td>
+                <td><span data-zh>Specul 站点条款（法律页第 1 节）</span><span data-en>Specul site terms (legal page, section 1)</span></td>
+                <td><span data-zh>未另行授予再分发许可</span><span data-en>No separate redistribution licence</span></td>
+              </tr>
+              <tr>
+                <td><b><span data-zh>字体 · 无嵌入字体</span><span data-en>Fonts · none embedded</span></b></td>
+                <td><span data-zh>本项目不打包任何字体文件；页面用读者系统里已有的字体，★ ● · E 都是文本字符</span><span data-en>No font file is packaged; the page uses fonts already on the reader's system, and ★ ● · E are text characters</span></td>
+                <td><span data-zh>文字与符号显示</span><span data-en>Text and symbol rendering</span></td>
+                <td><span data-zh>不涉及再分发</span><span data-en>No redistribution involved</span></td>
+                <td><span data-zh>无字体再分发义务；你自己的项目要嵌字体时按字体授权单独核对（见「字体的授权陷阱」）</span><span data-en>No font redistribution duty; if your own project embeds a font, check that font's licence separately (see the font licensing term)</span></td>
+              </tr>
+              <tr>
+                <td><b><span data-zh>图片 · 音频 · 3D · 无此类素材</span><span data-en>Images · audio · 3D · none of these</span></b></td>
+                <td><span data-zh>本项目不含图片、音频、3D 模型或生成素材</span><span data-en>The project contains no images, audio, 3D models or generated media</span></td>
+                <td><span data-zh>—</span><span data-en>-</span></td>
+                <td><span data-zh>不涉及</span><span data-en>Not applicable</span></td>
+                <td><span data-zh>无第三方素材许可义务；也请勿把「没有素材」当成「素材随便用」的先例</span><span data-en>No third-party asset obligations; and do not treat 'no assets here' as a precedent for using assets freely</span></td>
+              </tr>
+              <tr>
+                <td><b><span data-zh>第三方运行时代码 · 无</span><span data-en>Third-party runtime code · none</span></b></td>
+                <td><span data-zh>无 npm 依赖、无 CDN、无框架；页面脚本只有 game.js 一份</span><span data-en>No npm dependencies, no CDN, no framework; game.js is the only page script</span></td>
+                <td><span data-zh>—</span><span data-en>-</span></td>
+                <td><span data-zh>不涉及</span><span data-en>Not applicable</span></td>
+                <td><span data-zh>无第三方许可通知义务</span><span data-en>No third-party notice obligations</span></td>
+              </tr>
+              <tr>
+                <td><b><span data-zh>zip.mjs · 打包辅助（不进包）</span><span data-en>zip.mjs (build-time packer, not shipped inside the archive)</span></b></td>
+                <td><span data-zh>本站源仓 projects/three-stars/zip.mjs：自写 stored ZIP 与 CRC32，构建期使用</span><span data-en>Source file projects/three-stars/zip.mjs: a hand-written stored-ZIP and CRC32 writer used at build time</span></td>
+                <td><span data-zh>生成 three-stars.zip 与哈希清单</span><span data-en>Generates three-stars.zip and the hash manifest</span></td>
+                <td><span data-zh>Specul 站点条款（法律页第 1 节）</span><span data-en>Specul site terms (legal page, section 1)</span></td>
+                <td><span data-zh>属于构建工具，不随下载包分发；未另行授予再分发许可</span><span data-en>A build tool; not shipped inside the download and not separately licensed</span></td>
+              </tr>
+              <tr>
+                <td><b><span data-zh>存档 JSON · 本地数据，示例均为虚构</span><span data-en>Save JSON · local data; every sample value is fictional</span></b></td>
+                <td><span data-zh>由玩家在本机导出（three-stars-save.json）；本站展示的示例内容均为虚构</span><span data-en>Exported locally by the player (three-stars-save.json); every example value shown by this site is fictional</span></td>
+                <td><span data-zh>关卡 ID、版本号、坐标、步数、已收集星星</span><span data-en>Level id, schema version, position, move count and collected stars</span></td>
+                <td><span data-zh>数据归导出者本机所有</span><span data-en>The data stays on the machine that exported it</span></td>
+                <td><span data-zh>不上传、不含账号或标识信息；隐私口径见法律页第 8 节</span><span data-en>Nothing is uploaded and it carries no account or identifier; privacy terms are in section 8 of the legal page</span></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="t-xs"><span data-zh>性质：本站按文件与行为逐条核对，核验日 2026-11-06。这不是法律意见，也不代替你去读上游条款原文。</span><span data-en>Nature: checked row by row against the files and their behaviour on 2026-11-06. This is not legal advice and does not replace reading the upstream terms.</span></p>
+        </div>
+        <div class="panel" id="package">
+          <h2><span data-zh>可下载成品包</span><span data-en>The downloadable package</span></h2>
+          <p class="t-sm"><a href="./three-stars/three-stars.zip" download><span data-zh>→ 下载成品包 three-stars.zip</span><span data-en>→ Download the package three-stars.zip</span></a> · 168,258 B · <span class="t-xs"><span data-zh>整包 SHA-256</span><span data-en>archive SHA-256</span></span> <code>f7521982fe12597ad3adf5f5c99a81f56a92fb119f94dadb6d3cf31d43ea4f75</code></p>
+          <p class="t-sm"><span data-zh>包内逐文件的字节数与哈希（同一份清单也放在包里，你可以解压后逐条比对）：</span><span data-en>Per-file bytes and hashes inside the package (the same list ships inside the archive, so you can compare entry by entry after extracting):</span></p>
+          <div class="table-wrap">
+            <table class="src">
+              <thead><tr>
+                <th><span data-zh>包内文件</span><span data-en>File</span></th>
+                <th><span data-zh>字节</span><span data-en>Bytes</span></th>
+                <th><span data-zh>SHA-256</span><span data-en>SHA-256</span></th>
+              </tr></thead>
+              <tbody>
+                <tr><td><code>index.html</code></td><td>59,703</td><td class="t-xs"><code>c0a4bfb1b5e9b9fe9e12e025b945033162dad87eab4af89eab03938c34efd8cb</code></td></tr>
+                <tr><td><code>game.js</code></td><td>8,926</td><td class="t-xs"><code>12e55c061f4be11baf9082b32d0cae5ee0b077a05debd8afe8b918414c25edc2</code></td></tr>
+                <tr><td><code>game.css</code></td><td>2,814</td><td class="t-xs"><code>246c64c0a83fa9173e47837d8c02aa09a02d6bbb46c7438d78aea29d1fc14587</code></td></tr>
+                <tr><td><code>brand.css</code></td><td>41,705</td><td class="t-xs"><code>b457ab9e98e2106c04ed4d01ead67e26a706d24814f3a80e06e8d2c74b27b24f</code></td></tr>
+                <tr><td><code>brand.js</code></td><td>11,114</td><td class="t-xs"><code>7d2eae5991c4bae72eb687f8372aa77d228475324cada2fe3a34d1f3eba60579</code></td></tr>
+                <tr><td><code>site.css</code></td><td>20,508</td><td class="t-xs"><code>47da36b5b9377085f68f85be297e7a233f65fda526ca3520ffbd1eb8e246fbeb</code></td></tr>
+                <tr><td><code>asset-ledger.json</code></td><td>11,119</td><td class="t-xs"><code>e9f208cd92abee0a5cdcebd5142f7ba6a98e13fabfc8ff20b80272b9020c93f1</code></td></tr>
+                <tr><td><code>README.txt</code></td><td>4,954</td><td class="t-xs"><code>616e842e23c65116838a665f1c9469c2cb9774482989f67affe708522655fc53</code></td></tr>
+                <tr><td><code>NOTICE.txt</code></td><td>4,185</td><td class="t-xs"><code>3dbbde3f6245d66d2eb95d5ecd6c8f6a501292b04919fb7a2ef2662b59c19916</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="t-sm"><span data-zh>打开方式：解压后直接双击 <code>index.html</code> 就能玩 —— 样式、脚本与品牌资源都在包内，不发请求。要做完整检查时再起一个本地静态服务打开一次：<code>file://</code> 下的 localStorage 与站点来源的策略不同，这一项要按你实际发布的协议另测。</span><span data-en>How to open: extract and double-click <code>index.html</code> and it plays — styles, scripts and brand assets are inside and nothing is requested. For a full check, also serve the folder over a local static server: localStorage under <code>file://</code> is not governed like a site origin, so that item has to be re-tested under the protocol you actually ship on.</span></p>
+          <p class="t-sm"><span data-zh>独立核对：本站用独立解压工具与 zip 校验各跑过一遍（CRC、逐文件字节比对、离线打开）。结论与局限写在下一节。</span><span data-en>Independent checks: this site extracted and verified the archive with separate tooling (CRC, byte-for-byte file comparison, opening it offline). The conclusions and their limits are in the next section.</span></p>
+          <p class="t-xs"><span data-zh>机读版台账：<a href="./three-stars/asset-ledger.json">asset-ledger.json</a> · 哈希清单：<a href="./three-stars/manifest.json">manifest.json</a> · 包内说明：<a href="./three-stars/README.txt">README.txt</a> · 许可文字：<a href="./three-stars/NOTICE.txt">NOTICE.txt</a></span><span data-en>Machine-readable ledger: <a href="./three-stars/asset-ledger.json">asset-ledger.json</a> · hash manifest: <a href="./three-stars/manifest.json">manifest.json</a> · package notes: <a href="./three-stars/README.txt">README.txt</a> · licence text: <a href="./three-stars/NOTICE.txt">NOTICE.txt</a></span></p>
+        </div>
+        <div class="panel" id="checked">
+          <h2><span data-zh>本站检查过什么 · 没检查什么</span><span data-en>What this site checked · and did not</span></h2>
+          <p class="t-sm mb-3"><span data-zh>核验日 2026-11-06，范围只有这一份样例与这一个包；下面每一条都在浏览器里实际跑过，不是代码意图。</span><span data-en>Verified on 2026-11-06, scoped to this sample and this package only; every line below was run in a browser, not merely read off the code.</span></p>
+          <ul class="t-sm">
+            <li><span data-zh>从起点收齐三颗星并走到出口，位置、星星数、步数与完成判定一致；撞墙不增加步数。</span><span data-en>Collected all three stars from the start and reached the exit with matching position, star count, moves and completion; a wall move adds none.</span></li>
+            <li><span data-zh>无效导入被拒绝：错误版本号、墙内坐标、重复星星与超大文件都不改变当前盘面。</span><span data-en>Invalid imports rejected: a wrong schema version, a wall coordinate, duplicate stars and an oversized file each leave the board unchanged.</span></li>
+            <li><span data-zh>存储受限（localStorage 被拒）时仍可完整游玩，并给出下载/读入文件的替代路径。</span><span data-en>Play stays complete when browser storage is denied, with the download/import route offered instead.</span></li>
+            <li><span data-zh>键盘与屏幕按钮走同一条移动逻辑；暂停时两者都不生效；Tab 能进出棋盘与控件。</span><span data-en>Keyboard and on-screen buttons share one move path; neither moves while paused; Tab enters and leaves the board and the controls.</span></li>
+            <li><span data-zh>320px 窄屏、触屏点按、明暗两主题、中英切换都过；改窗口尺寸与换棋盘宽度不丢状态。</span><span data-en>A 320px narrow screen, taps, both themes and both languages pass; resizing the window or switching board width keeps the state.</span></li>
+            <li><span data-zh>关掉脚本后六个阶段仍读得完整 —— 教学文案是构建期内嵌的静态 HTML，不靠 JS 注入。</span><span data-en>With scripting off the six stages stay fully readable — the teaching text is static HTML inlined at build time, not injected by JS.</span></li>
+            <li><span data-zh>下载包：独立工具解压、逐文件与源字节比对、CRC 校验、离线直接打开可玩。</span><span data-en>The package: extracted with an independent tool, compared byte-for-byte against its sources, CRC-checked, and opened offline without a server.</span></li>
+          </ul>
+          <p class="t-sm"><span data-zh>这些结论不覆盖：其它浏览器与真机设备、其它站点协议下的存储策略、长时间游玩的手感，以及任何引擎或 AI 产品的能力评价。本站不跑分，也不给通过率或正确率。</span><span data-en>Not covered: other browsers and real devices, storage policy on other origins or protocols, how the feel holds up over a long session, and any judgement of an engine or an AI product. This site runs no benchmarks and publishes no pass rate or accuracy figure.</span></p>
+        </div>
+
+        <div class="panel is-slim">
+          <h2><span data-zh>这个样例不说的</span><span data-en>What this sample does not claim</span></h2>
+          <ul class="t-sm">
+            <li><span data-zh>不证明任何引擎或 AI 产品的好坏，只说明这份 7×5 样例自己的代码行为</span><span data-en>It proves nothing about an engine or an AI product; it describes this 7×5 sample’s own code behaviour</span></li>
+            <li><span data-zh>不给通过率、正确率或「一次就写对」的数字</span><span data-en>No pass rate, accuracy or first-try figure</span></li>
+            <li><span data-zh>下载包不另行授予复制、改编、再分发或商业使用许可（见上面台账与法律页第 1 节）</span><span data-en>The download grants no separate licence to copy, adapt, redistribute or use commercially (see the ledger above and section 1 of the legal page)</span></li>
+          </ul>
+          <p><a href="./learn.html"><span data-zh>← 返回学习路径</span><span data-en>← Back to the learning path</span></a> · <a href="./demos.html"><span data-zh>作品库</span><span data-en>the showcase</span></a> · <a href="./method.html"><span data-zh>实战流程</span><span data-en>the build order</span></a> · <a href="./index.html"><span data-zh>首页</span><span data-en>Home</span></a></p>
+        </div>
+      </div>
+      <script src="./three-stars/game.js"></script>
+  </main>
+  <!-- SPECUL:FOOTER:START -->
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>AI 工具</span><span data-en>AI Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>AI 模型</span><span data-en>AI Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品库</span><span data-en>Demos</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>AI 硬件</span><span data-en>AI Hardware</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链 × AI</span><span data-en>Chain × AI</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>

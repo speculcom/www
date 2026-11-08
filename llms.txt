@@ -12,17 +12,20 @@ Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 | 概念层 | https://learn.specul.com/ | 这些名词是什么、为什么要知道它？ |
 | 产品层 | https://tools.specul.com/ | 该用哪个 agent / 运行时 / 工具？ |
 | 模型层 | https://models.specul.com/ | 同一模型几十个量化版，我该下哪个？ |
-| 实践层 | https://vg.specul.com/ | 用 AI 做游戏，哪些环节变了、哪些没变？ |
+| 硬件层 | https://hardware.specul.com/ | 跑 AI 的硬件规格与算力预算怎么核？ |
+| 研究层 | https://papers.specul.com/ | 论文的主张边界与复现状态是什么？ |
+| 凭证层 | https://chain.specul.com/ | AI × 链的来源凭证与授权怎么查？ |
+| 策展层 | https://demos.specul.com/ | 别人做的公开作品有哪些、怎么按事实维度对照？ |
 | 导航 | https://nav.specul.com/ | AI 相关网站目录，592 条 / 11 类 |
 
 ## 各站说明
 
 ### 学 AI — https://learn.specul.com/
-228 个术语，按「先学什么后学什么」排成六站（进门 / 上手 / 用深 / 看懂 / 跑起来 / 选得对）；12 条精选学习路径各带检查点；81 篇微型指南；一页编年史与版图（18 条时间线 · 12 家公司 · 5 条术语演变）；633 条出处；英文覆盖 228/228。
+236 个术语，按「先学什么后学什么」排成六站（进门 / 上手 / 用深 / 看懂 / 跑起来 / 选得对）；13 条精选学习路径各带检查点；87 篇微型指南；一页编年史与版图（18 条时间线 · 12 家公司 · 5 条术语演变）；666 条出处；英文覆盖 236/236。
 每词能回到原始出处，**未知就写未知**，不给总分排名。
 
 ### Agent 图谱 — https://tools.specul.com/
-250 份档案，分 11 个大类（coding 41、chat 21、image 15、video 14、audio 17、research 11、automation 23、framework 30、mcp 32、runner 21、safety 25），按 8 个固定维度横向对比。
+262 份档案，分 11 个大类（coding 41、chat 21、image 15、video 14、audio 17、research 11、automation 23、framework 42、mcp 32、runner 21、safety 25），按 8 个固定维度横向对比。
 固定八维对比（工具分区另加传输 / 认证 / 范围三维）。
 **不给总分排名**——加权总分掩盖取舍，而取舍才是决策依据。
 
@@ -31,9 +34,17 @@ Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 按显存倒推该下哪一档 GGUF；文件体积是发布页实测值，许可逐条标注原文。
 **不跑 benchmark，不给质量与速度结论，不托管任何权重文件。**
 
-### AI 做游戏 — https://vg.specul.com/
-26 条词条（阶段 19 · 关键词 7）+ 9 个引擎档案 + 2 个贯穿页，构建出 41 个页面。
-含边界判定表与五阶段教学路径。
+### AI 硬件与算力 — https://hardware.specul.com/
+21 条设备规格卡，逐条挂官方来源与核验日；只给事实字段，不排名。
+
+### 论文 — https://papers.specul.com/
+20 张研究级论文卡，固定写问题、证据位置、作者自陈局限与它没主张的；未复现写未复现。
+
+### 链 × AI — https://chain.specul.com/
+14 条 AI × 链交集条目，只收官方协议与规范；不收币价、交易所与钱包。
+
+### 作品库 — https://demos.specul.com/
+别人做的公开 demo 的策展目录与事实维度对照，不排名、不打分；截图与嵌入逐条登记许可依据。
 
 ### 导航 — https://nav.specul.com/
 592 条 AI 相关网站（在站条目，不含延伸领域），11 个分类，链接逐条核验。
@@ -57,12 +68,11 @@ Models 站额外遵守：只引述不解读许可、遇 gated 仓库跳过不绕
 - **能否离线/自托管**：全部数据公开，站点静态托管在 GitHub Pages
 - **可复现**：字段来源、处理规则、推导公式全部公开（各数据仓 `README.md` / `METHODOLOGY.md`）
 - **审计强制**：数据不合规则构建中止，不允许「差不多就行」
-- **三个内容仓各有规范与校验器**（ai-handbook 的 terms / tools / models 三个子树各有 `SCHEMA.md` 与 `scripts/validate.mjs`），校验器不合规直接失败退出
+- **两个内容仓各有规范与校验器**（ai-handbook 的 terms / tools / models 三个子树各有 `SCHEMA.md` 与 `scripts/validate.mjs`），校验器不合规直接失败退出
 
 ## 数据仓
 
 - AI 手册（学 AI + Agent 图谱 + Models 图谱，一仓三子树）：https://github.com/speculcom/ai-handbook
-- AI 做游戏数据层：https://github.com/speculcom/ai-vibe-gaming
 - 导航目录：https://github.com/speculcom/ai-sites-directory
 
 ## 法律

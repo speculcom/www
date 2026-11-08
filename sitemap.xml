@@ -17,4 +17,13 @@
 
   <url><loc>https://specul.com/search.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://specul.com/correct.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://specul.com/topic-game.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://specul.com/topic-code.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://specul.com/topic-video.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://specul.com/topic-music.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://specul.com/topic-research.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://specul.com/topic-office.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://specul.com/topic-robot.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://specul.com/topic-prompts.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://specul.com/three-stars.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

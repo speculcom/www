@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "package": "three-stars.zip",
+  "released": "2026-11-06",
+  "scope": [
+    "下表逐项写明来源、用途与再分发权利。素材由 AI 起草不自动改变授权范围：本站没有因为「AI 生成」就给任何条目套 CC BY 或 MIT。例外只可能写在条目自己的许可列里，目前实测没有例外。",
+    "Each row states origin, purpose and redistribution rights. AI drafting does not change the scope of rights: nothing here is labelled CC BY or MIT merely because a model produced it. An exception could only appear in the licence column of that row; the current ledger has none."
+  ],
+  "note": [
+    "清单不记录自己的哈希；成品包 three-stars.zip 的整包 SHA-256 公布在 https://specul.com/topic-game.html 上。",
+    "The manifest does not hash itself; the SHA-256 of three-stars.zip is published on https://specul.com/topic-game.html"
+  ],
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 59703,
+      "sha256": "c0a4bfb1b5e9b9fe9e12e025b945033162dad87eab4af89eab03938c34efd8cb"
+    },
+    {
+      "path": "game.js",
+      "bytes": 8926,
+      "sha256": "12e55c061f4be11baf9082b32d0cae5ee0b077a05debd8afe8b918414c25edc2"
+    },
+    {
+      "path": "game.css",
+      "bytes": 2814,
+      "sha256": "246c64c0a83fa9173e47837d8c02aa09a02d6bbb46c7438d78aea29d1fc14587"
+    },
+    {
+      "path": "brand.css",
+      "bytes": 41705,
+      "sha256": "b457ab9e98e2106c04ed4d01ead67e26a706d24814f3a80e06e8d2c74b27b24f"
+    },
+    {
+      "path": "brand.js",
+      "bytes": 11114,
+      "sha256": "7d2eae5991c4bae72eb687f8372aa77d228475324cada2fe3a34d1f3eba60579"
+    },
+    {
+      "path": "site.css",
+      "bytes": 20508,
+      "sha256": "47da36b5b9377085f68f85be297e7a233f65fda526ca3520ffbd1eb8e246fbeb"
+    },
+    {
+      "path": "asset-ledger.json",
+      "bytes": 11119,
+      "sha256": "e9f208cd92abee0a5cdcebd5142f7ba6a98e13fabfc8ff20b80272b9020c93f1"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 4954,
+      "sha256": "616e842e23c65116838a665f1c9469c2cb9774482989f67affe708522655fc53"
+    },
+    {
+      "path": "NOTICE.txt",
+      "bytes": 4185,
+      "sha256": "3dbbde3f6245d66d2eb95d5ecd6c8f6a501292b04919fb7a2ef2662b59c19916"
+    }
+  ]
+}

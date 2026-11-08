@@ -3,7 +3,7 @@
  const form=document.getElementById('search-form');if(!form)return;
  const q=document.getElementById('search-query'),scope=document.getElementById('search-scope'),status=document.getElementById('search-status'),list=document.getElementById('search-results'),more=document.getElementById('search-more'),fallback=document.getElementById('browse-index');
  const tr=(a,b)=>document.documentElement.lang.startsWith('en')?b:a;
- const labels={www:['主站','Home'],learn:['学 AI','Learn'],agent:['AI 工具','Tools'],models:['AI 模型','Models'],nav:['AI 导航','Directory'],vg:['AI 做游戏','Game making']};
+ const labels={www:['主站','Home'],learn:['学 AI','Learn'],agent:['AI 工具','Tools'],models:['AI 模型','Models'],demos:['作品库','Demos'],hardware:['AI 硬件','Hardware'],papers:['论文','Papers'],chain:['链 × AI','Chain × AI'],nav:['AI 导航','Directory']};
  const normalize=s=>String(s||'').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
  const text=(tag,value,cls)=>{const e=document.createElement(tag);e.textContent=value;if(cls)e.className=cls;return e;};
  let entries=[],matches=[],limit=40,ready=false;
@@ -20,7 +20,7 @@
  new MutationObserver(()=>render(false)).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
  fetch(form.dataset.index,{cache:'default'}).then(r=>{if(!r.ok)throw Error('index');return r.json();}).then(data=>{
   if(data.schema!==1||!Array.isArray(data.entries))throw Error('schema');
-  entries=data.entries.filter(e=>labels[e.site]&&/^https:\/\/(?:specul\.com|(?:learn|tools|models|nav|vg)\.specul\.com)\//.test(e.url)).map(e=>({...e,_title:normalize(e.zh+' '+e.en),_aliases:normalize(e.aliases),_keywords:normalize(e.keywords),_summary:normalize(e.summaryZh+' '+e.summaryEn)}));
+  entries=data.entries.filter(e=>labels[e.site]&&/^https:\/\/(?:specul\.com|(?:learn|tools|models|demos|hardware|papers|chain|nav)\.specul\.com)\//.test(e.url)).map(e=>({...e,_title:normalize(e.zh+' '+e.en),_aliases:normalize(e.aliases),_keywords:normalize(e.keywords),_summary:normalize(e.summaryZh+' '+e.summaryEn)}));
   ready=true;fallback.hidden=true;render();
  }).catch(()=>{status.textContent=tr('搜索索引未加载，请使用下方完整目录。','The search index did not load. Use the complete directory below.');more.hidden=true;fallback.hidden=false;});
 })();

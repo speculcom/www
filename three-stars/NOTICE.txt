@@ -1,0 +1,71 @@
+NOTICE — three-stars teaching package / 三颗星教学包
+Copyright © 2026 Specul（投机取巧）. All rights reserved, unless noted otherwise.
+
+1. 许可口径 / Licence terms
+   本包内由本站创作的文案、代码与样式（index.html 的正文、game.js、game.css、
+   asset-ledger.json、manifest.json、README.txt、NOTICE.txt）适用 Specul 站点条款：
+   本站未对其单独授予复制、改编、再分发或商业使用许可。正常链接与单句引用欢迎，引用请注明
+   「specul.com」并附法律页链接；整篇转载或商业使用请先联系本站。
+   The site-authored text, code and styles in this package are released
+   under the Specul site terms:
+   no separate licence is granted for copying, adapting, redistributing or
+   commercial use. Links and
+   single-sentence quotation are welcome with credit to "specul.com" and a
+   link to the legal page;
+   full republication or commercial use needs contact first.
+   条款原文 / Terms: https://specul.com/legal.html#s1
+
+2. AI 参与不改变授权范围 / AI involvement does not change the scope of rights
+   本包的文件由 AI 起草、由本站按文件与实际行为逐项核对后收录。本站没有因为「由 AI 生成」
+   就给任何条目套用 CC BY 4.0 或 MIT；台账的许可列与上面第 1 条一致，另附机读版
+   asset-ledger.json。
+   Files here were drafted by AI and included after this site checked them
+   against the files and
+   their behaviour. Nothing was re-labelled CC BY 4.0 or MIT merely because
+   a model produced it;
+   the ledger's licence column matches section 1 above (machine-readable:
+   asset-ledger.json).
+
+3. 第三方素材 / Third-party material
+   无。本包不含图片、音频、3D 模型、字体文件或第三方运行时代码，因此没有第三方许可或署名义务。
+   页面使用的 ★ ● · E 是文本字符，由读者系统里已有的字体渲染，本包不复制、也不嵌入字体。
+   None. The package ships no images, audio, 3D models, font files or
+   third-party runtime code, so
+   there are no third-party licence or attribution obligations. The glyphs ★
+   ● · E are text characters
+   rendered by fonts already on the reader's system; no font is copied or
+   embedded.
+
+4. 品牌资产 / Brand assets
+   brand.css、brand.js 与其中的名称、图标归 Specul 所有，随包复制只为让样例离线也能打开。
+   这不构成再分发许可，也不授予任何商标权（商标条款见法律页第 9 节）。
+   brand.css, brand.js and the names and marks inside them belong to Specul.
+   They are copied in only
+   so the sample opens offline; that grants no redistribution licence and no
+   trademark rights
+   (trademark terms: section 9 of the legal page).
+
+5. 隐私 / Privacy
+   游戏不发出网络请求，不上传数据。浏览器存档与下载的 JSON 都留在读者本机；包内文件不含
+   账号、标识或个人数据。隐私与本地存储口径见法律页第 8 节。
+   The game makes no network request and uploads nothing. Browser saves and
+   downloaded JSON stay on
+   the reader's machine; no file in the package carries an account,
+   identifier or personal data.
+   Privacy and local storage: https://specul.com/legal.html#s8
+
+6. 免责 / Disclaimer
+   样例按「现状」提供，用于教学演示，不担保适用于任何项目；本包不是引擎或 AI 产品的评测结果，
+   也不代表任何通过率（免责条款：法律页第 6 节）。
+   The sample is provided as is for teaching demonstration, with no warranty
+   that it suits any project.
+   It is not an evaluation of an engine or an AI product and implies no pass
+   rate (disclaimer: section 6).
+
+7. 核验范围 / Scope of checks
+   2026-11-06 · 本站对这一份样例与这一个包完成清单式检查；范围与局限公布在
+   https://specul.com/topic-game.html 的「本站检查过什么」一节。
+   2026-11-06 - this site ran a checklist over this sample and this package;
+   the scope and its limits
+   are published in the "What this site checked" section of
+   https://specul.com/topic-game.html

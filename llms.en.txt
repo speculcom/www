@@ -12,17 +12,20 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 | Concepts | https://learn.specul.com/ | What are these terms, and why should you know them? |
 | Products | https://tools.specul.com/ | Which agent / runtime / tool should you use? |
 | Models | https://models.specul.com/ | With dozens of quantized builds of the same model, which should I download? |
-| Practice | https://vg.specul.com/ | Making games with AI: which steps changed, which did not? |
+| Hardware | https://hardware.specul.com/ | How do you check hardware specs and compute budgets for AI? |
+| Research | https://papers.specul.com/ | What are the claim boundaries and reproduction status of papers? |
+| Credentials | https://chain.specul.com/ | How do you check AI-chain provenance credentials and permissions? |
+| Curation | https://demos.specul.com/ | Which public demos exist, and how do they compare on facts? |
 | Directory | https://nav.specul.com/ | AI website directory, 592 entries / 11 categories |
 
 ## About each site
 
 ### Learn AI — https://learn.specul.com/
-228 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 12 curated learning paths with checkpoints; 81 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 633 source entries; English coverage 228/228.
+236 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 13 curated learning paths with checkpoints; 87 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 666 source entries; English coverage 236/236.
 Every term can be traced back to its original source, **unknown is written as unknown**, and there is no overall ranking.
 
 ### Agent Atlas — https://tools.specul.com/
-250 profiles across 11 categories (coding 41, chat 21, image 15, video 14, audio 17, research 11, automation 23, framework 30, mcp 32, runner 21, safety 25), compared across a fixed set of 8 dimensions.
+262 profiles across 11 categories (coding 41, chat 21, image 15, video 14, audio 17, research 11, automation 23, framework 42, mcp 32, runner 21, safety 25), compared across a fixed set of 8 dimensions.
 Fixed eight-dimension comparison (the tools division adds three more: transport / auth / scope).
 **No overall ranking** — a weighted total hides trade-offs, and trade-offs are the decision basis.
 
@@ -31,9 +34,17 @@ Index of locally deployable quantized models: 11 series / 16 model repos / 129 q
 Work backwards from VRAM to which GGUF variant to download; file sizes are measured values from release pages, licenses quoted verbatim entry by entry.
 **No benchmarks, no quality or speed conclusions, no hosting of any weight files.**
 
-### AI Game Dev — https://vg.specul.com/
-26 entries (stage 19 · keyword 7) + 9 engine profiles + 2 cross-cutting pages, building 41 pages.
-Includes a boundary-decision table and a five-stage teaching path.
+### AI Hardware and Compute — https://hardware.specul.com/
+21 device spec cards, each with an official source and check date; fact fields only, no ranking.
+
+### Papers — https://papers.specul.com/
+20 research-level paper cards with problem, evidence location, author-stated limits and non-claims; not reproduced is written as not reproduced.
+
+### Chain × AI — https://chain.specul.com/
+14 AI-chain intersection entries, official protocols and specifications only; no token prices, exchanges or wallets.
+
+### Demos — https://demos.specul.com/
+A curated directory of public demos and a fact-by-fact comparison; no ranking or scores. Screenshots and embeds carry a per-entry licence basis.
 
 ### Directory — https://nav.specul.com/
 592 AI-related websites (entries on the site, excluding extended domains), 11 categories, every link verified.
@@ -57,12 +68,11 @@ The Models site additionally observes: quote licenses without interpreting them;
 - **Offline / self-hostable**: all data public, sites statically hosted on GitHub Pages
 - **Reproducible**: field sources, processing rules and derivation formulas all public (see each data repo `README.md` / `METHODOLOGY.md`)
 - **Audit-enforced**: builds abort on non-compliant data; "close enough" is not allowed
-- **Each of the three content repos has its own schema and validator** (the terms / tools / models subtrees of ai-handbook each have a `SCHEMA.md` and `scripts/validate.mjs`); non-compliant entries fail the build
+- **Each of the two content repos has its own schema and validator** (the terms / tools / models subtrees of ai-handbook each have a `SCHEMA.md` and `scripts/validate.mjs`); non-compliant entries fail the build
 
 ## Data repos
 
 - AI Handbook (Learn AI + Agent Atlas + Models Atlas, one repo with three subtrees): https://github.com/speculcom/ai-handbook
-- AI game dev data layer: https://github.com/speculcom/ai-vibe-gaming
 - Website directory: https://github.com/speculcom/ai-sites-directory
 
 ## Legal
