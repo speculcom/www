@@ -4,10 +4,10 @@
 .search-form { display: grid; grid-template-columns: minmax(0,3fr) minmax(0,1fr) auto auto; align-items: end; gap: var(--sp-3); margin-block: var(--sp-5); }
 .search-form label { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
 .search-form input,.search-form select { width: 100%; min-width: 0; font: inherit; padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); color: var(--ink); }
-.search-page button { font: inherit; padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); color: var(--ink); cursor: pointer; }
-/* 主题域胶囊复用 brand.css 的 .fx-*；这里必须让出样式权，否则上面的 .search-page button 会盖掉胶囊外观。 */
-.search-page .fx-chip { padding: var(--sp-2) var(--sp-3); border-radius: 999px; background: var(--bg-inset); color: var(--ink-mid); font-size: var(--fs-xs); }
-.search-page .fx-chip[aria-pressed="true"] { background: var(--brand-soft); border-color: var(--brand-line); color: var(--ink); }
+/* 表单按钮的样式故意排除 .fx-chip：主题域胶囊是共享组件，外观只由 brand.css 定义。
+   以前这里用 `.search-page .fx-chip` 覆盖回浅紫底，等于把同一组件的外观写两遍，
+   也让选中态在亮色下彻底看不出来（见 brand.css 的 --brand-on 注释）。 */
+.search-page button:not(.fx-chip) { font: inherit; padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); color: var(--ink); cursor: pointer; }
 .search-domains { margin-block: var(--sp-4) var(--sp-3); }
 .sf-leads { margin-top: var(--sp-3); }
 .sf-lead { margin: 0; font-size: var(--fs-sm); color: var(--ink-mid); max-width: 80ch; }
