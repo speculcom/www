@@ -3,7 +3,7 @@
  const form=document.getElementById('search-form');if(!form)return;
  const q=document.getElementById('search-query'),scope=document.getElementById('search-scope'),status=document.getElementById('search-status'),list=document.getElementById('search-results'),more=document.getElementById('search-more'),fallback=document.getElementById('browse-index');
  const tr=(a,b)=>document.documentElement.lang.startsWith('en')?b:a;
- const labels={www:['主站','Home'],learn:['学 AI','Learn'],agent:['工具','Tools'],models:['模型','Models'],demos:['作品库','Demos'],hardware:['硬件算力','Compute'],papers:['AI 论文','AI Papers'],chain:['链','Chain'],nav:['外部站点','External']};
+ const labels={www:['主站','Home'],learn:['学 AI','Learn'],agent:['工具','Tools'],models:['模型','Models'],demos:['作品演示','Playground'],hardware:['硬件算力','Compute'],papers:['AI 论文','AI Papers'],chain:['链','Chain'],nav:['AI导航','AI Directory']};
  const normalize=s=>String(s||'').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
  const text=(tag,value,cls)=>{const e=document.createElement(tag);e.textContent=value;if(cls)e.className=cls;return e;};
  const facetBar=document.getElementById('search-domains');
@@ -26,7 +26,7 @@
   for(const{e}of matches.slice(0,limit)){const li=document.createElement('li'),h=document.createElement('h2'),a=text('a',tr(e.zh,e.en)||e.zh);a.href=e.url;h.append(a);li.append(h);
    const meta=document.createElement('p');meta.className='search-site';
    for(const d of e.domains||[]){if(!domainLabel[d])continue;meta.append(text('span',tr(...domainLabel[d]),'search-domain'));}
-   meta.append(text('span',tr(...labels[e.site])+(e.kind==='resource'?tr(' · 外部站点',' · External site'):'')));
+   meta.append(text('span',tr(...labels[e.site])+(e.kind==='resource'?tr(' · 站外资源',' · External resource'):'')));
    li.append(meta);
    const summary=tr(e.summaryZh,e.summaryEn);if(summary)li.append(text('p',summary));list.append(li);}
   status.textContent=matches.length?tr(`找到 ${matches.length} 项，已显示 ${Math.min(limit,matches.length)} 项。`,`Found ${matches.length} records; showing ${Math.min(limit,matches.length)}.`):tr('没有匹配。试试产品名、任务词，或取消站点与主题域筛选。','No matches. Try a product name, task phrase or clear the site and topic filters.');

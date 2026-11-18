@@ -16,7 +16,7 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 | Research | https://papers.specul.com/ | What are the claim boundaries and reproduction status of papers? |
 | Credentials | https://chain.specul.com/ | How do you check AI-chain provenance credentials and permissions? |
 | Playground | https://demos.specul.com/ | Where can I run model-generated HTML works, see source and original prompts? |
-| Directory | https://nav.specul.com/ | AI website directory, 595 entries / 11 categories |
+| AI Directory | https://nav.specul.com/ | Off-site AI website directory, 595 entries / 11 categories |
 
 ## About each site
 
@@ -46,8 +46,9 @@ Work backwards from VRAM to which GGUF variant to download; file sizes are measu
 ### Playground — https://demos.specul.com/
 Runnable HTML works from two model collections, with source and original prompts linked; no ranking and no copying of unlicensed files.
 
-### Directory — https://nav.specul.com/
-595 AI-related websites (entries on the site, excluding extended domains), 11 categories, every link verified.
+### AI Directory — https://nav.specul.com/
+Off-site AI website directory: other AI sites, not Specul's own content.
+595 off-site AI websites (entries on the site, excluding extended domains), 11 categories, every link verified.
 Each site is systematically introduced by "what it does and who it suits". Verification dates and probe methodology are written on the page,
 **probe failures do not declare death** — better to miss than to misjudge.
 
