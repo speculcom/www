@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title">
+  <title id="title">Trust review: permission, data and rights are three separate questions</title>
+  <rect width="1200" height="600" fill="#F7F5EF"/>
+  <rect x="0" y="0" width="1200" height="72" fill="#1F5B45"/>
+  <text x="48" y="46" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="26" font-weight="700">TRUST REVIEW · THREE SEPARATE TABLES</text>
+  <text x="1152" y="46" fill="#D8EFE3" font-family="Arial, sans-serif" font-size="18" text-anchor="end">Specul · original diagram</text>
+
+  <rect x="48" y="112" width="344" height="300" rx="18" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <rect x="48" y="112" width="344" height="54" rx="18" fill="#1D4ED8"/>
+  <text x="78" y="146" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="21" font-weight="700">1 · PERMISSION</text>
+  <text x="78" y="204" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">Who can do what?</text>
+  <text x="78" y="240" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">identity · scope · tool allowlist</text>
+  <text x="78" y="270" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">approval gate · secret handling</text>
+  <text x="78" y="300" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">revocation · audit trail</text>
+  <text x="78" y="356" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="16" font-weight="700">Evidence: policy + logs</text>
+
+  <rect x="428" y="112" width="344" height="300" rx="18" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <rect x="428" y="112" width="344" height="54" rx="18" fill="#0F766E"/>
+  <text x="458" y="146" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="21" font-weight="700">2 · DATA FLOW</text>
+  <text x="458" y="204" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">Where does data go?</text>
+  <text x="458" y="240" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">input · model endpoint · logs</text>
+  <text x="458" y="270" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">retention · region · subprocessors</text>
+  <text x="458" y="300" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">training use · deletion path</text>
+  <text x="458" y="356" fill="#0F766E" font-family="Arial, sans-serif" font-size="16" font-weight="700">Evidence: data-flow map</text>
+
+  <rect x="808" y="112" width="344" height="300" rx="18" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <rect x="808" y="112" width="344" height="54" rx="18" fill="#7C3AED"/>
+  <text x="838" y="146" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="21" font-weight="700">3 · RIGHTS</text>
+  <text x="838" y="204" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">What may you use?</text>
+  <text x="838" y="240" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">code · weights · data · output</text>
+  <text x="838" y="270" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">commercial use · attribution</text>
+  <text x="838" y="300" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">share-alike · patent grant</text>
+  <text x="838" y="356" fill="#7C3AED" font-family="Arial, sans-serif" font-size="16" font-weight="700">Evidence: licence text + SPDX</text>
+
+  <rect x="48" y="452" width="1104" height="60" rx="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="74" y="480" fill="#92400E" font-family="Arial, sans-serif" font-size="20" font-weight="700">Do not merge the three answers into one “safe / unsafe” badge.</text>
+  <text x="74" y="503" fill="#78350F" font-family="Arial, sans-serif" font-size="16">A model can be licensed for commercial use, yet still be wrong to send your customer data to.</text>
+
+  <rect x="48" y="528" width="1104" height="36" rx="8" fill="#1F5B45"/>
+  <text x="72" y="552" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="16">Decision = permission + data flow + rights + provenance, each with its own evidence.</text>
+</svg>

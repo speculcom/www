@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#16121f" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>安全·许可·凭证：能跑不等于能用 · Specul</title>
+  <meta name="description" content="一个工具能跑通，只证明技术可行。能不能上线，要分开回答三张表：谁能用它做什么、数据会被送到哪里、你对代码 / 权重 / 数据 / 输出到底拥有什么权利。把这三件事压成一个「安全」标签，是最常见的误判。" />
+  <link rel="canonical" href="https://specul.com/domain-trust.html" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Specul" />
+  <meta property="og:url" content="https://specul.com/domain-trust.html" />
+  <meta property="og:title" content="安全·许可·凭证：能跑不等于能用" />
+  <meta property="og:description" content="一个工具能跑通，只证明技术可行。能不能上线，要分开回答三张表：谁能用它做什么、数据会被送到哪里、你对代码 / 权重 / 数据 / 输出到底拥有什么权利。把这三件事压成一个「安全」标签，是最常见的误判。" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%23070b14'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=2b96a18d1fa6"></script>
+  <link rel="stylesheet" href="brand.css?v=2b96a18d1fa6" />
+  <link rel="stylesheet" href="site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"安全·许可·凭证：能跑不等于能用","description":"一个工具能跑通，只证明技术可行。能不能上线，要分开回答三张表：谁能用它做什么、数据会被送到哪里、你对代码 / 权重 / 数据 / 输出到底拥有什么权利。把这三件事压成一个「安全」标签，是最常见的误判。","url":"https://specul.com/domain-trust.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+</head>
+<body class="brand-ambient has-tabbar">
+
+<!-- SPECUL:HEADER:START -->
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>外部站点</span><span data-en>External</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>外部站点</span><span data-en>External</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>8 个内容站，外加一个去别处的出口</span><span data-en>Eight content sites, plus one gateway to other sites</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+<!-- SPECUL:HEADER:END -->
+
+<main id="main">
+<section class="hp-sec tight">
+    <div class="hp-c">
+      <p class="kicker"><span data-zh>领域深度 · 安全·许可·凭证</span><span data-en>Field guide · Safety, licences &amp; provenance</span></p>
+      <h1><span data-zh>安全·许可·凭证：能跑不等于能用</span><span data-en>Safety, licences and provenance: working is not the same as usable</span></h1>
+      <p class="domain-lead"><span data-zh>一个工具能跑通，只证明技术可行。能不能上线，要分开回答三张表：谁能用它做什么、数据会被送到哪里、你对代码 / 权重 / 数据 / 输出到底拥有什么权利。把这三件事压成一个「安全」标签，是最常见的误判。</span><span data-en>A tool running proves technical feasibility. Whether it can ship depends on three separate tables: who may use it for what, where data is sent, and what rights you actually have over code, weights, data and output. Collapsing these into one “safe” label is the most common mistake.</span></p>
+      <p class="domain-meta"><span data-zh>本页是决策框架，不构成法律意见；许可证与合同条款以原文和有资质律师的判断为准。</span><span data-en>This is a decision framework, not legal advice. Licence and contract terms remain with the original text and a qualified lawyer.</span></p>
+    </div>
+  </section>
+  <section class="hp-sec tight">
+    <div class="hp-c domain-prose">
+      <figure class="domain-fig">
+        <div class="domain-fig-scroll"><img src="assets/figures/domain-trust.svg" alt="信任评审三张表：权限、数据流、权利，各自需要不同证据 / Three trust tables: permission, data flow and rights, each with different evidence" loading="lazy" /></div>
+        <figcaption><span data-zh>图 3 · 三张表。模型许可允许商用，不等于可以把客户数据发给它；本地部署，也不等于数据不会外发。</span><span data-en>Figure 3 · Three tables. A commercial model licence does not mean customer data may be sent to it; local deployment does not mean data never leaves.</span></figcaption>
+      </figure>
+      <div class="domain-callout domain-thesis"><span data-zh>不要用一个「安全 / 不安全」的结论同时回答权限、数据和许可。三张表各有各的证据，也各有各的失效方式。</span><span data-en>Do not answer permission, data and licensing with one “safe / unsafe” verdict. Each table has its own evidence and its own failure modes.</span></div>
+      <nav class="domain-toc" aria-label="本文目录" data-ui-aria-label-zh="本文目录" data-ui-aria-label-en="Contents">
+        <b><span data-zh>本文目录</span><span data-en>Contents</span></b>
+        <ol><li><a href="#three"><span data-zh>1 · 三张表，先分开再合并</span><span data-en>1 · Three tables: separate first, combine later</span></a></li><li><a href="#permission"><span data-zh>2 · 权限：最小权限要落到具体身份</span><span data-en>2 · Permission: least privilege must bind to a specific identity</span></a></li><li><a href="#data"><span data-zh>3 · 数据流：本地部署不是自动安全</span><span data-en>3 · Data flow: local deployment is not automatically safe</span></a></li><li><a href="#rights"><span data-zh>4 · 许可：代码、权重、数据、输出是四件事</span><span data-en>4 · Licensing: code, weights, data and output are four different things</span></a></li><li><a href="#provenance"><span data-zh>5 · 凭证：能证明「谁说过」，不能证明「说得对」</span><span data-en>5 · Provenance: it can show who said it, not whether it is true</span></a></li><li><a href="#supply"><span data-zh>6 · 供应链：插件、MCP 与依赖也是权限</span><span data-en>6 · Supply chain: plugins, MCP and dependencies are permissions too</span></a></li><li><a href="#decision"><span data-zh>7 · 决策框架：六问一表</span><span data-en>7 · Decision framework: six questions and one table</span></a></li><li><a href="#path"><span data-zh>8 · 最小行动清单</span><span data-en>8 · Minimum action list</span></a></li></ol>
+      </nav>
+      <section class="domain-section" id="three">
+      <h2><span data-zh>1 · 三张表，先分开再合并</span><span data-en>1 · Three tables: separate first, combine later</span></h2>
+      <p><span data-zh>权限表回答「谁可以做什么」：人、Agent、服务账号、连接器分别能读什么、写什么、调用什么、批准什么。它关心的是越权、误操作、凭据泄露和撤销。</span><span data-en>The permission table answers “who may do what”: what a person, agent, service account and connector may read, write, call and approve. It cares about over-privilege, mistakes, credential leaks and revocation.</span></p><p><span data-zh>数据流表回答「数据去了哪里」：输入经过哪些模型 / 连接器 / 日志 / 备份，保留多久，是否用于训练，能否删除。它关心的是数据分类、跨境、第三方处理者和保留期。</span><span data-en>The data-flow table answers “where data goes”: which models, connectors, logs and backups it passes, how long it stays, whether it is used for training and whether it can be deleted. It cares about classification, cross-border transfer, subprocessors and retention.</span></p><p><span data-zh>权利表回答「你拥有什么」：代码许可证、模型权重许可证、训练 / 输入数据权利、输出内容的权利，是四件不同的事。它关心的是商用、署名、传染性条款、专利授权和再分发。</span><span data-en>The rights table answers “what do you own”: code licence, model-weight licence, rights in training/input data and rights in output are four different things. It cares about commercial use, attribution, copyleft, patent grants and redistribution.</span></p><p><span data-zh>最后才是凭证：水印、签名、内容凭证、链上回执能帮助证明「来源与流转」，但它们不证明内容真实、不证明模型可靠，也不替代许可证。</span><span data-en>Provenance comes last: watermarks, signatures, content credentials and on-chain receipts can help show source and movement, but they do not prove content is true, the model is reliable, or a licence covers your use.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh>表</span><span data-en>Table</span></th><th><span data-zh>核心问题</span><span data-en>Core question</span></th><th><span data-zh>证据</span><span data-en>Evidence</span></th><th><span data-zh>典型失效</span><span data-en>Typical failure</span></th></tr></thead><tbody><tr><td><span data-zh>权限</span><span data-en>Permission</span></td><td><span data-zh>谁能做什么</span><span data-en>Who may do what</span></td><td><span data-zh>策略、角色、日志、撤销记录</span><span data-en>Policy, roles, logs, revocation</span></td><td><span data-zh>共享管理员账号、工具范围过大</span><span data-en>Shared admin account, over-broad tool scope</span></td></tr><tr><td><span data-zh>数据流</span><span data-en>Data flow</span></td><td><span data-zh>数据去哪、留多久</span><span data-en>Where data goes, how long</span></td><td><span data-zh>数据流图、合同、保留设置</span><span data-en>Data-flow map, contract, retention settings</span></td><td><span data-zh>“本地部署”但仍调用外部 API</span><span data-en>“Local” but still calls an external API</span></td></tr><tr><td><span data-zh>权利</span><span data-en>Rights</span></td><td><span data-zh>代码 / 权重 / 数据 / 输出</span><span data-en>Code/weights/data/output</span></td><td><span data-zh>许可证原文、SPDX、署名要求</span><span data-en>Licence text, SPDX, attribution</span></td><td><span data-zh>把代码许可当成权重许可</span><span data-en>Treating a code licence as a weights licence</span></td></tr><tr><td><span data-zh>凭证</span><span data-en>Provenance</span></td><td><span data-zh>来源与流转</span><span data-en>Source and movement</span></td><td><span data-zh>签名、内容凭证、链上回执</span><span data-en>Signature, content credential, on-chain receipt</span></td><td><span data-zh>把“有凭证”当成“内容为真”</span><span data-en>Treating “has provenance” as “true”</span></td></tr></tbody></table></div>
+    </section>
+<section class="domain-section" id="permission">
+      <h2><span data-zh>2 · 权限：最小权限要落到具体身份</span><span data-en>2 · Permission: least privilege must bind to a specific identity</span></h2>
+      <p><span data-zh>先分清三种身份：人（登录账号）、Agent（代表某个人或某个任务的服务身份）、连接器（访问外部系统的凭据）。三者不能共用同一个管理员令牌；否则一次提示注入就可能以人的全部权限执行。</span><span data-en>Separate three identities: a person (login), an agent (a service identity acting for a person or task) and a connector (credentials to an external system). They must not share one admin token; otherwise a single prompt injection can execute with the person’s full authority.</span></p><p><span data-zh>工具权限要按「动作 + 对象 + 范围」写：允许读哪个目录、写哪个表、发邮件给哪个域、调用哪个 API、金额上限多少。只写「允许使用某个工具」太粗，工具内部的参数才是风险面。</span><span data-en>Write tool permission as action + object + scope: which folder may be read, which table written, which domain emailed, which API called, what monetary limit. “May use the tool” is too coarse; the tool’s parameters are the risk surface.</span></p><p><span data-zh>高风险动作要有独立批准：对外发送、删除、付款、权限变更、生产写入。批准人不能是发起人；批准记录要进日志。撤销要能在不重启整个系统的情况下完成。</span><span data-en>High-risk actions need separate approval: external sending, deletion, payment, permission changes, production writes. The approver must not be the initiator, and the approval goes into the log. Revocation must work without restarting the whole system.</span></p><div class="domain-callout"><span data-zh>一个实用判据：如果这个 Agent 被完全控制，它最多能造成多大损失？答案就是你实际授予的权限，不是提示词里写的「请谨慎」。</span><span data-en>A practical test: if this agent were fully controlled by an attacker, what is the worst damage it could do? That is the permission you actually granted — not the “please be careful” in the prompt.</span></div>
+    </section>
+<section class="domain-section" id="data">
+      <h2><span data-zh>3 · 数据流：本地部署不是自动安全</span><span data-en>3 · Data flow: local deployment is not automatically safe</span></h2>
+      <p><span data-zh>先把输入分类：公开、内部、机密、个人数据。不同级别对应不同的模型与连接器；不能让「内部」文件因为一次复制粘贴就进入外部模型。分类要落在流程里，不是放在员工手册里。</span><span data-en>Classify input first: public, internal, confidential, personal. Each level maps to different models and connectors. An “internal” file must not enter an external model through a copy-paste. Classification belongs in the workflow, not only in the employee handbook.</span></p><p><span data-zh>数据流图要标出每个落点：浏览器、应用服务器、模型端点、日志、缓存、备份、分析平台。每条线写清传输方式、加密、保留期、访问者和删除方式。只写「数据保存在本地」会漏掉遥测、崩溃转储和云备份。</span><span data-en>The data-flow map marks every landing point: browser, app server, model endpoint, logs, cache, backup, analytics. Each line states transport, encryption, retention, access and deletion. “Data stays local” misses telemetry, crash dumps and cloud backups.</span></p><p><span data-zh>外部模型要问六个问题：是否用于训练、保留多久、是否跨境、子处理者是谁、能否按请求删除、发生泄露时谁通知谁。合同与产品文档都要看；只有产品页面一句「不会用于训练」不够。</span><span data-en>For an external model ask six questions: training use, retention, cross-border transfer, subprocessors, deletion on request, and who notifies whom after a breach. Read both the contract and product docs; a “not used for training” line on a product page is not enough.</span></p>
+    </section>
+<section class="domain-section" id="rights">
+      <h2><span data-zh>4 · 许可：代码、权重、数据、输出是四件事</span><span data-en>4 · Licensing: code, weights, data and output are four different things</span></h2>
+      <p><span data-zh>代码许可证（如 MIT、Apache-2.0、GPL）管的是源代码的分发与修改；模型权重通常有单独的许可证或使用条款，可能限制商用、再分发、蒸馏或输出使用。把代码许可当成权重许可，是开源模型最常见的误读。</span><span data-en>A code licence (MIT, Apache-2.0, GPL) governs distribution and modification of source. Model weights often have a separate licence or terms that may restrict commercial use, redistribution, distillation or output use. Treating a code licence as a weights licence is the most common open-model misreading.</span></p><p><span data-zh>训练数据与输入数据的权利又是另一层：你是否有权把某批数据用于训练、微调或检索？数据来源的许可、个人信息同意、数据库权利，都可能限制使用。</span><span data-en>Rights in training and input data are another layer: may you use this data for training, fine-tuning or retrieval? The source licence, personal-data consent and database rights can all restrict use.</span></p><p><span data-zh>输出内容的权利取决于输入、平台条款和当地法律。模型生成不等于你拥有；如果输入受版权保护，输出可能仍是衍生作品。商用前要读平台条款，不要只看「可免费使用」。</span><span data-en>Rights in output depend on input, platform terms and local law. Model generation does not mean you own it; if the input is copyrighted, the output may still be a derivative work. Read the platform terms before commercial use, not just “free to use”.</span></p><p><span data-zh>SPDX 标识能帮你快速识别许可证，但不能替代阅读原文。遇到自定义条款、附加品牌条款、社区许可，必须逐条读；必要时找律师。本页不给法律结论。</span><span data-en>SPDX identifiers help identify a licence quickly but do not replace reading the text. Custom terms, added branding clauses and community licences need clause-by-clause reading and, where needed, a lawyer. This page gives no legal conclusion.</span></p>
+    </section>
+<section class="domain-section" id="provenance">
+      <h2><span data-zh>5 · 凭证：能证明「谁说过」，不能证明「说得对」</span><span data-en>5 · Provenance: it can show who said it, not whether it is true</span></h2>
+      <p><span data-zh>内容凭证（如 C2PA）把来源、编辑历史和签名写进文件元数据；水印把标识嵌入像素或音频；链上回执把某次操作锚定到某个地址和时间。三者都能提高可追溯性，但都能被剥离、伪造或在上传平台时丢失。</span><span data-en>Content credentials such as C2PA record source, edit history and signature in file metadata; watermarks embed a mark in pixels or audio; on-chain receipts anchor an operation to an address and time. All three improve traceability, and all three can be stripped, forged or lost when uploaded to a platform.</span></p><p><span data-zh>“有凭证”只说明某个环节留下了记录，不说明内容真实、模型可靠或授权完整。链上记录尤其如此：它证明某笔交易发生过，不证明交易背后的数据是真的。</span><span data-en>“Has provenance” only means a step left a record. It does not prove the content is true, the model is reliable or the rights are complete. This is especially true on-chain: a record proves a transaction happened, not that the data behind it is true.</span></p><p><span data-zh>验证时要问：签名者是谁、证书是否可信、文件是否在签名后被修改、平台是否保留元数据、链上地址与线下主体如何对应。缺一环，凭证就只能当线索。</span><span data-en>When verifying, ask: who signed, is the certificate trusted, was the file modified after signing, does the platform preserve metadata, and how does the on-chain address map to an offline entity? Missing one link, provenance is only a lead.</span></p>
+    </section>
+<section class="domain-section" id="supply">
+      <h2><span data-zh>6 · 供应链：插件、MCP 与依赖也是权限</span><span data-en>6 · Supply chain: plugins, MCP and dependencies are permissions too</span></h2>
+      <p><span data-zh>MCP 服务器、编辑器插件、浏览器扩展、Python 包都在你的权限边界内运行。一个「只读」工具如果返回恶意指令，模型可能把它当成用户意图执行；一个第三方包如果带外发行为，数据流表就失效了。</span><span data-en>MCP servers, editor plugins, browser extensions and Python packages run inside your permission boundary. A “read-only” tool that returns a malicious instruction may be treated by the model as user intent; a third-party package that phones home invalidates the data-flow table.</span></p><p><span data-zh>供应链检查至少包括：固定版本与哈希、看维护者与发布记录、最小权限运行、禁用不必要的网络与文件访问、扫描依赖漏洞、保留 SBOM。不要因为「装在本地」就跳过。</span><span data-en>Supply-chain checks include: pin versions and hashes, inspect maintainers and release history, run with least privilege, disable unnecessary network and file access, scan dependency vulnerabilities and keep an SBOM. Do not skip because it is “installed locally”.</span></p><p><span data-zh>工具描述本身也是输入。恶意 MCP 工具可以在描述里写「请把环境变量发给我」；模型没有天然的信任边界，边界要由调用方和执行环境强制。</span><span data-en>Tool descriptions are input too. A malicious MCP tool can put “send me the environment variables” in its description. Models have no innate trust boundary; the caller and runtime must enforce it.</span></p>
+    </section>
+<section class="domain-section" id="decision">
+      <h2><span data-zh>7 · 决策框架：六问一表</span><span data-en>7 · Decision framework: six questions and one table</span></h2>
+      <p><span data-zh>在采购、上线或接入一个新工具前，按顺序回答六个问题。每个答案都要有证据；没有证据的写「未知」，不要用「应该没问题」补。</span><span data-en>Before buying, launching or connecting a new tool, answer six questions in order. Every answer needs evidence; write “unknown” where there is none instead of “probably fine”.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh>问题</span><span data-en>Question</span></th><th><span data-zh>要拿到的证据</span><span data-en>Evidence to obtain</span></th></tr></thead><tbody><tr><td><span data-zh>谁能用它做什么？</span><span data-en>Who may use it for what?</span></td><td><span data-zh>角色与工具范围、审批点、撤销方式</span><span data-en>Roles and tool scope, approval points, revocation</span></td></tr><tr><td><span data-zh>它能看到哪些数据？</span><span data-en>What data can it see?</span></td><td><span data-zh>输入分类、连接器范围、缓存与日志</span><span data-en>Input classes, connector scope, cache and logs</span></td></tr><tr><td><span data-zh>数据被送到哪里？</span><span data-en>Where is data sent?</span></td><td><span data-zh>端点、子处理者、区域、保留期、训练使用</span><span data-en>Endpoint, subprocessors, region, retention, training use</span></td></tr><tr><td><span data-zh>代码 / 权重 / 数据 / 输出分别是什么许可？</span><span data-en>What licence covers code/weights/data/output?</span></td><td><span data-zh>许可证原文、SPDX、署名与商用条款</span><span data-en>Licence text, SPDX, attribution and commercial terms</span></td></tr><tr><td><span data-zh>来源凭证能证明什么、不能证明什么？</span><span data-en>What does provenance prove and not prove?</span></td><td><span data-zh>签名者、证书链、编辑历史、平台保留策略</span><span data-en>Signer, certificate chain, edit history, platform retention</span></td></tr><tr><td><span data-zh>出错时谁负责、怎么回滚？</span><span data-en>Who owns failure and how is rollback?</span></td><td><span data-zh>事故联系人、SLA、回滚开关、日志保留</span><span data-en>Incident contact, SLA, rollback switch, log retention</span></td></tr></tbody></table></div><div class="domain-callout"><span data-zh>判断句：许可证允许商用，不等于适合处理客户数据；本地部署，不等于没有外发；有链上凭证，不等于内容真实。三个「不等于」要分别验证。</span><span data-en>Rule of thumb: a commercial licence does not mean customer data is appropriate; local deployment does not mean nothing leaves; an on-chain receipt does not mean the content is true. Verify each “does not mean” separately.</span></div>
+    </section>
+<section class="domain-section" id="path">
+      <h2><span data-zh>8 · 最小行动清单</span><span data-en>8 · Minimum action list</span></h2>
+      <ul class="domain-list"><li><span data-zh>把权限、数据流、权利、凭证四张表分开建，不要合成一个评分。</span><span data-en>Keep permission, data flow, rights and provenance as four tables; do not merge them into one score.</span></li><li><span data-zh>给每个 Agent / 连接器单独身份，按动作、对象、范围授权。</span><span data-en>Give each agent/connector its own identity; grant by action, object and scope.</span></li><li><span data-zh>画数据流图，标出端点、日志、备份、子处理者与保留期。</span><span data-en>Draw the data-flow map with endpoints, logs, backups, subprocessors and retention.</span></li><li><span data-zh>代码、权重、数据、输出四种许可分别读原文，记录 SPDX 与署名要求。</span><span data-en>Read the four licences separately (code, weights, data, output), recording SPDX and attribution.</span></li><li><span data-zh>凭证只当线索：验证签名、证书链、编辑历史与平台保留。</span><span data-en>Treat provenance as a lead: verify signer, certificate chain, edit history and platform retention.</span></li><li><span data-zh>对 MCP / 插件 / 依赖固定版本、最小权限、扫描漏洞、保留 SBOM。</span><span data-en>Pin MCP servers/plugins/dependencies, run least privilege, scan vulnerabilities and keep an SBOM.</span></li><li><span data-zh>上线前做一次「被完全控制」的损失推演，补审批与回滚。</span><span data-en>Before launch, run a “fully controlled” loss exercise and add approvals and rollback.</span></li></ul>
+    </section>
+      <section class="domain-section" id="sources">
+        <h2><span data-zh>来源与延伸阅读</span><span data-en>Sources and further reading</span></h2>
+        <p><span data-zh>以下链接用于核对事实、许可证与官方口径。外部页面可能更新；引用时以原文与核验日为准。</span><span data-en>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</span></p>
+        <ul class="domain-src"><li><a href="https://spdx.org/licenses/" rel="noopener">SPDX License List</a><span><span data-zh>常见开源许可证的标准标识与全文入口；标识不替代原文阅读。</span><span data-en>Standard identifiers and text for common open-source licences; an identifier does not replace reading the text.</span></span></li><li><a href="https://creativecommons.org/licenses/" rel="noopener">Creative Commons licenses</a><span><span data-zh>CC 许可证的官方说明，含署名、非商业、相同方式共享等条件。</span><span data-en>Official CC licence explanations, including attribution, non-commercial and share-alike terms.</span></span></li><li><a href="https://c2pa.org/" rel="noopener">C2PA</a><span><span data-zh>内容凭证与来源元数据的规范与生态入口；凭证可被剥离，需结合验证流程。</span><span data-en>Specification and ecosystem entry for content credentials and provenance metadata; manifests can be stripped, so a verification flow is required.</span></span></li><li><a href="https://openssf.org/" rel="noopener">OpenSSF</a><span><span data-zh>开源供应链安全的项目与工具入口，包括 SBOM、评分与最佳实践。</span><span data-en>Open-source supply-chain projects and tools, including SBOMs, scores and best practices.</span></span></li><li><a href="https://learn.specul.com/term/%E8%AE%B8%E5%8F%AF%E8%AF%81/" rel="noopener">学 AI · 许可证</a><span><span data-zh>许可证类型与常见误读的概念页。</span><span data-en>Concept page on licence types and common misreadings.</span></span></li><li><a href="https://learn.specul.com/term/%E6%9D%83%E9%99%90/" rel="noopener">学 AI · 权限</a><span><span data-zh>权限边界与最小权限的概念页。</span><span data-en>Concept page on permission boundaries and least privilege.</span></span></li><li><a href="https://learn.specul.com/term/%E6%B0%B4%E5%8D%B0%E4%B8%8E%E5%86%85%E5%AE%B9%E5%87%AD%E8%AF%81/" rel="noopener">学 AI · 水印与内容凭证</a><span><span data-zh>水印、签名与内容凭证的区别。</span><span data-en>The difference between watermarks, signatures and content credentials.</span></span></li><li><a href="https://chain.specul.com/path.html" rel="noopener">链 · 来源凭证路径</a><span><span data-zh>链上来源与数据授权的核验顺序。</span><span data-en>Verification order for on-chain provenance and data rights.</span></span></li><li><a href="https://tools.specul.com/safety/index.html" rel="noopener">工具站 · AI 安全与评测</a><span><span data-zh>护栏、评测、红队、网关与溯源类档案。</span><span data-en>Dossiers on guardrails, evaluation, red-teaming, gateways and provenance.</span></span></li><li><a href="https://learn.specul.com/path/for-safety-review/" rel="noopener">学 AI · 上线前安全评审</a><span><span data-zh>12 步上线前安全与合规评审路线。</span><span data-en>A 12-step pre-launch safety and compliance route.</span></span></li></ul>
+      </section>
+      <p class="domain-back"><a href="https://specul.com/"><span data-zh>← 回到首页</span><span data-en>← Back to home</span></a></p>
+    </div>
+  </section>
+</main>
+
+<!-- SPECUL:FOOTER:START -->
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>外部站点</span><span data-en>External</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<!-- SPECUL:FOOTER:END -->
+
+<!-- SPECUL:TABBAR:START -->
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+
+</body>
+</html>
+

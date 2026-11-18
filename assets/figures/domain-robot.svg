@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title">
+  <title id="title">Robot stack: four loops from body to task</title>
+  <rect width="1200" height="600" fill="#F7F5EF"/>
+  <rect x="0" y="0" width="1200" height="72" fill="#1F5B45"/>
+  <text x="48" y="46" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="26" font-weight="700">ROBOT STACK · FOUR LOOPS</text>
+  <text x="1152" y="46" fill="#D8EFE3" font-family="Arial, sans-serif" font-size="18" text-anchor="end">Specul · original diagram</text>
+
+  <rect x="70" y="110" width="1060" height="92" rx="16" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <rect x="70" y="110" width="12" height="92" rx="6" fill="#D97706"/>
+  <text x="104" y="145" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">TASK &amp; SAFETY LAYER</text>
+  <text x="104" y="176" fill="#4B5563" font-family="Arial, sans-serif" font-size="17">goal · workspace limits · emergency stop · human approval</text>
+
+  <rect x="70" y="228" width="1060" height="92" rx="16" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <rect x="70" y="228" width="12" height="92" rx="6" fill="#2563EB"/>
+  <text x="104" y="263" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">PERCEPTION &amp; POLICY LAYER</text>
+  <text x="104" y="294" fill="#4B5563" font-family="Arial, sans-serif" font-size="17">camera / depth / force → state → action · runs slower than control</text>
+
+  <rect x="70" y="346" width="1060" height="92" rx="16" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <rect x="70" y="346" width="12" height="92" rx="6" fill="#0F766E"/>
+  <text x="104" y="381" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">CONTROL &amp; MIDDLEWARE LAYER</text>
+  <text x="104" y="412" fill="#4B5563" font-family="Arial, sans-serif" font-size="17">ROS 2 topics · QoS · watchdog · deterministic 100–1000 Hz loop</text>
+
+  <rect x="70" y="464" width="1060" height="92" rx="16" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <rect x="70" y="464" width="12" height="92" rx="6" fill="#7C3AED"/>
+  <text x="104" y="499" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">BODY &amp; SENSORS LAYER</text>
+  <text x="104" y="530" fill="#4B5563" font-family="Arial, sans-serif" font-size="17">motors · joints · encoders · IMU · cameras · torque sensing</text>
+
+  <path d="M600 202 L600 228" stroke="#1F5B45" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M600 320 L600 346" stroke="#1F5B45" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M600 438 L600 464" stroke="#1F5B45" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M180 464 L180 202" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrowGray)"/>
+  <text x="196" y="340" fill="#6B7280" font-family="Arial, sans-serif" font-size="15">feedback + logs</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1F5B45"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+</svg>

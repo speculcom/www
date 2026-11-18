@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title">
+  <title id="title">Office AI workflow: five stages and an exception loop</title>
+  <rect width="1200" height="600" fill="#F7F5EF"/>
+  <rect x="0" y="0" width="1200" height="72" fill="#1F5B45"/>
+  <text x="48" y="46" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="26" font-weight="700">OFFICE AI · A CHECKABLE WORKFLOW</text>
+  <text x="1152" y="46" fill="#D8EFE3" font-family="Arial, sans-serif" font-size="18" text-anchor="end">Specul · original diagram</text>
+
+  <rect x="48" y="128" width="196" height="150" rx="16" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <circle cx="82" cy="164" r="18" fill="#D97706"/>
+  <text x="82" y="170" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">1</text>
+  <text x="112" y="170" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">INPUT</text>
+  <text x="72" y="210" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">PDF · scan · audio</text>
+  <text x="72" y="236" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">table · email</text>
+  <text x="72" y="262" fill="#6B7280" font-family="Arial, sans-serif" font-size="14">one artifact, one owner</text>
+
+  <rect x="290" y="128" width="196" height="150" rx="16" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <circle cx="324" cy="164" r="18" fill="#2563EB"/>
+  <text x="324" y="170" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">2</text>
+  <text x="354" y="170" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">EXTRACT</text>
+  <text x="314" y="210" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">schema first</text>
+  <text x="314" y="236" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">source line + unknown</text>
+  <text x="314" y="262" fill="#6B7280" font-family="Arial, sans-serif" font-size="14">no silent guessing</text>
+
+  <rect x="532" y="128" width="196" height="150" rx="16" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <circle cx="566" cy="164" r="18" fill="#0F766E"/>
+  <text x="566" y="170" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">3</text>
+  <text x="596" y="170" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">CHECK</text>
+  <text x="556" y="210" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">rules + sample</text>
+  <text x="556" y="236" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">confidence band</text>
+  <text x="556" y="262" fill="#6B7280" font-family="Arial, sans-serif" font-size="14">failures go to queue</text>
+
+  <rect x="774" y="128" width="196" height="150" rx="16" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <circle cx="808" cy="164" r="18" fill="#7C3AED"/>
+  <text x="808" y="170" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">4</text>
+  <text x="838" y="170" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">REVIEW</text>
+  <text x="798" y="210" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">human approval</text>
+  <text x="798" y="236" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">four-eyes for money</text>
+  <text x="798" y="262" fill="#6B7280" font-family="Arial, sans-serif" font-size="14">record who changed what</text>
+
+  <rect x="1016" y="128" width="136" height="150" rx="16" fill="#FFFFFF" stroke="#D8D2C4" stroke-width="2"/>
+  <circle cx="1050" cy="164" r="18" fill="#B45309"/>
+  <text x="1050" y="170" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">5</text>
+  <text x="1080" y="170" fill="#1F2937" font-family="Arial, sans-serif" font-size="21" font-weight="700">RECORD</text>
+  <text x="1036" y="210" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">output + log</text>
+  <text x="1036" y="236" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">retention</text>
+  <text x="1036" y="262" fill="#6B7280" font-family="Arial, sans-serif" font-size="14">rollback path</text>
+
+  <path d="M244 203 L290 203" stroke="#1F5B45" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M486 203 L532 203" stroke="#1F5B45" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M728 203 L774 203" stroke="#1F5B45" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M970 203 L1016 203" stroke="#1F5B45" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="290" y="366" width="680" height="92" rx="16" fill="#FFF7ED" stroke="#F59E0B" stroke-width="2"/>
+  <text x="322" y="401" fill="#92400E" font-family="Arial, sans-serif" font-size="21" font-weight="700">EXCEPTION QUEUE</text>
+  <text x="322" y="432" fill="#78350F" font-family="Arial, sans-serif" font-size="17">low confidence · conflicting source · missing field · rights unclear</text>
+  <path d="M630 366 L630 284" stroke="#F59E0B" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arrowAmber)"/>
+  <text x="650" y="340" fill="#92400E" font-family="Arial, sans-serif" font-size="15">a human decides, not the model</text>
+
+  <rect x="48" y="508" width="1104" height="44" rx="10" fill="#1F5B45"/>
+  <text x="72" y="537" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="17">Measure end-to-end: correct output + exceptions handled + human minutes + rework — not token price alone.</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1F5B45"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#F59E0B"/>
+    </marker>
+  </defs>
+</svg>

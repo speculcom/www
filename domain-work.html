@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#16121f" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>办公与业务流程：AI 不是更快的聊天框，是一条能验收的流水线 · Specul</title>
+  <meta name="description" content="办公任务的成败很少取决于某一句提示词。它取决于输入是否干净、输出是否有结构、异常有没有人接、记录能不能回查。把 AI 当成流水线上的一个工位，而不是一个「什么都能问」的同事，事情才会稳定。" />
+  <link rel="canonical" href="https://specul.com/domain-work.html" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Specul" />
+  <meta property="og:url" content="https://specul.com/domain-work.html" />
+  <meta property="og:title" content="办公与业务流程：AI 不是更快的聊天框，是一条能验收的流水线" />
+  <meta property="og:description" content="办公任务的成败很少取决于某一句提示词。它取决于输入是否干净、输出是否有结构、异常有没有人接、记录能不能回查。把 AI 当成流水线上的一个工位，而不是一个「什么都能问」的同事，事情才会稳定。" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%23070b14'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
+  <script src="brand.js?v=2b96a18d1fa6"></script>
+  <link rel="stylesheet" href="brand.css?v=2b96a18d1fa6" />
+  <link rel="stylesheet" href="site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"办公与业务流程：AI 不是更快的聊天框，是一条能验收的流水线","description":"办公任务的成败很少取决于某一句提示词。它取决于输入是否干净、输出是否有结构、异常有没有人接、记录能不能回查。把 AI 当成流水线上的一个工位，而不是一个「什么都能问」的同事，事情才会稳定。","url":"https://specul.com/domain-work.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+</head>
+<body class="brand-ambient has-tabbar">
+
+<!-- SPECUL:HEADER:START -->
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://hardware.specul.com/" class="nav-group-start"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span data-zh>外部站点</span><span data-en>External</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>外部站点</span><span data-en>External</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>8 个内容站，外加一个去别处的出口</span><span data-en>Eight content sites, plus one gateway to other sites</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+<!-- SPECUL:HEADER:END -->
+
+<main id="main">
+<section class="hp-sec tight">
+    <div class="hp-c">
+      <p class="kicker"><span data-zh>领域深度 · 办公与业务流程</span><span data-en>Field guide · Work &amp; business workflows</span></p>
+      <h1><span data-zh>办公与业务流程：AI 不是更快的聊天框，是一条能验收的流水线</span><span data-en>Work and business workflows: AI is a checkable pipeline, not a faster chat box</span></h1>
+      <p class="domain-lead"><span data-zh>办公任务的成败很少取决于某一句提示词。它取决于输入是否干净、输出是否有结构、异常有没有人接、记录能不能回查。把 AI 当成流水线上的一个工位，而不是一个「什么都能问」的同事，事情才会稳定。</span><span data-en>Office work rarely succeeds or fails on one prompt. It depends on clean input, structured output, a human owner for exceptions and records that can be checked later. Treat AI as one station on a pipeline, not a colleague who can answer anything, and the work becomes stable.</span></p>
+      <p class="domain-meta"><span data-zh>本页给流程与验收框架，不构成法律、财务或人事建议；涉及合同、发票、个人信息时按组织制度与当地法规处理。</span><span data-en>This page gives a workflow and acceptance framework, not legal, financial or HR advice. Contracts, invoices and personal data follow your organisation’s rules and local law.</span></p>
+    </div>
+  </section>
+  <section class="hp-sec tight">
+    <div class="hp-c domain-prose">
+      <figure class="domain-fig">
+        <div class="domain-fig-scroll"><img src="assets/figures/domain-work.svg" alt="办公 AI 五段流程：输入、抽取、检查、人工复核、记录，以及异常队列 / Five-stage office AI workflow: input, extract, check, human review, record, plus an exception queue" loading="lazy" /></div>
+        <figcaption><span data-zh>图 2 · 五段流程与异常回路。模型负责抽取和候选，人负责越界判断与签字。</span><span data-en>Figure 2 · Five stages and an exception loop. The model extracts and proposes; a human decides exceptions and signs off.</span></figcaption>
+      </figure>
+      <div class="domain-callout domain-thesis"><span data-zh>先做一个可回滚的抽取任务，不要先做全自动审批。能回滚、能抽样复查，才谈得上规模化。</span><span data-en>Start with a reversible extraction task, not fully automated approvals. Scale only after rollback and sample review exist.</span></div>
+      <nav class="domain-toc" aria-label="本文目录" data-ui-aria-label-zh="本文目录" data-ui-aria-label-en="Contents">
+        <b><span data-zh>本文目录</span><span data-en>Contents</span></b>
+        <ol><li><a href="#pipeline"><span data-zh>1 · 先画流程，再选工具</span><span data-en>1 · Draw the pipeline before choosing a tool</span></a></li><li><a href="#tasks"><span data-zh>2 · 四类高频任务，先从一类开始</span><span data-en>2 · Four high-frequency tasks; start with one</span></a></li><li><a href="#structure"><span data-zh>3 · 结构化输出：让「不知道」有地方放</span><span data-en>3 · Structured output: give “unknown” a place to live</span></a></li><li><a href="#human"><span data-zh>4 · 人的位置：复核不是点一下「通过」</span><span data-en>4 · The human role: review is not clicking “approve”</span></a></li><li><a href="#permissions"><span data-zh>5 · 权限与数据：能读文件不等于该读全部文件</span><span data-en>5 · Permissions and data: access to a file does not mean access to every file</span></a></li><li><a href="#cost"><span data-zh>6 · 成本：把人工分钟和返工算进去</span><span data-en>6 · Cost: include human minutes and rework</span></a></li><li><a href="#accept"><span data-zh>7 · 验收：先固定样本，再谈上线</span><span data-en>7 · Acceptance: fix the sample before talking about launch</span></a></li><li><a href="#path"><span data-zh>8 · 最小落地路径</span><span data-en>8 · A minimum path to deployment</span></a></li></ol>
+      </nav>
+      <section class="domain-section" id="pipeline">
+      <h2><span data-zh>1 · 先画流程，再选工具</span><span data-en>1 · Draw the pipeline before choosing a tool</span></h2>
+      <p><span data-zh>一张流程卡写清五件事：输入是什么文件 / 音频 / 表格；输出要落到哪个系统、什么字段；谁对结果负责；什么算验收通过；失败或低置信时进哪个队列。写不清这五项，选什么模型都只是把不确定性藏得更深。</span><span data-en>A one-page pipeline card states five things: what the input is (document, audio, table), where the output lands (system and fields), who owns the result, what counts as acceptance, and which queue receives failures or low-confidence cases. Without these five, any model only hides uncertainty deeper.</span></p><p><span data-zh>先区分「辅助」与「自动」：辅助是给人候选、人做决定；自动是系统直接写入或发出。前者可以先上线，后者必须有权限、审计和回滚。不要用同一个试点同时证明两者。</span><span data-en>Separate assistance from automation: assistance proposes and a human decides; automation writes or sends directly. Assistance can launch earlier; automation needs permissions, audit and rollback. Do not use one pilot to prove both.</span></p><p><span data-zh>流程图里要标出「人等模型」和「模型等人」的位置。前者是审核，后者是补资料；两种等待的成本和指标完全不同。</span><span data-en>Mark where a human waits for the model and where the model waits for a human. The first is review; the second is missing input. Their cost and metrics are different.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh>环节</span><span data-en>Stage</span></th><th><span data-zh>要写清</span><span data-en>Must be explicit</span></th><th><span data-zh>常见失败</span><span data-en>Common failure</span></th></tr></thead><tbody><tr><td><span data-zh>输入</span><span data-en>Input</span></td><td><span data-zh>文件类型、来源、权限、是否含个人信息</span><span data-en>File type, source, permission, personal data</span></td><td><span data-zh>扫描歪斜、缺页、权限不明</span><span data-en>Skewed scan, missing page, unclear rights</span></td></tr><tr><td><span data-zh>抽取</span><span data-en>Extract</span></td><td><span data-zh>字段、类型、必填 / 可选、未知怎么表示</span><span data-en>Fields, types, required/optional, how unknown is represented</span></td><td><span data-zh>模型补了不存在的字段</span><span data-en>The model invents a missing field</span></td></tr><tr><td><span data-zh>检查</span><span data-en>Check</span></td><td><span data-zh>规则、抽样比例、置信阈值</span><span data-en>Rules, sampling rate, confidence threshold</span></td><td><span data-zh>只查总数，不查逐条来源</span><span data-en>Only totals checked, not per-row sources</span></td></tr><tr><td><span data-zh>复核</span><span data-en>Review</span></td><td><span data-zh>谁有权改、什么必须双人</span><span data-en>Who may edit, what needs four eyes</span></td><td><span data-zh>复核人直接点通过</span><span data-en>Reviewer rubber-stamps</span></td></tr><tr><td><span data-zh>记录</span><span data-en>Record</span></td><td><span data-zh>输出、日志、保留期、回滚点</span><span data-en>Output, log, retention, rollback point</span></td><td><span data-zh>无法回答「这条是谁改的」</span><span data-en>Cannot answer who changed this row</span></td></tr></tbody></table></div>
+    </section>
+<section class="domain-section" id="tasks">
+      <h2><span data-zh>2 · 四类高频任务，先从一类开始</span><span data-en>2 · Four high-frequency tasks; start with one</span></h2>
+      <p><span data-zh>文档抽取：扫描件 / PDF → 表格字段。关键不是 OCR 识别率，而是「字段定义、页码与坐标、未知值、复核队列」。同一张发票在不同供应商模板下，字段位置会变；只靠一个通用模型，错误会集中在少数模板上。</span><span data-en>Document extraction: scan/PDF → table fields. The key is not OCR accuracy but field definitions, page and coordinates, unknown values and a review queue. The same invoice moves fields across supplier templates; a generic model concentrates errors on a minority of templates.</span></p><p><span data-zh>会议整理：录音 → 纪要 / 行动项。先区分「原话、摘要、决定、待办」四种内容；把说话人、时间戳和原句保留下来，才能核对。自动摘要写得再顺，也不能替代对关键决定的确认。</span><span data-en>Meeting notes: audio → minutes and actions. Separate verbatim speech, summary, decision and action. Keep speaker, timestamp and the original sentence so claims can be checked. A smooth summary does not replace confirmation of key decisions.</span></p><p><span data-zh>表格合并 / 对账：多张表 → 一张主表 + 异常单。先定义主键、重复规则、冲突优先级；不要让模型「看起来差不多就合并」。金额、日期、编号这类字段，规则引擎通常比模型更可靠。</span><span data-en>Table merge/reconciliation: several tables → one master table plus an exception list. Define the key, duplicate rules and conflict priority first. Do not let a model merge “because it looks similar”. For amounts, dates and IDs, a rule engine is usually more reliable than a model.</span></p><p><span data-zh>文档审阅：长文 → 问题表。要求每条问题带原文位置、修改建议和严重度；没有定位的问题无法复核。合同、合规、人事文件必须由有资质的人做最终判断。</span><span data-en>Document review: long text → issue table. Every issue needs a source location, suggested change and severity. An issue without a location cannot be checked. Contracts, compliance and HR documents need a qualified final reviewer.</span></p><div class="domain-callout"><span data-zh>选择建议：先做「输出结构化、可抽样、可回滚」的抽取任务；审批、对外发送、付款这类不可逆动作放到后面。</span><span data-en>Selection advice: start with extraction that is structured, sampleable and reversible. Put approvals, external sending and payments — irreversible actions — later.</span></div>
+    </section>
+<section class="domain-section" id="structure">
+      <h2><span data-zh>3 · 结构化输出：让「不知道」有地方放</span><span data-en>3 · Structured output: give “unknown” a place to live</span></h2>
+      <p><span data-zh>输出 schema 要明确三件事：字段名与类型、必填与可选、未知 / 冲突 / 不适用的表示。只允许「是 / 否」两个值，会把「没找到」逼成猜测；允许 null 并记录原因，才能把错误留在表面。</span><span data-en>An output schema fixes three things: field names and types, required vs optional, and how unknown, conflicting or not-applicable values are represented. A binary yes/no forces “not found” into a guess; allowing null with a reason keeps the error visible.</span></p><p><span data-zh>每条结果尽量带来源：页码、单元格、时间戳或原文片段。来源不是给人看的装饰，它是复核、纠错和审计的入口。没有来源的字段，应该被视为「候选」而不是「事实」。</span><span data-en>Each result should carry provenance where possible: page, cell, timestamp or source snippet. Provenance is not decoration; it is the entry point for review, correction and audit. A field without provenance should be treated as a candidate, not a fact.</span></p><p><span data-zh>置信度只能作为分流信号，不能当成正确率。模型说「0.95」不代表 95% 正确；要用固定样本集测出「高置信组 / 低置信组」的真实错误率，再决定阈值。</span><span data-en>Confidence is a routing signal, not an accuracy guarantee. A model saying “0.95” does not mean 95% correct. Measure the real error rate of high- and low-confidence groups on a fixed sample, then set the threshold.</span></p>
+    </section>
+<section class="domain-section" id="human">
+      <h2><span data-zh>4 · 人的位置：复核不是点一下「通过」</span><span data-en>4 · The human role: review is not clicking “approve”</span></h2>
+      <p><span data-zh>复核界面要让人能在一屏内看到「原文、抽取结果、来源、规则提示、历史修改」。只给一个结果和一个通过按钮，复核会退化成橡皮图章。</span><span data-en>A review screen should show source, extracted result, provenance, rule warnings and edit history in one view. A result plus an approve button degrades review into a rubber stamp.</span></p><p><span data-zh>按风险分级：低风险字段可以抽样复核；金额、日期、身份、权限、对外承诺必须逐条或双人复核。把「谁有权改、改了什么、为什么改」写进日志，而不是只留最终值。</span><span data-en>Tier by risk: low-risk fields can be sample-reviewed; amounts, dates, identity, permissions and external commitments need row-by-row or four-eyes review. Log who may edit, what changed and why — not only the final value.</span></p><p><span data-zh>要给复核人「拒绝 / 退回补资料 / 转专家」的出口。只有「通过 / 不通过」会让异常堆积在同一个队列，最后被草率处理。</span><span data-en>Give reviewers exits: reject, return for missing material, escalate to an expert. Only approve/reject piles exceptions into one queue and invites rushed handling.</span></p>
+    </section>
+<section class="domain-section" id="permissions">
+      <h2><span data-zh>5 · 权限与数据：能读文件不等于该读全部文件</span><span data-en>5 · Permissions and data: access to a file does not mean access to every file</span></h2>
+      <p><span data-zh>最小权限要落到「这个人 / 这个 Agent / 这个连接器」三张身份上：它能读哪些目录、写哪些系统、调用哪些外部 API、把数据发到哪里。用一个共享管理员账号跑所有流程，等于没有权限边界。</span><span data-en>Least privilege applies to three identities: the person, the agent and the connector. Which folders can it read, which systems can it write, which external APIs can it call, where can data go? Running every workflow under one shared admin account means there is no boundary.</span></p><p><span data-zh>数据流要画出来：输入从哪来、经过哪个模型 / 连接器、日志落在哪、保留多久、谁能导出、删除怎么验证。只用「本地部署」四个字回答不了这些问题——本地也可能有外发 API、遥测和备份。</span><span data-en>Draw the data flow: where input comes from, which model or connector it passes, where logs land, how long they stay, who can export and how deletion is verified. “Local deployment” alone does not answer these; local systems can still call external APIs, send telemetry or keep backups.</span></p><p><span data-zh>办公场景最容易忽略的是「上下文里的其他人」：邮件签名、会议录音、表格批注、共享盘路径都可能含个人信息。把输入分类（公开 / 内部 / 机密 / 个人数据），再决定能不能进外部模型。</span><span data-en>The most missed office context is other people: email signatures, meeting audio, spreadsheet comments and shared-drive paths can contain personal data. Classify input (public/internal/confidential/personal) before deciding whether it may enter an external model.</span></p>
+    </section>
+<section class="domain-section" id="cost">
+      <h2><span data-zh>6 · 成本：把人工分钟和返工算进去</span><span data-en>6 · Cost: include human minutes and rework</span></h2>
+      <p><span data-zh>一次办公任务的总成本至少包括：模型调用、重试、文件存储、许可席位、复核人工分钟、返工与延迟。只比较每百万 token 的价格，会得出「越便宜越划算」的假结论。</span><span data-en>The total cost of an office task includes model calls, retries, storage, licence seats, review minutes, rework and delay. Comparing only price per million tokens produces a false “cheaper is better” conclusion.</span></p><p><span data-zh>用一个可复算的算式：单件成本 =（调用 + 重试 + 存储 + 许可）/ 成功件数 + 人工复核分钟 × 人工单价 + 返工成本。分母要用「验收通过」的件数，不是「模型返回」的件数。</span><span data-en>Use a recomputable formula: cost per accepted item = (calls + retries + storage + licences) / accepted items + review minutes × labour rate + rework cost. The denominator counts accepted items, not model responses.</span></p><p><span data-zh>规模化的拐点不是「模型更便宜」，而是「异常率降到复核人力能吸收」。异常率不降，自动化只是把工作从执行移到返工。</span><span data-en>The scale-up threshold is not a cheaper model; it is an exception rate that review capacity can absorb. If exceptions do not fall, automation moves work from execution to rework.</span></p>
+    </section>
+<section class="domain-section" id="accept">
+      <h2><span data-zh>7 · 验收：先固定样本，再谈上线</span><span data-en>7 · Acceptance: fix the sample before talking about launch</span></h2>
+      <p><span data-zh>准备一套 20–30 件的固定样本（真实脱敏或虚构），覆盖常见模板、边界格式和已知异常。先跑人工基线，记录时间、错误类型和返工；再跑 AI 流程，用同一套样本对比。</span><span data-en>Prepare a fixed set of 20–30 items (real, redacted or fictional) covering common templates, edge formats and known exceptions. Run the human baseline first, recording time, error types and rework; then run the AI pipeline on the same set.</span></p><p><span data-zh>验收指标至少四项：一次通过率、字段级错误率、异常检出率、单件人工分钟。再加两项安全指标：越权访问次数、无法追溯来源的字段数。任何一项没有基线，都不要写「提升」。</span><span data-en>At least four acceptance metrics: first-pass yield, field-level error rate, exception detection rate and human minutes per item. Add two safety metrics: unauthorised access attempts and fields without provenance. Without a baseline, do not claim an improvement.</span></p><p><span data-zh>上线用「影子运行」：AI 结果先不写入正式系统，与人工结果并行一段时间；差异逐条解释后再切换。切换后保留回滚开关和旧流程，至少一个结算周期。</span><span data-en>Launch with a shadow run: AI output does not write to the live system at first; run it alongside human output, explain every difference, then switch. Keep a rollback switch and the old process for at least one billing cycle.</span></p><div class="domain-callout"><span data-zh>判断句：如果一条流程无法回答「错了怎么发现、谁来改、怎么回滚」，它还不具备上线条件。</span><span data-en>Rule of thumb: if a workflow cannot answer “how will we detect an error, who fixes it and how do we roll back”, it is not ready to launch.</span></div>
+    </section>
+<section class="domain-section" id="path">
+      <h2><span data-zh>8 · 最小落地路径</span><span data-en>8 · A minimum path to deployment</span></h2>
+      <ul class="domain-list"><li><span data-zh>选一类任务、一个输入格式、一个输出系统，不要同时铺开。</span><span data-en>Pick one task, one input format and one output system; do not launch several at once.</span></li><li><span data-zh>写 schema 与异常规则：字段、类型、未知、冲突、来源位置。</span><span data-en>Write the schema and exception rules: fields, types, unknown, conflict and source location.</span></li><li><span data-zh>准备 20–30 件固定样本，先做人工基线。</span><span data-en>Prepare 20–30 fixed samples and run the human baseline first.</span></li><li><span data-zh>搭一条能回放的流程：输入、模型、规则、复核、写入都有日志。</span><span data-en>Build a replayable pipeline: input, model, rules, review and write all logged.</span></li><li><span data-zh>影子运行，逐条解释 AI 与人工的差异。</span><span data-en>Run in shadow mode and explain every AI-versus-human difference.</span></li><li><span data-zh>按风险分级复核，设置拒绝、退回、转专家三个出口。</span><span data-en>Review by risk tier and provide reject, return-for-input and escalate exits.</span></li><li><span data-zh>用固定样本复算成本与异常率，达到阈值再切正式写入。</span><span data-en>Recalculate cost and exception rate on the fixed sample; switch to live writes only after thresholds are met.</span></li><li><span data-zh>变更即回归：模板、模型、规则、权限任一变化，重跑样本。</span><span data-en>Regression on change: a new template, model, rule or permission triggers the sample again.</span></li></ul>
+    </section>
+      <section class="domain-section" id="sources">
+        <h2><span data-zh>来源与延伸阅读</span><span data-en>Sources and further reading</span></h2>
+        <p><span data-zh>以下链接用于核对事实、许可证与官方口径。外部页面可能更新；引用时以原文与核验日为准。</span><span data-en>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</span></p>
+        <ul class="domain-src"><li><a href="https://learn.microsoft.com/en-us/power-automate/" rel="noopener">Microsoft Power Automate documentation</a><span><span data-zh>云端流、桌面流、连接器与治理的官方文档入口；具体许可与区域可用性以官方为准。</span><span data-en>Official entry for cloud flows, desktop flows, connectors and governance; licences and regional availability remain official.</span></span></li><li><a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="noopener">NIST AI Risk Management Framework</a><span><span data-zh>把风险识别、测量、管理写进流程的公开框架；本页只借它的结构，不代表合规认证。</span><span data-en>A public framework for identifying, measuring and managing risk; this page borrows its structure, not a compliance certificate.</span></span></li><li><a href="https://learn.specul.com/term/%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92/" rel="noopener">学 AI · 工作流编排</a><span><span data-zh>任务、工具与人工节点的编排概念。</span><span data-en>Concept page on orchestrating tasks, tools and human steps.</span></span></li><li><a href="https://learn.specul.com/guide/%E6%80%8E%E4%B9%88%E6%8A%8A%20AI%20%E6%8E%A5%E5%85%A5%E7%8E%B0%E6%9C%89%E5%8A%9E%E5%85%AC%E6%B5%81%E7%A8%8B/" rel="noopener">学 AI · 把 AI 接入现有办公流程</a><span><span data-zh>从现有流程出发的接入指南。</span><span data-en>Guide for starting from an existing workflow.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/playbook-pdf-table.html" rel="noopener">工具站 · PDF 转表格流程</a><span><span data-zh>带输入样例与校验步骤的实操页。</span><span data-en>Worked page with input samples and checks.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/playbook-meeting-notes.html" rel="noopener">工具站 · 会议纪要流程</a><span><span data-zh>录音转纪要、行动项与核对步骤。</span><span data-en>Audio to notes, actions and checks.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/playbook-table-merge.html" rel="noopener">工具站 · 多表合并</a><span><span data-zh>主键、重复与冲突处理的操作页。</span><span data-en>Keys, duplicates and conflicts in practice.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/playbook-document-review.html" rel="noopener">工具站 · 文档审阅</a><span><span data-zh>版本差异与问题表的操作页。</span><span data-en>Version differences and an issue table.</span></span></li><li><a href="https://nav.specul.com/?cat=app#dir" rel="noopener">外部站点 · 办公应用类目</a><span><span data-zh>办公与垂直应用的外部目录，不是本站评测。</span><span data-en>External directory of office and vertical apps; not a Specul review.</span></span></li></ul>
+      </section>
+      <p class="domain-back"><a href="https://specul.com/"><span data-zh>← 回到首页</span><span data-en>← Back to home</span></a></p>
+    </div>
+  </section>
+</main>
+
+<!-- SPECUL:FOOTER:START -->
+  <footer class="site-footer">
+    <div class="container foot-row">
+      <div class="foot-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+      </div>
+      <nav class="foot-links" aria-label="页脚导航">
+          <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
+          <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+          <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+          <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+          <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+          <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+          <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+          <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+          <a href="https://nav.specul.com/"><span data-zh>外部站点</span><span data-en>External</span></a>
+          <a href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>开源</span><span data-en>Open source</span></a>
+      </nav>
+      <nav class="foot-legal-links" aria-label="法律">
+        <a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a>
+        <a href="https://specul.com/legal.html#s6"><span data-zh>免责声明</span><span data-en>Disclaimer</span></a>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私与本地存储</span><span data-en>Privacy</span></a>
+      </nav>
+    </div>
+    <div class="container">
+      <p><a href="https://specul.com/search.html"><span data-zh>搜索全站内容</span><span data-en>Search all sites</span></a></p>
+      <p><a href="https://specul.com/correct.html"><span data-zh>发现错误？生成纠错草稿</span><span data-en>Spot an error? Compose a correction draft</span></a></p>
+      <p class="foot-trademark"><span data-zh>产品名与商标归各权利方所有，本站仅作识别与评论之用。</span><span data-en>Product names and trademarks belong to their respective owners and are used here for identification and commentary only.</span></p>
+    </div>
+  </footer>
+<!-- SPECUL:FOOTER:END -->
+
+<!-- SPECUL:TABBAR:START -->
+<nav class="nav-tabbar" aria-label="快捷导航">
+  <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+  <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学 AI</span><span data-en>Learn</span></a>
+  <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+  <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+  <button type="button" id="tabMore" aria-controls="navDrawer" aria-expanded="false"><span class="ti" aria-hidden="true">⋯</span><span data-zh>更多</span><span data-en>More</span></button>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+
+</body>
+</html>
+
