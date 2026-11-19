@@ -97,7 +97,7 @@
 <div class="container correct-page">
   <p class="kicker"><span data-zh>纠错与来源补充</span><span data-en>Corrections and source additions</span></p>
   <h1><span data-zh>生成一份纠错草稿</span><span data-en>Compose a correction draft</span></h1>
-  <p><span data-zh>本站不跑产品实测，结论都挂在官方来源与核验日期上。如果你发现某页的事实、来源、日期或翻译有问题，可以在这里把要说明的几点填齐，生成一段可以直接贴进内容仓议题的文本。</span><span data-en>This site runs no product benchmarks; every conclusion hangs on an official source and a verification date. If a page has a wrong fact, a source that does not support it, a stale date or a translation mismatch, fill this in to get text you can paste into an issue in the content repository.</span></p>
+  <p><span data-zh>这站不做产品实测，写的结论都能在官方来源里找到，每页也标了资料时间。如果你发现某页的事实、来源、日期或翻译有问题，可以在这里把要说明的几点填齐，生成一段可以直接贴进内容仓议题的文本。</span><span data-en>This site runs no product benchmarks; every conclusion hangs on an official source and a verification date. If a page has a wrong fact, a source that does not support it, a stale date or a translation mismatch, fill this in to get text you can paste into an issue in the content repository.</span></p>
   <p class="t-sm"><span data-zh>这个页面不发送任何内容：不提交表单、不写服务端、不存到你的浏览器之外。复制之后由你自己决定要不要提交。</span><span data-en>Nothing is sent from this page: no submission, no server, nothing stored beyond your own browser. Copy the draft, then decide whether to file it yourself.</span></p>
 
   <form class="correct-form" id="correct-form">
@@ -110,14 +110,14 @@
     <label for="c-kind"><span data-zh>问题类型</span><span data-en>What kind of problem</span>
       <select id="c-kind" name="kind"><option value="fact" data-ui-text-zh="事实或数字有误" data-ui-text-en="The fact or figure is wrong">事实或数字有误</option>
       <option value="source" data-ui-text-zh="来源对不上或链接失效" data-ui-text-en="The source does not support it, or the link is dead">来源对不上或链接失效</option>
-      <option value="date" data-ui-text-zh="核验日期或版本已过期" data-ui-text-en="The verification date or version is out of date">核验日期或版本已过期</option>
+      <option value="date" data-ui-text-zh="资料时间或版本已过期" data-ui-text-en="The source date or version is out of date">资料时间或版本已过期</option>
       <option value="translation" data-ui-text-zh="英文正文与中文不一致" data-ui-text-en="The English text disagrees with the Chinese">英文正文与中文不一致</option>
       <option value="other" data-ui-text-zh="其他问题" data-ui-text-en="Something else">其他问题</option></select>
     </label>
     <label for="c-source"><span data-zh>你核到的依据：官方链接</span><span data-en>Your evidence: an official link</span>
       <input type="url" id="c-source" name="source" maxlength="600" placeholder="https://…" autocomplete="off" />
     </label>
-    <label for="c-date"><span data-zh>依据的发布日期或你的核验日期</span><span data-en>Published date of that source, or the date you checked</span>
+    <label for="c-date"><span data-zh>来源发布日期，或你查到的日期</span><span data-en>Published date of the source, or the date you checked it</span>
       <input type="text" id="c-date" name="date" maxlength="40" placeholder="YYYY-MM" data-ui-placeholder-zh="YYYY-MM 或 YYYY-MM-DD" data-ui-placeholder-en="YYYY-MM or YYYY-MM-DD" autocomplete="off" />
     </label>
     <label for="c-note"><span data-zh>补充说明（可选）</span><span data-en>Extra note (optional)</span>
@@ -134,7 +134,7 @@
 类型：&lt;事实 / 来源 / 日期 / 翻译 / 其他&gt;
 原句或位置：&lt;粘一小段&gt;
 依据：&lt;官方链接&gt;
-日期：&lt;发布日期或核验日期&gt;
+日期：&lt;来源发布日期或你查到的日期&gt;
 覆盖范围：&lt;这条依据支持哪一点，不支持哪一点&gt;
 补充：&lt;可选说明&gt;
 
