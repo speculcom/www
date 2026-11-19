@@ -39,7 +39,7 @@
  new MutationObserver(()=>render(false)).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
  fetch(form.dataset.index,{cache:'default'}).then(r=>{if(!r.ok)throw Error('index');return r.json();}).then(data=>{
   if(data.schema!==1||!Array.isArray(data.entries))throw Error('schema');
-  entries=data.entries.filter(e=>labels[e.site]&&/^https:\/\/(?:specul\.com|(?:learn|tools|models|demos|hardware|papers|chain|nav)\.specul\.com)\//.test(e.url)).map(e=>({...e,_title:normalize(e.zh+' '+e.en),_aliases:normalize(e.aliases),_keywords:normalize(e.keywords),_summary:normalize(e.summaryZh+' '+e.summaryEn)}));
+  entries=data.entries.filter(e=>labels[e.site]&&/^https:\/\/(?:specul\.com|(?:learn|tools|models|demos|oss|hardware|papers|chain|nav)\.specul\.com)\//.test(e.url)).map(e=>({...e,_title:normalize(e.zh+' '+e.en),_aliases:normalize(e.aliases),_keywords:normalize(e.keywords),_summary:normalize(e.summaryZh+' '+e.summaryEn)}));
   ready=true;fallback.hidden=true;render();
  }).catch(()=>{status.textContent=tr('搜索索引未加载，请使用下方完整目录。','The search index did not load. Use the complete directory below.');more.hidden=true;fallback.hidden=false;});
 })();
