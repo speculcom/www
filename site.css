@@ -593,6 +593,13 @@ html[data-theme="light"] body.brand-ambient {
 .xp-step.s3 { --step-c: var(--cat-teal); }
 .xp-step.s4 { --step-c: var(--cat-blue); }
 .xp-step.s5 { --step-c: var(--cat-amber); }
+/* 整张卡都能点：透明命中层垫在文字下面，卡内的次级链接浮在命中层上。 */
+.xp-step-hit {
+  position: absolute; inset: 0; z-index: 0;
+  border-radius: inherit; text-indent: -9999px; overflow: hidden;
+}
+.xp-step > :not(.xp-step-hit) { position: relative; z-index: 1; }
+.xp-step > .xp-step-hit:focus-visible { outline: 2px solid var(--step-c); outline-offset: 3px; }
 .xp-step-no { font-size: var(--fs-xs); color: var(--ink-faint); letter-spacing: .05em; }
 .xp-step-title {
   display: block; margin: .45rem 0 .35rem; color: var(--ink);
@@ -614,7 +621,7 @@ html[data-theme="light"] body.brand-ambient {
   padding: .16rem .5rem; border-radius: 999px;
   background: var(--step-c); color: var(--brand-on);
   font-size: var(--fs-micro); font-weight: 800; white-space: nowrap;
-  transition: opacity .18s;
+  transition: opacity .18s; pointer-events: none;
 }
 #xp-start-1:checked ~ .xp-ask label[for="xp-start-1"],
 #xp-start-2:checked ~ .xp-ask label[for="xp-start-2"],
@@ -622,6 +629,13 @@ html[data-theme="light"] body.brand-ambient {
 #xp-start-4:checked ~ .xp-ask label[for="xp-start-4"],
 #xp-start-5:checked ~ .xp-ask label[for="xp-start-5"] {
   background: var(--brand); border-color: var(--brand); color: var(--brand-on);
+}
+#xp-start-1:focus-visible ~ .xp-ask label[for="xp-start-1"],
+#xp-start-2:focus-visible ~ .xp-ask label[for="xp-start-2"],
+#xp-start-3:focus-visible ~ .xp-ask label[for="xp-start-3"],
+#xp-start-4:focus-visible ~ .xp-ask label[for="xp-start-4"],
+#xp-start-5:focus-visible ~ .xp-ask label[for="xp-start-5"] {
+  outline: 2px solid var(--cyan); outline-offset: 2px;
 }
 #xp-start-1:checked ~ .xp-steps .xp-step:nth-child(1),
 #xp-start-2:checked ~ .xp-steps .xp-step:nth-child(2),
