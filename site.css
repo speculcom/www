@@ -552,12 +552,13 @@ html[data-theme="light"] body.brand-ambient {
   padding: .45rem .95rem; font: inherit; font-size: var(--fs-sm); font-weight: 750;
 }
 .xp-search button:hover { filter: brightness(1.06); }
-.xp-quick { display: flex; flex-wrap: wrap; gap: .45rem .9rem; }
+.xp-quick { display: flex; flex-wrap: wrap; gap: .4rem; }
 .xp-quick a {
-  font-size: var(--fs-xs); color: var(--ink-mid); text-decoration: none;
-  border-bottom: 1px solid transparent;
+  padding: .32rem .62rem; border: 1px solid var(--line-mid); border-radius: 999px;
+  font-size: var(--fs-xs); font-weight: 600; color: var(--ink-mid); text-decoration: none;
+  background: var(--bg-panel);
 }
-.xp-quick a:hover { color: var(--ink); border-bottom-color: var(--line-mid); }
+.xp-quick a:hover { color: var(--ink); border-color: var(--brand-line); background: var(--brand-soft); }
 
 .xp-sec { padding: var(--sp-6) 0; border-top: 1px solid var(--line); scroll-margin-top: 84px; }
 .xp-sec-tight { padding-bottom: var(--sp-7); }
