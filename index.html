@@ -5,14 +5,14 @@
 <meta name="theme-color" content="#16121f" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>投机取巧 — Specul</title>
-  <meta name="description" content="Specul：用投机策略让 AI 推演一切，把结果做成人人可用的工具。本站是总入口，内容站按「先懂再做、按需深挖」分工：学 AI、工具、模型、作品演示、硬件算力、AI 论文、链；另有 AI导航，列的是站外 AI 网站。" />
+  <meta name="description" content="Specul 把 AI 的学、用、选、跑拆成九个站：补概念、找工具、挑模型、看作品、读论文、查算力、看链上工具，再去 AI导航找站外网站。" />
   <link rel="canonical" href="https://specul.com/" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Specul" />
   <meta property="og:url" content="https://specul.com/" />
   <meta property="og:title" content="投机取巧 — Specul" />
-  <meta property="og:description" content="我们用投机策略让 AI 推演一切，把结果做成人人可用的工具。" />
+  <meta property="og:description" content="补概念、找工具、挑模型、看作品、读论文、查算力、看链上工具，再去 AI导航找站外网站。" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%23070b14'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=11bc9d7dba82"></script>
   <link rel="stylesheet" href="brand.css?v=11bc9d7dba82" />
@@ -26,7 +26,7 @@
     "@type": "WebSite",
     "name": "Specul · 投机取巧",
     "url": "https://specul.com/",
-    "description": "面向 AI 使用者的分层决策图谱站群：概念、工具、模型、作品、算力、论文、链七个内容层各回答一个问题，另有外链目录。",
+    "description": "把 AI 的学、用、选、跑拆成九个站：概念、工具、模型、作品、算力、论文、链与站外导航。",
     "inLanguage": "zh-Hans",
     "hasPart": [
       { "@type": "WebSite", "name": "学 AI", "url": "https://learn.specul.com/" },
@@ -112,369 +112,173 @@
 
 
 <main id="main">
-  <section class="hp-hero">
-    <div class="hp-c">
-      <h1><em><span data-zh>从一个概念，<br class="br-sm" />或一件想完成的事开始</span><span data-en>Start with a concept<br class="br-sm" /> or a task you want to finish.</span></em></h1>
-      <p class="hp-meta">
-        <span data-zh>想直接用工具，去工具站；想自己搭，去开源库；想补概念，去学 AI。找别的 AI 网站，去 AI导航。找不到就搜，不卡的地方跳过也完全没问题。</span>
-        <span data-en>Want a ready-made tool? Go to Tools. Building your own? Go to OSS. Need the concepts? Go to Learn. Looking for other AI sites? Go to AI Directory. Search when stuck; skipping the rest is fine.</span>
-      </p>
-      <p class="hp-meta hp-meta-sub">
-        <span data-zh>AI导航收录 625 条在站条目；700 个已探测域名中 608 个确认可达，92 个因探测环境限制未能确认。</span>
-        <span data-en>The Directory lists 625 on-site entries; 608 of 700 probed domains are confirmed reachable, 92 could not be confirmed because of probe limits.</span>
-      </p>
+  <section class="xp-hero">
+    <div class="hp-c xp-hero-grid">
+      <div class="xp-hero-copy">
+        <p class="xp-eyebrow">SPECUL · 九个内容站，一张站外地图</p>
+        <h1>别先问“学什么”。<br />先说你今天想干什么。</h1>
+        <p class="xp-lede">想补概念、找工具、挑模型、读论文、看别人做的——每条路都通向一个具体页面。不用先弄懂全站。</p>
+      </div>
+      <div class="xp-hero-side">
+        <form class="xp-search" action="search.html" method="get">
+          <label for="home-q">
+            <span class="sr-only">搜全站</span>
+            <input id="home-q" type="search" name="q" maxlength="300" autocomplete="off" placeholder="搜：录音转纪要 / 本地跑模型 / 什么是 RAG" />
+          </label>
+          <button type="submit">搜</button>
+        </form>
+        <div class="xp-quick" aria-label="快速入口">
+          <a href="#where">按阶段找</a>
+          <a href="#tasks">按手里的活找</a>
+          <a href="#sites">按站点逛</a>
+          <a href="https://nav.specul.com/">去站外 AI 网站 ↗</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 2026-11-19：首页先分叉 —— 直接用 / 自己搭；搜索留一个入口 -->
-  <section class="hp-fork" id="start-here">
+  <section class="xp-sec" id="where">
     <div class="hp-c">
-      <div class="hp-fork-grid">
-        <div class="hp-fork-col direct">
-          <p class="k"><span data-zh>直接用</span><span data-en>USE IT</span></p>
-          <h2><span data-zh>打开就能用</span><span data-en>Ready to use</span></h2>
-          <p class="desc"><span data-zh>别人已经跑好的服务、模型和技能。你只需要挑、用，再看清它适合什么、不适合什么。</span><span data-en>Services, models and skills someone else already runs. You pick one, use it, and see what it does and does not fit.</span></p>
-          <div class="hp-fork-links">
-            <a href="https://tools.specul.com/"><span data-zh>工具与服务</span><span data-en>Tools &amp; services</span></a>
-            <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-            <a href="https://tools.specul.com/skills/"><span data-zh>Skills</span><span data-en>Skills</span></a>
-            <a href="https://models.specul.com/evals/"><span data-zh>评测</span><span data-en>Evals</span></a>
+      <header class="xp-head">
+        <p class="xp-kicker">01 · 按你卡住的地方</p>
+        <h2 class="xp-h2">五步，从“看不懂”到“做出来”</h2>
+        <p class="xp-dek">点一句最像你的话，下面会标出建议起点。五步都摊开，也可以从头顺着看。</p>
+      </header>
+
+      <div class="xp-board">
+        <input class="xp-radio" type="radio" name="xp-start" id="xp-start-1" checked />
+        <input class="xp-radio" type="radio" name="xp-start" id="xp-start-2" />
+        <input class="xp-radio" type="radio" name="xp-start" id="xp-start-3" />
+        <input class="xp-radio" type="radio" name="xp-start" id="xp-start-4" />
+        <input class="xp-radio" type="radio" name="xp-start" id="xp-start-5" />
+
+        <div class="xp-ask">
+          <span class="xp-ask-q">你现在最像哪一种？</span>
+          <label for="xp-start-1">刚接触，词都看不懂</label>
+          <label for="xp-start-2">有件活要干，想找工具</label>
+          <label for="xp-start-3">想把模型跑在自己机器上</label>
+          <label for="xp-start-4">想读源码，自己搭</label>
+          <label for="xp-start-5">只想逛逛，找点灵感</label>
+        </div>
+
+        <div class="xp-steps">
+          <div class="xp-step s1">
+            <span class="xp-step-badge">从这里开始</span>
+            <span class="xp-step-no">01 / 先搞懂</span>
+            <a class="xp-step-title" href="https://learn.specul.com/">先弄懂几个词</a>
+            <p>Transformer、RAG、Agent 到底是啥。先看最短的解释，不用一上来就啃数学。</p>
+            <div class="xp-step-links">
+              <a href="https://learn.specul.com/atlas/">概念地图</a>
+              <a href="https://learn.specul.com/path/afternoon-principles/">半天入门</a>
+            </div>
+          </div>
+
+          <div class="xp-step s2">
+            <span class="xp-step-badge">从这里开始</span>
+            <span class="xp-step-no">02 / 先干完</span>
+            <a class="xp-step-title" href="https://tools.specul.com/">找个现成工具</a>
+            <p>PDF 转表格、录音转纪要、做图做视频。先按手里的活挑，再看限制和收费。</p>
+            <div class="xp-step-links">
+              <a href="https://tools.specul.com/office/">办公与写作</a>
+              <a href="https://tools.specul.com/coding/">写代码</a>
+            </div>
+          </div>
+
+          <div class="xp-step s3">
+            <span class="xp-step-badge">从这里开始</span>
+            <span class="xp-step-no">03 / 自己跑</span>
+            <a class="xp-step-title" href="https://models.specul.com/">挑能本地跑的模型</a>
+            <p>先看显存，再看量化版。跑不动就别硬上，租算力也是一种做法。</p>
+            <div class="xp-step-links">
+              <a href="https://hardware.specul.com/">查硬件算力</a>
+              <a href="https://hardware.specul.com/cloud/">租云算力</a>
+            </div>
+          </div>
+
+          <div class="xp-step s4">
+            <span class="xp-step-badge">从这里开始</span>
+            <span class="xp-step-no">04 / 改成自己的</span>
+            <a class="xp-step-title" href="https://oss.specul.com/">拿源码自己搭</a>
+            <p>不想被现成产品框住，就从能自己跑的仓库开始。先看许可，再看依赖。</p>
+            <div class="xp-step-links">
+              <a href="https://oss.specul.com/scenes/local-inference.html">本地推理</a>
+              <a href="https://oss.specul.com/scenes/rag-knowledge.html">RAG 知识库</a>
+            </div>
+          </div>
+
+          <div class="xp-step s5">
+            <span class="xp-step-badge">从这里开始</span>
+            <span class="xp-step-no">05 / 看别人</span>
+            <a class="xp-step-title" href="https://demos.specul.com/">看别人做出来的</a>
+            <p>网页作品、原始论文、链上工具。先看结果，再决定要不要回头补原理。</p>
+            <div class="xp-step-links">
+              <a href="https://papers.specul.com/">AI 论文</a>
+              <a href="https://nav.specul.com/">站外 AI 网站</a>
+            </div>
           </div>
         </div>
-        <div class="hp-fork-col build">
-          <p class="k"><span data-zh>自己搭</span><span data-en>BUILD IT</span></p>
-          <h2><span data-zh>拿下来读、改、部署</span><span data-en>Take it, read it, change it</span></h2>
-          <p class="desc"><span data-zh>开源仓库、训练数据和算力。先看许可、依赖和上手成本，再决定要不要动。</span><span data-en>Open-source repos, training data and compute. Check licence, dependencies and onboarding cost before you touch anything.</span></p>
-          <div class="hp-fork-links">
-            <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS library</span></a>
-            <a href="https://models.specul.com/data/"><span data-zh>数据</span><span data-en>Data</span></a>
-            <a href="https://hardware.specul.com/cloud/"><span data-zh>云算力</span><span data-en>Cloud compute</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="hp-fork-foot">
-        <span data-zh>还没想好用哪条路？</span><span data-en>Not sure which way yet?</span>
-        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
-        <a href="https://demos.specul.com/"><span data-zh>看作品</span><span data-en>Playground</span></a>
-        <a href="https://tools.specul.com/prompts/"><span data-zh>写提示词</span><span data-en>Prompts</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>查站外</span><span data-en>Directory</span></a>
-      </div>
-      <p class="hp-meta hp-meta-sub">
-        <span data-zh>本站怎么做的：<a href="about.html">关于</a> · <a href="method.html">方法与口径</a> · <a href="map.html">全站地图</a>。看到错误可以直接<a href="correct.html">生成纠错草稿</a>。</span>
-        <span data-en>How this site works: <a href="about.html">About</a> · <a href="method.html">Method</a> · <a href="map.html">Site map</a>. Spot an error? <a href="correct.html">Compose a correction draft</a>.</span>
-      </p>
-      <form class="hp-fork-search" action="search.html" method="get">
-        <input type="search" name="q" placeholder="搜全站：数据集、云算力、Skills、评测……" aria-label="搜索全站" />
-        <button type="submit"><span data-zh>搜索</span><span data-en>Search</span></button>
-      </form>
-    </div>
-  </section>
-
-  <!-- SPECUL:VIZ:WWW:START -->
-<section class="vz-section" id="atlas">
-  <div class="container">
-    <div class="vz-head">
-      <p class="vz-kicker">全站一张图 · 2026-11-19</p>
-      <h2 class="vz-title">十个入口，一张生态图 <span class="vz-title-sub">Specul atlas</span></h2>
-      <p class="vz-dek"><span data-zh>每个节点对应一个内容站，点进去就是那个站。十个入口共用同一套外壳，新增的 OSS 分站与数据、云算力、Skills、评测四节都在这张图里。</span><span data-en>Every node is a content site; click through to it. All ten doors share one shell, and the new OSS site plus the data, cloud, Skills and evals sections are included.</span></p>
-    </div>
-    <div class="vz-grid"><figure class="vz-card vz-span-8">
-    <figcaption class="vz-cap"><span class="vz-no">01</span><span><b>站点生态图</b><small><span data-zh>1 个入口 + 9 个库</span><span data-en>1 entry + 9 libraries</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 480 330" role="img" aria-label="全站生态节点图" xmlns="http://www.w3.org/2000/svg"><line x1="240" y1="165" x2="240" y2="65" class="vz-conn" style=""/><line x1="240" y1="165" x2="338.9892918917271" y2="88.39555568810219" class="vz-conn" style=""/><line x1="240" y1="165" x2="391.66039396388004" y2="147.63518223330698" class="vz-conn" style=""/><line x1="240" y1="165" x2="373.3679121828036" y2="215" class="vz-conn" style=""/><line x1="240" y1="165" x2="292.671102072153" y2="258.9692620785908" class="vz-conn" style=""/><line x1="240" y1="165" x2="187.328897927847" y2="258.9692620785909" class="vz-conn" style=""/><line x1="240" y1="165" x2="106.63208781719644" y2="215" class="vz-conn" style=""/><line x1="240" y1="165" x2="88.33960603611996" y2="147.63518223330695" class="vz-conn" style=""/><line x1="240" y1="165" x2="141.01070810827292" y2="88.3955556881022" class="vz-conn" style=""/><circle cx="240" cy="165" r="44" class="vz-node" style="stroke:var(--brand);fill:var(--brand);fill-opacity:.10"/><text x="240" y="160" class="vz-t-strong" text-anchor="middle">首页</text><text x="240" y="181" class="vz-t-dim" text-anchor="middle">10 入口</text>
-    <circle cx="240" cy="65" r="21" class="vz-node" style="stroke:var(--cat-violet);fill:var(--cat-violet);fill-opacity:.12"/>
-    <text x="240" y="35" class="vz-t-strong" text-anchor="middle">模型</text>
-    <text x="240" y="70" class="vz-t-value" text-anchor="middle">1337</text>
-    <circle cx="338.9892918917271" cy="88.39555568810219" r="21" class="vz-node" style="stroke:var(--cat-blue);fill:var(--cat-blue);fill-opacity:.12"/>
-    <text x="338.9892918917271" y="58.39555568810219" class="vz-t-strong" text-anchor="middle">AI导航</text>
-    <text x="338.9892918917271" y="93.39555568810219" class="vz-t-value" text-anchor="middle">625</text>
-    <circle cx="391.66039396388004" cy="147.63518223330698" r="21" class="vz-node" style="stroke:var(--cat-teal);fill:var(--cat-teal);fill-opacity:.12"/>
-    <text x="391.66039396388004" y="117.63518223330698" class="vz-t-strong" text-anchor="middle">学AI</text>
-    <text x="391.66039396388004" y="152.63518223330698" class="vz-t-value" text-anchor="middle">260</text>
-    <circle cx="373.3679121828036" cy="215" r="21" class="vz-node" style="stroke:var(--cat-amber);fill:var(--cat-amber);fill-opacity:.12"/>
-    <text x="373.3679121828036" y="185" class="vz-t-strong" text-anchor="middle">工具</text>
-    <text x="373.3679121828036" y="220" class="vz-t-value" text-anchor="middle">280</text>
-    <circle cx="292.671102072153" cy="258.9692620785908" r="21" class="vz-node" style="stroke:var(--cat-rose);fill:var(--cat-rose);fill-opacity:.12"/>
-    <text x="292.671102072153" y="228.96926207859082" class="vz-t-strong" text-anchor="middle">论文</text>
-    <text x="292.671102072153" y="263.9692620785908" class="vz-t-value" text-anchor="middle">33</text>
-    <circle cx="187.328897927847" cy="258.9692620785909" r="21" class="vz-node" style="stroke:var(--cat-lime);fill:var(--cat-lime);fill-opacity:.12"/>
-    <text x="187.328897927847" y="228.96926207859087" class="vz-t-strong" text-anchor="middle">算力</text>
-    <text x="187.328897927847" y="263.9692620785909" class="vz-t-value" text-anchor="middle">35</text>
-    <circle cx="106.63208781719644" cy="215" r="21" class="vz-node" style="stroke:var(--cat-violet);fill:var(--cat-violet);fill-opacity:.12"/>
-    <text x="106.63208781719644" y="185" class="vz-t-strong" text-anchor="middle">链</text>
-    <text x="106.63208781719644" y="220" class="vz-t-value" text-anchor="middle">24</text>
-    <circle cx="88.33960603611996" cy="147.63518223330695" r="21" class="vz-node" style="stroke:var(--cat-rose);fill:var(--cat-rose);fill-opacity:.12"/>
-    <text x="88.33960603611996" y="117.63518223330695" class="vz-t-strong" text-anchor="middle">演示</text>
-    <text x="88.33960603611996" y="152.63518223330695" class="vz-t-value" text-anchor="middle">189</text>
-    <circle cx="141.01070810827292" cy="88.3955556881022" r="21" class="vz-node" style="stroke:var(--cat-teal);fill:var(--cat-teal);fill-opacity:.12"/>
-    <text x="141.01070810827292" y="58.395555688102206" class="vz-t-strong" text-anchor="middle">开源</text>
-    <text x="141.01070810827292" y="93.3955556881022" class="vz-t-value" text-anchor="middle">50</text></svg></div>
-    <p class="vz-foot"><span data-zh>圆圈大小只表示内容量级；各站单位不同，不能拿圆圈大小比质量。</span><span data-en>Circle size encodes volume only; units differ, so size is not a quality comparison.</span></p>
-  </figure><figure class="vz-card vz-span-4">
-    <figcaption class="vz-cap"><span class="vz-no">02</span><span><b>2026 关键更新</b><small><span data-zh>按官方日期排序</span><span data-en>official dates only</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 560 477" role="img" aria-label="时间线" xmlns="http://www.w3.org/2000/svg">
-      <text x="104" y="27" class="vz-t-dim" text-anchor="end">01-26</text>
-      <line x1="120" y1="10" x2="120" y2="54" class="vz-axis"/>
-      <circle cx="120" cy="22" r="6" style="fill:var(--cat-blue)"/>
-      <text x="140" y="27" class="vz-t-strong">MCP Apps 成为正式扩展</text>
-      <text x="140" y="47" class="vz-t-dim">SEP-1865 定稿；工具可以返回可交互 UI</text>
-      <text x="104" y="78" class="vz-t-dim" text-anchor="end">01-29</text>
-      <line x1="120" y1="61" x2="120" y2="105" class="vz-axis"/>
-      <circle cx="120" cy="73" r="6" style="fill:var(--cat-violet)"/>
-      <text x="140" y="78" class="vz-t-strong">ERC-8004 上以太坊主网</text>
-      <text x="140" y="98" class="vz-t-dim">身份 / 声誉 / 验证三套注册表</text>
-      <text x="104" y="129" class="vz-t-dim" text-anchor="end">09-22</text>
-      <line x1="120" y1="112" x2="120" y2="156" class="vz-axis"/>
-      <circle cx="120" cy="124" r="6" style="fill:var(--cat-teal)"/>
-      <text x="140" y="129" class="vz-t-strong">小米 MiMo-V2.6 开源</text>
-      <text x="140" y="149" class="vz-t-dim">Pro / Flash 双线，原生全模态</text>
-      <text x="104" y="180" class="vz-t-dim" text-anchor="end">10-07</text>
-      <line x1="120" y1="163" x2="120" y2="207" class="vz-axis"/>
-      <circle cx="120" cy="175" r="6" style="fill:var(--cat-rose)"/>
-      <text x="140" y="180" class="vz-t-strong">Byteification 登上 Nature</text>
-      <text x="140" y="200" class="vz-t-dim">把子词模型改成字节级，训 49.1B token</text>
-      <text x="104" y="231" class="vz-t-dim" text-anchor="end">10-15</text>
-      <line x1="120" y1="214" x2="120" y2="258" class="vz-axis"/>
-      <circle cx="120" cy="226" r="6" style="fill:var(--cat-amber)"/>
-      <text x="140" y="231" class="vz-t-strong">Meta Muse Spark Open 开放</text>
-      <text x="140" y="251" class="vz-t-dim">816B / 42B 激活，1M 上下文</text>
-      <text x="104" y="282" class="vz-t-dim" text-anchor="end">10-22</text>
-      <line x1="120" y1="265" x2="120" y2="309" class="vz-axis"/>
-      <circle cx="120" cy="277" r="6" style="fill:var(--cat-lime)"/>
-      <text x="140" y="282" class="vz-t-strong">Agent Skills 捐给 AAIF</text>
-      <text x="140" y="302" class="vz-t-dim">70+ 平台接入；技能成为跨平台标准</text>
-      <text x="104" y="333" class="vz-t-dim" text-anchor="end">10-29</text>
-      <line x1="120" y1="316" x2="120" y2="360" class="vz-axis"/>
-      <circle cx="120" cy="328" r="6" style="fill:var(--cat-violet)"/>
-      <text x="140" y="333" class="vz-t-strong">Mistral Large 4 开放权重</text>
-      <text x="140" y="353" class="vz-t-dim">1.05T 总参 / 49B 激活，128 路由专家</text>
-      <text x="104" y="384" class="vz-t-dim" text-anchor="end">11-12</text>
-      <line x1="120" y1="367" x2="120" y2="411" class="vz-axis"/>
-      <circle cx="120" cy="379" r="6" style="fill:var(--cat-rose)"/>
-      <text x="140" y="384" class="vz-t-strong">AMD MI450X 上市</text>
-      <text x="140" y="404" class="vz-t-dim">288GB HBM4 / 23.3TB/s</text>
-      <text x="104" y="435" class="vz-t-dim" text-anchor="end">11-19</text>
-      <line x1="120" y1="418" x2="120" y2="462" class="vz-axis"/>
-      <circle cx="120" cy="430" r="6" style="fill:var(--cat-violet)"/>
-      <text x="140" y="435" class="vz-t-strong">演示站并入统一外壳</text>
-      <text x="140" y="455" class="vz-t-dim">189 件作品；底栏单排 10 项、2026 与 404 补齐</text></svg></div>
-    <p class="vz-foot"><span data-zh>只列有官方发布页的事件；每条的出处见各站的 2026 增补页。</span><span data-en>Events with an official release page only; sources sit on each site’s 2026 page.</span></p>
-  </figure><figure class="vz-card vz-span-7">
-    <figcaption class="vz-cap"><span class="vz-no">03</span><span><b>内容条目分布</b><small><span data-zh>各站内容量</span><span data-en>content volume by site</span></small></span></figcaption>
-    <div class="vz-plot"><svg class="vz-svg" viewBox="0 0 720 336" role="img" aria-label="横向条形图" xmlns="http://www.w3.org/2000/svg">
-      <line x1="210" y1="41" x2="710" y2="41" class="vz-gridline"/>
-      <text x="0" y="40" class="vz-t">GGUF 文件</text>
-      <rect x="210" y="25" width="424" height="18" rx="7" class="vz-bar" style="fill:var(--cat-violet)"/>
-      <text x="716" y="40" class="vz-t-strong" text-anchor="end">1,337</text>
-      <line x1="210" y1="75" x2="710" y2="75" class="vz-gridline"/>
-      <text x="0" y="74" class="vz-t">AI导航条目</text>
-      <rect x="210" y="59" width="188.6910994764398" height="18" rx="7" class="vz-bar" style="fill:var(--cat-blue)"/>
-      <text x="716" y="74" class="vz-t-strong" text-anchor="end">625</text>
-      <line x1="210" y1="109" x2="710" y2="109" class="vz-gridline"/>
-      <text x="0" y="108" class="vz-t">学AI词条</text>
-      <rect x="210" y="93" width="82.45325355272999" height="18" rx="7" class="vz-bar" style="fill:var(--cat-teal)"/>
-      <text x="716" y="108" class="vz-t-strong" text-anchor="end">260</text>
-      <line x1="210" y1="143" x2="710" y2="143" class="vz-gridline"/>
-      <text x="0" y="142" class="vz-t">工具对象</text>
-      <rect x="210" y="127" width="88.79581151832461" height="18" rx="7" class="vz-bar" style="fill:var(--cat-amber)"/>
-      <text x="716" y="142" class="vz-t-strong" text-anchor="end">280</text>
-      <line x1="210" y1="177" x2="710" y2="177" class="vz-gridline"/>
-      <text x="0" y="176" class="vz-t">演示作品</text>
-      <rect x="210" y="161" width="59.93717277486911" height="18" rx="7" class="vz-bar" style="fill:var(--cat-rose)"/>
-      <text x="716" y="176" class="vz-t-strong" text-anchor="end">189</text>
-      <line x1="210" y1="211" x2="710" y2="211" class="vz-gridline"/>
-      <text x="0" y="210" class="vz-t">开源仓库</text>
-      <rect x="210" y="195" width="15.856394913986538" height="18" rx="7" class="vz-bar" style="fill:var(--cat-teal)"/>
-      <text x="716" y="210" class="vz-t-strong" text-anchor="end">50</text>
-      <line x1="210" y1="245" x2="710" y2="245" class="vz-gridline"/>
-      <text x="0" y="244" class="vz-t">硬件条目</text>
-      <rect x="210" y="229" width="11.099476439790577" height="18" rx="7" class="vz-bar" style="fill:var(--cat-lime)"/>
-      <text x="716" y="244" class="vz-t-strong" text-anchor="end">35</text>
-      <line x1="210" y1="279" x2="710" y2="279" class="vz-gridline"/>
-      <text x="0" y="278" class="vz-t">论文条目</text>
-      <rect x="210" y="263" width="10.465220643231115" height="18" rx="7" class="vz-bar" style="fill:var(--cat-rose)"/>
-      <text x="716" y="278" class="vz-t-strong" text-anchor="end">33</text>
-      <line x1="210" y1="313" x2="710" y2="313" class="vz-gridline"/>
-      <text x="0" y="312" class="vz-t">链条目</text>
-      <rect x="210" y="297" width="7.611069558713537" height="18" rx="7" class="vz-bar" style="fill:var(--cat-violet)"/>
-      <text x="716" y="312" class="vz-t-strong" text-anchor="end">24</text></svg></div>
-    <p class="vz-foot"><span data-zh>模型站按 GGUF 文件计，导航站按站点条目计；两者远大于其他站，横轴用真实数量，所以条长差得很开。</span><span data-en>Models counts GGUF files and the directory counts site entries; both dwarf the rest, so the axis uses real counts and the bars differ a lot.</span></p>
-  </figure><figure class="vz-card vz-span-5">
-    <figcaption class="vz-cap"><span class="vz-no">04</span><span><b>这一轮补了什么</b><small><span data-zh>新增分站 + 四个站内节 + 入口</span><span data-en>one new site + four sections + entry points</span></small></span></figcaption>
-    <div class="vz-plot"><div class="vz-list">
-        <div><b>1</b><span><span data-zh>个 OSS 分站：50 个仓库、6 个场景、36 个精选；许可与 star 快照逐条标注</span><span data-en>OSS site: 50 repos, 6 scenes, 36 curated; licence and star snapshots on every card</span></span></div>
-        <div><b>4</b><span><span data-zh>个站内节：24 张数据集卡、20 个评测基准、18 家云算力、12 条 Skills</span><span data-en>four sections: 24 dataset cards, 20 benchmarks, 18 cloud providers, 12 Skills entries</span></span></div>
-        <div><b>1</b><span><span data-zh>个提示词 hub：6 篇方法指南 + 24 个可抄案例，链回工具站原有指南</span><span data-en>prompt hub: 6 method guides + 24 copyable cases, linked to the existing tool guides</span></span></div>
-        <div><b>5</b><span><span data-zh>张首页门卡：工具、模型、硬件首页各新增入口，枢纽页改成「直接用 / 自己搭」二分</span><span data-en>homepage doors: new entries on tools, models and hardware, plus the use/build fork on the hub</span></span></div>
-        <div><b>1853</b><span><span data-zh>条跨站搜索索引：新增数据、评测、云算力、Skills、提示词与 OSS 页面；OSS 已随上线进入索引</span><span data-en>cross-site search records, including the new sections, prompts and OSS; OSS is indexed after launch</span></span></div>
-        <div><b>10</b><span><span data-zh>个 2026 增补页 + 10 个 404 页：OSS 也补了 404，十站共用一套外壳</span><span data-en>2026 pages + 404 pages; OSS has its own 404 and all ten sites share one shell</span></span></div>
-      </div></div>
-    <p class="vz-foot"><span data-zh>清单是这一轮的实际改动，不是路线图；每项都能在站内找到对应页面。</span><span data-en>This is what changed, not a roadmap; every item has a page on the site.</span></p>
-  </figure></div>
-    <p class="vz-foot vz-foot-wide"><span data-zh>所有数字取 2026-11-19 的构建结果；模型能力分数来自官方或第三方公开指数，不是本站实测。</span><span data-en>All figures come from the 2026-11-19 build; model-capability scores come from official or third-party public indices, not measurements by this site.</span></p>
-    <p class="vz-more"><a href="updates-2026-11.html"><span data-zh>读完整增补清单：2026 年 11 月更新中枢</span><span data-en>Read the full change log: November 2026 hub</span> →</a></p>
-  </div>
-</section>
-<!-- SPECUL:VIZ:WWW:END -->
-
-  <section class="hp-sec first">
-    <div class="hp-c">
-      <div class="hp-routes">
-        <a class="hp-route r1" href="https://learn.specul.com/">
-          <p class="ask"><span data-zh>名词看不懂，我们先给你铺个路</span><span data-en>Terms made no sense — here is a path in</span></p>
-          <p class="get"><span data-zh>词条按「先学什么、后学什么」排成六层，每个配一句大白话和官方出处。今天挑用得上的看两三个就够，不用一次看完。</span><span data-en>Terms ordered by what to learn first, in six levels, each with a plain-language explanation and its primary source. Read two or three today; you do not have to finish it in one go.</span></p>
-          <span class="rfoot">
-            <span class="to"><span data-zh>学 AI</span><span data-en>Learn AI</span></span>
-            <span class="num"><span data-zh>按顺序 · 六层</span><span data-en>In order · six levels</span></span>
-          </span>
-        </a>
-        <a class="hp-route r2" href="https://tools.specul.com/">
-          <p class="ask"><span data-zh>工具挑不动，我们摊开给你对比</span><span data-en>Too many tools to choose from — laid out side by side</span></p>
-          <p class="get"><span data-zh>每个工具都写清能做什么、装在哪、权限多大、限制在哪。拿自己的任务跑一遍，比看十个榜单都准。</span><span data-en>Every tool says what it does, where it installs, how much permission it wants and where it stops. Running it on your own task beats any top-ten list.</span></p>
-          <span class="rfoot">
-            <span class="to"><span data-zh>工具</span><span data-en>Tools</span></span>
-            <span class="num"><span data-zh>按任务挑</span><span data-en>Pick by task</span></span>
-          </span>
-        </a>
-        <a class="hp-route r3" href="https://models.specul.com/">
-          <p class="ask"><span data-zh>想在本地跑模型，我们帮你算清楚</span><span data-en>Want to run models on your own machine — here is the arithmetic</span></p>
-          <p class="get"><span data-zh>先看哪个家族、多大尺寸，再看显存能跑哪一档。每个模型都给出官方规格、许可和下载体积，能直接拿来做决定。</span><span data-en>Start with the family and size, then the tier your VRAM can hold. Every model lists official specs, licence and download size so you can decide.</span></p>
-          <span class="rfoot">
-            <span class="to"><span data-zh>模型</span><span data-en>Models</span></span>
-            <span class="num"><span data-zh>按显存挑</span><span data-en>Pick by VRAM</span></span>
-          </span>
-        </a>
-        <a class="hp-route r5 is-external" href="https://nav.specul.com/">
-          <p class="ask"><span data-zh>想去别的 AI 网站？从这里按用途出发</span><span data-en>Want to visit other AI sites? Start by use</span></p>
-          <p class="get"><span data-zh>这里收的是站外 AI 网站，不是 Specul 自己产出的内容。按用途挑，点名字直接去官网；打不开的会标出来。</span><span data-en>Off-site AI sites, not Specul's own content. Pick by use, click a name to go straight to the official site; dead links are marked.</span></p>
-          <span class="rfoot">
-            <span class="to"><span data-zh>AI导航 ↗</span><span data-en>AI Directory ↗</span></span>
-            <span class="num"><span data-zh>按用途找</span><span data-en>Find by use</span></span>
-          </span>
-        </a>
-      </div>
-
-      <div class="hp-picker">
-        <p class="ph"><span data-zh>前沿资料站：规格、论文与链上凭证</span><span data-en>Frontier reference sites: specs, papers and on-chain credentials</span></p>
-        <a class="hp-pq" href="https://demos.specul.com/"><span class="qq"><b><span data-zh>作品演示</span><span data-en>Playground</span></b></span><span class="to"><span data-zh>→ 可运行作品与提示词索引</span><span data-en>→ Runnable works and prompt index</span></span></a>
-        <a class="hp-pq" href="https://oss.specul.com/"><span class="qq"><b><span data-zh>开源库</span><span data-en>OSS library</span></b></span><span class="to"><span data-zh>→ 50 仓、6 场景、许可与上手成本</span><span data-en>→ 50 repos, 6 scenes, licence and onboarding</span></span></a>
-        <a class="hp-pq" href="https://hardware.specul.com/"><span class="qq"><b><span data-zh>硬件算力</span><span data-en>Compute &amp; hardware</span></b></span><span class="to"><span data-zh>→ 设备规格与选型路径</span><span data-en>→ Device specs and selection path</span></span></a>
-        <a class="hp-pq" href="https://papers.specul.com/"><span class="qq"><b><span data-zh>AI 论文</span><span data-en>AI Papers</span></b></span><span class="to"><span data-zh>→ 这篇论文主张什么、有没有复现</span><span data-en>→ What the paper claims and whether it replicated</span></span></a>
-        <a class="hp-pq" href="https://chain.specul.com/"><span class="qq"><b><span data-zh>链</span><span data-en>Chain</span></b></span><span class="to"><span data-zh>→ 凭证、溯源与授权计算</span><span data-en>→ Credentials, provenance and authorised compute</span></span></a>
-      </div>
-
-      <div class="hp-picker">
-        <p class="ph"><span data-zh>还是对不上？换个说法找找看</span><span data-en>Still nothing matching? Try another way of asking</span></p>
-        <a class="hp-pq" href="https://learn.specul.com/">
-          <span class="qq"><b><span data-zh>「训练」和「推理」老是分不清</span><span data-en>I still cannot tell training from inference</span></b></span>
-          <span class="to"><span data-zh>→ 学 AI</span><span data-en>→ Learn AI</span></span>
-        </a>
-        <a class="hp-pq" href="https://tools.specul.com/">
-          <span class="qq"><b><span data-zh>在用了，说不清它到底动了我的什么</span><span data-en>I use one but cannot say what it touches</span></b></span>
-          <span class="to"><span data-zh>→ 工具</span><span data-en>→ Tools</span></span>
-        </a>
-        <a class="hp-pq" href="https://models.specul.com/">
-          <span class="qq"><b><span data-zh>怕东西传出去，或者账单按住不住</span><span data-en>Worried about data leaving, or a runaway bill</span></b></span>
-          <span class="to"><span data-zh>→ 模型</span><span data-en>→ Models</span></span>
-        </a>
       </div>
     </div>
   </section>
 
-  <section class="hp-sec tight">
+  <section class="xp-sec" id="tasks">
     <div class="hp-c">
-      <h2 class="hp-h2"><span data-zh>按主题串起来</span><span data-en>Explore by topic</span><span class="hint"><span data-zh>一页把全站资料排成可走的顺序</span><span data-en>One page puts material from every site in order</span></span></h2>
-      <div class="hp-picker">
-        <a class="hp-pq" href="https://specul.com/topic-code.html"><span class="qq"><b><span data-zh>用 AI 写代码</span><span data-en>Write code with AI</span></b></span><span class="to"><span data-zh>→ 选工具、改代码、复核结果</span><span data-en>→ Choose, change, check</span></span></a>
-        <a class="hp-pq" href="https://specul.com/topic-game.html"><span class="qq"><b><span data-zh>用 AI 做游戏</span><span data-en>Make a game with AI</span></b></span><span class="to"><span data-zh>→ 五阶段与素材授权</span><span data-en>→ Stages and asset rights</span></span></a>
-        <a class="hp-pq" href="https://specul.com/topic-video.html"><span class="qq"><b><span data-zh>用 AI 做视频</span><span data-en>Make video with AI</span></b></span><span class="to"><span data-zh>→ 分镜、素材与导出</span><span data-en>→ Shots, media, export</span></span></a>
-        <a class="hp-pq" href="https://specul.com/topic-music.html"><span class="qq"><b><span data-zh>用 AI 写音乐</span><span data-en>Make music with AI</span></b></span><span class="to"><span data-zh>→ 音频工具、接口与许可</span><span data-en>→ Audio tools, APIs, licences</span></span></a>
-        <a class="hp-pq" href="https://specul.com/topic-research.html"><span class="qq"><b><span data-zh>用 AI 做研究</span><span data-en>Do research with AI</span></b></span><span class="to"><span data-zh>→ 提问、溯源、逐条核对</span><span data-en>→ Question, source, verify</span></span></a>
-        <a class="hp-pq" href="https://specul.com/topic-office.html"><span class="qq"><b><span data-zh>用 AI 处理办公任务</span><span data-en>Handle office work with AI</span></b></span><span class="to"><span data-zh>→ 样例、工作表与留痕</span><span data-en>→ Samples, sheets, records</span></span></a>
-        <a class="hp-pq" href="https://specul.com/topic-robot.html"><span class="qq"><b><span data-zh>用 AI 做机器人</span><span data-en>Build robots with AI</span></b></span><span class="to"><span data-zh>→ 软件栈、模型与目录</span><span data-en>→ Software, models, directory</span></span></a>
-        <a class="hp-pq" href="https://specul.com/topic-prompts.html"><span class="qq"><b><span data-zh>写提示词与工作流</span><span data-en>Prompts and workflows</span></b></span><span class="to"><span data-zh>→ 指令、上下文与复核</span><span data-en>→ Instructions, context, review</span></span></a>
+      <header class="xp-head">
+        <p class="xp-kicker">02 · 按你手里的活</p>
+        <h2 class="xp-h2">直接说事，不用先选工具</h2>
+        <p class="xp-dek">八个常见场景，每个都把“用什么、怎么做、哪里会翻车”串成一条线。</p>
+      </header>
+      <div class="xp-tasks">
+        <a class="xp-task t1" href="topic-code.html"><span class="xp-task-k">写代码 / 做网页</span><span class="xp-task-d">从改一个小页面开始</span><span class="xp-task-go">看这条线 →</span></a>
+        <a class="xp-task t2" href="topic-video.html"><span class="xp-task-k">做视频 / 做图</span><span class="xp-task-d">脚本、分镜、生成、剪辑</span><span class="xp-task-go">看这条线 →</span></a>
+        <a class="xp-task t3" href="topic-game.html"><span class="xp-task-k">做游戏</span><span class="xp-task-d">玩法、素材、代码与试玩</span><span class="xp-task-go">看这条线 →</span></a>
+        <a class="xp-task t4" href="topic-music.html"><span class="xp-task-k">做音乐 / 配音</span><span class="xp-task-d">作曲、人声、音效与授权</span><span class="xp-task-go">看这条线 →</span></a>
+        <a class="xp-task t5" href="topic-research.html"><span class="xp-task-k">做研究 / 写报告</span><span class="xp-task-d">找论文、读证据、整理引用</span><span class="xp-task-go">看这条线 →</span></a>
+        <a class="xp-task t6" href="topic-office.html"><span class="xp-task-k">办公 / 表格 / 会议</span><span class="xp-task-d">纪要、表格、邮件与流程</span><span class="xp-task-go">看这条线 →</span></a>
+        <a class="xp-task t7" href="topic-prompts.html"><span class="xp-task-k">写提示词 / 调模型</span><span class="xp-task-d">把要求说清，让结果稳定</span><span class="xp-task-go">看这条线 →</span></a>
+        <a class="xp-task t8" href="topic-robot.html"><span class="xp-task-k">机器人 / 硬件</span><span class="xp-task-d">感知、控制、仿真与落地</span><span class="xp-task-go">看这条线 →</span></a>
       </div>
     </div>
   </section>
 
-  <section class="hp-sec tight">
+  <section class="xp-sec" id="sites">
     <div class="hp-c">
-      <h2 class="hp-h2"><span data-zh>读深一层：三个领域的判断框架</span><span data-en>Go one level deeper: three decision frameworks</span><span class="hint"><span data-zh>不是清单，是把取舍条件写清楚的长文</span><span data-en>Not lists — long-form pieces that make the trade-offs explicit</span></span></h2>
-      <div class="hp-picker">
-        <a class="hp-pq" href="https://specul.com/domain-robot.html"><span class="qq"><b><span data-zh>机器人：本体、传感器、控制与 VLA</span><span data-en>Robotics: body, sensors, control and VLA</span></b></span><span class="to"><span data-zh>→ 四层拆解与最小落地路径</span><span data-en>→ Four layers and a minimum path</span></span></a>
-        <a class="hp-pq" href="https://specul.com/domain-work.html"><span class="qq"><b><span data-zh>办公：把 AI 接进现有流程</span><span data-en>Office work: wire AI into the existing flow</span></b></span><span class="to"><span data-zh>→ 任务类型、复核与留痕</span><span data-en>→ Task types, review and records</span></span></a>
-        <a class="hp-pq" href="https://specul.com/domain-trust.html"><span class="qq"><b><span data-zh>信任：权限、数据、许可与凭证</span><span data-en>Trust: permission, data, licence and credentials</span></b></span><span class="to"><span data-zh>→ 三张表与六问一表</span><span data-en>→ Three tables and six questions</span></span></a>
+      <header class="xp-head">
+        <p class="xp-kicker">03 · 按你想拿的东西</p>
+        <h2 class="xp-h2">九个站，各管一件事</h2>
+        <p class="xp-dek">不用记站名，记你此刻想拿到什么：一个解释、一件工具、一个模型，或者一条能跑的代码。</p>
+      </header>
+      <div class="xp-sites">
+        <a class="xp-site" href="https://learn.specul.com/"><span class="xp-site-n">01</span><span class="xp-site-copy"><b>学 AI</b><em>把词和原理弄明白</em></span><span class="xp-site-go">→</span></a>
+        <a class="xp-site" href="https://tools.specul.com/"><span class="xp-site-n">02</span><span class="xp-site-copy"><b>工具</b><em>找现在就能用的</em></span><span class="xp-site-go">→</span></a>
+        <a class="xp-site" href="https://models.specul.com/"><span class="xp-site-n">03</span><span class="xp-site-copy"><b>模型</b><em>挑本地能跑的家族与量化版</em></span><span class="xp-site-go">→</span></a>
+        <a class="xp-site" href="https://demos.specul.com/"><span class="xp-site-n">04</span><span class="xp-site-copy"><b>演示</b><em>看别人用模型做成了什么</em></span><span class="xp-site-go">→</span></a>
+        <a class="xp-site" href="https://oss.specul.com/"><span class="xp-site-n">05</span><span class="xp-site-copy"><b>开源库</b><em>拿代码，自己改和部署</em></span><span class="xp-site-go">→</span></a>
+        <a class="xp-site" href="https://hardware.specul.com/"><span class="xp-site-n">06</span><span class="xp-site-copy"><b>算力</b><em>查显卡、机器与租用成本</em></span><span class="xp-site-go">→</span></a>
+        <a class="xp-site" href="https://papers.specul.com/"><span class="xp-site-n">07</span><span class="xp-site-copy"><b>论文</b><em>读原始论文，不读二手结论</em></span><span class="xp-site-go">→</span></a>
+        <a class="xp-site" href="https://chain.specul.com/"><span class="xp-site-n">08</span><span class="xp-site-copy"><b>链</b><em>看凭证、支付与链上 AI 工具</em></span><span class="xp-site-go">→</span></a>
+        <a class="xp-site" href="https://nav.specul.com/"><span class="xp-site-n">09</span><span class="xp-site-copy"><b>AI导航</b><em>去站外的 AI 网站</em></span><span class="xp-site-go">↗</span></a>
+        <a class="xp-site xp-site-wide" href="search.html"><span class="xp-site-copy"><b>还是不知道点哪？</b><em>把全站的概念、工具、模型、论文、作品一起搜一遍</em></span><span class="xp-site-go">搜全站 →</span></a>
       </div>
     </div>
   </section>
 
-  <section class="hp-sec tight">
+  <section class="xp-sec xp-sec-tight" id="deeper">
     <div class="hp-c">
-      <h2 class="hp-h2"><span data-zh>按任务直接进</span><span data-en>Jump in by task</span><span class="hint"><span data-zh>按任务读流程、看例子、核对结果</span><span data-en>Follow a workflow, read an example, check the result</span></span></h2>
-      <p><a href="https://specul.com/search.html"><span data-zh>也可以按标题、别名与任务搜索全站 →</span><span data-en>Or search titles, aliases and tasks across the whole site →</span></a></p>
-      <div class="hp-picker">
-        <a class="hp-pq" href="https://tools.specul.com/mcp/guides/playbook-pdf-table.html"><span class="qq"><b><span data-zh>把 PDF / 扫描件转成表格</span><span data-en>Turn a PDF or scan into a table</span></b></span><span class="to"><span data-zh>→ 样例与校验</span><span data-en>→ Samples and checks</span></span></a>
-        <a class="hp-pq" href="https://tools.specul.com/mcp/guides/playbook-table-merge.html"><span class="qq"><b><span data-zh>合并多张表，找重复与冲突</span><span data-en>Merge tables and find conflicts</span></b></span><span class="to"><span data-zh>→ 输入与异常单</span><span data-en>→ Inputs and exceptions</span></span></a>
-        <a class="hp-pq" href="https://tools.specul.com/mcp/guides/playbook-document-review.html"><span class="qq"><b><span data-zh>审阅文档的版本变化</span><span data-en>Review document changes</span></b></span><span class="to"><span data-zh>→ 原文与问题表</span><span data-en>→ Sources and findings</span></span></a>
-        <a class="hp-pq" href="https://tools.specul.com/mcp/guides/playbook-meeting-notes.html"><span class="qq"><b><span data-zh>把录音整理成纪要与行动项</span><span data-en>Turn audio into notes and actions</span></b></span><span class="to"><span data-zh>→ 合成录音与核对</span><span data-en>→ Synthetic audio and checks</span></span></a>
-        <a class="hp-pq" href="https://tools.specul.com/mcp/guides/playbook-fix-a-bug.html#worked-example"><span class="qq"><b><span data-zh>修一个真实 bug</span><span data-en>Fix a real bug</span></b></span><span class="to"><span data-zh>→ 六步流程</span><span data-en>→ Six steps</span></span></a>
-        <a class="hp-pq" href="https://tools.specul.com/mcp/guides/playbook-60s-video.html#worked-example"><span class="qq"><b><span data-zh>做一条 60 秒视频</span><span data-en>Make a 60-second video</span></b></span><span class="to"><span data-zh>→ 五段流程</span><span data-en>→ Five stages</span></span></a>
-        <a class="hp-pq" href="https://tools.specul.com/mcp/guides/playbook-research-brief.html#worked-example"><span class="qq"><b><span data-zh>做一份可核查的研究简报</span><span data-en>Produce a checkable research brief</span></b></span><span class="to"><span data-zh>→ 五步流程</span><span data-en>→ Five steps</span></span></a>
-        <a class="hp-pq" href="https://tools.specul.com/mcp/guides/playbook-service-agent.html"><span class="qq"><b><span data-zh>搭一个客服 Agent</span><span data-en>Build a service agent</span></b></span><span class="to"><span data-zh>→ 六段流程</span><span data-en>→ Six stages</span></span></a>
-        <a class="hp-pq" href="https://tools.specul.com/mcp/guides/playbook-local-model.html#worked-example"><span class="qq"><b><span data-zh>在本机跑一个模型</span><span data-en>Run a model locally</span></b></span><span class="to"><span data-zh>→ 五步流程</span><span data-en>→ Five steps</span></span></a>
-        <a class="hp-pq" href="https://learn.specul.com/path/for-safety-review/"><span class="qq"><b><span data-zh>做一次上线前安全与合规评审</span><span data-en>Run a pre-launch safety and compliance review</span></b></span><span class="to"><span data-zh>→ 十三条路线之一，12 步</span><span data-en>→ One of thirteen routes, 12 steps</span></span></a>
-        <a class="hp-pq" href="https://learn.specul.com/path/for-eval-builders/"><span class="qq"><b><span data-zh>搭一条能自己复跑的评测流程</span><span data-en>Set up an evaluation flow you can re-run</span></b></span><span class="to"><span data-zh>→ 十三条路线之一，11 步</span><span data-en>→ One of thirteen routes, 11 steps</span></span></a>
+      <header class="xp-head">
+        <p class="xp-kicker">04 · 想读长一点</p>
+        <h2 class="xp-h2">三篇，讲清三条正在发生的变化</h2>
+      </header>
+      <div class="xp-reads">
+        <a class="xp-read" href="domain-robot.html"><span class="xp-read-k">机器人</span><b>为什么今年开始进厂</b><span>从演示视频走到工位，中间差的是数据、节拍和安全。</span></a>
+        <a class="xp-read" href="domain-work.html"><span class="xp-read-k">办公</span><b>AI 到底接管了哪几步</b><span>不是一键全自动，而是把检索、起草、核对拆开重排。</span></a>
+        <a class="xp-read" href="domain-trust.html"><span class="xp-read-k">信任</span><b>许可、评测、凭证怎么看</b><span>一个模型能不能用，不只看跑分，还要看许可和证据链。</span></a>
       </div>
-    </div>
-  </section>
-
-  <section class="hp-sec tight">
-    <div class="hp-c">
-      <h2 class="hp-h2"><span data-zh>去别的 AI 网站 · 按类目</span><span data-en>Other AI sites, by category</span><span class="hint"><span data-zh>11 个类目，点进去直接看那一类</span><span data-en>11 categories, each jumping straight to that section of AI Directory</span></span></h2>
-      <div class="hp-chips">
-        <a class="hp-chip k1" href="https://nav.specul.com/?cat=llm#dir" title="大模型与对话 / llm" data-ui-title-zh="大模型与对话 / llm" data-ui-title-en="LLMs &amp; chat"><span aria-hidden="true">💬</span><span data-zh>大模型与对话</span><span data-en>LLMs &amp; chat</span><b>50</b></a>
-        <a class="hp-chip k2" href="https://nav.specul.com/?cat=coding#dir" title="AI 编程与 Agent / coding" data-ui-title-zh="AI 编程与 Agent / coding" data-ui-title-en="AI coding &amp; agents"><span aria-hidden="true">⌨️</span><span data-zh>AI 编程与 Agent</span><span data-en>AI coding &amp; agents</span><b>43</b></a>
-        <a class="hp-chip k3" href="https://nav.specul.com/?cat=gen#dir" title="多模态生成 / gen" data-ui-title-zh="多模态生成 / gen" data-ui-title-en="Multimodal generation"><span aria-hidden="true">🎨</span><span data-zh>多模态生成</span><span data-en>Multimodal generation</span><b>64</b></a>
-        <a class="hp-chip k4" href="https://nav.specul.com/?cat=app#dir" title="AI 办公与垂直应用 / app" data-ui-title-zh="AI 办公与垂直应用 / app" data-ui-title-en="Applications"><span aria-hidden="true">🧰</span><span data-zh>AI 办公与垂直应用</span><span data-en>Applications</span><b>47</b></a>
-        <a class="hp-chip k6" href="https://nav.specul.com/?cat=model#dir" title="模型与权重 / model" data-ui-title-zh="模型与权重 / model" data-ui-title-en="Model providers"><span aria-hidden="true">🧩</span><span data-zh>模型与权重</span><span data-en>Model providers</span><b>32</b></a>
-        <a class="hp-chip k2" href="https://nav.specul.com/?cat=dev#dir" title="开发框架与工具 / dev" data-ui-title-zh="开发框架与工具 / dev" data-ui-title-en="Developer tools"><span aria-hidden="true">🔧</span><span data-zh>开发框架与工具</span><span data-en>Developer tools</span><b>47</b></a>
-        <a class="hp-chip k5" href="https://nav.specul.com/?cat=infra#dir" title="算力与芯片 / infra" data-ui-title-zh="算力与芯片 / infra" data-ui-title-en="Infrastructure"><span aria-hidden="true">💠</span><span data-zh>算力与芯片</span><span data-en>Infrastructure</span><b>55</b></a>
-        <a class="hp-chip k6" href="https://nav.specul.com/?cat=robot#dir" title="机器人与具身智能 / robot" data-ui-title-zh="机器人与具身智能 / robot" data-ui-title-en="Robotics &amp; embodied"><span aria-hidden="true">🦾</span><span data-zh>机器人与具身智能</span><span data-en>Robotics &amp; embodied</span><b>87</b></a>
-        <a class="hp-chip k3" href="https://nav.specul.com/?cat=learn#dir" title="学习资源 / learn" data-ui-title-zh="学习资源 / learn" data-ui-title-en="Learning"><span aria-hidden="true">📚</span><span data-zh>学习资源</span><span data-en>Learning</span><b>55</b></a>
-        <a class="hp-chip k1" href="https://nav.specul.com/?cat=community#dir" title="社区与资讯 / community" data-ui-title-zh="社区与资讯 / community" data-ui-title-en="Community"><span aria-hidden="true">🗣</span><span data-zh>社区与资讯</span><span data-en>Community</span><b>25</b></a>
-        <a class="hp-chip k4" href="https://nav.specul.com/?cat=tools#dir" title="开发者工具 / tools" data-ui-title-zh="开发者工具 / tools" data-ui-title-en="Tools &amp; utilities"><span aria-hidden="true">🔩</span><span data-zh>开发者工具</span><span data-en>Tools &amp; utilities</span><b>90</b></a>
-      </div>
-      <p class="t-sm"><span data-zh>以上类目来自 AI导航目录，列的是站外 AI 网站，不是 Specul 自己做的内容。</span><span data-en>These categories come from AI Directory: off-site AI sites, not content made by Specul.</span></p>
-    </div>
-  </section>
-
-  <section class="hp-sec tight">
-    <div class="hp-c">
-      <h2 class="hp-h2"><span data-zh>最近新增什么</span><span data-en>What has been added</span><span class="hint">2026-11-18</span></h2>
-      <div class="hp-tail">
-        <div class="hp-panel r1">
-          <h3><span data-zh>八个站有了数据图</span><span data-en>Eight sites now carry data figures</span></h3>
-          <p><span data-zh>首页生态图、学AI 六层词库、工具 11 类、模型代次、算力显存–带宽散点、论文主题、链信任栈、导航链接健康，全部用内联 SVG，亮暗主题与手机都能读。</span><span data-en>An ecosystem map, six learn layers, 11 tool categories, model generations, a memory–bandwidth scatter, paper topics, a trust stack and directory health — all inline SVG, readable in both themes and on phones.</span></p>
-          <p><a href="updates-2026-11.html"><span data-zh>看这一轮的完整改动 →</span><span data-en>See the full change log →</span></a></p>
-        </div>
-        <div class="hp-panel r2">
-          <h3><span data-zh>2026 新模型与新硬件进站</span><span data-en>2026 models and hardware added</span></h3>
-          <p><span data-zh>Mistral Large 4、Muse Spark、MiMo-V2.6、Kimi K3、DeepSeek V4.1、GLM-5.3；Rubin、B300、MI455X、MI450X、TPU7x、Helios。每条都有官方出处、资料时间和「它没主张什么」。</span><span data-en>Mistral Large 4, Muse Spark, MiMo-V2.6, Kimi K3, DeepSeek V4.1, GLM-5.3; Rubin, B300, MI455X, MI450X, TPU7x, Helios. Each carries an official source, a date and a note on what it does not claim.</span></p>
-          <p><a href="updates-2026-11.html#models"><span data-zh>按模型看 →</span><span data-en>Browse by model →</span></a> · <a href="updates-2026-11.html#hardware"><span data-zh>按硬件看 →</span><span data-en>Browse by hardware →</span></a></p>
-        </div>
-        <div class="hp-panel r3">
-          <h3><span data-zh>学AI 补四个词</span><span data-en>Four gaps in Learn closed</span></h3>
-          <p><span data-zh>GRPO、MLA、JEPA、Flow Matching 各补一个独立词条：训练、推理、表征、生成四条线，每篇都写清它不主张什么。词库从 256 到 260。</span><span data-en>GRPO, MLA, JEPA and Flow Matching now have standalone entries across training, inference, representation and generation, each stating what it does not claim. The glossary moves from 256 to 260.</span></p>
-          <p><a href="https://learn.specul.com/2026.html"><span data-zh>读 2026 补丁包 →</span><span data-en>Read the 2026 patch →</span></a></p>
-        </div>
-        <div class="hp-panel r4">
-          <h3><span data-zh>AI导航改名，链上补三协议</span><span data-en>AI Directory renamed, three chain protocols added</span></h3>
-          <p><span data-zh>「外部站点」正式改成「AI导航 / AI Directory」；链站补 ERC-4337、ERC-8004、AP2，并把「已上线 / Draft / 生产未确认」分开写。</span><span data-en>“External sites” is now “AI Directory”; Chain adds ERC-4337, ERC-8004 and AP2, separating live, Draft and unconfirmed-production status.</span></p>
-          <p><a href="https://nav.specul.com/"><span data-zh>去 AI导航 →</span><span data-en>Open AI Directory →</span></a> · <a href="https://chain.specul.com/2026.html"><span data-zh>读链增补 →</span><span data-en>Read the chain patch →</span></a></p>
-        </div>
-      </div>
+      <p class="xp-footnote"><a href="map.html">全站地图</a><a href="updates-2026-11.html">2026 更新</a><a href="about.html">这个站怎么做的</a><a href="method.html">内容怎么选</a></p>
     </div>
   </section>
 </main>
+
 
 <!-- SPECUL:FOOTER:START -->
   <footer class="site-footer">
