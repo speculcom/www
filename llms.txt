@@ -26,7 +26,7 @@ Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 每词能回到原始出处，**未知就写未知**，不给总分排名。
 
 ### Agent 图谱 — https://tools.specul.com/
-265 份档案，分 11 个大类（coding 41、chat 23、image 15、video 14、audio 17、research 11、automation 24、framework 42、mcp 32、runner 21、safety 25），按 8 个固定维度横向对比。
+280 份档案，分 12 个大类（coding 41、chat 23、image 15、video 14、audio 17、research 11、office 15、automation 24、framework 42、mcp 32、runner 21、safety 25），按 8 个固定维度横向对比。
 固定八维对比（工具分区另加传输 / 认证 / 范围三维）。
 Skills：12 条官方与社区技能索引，另 4 页讲清「是什么、结构、怎么写怎么测、怎么审第三方」 — https://tools.specul.com/skills/
 提示词：6 篇方法指南 + 24 个可抄案例，含完整 prompt、检查点与失败分支 — https://tools.specul.com/prompts/
@@ -35,8 +35,8 @@ Skills：12 条官方与社区技能索引，另 4 页讲清「是什么、结�
 ### Models 图谱 — https://models.specul.com/
 本地部署量化模型索引：11 个系列 / 16 个模型仓 / 129 个量化仓 / 1262 个量化档 / 1337 个 GGUF 文件，来自 54 位量化者。
 按显存倒推该下哪一档 GGUF；文件体积是发布页实测值，许可逐条标注原文。
-数据与语料：24 张数据集卡，按预训练 / SFT / 偏好 / 评测 / RAG / 多模态 / 代码领域 / 合成 8 类；先看来源、许可与商用边界 — https://models.specul.com/data/
-评测：20 个常用基准，只写「测什么、怎么读、有什么污染风险」，不做总分与「最强」排名 — https://models.specul.com/evals/
+数据与语料：40 张数据集卡，按预训练 / SFT / 偏好 / 评测 / RAG / 多模态 / 代码领域 / 合成 8 类；先看来源、许可与商用边界 — https://models.specul.com/data/
+评测：36 个常用基准，只写「测什么、怎么读、有什么污染风险」，不做总分与「最强」排名 — https://models.specul.com/evals/
 **不跑 benchmark，不给质量与速度结论，不托管任何权重文件。**
 
 ### 硬件算力 — https://hardware.specul.com/

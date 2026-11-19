@@ -26,7 +26,7 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 Every term can be traced back to its original source, **unknown is written as unknown**, and there is no overall ranking.
 
 ### Agent Atlas — https://tools.specul.com/
-265 profiles across 11 categories (coding 41, chat 23, image 15, video 14, audio 17, research 11, automation 24, framework 42, mcp 32, runner 21, safety 25), compared across a fixed set of 8 dimensions.
+280 profiles across 12 categories (coding 41, chat 23, image 15, video 14, audio 17, research 11, office 15, automation 24, framework 42, mcp 32, runner 21, safety 25), compared across a fixed set of 8 dimensions.
 Fixed eight-dimension comparison (the tools division adds three more: transport / auth / scope).
 Skills: 12 curated official and community skill entries, plus four pages on what they are, structure, build/test and third-party review — https://tools.specul.com/skills/
 Prompts: 6 method guides + 24 copyable cases with full prompts, checkpoints and failure branches — https://tools.specul.com/prompts/
@@ -35,8 +35,8 @@ Prompts: 6 method guides + 24 copyable cases with full prompts, checkpoints and 
 ### Models Atlas — https://models.specul.com/
 Index of locally deployable quantized models: 11 series / 16 model repos / 129 quant repos / 1262 quant builds / 1337 GGUF files, from 54 quantizers.
 Work backwards from VRAM to which GGUF variant to download; file sizes are measured values from release pages, licenses quoted verbatim entry by entry.
-Data: 24 dataset cards across pretraining, SFT, preference, evaluation, RAG, multimodal, code/domain and synthetic; source, licence and commercial boundary first — https://models.specul.com/data/
-Evals: 20 common benchmarks, covering what they measure, how to read them and contamination risks; no overall score, no "best" ranking — https://models.specul.com/evals/
+Data: 40 dataset cards across pretraining, SFT, preference, evaluation, RAG, multimodal, code/domain and synthetic; source, licence and commercial boundary first — https://models.specul.com/data/
+Evals: 36 common benchmarks, covering what they measure, how to read them and contamination risks; no overall score, no "best" ranking — https://models.specul.com/evals/
 **No benchmarks, no quality or speed conclusions, no hosting of any weight files.**
 
 ### AI Hardware and Compute — https://hardware.specul.com/
