@@ -17,12 +17,12 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 | Credentials | https://chain.specul.com/ | How do you check AI-chain provenance credentials and permissions? |
 | Playground | https://demos.specul.com/ | Where can I run model-generated HTML works, see source and original prompts? |
 | OSS | https://oss.specul.com/ | Which repositories can I take, read, change and deploy? What are the licence, activity and onboarding costs? |
-| AI Directory | https://nav.specul.com/ | Off-site AI website directory, 595 entries / 11 categories |
+| AI Directory | https://nav.specul.com/ | Off-site AI website directory, 625 entries / 11 categories |
 
 ## About each site
 
 ### Learn AI — https://learn.specul.com/
-260 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 13 curated learning paths with checkpoints; 93 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 732 source entries; English coverage 260/260.
+284 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 16 curated learning paths with checkpoints; 105 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 780 source entries; English coverage 284/284.
 Every term can be traced back to its original source, **unknown is written as unknown**, and there is no overall ranking.
 
 ### Agent Atlas — https://tools.specul.com/
@@ -40,26 +40,26 @@ Evals: 36 common benchmarks, covering what they measure, how to read them and co
 **No benchmarks, no quality or speed conclusions, no hosting of any weight files.**
 
 ### AI Hardware and Compute — https://hardware.specul.com/
-35 device spec cards, each with an official source and check date; fact fields only, no ranking.
-Cloud compute: 18 providers across general cloud, GPU specialists, serverless and China cloud; billing scope and verification entry points only, no hard-coded prices that would age — https://hardware.specul.com/cloud/
+44 device spec cards, each with an official source and check date; fact fields only, no ranking.
+Cloud compute: 26 providers across general cloud, GPU specialists, serverless and China cloud; billing scope and verification entry points only, no hard-coded prices that would age — https://hardware.specul.com/cloud/
 
 ### Papers — https://papers.specul.com/
-33 research-level paper cards with problem, evidence location, author-stated limits and non-claims; not reproduced is written as not reproduced.
+45 research-level paper cards with problem, evidence location, author-stated limits and non-claims; not reproduced is written as not reproduced.
 
 ### Chain × AI — https://chain.specul.com/
-24 AI-chain intersection entries, official protocols and specifications only; no token prices, exchanges or wallets.
+32 AI-chain intersection entries, official protocols and specifications only; no token prices, exchanges or wallets.
 
 ### Playground — https://demos.specul.com/
 Runnable HTML works from two model collections, with source and original prompts linked; no ranking and no copying of unlicensed files.
 
 ### OSS — https://oss.specul.com/
-50 AI open-source repositories in 6 scenes: agent frameworks, RAG and knowledge, local inference, multimodal visual, speech and audio, evaluation and observability.
+60 AI open-source repositories in 6 scenes: agent frameworks, RAG and knowledge, local inference, multimodal visual, speech and audio, evaluation and observability.
 Six curated repositories per scene plus 14 catalogue additions; each card states licence, language, star snapshot, last push, what it suits and what it does not.
 **No star ranking, no security endorsement, no legal judgement for you**; GitHub facts are a 2026-11-19 snapshot.
 
 ### AI Directory — https://nav.specul.com/
 Off-site AI website directory: other AI sites, not Specul's own content.
-595 off-site AI websites (entries on the site, excluding extended domains), 11 categories, every link verified.
+625 off-site AI websites (entries on the site, excluding extended domains), 11 categories, every link verified.
 Each site is systematically introduced by "what it does and who it suits". Verification dates and probe methodology are written on the page,
 **probe failures do not declare death** — better to miss than to misjudge.
 
