@@ -589,11 +589,11 @@ html[data-theme="light"] body.brand-ambient {
   border-radius: var(--r); background: var(--bg-panel);
   transition: border-color .18s, box-shadow .18s, transform .18s;
 }
-.xp-step.s1 { --step-c: var(--cat-violet); }
-.xp-step.s2 { --step-c: var(--cat-rose); }
-.xp-step.s3 { --step-c: var(--cat-teal); }
-.xp-step.s4 { --step-c: var(--cat-blue); }
-.xp-step.s5 { --step-c: var(--cat-amber); }
+.xp-step.s1 { --step-c: var(--cat-violet); --step-ink: var(--cat-violet-ink); --step-badge: #5b34e8; }
+.xp-step.s2 { --step-c: var(--cat-rose); --step-ink: var(--cat-rose-ink); --step-badge: #c81e56; }
+.xp-step.s3 { --step-c: var(--cat-teal); --step-ink: var(--cat-teal-ink); --step-badge: #07706a; }
+.xp-step.s4 { --step-c: var(--cat-blue); --step-ink: var(--cat-blue-ink); --step-badge: #0b6fc4; }
+.xp-step.s5 { --step-c: var(--cat-amber); --step-ink: var(--cat-amber-ink); --step-badge: #9a5f00; }
 /* 整张卡都能点：透明命中层垫在文字下面，卡内的次级链接浮在命中层上。 */
 .xp-step-hit {
   position: absolute; inset: 0; z-index: 0;
@@ -613,14 +613,14 @@ html[data-theme="light"] body.brand-ambient {
 }
 .xp-step-links { display: flex; flex-wrap: wrap; gap: .3rem .75rem; }
 .xp-step-links a {
-  color: var(--step-c); font-size: var(--fs-xs); font-weight: 700;
+  color: var(--step-ink, var(--step-c)); font-size: var(--fs-xs); font-weight: 700;
   text-decoration: none; border-bottom: 1px solid transparent;
 }
 .xp-step-links a:hover { border-bottom-color: currentColor; }
 .xp-step-badge {
   position: absolute; top: -.7rem; right: .7rem; opacity: 0;
   padding: .16rem .5rem; border-radius: 999px;
-  background: var(--step-c); color: var(--brand-on);
+  background: var(--step-badge, var(--step-ink, var(--step-c))); color: var(--brand-on);
   font-size: var(--fs-micro); font-weight: 800; white-space: nowrap;
   transition: opacity .18s; pointer-events: none;
 }
@@ -659,22 +659,22 @@ html[data-theme="light"] body.brand-ambient {
   border-radius: var(--r); background: var(--bg-panel); text-decoration: none; color: inherit;
   transition: transform .18s, border-color .18s, box-shadow .18s;
 }
-.xp-task.t1 { --task-c: var(--cat-violet); }
-.xp-task.t2 { --task-c: var(--cat-rose); }
-.xp-task.t3 { --task-c: var(--cat-amber); }
-.xp-task.t4 { --task-c: var(--cat-teal); }
-.xp-task.t5 { --task-c: var(--cat-blue); }
-.xp-task.t6 { --task-c: var(--cat-lime); }
-.xp-task.t7 { --task-c: var(--cat-violet); }
-.xp-task.t8 { --task-c: var(--cat-teal); }
-.xp-task.t9 { --task-c: var(--cat-rose); }
-.xp-task.t10 { --task-c: var(--cat-amber); }
-.xp-task.t11 { --task-c: var(--cat-blue); }
-.xp-task.t12 { --task-c: var(--cat-lime); }
+.xp-task.t1 { --task-c: var(--cat-violet); --task-ink: var(--cat-violet-ink); }
+.xp-task.t2 { --task-c: var(--cat-rose); --task-ink: var(--cat-rose-ink); }
+.xp-task.t3 { --task-c: var(--cat-amber); --task-ink: var(--cat-amber-ink); }
+.xp-task.t4 { --task-c: var(--cat-teal); --task-ink: var(--cat-teal-ink); }
+.xp-task.t5 { --task-c: var(--cat-blue); --task-ink: var(--cat-blue-ink); }
+.xp-task.t6 { --task-c: var(--cat-lime); --task-ink: var(--cat-lime-ink); }
+.xp-task.t7 { --task-c: var(--cat-violet); --task-ink: var(--cat-violet-ink); }
+.xp-task.t8 { --task-c: var(--cat-teal); --task-ink: var(--cat-teal-ink); }
+.xp-task.t9 { --task-c: var(--cat-rose); --task-ink: var(--cat-rose-ink); }
+.xp-task.t10 { --task-c: var(--cat-amber); --task-ink: var(--cat-amber-ink); }
+.xp-task.t11 { --task-c: var(--cat-blue); --task-ink: var(--cat-blue-ink); }
+.xp-task.t12 { --task-c: var(--cat-lime); --task-ink: var(--cat-lime-ink); }
 .xp-task:hover { transform: translateY(-3px); border-color: var(--task-c); box-shadow: var(--shadow-hi); }
 .xp-task-k { font-size: var(--fs-sm); font-weight: 800; }
 .xp-task-d { flex: 1; margin-top: .35rem; font-size: var(--fs-xs); color: var(--ink-mid); line-height: 1.55; }
-.xp-task-go { margin-top: .7rem; font-size: var(--fs-xs); color: var(--task-c); font-weight: 750; }
+.xp-task-go { margin-top: .7rem; font-size: var(--fs-xs); color: var(--task-ink, var(--task-c)); font-weight: 750; }
 
 .xp-sites { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
 .xp-site {

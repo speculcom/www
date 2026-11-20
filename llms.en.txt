@@ -17,12 +17,12 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 | Credentials | https://chain.specul.com/ | How do you check AI-chain provenance credentials and permissions? |
 | Playground | https://demos.specul.com/ | Where can I run model-generated HTML works, see source and original prompts? |
 | OSS | https://oss.specul.com/ | Which repositories can I take, read, change and deploy? What are the licence, activity and onboarding costs? |
-| AI Directory | https://nav.specul.com/ | Off-site AI website directory, 629 entries / 11 categories |
+| AI Directory | https://nav.specul.com/ | Off-site AI website directory, 613 entries / 11 categories |
 
 ## About each site
 
 ### Learn AI — https://learn.specul.com/
-292 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 16 curated learning paths with checkpoints; 111 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 822 source entries; English coverage 292/292.
+292 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 16 curated learning paths with checkpoints; 111 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 823 source entries; English coverage 292/292.
 Every term can be traced back to its original source, **unknown is written as unknown**, and there is no overall ranking.
 
 ### Agent Atlas — https://tools.specul.com/
@@ -59,7 +59,7 @@ Each card states licence, language, star snapshot, last push, what it suits and 
 
 ### AI Directory — https://nav.specul.com/
 Off-site AI website directory: other AI sites, not Specul's own content.
-629 off-site AI websites (entries on the site, excluding extended domains), 11 categories, every link verified.
+613 off-site AI websites (entries on the site, excluding extended domains), 11 categories, every link verified.
 Each site is systematically introduced by "what it does and who it suits". Verification dates and probe methodology are written on the page,
 **probe failures do not declare death** — better to miss than to misjudge.
 
