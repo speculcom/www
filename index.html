@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="site.css" />
   <!-- B5（2026-10-09）：结构性数据。枢纽站声明自己是什么、以及由哪几个站组成 ——
-       这是「站群」这件事唯一能被机器读到的地方；hasPart 让搜索引擎知道六站是一个整体。 -->
+       这是「站群」这件事唯一能被机器读到的地方；hasPart 让搜索引擎知道十站是一个整体。 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,6 +33,7 @@
       { "@type": "WebSite", "name": "工具", "url": "https://tools.specul.com/" },
       { "@type": "WebSite", "name": "模型", "url": "https://models.specul.com/" },
       { "@type": "WebSite", "name": "作品演示", "url": "https://demos.specul.com/" },
+      { "@type": "WebSite", "name": "开源库", "url": "https://oss.specul.com/" },
       { "@type": "WebSite", "name": "硬件算力", "url": "https://hardware.specul.com/" },
       { "@type": "WebSite", "name": "AI 论文", "url": "https://papers.specul.com/" },
       { "@type": "WebSite", "name": "链", "url": "https://chain.specul.com/" },
@@ -63,7 +64,7 @@
         <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
         <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
         <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI导航</span><span data-en>AI Directory</span></a>
       </nav>
       <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
