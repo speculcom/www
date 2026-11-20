@@ -40,20 +40,20 @@ Evals: 40 common benchmarks, covering what they measure, how to read them and co
 **No benchmarks, no quality or speed conclusions, no hosting of any weight files.**
 
 ### AI Hardware and Compute — https://hardware.specul.com/
-64 device spec cards, each with an official source and check date; fact fields only, no ranking.
+70 device spec cards, each with an official source and check date; fact fields only, no ranking.
 Cloud compute: 26 providers across general cloud, GPU specialists, serverless and China cloud; billing scope and verification entry points only, no hard-coded prices that would age — https://hardware.specul.com/cloud/
 
 ### Papers — https://papers.specul.com/
 92 research-level paper cards with problem, evidence location, author-stated limits and non-claims; not reproduced is written as not reproduced.
 
 ### Chain × AI — https://chain.specul.com/
-36 AI-chain intersection entries, official protocols and specifications only; no token prices, exchanges or wallets.
+40 AI-chain intersection entries, official protocols and specifications only; no token prices, exchanges or wallets.
 
 ### Playground — https://demos.specul.com/
-210 runnable HTML works from 11 models, with source and original prompts linked; no ranking and no copying of unlicensed files.
+314 runnable HTML works from 28 models, with source and original prompts linked; no ranking and no copying of unlicensed files.
 
 ### OSS — https://oss.specul.com/
-84 AI open-source repositories in 7 scenes: agent frameworks, RAG and knowledge, local inference, multimodal visual, speech and audio, evaluation and observability, training and fine-tuning.
+131 AI open-source repositories in 7 scenes: agent frameworks, RAG and knowledge, local inference, multimodal visual, speech and audio, evaluation and observability, training and fine-tuning.
 Each card states licence, language, star snapshot, last push, what it suits and what it does not.
 **No star ranking, no security endorsement, no legal judgement for you**; GitHub facts are 2026-11-19 / 2026-11-20 snapshots, labelled per card.
 
