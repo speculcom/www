@@ -517,7 +517,7 @@ html[data-theme="light"] body.brand-ambient {
    2026-11-19 · 首页重做：一张“问路牌”
    --------------------------------------------------------------------------
    结构：标题 + 全站搜索 → 五步阶段（可点一句最像你的话高亮）→ 八个场景
-        → 九个站 → 三篇长文。
+        → 十个站 → 三篇长文。
    原则：少解释，多给下一步；每一块都能直接点走。
    ========================================================================== */
 
@@ -667,6 +667,10 @@ html[data-theme="light"] body.brand-ambient {
 .xp-task.t6 { --task-c: var(--cat-lime); }
 .xp-task.t7 { --task-c: var(--cat-violet); }
 .xp-task.t8 { --task-c: var(--cat-teal); }
+.xp-task.t9 { --task-c: var(--cat-rose); }
+.xp-task.t10 { --task-c: var(--cat-amber); }
+.xp-task.t11 { --task-c: var(--cat-blue); }
+.xp-task.t12 { --task-c: var(--cat-lime); }
 .xp-task:hover { transform: translateY(-3px); border-color: var(--task-c); box-shadow: var(--shadow-hi); }
 .xp-task-k { font-size: var(--fs-sm); font-weight: 800; }
 .xp-task-d { flex: 1; margin-top: .35rem; font-size: var(--fs-xs); color: var(--ink-mid); line-height: 1.55; }
