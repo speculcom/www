@@ -3,7 +3,7 @@
  const form=document.getElementById('search-form');if(!form)return;
  const q=document.getElementById('search-query'),scope=document.getElementById('search-scope'),status=document.getElementById('search-status'),list=document.getElementById('search-results'),more=document.getElementById('search-more'),fallback=document.getElementById('browse-index');
  const tr=(a,b)=>document.documentElement.lang.startsWith('en')?b:a;
- const labels={www:['主站','Home'],learn:['学 AI','Learn'],agent:['工具','Tools'],models:['模型','Models'],demos:['作品演示','Playground'],hardware:['硬件算力','Compute'],papers:['AI 论文','AI Papers'],chain:['链','Chain'],nav:['AI导航','AI Directory']};
+ const labels={www:['主站','Home'],learn:['学 AI','Learn'],agent:['工具','Tools'],models:['模型','Models'],demos:['作品演示','Playground'],hardware:['硬件算力','Compute'],papers:['AI 论文','AI Papers'],chain:['链','Chain'],nav:['AI 导航','AI Directory']};
  const normalize=s=>String(s||'').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
  const text=(tag,value,cls)=>{const e=document.createElement(tag);e.textContent=value;if(cls)e.className=cls;return e;};
  const facetBar=document.getElementById('search-domains');
