@@ -106,35 +106,35 @@
     <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
   <main id="main" class="container">
   <div class="legal-head">
-    <h1>方法与口径</h1>
-    <p class="sub">这一页说明 Specul 的内容是怎么做出来的、可信度标签怎么读、错了怎么改。它适用于全部十个站。</p>
+    <h1><span data-zh>方法与口径</span><span data-en>Method and standards</span></h1>
+    <p class="sub"><span data-zh>这一页说明 Specul 的内容是怎么做出来的、可信度标签怎么读、错了怎么改。它适用于全部十个站。</span><span data-en>This page explains how Specul content is made, how to read the confidence labels, and how errors are corrected. It applies to all ten sites.</span></p>
   </div>
 
   <section>
-    <h2>一条内容的生产流程</h2>
+    <h2><span data-zh>一条内容的生产流程</span><span data-en>How a piece of content is made</span></h2>
     <ol>
-      <li><strong>定问题：</strong>先写「读者要做的决定」，再决定要不要写这条内容。没有决定场景的条目不收。</li>
-      <li><strong>找一手来源：</strong>官方文档、规范、论文、仓库 README、产品页。二手解读只在找不到一手时使用，并标出来。</li>
-      <li><strong>抄原文：</strong>关键规格、价格、许可、协议状态，必须从页面逐字摘一句，存进 <code>evidence</code>，不只写结论。</li>
-      <li><strong>写边界：</strong>每条内容都要回答「它没主张什么」「什么情况下不适用」。没有这一段的档案不发布。</li>
-      <li><strong>过门禁：</strong>字段完整性、链接可达性、数字口径、双语覆盖、重复与孤儿页，全部跑脚本；失败就不发布。</li>
-      <li><strong>标日期：</strong>写实际核验日，不改旧日期冒充复核。过期内容保留，但在页面上标出「待复核」。</li>
+      <li><span data-zh><strong>定问题：</strong>先写「读者要做的决定」，再决定要不要写这条内容。没有决定场景的条目不收。</span><span data-en><strong>Name the decision first.</strong> Write down the decision a reader needs to make, then decide whether the piece is worth publishing. If there is no real decision, it does not go in.</span></li>
+      <li><span data-zh><strong>找一手来源：</strong>官方文档、规范、论文、仓库 README、产品页。二手解读只在找不到一手时使用，并标出来。</span><span data-en><strong>Find a primary source.</strong> Official docs, specifications, papers, repository READMEs and product pages. Secondary coverage is used only when the primary source is unavailable, and it is labelled as such.</span></li>
+      <li><span data-zh><strong>抄原文：</strong>关键规格、价格、许可、协议状态，必须从页面逐字摘一句，存进 <code>evidence</code>，不只写结论。</span><span data-en><strong>Quote the source.</strong> For key specs, prices, licences and protocol status, copy one exact sentence into <code>evidence</code> instead of writing only the conclusion.</span></li>
+      <li><span data-zh><strong>写边界：</strong>每条内容都要回答「它没主张什么」「什么情况下不适用」。没有这一段的档案不发布。</span><span data-en><strong>Write the limits.</strong> Every entry answers “what does it not claim” and “when does it not apply”. No profile ships without that section.</span></li>
+      <li><span data-zh><strong>过门禁：</strong>字段完整性、链接可达性、数字口径、双语覆盖、重复与孤儿页，全部跑脚本；失败就不发布。</span><span data-en><strong>Run the gates.</strong> Field completeness, live links, number definitions, bilingual coverage, duplicates and orphan pages all run as scripts. If a gate fails, it does not ship.</span></li>
+      <li><span data-zh><strong>标日期：</strong>写实际核验日，不改旧日期冒充复核。过期内容保留，但在页面上标出「待复核」。</span><span data-en><strong>Date it honestly.</strong> Record the actual verification date and never relabel an old check as a new one. Out-of-date content stays up, marked “needs review”.</span></li>
     </ol>
   </section>
 
   <section>
-    <h2>可信度标签怎么读</h2>
+    <h2><span data-zh>可信度标签怎么读</span><span data-en>How to read the confidence labels</span></h2>
     <div class="tbl-wrap"><table>
-      <thead><tr><th>标签</th><th>含义</th><th>你能拿它做什么</th></tr></thead>
+      <thead><tr><th><span data-zh>标签</span><span data-en>Label</span></th><th><span data-zh>含义</span><span data-en>Meaning</span></th><th><span data-zh>你能拿它做什么</span><span data-en>What you can do with it</span></th></tr></thead>
       <tbody>
-        <tr><td><code>verified</code></td><td>关键字段逐条对照过官方来源，且当天可达。</td><td>可以直接用于选型初筛；仍要按自己的场景复核。</td></tr>
-        <tr><td><code>partial</code></td><td>主体信息有官方来源，但价格、额度、地区可用性等字段未逐项复核。</td><td>可以拿来比较方向；关键数字要回官方页确认。</td></tr>
-        <tr><td><code>unknown</code></td><td>来源缺失、页面打不开或信息自相矛盾。</td><td>只当线索，不要当结论。</td></tr>
-        <tr><td><code>已停运 / 已废弃</code></td><td>官方明确停止服务或规范废弃。</td><td>不要用于新项目；历史对照可以看。</td></tr>
+        <tr><td><code>verified</code></td><td><span data-zh>关键字段逐条对照过官方来源，且当天可达。</span><span data-en>Key fields were checked against official sources and were reachable on the day.</span></td><td><span data-zh>可以直接用于选型初筛；仍要按自己的场景复核。</span><span data-en>Use it for a first-pass shortlist; still check against your own case.</span></td></tr>
+        <tr><td><code>partial</code></td><td><span data-zh>主体信息有官方来源，但价格、额度、地区可用性等字段未逐项复核。</span><span data-en>The main facts have official sources, but fields such as price, quota and regional availability were not checked one by one.</span></td><td><span data-zh>可以拿来比较方向；关键数字要回官方页确认。</span><span data-en>Good for comparing direction; confirm key numbers on the official page.</span></td></tr>
+        <tr><td><code>unknown</code></td><td><span data-zh>来源缺失、页面打不开或信息自相矛盾。</span><span data-en>The source is missing, the page will not open, or the information contradicts itself.</span></td><td><span data-zh>只当线索，不要当结论。</span><span data-en>Treat it as a lead, not a conclusion.</span></td></tr>
+        <tr><td><span data-zh><code>已停运 / 已废弃</code></span><span data-en><code>Retired / deprecated</code></span></td><td><span data-zh>官方明确停止服务或规范废弃。</span><span data-en>The vendor explicitly ended the service, or the specification was deprecated.</span></td><td><span data-zh>不要用于新项目；历史对照可以看。</span><span data-en>Do not use it for new work; it remains useful for historical comparison.</span></td></tr>
       </tbody>
     </table></div>
-    <div class="card-note"><p>我们不会把 <code>partial</code> 直接改成 <code>verified</code> 来让数字好看。没有新一轮逐条核验，就保持原标签。</p></div>
-  </div>
+    <div class="card-note"><p><span data-zh>我们不会把 <code>partial</code> 直接改成 <code>verified</code> 来让数字好看。没有新一轮逐条核验，就保持原标签。</span><span data-en>We will not relabel <code>partial</code> as <code>verified</code> to make the numbers look better. Without a fresh field-by-field check, the label stays as it is.</span></p></div>
+  </section>
 </main>
 
   <!-- SPECUL:FOOTER:START -->

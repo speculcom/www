@@ -101,3 +101,22 @@ blockquote.attr {
 }
 blockquote.attr p { margin-bottom: 10px; font-size: var(--fs-micro); overflow-wrap: anywhere; }
 blockquote.attr p:last-child { margin-bottom: 0; }
+
+/* 全站地图：十站路线图（2026-11-20） */
+.sm-figure { margin: var(--sp-5) 0 var(--sp-4); }
+.sm-svg {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: var(--r-2xl);
+  background: var(--bg-panel);
+}
+.sm-figure figcaption {
+  margin-top: .75rem; color: var(--ink-dim);
+  font-size: var(--fs-xs); line-height: 1.65;
+}
+.sm-en { display: none; }
+html[data-lang="en"] .sm-zh { display: none; }
+html[data-lang="en"] .sm-en { display: block; }
+@media (max-width: 700px) {
+  .sm-figure { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .sm-svg { min-width: 760px; }
+}

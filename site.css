@@ -697,6 +697,19 @@ html[data-theme="light"] body.brand-ambient {
 .xp-site-wide .xp-site-copy b { color: var(--brand); }
 .xp-site-wide .xp-site-go { font-size: var(--fs-sm); }
 
+.xp-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }
+.xp-shot {
+  display: block; overflow: hidden; text-decoration: none; color: inherit;
+  border: 1px solid var(--line); border-radius: var(--r);
+  background: var(--bg-panel); transition: border-color .18s, transform .18s;
+}
+.xp-shot:hover { border-color: var(--brand-line); transform: translateY(-3px); }
+.xp-shot figure { margin: 0; }
+.xp-shot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: var(--bg-soft); }
+.xp-shot figcaption { display: flex; flex-direction: column; gap: .25rem; padding: .75rem .85rem .9rem; }
+.xp-shot b { font-size: var(--fs-sm); font-weight: 800; line-height: 1.4; }
+.xp-shot figcaption span { font-size: var(--fs-xs); color: var(--ink-mid); line-height: 1.6; }
+
 .xp-reads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
 .xp-read {
   display: flex; flex-direction: column; gap: .35rem; padding: var(--sp-4);
@@ -724,13 +737,13 @@ html[data-theme="light"] body.brand-ambient {
   .xp-hero-grid { grid-template-columns: 1fr; gap: var(--sp-4); align-items: start; }
   .xp-hero h1 { max-width: none; }
   .xp-hero-side { padding-bottom: 0; }
-  .xp-sites, .xp-reads { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .xp-sites, .xp-reads, .xp-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .xp-site-wide { grid-column: 1 / -1; }
 }
 @media (max-width: 640px) {
   .xp-hero { padding: var(--sp-4) 0 var(--sp-5); }
   .xp-sec { padding: var(--sp-5) 0; }
-  .xp-steps, .xp-tasks, .xp-sites, .xp-reads { grid-template-columns: 1fr; }
+  .xp-steps, .xp-tasks, .xp-sites, .xp-reads, .xp-gallery { grid-template-columns: 1fr; }
   .xp-sites { gap: .35rem; }
   .xp-site { min-height: 82px; padding: .75rem .9rem; }
   .xp-site-wide { grid-column: auto; }
@@ -742,5 +755,25 @@ html[data-theme="light"] body.brand-ambient {
   .xp-read { padding: var(--sp-3); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .xp-step, .xp-task, .xp-site, .xp-read { transition: none !important; }
+  .xp-step, .xp-task, .xp-site, .xp-read, .xp-shot { transition: none !important; }
+}
+
+/* 全站地图：十站路线图（2026-11-20）
+   静态 SVG 走内联，才能跟着深浅色和语言切换；不是装饰图，是导航的一部分。 */
+.sm-figure { margin: var(--sp-5) 0 var(--sp-4); }
+.sm-svg {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: var(--r-2xl);
+  background: var(--bg-panel);
+}
+.sm-figure figcaption {
+  margin-top: .75rem; color: var(--ink-dim);
+  font-size: var(--fs-xs); line-height: 1.65;
+}
+.sm-en { display: none; }
+html[data-lang="en"] .sm-zh { display: none; }
+html[data-lang="en"] .sm-en { display: block; }
+@media (max-width: 700px) {
+  .sm-figure { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .sm-svg { min-width: 760px; }
 }
