@@ -17,12 +17,12 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 | Credentials | https://chain.specul.com/ | How do you check AI-chain provenance credentials and permissions? |
 | Playground | https://demos.specul.com/ | Where can I run model-generated HTML works, see source and original prompts? |
 | OSS | https://oss.specul.com/ | Which repositories can I take, read, change and deploy? What are the licence, activity and onboarding costs? |
-| AI Directory | https://nav.specul.com/ | Off-site AI website directory, 613 entries / 11 categories |
+| AI Directory | https://nav.specul.com/ | Off-site AI website directory, 633 entries / 12 categories |
 
 ## About each site
 
 ### Learn AI — https://learn.specul.com/
-292 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 16 curated learning paths with checkpoints; 111 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 823 source entries; English coverage 292/292.
+299 terms arranged into six stations by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 16 curated learning paths with checkpoints; 111 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 837 source entries; English coverage 299/299.
 Every term can be traced back to its original source, **unknown is written as unknown**, and there is no overall ranking.
 
 ### Agent Atlas — https://tools.specul.com/
@@ -44,22 +44,22 @@ Evals: 40 common benchmarks, covering what they measure, how to read them and co
 Cloud compute: 26 providers across general cloud, GPU specialists, serverless and China cloud; billing scope and verification entry points only, no hard-coded prices that would age — https://hardware.specul.com/cloud/
 
 ### Papers — https://papers.specul.com/
-92 research-level paper cards with problem, evidence location, author-stated limits and non-claims; not reproduced is written as not reproduced.
+110 research-level paper cards with problem, evidence location, author-stated limits and non-claims; not reproduced is written as not reproduced.
 
 ### Chain × AI — https://chain.specul.com/
-40 AI-chain intersection entries, official protocols and specifications only; no token prices, exchanges or wallets.
+46 AI-chain intersection entries, official protocols and specifications only; no token prices, exchanges or wallets.
 
 ### Playground — https://demos.specul.com/
-314 runnable HTML works from 28 models, with source and original prompts linked; no ranking and no copying of unlicensed files.
+348 runnable HTML works from 31 models, with source and original prompts linked; no ranking and no copying of unlicensed files.
 
 ### OSS — https://oss.specul.com/
-131 AI open-source repositories in 7 scenes: agent frameworks, RAG and knowledge, local inference, multimodal visual, speech and audio, evaluation and observability, training and fine-tuning.
+135 AI open-source repositories in 7 scenes: agent frameworks, RAG and knowledge, local inference, multimodal visual, speech and audio, evaluation and observability, training and fine-tuning.
 Each card states licence, language, star snapshot, last push, what it suits and what it does not.
 **No star ranking, no security endorsement, no legal judgement for you**; GitHub facts are 2026-11-19 / 2026-11-20 snapshots, labelled per card.
 
 ### AI Directory — https://nav.specul.com/
 Off-site AI website directory: other AI sites, not Specul's own content.
-613 off-site AI websites (entries on the site, excluding extended domains), 11 categories, every link verified.
+633 off-site AI websites (entries on the site, excluding extended domains), 12 categories, every link verified.
 Each site is systematically introduced by "what it does and who it suits". Verification dates and probe methodology are written on the page,
 **probe failures do not declare death** — better to miss than to misjudge.
 

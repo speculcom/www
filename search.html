@@ -11,6 +11,11 @@
   <meta property="og:url" content="https://specul.com/search.html" />
   <meta property="og:title" content="全站搜索 · Specul" />
   <meta property="og:description" content="查找全站的概念、学习指南、任务流程、工具档案、模型专题、游戏项目与导航资源。支持中英标题和任务说法，按站点筛选；关闭脚本后仍可使用完整目录。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="alternate" hreflang="zh-CN" href="https://specul.com/search.html" />
+  <link rel="alternate" hreflang="en" href="https://specul.com/search.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://specul.com/search.html" />
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%2305080f'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=0e72a386c5db"></script>
@@ -58,7 +63,7 @@
         <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
       </span>
       <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
-           行为在共享 brand.js 里（一处实现、六站共用），样式在共享 brand.css。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
       <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
@@ -91,7 +96,7 @@
     </div>
   </aside>
   <main id="main">
-<div class="container search-page"><p class="kicker"><span data-zh>全站内容一起查</span><span data-en>Search across all sites</span></p><h1><span data-zh>找概念、任务、工具与资料</span><span data-en>Find concepts, tasks, tools and resources</span></h1><p><span data-zh>可搜产品名、别名或你想做的事，例如“把扫描件做成表格”“录音整理纪要”“显存不够”。</span><span data-en>Search a name, alias or task, such as “PDF to table”, “meeting notes” or “VRAM budget”. </span></p><form class="search-form" id="search-form" action="search.html" method="get" data-index="search-index.json?v=288d4854903b"><label for="search-query"><span data-zh>关键词或任务</span><span data-en>Keyword or task</span><input type="search" id="search-query" name="q" maxlength="300" autocomplete="off" placeholder="例如：录音整理纪要" data-ui-placeholder-zh="例如：录音整理纪要" data-ui-placeholder-en="For example: meeting notes"></label><label for="search-scope"><span data-zh>范围</span><span data-en>Scope</span><select id="search-scope" name="site"><option value="all" data-ui-text-zh="全部站点" data-ui-text-en="All sites">全部站点</option><option value="www" data-ui-text-zh="首页" data-ui-text-en="Home">首页</option><option value="learn" data-ui-text-zh="学 AI" data-ui-text-en="Learn">学 AI</option><option value="agent" data-ui-text-zh="工具" data-ui-text-en="Tools">工具</option><option value="models" data-ui-text-zh="模型" data-ui-text-en="Models">模型</option><option value="demos" data-ui-text-zh="作品演示" data-ui-text-en="Playground">作品演示</option><option value="oss" data-ui-text-zh="开源库" data-ui-text-en="OSS">开源库</option><option value="hardware" data-ui-text-zh="硬件算力" data-ui-text-en="Compute">硬件算力</option><option value="papers" data-ui-text-zh="AI 论文" data-ui-text-en="AI Papers">AI 论文</option><option value="chain" data-ui-text-zh="链" data-ui-text-en="Chain">链</option><option value="nav" data-ui-text-zh="AI 导航" data-ui-text-en="AI Directory">AI 导航</option></select></label><button type="submit"><span data-zh>查找</span><span data-en>Search</span></button><button type="reset"><span data-zh>清空</span><span data-en>Clear</span></button></form><p><span data-zh>搜索在你自己的浏览器里完成；想分享，直接把地址发过去。按 / 可以回到搜索框。</span><span data-en>Search runs in your browser. To share, just send the URL. Press / to return to the search box.</span></p><p id="search-status" role="status" aria-live="polite"><span data-zh>正在准备搜索；下方完整目录仍可使用。</span><span data-en>Preparing search; the complete directory below remains available.</span></p><section class="fx-bar search-domains" id="search-domains" aria-labelledby="search-domains-title"><div class="fx-head"><span class="fx-title" id="search-domains-title"><span data-zh>按主题域缩小范围</span><span data-en>Narrow by topic domain</span></span><span class="fx-count" aria-live="polite"><b id="search-domains-count">2308</b> <span data-zh>条可见</span><span data-en>shown</span></span></div><div class="fx-chips" role="group" aria-labelledby="search-domains-title"><button type="button" class="fx-chip" data-filter-domain="all" aria-pressed="true"><span class="fx-dot"></span><span data-zh>全部</span><span data-en>All</span><em class="fx-n" data-count-for="all">2308</em></button><button type="button" class="fx-chip" data-filter-domain="basics" aria-pressed="false"><span class="fx-dot"></span><span data-zh>基础与概念</span><span data-en>Basics</span><em class="fx-n" data-count-for="basics">284</em></button><button type="button" class="fx-chip" data-filter-domain="build" aria-pressed="false"><span class="fx-dot"></span><span data-zh>开发与自动化</span><span data-en>Build &amp; automate</span><em class="fx-n" data-count-for="build">866</em></button><button type="button" class="fx-chip" data-filter-domain="media" aria-pressed="false"><span class="fx-dot"></span><span data-zh>图像·视频·音频</span><span data-en>Media</span><em class="fx-n" data-count-for="media">218</em></button><button type="button" class="fx-chip" data-filter-domain="models" aria-pressed="false"><span class="fx-dot"></span><span data-zh>模型与选型</span><span data-en>Models</span><em class="fx-n" data-count-for="models">314</em></button><button type="button" class="fx-chip" data-filter-domain="data" aria-pressed="false"><span class="fx-dot"></span><span data-zh>数据与语料</span><span data-en>Data &amp; datasets</span><em class="fx-n" data-count-for="data">58</em></button><button type="button" class="fx-chip" data-filter-domain="compute" aria-pressed="false"><span class="fx-dot"></span><span data-zh>算力与硬件</span><span data-en>Compute</span><em class="fx-n" data-count-for="compute">236</em></button><button type="button" class="fx-chip" data-filter-domain="robot" aria-pressed="false"><span class="fx-dot"></span><span data-zh>机器人与具身</span><span data-en>Robotics</span><em class="fx-n" data-count-for="robot">92</em></button><button type="button" class="fx-chip" data-filter-domain="research" aria-pressed="false"><span class="fx-dot"></span><span data-zh>研究与论文</span><span data-en>Research</span><em class="fx-n" data-count-for="research">163</em></button><button type="button" class="fx-chip" data-filter-domain="trust" aria-pressed="false"><span class="fx-dot"></span><span data-zh>安全·许可·凭证</span><span data-en>Trust &amp; rights</span><em class="fx-n" data-count-for="trust">68</em></button><button type="button" class="fx-chip" data-filter-domain="work" aria-pressed="false"><span class="fx-dot"></span><span data-zh>办公与业务流程</span><span data-en>Workflows</span><em class="fx-n" data-count-for="work">75</em></button></div><div class="sf-leads" id="search-domain-leads"><p class="sf-lead" data-lead-for="all"><span data-zh>十个站、四个资料目录和 AI 导航，用同一套主题域归类。选一个域，只留下这一片的内容。</span><span data-en>Ten sites, four resource catalogues and AI Directory, all filed under one set of topic domains. Pick one to keep only that slice.</span></p><p class="sf-lead" data-lead-for="basics" hidden><span data-zh>名词、原理、学习顺序。不懂这些，后面的都读不下去。</span><span data-en>Terms, principles and reading order. Without these, nothing later makes sense.</span></p>
+<div class="container search-page"><p class="kicker"><span data-zh>全站内容一起查</span><span data-en>Search across all sites</span></p><h1><span data-zh>找概念、任务、工具与资料</span><span data-en>Find concepts, tasks, tools and resources</span></h1><p><span data-zh>可搜产品名、别名或你想做的事，例如“把扫描件做成表格”“录音整理纪要”“显存不够”。</span><span data-en>Search a name, alias or task, such as “PDF to table”, “meeting notes” or “VRAM budget”. </span></p><form class="search-form" id="search-form" action="search.html" method="get" data-index="search-index.json?v=e4212cfdff18"><label for="search-query"><span data-zh>关键词或任务</span><span data-en>Keyword or task</span><input type="search" id="search-query" name="q" maxlength="300" autocomplete="off" placeholder="例如：录音整理纪要" data-ui-placeholder-zh="例如：录音整理纪要" data-ui-placeholder-en="For example: meeting notes"></label><label for="search-scope"><span data-zh>范围</span><span data-en>Scope</span><select id="search-scope" name="site"><option value="all" data-ui-text-zh="全部站点" data-ui-text-en="All sites">全部站点</option><option value="www" data-ui-text-zh="首页" data-ui-text-en="Home">首页</option><option value="learn" data-ui-text-zh="学 AI" data-ui-text-en="Learn">学 AI</option><option value="agent" data-ui-text-zh="工具" data-ui-text-en="Tools">工具</option><option value="models" data-ui-text-zh="模型" data-ui-text-en="Models">模型</option><option value="demos" data-ui-text-zh="作品演示" data-ui-text-en="Playground">作品演示</option><option value="oss" data-ui-text-zh="开源库" data-ui-text-en="OSS">开源库</option><option value="hardware" data-ui-text-zh="硬件算力" data-ui-text-en="Compute">硬件算力</option><option value="papers" data-ui-text-zh="AI 论文" data-ui-text-en="AI Papers">AI 论文</option><option value="chain" data-ui-text-zh="链" data-ui-text-en="Chain">链</option><option value="nav" data-ui-text-zh="AI 导航" data-ui-text-en="AI Directory">AI 导航</option></select></label><button type="submit"><span data-zh>查找</span><span data-en>Search</span></button><button type="reset"><span data-zh>清空</span><span data-en>Clear</span></button></form><p><span data-zh>搜索在你自己的浏览器里完成；想分享，直接把地址发过去。按 / 可以回到搜索框。</span><span data-en>Search runs in your browser. To share, just send the URL. Press / to return to the search box.</span></p><p id="search-status" role="status" aria-live="polite"><span data-zh>正在准备搜索；下方完整目录仍可使用。</span><span data-en>Preparing search; the complete directory below remains available.</span></p><section class="fx-bar search-domains" id="search-domains" aria-labelledby="search-domains-title"><div class="fx-head"><span class="fx-title" id="search-domains-title"><span data-zh>按主题域缩小范围</span><span data-en>Narrow by topic domain</span></span><span class="fx-count" aria-live="polite"><b id="search-domains-count">2417</b> <span data-zh>条可见</span><span data-en>shown</span></span></div><div class="fx-chips" role="group" aria-labelledby="search-domains-title"><button type="button" class="fx-chip" data-filter-domain="all" aria-pressed="true"><span class="fx-dot"></span><span data-zh>全部</span><span data-en>All</span><em class="fx-n" data-count-for="all">2417</em></button><button type="button" class="fx-chip" data-filter-domain="basics" aria-pressed="false"><span class="fx-dot"></span><span data-zh>基础与概念</span><span data-en>Basics</span><em class="fx-n" data-count-for="basics">284</em></button><button type="button" class="fx-chip" data-filter-domain="build" aria-pressed="false"><span class="fx-dot"></span><span data-zh>开发与自动化</span><span data-en>Build &amp; automate</span><em class="fx-n" data-count-for="build">899</em></button><button type="button" class="fx-chip" data-filter-domain="media" aria-pressed="false"><span class="fx-dot"></span><span data-zh>图像·视频·音频</span><span data-en>Media</span><em class="fx-n" data-count-for="media">238</em></button><button type="button" class="fx-chip" data-filter-domain="models" aria-pressed="false"><span class="fx-dot"></span><span data-zh>模型与选型</span><span data-en>Models</span><em class="fx-n" data-count-for="models">323</em></button><button type="button" class="fx-chip" data-filter-domain="data" aria-pressed="false"><span class="fx-dot"></span><span data-zh>数据与语料</span><span data-en>Data &amp; datasets</span><em class="fx-n" data-count-for="data">62</em></button><button type="button" class="fx-chip" data-filter-domain="compute" aria-pressed="false"><span class="fx-dot"></span><span data-zh>算力与硬件</span><span data-en>Compute</span><em class="fx-n" data-count-for="compute">239</em></button><button type="button" class="fx-chip" data-filter-domain="robot" aria-pressed="false"><span class="fx-dot"></span><span data-zh>机器人与具身</span><span data-en>Robotics</span><em class="fx-n" data-count-for="robot">95</em></button><button type="button" class="fx-chip" data-filter-domain="research" aria-pressed="false"><span class="fx-dot"></span><span data-zh>研究与论文</span><span data-en>Research</span><em class="fx-n" data-count-for="research">178</em></button><button type="button" class="fx-chip" data-filter-domain="trust" aria-pressed="false"><span class="fx-dot"></span><span data-zh>安全·许可·凭证</span><span data-en>Trust &amp; rights</span><em class="fx-n" data-count-for="trust">95</em></button><button type="button" class="fx-chip" data-filter-domain="work" aria-pressed="false"><span class="fx-dot"></span><span data-zh>办公与业务流程</span><span data-en>Workflows</span><em class="fx-n" data-count-for="work">75</em></button></div><div class="sf-leads" id="search-domain-leads"><p class="sf-lead" data-lead-for="all"><span data-zh>十个站、四个资料目录和 AI 导航，用同一套主题域归类。选一个域，只留下这一片的内容。</span><span data-en>Ten sites, four resource catalogues and AI Directory, all filed under one set of topic domains. Pick one to keep only that slice.</span></p><p class="sf-lead" data-lead-for="basics" hidden><span data-zh>名词、原理、学习顺序。不懂这些，后面的都读不下去。</span><span data-en>Terms, principles and reading order. Without these, nothing later makes sense.</span></p>
 <p class="sf-lead" data-lead-for="build" hidden><span data-zh>写代码、跑 Agent、编排流程、接工具。</span><span data-en>Writing code, running agents, wiring workflows and tools.</span></p>
 <p class="sf-lead" data-lead-for="media" hidden><span data-zh>非文字内容的生成与编辑：图、片、声。</span><span data-en>Making and editing non-text content: images, video, audio.</span></p>
 <p class="sf-lead" data-lead-for="models" hidden><span data-zh>模型能做什么、多大、多少钱、本地怎么跑。</span><span data-en>What a model can do, how big it is, what it costs, how to run it locally.</span></p>
@@ -100,7 +105,7 @@
 <p class="sf-lead" data-lead-for="robot" hidden><span data-zh>本体、控制栈、仿真与评测环境。</span><span data-en>Bodies, control stacks, simulation and evaluation environments.</span></p>
 <p class="sf-lead" data-lead-for="research" hidden><span data-zh>论文原文、评测口径、查证与复现状态。</span><span data-en>Paper text, evaluation claims, checking and reproduction status.</span></p>
 <p class="sf-lead" data-lead-for="trust" hidden><span data-zh>权限边界、数据去向、许可与来源凭证。</span><span data-en>Permission boundaries, where data goes, licences and provenance.</span></p>
-<p class="sf-lead" data-lead-for="work" hidden><span data-zh>文档、表格、会议与垂直业务里的用法。</span><span data-en>Documents, spreadsheets, meetings and vertical business use.</span></p></div></section><ul id="search-results" class="search-results"></ul><button type="button" id="search-more" hidden><span data-zh>再显示 40 项</span><span data-en>Show 40 more</span></button><noscript><style>#search-form,#search-domains{display:none}</style><p><span data-zh>未开启脚本：使用下方全站目录，或浏览器的页面查找。展开分类可直接打开全部条目。</span><span data-en>Without JavaScript, use the ten-site directory below or your browser’s Find command. Expand a group to open any entry.</span></p></noscript><section id="browse-index" class="search-directory"><h2><span data-zh>全站完整目录</span><span data-en>Complete ten-site directory</span></h2><details><summary><span data-zh>首页</span><span data-en>Home</span> · 25</summary><ul><li><a href="https://specul.com/404.html"><span data-zh>这个地址没有页面</span><span data-en>This address has no page</span></a></li>
+<p class="sf-lead" data-lead-for="work" hidden><span data-zh>文档、表格、会议与垂直业务里的用法。</span><span data-en>Documents, spreadsheets, meetings and vertical business use.</span></p></div></section><ul id="search-results" class="search-results"></ul><button type="button" id="search-more" hidden><span data-zh>再显示 40 项</span><span data-en>Show 40 more</span></button><noscript><style>#search-form,#search-domains{display:none}</style><p><span data-zh>未开启脚本：使用下方全站目录，或浏览器的页面查找。展开分类可直接打开全部条目。</span><span data-en>Without JavaScript, use the ten-site directory below or your browser’s Find command. Expand a group to open any entry.</span></p></noscript><section id="browse-index" class="search-directory"><h2><span data-zh>全站完整目录</span><span data-en>Complete ten-site directory</span></h2><details><summary><span data-zh>首页</span><span data-en>Home</span> · 29</summary><ul><li><a href="https://specul.com/404.html"><span data-zh>这个地址没有页面</span><span data-en>This address has no page</span></a></li>
 <li><a href="https://specul.com/about.html"><span data-zh>关于 Specul</span><span data-en>About Specul</span></a></li>
 <li><a href="https://specul.com/correct.html"><span data-zh>生成一份纠错草稿</span><span data-en>Compose a correction draft</span></a></li>
 <li><a href="https://specul.com/domain-robot.html"><span data-zh>机器人与具身：先跑通一条闭环，再谈人形</span><span data-en>Robotics and embodied AI: close one loop before building a humanoid</span></a></li>
@@ -111,21 +116,25 @@
 <li><a href="https://specul.com/map.html"><span data-zh>全站地图</span><span data-en>Site map</span></a></li>
 <li><a href="https://specul.com/method.html"><span data-zh>方法与口径</span><span data-en>Method and standards</span></a></li>
 <li><a href="https://specul.com/three-stars.html"><span data-zh>三颗星，一扇门：把同一个游戏逐步做完整</span><span data-en>Three stars, one door: complete one game step by step</span></a></li>
+<li><a href="https://specul.com/topic-3d.html"><span data-zh>3D 与数字人，按顺序找资料</span><span data-en>3D and digital humans: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-agent.html"><span data-zh>用 AI 搭智能体，按顺序找资料</span><span data-en>Build AI agents: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-code.html"><span data-zh>用 AI 写代码，按顺序找资料</span><span data-en>Write code with AI: resources in order</span></a></li>
+<li><a href="https://specul.com/topic-data.html"><span data-zh>数据与训练，按顺序找资料</span><span data-en>Data and training: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-eval.html"><span data-zh>评测模型与智能体，按顺序找资料</span><span data-en>Evaluate models and agents: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-game.html"><span data-zh>用 AI 做一个能玩的游戏，按顺序找资料</span><span data-en>Build a playable game with AI: resources in order</span></a></li>
+<li><a href="https://specul.com/topic-image.html"><span data-zh>做图与设计，按顺序找资料</span><span data-en>Images and design: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-local.html"><span data-zh>在本机跑模型，按顺序找资料</span><span data-en>Run models locally: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-music.html"><span data-zh>用 AI 写音乐，按顺序找资料</span><span data-en>Make music with AI: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-office.html"><span data-zh>用 AI 处理办公任务，按顺序找资料</span><span data-en>Handle office work with AI: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-prompts.html"><span data-zh>用 AI 写提示词与工作流，按顺序找资料</span><span data-en>Write prompts and workflows: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-research.html"><span data-zh>用 AI 做研究，按顺序找资料</span><span data-en>Do research with AI: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-robot.html"><span data-zh>用 AI 做机器人，按顺序找资料</span><span data-en>Build robots with AI: resources in order</span></a></li>
+<li><a href="https://specul.com/topic-safety.html"><span data-zh>安全与合规，按顺序找资料</span><span data-en>Safety and compliance: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-speech.html"><span data-zh>做语音与配音，按顺序找资料</span><span data-en>Build speech and voice: resources in order</span></a></li>
 <li><a href="https://specul.com/topic-video.html"><span data-zh>用 AI 做视频，按顺序找资料</span><span data-en>Make video with AI: resources in order</span></a></li>
-<li><a href="https://specul.com/topics.html"><span data-zh>十二个主题，各有一条跨站路线</span><span data-en>Twelve topics, each with a cross-site route</span></a></li>
+<li><a href="https://specul.com/topics.html"><span data-zh>十六个主题，各有一条跨站路线</span><span data-en>Sixteen topics, each with a cross-site route</span></a></li>
 <li><a href="https://specul.com/updates-2026-11.html"><span data-zh>2026 年，AI 的硬件、模型与协议一起换了挡</span><span data-en>In 2026, hardware, models and protocols shifted together</span></a></li></ul></details>
-<details><summary><span data-zh>学 AI</span><span data-en>Learn</span> · 424</summary><ul><li><a href="https://learn.specul.com/2026.html"><span data-zh>四个词，补上四条最常被跳过的线</span><span data-en>Four terms for four lines that are usually skipped</span></a></li>
+<details><summary><span data-zh>学 AI</span><span data-en>Learn</span> · 431</summary><ul><li><a href="https://learn.specul.com/2026.html"><span data-zh>四个词，补上四条最常被跳过的线</span><span data-en>Four terms for four lines that are usually skipped</span></a></li>
 <li><a href="https://learn.specul.com/404.html"><span data-zh>这个地址没有页面</span><span data-en>This address has no page</span></a></li>
 <li><a href="https://learn.specul.com/aliases/"><span data-zh>名词对照</span><span data-en>Term index</span></a></li>
 <li><a href="https://learn.specul.com/atlas/"><span data-zh>AI 编年史与版图</span><span data-en>AI Chronicle and Atlas</span></a></li>
@@ -259,6 +268,9 @@
 <li><a href="https://learn.specul.com/path/quick-start/"><span data-zh>半小时入门</span><span data-en>The Half-Hour Primer</span></a></li>
 <li><a href="https://learn.specul.com/term/A2A%EF%BC%88Agent2Agent%20%E5%8D%8F%E8%AE%AE%EF%BC%89/"><span data-zh>A2A（Agent2Agent 协议）</span><span data-en>A2A (Agent2Agent Protocol)</span></a></li>
 <li><a href="https://learn.specul.com/term/ACP/"><span data-zh>ACP</span><span data-en>Agent Client Protocol</span></a></li>
+<li><a href="https://learn.specul.com/term/AG-UI/"><span data-zh>AG-UI（Agent-User Interaction 协议）</span><span data-en>AG-UI (Agent-User Interaction Protocol)</span></a></li>
+<li><a href="https://learn.specul.com/term/Agent%20Memory/"><span data-zh>Agent Memory（智能体记忆）</span><span data-en>Agent Memory</span></a></li>
+<li><a href="https://learn.specul.com/term/Agent%20Payments/"><span data-zh>Agent Payments（智能体支付）</span><span data-en>Agent Payments</span></a></li>
 <li><a href="https://learn.specul.com/term/Agentic%20RAG/"><span data-zh>Agentic RAG</span><span data-en>Agentic RAG</span></a></li>
 <li><a href="https://learn.specul.com/term/AGI/"><span data-zh>AGI（通用人工智能）</span><span data-en>AGI (Artificial General Intelligence)</span></a></li>
 <li><a href="https://learn.specul.com/term/AI%20Agent%20%E4%B8%8E%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E5%8C%BA%E5%88%AB/"><span data-zh>AI Agent 与聊天机器人的区别</span><span data-en>Agent vs Chatbot</span></a></li>
@@ -269,12 +281,14 @@
 <li><a href="https://learn.specul.com/term/API%20-%20%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8/"><span data-zh>API / 接口调用</span><span data-en>API</span></a></li>
 <li><a href="https://learn.specul.com/term/App%20Server/"><span data-zh>App Server</span><span data-en>App Server</span></a></li>
 <li><a href="https://learn.specul.com/term/bpw/"><span data-zh>bpw</span><span data-en>Bits Per Weight</span></a></li>
+<li><a href="https://learn.specul.com/term/Byteification/"><span data-zh>Byteification（字节化）</span><span data-en>Byteification</span></a></li>
 <li><a href="https://learn.specul.com/term/CLIP/"><span data-zh>CLIP</span><span data-en>Contrastive Language-Image Pre-training</span></a></li>
 <li><a href="https://learn.specul.com/term/Computer%20Use/"><span data-zh>Computer Use</span><span data-en>Computer Use</span></a></li>
 <li><a href="https://learn.specul.com/term/ControlNet/"><span data-zh>ControlNet</span><span data-en>ControlNet</span></a></li>
 <li><a href="https://learn.specul.com/term/CPU%20%E6%8E%A8%E7%90%86/"><span data-zh>CPU 推理</span><span data-en>CPU Inference</span></a></li>
 <li><a href="https://learn.specul.com/term/CUDA/"><span data-zh>CUDA</span><span data-en>CUDA</span></a></li>
 <li><a href="https://learn.specul.com/term/DPO%EF%BC%88%E7%9B%B4%E6%8E%A5%E5%81%8F%E5%A5%BD%E4%BC%98%E5%8C%96%EF%BC%89/"><span data-zh>DPO（直接偏好优化）</span><span data-en>DPO (Direct Preference Optimization)</span></a></li>
+<li><a href="https://learn.specul.com/term/ERC-8004/"><span data-zh>ERC-8004</span><span data-en>ERC-8004</span></a></li>
 <li><a href="https://learn.specul.com/term/FlashAttention/"><span data-zh>FlashAttention</span><span data-en>FlashAttention</span></a></li>
 <li><a href="https://learn.specul.com/term/Flow%20Matching/"><span data-zh>Flow Matching</span><span data-en>Flow Matching</span></a></li>
 <li><a href="https://learn.specul.com/term/FrugalGPT%EF%BC%88%E7%BA%A7%E8%81%94%E6%8E%A8%E7%90%86%EF%BC%89/"><span data-zh>FrugalGPT（级联推理）</span><span data-en>FrugalGPT (LLM cascade)</span></a></li>
@@ -292,6 +306,7 @@
 <li><a href="https://learn.specul.com/term/logits%20%E4%B8%8E%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/"><span data-zh>logits 与概率分布</span><span data-en>Logits and Probability Distribution</span></a></li>
 <li><a href="https://learn.specul.com/term/LoRA/"><span data-zh>LoRA</span><span data-en>LoRA (Low-Rank Adaptation)</span></a></li>
 <li><a href="https://learn.specul.com/term/MCP/"><span data-zh>MCP</span><span data-en>Model Context Protocol</span></a></li>
+<li><a href="https://learn.specul.com/term/MCP%20Apps/"><span data-zh>MCP Apps</span><span data-en>MCP Apps</span></a></li>
 <li><a href="https://learn.specul.com/term/MLA/"><span data-zh>MLA</span><span data-en>Multi-head Latent Attention</span></a></li>
 <li><a href="https://learn.specul.com/term/MLX/"><span data-zh>MLX</span><span data-en>MLX</span></a></li>
 <li><a href="https://learn.specul.com/term/MoE%20-%20%E6%B7%B7%E5%90%88%E4%B8%93%E5%AE%B6/"><span data-zh>MoE（混合专家）</span><span data-en>Mixture of Experts (MoE)</span></a></li>
@@ -316,6 +331,7 @@
 <li><a href="https://learn.specul.com/term/Tree%20of%20Thoughts%EF%BC%88%E6%80%9D%E7%BB%B4%E6%A0%91%EF%BC%89/"><span data-zh>Tree of Thoughts（思维树）</span><span data-en>Tree of Thoughts</span></a></li>
 <li><a href="https://learn.specul.com/term/vLLM/"><span data-zh>vLLM</span><span data-en>vLLM</span></a></li>
 <li><a href="https://learn.specul.com/term/Workflow%20%E8%BF%98%E6%98%AF%20Agent/"><span data-zh>Workflow 还是 Agent</span><span data-en>Workflow vs Agent</span></a></li>
+<li><a href="https://learn.specul.com/term/x402/"><span data-zh>x402</span><span data-en>x402</span></a></li>
 <li><a href="https://learn.specul.com/term/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8E%8B%E7%BC%A9/"><span data-zh>上下文压缩</span><span data-en>Compaction</span></a></li>
 <li><a href="https://learn.specul.com/term/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%AD%A6%E4%B9%A0/"><span data-zh>上下文学习</span><span data-en>In-context Learning</span></a></li>
 <li><a href="https://learn.specul.com/term/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B/"><span data-zh>上下文工程</span><span data-en>Context Engineering</span></a></li>
@@ -549,7 +565,7 @@
 <li><a href="https://learn.specul.com/term/%E9%A2%84%E8%A7%88%E7%89%88%E4%B8%8E%E6%AD%A3%E5%BC%8F%E7%89%88/"><span data-zh>预览版与正式版</span><span data-en>Preview vs GA</span></a></li>
 <li><a href="https://learn.specul.com/term/%E9%A2%84%E8%AE%AD%E7%BB%83/"><span data-zh>预训练</span><span data-en>Pre-training</span></a></li>
 <li><a href="https://learn.specul.com/term/%E9%A6%96%E5%AD%97%E5%BB%B6%E8%BF%9F/"><span data-zh>首字延迟</span><span data-en>Time To First Token, TTFT</span></a></li></ul></details>
-<details><summary><span data-zh>工具</span><span data-en>Tools</span> · 373</summary><ul><li><a href="https://tools.specul.com/2026.html"><span data-zh>Agent 工具的接线，在 2026 年换了四次</span><span data-en>Agent tool wiring changed four times in 2026</span></a></li>
+<details><summary><span data-zh>工具</span><span data-en>Tools</span> · 383</summary><ul><li><a href="https://tools.specul.com/2026.html"><span data-zh>Agent 工具的接线，在 2026 年换了四次</span><span data-en>Agent tool wiring changed four times in 2026</span></a></li>
 <li><a href="https://tools.specul.com/404.html"><span data-zh>这个地址没有页面</span><span data-en>This address has no page</span></a></li>
 <li><a href="https://tools.specul.com/audio/aiva.html"><span data-zh>AIVA</span><span data-en>AIVA</span></a></li>
 <li><a href="https://tools.specul.com/audio/assemblyai.html"><span data-zh>AssemblyAI</span><span data-en>AssemblyAI</span></a></li>
@@ -660,6 +676,11 @@
 <li><a href="https://tools.specul.com/coding/warp.html"><span data-zh>Warp</span><span data-en>Warp</span></a></li>
 <li><a href="https://tools.specul.com/coding/windsurf.html"><span data-zh>Windsurf / Devin Desktop</span><span data-en>Windsurf / Devin Desktop</span></a></li>
 <li><a href="https://tools.specul.com/coding/zed.html"><span data-zh>Zed</span><span data-en>Zed</span></a></li>
+<li><a href="https://tools.specul.com/collection-3d.html"><span data-zh>3D 与数字人：先定交付，再选管线</span><span data-en>3D and digital humans: fix the deliverable, then the pipeline</span></a></li>
+<li><a href="https://tools.specul.com/collection-annotation.html"><span data-zh>数据标注：先定评测，再定标注格式</span><span data-en>Data annotation: fix the evaluation before the format</span></a></li>
+<li><a href="https://tools.specul.com/collection-browser.html"><span data-zh>让 Agent 操作浏览器：哪一层该谁负责</span><span data-en>Let an agent drive a browser: which layer does what</span></a></li>
+<li><a href="https://tools.specul.com/collection-memory.html"><span data-zh>Agent 记忆：写什么、怎么读、什么时候忘</span><span data-en>Agent memory: what to write, how to read, when to forget</span></a></li>
+<li><a href="https://tools.specul.com/collection-realtime.html"><span data-zh>实时语音 Agent：一条链路上的五个延迟点</span><span data-en>Realtime voice agents: five latency points on one chain</span></a></li>
 <li><a href="https://tools.specul.com/framework/ag2.html"><span data-zh>AG2</span><span data-en>AG2</span></a></li>
 <li><a href="https://tools.specul.com/framework/agentscope.html"><span data-zh>AgentScope</span><span data-en>AgentScope</span></a></li>
 <li><a href="https://tools.specul.com/framework/agno.html"><span data-zh>Agno（原 Phidata）</span><span data-en>Agno (formerly Phidata)</span></a></li>
@@ -847,6 +868,7 @@
 <li><a href="https://tools.specul.com/office/tencent-docs-ai.html"><span data-zh>腾讯文档 AI</span><span data-en>Tencent Docs AI</span></a></li>
 <li><a href="https://tools.specul.com/office/tldv.html"><span data-zh>tl;dv</span><span data-en>tl;dv</span></a></li>
 <li><a href="https://tools.specul.com/office/wps-ai.html"><span data-zh>WPS AI</span><span data-en>WPS AI</span></a></li>
+<li><a href="https://tools.specul.com/prompts/"><span data-zh>提示词：6 篇指南 + 24 个案例</span><span data-en>提示词：6 篇指南 + 24 个案例</span></a></li>
 <li><a href="https://tools.specul.com/research/andi.html"><span data-zh>Andi Search</span><span data-en>Andi Search</span></a></li>
 <li><a href="https://tools.specul.com/research/consensus.html"><span data-zh>Consensus</span><span data-en>Consensus</span></a></li>
 <li><a href="https://tools.specul.com/research/devv.html"><span data-zh>Devv</span><span data-en>Devv</span></a></li>
@@ -907,6 +929,10 @@
 <li><a href="https://tools.specul.com/safety/ragas.html"><span data-zh>Ragas</span><span data-en>Ragas</span></a></li>
 <li><a href="https://tools.specul.com/safety/rebuff.html"><span data-zh>Rebuff</span><span data-en>Rebuff</span></a></li>
 <li><a href="https://tools.specul.com/safety/truepic.html"><span data-zh>Truepic Vision / Lens</span><span data-en>Truepic Vision / Lens</span></a></li>
+<li><a href="https://tools.specul.com/skills/build-test.html"><span data-zh>怎么写、怎么测：先做最小可运行版本</span><span data-en>怎么写、怎么测：先做最小可运行版本</span></a></li>
+<li><a href="https://tools.specul.com/skills/"><span data-zh>Skills 是什么：能力包，不是提示词</span><span data-en>Skills 是什么：能力包，不是提示词</span></a></li>
+<li><a href="https://tools.specul.com/skills/review.html"><span data-zh>怎么审第三方 Skill：先看它碰什么</span><span data-en>怎么审第三方 Skill：先看它碰什么</span></a></li>
+<li><a href="https://tools.specul.com/skills/structure.html"><span data-zh>一个 Skill 的结构：SKILL.md、脚本、资源、触发条件</span><span data-en>一个 Skill 的结构：SKILL.md、脚本、资源、触发条件</span></a></li>
 <li><a href="https://tools.specul.com/video/d-id.html"><span data-zh>D-ID</span><span data-en>D-ID</span></a></li>
 <li><a href="https://tools.specul.com/video/genmo.html"><span data-zh>Genmo</span><span data-en>Genmo</span></a></li>
 <li><a href="https://tools.specul.com/video/hailuo-video.html"><span data-zh>海螺视频</span><span data-en>Hailuo Video</span></a></li>
@@ -922,7 +948,7 @@
 <li><a href="https://tools.specul.com/video/synthesia.html"><span data-zh>Synthesia</span><span data-en>Synthesia</span></a></li>
 <li><a href="https://tools.specul.com/video/veo.html"><span data-zh>Veo（Google）</span><span data-en>Veo (Google)</span></a></li>
 <li><a href="https://tools.specul.com/video/vidu.html"><span data-zh>Vidu</span><span data-en>Vidu</span></a></li></ul></details>
-<details><summary><span data-zh>模型</span><span data-en>Models</span> · 154</summary><ul><li><a href="https://models.specul.com/2026.html"><span data-zh>六个开放权重节点，改写了 2026 的选型表</span><span data-en>Six open-weight nodes rewrote the 2026 selection table</span></a></li>
+<details><summary><span data-zh>模型</span><span data-en>Models</span> · 159</summary><ul><li><a href="https://models.specul.com/2026.html"><span data-zh>六个开放权重节点，改写了 2026 的选型表</span><span data-en>Six open-weight nodes rewrote the 2026 selection table</span></a></li>
 <li><a href="https://models.specul.com/404.html"><span data-zh>这个地址没有页面</span><span data-en>This address has no page</span></a></li>
 <li><a href="https://models.specul.com/closed/claude/"><span data-zh>Claude（闭源 API）闭源模型 · 官方规格快照 · 带复核周期</span><span data-en>Claude (closed API)closed model · official spec snapshot · with review cycle</span></a></li>
 <li><a href="https://models.specul.com/closed/doubao/"><span data-zh>豆包（闭源 API）闭源模型 · 官方规格快照 · 带复核周期</span><span data-en>Doubao (closed API)closed model · official spec snapshot · with review cycle</span></a></li>
@@ -1032,9 +1058,11 @@
 <li><a href="https://models.specul.com/evals/webarena.html"><span data-zh>WebArena</span><span data-en>WebArena</span></a></li>
 <li><a href="https://models.specul.com/families/command/"><span data-zh>Command A模型家族谱系卡</span><span data-en>Command Amodel family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/deepseek/"><span data-zh>DeepSeek模型家族谱系卡</span><span data-en>DeepSeekmodel family lineage card</span></a></li>
+<li><a href="https://models.specul.com/families/falcon/"><span data-zh>Falcon模型家族谱系卡</span><span data-en>Falconmodel family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/gemma/"><span data-zh>Gemma模型家族谱系卡</span><span data-en>Gemmamodel family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/glm/"><span data-zh>GLM 智谱模型家族谱系卡</span><span data-en>GLM (Z.ai)model family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/gpt-oss/"><span data-zh>gpt-oss模型家族谱系卡</span><span data-en>gpt-ossmodel family lineage card</span></a></li>
+<li><a href="https://models.specul.com/families/granite/"><span data-zh>Granite模型家族谱系卡</span><span data-en>Granitemodel family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/kat/"><span data-zh>KAT Coder模型家族谱系卡</span><span data-en>KAT Codermodel family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/kimi/"><span data-zh>Kimi模型家族谱系卡</span><span data-en>Kimimodel family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/laguna/"><span data-zh>Laguna模型家族谱系卡</span><span data-en>Lagunamodel family lineage card</span></a></li>
@@ -1042,6 +1070,8 @@
 <li><a href="https://models.specul.com/families/minicpm/"><span data-zh>MiniCPM模型家族谱系卡</span><span data-en>MiniCPMmodel family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/mistral/"><span data-zh>Mistral模型家族谱系卡</span><span data-en>Mistralmodel family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/muse/"><span data-zh>Muse模型家族谱系卡</span><span data-en>Musemodel family lineage card</span></a></li>
+<li><a href="https://models.specul.com/families/nemotron/"><span data-zh>Nemotron模型家族谱系卡</span><span data-en>Nemotronmodel family lineage card</span></a></li>
+<li><a href="https://models.specul.com/families/olmo/"><span data-zh>OLMo模型家族谱系卡</span><span data-en>OLMomodel family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/ornith/"><span data-zh>Ornith模型家族谱系卡</span><span data-en>Ornithmodel family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/phi/"><span data-zh>Phi模型家族谱系卡</span><span data-en>Phimodel family lineage card</span></a></li>
 <li><a href="https://models.specul.com/families/qwen/"><span data-zh>千问 Qwen模型家族谱系卡</span><span data-en>Qwenmodel family lineage card</span></a></li>
@@ -1065,6 +1095,7 @@
 <li><a href="https://models.specul.com/guides/training-stack.html"><span data-zh>开源训练栈：多卡训练的工具链从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>The open training stack: the toolchain behind multi-GPU trainingpractitioner-perspective methodology · key facts carry official sources</span></a></li>
 <li><a href="https://models.specul.com/guides/vision-language-selection.html"><span data-zh>视觉语言模型选型：分辨率、定位与读字从业者视角的方法论 · 关键事实挂官方出处</span><span data-en>Choosing a vision-language model: resolution, grounding and text readingpractitioner-perspective methodology · key facts carry official sources</span></a></li>
 <li><a href="https://models.specul.com/"><span data-zh>想在自己电脑上跑模型？先选家族，再挑量化版先看家族和尺寸，再看显存能跑哪一档</span><span data-en>Run a model on your own machine? Pick a family, then a quantisationStart with the family and size, then the tier your VRAM can hold</span></a></li>
+<li><a href="https://models.specul.com/matrix.html"><span data-zh>20 个开放权重家族：横向选型矩阵</span><span data-en>20 open-weight families: a comparison matrix</span></a></li>
 <li><a href="https://models.specul.com/series/deepseek-v4/"><span data-zh>DeepSeek V4</span><span data-en>DeepSeek V4</span></a></li>
 <li><a href="https://models.specul.com/series/gemma-4/"><span data-zh>Gemma 4</span><span data-en>Gemma 4</span></a></li>
 <li><a href="https://models.specul.com/series/glm-5/"><span data-zh>GLM 5</span><span data-en>GLM 5</span></a></li>
@@ -1076,7 +1107,7 @@
 <li><a href="https://models.specul.com/series/muse-glimmer/"><span data-zh>Muse Glimmer</span><span data-en>Muse Glimmer</span></a></li>
 <li><a href="https://models.specul.com/series/ornith-1-5/"><span data-zh>Ornith 1.5</span><span data-en>Ornith 1.5</span></a></li>
 <li><a href="https://models.specul.com/series/qwen3-8/"><span data-zh>千问 3.8</span><span data-en>Qwen3.8</span></a></li></ul></details>
-<details><summary><span data-zh>作品演示</span><span data-en>Playground</span> · 320</summary><ul><li><a href="https://demos.specul.com/2026.html"><span data-zh>2026 这批作品，看看模型各自怎么做</span><span data-en>The 2026 pieces: how each model approaches the brief</span></a></li>
+<details><summary><span data-zh>作品演示</span><span data-en>Playground</span> · 354</summary><ul><li><a href="https://demos.specul.com/2026.html"><span data-zh>2026 这批作品，看看模型各自怎么做</span><span data-en>The 2026 pieces: how each model approaches the brief</span></a></li>
 <li><a href="https://demos.specul.com/404.html"><span data-zh>这个地址没有页面</span><span data-en>This address has no page</span></a></li>
 <li><a href="https://demos.specul.com/compare.html"><span data-zh>并排看两个作品</span><span data-en>Two pieces, side by side</span></a></li>
 <li><a href="https://demos.specul.com/"><span data-zh>这些网页作品，点开就能玩</span><span data-en>Web pieces you can open and play</span></a></li>
@@ -1176,8 +1207,11 @@
 <li><a href="https://demos.specul.com/works/data-teacher-lab-005-dataset-card.html"><span data-zh>数据集卡生成器</span><span data-en>Dataset card builder</span></a></li>
 <li><a href="https://demos.specul.com/works/data-teacher-lab-006-rag-corpus.html"><span data-zh>RAG 语料检查器</span><span data-en>RAG corpus checker</span></a></li>
 <li><a href="https://demos.specul.com/works/deepseek-v41-flash-abyss-atlas.html"><span data-zh>深渊图谱</span><span data-en>Abyss Hydrographic Atlas</span></a></li>
+<li><a href="https://demos.specul.com/works/deepseek-v41-flash-aurora-veil.html"><span data-zh>Aurora Veil：大气光层工作室</span><span data-en>Aurora Veil: atmospheric light studio</span></a></li>
 <li><a href="https://demos.specul.com/works/deepseek-v41-flash-bloom-lab.html"><span data-zh>花开实验室</span><span data-en>Bloom Lab</span></a></li>
 <li><a href="https://demos.specul.com/works/deepseek-v41-flash-chroma-synth.html"><span data-zh>色度合成器</span><span data-en>Chroma-4 Colour Synthesizer</span></a></li>
+<li><a href="https://demos.specul.com/works/deepseek-v41-flash-haptic-surface.html"><span data-zh>Haptic：一块更安静的瓷面控制器</span><span data-en>Haptic: a softer porcelain control surface</span></a></li>
+<li><a href="https://demos.specul.com/works/deepseek-v41-flash-neon-rain.html"><span data-zh>Neon Rain：九区雨夜市场</span><span data-en>Neon Rain: Sector 09 night market</span></a></li>
 <li><a href="https://demos.specul.com/works/deepseek-v41-flash-orbital-almanac.html"><span data-zh>轨道历书</span><span data-en>The Orbital Almanac</span></a></li>
 <li><a href="https://demos.specul.com/works/deepseek-v41-flash-tidal-observatory.html"><span data-zh>潮汐观测站</span><span data-en>Tidal 07 North Sea Observatory</span></a></li>
 <li><a href="https://demos.specul.com/works/fable-5-2-claudia-gallery.html"><span data-zh>Claudia Gallery</span><span data-en>Claudia Gallery</span></a></li>
@@ -1208,14 +1242,20 @@
 <li><a href="https://demos.specul.com/works/gemini4-neon-sundial-almanac.html"><span data-zh>日晷年历</span><span data-en>Solstice Sundial Almanac</span></a></li>
 <li><a href="https://demos.specul.com/works/gemini4argon-bioluminescent-abyss.html"><span data-zh>生物荧光深海</span><span data-en>Hadal Zone Bioluminescent Abyss</span></a></li>
 <li><a href="https://demos.specul.com/works/gemini4argon-cymatics-chladni-plate.html"><span data-zh>克拉尼板声形实验</span><span data-en>Chladni Cymatics Lab</span></a></li>
+<li><a href="https://demos.specul.com/works/gemini4argon-glassmorphism-aurora.html"><span data-zh>Borealis：极光玻璃建筑展亭</span><span data-en>Borealis: a glass sanctuary above the fjord</span></a></li>
 <li><a href="https://demos.specul.com/works/gemini4argon-liquid-ferrofluid-sculpture.html"><span data-zh>液态磁流体雕塑</span><span data-en>Magneto-Fluidic Sculpture</span></a></li>
+<li><a href="https://demos.specul.com/works/gemini4argon-neumorphic-tactile-synth.html"><span data-zh>SK-44：口袋里的触感合成器</span><span data-en>SK-44: a tactile pocket synthesiser</span></a></li>
 <li><a href="https://demos.specul.com/works/gemini4argon-quantum-entanglement-visualizer.html"><span data-zh>量子纠缠可视化</span><span data-en>Bell-State Quantum Chamber</span></a></li>
+<li><a href="https://demos.specul.com/works/gemini4argon-retro-cassette-futurism.html"><span data-zh>Apollo-Soyuz 1975：琥珀 CRT 对接台</span><span data-en>Apollo-Soyuz 1975: amber CRT docking console</span></a></li>
 <li><a href="https://demos.specul.com/works/gemini4argon-stained-glass-cathedral-rose.html"><span data-zh>教堂玫瑰窗</span><span data-en>Chartres Rayonnant Rose Window</span></a></li>
+<li><a href="https://demos.specul.com/works/glm53-aurora-glass-signin.html"><span data-zh>Aurora：暗色登录页</span><span data-en>Aurora: an after-dark sign-in</span></a></li>
 <li><a href="https://demos.specul.com/works/glm53-enigma-cipher-machine.html"><span data-zh>恩尼格玛密码机</span><span data-en>Enigma Rotors &amp; Lamps</span></a></li>
 <li><a href="https://demos.specul.com/works/glm53-firework-shell-studio.html"><span data-zh>烟花弹工作室</span><span data-en>Fuse Firework Shell Designer</span></a></li>
+<li><a href="https://demos.specul.com/works/glm53-flow-field-atlas.html"><span data-zh>Drift：流场图集</span><span data-en>Drift: a flow-field atlas</span></a></li>
 <li><a href="https://demos.specul.com/works/glm53-helios-mission-control.html"><span data-zh>Helios 任务控制台</span><span data-en>Helios-9 Mission Control</span></a></li>
 <li><a href="https://demos.specul.com/works/glm53-isometric-city.html"><span data-zh>等距城市</span><span data-en>Isopop Isometric City</span></a></li>
 <li><a href="https://demos.specul.com/works/glm53-karesansui-garden.html"><span data-zh>枯山水庭院</span><span data-en>Karesansui Dry Garden</span></a></li>
+<li><a href="https://demos.specul.com/works/glm53-neumorph-music-player.html"><span data-zh>Softwave：拟态音乐播放器</span><span data-en>Softwave: a neumorphic player</span></a></li>
 <li><a href="https://demos.specul.com/works/gpt-6-2-sol-001-the-folded-pacific.html"><span data-zh>The Folded Pacific</span><span data-en>The Folded Pacific</span></a></li>
 <li><a href="https://demos.specul.com/works/gpt-6-2-sol-002-dead-air-receiver.html"><span data-zh>Dead Air Receiver</span><span data-en>Dead Air Receiver</span></a></li>
 <li><a href="https://demos.specul.com/works/gpt-6-2-sol-003-peach-pit-press.html"><span data-zh>Peach Pit Press</span><span data-en>Peach Pit Press</span></a></li>
@@ -1321,6 +1361,9 @@
 <li><a href="https://demos.specul.com/works/gpt6-astra-lantern-festival.html"><span data-zh>千愿灯夜：写下愿望，放一盏灯</span><span data-en>One Thousand Wishes: Write a Wish, Release a Lantern</span></a></li>
 <li><a href="https://demos.specul.com/works/gpt6-astra-letter-foundry.html"><span data-zh>字体铸造所：把一句话变成活字标本</span><span data-en>Letter Foundry: A Sentence as a Living Specimen</span></a></li>
 <li><a href="https://demos.specul.com/works/gpt6-astra-unusual-practice.html"><span data-zh>不寻常事务所：粗野主义作品集封面</span><span data-en>Unusual Practice: A Brutalist Portfolio Cover</span></a></li>
+<li><a href="https://demos.specul.com/works/gpt61-terra-analog-weather.html"><span data-zh>Imaginary Weather：虚构地点天气</span><span data-en>Imaginary Weather: forecasts for elsewhere</span></a></li>
+<li><a href="https://demos.specul.com/works/gpt61-terra-night-garden.html"><span data-zh>Night Garden：月下花园</span><span data-en>Night Garden: a botanical study after dark</span></a></li>
+<li><a href="https://demos.specul.com/works/gpt61-terra-orbit-clock.html"><span data-zh>Orbit Clock：三条轨道走时</span><span data-en>Orbit Clock: time in motion</span></a></li>
 <li><a href="https://demos.specul.com/works/gpt62-astra-answering-meadow.html"><span data-zh>应答草甸</span><span data-en>Answering Meadow</span></a></li>
 <li><a href="https://demos.specul.com/works/gpt62-astra-aurora-blind.html"><span data-zh>极光卧铺</span><span data-en>Sleeper to North Haven</span></a></li>
 <li><a href="https://demos.specul.com/works/gpt62-astra-pearl-abacus.html"><span data-zh>珍珠算盘</span><span data-en>The Pearl Reckoner</span></a></li>
@@ -1348,8 +1391,11 @@
 <li><a href="https://demos.specul.com/works/minimax-m31-civitas-isometric.html"><span data-zh>Civitas 等距城市</span><span data-en>Civitas Isometric City</span></a></li>
 <li><a href="https://demos.specul.com/works/minimax-m31-cyberpunk-broker.html"><span data-zh>赛博朋克交易终端</span><span data-en>Nexus//Grid Cyberpunk Broker</span></a></li>
 <li><a href="https://demos.specul.com/works/minimax-m31-liquid-plasma-lab.html"><span data-zh>液态等离子实验室</span><span data-en>Plasma Liquid Gradient Lab</span></a></li>
+<li><a href="https://demos.specul.com/works/minimax-m31-orbit-gravity-sandbox.html"><span data-zh>ORBIT：重力沙盒</span><span data-en>ORBIT: a gravity sandbox</span></a></li>
 <li><a href="https://demos.specul.com/works/minimax-m31-orrery-solar-system.html"><span data-zh>太阳系仪</span><span data-en>Orrery Clockwork Solar System</span></a></li>
+<li><a href="https://demos.specul.com/works/minimax-m31-papier-diorama.html"><span data-zh>PAPIER：七层纸雕世界</span><span data-en>PAPIER: a seven-layer papercut world</span></a></li>
 <li><a href="https://demos.specul.com/works/minimax-m31-stellarium-constellation.html"><span data-zh>星象馆星座图</span><span data-en>Stellarium Deep Sky Survey</span></a></li>
+<li><a href="https://demos.specul.com/works/minimax-m31-tide-scroll-story.html"><span data-zh>TIDE：四章滚动叙事</span><span data-en>TIDE: a four-chapter scroll story</span></a></li>
 <li><a href="https://demos.specul.com/works/muse-spark13-brutalist-poster.html"><span data-zh>粗野主义海报：既是海报也是门票</span><span data-en>Brutalist Poster: The Poster Is the Ticket</span></a></li>
 <li><a href="https://demos.specul.com/works/muse-spark13-climate-ledger.html"><span data-zh>气候账本：把升温记录做成收据</span><span data-en>Climate Ledger: Warming as a Receipt</span></a></li>
 <li><a href="https://demos.specul.com/works/muse-spark13-color-lab.html"><span data-zh>色彩理论实验室：一台包豪斯配色印刷机</span><span data-en>Color Theory Lab: A Bauhaus Color Press</span></a></li>
@@ -1361,6 +1407,19 @@
 <li><a href="https://demos.specul.com/works/office-prompt-lab-004-email-schedule.html"><span data-zh>邮件与日程生成器</span><span data-en>Email &amp; schedule builder</span></a></li>
 <li><a href="https://demos.specul.com/works/office-prompt-lab-005-translation-glossary.html"><span data-zh>翻译与术语检查器</span><span data-en>Translation &amp; glossary checker</span></a></li>
 <li><a href="https://demos.specul.com/works/office-prompt-lab-006-contract-checklist.html"><span data-zh>合同风险清单</span><span data-en>Contract risk checklist</span></a></li>
+<li><a href="https://demos.specul.com/works/official-fable-52-os.html"><span data-zh>Claude Fable 5.2：从空文件夹造出可启动操作系统</span><span data-en>Claude Fable 5.2: an OS built from an empty folder</span></a></li>
+<li><a href="https://demos.specul.com/works/official-gemini4-argon-jet.html"><span data-zh>Gemini 4 Argon：可交互的涡扇发动机</span><span data-en>Gemini 4 Argon: an interactive turbofan engine</span></a></li>
+<li><a href="https://demos.specul.com/works/official-gemini4-argon-library.html"><span data-zh>Gemini 4 Argon：5,000 行数学渲染一座 3D 图书馆</span><span data-en>Gemini 4 Argon: a 3D library from 5,000 lines of math</span></a></li>
+<li><a href="https://demos.specul.com/works/official-gemini4-carbon-textile.html"><span data-zh>Gemini 4 Carbon：交互式多尺度织物可视化</span><span data-en>Gemini 4 Carbon: an interactive multiscale textile visualiser</span></a></li>
+<li><a href="https://demos.specul.com/works/official-gemini4-hydrogen-orchestrator.html"><span data-zh>Gemini 4 Hydrogen：Orchestrator 在同一次会话里换模型</span><span data-en>Gemini 4 Hydrogen: Orchestrator switches models mid-session</span></a></li>
+<li><a href="https://demos.specul.com/works/official-gpt6-astra-pediatrician.html"><span data-zh>GPT-6 Astra：从零完成“找儿科医生”</span><span data-en>GPT-6 Astra: finding a pediatrician, end to end</span></a></li>
+<li><a href="https://demos.specul.com/works/official-gpt6-astra-tidal.html"><span data-zh>GPT-6 Astra：TIDAL 游戏生成</span><span data-en>GPT-6 Astra: bringing TIDAL to life</span></a></li>
+<li><a href="https://demos.specul.com/works/official-images-26-gif.html"><span data-zh>Images 2.6：把静图变成循环 GIF</span><span data-en>Images 2.6: turning stills into looping GIFs</span></a></li>
+<li><a href="https://demos.specul.com/works/official-kimi-k31-pro-3d.html"><span data-zh>Kimi K3.1 Pro：3D 创作与 1M 上下文</span><span data-en>Kimi K3.1 Pro: 3D creation and a 1M context</span></a></li>
+<li><a href="https://demos.specul.com/works/official-qwen4-max-blender.html"><span data-zh>Qwen4-Max：Blender 3D 建模与场景</span><span data-en>Qwen4-Max: 3D modelling and scenes in Blender</span></a></li>
+<li><a href="https://demos.specul.com/works/ornith-15-122b-aurora-glass.html"><span data-zh>Aurora Ops：玻璃态数据看板</span><span data-en>Aurora Ops: a glass data dashboard</span></a></li>
+<li><a href="https://demos.specul.com/works/ornith-15-122b-flow-field.html"><span data-zh>Flow Field：奶油底上的墨流</span><span data-en>Flow Field: ink on cream</span></a></li>
+<li><a href="https://demos.specul.com/works/ornith-15-122b-isometric-city.html"><span data-zh>Isometric City：从清晨到夜晚</span><span data-en>Isometric City: day to night</span></a></li>
 <li><a href="https://demos.specul.com/works/ornith-15-122b-liquid-metal.html"><span data-zh>液态金属</span><span data-en>Mercuro Liquid Chrome</span></a></li>
 <li><a href="https://demos.specul.com/works/ornith-15-122b-origami-crane.html"><span data-zh>折纸鹤</span><span data-en>Orizuru The Folded Crane</span></a></li>
 <li><a href="https://demos.specul.com/works/ornith-15-122b-particle-cosmos.html"><span data-zh>粒子宇宙</span><span data-en>Nexus Interactive Galaxy Field</span></a></li>
@@ -1377,18 +1436,24 @@
 <li><a href="https://demos.specul.com/works/qwen38-27b-pixel-garden.html"><span data-zh>像素花园：十六乘十的四季花圃</span><span data-en>Pixel Garden: A 16×10 Farm Through Four Seasons</span></a></li>
 <li><a href="https://demos.specul.com/works/qwen38-27b-rose-window.html"><span data-zh>玫瑰窗：可以转动的手工彩绘玻璃</span><span data-en>Rose Window: A Stained-Glass Rose You Can Spin</span></a></li>
 <li><a href="https://demos.specul.com/works/qwen38max-cellular-automata.html"><span data-zh>细胞自动机实验</span><span data-en>Life</span></a></li>
+<li><a href="https://demos.specul.com/works/qwen38max-floating-planets.html"><span data-zh>Drifting Planets：深空三星体</span><span data-en>Drifting Planets: a deep-field orrery</span></a></li>
 <li><a href="https://demos.specul.com/works/qwen38max-futuristic-hud.html"><span data-zh>未来 HUD 界面</span><span data-en>Orbital HUD</span></a></li>
 <li><a href="https://demos.specul.com/works/qwen38max-interactive-art-canvas.html"><span data-zh>交互艺术画布</span><span data-en>Flow Field</span></a></li>
 <li><a href="https://demos.specul.com/works/qwen38max-music-visualizer.html"><span data-zh>音乐可视化器</span><span data-en>Resonance</span></a></li>
+<li><a href="https://demos.specul.com/works/qwen38max-organic-blob-flow.html"><span data-zh>Liquid Bloom：六团有机光体</span><span data-en>Liquid Bloom: six bodies of light</span></a></li>
+<li><a href="https://demos.specul.com/works/qwen38max-particle-constellation.html"><span data-zh>Constellation：百点星图</span><span data-en>Constellation: a hundred-node field</span></a></li>
 <li><a href="https://demos.specul.com/works/qwen38max-raymarcher-shader.html"><span data-zh>光线步进着色器</span><span data-en>Solstice</span></a></li>
 <li><a href="https://demos.specul.com/works/sonnet55-concrete-monolith.html"><span data-zh>混凝土与光：建筑事务所的日照研究</span><span data-en>MONOLITH: Concrete, Light and a Moving Sun</span></a></li>
 <li><a href="https://demos.specul.com/works/sonnet55-css-lighthouse.html"><span data-zh>灯塔：纯 CSS 画出的黄昏海角</span><span data-en>Cape Verity Light: A Lighthouse in Pure CSS</span></a></li>
 <li><a href="https://demos.specul.com/works/sonnet55-memphis-playground.html"><span data-zh>孟菲斯游乐场：拖拽出一张海报</span><span data-en>Memphis Playground: Drag Your Own Poster</span></a></li>
 <li><a href="https://demos.specul.com/works/sonnet55-pixel-campfire.html"><span data-zh>营地最后的光：Doom 火焰像素画</span><span data-en>Last Light at Camp: A Doom-Fire Pixel Scene</span></a></li>
 <li><a href="https://demos.specul.com/works/sonnet55-swiss-poster.html"><span data-zh>结构与节奏：瑞士国际主义海报</span><span data-en>Structure / Rhythm: A Swiss Poster</span></a></li>
+<li><a href="https://demos.specul.com/works/step5-preview-aurora-glass-skyline.html"><span data-zh>NORDLYS：北极光观测站</span><span data-en>NORDLYS: a northern-lights observatory</span></a></li>
 <li><a href="https://demos.specul.com/works/step5-preview-falling-sand-physics.html"><span data-zh>落沙物理沙盒</span><span data-en>Falling Sand Physics</span></a></li>
 <li><a href="https://demos.specul.com/works/step5-preview-isometric-crystal-cave.html"><span data-zh>等距水晶洞</span><span data-en>The Geode Crystal Cave</span></a></li>
+<li><a href="https://demos.specul.com/works/step5-preview-liquid-ink-bloom.html"><span data-zh>INKBLOOM：湿墨工作室</span><span data-en>INKBLOOM: a studio for wet ink</span></a></li>
 <li><a href="https://demos.specul.com/works/step5-preview-orbit-garden.html"><span data-zh>轨道花园</span><span data-en>Orbit Garden</span></a></li>
+<li><a href="https://demos.specul.com/works/step5-preview-orrery-solar-system.html"><span data-zh>ORRERY：内太阳系仪</span><span data-en>ORRERY: a working model of the inner sky</span></a></li>
 <li><a href="https://demos.specul.com/works/step5-preview-spectrum-visualizer.html"><span data-zh>光谱可视化器</span><span data-en>Spectra Generative Audio Instrument</span></a></li>
 <li><a href="https://demos.specul.com/works/step5-preview-topographic-contour-map.html"><span data-zh>地形等高线图</span><span data-en>Contour Survey of Imaginary Ground</span></a></li>
 <li><a href="https://demos.specul.com/works/terra-atlas-of-clouds.html"><span data-zh>云图志：会漂移的田野指南</span><span data-en>Atlas of Clouds: A Drifting Field Guide</span></a></li>
@@ -1396,7 +1461,7 @@
 <li><a href="https://demos.specul.com/works/terra-citrus-radio.html"><span data-zh>柑橘电台：会转的唱片封面</span><span data-en>Citrus Radio: A Record Sleeve That Spins</span></a></li>
 <li><a href="https://demos.specul.com/works/terra-golden-ratio.html"><span data-zh>黄金比例习作：一块赭石矩形</span><span data-en>Golden Ratio Study: One Ochre Rectangle</span></a></li>
 <li><a href="https://demos.specul.com/works/terra-moss-and-stone.html"><span data-zh>苔与石：三块石头的呼吸</span><span data-en>Moss &amp; Stone: Three Stones, One Breath</span></a></li></ul></details>
-<details><summary><span data-zh>开源库</span><span data-en>OSS</span> · 143</summary><ul><li><a href="https://oss.specul.com/404.html"><span data-zh>这个仓库页不存在</span><span data-en>This repository page does not exist</span></a></li>
+<details><summary><span data-zh>开源库</span><span data-en>OSS</span> · 147</summary><ul><li><a href="https://oss.specul.com/404.html"><span data-zh>这个仓库页不存在</span><span data-en>This repository page does not exist</span></a></li>
 <li><a href="https://oss.specul.com/about.html"><span data-zh>怎么挑这里面的仓库</span><span data-en>How to choose a repository here</span></a></li>
 <li><a href="https://oss.specul.com/all.html"><span data-zh>全部仓库</span><span data-en>All repositories</span></a></li>
 <li><a href="https://oss.specul.com/compare.html"><span data-zh>并排对比</span><span data-en>Compare side by side</span></a></li>
@@ -1421,6 +1486,7 @@
 <li><a href="https://oss.specul.com/repos/cosyvoice.html"><span data-zh>CosyVoice</span><span data-en>CosyVoice</span></a></li>
 <li><a href="https://oss.specul.com/repos/crawl4ai.html"><span data-zh>Crawl4AI</span><span data-en>Crawl4AI</span></a></li>
 <li><a href="https://oss.specul.com/repos/crewai.html"><span data-zh>CrewAI</span><span data-en>CrewAI</span></a></li>
+<li><a href="https://oss.specul.com/repos/cvat.html"><span data-zh>CVAT</span><span data-en>CVAT</span></a></li>
 <li><a href="https://oss.specul.com/repos/datasets.html"><span data-zh>Datasets</span><span data-en>Datasets</span></a></li>
 <li><a href="https://oss.specul.com/repos/deepeval.html"><span data-zh>DeepEval</span><span data-en>DeepEval</span></a></li>
 <li><a href="https://oss.specul.com/repos/deepseek-harness.html"><span data-zh>DeepSeek Harness</span><span data-en>DeepSeek Harness</span></a></li>
@@ -1465,6 +1531,7 @@
 <li><a href="https://oss.specul.com/repos/lightrag.html"><span data-zh>LightRAG</span><span data-en>LightRAG</span></a></li>
 <li><a href="https://oss.specul.com/repos/litellm.html"><span data-zh>LiteLLM</span><span data-en>LiteLLM</span></a></li>
 <li><a href="https://oss.specul.com/repos/litgpt.html"><span data-zh>LitGPT</span><span data-en>LitGPT</span></a></li>
+<li><a href="https://oss.specul.com/repos/livekit-agents.html"><span data-zh>LiveKit Agents</span><span data-en>LiveKit Agents</span></a></li>
 <li><a href="https://oss.specul.com/repos/llama-cpp.html"><span data-zh>llama.cpp</span><span data-en>llama.cpp</span></a></li>
 <li><a href="https://oss.specul.com/repos/llama-index.html"><span data-zh>LlamaIndex</span><span data-en>LlamaIndex</span></a></li>
 <li><a href="https://oss.specul.com/repos/llamafactory.html"><span data-zh>LLaMA-Factory</span><span data-en>LLaMA-Factory</span></a></li>
@@ -1494,6 +1561,7 @@
 <li><a href="https://oss.specul.com/repos/peft.html"><span data-zh>PEFT</span><span data-en>PEFT</span></a></li>
 <li><a href="https://oss.specul.com/repos/pgvector.html"><span data-zh>pgvector</span><span data-en>pgvector</span></a></li>
 <li><a href="https://oss.specul.com/repos/phoenix.html"><span data-zh>Arize Phoenix</span><span data-en>Arize Phoenix</span></a></li>
+<li><a href="https://oss.specul.com/repos/pipecat.html"><span data-zh>Pipecat</span><span data-en>Pipecat</span></a></li>
 <li><a href="https://oss.specul.com/repos/promptfoo.html"><span data-zh>promptfoo</span><span data-en>promptfoo</span></a></li>
 <li><a href="https://oss.specul.com/repos/pyannote-audio.html"><span data-zh>pyannote.audio</span><span data-en>pyannote.audio</span></a></li>
 <li><a href="https://oss.specul.com/repos/pydantic-ai.html"><span data-zh>Pydantic AI</span><span data-en>Pydantic AI</span></a></li>
@@ -1511,6 +1579,7 @@
 <li><a href="https://oss.specul.com/repos/sglang.html"><span data-zh>SGLang</span><span data-en>SGLang</span></a></li>
 <li><a href="https://oss.specul.com/repos/smolagents.html"><span data-zh>smolagents</span><span data-en>smolagents</span></a></li>
 <li><a href="https://oss.specul.com/repos/stagehand.html"><span data-zh>Stagehand</span><span data-en>Stagehand</span></a></li>
+<li><a href="https://oss.specul.com/repos/steel-browser.html"><span data-zh>Steel Browser</span><span data-en>Steel Browser</span></a></li>
 <li><a href="https://oss.specul.com/repos/swe-agent.html"><span data-zh>SWE-agent</span><span data-en>SWE-agent</span></a></li>
 <li><a href="https://oss.specul.com/repos/swe-bench.html"><span data-zh>SWE-bench</span><span data-en>SWE-bench</span></a></li>
 <li><a href="https://oss.specul.com/repos/tensorrt-llm.html"><span data-zh>TensorRT-LLM</span><span data-en>TensorRT-LLM</span></a></li>
@@ -1649,7 +1718,7 @@
 <li><a href="https://hardware.specul.com/nvidia-gb300-nvl72.html"><span data-zh>NVIDIA GB300 NVL72</span><span data-en>NVIDIA GB300 NVL72</span></a></li>
 <li><a href="https://hardware.specul.com/nvidia-rtx-spark.html"><span data-zh>NVIDIA RTX Spark 紧凑桌面</span><span data-en>NVIDIA RTX Spark compact desktop</span></a></li>
 <li><a href="https://hardware.specul.com/nvidia-vera-rubin-nvl72.html"><span data-zh>NVIDIA Vera Rubin NVL72（整机柜）</span><span data-en>NVIDIA Vera Rubin NVL72 (rack)</span></a></li></ul></details>
-<details><summary><span data-zh>AI 论文</span><span data-en>AI Papers</span> · 97</summary><ul><li><a href="https://papers.specul.com/2026.html"><span data-zh>四篇论文，四句「它没主张什么」</span><span data-en>Four papers, four “what it does not claim” notes</span></a></li>
+<details><summary><span data-zh>AI 论文</span><span data-en>AI Papers</span> · 115</summary><ul><li><a href="https://papers.specul.com/2026.html"><span data-zh>四篇论文，四句「它没主张什么」</span><span data-en>Four papers, four “what it does not claim” notes</span></a></li>
 <li><a href="https://papers.specul.com/404.html"><span data-zh>这个地址没有页面</span><span data-en>This address has no page</span></a></li>
 <li><a href="https://papers.specul.com/about.html"><span data-zh>怎么用这个站</span><span data-en>How to use this site</span></a></li>
 <li><a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a></li>
@@ -1745,8 +1814,26 @@
 <li><a href="https://papers.specul.com/wei-2022-chain-of-thought.html"><span data-zh>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</span><span data-en>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</span></a></li>
 <li><a href="https://papers.specul.com/yao-2022-react.html"><span data-zh>ReAct: Synergizing Reasoning and Acting in Language Models</span><span data-en>ReAct: Synergizing Reasoning and Acting in Language Models</span></a></li>
 <li><a href="https://papers.specul.com/yao-2023-tree-of-thoughts.html"><span data-zh>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</span><span data-en>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</span></a></li>
-<li><a href="https://papers.specul.com/yarn-2023.html"><span data-zh>YaRN: Efficient Context Window Extension of Large Language Models</span><span data-en>YaRN: Efficient Context Window Extension of Large Language Models</span></a></li></ul></details>
-<details><summary><span data-zh>链</span><span data-en>Chain</span> · 45</summary><ul><li><a href="https://chain.specul.com/2026.html"><span data-zh>Agent 经济的四层：账户、身份、支付、卡网络</span><span data-en>Four layers under the agent economy:accounts, identity, payments, card networks</span></a></li>
+<li><a href="https://papers.specul.com/yarn-2023.html"><span data-zh>YaRN: Efficient Context Window Extension of Large Language Models</span><span data-en>YaRN: Efficient Context Window Extension of Large Language Models</span></a></li>
+<li><a href="https://papers.specul.com/relay-bench-2026.html"><span data-zh>Relay-Bench: Evaluating LLMs on Multi-Domain Reasoning Chains</span><span data-en>Relay-Bench: Evaluating LLMs on Multi-Domain Reasoning Chains</span></a></li>
+<li><a href="https://papers.specul.com/sk-bench-2026.html"><span data-zh>sk-bench: A Native-First Benchmark for Evaluating Large Language Models in Slovak</span><span data-en>sk-bench: A Native-First Benchmark for Evaluating Large Language Models in Slovak</span></a></li>
+<li><a href="https://papers.specul.com/gacc-bench-2026.html"><span data-zh>GACC-Bench: Benchmarking Goal-Adaptive Context Compression Ability across Large Language Models</span><span data-en>GACC-Bench: Benchmarking Goal-Adaptive Context Compression Ability across Large Language Models</span></a></li>
+<li><a href="https://papers.specul.com/dataorchestra-2026.html"><span data-zh>DataOrchestra: Learning to Orchestrate Per-Example Curation of Pretraining Data</span><span data-en>DataOrchestra: Learning to Orchestrate Per-Example Curation of Pretraining Data</span></a></li>
+<li><a href="https://papers.specul.com/dataevolve-2026.html"><span data-zh>Data Darwinism Part II: DataEvolve — AI can Autonomously Evolve Pretraining Data Curation</span><span data-en>Data Darwinism Part II: DataEvolve — AI can Autonomously Evolve Pretraining Data Curation</span></a></li>
+<li><a href="https://papers.specul.com/groundset-2026.html"><span data-zh>GroundSet: A Cadastral-Grounded Dataset for Spatial Understanding with Vector Data</span><span data-en>GroundSet: A Cadastral-Grounded Dataset for Spatial Understanding with Vector Data</span></a></li>
+<li><a href="https://papers.specul.com/inference-control-plane-2026.html"><span data-zh>From Inference Engine to Inference Control Plane: Connecting vLLM, llm-d, and the Evolution of Efficient Distributed LLM Serving</span><span data-en>From Inference Engine to Inference Control Plane: Connecting vLLM, llm-d, and the Evolution of Efficient Distributed LLM Serving</span></a></li>
+<li><a href="https://papers.specul.com/rtp-llm-2026.html"><span data-zh>RTP-LLM: Building an Evolvable and Reliable LLM Inference Engine at Alibaba Scale</span><span data-en>RTP-LLM: Building an Evolvable and Reliable LLM Inference Engine at Alibaba Scale</span></a></li>
+<li><a href="https://papers.specul.com/obm-2026.html"><span data-zh>Broadcast, Don&#39;t Replicate: Eliminating Weight HBM in Datacenter LLM Serving</span><span data-en>Broadcast, Don&#39;t Replicate: Eliminating Weight HBM in Datacenter LLM Serving</span></a></li>
+<li><a href="https://papers.specul.com/locate-steer-improve-2026.html"><span data-zh>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</span><span data-en>Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models</span></a></li>
+<li><a href="https://papers.specul.com/interpreting-parameters-2026.html"><span data-zh>Interpreting Language Model Parameters</span><span data-en>Interpreting Language Model Parameters</span></a></li>
+<li><a href="https://papers.specul.com/mi-agent-failures-2026.html"><span data-zh>Can Mechanistic Interpretability Help Explain LLM Agent Failures? A Case Study on Web Element Hallucination</span><span data-en>Can Mechanistic Interpretability Help Explain LLM Agent Failures? A Case Study on Web Element Hallucination</span></a></li>
+<li><a href="https://papers.specul.com/scalevla-2026.html"><span data-zh>ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters</span><span data-en>ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters</span></a></li>
+<li><a href="https://papers.specul.com/qwen-vla-2026.html"><span data-zh>Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments</span><span data-en>Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments</span></a></li>
+<li><a href="https://papers.specul.com/rynnvla-latent-2026.html"><span data-zh>RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions</span><span data-en>RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions</span></a></li>
+<li><a href="https://papers.specul.com/bernini-2026.html"><span data-zh>Bernini: Latent Semantic Planning for Video Diffusion</span><span data-en>Bernini: Latent Semantic Planning for Video Diffusion</span></a></li>
+<li><a href="https://papers.specul.com/diff-vf-2026.html"><span data-zh>Diff-VF: Training-free High-quality Long Video Generation via Diffusion Model</span><span data-en>Diff-VF: Training-free High-quality Long Video Generation via Diffusion Model</span></a></li>
+<li><a href="https://papers.specul.com/mobilewan-2026.html"><span data-zh>MobileWan: Closing the Quality Gap for Mobile Video Diffusion</span><span data-en>MobileWan: Closing the Quality Gap for Mobile Video Diffusion</span></a></li></ul></details>
+<details><summary><span data-zh>链</span><span data-en>Chain</span> · 51</summary><ul><li><a href="https://chain.specul.com/2026.html"><span data-zh>Agent 经济的四层：账户、身份、支付、卡网络</span><span data-en>Four layers under the agent economy:accounts, identity, payments, card networks</span></a></li>
 <li><a href="https://chain.specul.com/404.html"><span data-zh>这个地址没有页面</span><span data-en>This address has no page</span></a></li>
 <li><a href="https://chain.specul.com/about.html"><span data-zh>怎么用这个站</span><span data-en>How to use this site</span></a></li>
 <li><a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a></li>
@@ -1790,9 +1877,16 @@
 <li><a href="https://chain.specul.com/erc721-token-standard.html"><span data-zh>ERC-721：每个 token 都唯一的 ownership 标准</span><span data-en>ERC-721: a standard where every token is unique</span></a></li>
 <li><a href="https://chain.specul.com/filecoin-verifiable-storage.html"><span data-zh>Filecoin 可验证存储</span><span data-en>Filecoin verifiable storage</span></a></li>
 <li><a href="https://chain.specul.com/ipfs-cid.html"><span data-zh>IPFS 内容标识 CID</span><span data-en>IPFS content identifiers (CID)</span></a></li>
-<li><a href="https://chain.specul.com/tee-attestation.html"><span data-zh>TEE 远程证明（以 Phala 为例）</span><span data-en>TEE remote attestation (Phala example)</span></a></li></ul></details>
-<details><summary><span data-zh>AI 导航</span><span data-en>AI Directory</span> · 617</summary><ul><li><a href="https://nav.specul.com/2026.html"><span data-zh>2026 新入口：先看官方页，再看榜单</span><span data-en>2026 new doors: official pages first, leaderboards second</span></a></li>
+<li><a href="https://chain.specul.com/tee-attestation.html"><span data-zh>TEE 远程证明（以 Phala 为例）</span><span data-en>TEE remote attestation (Phala example)</span></a></li>
+<li><a href="https://chain.specul.com/stripe-agentic-commerce.html"><span data-zh>Stripe Agentic Commerce：SPT、Link Agent Wallet 与 ACS</span><span data-en>Stripe Agentic Commerce: SPTs, Link agent wallet and ACS</span></a></li>
+<li><a href="https://chain.specul.com/cloudflare-pay-per-crawl.html"><span data-zh>Cloudflare Pay Per Crawl：让 AI 抓取按次付费</span><span data-en>Cloudflare Pay Per Crawl: charging AI crawlers per fetch</span></a></li>
+<li><a href="https://chain.specul.com/coinbase-cdp-agent-payments.html"><span data-zh>Coinbase CDP：AgentKit、x402 Facilitator 与 Agentic Account</span><span data-en>Coinbase CDP: AgentKit, the x402 facilitator and Agentic Accounts</span></a></li>
+<li><a href="https://chain.specul.com/circle-gateway.html"><span data-zh>Circle Gateway：统一 USDC 余额与跨链即时结算</span><span data-en>Circle Gateway: a unified USDC balance and instant cross-chain settlement</span></a></li>
+<li><a href="https://chain.specul.com/skyfire-agent-payments.html"><span data-zh>Skyfire：给 AI Agent 的支付网络与预算控制</span><span data-en>Skyfire: a payment network and budget control for AI agents</span></a></li>
+<li><a href="https://chain.specul.com/nevermined-pay.html"><span data-zh>Nevermined Pay：x402 上的额度、订阅与计量结算</span><span data-en>Nevermined Pay: credits, subscriptions and metered settlement on x402</span></a></li></ul></details>
+<details><summary><span data-zh>AI 导航</span><span data-en>AI Directory</span> · 638</summary><ul><li><a href="https://nav.specul.com/2026.html"><span data-zh>2026 新入口：先看官方页，再看榜单</span><span data-en>2026 new doors: official pages first, leaderboards second</span></a></li>
 <li><a href="https://nav.specul.com/404.html"><span data-zh>这个地址没有页面</span><span data-en>This address has no page</span></a></li>
+<li><a href="https://nav.specul.com/fit.html"><span data-zh>100 个常用入口：先看它适合什么</span><span data-en>100 common entries: what each is for</span></a></li>
 <li><a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a></li>
 <li><a href="https://nav.specul.com/#i-chatgpt"><span data-zh>ChatGPT</span><span data-en>ChatGPT</span></a></li>
 <li><a href="https://nav.specul.com/#i-chatgpt-work"><span data-zh>ChatGPT Work</span><span data-en>ChatGPT Work</span></a></li>
@@ -2407,6 +2501,26 @@
 <li><a href="https://nav.specul.com/#i-playbook%E5%9B%A2%E9%98%9F-90-%E5%A4%A9%E8%90%BD%E5%9C%B0"><span data-zh>Playbook：团队 90 天落地</span><span data-en>Playbook: 90-day team rollout</span></a></li>
 <li><a href="https://nav.specul.com/#i-%E6%B8%85%E5%8D%95%E9%87%87%E8%B4%AD%E4%B8%8E%E6%9D%83%E9%99%90%E5%AE%A1%E8%AE%A1"><span data-zh>清单：采购与权限审计</span><span data-en>Checklist: procurement &amp; access audit</span></a></li>
 <li><a href="https://nav.specul.com/#i-power-automate"><span data-zh>Power Automate</span><span data-en>Power Automate</span></a></li>
+<li><a href="https://nav.specul.com/#i-nist-ai-risk-management-framework"><span data-zh>NIST AI Risk Management Framework</span><span data-en>NIST AI Risk Management Framework</span></a></li>
+<li><a href="https://nav.specul.com/#i-owasp-llm-top-10"><span data-zh>OWASP LLM Top 10</span><span data-en>OWASP LLM Top 10</span></a></li>
+<li><a href="https://nav.specul.com/#i-mitre-atlas"><span data-zh>MITRE ATLAS</span><span data-en>MITRE ATLAS</span></a></li>
+<li><a href="https://nav.specul.com/#i-ai-incident-database"><span data-zh>AI Incident Database</span><span data-en>AI Incident Database</span></a></li>
+<li><a href="https://nav.specul.com/#i-partnership-on-ai"><span data-zh>Partnership on AI</span><span data-en>Partnership on AI</span></a></li>
+<li><a href="https://nav.specul.com/#i-eu-ai-act"><span data-zh>EU AI Act</span><span data-en>EU AI Act</span></a></li>
+<li><a href="https://nav.specul.com/#i-uk-ai-safety-institute"><span data-zh>UK AI Safety Institute</span><span data-en>UK AI Safety Institute</span></a></li>
+<li><a href="https://nav.specul.com/#i-us-ai-safety-institute"><span data-zh>US AI Safety Institute</span><span data-en>US AI Safety Institute</span></a></li>
+<li><a href="https://nav.specul.com/#i-metr"><span data-zh>METR</span><span data-en>METR</span></a></li>
+<li><a href="https://nav.specul.com/#i-center-for-ai-safety"><span data-zh>Center for AI Safety</span><span data-en>Center for AI Safety</span></a></li>
+<li><a href="https://nav.specul.com/#i-anthropic-safety"><span data-zh>Anthropic Safety</span><span data-en>Anthropic Safety</span></a></li>
+<li><a href="https://nav.specul.com/#i-openai-safety"><span data-zh>OpenAI Safety</span><span data-en>OpenAI Safety</span></a></li>
+<li><a href="https://nav.specul.com/#i-google-deepmind-safety"><span data-zh>Google DeepMind Safety</span><span data-en>Google DeepMind Safety</span></a></li>
+<li><a href="https://nav.specul.com/#i-eleutherai"><span data-zh>EleutherAI</span><span data-en>EleutherAI</span></a></li>
+<li><a href="https://nav.specul.com/#i-ai-fairness-360"><span data-zh>AI Fairness 360</span><span data-en>AI Fairness 360</span></a></li>
+<li><a href="https://nav.specul.com/#i-fairlearn"><span data-zh>Fairlearn</span><span data-en>Fairlearn</span></a></li>
+<li><a href="https://nav.specul.com/#i-adversarial-robustness-toolbox"><span data-zh>Adversarial Robustness Toolbox</span><span data-en>Adversarial Robustness Toolbox</span></a></li>
+<li><a href="https://nav.specul.com/#i-garak"><span data-zh>Garak</span><span data-en>Garak</span></a></li>
+<li><a href="https://nav.specul.com/#i-model-cards-for-model-reporting"><span data-zh>Model Cards for Model Reporting</span><span data-en>Model Cards for Model Reporting</span></a></li>
+<li><a href="https://nav.specul.com/#i-datasheets-for-datasets"><span data-zh>Datasheets for Datasets</span><span data-en>Datasheets for Datasets</span></a></li>
 <li><a href="https://nav.specul.com/tasks.html"><span data-zh>任务包</span><span data-en>Task packs</span></a></li></ul></details></section></div>
   </main>
   <footer class="site-footer">
