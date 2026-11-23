@@ -50,7 +50,7 @@ Cloud compute: 26 providers across general cloud, GPU specialists, serverless an
 46 AI-chain intersection entries, official protocols and specifications only; no token prices, exchanges or wallets.
 
 ### Playground — https://demos.specul.com/
-348 runnable HTML works from 31 models, with source and original prompts linked; no ranking and no copying of unlicensed files.
+375 runnable HTML works from 31 models, with source and original prompts linked; no ranking and no copying of unlicensed files.
 
 ### OSS — https://oss.specul.com/
 135 AI open-source repositories in 7 scenes: agent frameworks, RAG and knowledge, local inference, multimodal visual, speech and audio, evaluation and observability, training and fine-tuning.
