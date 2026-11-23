@@ -23,16 +23,17 @@
   if (!Array.isArray(last)) last = [];
 
   var chosen = shows.slice(0, 3);
-  var tries = 0;
-  do {
+  for (var tries = 0; tries < 40; tries++) {
     var pool = shows.slice();
     for (var i = pool.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
       var t = pool[i]; pool[i] = pool[j]; pool[j] = t;
     }
     chosen = pool.slice(0, 3);
-    tries++;
-  } while (last.length === 3 && chosen.some(function (x) { return last.indexOf(x.id) !== -1; }) && tries < 24);
+    var distinctModels = chosen.map(function (x) { return x.model; }).filter(function (x, i, a) { return a.indexOf(x) === i; }).length;
+    var noRepeat = last.length !== 3 || !chosen.some(function (x) { return last.indexOf(x.id) !== -1; });
+    if (distinctModels >= 2 && noRepeat) break;
+  }
 
   try {
     sessionStorage.setItem('specul-home-shows', JSON.stringify(chosen.map(function (x) { return x.id; })));
