@@ -1,7 +1,6 @@
-/* www 首页 v5 —— 只做引导，不再陈列各站截图。
+/* www 首页 v6 —— 按人现在的状态带路，不再做站点陈列。
  * 作用域全部限定在 .hm- 前缀，外壳仍走 brand.css。
- * 目标：同一批全站内容，按「水平 / 手里的东西 / 时间 / 跨站路线 / 最近更新」
- * 五种角度重新组合，让读者落到一个具体页面，而不是再看十张首页缩略图。
+ * 2026-11-23：去掉书面腔；首屏后加一栏真实作品图，每次打开换三件。
  */
 
 body.brand-ambient {
@@ -68,8 +67,8 @@ body.brand-ambient {
 .hm-hero h1 {
   margin: 0;
   max-width: 19em;
-  font-size: clamp(34px, 4.2vw, 58px);
-  line-height: 1.08;
+  font-size: clamp(34px, 3.8vw, 46px);
+  line-height: 1.16;
   letter-spacing: -.035em;
   text-wrap: balance;
 }
@@ -82,6 +81,13 @@ body.brand-ambient {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.hm-def {
+  margin: 14px 0 -4px;
+  color: var(--ink-dim);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
 }
 
 .hm-lede {
@@ -126,8 +132,9 @@ body.brand-ambient {
   padding: 0 22px;
   border: 0;
   border-radius: 11px;
-  color: var(--brand-on);
-  background: linear-gradient(120deg, var(--brand), color-mix(in srgb, var(--cyan) 46%, var(--brand)));
+  color: #fff;
+  background-color: #5b3fc4;
+  background-image: linear-gradient(120deg, #5b3fc4, #0b6f68);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
@@ -250,6 +257,108 @@ body.brand-ambient {
   color: var(--brand);
   font-size: 18px;
 }
+
+.hm-shows {
+  padding: 30px 0 10px;
+}
+
+.hm-shows-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, .6fr);
+  gap: 28px;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.hm-shows-head h2 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.18;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+
+.hm-shows-head p {
+  margin: 0;
+  color: var(--ink-mid);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.hm-show-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.hm-show {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line-mid);
+  border-radius: 16px;
+  color: #fff;
+  background: #0b0e16;
+  text-decoration: none;
+  isolation: isolate;
+}
+
+.hm-show img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .55s cubic-bezier(.2, .7, .2, 1);
+}
+
+.hm-show::after {
+  content: "";
+  position: absolute;
+  inset: 34% 0 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(4, 7, 14, .88));
+}
+
+.hm-show:hover img { transform: scale(1.035); }
+.hm-show:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+
+.hm-show-cap {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  display: block;
+  padding: 16px 16px 14px;
+}
+
+.hm-show-cap small {
+  display: block;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, .68);
+  font-size: var(--fs-micro);
+  letter-spacing: .04em;
+}
+
+.hm-show-cap b {
+  display: block;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.hm-shows-foot {
+  margin: 12px 0 0;
+  font-size: var(--fs-micro);
+}
+
+.hm-shows-foot a {
+  color: var(--ink-mid);
+  text-decoration: none;
+}
+
+.hm-shows-foot a:hover { color: var(--brand); }
 
 .hm-sec {
   padding: 44px 0 6px;
@@ -525,7 +634,7 @@ body.brand-ambient {
   border: 1px solid var(--brand-line);
   border-radius: 999px;
   color: var(--brand);
-  background: var(--brand-soft);
+  background: var(--bg-panel);
   font-size: var(--fs-micro);
 }
 
@@ -710,13 +819,22 @@ body.brand-ambient {
 
 @media (max-width: 860px) {
   .hm-hero { padding-top: 34px; }
-  .hm-hero-grid, .hm-head { grid-template-columns: 1fr; gap: 18px; }
+  .hm-hero-grid, .hm-head, .hm-shows-head { grid-template-columns: 1fr; gap: 18px; }
   .hm-start { max-width: 560px; }
   .hm-levels { grid-template-columns: 1fr; }
   .hm-time-row { grid-template-columns: 1fr; gap: 10px; }
   .hm-latest { grid-template-columns: 1fr; }
   .hm-final { grid-template-columns: 1fr; }
   .hm-final-acts { justify-content: flex-start; }
+  .hm-show-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+  .hm-show { flex: 0 0 min(78vw, 520px); scroll-snap-align: start; }
 }
 
 @media (max-width: 620px) {
@@ -726,7 +844,7 @@ body.brand-ambient {
   .hm-search { grid-template-columns: 1fr; padding: 5px; }
   .hm-search button { width: 100%; }
   .hm-sec { padding-top: 34px; }
-  .hm-head h2, .hm-final h2 { font-size: 27px; }
+  .hm-head h2, .hm-final h2, .hm-shows-head h2 { font-size: 27px; }
   .hm-artifacts { grid-template-columns: 1fr; }
   .hm-tile { min-height: 0; }
   .hm-time-row { padding: 14px 0; }
@@ -738,4 +856,13 @@ body.brand-ambient {
   .hm-final { padding: 20px; }
   .hm-final-acts { flex-direction: column; align-items: stretch; }
   .hm-final-acts a { text-align: center; }
+  .hm-show-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    overflow: visible;
+    padding-bottom: 0;
+    scroll-snap-type: none;
+  }
+  .hm-show { width: 100%; flex: none; }
 }
