@@ -22,11 +22,11 @@ Specul is not a single directory site, but a group of atlas sites **divided by l
 ## About each site
 
 ### Learn AI — https://learn.specul.com/
-299 terms arranged into six stages by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 16 curated learning paths with checkpoints; 111 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 837 source entries; English coverage 299/299.
+300 terms arranged into six stages by "what to learn first" (Getting In / Hands On / Going Deeper / Under the Hood / Running It / Choosing Right); 16 curated learning paths with checkpoints; 111 short guides; one chronicle-and-atlas page (18 timeline entries, 12 companies, 5 vocabulary shifts); 840 source entries; English coverage 300/300.
 Every term can be traced back to its original source, **unknown is written as unknown**, and there is no overall ranking.
 
 ### Agent Atlas — https://tools.specul.com/
-280 profiles across 12 categories (coding 41, chat 23, image 15, video 14, audio 17, research 11, office 15, automation 24, framework 42, mcp 32, runner 21, safety 25), compared across a fixed set of 8 dimensions.
+282 profiles across 12 categories (coding 42, chat 23, image 15, video 14, audio 17, research 11, office 15, automation 24, framework 43, mcp 32, runner 21, safety 25), compared across a fixed set of 8 dimensions.
 Fixed eight-dimension comparison (the tools division adds three more: transport / auth / scope).
 Skills: 12 curated official and community skill entries, plus four pages on what they are, structure, build/test and third-party review — https://tools.specul.com/skills/
 Prompts: 6 method guides + 24 copyable cases with full prompts, checkpoints and failure branches — https://tools.specul.com/prompts/
@@ -40,7 +40,7 @@ Evals: 40 common benchmarks, covering what they measure, how to read them and co
 **No benchmarks, no quality or speed conclusions, no hosting of any weight files.**
 
 ### AI Hardware and Compute — https://hardware.specul.com/
-70 device spec cards, each with an official source and check date; fact fields only, no ranking.
+72 device spec cards, each with an official source and check date; fact fields only, no ranking.
 Cloud compute: 26 providers across general cloud, GPU specialists, serverless and China cloud; billing scope and verification entry points only, no hard-coded prices that would age — https://hardware.specul.com/cloud/
 
 ### Papers — https://papers.specul.com/

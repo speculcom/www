@@ -22,11 +22,11 @@ Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 ## 各站说明
 
 ### 学 AI — https://learn.specul.com/
-299 个术语，按「先学什么后学什么」排成六段（进门 / 上手 / 用深 / 看懂 / 跑起来 / 选得对）；16 条精选学习路径各带检查点；111 篇微型指南；一页编年史与版图（18 条时间线 · 12 家公司 · 5 条术语演变）；837 条出处；英文覆盖 299/299。
+300 个术语，按「先学什么后学什么」排成六段（进门 / 上手 / 用深 / 看懂 / 跑起来 / 选得对）；16 条精选学习路径各带检查点；111 篇微型指南；一页编年史与版图（18 条时间线 · 12 家公司 · 5 条术语演变）；840 条出处；英文覆盖 300/300。
 每词能回到原始出处，**未知就写未知**，不给总分排名。
 
 ### Agent 图谱 — https://tools.specul.com/
-280 份档案，分 12 个大类（coding 41、chat 23、image 15、video 14、audio 17、research 11、office 15、automation 24、framework 42、mcp 32、runner 21、safety 25），按 8 个固定维度横向对比。
+282 份档案，分 12 个大类（coding 42、chat 23、image 15、video 14、audio 17、research 11、office 15、automation 24、framework 43、mcp 32、runner 21、safety 25），按 8 个固定维度横向对比。
 固定八维对比（工具分区另加传输 / 认证 / 范围三维）。
 Skills：12 条官方与社区技能索引，另 4 页讲清「是什么、结构、怎么写怎么测、怎么审第三方」 — https://tools.specul.com/skills/
 提示词：6 篇方法指南 + 24 个可抄案例，含完整 prompt、检查点与失败分支 — https://tools.specul.com/prompts/
@@ -40,7 +40,7 @@ Skills：12 条官方与社区技能索引，另 4 页讲清「是什么、结�
 **不跑 benchmark，不给质量与速度结论，不托管任何权重文件。**
 
 ### 硬件算力 — https://hardware.specul.com/
-70 条设备规格卡，逐条挂官方来源与核验日；只给事实字段，不排名。
+72 条设备规格卡，逐条挂官方来源与核验日；只给事实字段，不排名。
 云算力：26 家服务商，按通用云 / GPU 专营 / Serverless / 国内云四类；只写计费口径与核验入口，不写死会过期的价格 — https://hardware.specul.com/cloud/
 
 ### AI 论文 — https://papers.specul.com/
