@@ -315,10 +315,10 @@ body.brand-ambient {
 .hm-show::after {
   content: "";
   position: absolute;
-  inset: 34% 0 0;
+  inset: 20% 0 0;
   z-index: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, transparent, rgba(4, 7, 14, .88));
+  background: linear-gradient(180deg, rgba(4, 7, 14, 0) 0%, rgba(4, 7, 14, .58) 55%, rgba(4, 7, 14, .96) 100%);
 }
 
 .hm-show:hover img { transform: scale(1.035); }
@@ -335,9 +335,10 @@ body.brand-ambient {
 .hm-show-cap small {
   display: block;
   margin-bottom: 5px;
-  color: rgba(255, 255, 255, .68);
+  color: rgba(255, 255, 255, .74);
   font-size: var(--fs-micro);
   letter-spacing: .04em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
 }
 
 .hm-show-cap b {
@@ -346,6 +347,7 @@ body.brand-ambient {
   font-size: var(--fs-sm);
   font-weight: 600;
   line-height: 1.35;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .62);
 }
 
 .hm-shows-foot {
