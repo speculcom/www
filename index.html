@@ -4,20 +4,20 @@
   <meta charset="UTF-8" />
 <meta name="theme-color" content="#16121f" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>投机取巧 — Specul</title>
-  <meta name="description" content="Specul 把 AI 的学、用、选、跑拆成十个站：补概念、找工具、挑模型、看作品、读论文、查算力、看链上工具，再去 AI 导航找站外网站。" />
+  <title>Specul · 从你的问题出发，学 AI、找工具、选模型</title>
+  <meta name="description" content="Specul 把 AI 的学、用、选、跑拆成十个内容站，再按水平、任务、时间与跨站路线重新组织。新手、做事的人、工程落地与研究选型，都能从一个具体页面开始。" />
   <link rel="canonical" href="https://specul.com/" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Specul" />
   <meta property="og:url" content="https://specul.com/" />
-  <meta property="og:title" content="投机取巧 — Specul" />
-  <meta property="og:description" content="补概念、找工具、挑模型、看作品、读论文、查算力、看链上工具，再去 AI 导航找站外网站。" />
+  <meta property="og:title" content="Specul · 从你的问题出发，学 AI、找工具、选模型" />
+  <meta property="og:description" content="按你的水平、手里的东西、能投入的时间，或一条跨站路线进入；每个入口都落到具体页面。" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b7cf8'/%3E%3Cstop offset='1' stop-color='%2322d3c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='12' fill='%23070b14'/%3E%3Cpath d='M14 32 L24 12 L34 32' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='27' r='2.4' fill='%2322d3c5'/%3E%3C/svg%3E" />
   <script src="brand.js?v=bb632b891131"></script>
   <link rel="stylesheet" href="brand.css?v=bb632b891131" />
 
-<link rel="stylesheet" href="site.css" />
+<link rel="stylesheet" href="home.css?v=20261123a" />
   <!-- B5（2026-10-09）：结构性数据。枢纽站声明自己是什么、以及由哪几个站组成 ——
        这是「站群」这件事唯一能被机器读到的地方；hasPart 让搜索引擎知道十站是一个整体。 -->
   <script type="application/ld+json">
@@ -26,7 +26,7 @@
     "@type": "WebSite",
     "name": "Specul · 投机取巧",
     "url": "https://specul.com/",
-    "description": "把 AI 的学、用、选、跑拆成十个站：概念、工具、模型、作品、算力、论文、链与站外导航。",
+    "description": "把 AI 的学、用、选、跑拆成十个站，再按水平、任务、时间与跨站路线重新组织。",
     "inLanguage": "zh-Hans",
     "hasPart": [
       { "@type": "WebSite", "name": "学 AI", "url": "https://learn.specul.com/" },
@@ -113,318 +113,332 @@
 
 
 <main id="main">
-  <section class="hx-hero">
-    <div class="hp-c hx-hero-grid">
-      <div class="hx-hero-copy">
-        <p class="hx-eyebrow"><span data-zh>SPECUL · 十个站，一张路网</span><span data-en>SPECUL · Ten sites, one network</span></p>
-        <h1><span data-zh>你今天<br />想干什么？</span><span data-en>What do you<br />want to get done?</span></h1>
-        <p class="hx-lede"><span data-zh>想弄懂一个词、找件能用的工具、挑个能跑的模型、看别人做出来的东西——十个站各管一段，点进去就是具体页面。</span><span data-en>Need a term, a working tool, a model you can run, or something someone built? Ten sites each cover one part; every link lands on a specific page.</span></p>
+  <section class="hm-hero">
+    <div class="hm-c hm-hero-grid">
+      <div>
+        <p class="hm-eyebrow"><span data-zh>SPECUL · 十个站，一张可走的路网</span><span data-en>SPECUL · Ten sites, one walkable network</span></p>
+        <h1><span data-zh>先说你<em>想解决什么</em>，<br>再决定从哪一页开始。</span><span data-en>Start with <em>what you need</em>, then <br>choose the first page.</span></h1>
+        <p class="hm-lede lede"><span data-zh>学 AI 不必从站名开始。你可以按水平、手里的东西、能投入的时间，或一条跨站路线进入；每个入口都落到具体页面，不是又一个首页。</span><span data-en>You do not need to learn ten site names first. Enter by your level, by what you are holding, by the time you have, or by a cross-site route. Every entry lands on a specific page, not another homepage.</span></p>
 
-        <form class="hx-search" action="search.html" method="get" role="search">
-          <label for="home-q">
-            <span class="sr-only"><span data-zh>搜全站</span><span data-en>Search all sites</span></span>
-            <input id="home-q" type="search" name="q" maxlength="300" autocomplete="off" placeholder="搜：录音转纪要 / 本地跑模型 / 什么是 RAG" data-ui-placeholder-zh="搜：录音转纪要 / 本地跑模型 / 什么是 RAG" data-ui-placeholder-en="Search: meeting notes / local models / what is RAG" />
-          </label>
-          <button type="submit"><span data-zh>搜索</span><span data-en>Search</span></button>
+        <form class="hm-search" action="search.html" method="get" role="search">
+          <label class="sr-only" for="home-q"><span data-zh>搜全站</span><span data-en>Search all sites</span></label>
+          <input id="home-q" type="search" name="q" maxlength="300" autocomplete="off" placeholder="搜：会议纪要 / 本地跑模型 / RTX 5090 / Agent 框架" data-ui-placeholder-zh="搜：会议纪要 / 本地跑模型 / RTX 5090 / Agent 框架" data-ui-placeholder-en="Search: meeting notes / local models / RTX 5090 / agent frameworks" />
+          <button type="submit"><span data-zh>搜 2,409 条</span><span data-en>Search 2,409</span></button>
         </form>
 
-        <div class="hx-chips" aria-label="常用搜索" data-ui-aria-label-zh="常用搜索" data-ui-aria-label-en="Common searches">
-          <span class="hx-chips-k"><span data-zh>常搜</span><span data-en>Try</span></span>
-          <a href="search.html?q=RAG">RAG</a>
-          <a href="search.html?q=%E5%BD%95%E9%9F%B3%E8%BD%AC%E7%BA%AA%E8%A6%81"><span data-zh>录音转纪要</span><span data-en>Meeting notes</span></a>
-          <a href="search.html?q=%E6%9C%AC%E5%9C%B0%E8%B7%91%E6%A8%A1%E5%9E%8B"><span data-zh>本地跑模型</span><span data-en>Local models</span></a>
-          <a href="search.html?q=%E6%8F%90%E7%A4%BA%E8%AF%8D"><span data-zh>提示词</span><span data-en>Prompts</span></a>
-          <a href="search.html?q=%E6%98%BE%E5%AD%98"><span data-zh>显存</span><span data-en>VRAM</span></a>
-          <a href="search.html?q=%E8%AE%BA%E6%96%87"><span data-zh>论文</span><span data-en>Papers</span></a>
-        </div>
+        <nav class="hm-chips" aria-label="快速入口" data-ui-aria-label-zh="快速入口" data-ui-aria-label-en="Quick entry points">
+          <b><span data-zh>按状态进</span><span data-en>Entry by</span></b>
+          <a href="#levels"><span data-zh>我刚入门</span><span data-en>I'm new</span></a>
+          <a href="#artifacts"><span data-zh>手里有件活</span><span data-en>I have a task</span></a>
+          <a href="#time"><span data-zh>只有十分钟</span><span data-en>Ten minutes</span></a>
+          <a href="#routes"><span data-zh>给我一条路线</span><span data-en>Give me a path</span></a>
+          <a href="search.html?q=RTX%205090"><span data-zh>查硬件</span><span data-en>Check hardware</span></a>
+          <a href="#latest"><span data-zh>最近新增</span><span data-en>What's new</span></a>
+        </nav>
 
-        <p class="hx-stats">
-          <span><b>10</b> <span data-zh>个站</span><span data-en>sites</span></span>
-          <span><b>1,777</b> <span data-zh>个页面</span><span data-en>pages</span></span>
-          <span><b>2,409</b> <span data-zh>条可搜记录</span><span data-en>search records</span></span>
+        <p class="hm-stats">
+          <span><b>300</b> <span data-zh>个术语</span><span data-en>terms</span></span>
+          <span><b>282</b> <span data-zh>份工具档案</span><span data-en>tool profiles</span></span>
+          <span><b>348</b> <span data-zh>件作品</span><span data-en>works</span></span>
+          <span><b>110</b> <span data-zh>篇论文</span><span data-en>papers</span></span>
+          <span><b>72</b> <span data-zh>条硬件</span><span data-en>hardware profiles</span></span>
         </p>
       </div>
 
-      <aside class="hx-map-panel" aria-label="十站地图" data-ui-aria-label-zh="十站地图" data-ui-aria-label-en="Ten-site map">
-        <header class="hx-map-head">
-          <b><span data-zh>十站地图</span><span data-en>The ten sites</span></b>
-          <span><span data-zh>点一站，直接进去</span><span data-en>Tap a site to open it</span></span>
+      <aside class="hm-start" aria-label="最快开始" data-ui-aria-label-zh="最快开始" data-ui-aria-label-en="Fastest starts">
+        <header>
+          <b><span data-zh>三条最快入口</span><span data-en>Three fastest starts</span></b>
+          <span><span data-zh>不用先逛十个站</span><span data-en>No need to tour ten sites</span></span>
         </header>
-        <div class="hx-map">
-          <a class="hx-map-item m1" href="https://learn.specul.com/"><span class="hx-map-n">01</span><span class="hx-map-name"><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="hx-map-d"><span data-zh>概念 · 路径 · 指南</span><span data-en>Terms, paths, guides</span></span><span class="hx-map-go">→</span></a>
-          <a class="hx-map-item m2" href="https://tools.specul.com/"><span class="hx-map-n">02</span><span class="hx-map-name"><span data-zh>工具</span><span data-en>Tools</span></span><span class="hx-map-d"><span data-zh>按活挑工具</span><span data-en>Pick by the job</span></span><span class="hx-map-go">→</span></a>
-          <a class="hx-map-item m3" href="https://models.specul.com/"><span class="hx-map-n">03</span><span class="hx-map-name"><span data-zh>模型</span><span data-en>Models</span></span><span class="hx-map-d"><span data-zh>家族 · 数据集 · 评测</span><span data-en>Families, data, evals</span></span><span class="hx-map-go">→</span></a>
-          <a class="hx-map-item m4" href="https://demos.specul.com/"><span class="hx-map-n">04</span><span class="hx-map-name"><span data-zh>演示</span><span data-en>Demos</span></span><span class="hx-map-d"><span data-zh>真作品，能点开</span><span data-en>Real work you can open</span></span><span class="hx-map-go">→</span></a>
-          <a class="hx-map-item m5" href="https://oss.specul.com/"><span class="hx-map-n">05</span><span class="hx-map-name"><span data-zh>开源库</span><span data-en>OSS</span></span><span class="hx-map-d"><span data-zh>拿代码自己搭</span><span data-en>Build from source</span></span><span class="hx-map-go">→</span></a>
-          <a class="hx-map-item m6" href="https://hardware.specul.com/"><span class="hx-map-n">06</span><span class="hx-map-name"><span data-zh>算力</span><span data-en>Compute</span></span><span class="hx-map-d"><span data-zh>买卡还是租</span><span data-en>Buy or rent</span></span><span class="hx-map-go">→</span></a>
-          <a class="hx-map-item m7" href="https://papers.specul.com/"><span class="hx-map-n">07</span><span class="hx-map-name"><span data-zh>论文</span><span data-en>Papers</span></span><span class="hx-map-d"><span data-zh>读原始论文</span><span data-en>Read the source</span></span><span class="hx-map-go">→</span></a>
-          <a class="hx-map-item m8" href="https://chain.specul.com/"><span class="hx-map-n">08</span><span class="hx-map-name"><span data-zh>链</span><span data-en>Chain</span></span><span class="hx-map-d"><span data-zh>凭证 · 支付 · 协议</span><span data-en>Credentials, payments</span></span><span class="hx-map-go">→</span></a>
-          <a class="hx-map-item m9" href="https://nav.specul.com/"><span class="hx-map-n">09</span><span class="hx-map-name"><span data-zh>AI 导航</span><span data-en>Directory</span></span><span class="hx-map-d"><span data-zh>去站外的 AI 网站</span><span data-en>AI sites beyond</span></span><span class="hx-map-go">↗</span></a>
-          <a class="hx-map-item m10" href="search.html"><span class="hx-map-n">10</span><span class="hx-map-name"><span data-zh>搜全站</span><span data-en>Search</span></span><span class="hx-map-d"><span data-zh>一次搜十个站</span><span data-en>All ten at once</span></span><span class="hx-map-go">→</span></a>
-        </div>
+        <a href="https://learn.specul.com/path/quick-start/">
+          <i>01</i>
+          <span><b><span data-zh>半小时建立一张地图</span><span data-en>Build a map in 30 minutes</span></b><small><span data-zh>学 AI · 先有版图，再补词</span><span data-en>Learn · map first, terms second</span></small></span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="https://tools.specul.com/mcp/guides/playbook-meeting-notes.html">
+          <i>02</i>
+          <span><b><span data-zh>今天要交一件活</span><span data-en>A task is due today</span></b><small><span data-zh>工具 · 照着 playbook 直接做</span><span data-en>Tools · follow a playbook</span></small></span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="https://demos.specul.com/2026.html">
+          <i>03</i>
+          <span><b><span data-zh>先看真做出来的东西</span><span data-en>See what people actually made</span></b><small><span data-zh>作品 · 先看结果，再补原理</span><span data-en>Demos · result first, theory later</span></small></span>
+          <span aria-hidden="true">→</span>
+        </a>
       </aside>
     </div>
   </section>
 
-  <section class="hx-sec" id="route">
-    <div class="hp-c">
-      <header class="hx-head">
-        <p class="hx-kicker"><span data-zh>01 · 先找入口</span><span data-en>01 · Find the door</span></p>
-        <h2 class="hx-h2"><span data-zh>你现在的情况，对应一个具体页面</span><span data-en>Your situation maps to one page</span></h2>
-        <p class="hx-dek"><span data-zh>不用记站名。找到最像你的那一行，点“先打开这一页”。</span><span data-en>No need to memorise site names. Find your row and open the page in the third column.</span></p>
-      </header>
-
-      <div class="hx-table-wrap">
-        <table class="hx-table">
-          <thead>
-            <tr>
-              <th scope="col"><span data-zh>你现在的情况</span><span data-en>Your situation</span></th>
-              <th scope="col"><span data-zh>去哪个站</span><span data-en>Which site</span></th>
-              <th scope="col"><span data-zh>先打开这一页</span><span data-en>Open this page</span></th>
-              <th scope="col"><span data-zh>你能拿到</span><span data-en>What you get</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label-zh="你现在的情况" data-label-en="Situation"><b><span data-zh>词都看不懂，术语太多</span><span data-en>The terms make no sense</span></b></td>
-              <td data-label-zh="去哪个站" data-label-en="Site"><a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a></td>
-              <td data-label-zh="先打开这一页" data-label-en="Page"><a class="hx-go" href="https://learn.specul.com/atlas/"><span data-zh>概念地图</span><span data-en>Concept map</span> →</a></td>
-              <td data-label-zh="你能拿到" data-label-en="You get"><span data-zh>先弄清常用词之间的关系</span><span data-en>See how the common terms connect</span></td>
-            </tr>
-            <tr>
-              <td data-label-zh="你现在的情况" data-label-en="Situation"><b><span data-zh>手里有件活，今天要交</span><span data-en>A job is due today</span></b></td>
-              <td data-label-zh="去哪个站" data-label-en="Site"><a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a></td>
-              <td data-label-zh="先打开这一页" data-label-en="Page"><a class="hx-go" href="https://tools.specul.com/office/"><span data-zh>办公与写作</span><span data-en>Office &amp; writing</span> →</a></td>
-              <td data-label-zh="你能拿到" data-label-en="You get"><span data-zh>按任务挑工具，看限制与收费</span><span data-en>Pick by task; check limits and pricing</span></td>
-            </tr>
-            <tr>
-              <td data-label-zh="你现在的情况" data-label-en="Situation"><b><span data-zh>想把模型跑在自己机器上</span><span data-en>Run a model on your own machine</span></b></td>
-              <td data-label-zh="去哪个站" data-label-en="Site"><a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a></td>
-              <td data-label-zh="先打开这一页" data-label-en="Page"><a class="hx-go" href="https://models.specul.com/guides/edge-deployment.html"><span data-zh>端侧部署指南</span><span data-en>Edge deployment</span> →</a></td>
-              <td data-label-zh="你能拿到" data-label-en="You get"><span data-zh>先算显存，再决定量化档位</span><span data-en>Work out VRAM first, then the quant tier</span></td>
-            </tr>
-            <tr>
-              <td data-label-zh="你现在的情况" data-label-en="Situation"><b><span data-zh>要买卡，或租算力</span><span data-en>Buying a GPU, or renting compute</span></b></td>
-              <td data-label-zh="去哪个站" data-label-en="Site"><a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a></td>
-              <td data-label-zh="先打开这一页" data-label-en="Page"><a class="hx-go" href="https://hardware.specul.com/cloud/guides/compare-gpu-price.html"><span data-zh>云 GPU 比价</span><span data-en>Compare cloud GPU prices</span> →</a></td>
-              <td data-label-zh="你能拿到" data-label-en="You get"><span data-zh>知道买还是租，按小时怎么算</span><span data-en>Whether to buy or rent, and the hourly maths</span></td>
-            </tr>
-            <tr>
-              <td data-label-zh="你现在的情况" data-label-en="Situation"><b><span data-zh>想读原始论文，不要二手结论</span><span data-en>Read the source paper, not a summary</span></b></td>
-              <td data-label-zh="去哪个站" data-label-en="Site"><a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>Papers</span></a></td>
-              <td data-label-zh="先打开这一页" data-label-en="Page"><a class="hx-go" href="https://papers.specul.com/path.html"><span data-zh>方法谱系</span><span data-en>Method lineage</span> →</a></td>
-              <td data-label-zh="你能拿到" data-label-en="You get"><span data-zh>从综述到单篇，带证据边界</span><span data-en>From overview to single papers, with evidence limits</span></td>
-            </tr>
-            <tr>
-              <td data-label-zh="你现在的情况" data-label-en="Situation"><b><span data-zh>想拿代码，自己搭一套</span><span data-en>Take code and build it yourself</span></b></td>
-              <td data-label-zh="去哪个站" data-label-en="Site"><a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a></td>
-              <td data-label-zh="先打开这一页" data-label-en="Page"><a class="hx-go" href="https://oss.specul.com/scenes/local-inference.html"><span data-zh>本地推理场景</span><span data-en>Local inference</span> →</a></td>
-              <td data-label-zh="你能拿到" data-label-en="You get"><span data-zh>找到能跑的仓库，先看许可</span><span data-en>Find a runnable repo; start with the licence</span></td>
-            </tr>
-            <tr>
-              <td data-label-zh="你现在的情况" data-label-en="Situation"><b><span data-zh>想查链上凭证与支付</span><span data-en>Looking into on-chain credentials or payments</span></b></td>
-              <td data-label-zh="去哪个站" data-label-en="Site"><a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a></td>
-              <td data-label-zh="先打开这一页" data-label-en="Page"><a class="hx-go" href="https://chain.specul.com/path.html"><span data-zh>核验路径</span><span data-en>Verification path</span> →</a></td>
-              <td data-label-zh="你能拿到" data-label-en="You get"><span data-zh>分清概念、协议与能做的事</span><span data-en>Separate concepts, protocols and what they can do</span></td>
-            </tr>
-            <tr>
-              <td data-label-zh="你现在的情况" data-label-en="Situation"><b><span data-zh>只想逛逛，找点灵感</span><span data-en>Just browsing for ideas</span></b></td>
-              <td data-label-zh="去哪个站" data-label-en="Site"><a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Demos</span></a></td>
-              <td data-label-zh="先打开这一页" data-label-en="Page"><a class="hx-go" href="https://demos.specul.com/"><span data-zh>全部作品</span><span data-en>All works</span> →</a></td>
-              <td data-label-zh="你能拿到" data-label-en="You get"><span data-zh>先看真作品，再回头补原理</span><span data-en>See real pieces first, then fill in the theory</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="hx-note"><span data-zh>表里都是站内页；如果都不像你，<a href="search.html">直接搜全站</a>。</span><span data-en>Every link stays on Specul. If none fits, <a href="search.html">search all ten sites</a>.</span></p>
-    </div>
-  </section>
-
-  <section class="hx-sec" id="sites">
-    <div class="hp-c">
-      <header class="hx-head">
-        <p class="hx-kicker"><span data-zh>02 · 十个站，十扇门</span><span data-en>02 · Ten sites, ten doors</span></p>
-        <h2 class="hx-h2"><span data-zh>先看每一站长什么样</span><span data-en>See what each site actually looks like</span></h2>
-        <p class="hx-dek"><span data-zh>截图摄于 2026-11-22，是各站首页的真实样子；下面的数字是现在站里的内容量。</span><span data-en>Captured 22 Nov 2026. The thumbnails are the real homepages; the numbers are what each site holds now.</span></p>
-      </header>
-
-      <div class="hx-sites">
-        <a class="hx-site s1" href="https://learn.specul.com/">
-          <figure><img src="shots/learn.jpg" alt="学 AI 首页 / Learn homepage" loading="lazy" decoding="async" width="1280" height="800" /><span class="hx-site-n">01</span></figure>
-          <div class="hx-site-body">
-            <span class="hx-site-k"><span data-zh>概念层</span><span data-en>Concepts</span></span>
-            <b class="hx-site-name"><span data-zh>学 AI</span><span data-en>Learn</span></b>
-            <em><span data-zh>把词和原理弄明白</span><span data-en>Get the terms and principles</span></em>
-            <span class="hx-site-count"><span data-zh>300 词 · 111 指南 · 16 路径</span><span data-en>300 terms · 111 guides · 16 paths</span></span>
-          </div>
-        </a>
-
-        <a class="hx-site s2" href="https://tools.specul.com/">
-          <figure><img src="shots/tools.jpg" alt="工具站首页 / Tools homepage" loading="lazy" decoding="async" width="1280" height="800" /><span class="hx-site-n">02</span></figure>
-          <div class="hx-site-body">
-            <span class="hx-site-k"><span data-zh>干活</span><span data-en>Do the job</span></span>
-            <b class="hx-site-name"><span data-zh>工具</span><span data-en>Tools</span></b>
-            <em><span data-zh>按手里的活挑现成工具</span><span data-en>Pick a working tool by the job</span></em>
-            <span class="hx-site-count"><span data-zh>282 档案 · 12 类 · 78 指南</span><span data-en>282 profiles · 12 groups · 78 guides</span></span>
-          </div>
-        </a>
-
-        <a class="hx-site s3" href="https://models.specul.com/">
-          <figure><img src="shots/models.jpg" alt="模型站首页 / Models homepage" loading="lazy" decoding="async" width="1280" height="800" /><span class="hx-site-n">03</span></figure>
-          <div class="hx-site-body">
-            <span class="hx-site-k"><span data-zh>选与跑</span><span data-en>Choose and run</span></span>
-            <b class="hx-site-name"><span data-zh>模型</span><span data-en>Models</span></b>
-            <em><span data-zh>挑家族、查数据集、读评测</span><span data-en>Families, datasets and evals</span></em>
-            <span class="hx-site-count"><span data-zh>21 家族 · 40 数据集 · 40 评测</span><span data-en>21 families · 40 datasets · 40 evals</span></span>
-          </div>
-        </a>
-
-        <a class="hx-site s4" href="https://demos.specul.com/">
-          <figure><img src="shots/demos.jpg" alt="作品演示站首页 / Demos homepage" loading="lazy" decoding="async" width="1280" height="800" /><span class="hx-site-n">04</span></figure>
-          <div class="hx-site-body">
-            <span class="hx-site-k"><span data-zh>作品</span><span data-en>Works</span></span>
-            <b class="hx-site-name"><span data-zh>演示</span><span data-en>Demos</span></b>
-            <em><span data-zh>看别人用模型做成了什么</span><span data-en>See what people made with models</span></em>
-            <span class="hx-site-count"><span data-zh>348 作品 · 31 模型</span><span data-en>348 works · 31 models</span></span>
-          </div>
-        </a>
-
-        <a class="hx-site s5" href="https://oss.specul.com/">
-          <figure><img src="shots/oss.jpg" alt="开源库站首页 / OSS homepage" loading="lazy" decoding="async" width="1280" height="800" /><span class="hx-site-n">05</span></figure>
-          <div class="hx-site-body">
-            <span class="hx-site-k"><span data-zh>代码</span><span data-en>Code</span></span>
-            <b class="hx-site-name"><span data-zh>开源库</span><span data-en>OSS</span></b>
-            <em><span data-zh>拿代码，自己改和部署</span><span data-en>Take the code, change it, deploy it</span></em>
-            <span class="hx-site-count"><span data-zh>135 仓 · 7 场景</span><span data-en>135 repos · 7 scenes</span></span>
-          </div>
-        </a>
-
-        <a class="hx-site s6" href="https://hardware.specul.com/">
-          <figure><img src="shots/hardware.jpg" alt="硬件算力站首页 / Compute homepage" loading="lazy" decoding="async" width="1280" height="800" /><span class="hx-site-n">06</span></figure>
-          <div class="hx-site-body">
-            <span class="hx-site-k"><span data-zh>硬件</span><span data-en>Hardware</span></span>
-            <b class="hx-site-name"><span data-zh>硬件算力</span><span data-en>Compute</span></b>
-            <em><span data-zh>查显卡、机器与租用成本</span><span data-en>GPUs, machines, rental cost</span></em>
-            <span class="hx-site-count"><span data-zh>72 条档案 · 云算力节</span><span data-en>72 profiles · cloud section</span></span>
-          </div>
-        </a>
-
-        <a class="hx-site s7" href="https://papers.specul.com/">
-          <figure><img src="shots/papers.jpg" alt="AI 论文站首页 / Papers homepage" loading="lazy" decoding="async" width="1280" height="800" /><span class="hx-site-n">07</span></figure>
-          <div class="hx-site-body">
-            <span class="hx-site-k"><span data-zh>证据</span><span data-en>Evidence</span></span>
-            <b class="hx-site-name"><span data-zh>AI 论文</span><span data-en>Papers</span></b>
-            <em><span data-zh>读原始论文，不读二手结论</span><span data-en>Read the source, not summaries</span></em>
-            <span class="hx-site-count"><span data-zh>109 篇 · 14 类</span><span data-en>109 papers · 14 fields</span></span>
-          </div>
-        </a>
-
-        <a class="hx-site s8" href="https://chain.specul.com/">
-          <figure><img src="shots/chain.jpg" alt="链站首页 / Chain homepage" loading="lazy" decoding="async" width="1280" height="800" /><span class="hx-site-n">08</span></figure>
-          <div class="hx-site-body">
-            <span class="hx-site-k"><span data-zh>协议</span><span data-en>Protocols</span></span>
-            <b class="hx-site-name"><span data-zh>链</span><span data-en>Chain</span></b>
-            <em><span data-zh>凭证、支付与链上 AI 工具</span><span data-en>Credentials, payments, on-chain AI tools</span></em>
-            <span class="hx-site-count"><span data-zh>46 条 · 6 类</span><span data-en>46 entries · 6 kinds</span></span>
-          </div>
-        </a>
-
-        <a class="hx-site s9" href="https://nav.specul.com/">
-          <figure><img src="shots/nav.jpg" alt="AI 导航站首页 / Directory homepage" loading="lazy" decoding="async" width="1280" height="800" /><span class="hx-site-n">09</span></figure>
-          <div class="hx-site-body">
-            <span class="hx-site-k"><span data-zh>站外</span><span data-en>Beyond</span></span>
-            <b class="hx-site-name"><span data-zh>AI 导航</span><span data-en>Directory</span></b>
-            <em><span data-zh>去站外的 AI 网站</span><span data-en>AI sites beyond Specul</span></em>
-            <span class="hx-site-count"><span data-zh>816 条 · 633 在站</span><span data-en>816 entries · 633 on-site</span></span>
-          </div>
-        </a>
-      </div>
-
-      <a class="hx-searchcard" href="search.html">
-        <div class="hx-searchcard-copy">
-          <span class="hx-site-k"><span data-zh>第十扇门 · 搜索</span><span data-en>The tenth door · Search</span></span>
-          <b><span data-zh>还是不知道点哪？</span><span data-en>Still not sure where to click?</span></b>
-          <p><span data-zh>把十个站的概念、工具、模型、论文、作品与站外目录一起搜一遍。</span><span data-en>Search concepts, tools, models, papers, works and the off-site directory in one go.</span></p>
-          <span class="hx-searchcard-go"><span data-zh>搜 2,409 条记录 →</span><span data-en>Search 2,409 records →</span></span>
+  <section class="hm-sec" id="levels">
+    <div class="hm-c">
+      <header class="hm-head">
+        <div>
+          <p class="hm-kicker"><span data-zh>01 · 按你现在的水平</span><span data-en>01 · By your current level</span></p>
+          <h2><span data-zh>同一件事，四种深度</span><span data-en>One subject, four depths</span></h2>
         </div>
-        <img src="shots/search.jpg" alt="搜索页截图 / Search page screenshot" loading="lazy" decoding="async" width="1280" height="800" />
-      </a>
+        <p class="hm-dek"><span data-zh>不需要先学完。选最接近你当前状态的一档，每张卡都给出下一步和再下一步。</span><span data-en>You do not need to finish a course first. Pick the closest state; each card gives the next page and the one after it.</span></p>
+      </header>
+
+      <div class="hm-levels">
+        <article class="hm-level">
+          <div class="hm-level-top"><span>01</span><span><span data-zh>第一次接触</span><span data-en>First contact</span></span></div>
+          <h3><span data-zh>先有一张地图，别先背术语</span><span data-en>Get a map before memorising terms</span></h3>
+          <p><span data-zh>先用半小时知道 AI 的大致版图，再把同一个东西的几种叫法对上。</span><span data-en>Spend half an hour on the overall map, then match the several names people use for the same thing.</span></p>
+          <ul class="hm-links">
+            <li><a href="https://learn.specul.com/path/quick-start/"><span data-zh>半小时入门</span><span data-en>Quick start in 30 minutes</span><span aria-hidden="true">→</span></a></li>
+            <li><a href="https://learn.specul.com/atlas/"><span data-zh>AI 编年史与版图</span><span data-en>AI timeline and landscape</span><span aria-hidden="true">→</span></a></li>
+            <li><a href="https://learn.specul.com/aliases/"><span data-zh>名词对照：同一个东西的几种叫法</span><span data-en>Aliases: several names for one thing</span><span aria-hidden="true">→</span></a></li>
+          </ul>
+        </article>
+
+        <article class="hm-level">
+          <div class="hm-level-top"><span>02</span><span><span data-zh>已经在用</span><span data-en>Already using it</span></span></div>
+          <h3><span data-zh>把零散技巧，收成能重复的流程</span><span data-en>Turn scattered tricks into a repeatable process</span></h3>
+          <p><span data-zh>你会用聊天框，但结果时好时坏。先把任务拆成输入、步骤和验收，再选工具。</span><span data-en>You use a chat box, but results vary. Split the task into input, steps and acceptance before choosing a tool.</span></p>
+          <ul class="hm-links">
+            <li><a href="https://learn.specul.com/path/for-office/"><span data-zh>办公与写作路线</span><span data-en>Office and writing path</span><span aria-hidden="true">→</span></a></li>
+            <li><a href="https://tools.specul.com/mcp/guides/playbook-meeting-notes.html"><span data-zh>任务：会议纪要与行动项</span><span data-en>Task: meeting notes and actions</span><span aria-hidden="true">→</span></a></li>
+            <li><a href="https://tools.specul.com/mcp/guides/selftest-20.html"><span data-zh>20 题自测：基础、评测与选型</span><span data-en>20-question self-test</span><span aria-hidden="true">→</span></a></li>
+          </ul>
+        </article>
+
+        <article class="hm-level">
+          <div class="hm-level-top"><span>03</span><span><span data-zh>能写代码</span><span data-en>Can write code</span></span></div>
+          <h3><span data-zh>从能跑，到能验收、能算成本</span><span data-en>From “it runs” to acceptance and cost</span></h3>
+          <p><span data-zh>模型不是装完就结束。显存、量化、并发、失败率和账单，要一起算。</span><span data-en>Installing a model is not the end. VRAM, quantisation, concurrency, failure rate and billing belong in one calculation.</span></p>
+          <ul class="hm-links">
+            <li><a href="https://learn.specul.com/path/for-builders/"><span data-zh>动手开发者路线</span><span data-en>Builder path</span><span aria-hidden="true">→</span></a></li>
+            <li><a href="https://models.specul.com/guides/edge-deployment.html"><span data-zh>端侧部署：带宽、量化与功耗</span><span data-en>Edge deployment: bandwidth, quant, power</span><span aria-hidden="true">→</span></a></li>
+            <li><a href="https://models.specul.com/evals/guides/agent-eval.html"><span data-zh>Agent 与工具调用怎么评</span><span data-en>How to evaluate agents and tool calls</span><span aria-hidden="true">→</span></a></li>
+          </ul>
+        </article>
+
+        <article class="hm-level">
+          <div class="hm-level-top"><span>04</span><span><span data-zh>研究 / 选型 / 评审</span><span data-en>Research / selection / review</span></span></div>
+          <h3><span data-zh>先看证据边界，再下结论</span><span data-en>See the evidence limits before the conclusion</span></h3>
+          <p><span data-zh>榜单只是一个数字。把论文、基准、许可、价格和失败模式放在同一张桌上。</span><span data-en>A leaderboard is one number. Put papers, benchmarks, licences, price and failure modes on the same table.</span></p>
+          <ul class="hm-links">
+            <li><a href="https://learn.specul.com/path/for-researchers/"><span data-zh>研究学习者路线</span><span data-en>Researcher path</span><span aria-hidden="true">→</span></a></li>
+            <li><a href="https://papers.specul.com/path.html"><span data-zh>方法谱系：从 Transformer 到状态空间</span><span data-en>Method lineage: Transformer to state space</span><span aria-hidden="true">→</span></a></li>
+            <li><a href="https://models.specul.com/evals/guides/eval-contamination.html"><span data-zh>评测污染怎么查</span><span data-en>How to check benchmark contamination</span><span aria-hidden="true">→</span></a></li>
+            <li><a href="https://specul.com/domain-trust.html"><span data-zh>安全、许可、凭证：能跑不等于能用</span><span data-en>Safety, licences, credentials: runnable is not usable</span><span aria-hidden="true">→</span></a></li>
+          </ul>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section class="hx-sec" id="tasks">
-    <div class="hp-c">
-      <header class="hx-head">
-        <p class="hx-kicker"><span data-zh>03 · 按手里的活</span><span data-en>03 · By the job in hand</span></p>
-        <h2 class="hx-h2"><span data-zh>十六个常见任务，直接跳到跨站路线</span><span data-en>Sixteen common jobs, each with a cross-site path</span></h2>
-        <p class="hx-dek"><span data-zh>每条路线把“用什么、怎么做、哪里会翻车”串起来。点一条，按顺序走。</span><span data-en>Each path connects what to use, how to do it and where it breaks. Pick one and follow it in order.</span></p>
+  <section class="hm-sec" id="artifacts">
+    <div class="hm-c">
+      <header class="hm-head">
+        <div>
+          <p class="hm-kicker"><span data-zh>02 · 按你手里的东西</span><span data-en>02 · By what you are holding</span></p>
+          <h2><span data-zh>你手上是什么，就从哪进</span><span data-en>Enter by what is in your hand</span></h2>
+        </div>
+        <p class="hm-dek"><span data-zh>八类起点覆盖词、活、模型、机器、作品、论文、系统和链上问题。每张卡先给一页，再给第二页。</span><span data-en>Eight starting points: a term, a task, a model, a machine, a work, a paper, a system, a chain question. Each gives a first page and a second.</span></p>
       </header>
 
-      <div class="hx-tasks">
-        <a class="hx-task c1" href="topic-code.html"><b><span data-zh>写代码 / 做网页</span><span data-en>Code / build a page</span></b><span><span data-zh>从改一个小页面开始</span><span data-en>Start by changing one small page</span></span></a>
-        <a class="hx-task c2" href="topic-video.html"><b><span data-zh>做视频 / 做图</span><span data-en>Video / images</span></b><span><span data-zh>脚本、分镜、生成、剪辑</span><span data-en>Script, storyboard, generate, edit</span></span></a>
-        <a class="hx-task c3" href="topic-game.html"><b><span data-zh>做游戏</span><span data-en>Games</span></b><span><span data-zh>玩法、素材、代码与试玩</span><span data-en>Design, assets, code, playtest</span></span></a>
-        <a class="hx-task c4" href="topic-music.html"><b><span data-zh>做音乐 / 配音</span><span data-en>Music / voice-over</span></b><span><span data-zh>作曲、人声、音效与授权</span><span data-en>Composition, vocals, sound, licensing</span></span></a>
-        <a class="hx-task c5" href="topic-research.html"><b><span data-zh>做研究 / 写报告</span><span data-en>Research / reports</span></b><span><span data-zh>找论文、读证据、整理引用</span><span data-en>Find papers, read evidence, manage citations</span></span></a>
-        <a class="hx-task c6" href="topic-office.html"><b><span data-zh>办公 / 表格 / 会议</span><span data-en>Office / sheets / meetings</span></b><span><span data-zh>纪要、表格、邮件与流程</span><span data-en>Notes, sheets, email, workflows</span></span></a>
-        <a class="hx-task c1" href="topic-prompts.html"><b><span data-zh>写提示词 / 调模型</span><span data-en>Prompts / tuning</span></b><span><span data-zh>把要求说清，让结果稳定</span><span data-en>State the ask; make output stable</span></span></a>
-        <a class="hx-task c3" href="topic-robot.html"><b><span data-zh>机器人 / 硬件</span><span data-en>Robots / hardware</span></b><span><span data-zh>感知、控制、仿真与落地</span><span data-en>Perception, control, simulation, deployment</span></span></a>
-        <a class="hx-task c2" href="topic-agent.html"><b><span data-zh>搭智能体</span><span data-en>Build agents</span></b><span><span data-zh>框架、编排、记忆与护栏</span><span data-en>Frameworks, orchestration, memory, guardrails</span></span></a>
-        <a class="hx-task c4" href="topic-local.html"><b><span data-zh>本机跑模型</span><span data-en>Run models locally</span></b><span><span data-zh>显存、量化、部署与成本</span><span data-en>VRAM, quantisation, serving, cost</span></span></a>
-        <a class="hx-task c5" href="topic-speech.html"><b><span data-zh>语音 / 配音</span><span data-en>Speech / dubbing</span></b><span><span data-zh>识别、合成、素材与授权</span><span data-en>Recognition, synthesis, assets, licensing</span></span></a>
-        <a class="hx-task c6" href="topic-eval.html"><b><span data-zh>评测 / 发布</span><span data-en>Eval / release</span></b><span><span data-zh>基准、污染、复跑与门禁</span><span data-en>Benchmarks, contamination, reruns, gates</span></span></a>
-        <a class="hx-task c5" href="topic-image.html"><b><span data-zh>做图 / 设计</span><span data-en>Images / design</span></b><span><span data-zh>用途、尺寸、风格、授权与导出</span><span data-en>Use, size, style, rights, export</span></span></a>
-        <a class="hx-task c6" href="topic-3d.html"><b><span data-zh>3D / 数字人</span><span data-en>3D / digital humans</span></b><span><span data-zh>几何、绑定、动作与实时</span><span data-en>Geometry, rigging, motion, real time</span></span></a>
-        <a class="hx-task c3" href="topic-data.html"><b><span data-zh>数据 / 训练</span><span data-en>Data / training</span></b><span><span data-zh>授权、切分、污染、成本与评测</span><span data-en>Licence, splits, contamination, cost, eval</span></span></a>
-        <a class="hx-task c2" href="topic-safety.html"><b><span data-zh>安全 / 合规</span><span data-en>Safety / compliance</span></b><span><span data-zh>威胁、评测、权限与证据</span><span data-en>Threats, evaluation, permissions, evidence</span></span></a>
+      <div class="hm-artifacts">
+        <article class="hm-tile">
+          <span class="hm-tile-k"><span data-zh>一个词</span><span data-en>A term</span></span>
+          <b><span data-zh>看不懂，但不想背定义</span><span data-en>You don't follow it, but don't want a definition</span></b>
+          <p><span data-zh>先看它在版图里的位置，再看别名和相近概念。</span><span data-en>See where it sits on the map, then check aliases and near-neighbours.</span></p>
+          <div class="hm-tile-foot"><a href="https://learn.specul.com/atlas/"><span data-zh>概念地图</span><span data-en>Concept map</span> →</a><a href="https://learn.specul.com/aliases/"><span data-zh>名词对照</span><span data-en>Aliases</span> →</a></div>
+        </article>
+
+        <article class="hm-tile">
+          <span class="hm-tile-k"><span data-zh>一件活</span><span data-en>A task</span></span>
+          <b><span data-zh>今天就要交</span><span data-en>Due today</span></b>
+          <p><span data-zh>会议纪要、表格合并、长文审阅、PDF 转表，先照着做一遍。</span><span data-en>Meeting notes, table merges, long-document review, PDF to table: follow a playbook first.</span></p>
+          <div class="hm-tile-foot"><a href="https://tools.specul.com/mcp/guides/playbook-meeting-notes.html"><span data-zh>会议纪要</span><span data-en>Meeting notes</span> →</a><a href="https://tools.specul.com/office/"><span data-zh>办公工具</span><span data-en>Office tools</span> →</a></div>
+        </article>
+
+        <article class="hm-tile">
+          <span class="hm-tile-k"><span data-zh>一个模型</span><span data-en>A model</span></span>
+          <b><span data-zh>想选，但参数表太长</span><span data-en>Choosing, but the spec sheet is long</span></b>
+          <p><span data-zh>先看 2026 开放权重版图，再进家族卡核对参数、许可与发布状态。</span><span data-en>Start with the 2026 open-weight map, then check family cards for specs, licence and status.</span></p>
+          <div class="hm-tile-foot"><a href="https://models.specul.com/2026.html"><span data-zh>2026 选型表</span><span data-en>2026 selection map</span> →</a><a href="https://models.specul.com/families/thinkingmachines/"><span data-zh>Inkling 家族</span><span data-en>Inkling family</span> →</a></div>
+        </article>
+
+        <article class="hm-tile">
+          <span class="hm-tile-k"><span data-zh>一张卡 / 一台机器</span><span data-en>A card / a machine</span></span>
+          <b><span data-zh>要买，或要租</span><span data-en>Buying or renting</span></b>
+          <p><span data-zh>从显存需求倒推，再算买卡与租云的三年账。不要先看型号再看预算。</span><span data-en>Start from VRAM requirement, then the three-year buy-versus-rent sum. Model first, budget second.</span></p>
+          <div class="hm-tile-foot"><a href="https://hardware.specul.com/path.html"><span data-zh>按显存倒推</span><span data-en>Work back from VRAM</span> →</a><a href="https://hardware.specul.com/tco.html"><span data-zh>三年 TCO</span><span data-en>Three-year TCO</span> →</a></div>
+        </article>
+
+        <article class="hm-tile">
+          <span class="hm-tile-k"><span data-zh>一件作品</span><span data-en>A work</span></span>
+          <b><span data-zh>想先看结果，再学原理</span><span data-en>See the result, then the method</span></b>
+          <p><span data-zh>先看 348 件能打开的作品，再回到提示词和工具链看它是怎么做出来的。</span><span data-en>Open one of 348 works, then go back to prompts and toolchain to see how it was made.</span></p>
+          <div class="hm-tile-foot"><a href="https://demos.specul.com/"><span data-zh>看全部 348 件作品</span><span data-en>See all 348 works</span> →</a><a href="https://demos.specul.com/prompts.html"><span data-zh>提示词索引</span><span data-en>Prompt index</span> →</a></div>
+        </article>
+
+        <article class="hm-tile">
+          <span class="hm-tile-k"><span data-zh>一篇论文</span><span data-en>A paper</span></span>
+          <b><span data-zh>不想从二手解读开始</span><span data-en>Not starting from a second-hand summary</span></b>
+          <p><span data-zh>按方法谱系找位置，再读原文摘要与限制。别把新闻稿当论文。</span><span data-en>Place it in the method lineage, then read the abstract and limits. A press release is not a paper.</span></p>
+          <div class="hm-tile-foot"><a href="https://papers.specul.com/path.html"><span data-zh>方法谱系</span><span data-en>Method lineage</span> →</a><a href="https://papers.specul.com/2026.html"><span data-zh>2026 四篇</span><span data-en>Four 2026 papers</span> →</a></div>
+        </article>
+
+        <article class="hm-tile">
+          <span class="hm-tile-k"><span data-zh>一套系统</span><span data-en>A system</span></span>
+          <b><span data-zh>要把 Agent 接起来</span><span data-en>Wiring an agent together</span></b>
+          <p><span data-zh>框架、运行器、记忆与护栏，先分清哪一层该谁负责，再选仓库。</span><span data-en>Framework, runner, memory and guardrails: decide which layer owns what before choosing a repo.</span></p>
+          <div class="hm-tile-foot"><a href="https://tools.specul.com/mcp/guides/compare-agent-frameworks.html"><span data-zh>框架怎么选</span><span data-en>Choose a framework</span> →</a><a href="https://tools.specul.com/mcp/guides/compare-local-runners.html"><span data-zh>本地运行器</span><span data-en>Local runners</span> →</a></div>
+        </article>
+
+        <article class="hm-tile">
+          <span class="hm-tile-k"><span data-zh>一个链上问题</span><span data-en>A chain question</span></span>
+          <b><span data-zh>身份、支付还是凭证？</span><span data-en>Identity, payments or credentials?</span></b>
+          <p><span data-zh>先分清账户、身份、支付与卡网络四层，再查具体协议能做什么。</span><span data-en>Separate accounts, identity, payments and card networks, then check what a protocol actually does.</span></p>
+          <div class="hm-tile-foot"><a href="https://chain.specul.com/path.html"><span data-zh>核验路径</span><span data-en>Verification path</span> →</a><a href="https://chain.specul.com/2026.html"><span data-zh>2026 四层</span><span data-en>2026 four layers</span> →</a></div>
+        </article>
       </div>
-      <p class="hx-note"><a href="topics.html"><span data-zh>看全部 16 个主题的跨站路线</span><span data-en>See all 16 cross-site topic paths</span> →</a></p>
     </div>
   </section>
 
-  <section class="hx-sec" id="made">
-    <div class="hp-c">
-      <header class="hx-head">
-        <p class="hx-kicker"><span data-zh>04 · 先看真的做出来</span><span data-en>04 · See what people actually made</span></p>
-        <h2 class="hx-h2"><span data-zh>六件作品，点开就能跑</span><span data-en>Six pieces that run when you open them</span></h2>
-        <p class="hx-dek"><span data-zh>都来自作品演示站。先看结果，再决定要不要回头补原理。</span><span data-en>All from the Playground. See the result first, then decide whether to go back for the theory.</span></p>
+  <section class="hm-sec" id="time">
+    <div class="hm-c">
+      <header class="hm-head">
+        <div>
+          <p class="hm-kicker"><span data-zh>03 · 按你能投入的时间</span><span data-en>03 · By the time you have</span></p>
+          <h2><span data-zh>十分钟、半小时、一个下午</span><span data-en>Ten minutes, half an hour, one afternoon</span></h2>
+        </div>
+        <p class="hm-dek"><span data-zh>时间越短，入口越具体。先把一页看完，不要在同一屏里开五个战场。</span><span data-en>The less time you have, the more specific the entry. Finish one page instead of opening five fronts at once.</span></p>
       </header>
-      <div class="hx-works">
-        <a class="hx-work" href="https://demos.specul.com/works/gpt-6-2-sol-001-the-folded-pacific.html">
-          <figure><img src="https://demos.specul.com/thumbs/gpt-6-2-sol-001-the-folded-pacific.jpg" alt="The Folded Pacific" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><figcaption><b>The Folded Pacific</b><span data-zh>把四段航线压进一张横断面图。</span><span data-en>Four sea legs packed into one cross-section.</span></figcaption></figure>
-        </a>
-        <a class="hx-work" href="https://demos.specul.com/works/claude-fable-5-2-001-suminagashi-marbling-tray.html">
-          <figure><img src="https://demos.specul.com/thumbs/claude-fable-5-2-001-suminagashi-marbling-tray.jpg" alt="Suminagashi — The Marbling Tray" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><figcaption><b>Suminagashi</b><span data-zh>Canvas 复刻水拓画，每一次落墨都能重放。</span><span data-en>A Canvas rebuild of paper marbling, replayable stroke by stroke.</span></figcaption></figure>
-        </a>
-        <a class="hx-work" href="https://demos.specul.com/works/claude-fable-5-2-020-aurora-over-the-fjord.html">
-          <figure><img src="https://demos.specul.com/thumbs/claude-fable-5-2-020-aurora-over-the-fjord.jpg" alt="Aurora over the Fjord" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><figcaption><b>Aurora over the Fjord</b><span data-zh>极光、雪线与峡湾，压在一张静帧里。</span><span data-en>Aurora, snow line and fjord in one still.</span></figcaption></figure>
-        </a>
-        <a class="hx-work" href="https://demos.specul.com/works/gpt-6-2-sol-100-dawn-in-the-print-room.html">
-          <figure><img src="https://demos.specul.com/thumbs/gpt-6-2-sol-100-dawn-in-the-print-room.jpg" alt="Dawn in the Print Room" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><figcaption><b>Dawn in the Print Room</b><span data-zh>印刷车间的晨光，细节密到能数纸边。</span><span data-en>Morning light in a print room, detailed down to the paper edges.</span></figcaption></figure>
-        </a>
-        <a class="hx-work" href="https://demos.specul.com/works/gemini-4-showcase-006-swarm.html">
-          <figure><img src="https://demos.specul.com/thumbs/gemini-4-showcase-006-swarm.png" alt="Swarm" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><figcaption><b>Swarm</b><span data-zh>用粒子群画出一团会聚散的形状。</span><span data-en>A shape that gathers and scatters, drawn by a particle swarm.</span></figcaption></figure>
-        </a>
-        <a class="hx-work" href="https://demos.specul.com/works/code-animation-opus-5-5-b6-light-speed.html">
-          <figure><img src="https://demos.specul.com/thumbs/code-animation-b6-opus.png" alt="Light-speed tunnel" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><figcaption><b>Light-speed tunnel</b><span data-zh>同一份提示词，两个模型各做一版。</span><span data-en>One prompt, two model versions, side by side.</span></figcaption></figure>
-        </a>
+
+      <div class="hm-time">
+        <div class="hm-time-row">
+          <b><span data-zh>10 分钟</span><span data-en>10 minutes</span><span><span data-zh>只解决一个点</span><span data-en>One point only</span></span></b>
+          <div class="hm-time-links">
+            <a href="https://learn.specul.com/term/RAG%EF%BC%88%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%EF%BC%89/"><span data-zh>搞懂 RAG 是什么</span><span data-en>What RAG is</span><em><span data-zh>学 AI</span><span data-en>Learn</span></em></a>
+            <a href="https://demos.specul.com/2026.html"><span data-zh>看一件 2026 作品</span><span data-en>One 2026 work</span><em><span data-zh>演示</span><span data-en>Demos</span></em></a>
+            <a href="https://hardware.specul.com/nvidia-geforce-rtx-5090.html"><span data-zh>查 RTX 5090 一张卡</span><span data-en>Check the RTX 5090</span><em><span data-zh>硬件</span><span data-en>Hardware</span></em></a>
+          </div>
+        </div>
+
+        <div class="hm-time-row">
+          <b><span data-zh>30 分钟</span><span data-en>30 minutes</span><span><span data-zh>走完一条小路</span><span data-en>Finish one short path</span></span></b>
+          <div class="hm-time-links">
+            <a href="https://learn.specul.com/path/quick-start/"><span data-zh>走一遍半小时入门</span><span data-en>Take the 30-minute start</span><em><span data-zh>学 AI</span><span data-en>Learn</span></em></a>
+            <a href="https://tools.specul.com/mcp/guides/selftest-20.html"><span data-zh>做一次 20 题自测</span><span data-en>Take the 20-question test</span><em><span data-zh>工具</span><span data-en>Tools</span></em></a>
+            <a href="https://models.specul.com/evals/guides/read-leaderboard.html"><span data-zh>学会读一张榜单</span><span data-en>Learn to read a leaderboard</span><em><span data-zh>模型</span><span data-en>Models</span></em></a>
+          </div>
+        </div>
+
+        <div class="hm-time-row">
+          <b><span data-zh>一个下午 / 一个项目</span><span data-en>One afternoon / one project</span><span><span data-zh>走到能验收</span><span data-en>Reach acceptance</span></span></b>
+          <div class="hm-time-links">
+            <a href="https://specul.com/topic-local.html"><span data-zh>在本机跑模型：完整主题路线</span><span data-en>Run a model locally: full topic path</span><em><span data-zh>主题</span><span data-en>Topic</span></em></a>
+            <a href="https://tools.specul.com/mcp/guides/playbook-local-model.html"><span data-zh>照 playbook 跑一遍</span><span data-en>Follow the local-model playbook</span><em><span data-zh>工具</span><span data-en>Tools</span></em></a>
+            <a href="https://hardware.specul.com/tco.html"><span data-zh>把三年账算清</span><span data-en>Work out the three-year cost</span><em><span data-zh>硬件</span><span data-en>Hardware</span></em></a>
+          </div>
+        </div>
       </div>
-      <p class="hx-note"><a href="https://demos.specul.com/"><span data-zh>看全部 348 件作品</span><span data-en>See all 348 pieces</span> →</a></p>
     </div>
   </section>
 
-  <section class="hx-sec hx-sec-tight" id="deeper">
-    <div class="hp-c">
-      <header class="hx-head">
-        <p class="hx-kicker"><span data-zh>05 · 想读长一点</span><span data-en>05 · If you want a longer read</span></p>
-        <h2 class="hx-h2"><span data-zh>三篇，讲清三条正在发生的变化</span><span data-en>Three pieces on three changes underway</span></h2>
+  <section class="hm-sec" id="routes">
+    <div class="hm-c">
+      <header class="hm-head">
+        <div>
+          <p class="hm-kicker"><span data-zh>04 · 跨站路线</span><span data-en>04 · Cross-site routes</span></p>
+          <h2><span data-zh>四条路线，把站与站接起来</span><span data-en>Four routes that connect the sites</span></h2>
+        </div>
+        <p class="hm-dek"><span data-zh>每条路线只给下一步。按顺序走完，再决定要不要深入；最后都回到主站的主题页收口。</span><span data-en>Each route gives only the next step. Finish the order, then decide whether to go deeper; every route closes on a topic page here.</span></p>
       </header>
-      <div class="hx-reads">
-        <a class="hx-read" href="domain-robot.html"><span class="hx-read-k"><span data-zh>机器人</span><span data-en>Robots</span></span><b><span data-zh>为什么今年开始进厂</span><span data-en>Why they started entering factories this year</span></b><span><span data-zh>从演示视频走到工位，中间差的是数据、节拍和安全。</span><span data-en>Between the demo video and the workstation lie data, cycle time and safety.</span></span></a>
-        <a class="hx-read" href="domain-work.html"><span class="hx-read-k"><span data-zh>办公</span><span data-en>Office</span></span><b><span data-zh>AI 到底接管了哪几步</span><span data-en>Which steps AI actually took over</span></b><span><span data-zh>不是一键全自动，而是把检索、起草、核对拆开重排。</span><span data-en>Not one-click automation: retrieval, drafting and checking are pulled apart and resequenced.</span></span></a>
-        <a class="hx-read" href="domain-trust.html"><span class="hx-read-k"><span data-zh>信任</span><span data-en>Trust</span></span><b><span data-zh>许可、评测、凭证怎么看</span><span data-en>Reading licences, evals and credentials</span></b><span><span data-zh>一个模型能不能用，不只看跑分，还要看许可和证据链。</span><span data-en>Whether a model is usable is not just a score; it is licence and evidence too.</span></span></a>
+
+      <div class="hm-routes">
+        <article class="hm-route">
+          <header><span><span data-zh>工作</span><span data-en>Work</span></span></header>
+          <h3><span data-zh>从一段会议录音，到能确认的纪要</span><span data-en>From a recording to confirmable minutes</span></h3>
+          <p><span data-zh>适合：结果要发给人，需要行动项、责任人和可核对的原话。</span><span data-en>For results that go to other people, with actions, owners and checkable quotes.</span></p>
+          <div class="hm-steps">
+            <a class="hm-step" href="https://learn.specul.com/path/for-office/"><i>1</i><span><b><span data-zh>先看办公任务的全貌</span><span data-en>See the whole office task</span></b><small><span data-zh>别一上来就选转写工具</span><span data-en>Don't start with a transcription tool</span></small></span><span><span data-zh>学 AI</span><span data-en>Learn</span></span></a>
+            <a class="hm-step" href="https://tools.specul.com/mcp/guides/playbook-meeting-notes.html"><i>2</i><span><b><span data-zh>照着 playbook 做一遍</span><span data-en>Run the playbook once</span></b><small><span data-zh>输入、步骤、验收都写好了</span><span data-en>Input, steps and acceptance are written down</span></small></span><span><span data-zh>工具</span><span data-en>Tools</span></span></a>
+            <a class="hm-step" href="https://tools.specul.com/office/"><i>3</i><span><b><span data-zh>再按预算与权限挑工具</span><span data-en>Choose by budget and permissions</span></b><small><span data-zh>转写、纪要、协作分开看</span><span data-en>Transcription, minutes and collaboration separately</span></small></span><span><span data-zh>工具</span><span data-en>Tools</span></span></a>
+            <a class="hm-step" href="https://specul.com/topic-office.html"><i>4</i><span><b><span data-zh>回到完整路线核对下一步</span><span data-en>Check the next step on the full path</span></b><small><span data-zh>把工具、流程和验收串起来</span><span data-en>Connect tools, process and acceptance</span></small></span><span><span data-zh>主题</span><span data-en>Topic</span></span></a>
+          </div>
+        </article>
+
+        <article class="hm-route">
+          <header><span><span data-zh>工程</span><span data-en>Engineering</span></span></header>
+          <h3><span data-zh>在本机跑模型，不爆显存</span><span data-en>Run a model locally without blowing VRAM</span></h3>
+          <p><span data-zh>适合：想离线跑、想控成本，或要先验证这件事到底能不能跑。</span><span data-en>For offline use, cost control, or checking whether it can run at all.</span></p>
+          <div class="hm-steps">
+            <a class="hm-step" href="https://models.specul.com/guides/edge-deployment.html"><i>1</i><span><b><span data-zh>先算带宽、量化与功耗</span><span data-en>Start with bandwidth, quant and power</span></b><small><span data-zh>端侧不是桌面显卡的缩小版</span><span data-en>Edge is not a smaller desktop GPU</span></small></span><span><span data-zh>模型</span><span data-en>Models</span></span></a>
+            <a class="hm-step" href="https://hardware.specul.com/path.html"><i>2</i><span><b><span data-zh>按显存需求倒推机器</span><span data-en>Work back from VRAM to a machine</span></b><small><span data-zh>先定上下文和并发，再选卡</span><span data-en>Set context and concurrency before the card</span></small></span><span><span data-zh>硬件</span><span data-en>Hardware</span></span></a>
+            <a class="hm-step" href="https://oss.specul.com/repos/llama-cpp.html"><i>3</i><span><b><span data-zh>拿一个能跑的仓库</span><span data-en>Take a runnable repository</span></b><small><span data-zh>先看许可、后端和量化支持</span><span data-en>Check licence, backends and quant support</span></small></span><span><span data-zh>开源库</span><span data-en>OSS</span></span></a>
+            <a class="hm-step" href="https://tools.specul.com/mcp/guides/compare-local-runners.html"><i>4</i><span><b><span data-zh>在运行器之间做选择</span><span data-en>Choose between local runners</span></b><small><span data-zh>Ollama / LM Studio / llama.cpp / vLLM</span><span data-en>Ollama / LM Studio / llama.cpp / vLLM</span></small></span><span><span data-zh>工具</span><span data-en>Tools</span></span></a>
+          </div>
+        </article>
+
+        <article class="hm-route">
+          <header><span><span data-zh>作品</span><span data-en>Works</span></span></header>
+          <h3><span data-zh>做一个能发出去的作品</span><span data-en>Make a work you can publish</span></h3>
+          <p><span data-zh>适合：想先看结果，再反推提示词、工具链和素材授权。</span><span data-en>For starting from a result, then working back to prompts, toolchain and asset rights.</span></p>
+          <div class="hm-steps">
+            <a class="hm-step" href="https://demos.specul.com/2026.html"><i>1</i><span><b><span data-zh>先看今年这批作品</span><span data-en>See this year's works first</span></b><small><span data-zh>同一类提示词，不同模型各怎么做</span><span data-en>One prompt family, different model takes</span></small></span><span><span data-zh>演示</span><span data-en>Demos</span></span></a>
+            <a class="hm-step" href="https://tools.specul.com/image/"><i>2</i><span><b><span data-zh>定图像或视频工具链</span><span data-en>Pick the image or video chain</span></b><small><span data-zh>先定交付，再选生成与后期</span><span data-en>Delivery first, generation and post second</span></small></span><span><span data-zh>工具</span><span data-en>Tools</span></span></a>
+            <a class="hm-step" href="https://learn.specul.com/path/for-creators/"><i>3</i><span><b><span data-zh>补创作流程与授权</span><span data-en>Add process and rights</span></b><small><span data-zh>素材、风格、商用边界</span><span data-en>Assets, style, commercial limits</span></small></span><span><span data-zh>学 AI</span><span data-en>Learn</span></span></a>
+            <a class="hm-step" href="https://demos.specul.com/prompts.html"><i>4</i><span><b><span data-zh>拿提示词索引拆结构</span><span data-en>Break down structures in the prompt index</span></b><small><span data-zh>看别人怎么把要求写清楚</span><span data-en>See how others make the ask precise</span></small></span><span><span data-zh>演示</span><span data-en>Demos</span></span></a>
+          </div>
+        </article>
+
+        <article class="hm-route">
+          <header><span><span data-zh>选型</span><span data-en>Selection</span></span></header>
+          <h3><span data-zh>选模型，先算清代价</span><span data-en>Choose a model after counting the cost</span></h3>
+          <p><span data-zh>适合：要在几个模型、几张卡或云服务之间做决定。</span><span data-en>For deciding between models, cards or cloud services.</span></p>
+          <div class="hm-steps">
+            <a class="hm-step" href="https://models.specul.com/2026.html"><i>1</i><span><b><span data-zh>先看 2026 开放权重版图</span><span data-en>Start with the 2026 open-weight map</span></b><small><span data-zh>九个节点，不按热度排名</span><span data-en>Nine releases, no popularity ranking</span></small></span><span><span data-zh>模型</span><span data-en>Models</span></span></a>
+            <a class="hm-step" href="https://papers.specul.com/path.html"><i>2</i><span><b><span data-zh>把方法谱系和证据边界对上</span><span data-en>Place it in lineage and evidence limits</span></b><small><span data-zh>先分清论文主张与厂商口径</span><span data-en>Separate paper claims from vendor claims</span></small></span><span><span data-zh>论文</span><span data-en>Papers</span></span></a>
+            <a class="hm-step" href="https://hardware.specul.com/tco.html"><i>3</i><span><b><span data-zh>算买卡与租云的三年账</span><span data-en>Run the three-year buy-versus-rent sum</span></b><small><span data-zh>把存储、出网和闲置算进去</span><span data-en>Include storage, egress and idle time</span></small></span><span><span data-zh>硬件</span><span data-en>Hardware</span></span></a>
+            <a class="hm-step" href="https://models.specul.com/evals/guides/read-leaderboard.html"><i>4</i><span><b><span data-zh>最后再读榜单，别倒过来</span><span data-en>Read the leaderboard last, not first</span></b><small><span data-zh>先看测什么，再看谁在测</span><span data-en>What is measured, then who measured it</span></small></span><span><span data-zh>模型</span><span data-en>Models</span></span></a>
+          </div>
+        </article>
       </div>
-      <p class="hx-footnote"><a href="map.html"><span data-zh>全站地图</span><span data-en>Site map</span></a><a href="updates-2026-11.html"><span data-zh>2026 更新</span><span data-en>2026 updates</span></a><a href="about.html"><span data-zh>这个站怎么做的</span><span data-en>How this site is made</span></a><a href="method.html"><span data-zh>内容怎么选</span><span data-en>How we choose content</span></a></p>
+    </div>
+  </section>
+
+  <section class="hm-sec" id="latest">
+    <div class="hm-c">
+      <header class="hm-head">
+        <div>
+          <p class="hm-kicker"><span data-zh>05 · 最近的下一步</span><span data-en>05 · The next thing to open</span></p>
+          <h2><span data-zh>本月新增，值得先看</span><span data-en>New this month, worth opening first</span></h2>
+        </div>
+        <p class="hm-dek"><span data-zh>不是“最新资讯”，而是六条能直接改变判断的新页面。看完一页，再决定要不要跟。</span><span data-en>Not a news feed: six new pages that can change a decision. Read one, then decide whether to follow it.</span></p>
+      </header>
+
+      <div class="hm-latest">
+        <a href="https://models.specul.com/2026.html"><span><span data-zh>模型</span><span data-en>Models</span></span><b><span data-zh>Inkling 2 Small：594B 总参 / 17B 激活</span><span data-en>Inkling 2 Small: 594B total / 17B active</span></b><small><span data-zh>开放权重不等于单机能跑</span><span data-en>Open weights ≠ one-machine run</span></small></a>
+        <a href="https://papers.specul.com/nariq-2026.html"><span><span data-zh>论文</span><span data-en>Papers</span></span><b><span data-zh>NariQ：亚 3-bit 量化，先看 2.0bpw 掉多少</span><span data-en>NariQ: sub-3-bit quant, check the 2.0bpw drop</span></b><small><span data-zh>单模型、SM120 fork</span><span data-en>One model, SM120 fork</span></small></a>
+        <a href="https://hardware.specul.com/axelera-titania.html"><span><span data-zh>硬件</span><span data-en>Hardware</span></span><b><span data-zh>Titania：2.5 PFLOPS FP8、128GB LPDDR6</span><span data-en>Titania: 2.5 PFLOPS FP8, 128GB LPDDR6</span></b><small><span data-zh>2028 落地，不是现货</span><span data-en>2028 availability, not shipping now</span></small></a>
+        <a href="https://tools.specul.com/framework/vercel-eve.html"><span><span data-zh>工具</span><span data-en>Tools</span></span><b><span data-zh>Vercel eve 1.0：开源 Agent 框架</span><span data-en>Vercel eve 1.0: open-source agent framework</span></b><small><span data-zh>durable session、subagents</span><span data-en>Durable sessions, subagents</span></small></a>
+        <a href="https://tools.specul.com/coding/devin-bots.html"><span><span data-zh>工具</span><span data-en>Tools</span></span><b><span data-zh>Devin Bots：持久 Agent 与 Needs You inbox</span><span data-en>Devin Bots: persistent agents and a Needs You inbox</span></b><small><span data-zh>团队版边界仍待核</span><span data-en>Team limits still unverified</span></small></a>
+        <a href="https://demos.specul.com/2026.html"><span><span data-zh>演示</span><span data-en>Demos</span></span><b><span data-zh>2026 作品：同一批提示词的不同答案</span><span data-en>2026 works: different answers to one prompt family</span></b><small><span data-zh>先看结果，再反推方法</span><span data-en>Result first, method second</span></small></a>
+      </div>
+
+      <p class="hm-footnote">
+        <a href="topics.html"><span data-zh>全部 16 个主题路线</span><span data-en>All 16 topic paths</span></a>
+        <a href="updates-2026-11.html"><span data-zh>2026 更新中枢</span><span data-en>2026 update hub</span></a>
+        <a href="map.html"><span data-zh>全站地图</span><span data-en>Site map</span></a>
+        <a href="about.html"><span data-zh>这个站怎么做的</span><span data-en>How this site is made</span></a>
+        <a href="method.html"><span data-zh>内容怎么选</span><span data-en>How content is chosen</span></a>
+      </p>
+
+      <div class="hm-final">
+        <div>
+          <h2><span data-zh>还是不确定从哪开始？</span><span data-en>Still not sure where to start?</span></h2>
+          <p><span data-zh>用一句人话搜全站：2,409 条页面、资料卡与站外入口。也可以从 16 个主题路线里挑一个。</span><span data-en>Search all sites in plain language: 2,409 pages, catalogue cards and off-site entries. Or pick one of 16 topic paths.</span></p>
+        </div>
+        <div class="hm-final-acts">
+          <a href="search.html"><span data-zh>搜索全站</span><span data-en>Search all sites</span> →</a>
+          <a href="topics.html"><span data-zh>16 个主题</span><span data-en>16 topics</span></a>
+          <a href="map.html"><span data-zh>全站地图</span><span data-en>Site map</span></a>
+        </div>
+      </div>
     </div>
   </section>
 </main>
