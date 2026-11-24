@@ -15,7 +15,7 @@
   <script src="brand.js?v=bb632b891131"></script>
   <link rel="stylesheet" href="brand.css?v=bb632b891131" />
     <link rel="stylesheet" href="legal.css" />
-    <link rel="stylesheet" href="footer-compact.css?v=20261124a" />
+    <link rel="stylesheet" href="footer-compact.css?v=20261124c" />
   <!-- B5（2026-10-09）：法律页的结构性数据。用 WebPage（不是 WebSite）——
        它是站群里的一个子页，不是站点本身。 -->
   <script type="application/ld+json">
@@ -243,17 +243,17 @@
       <h2 data-en>5. Privacy and local storage</h2>
       <ul data-zh>
         <li><strong>本地存储</strong>：站点使用浏览器 <code>localStorage</code> 保存界面偏好——<code>specul-lang</code>（中/英）、<code>specul-theme</code>（明/暗）；站内小游戏另存音量、按键或本地进度。界面偏好还会保存为 specul.com 各子域共享的 <code>specul-ui</code> 偏好 Cookie（中英与明暗两项，有效期一年，SameSite=Lax、Secure），用于跨站及浏览器返回时保持一致；不包含身份标识，不用于追踪。可在浏览器中清除或禁用。</li>
-        <li><strong>匿名统计</strong>：specul.com 首页接入百度统计（<code>hm.baidu.com</code>），用于了解页面访问量等聚合指标。它不使用本站自有账号信息，我们不会据此识别个人身份。</li>
+        <li><strong>统计</strong>：本站<strong>不接入百度统计、Google Analytics 或其他第三方统计脚本</strong>，页面不加载广告或行为追踪像素。只有服务器/CDN 为完成请求而处理的常规访问日志，不用于识别个人。</li>
         <li><strong>数据出售</strong>：我们<strong>不出售</strong>任何个人信息，也不建立用户画像。</li>
         <li><strong>账号与联机</strong>：本站没有账号体系，也不要求登录；页面不会主动收集姓名、邮箱或支付信息。若未来增加联机或账号功能，会在本节更新数据流与保留期。</li>
-        <li><strong>如何拒绝</strong>：可通过浏览器的「阻止第三方脚本 / 广告拦截」或 Do-Not-Track 设置屏蔽统计脚本；清除站点数据即可删除本地偏好与 Cookie。</li>
+        <li><strong>如何拒绝</strong>：清除站点数据即可删除本地偏好与 Cookie；浏览器隐私设置可限制或清除 Cookie。本站没有需要额外屏蔽的统计脚本。</li>
       </ul>
       <ul data-en>
         <li><strong>Local storage</strong>: UI preferences only (<code>specul-lang</code>, <code>specul-theme</code>); the in-site game may also store volume, keys or local progress. A first-party <code>specul-ui</code> preference cookie shares only language and theme across specul.com subdomains for up to one year (SameSite=Lax, Secure), including browser back/forward navigation. It contains no identifier and is not used for tracking. You can clear or block it in your browser.</li>
-        <li><strong>Anonymous analytics</strong>: the specul.com home page uses Baidu Tongji (<code>hm.baidu.com</code>) for aggregate page-view metrics; no site account information is used and we do not identify individuals from it.</li>
+        <li><strong>Analytics</strong>: this site <strong>does not use Baidu Tongji, Google Analytics or any other third-party analytics script</strong>, and loads no advertising or behavioural tracking pixels. Only ordinary access logs processed by the server/CDN to serve requests exist, and they are not used to identify individuals.</li>
         <li><strong>No selling</strong> of personal information and no user profiling.</li>
         <li><strong>Accounts and netplay</strong>: there is no account system and no login requirement; pages do not actively collect names, email addresses or payment data. If accounts or netplay are added, this section will describe the data flow and retention period.</li>
-        <li><strong>Opting out</strong>: block third-party scripts or use Do-Not-Track; clear site data to remove local preferences and the cookie.</li>
+        <li><strong>Opting out</strong>: clear site data to remove local preferences and the cookie; browser privacy settings can limit or clear cookies. There is no analytics script to block separately.</li>
       </ul>
     </section>
 
@@ -318,7 +318,7 @@
     <div class="container foot-line">
       <div class="foot-brand">
         <span class="brand-dot" aria-hidden="true"></span>
-        <span class="foot-copy">© 2026 <span data-zh>投机取巧</span><span data-en>Specul</span></span>
+        <span class="foot-copy"><span data-zh>投机取巧 · specul.com<span class="foot-rights"> · 版权所有 2026</span></span><span data-en>Specul · specul.com<span class="foot-rights"> · All rights reserved 2026</span></span></span>
       </div>
       <nav class="foot-inline" aria-label="页脚导航">
         <a class="site-link" href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a><span class="sep site-sep" aria-hidden="true">·</span>
@@ -332,8 +332,7 @@
         <a class="site-link" href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a><span class="sep site-sep" aria-hidden="true">·</span>
         <a class="site-link" href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a><span class="sep site-sep" aria-hidden="true">·</span>
         <a href="https://specul.com/legal.html"><span data-zh>法律</span><span data-en>Legal</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/search.html"><span data-zh>搜索</span><span data-en>Search</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/correct.html"><span data-zh>纠错</span><span data-en>Correction</span></a>
+        <a href="https://specul.com/correct.html"><span data-zh>纠错</span><span data-en>Corrections</span></a>
       </nav>
     </div>
   </footer>

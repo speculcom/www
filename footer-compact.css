@@ -1,5 +1,5 @@
-/* 单行页脚：首页与法律页使用；宽屏一行，窄屏只留法律/搜索/纠错。
-   站内其他页面仍用 brand.css 的多行页脚，避免一次性改动全部产物。 */
+/* 单行页脚：specul.com 首页、法律页与纠错页使用；宽屏一行，窄屏只留法律/纠错。
+   内容站与其他 www 页面仍用 brand.css 的多行页脚，避免一次性改动全部产物。 */
 .site-footer.foot-single {
   padding: 18px 0 22px;
 }
@@ -58,6 +58,9 @@
 @media (max-width: 640px) {
   .site-footer.foot-single {
     padding: 12px 0 16px;
+  }
+  .site-footer.foot-single .foot-rights {
+    display: none;
   }
   .site-footer.foot-single .foot-line {
     flex-wrap: wrap;
