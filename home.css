@@ -176,10 +176,10 @@ body.brand-ambient {
 
 .hm-mascot {
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: 136px minmax(0, 1fr);
+  gap: 16px;
   align-items: center;
-  max-width: 500px;
+  max-width: 540px;
   margin: 16px 0 0;
   padding: 0;
   border: 0;
@@ -190,7 +190,7 @@ body.brand-ambient {
 
 .hm-mascot img {
   display: block;
-  width: 104px;
+  width: 128px;
   height: auto;
   justify-self: center;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, .16));
@@ -861,8 +861,8 @@ html[data-theme="light"] .hm-mascot img {
   .hm-hero { padding-top: 26px; }
   .hm-hero-grid, .hm-head, .hm-shows-head { grid-template-columns: 1fr; gap: 18px; }
   .hm-start { display: none; }
-  .hm-mascot { grid-template-columns: 88px minmax(0, 1fr); gap: 10px; margin-top: 12px; }
-  .hm-mascot img { width: 84px; }
+  .hm-mascot { grid-template-columns: 104px minmax(0, 1fr); gap: 12px; margin-top: 12px; }
+  .hm-mascot img { width: 100px; }
   .hm-levels { grid-template-columns: 1fr; }
   .hm-time-row { grid-template-columns: 1fr; gap: 10px; }
   .hm-latest { grid-template-columns: 1fr; }
