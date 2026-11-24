@@ -1,0 +1,73 @@
+/* 单行页脚：首页与法律页使用；宽屏一行，窄屏只留法律/搜索/纠错。
+   站内其他页面仍用 brand.css 的多行页脚，避免一次性改动全部产物。 */
+.site-footer.foot-single {
+  padding: 18px 0 22px;
+}
+.site-footer.foot-single .foot-line {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.site-footer.foot-single .foot-brand {
+  flex: 0 0 auto;
+}
+.site-footer.foot-single .foot-copy {
+  color: var(--ink-faint);
+  font-weight: 650;
+}
+.site-footer.foot-single .foot-inline {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+.site-footer.foot-single .foot-inline a {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 6px;
+  border-radius: 5px;
+  color: var(--ink-mid);
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color .16s var(--ease), background .16s var(--ease);
+}
+.site-footer.foot-single .foot-inline a:hover {
+  color: var(--cat-violet-ink);
+  background: var(--cat-violet-soft);
+}
+.site-footer.foot-single .sep {
+  color: var(--line-strong);
+  font-size: 11px;
+  line-height: 1;
+}
+@media (max-width: 1100px) {
+  .site-footer.foot-single .foot-inline .site-link,
+  .site-footer.foot-single .foot-inline .site-sep {
+    display: none;
+  }
+  .site-footer.foot-single .foot-inline {
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 640px) {
+  .site-footer.foot-single {
+    padding: 12px 0 16px;
+  }
+  .site-footer.foot-single .foot-line {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 10px;
+    white-space: normal;
+  }
+  .site-footer.foot-single .foot-inline {
+    margin-left: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

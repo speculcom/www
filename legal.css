@@ -2,7 +2,7 @@
  * legal.html 站级样式 —— S26（2026-10-19）从 legal.html 的内联 <style> 搬入。
  *
  * 为什么搬：宪章 4 说「存量内联按能进共享层的进共享层清理」。
- * 这 49 条规则此前只活在 legal.html 一页的内联里，ui-core 只扫首页内联，
+ * 本页文档排版规则此前只活在 legal.html 的内联里，ui-core 只扫首页内联，
  * 它不在任何尺子管辖内。搬进站级 CSS 后：www 产物页内联归零、
  * 它进入 ui-core / token-purity 的扫描范围，改一处全站生效。
  *
@@ -54,53 +54,6 @@ main code {
 }
 .card-note.warn { border-left-color: var(--warn); }
 .card-note p:last-child { margin-bottom: 0; }
-
-.tbl-wrap { margin: 12px 0 16px; }
-main table { border-collapse: collapse; width: 100%; font-size: var(--fs-micro); }
-main th, main td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
-main th { background: rgba(148,163,184,.1); color: var(--ink); font-weight: 650; }
-main td { color: var(--ink-mid); }
-@media (max-width: 480px) {
-  /* 窄屏：表格 → 卡片式堆叠（列名取自 data-label），无横向滚动条 */
-  main table { font-size: var(--fs-micro); }
-  main table, main thead, main tbody, main tr, main td, main th { display: block; }
-  main thead { display: none; }
-  main tr {
-    border: 1px solid var(--line); border-radius: 12px;
-    margin-bottom: 10px; background: var(--bg-panel);
-    overflow: hidden;
-  }
-  main td { border: 0; border-bottom: 1px solid var(--line); padding: 9px 12px; }
-  main tr td:last-child { border-bottom: 0; }
-  main td::before {
-    content: attr(data-label);
-    display: block; font-size: var(--fs-micro); letter-spacing: .08em;
-    color: var(--ink-mid); font-weight: 650; margin-bottom: 3px;
-  }
-  /* 英文态：卡片列名走 data-label-en（B5 素材表双语，2026-10-26）。
-     全部 td 均已带 data-label-en（守卫见下条断言脚本口径），直接取英文属性。 */
-  html[data-lang="en"] main td::before { content: attr(data-label-en); }
-}
-main td strong { color: var(--ink); }
-.tag-lic {
-  display: inline-block; font-size: var(--fs-micro); padding: 1px 7px; border-radius: 999px;
-  border: 1px solid var(--line); white-space: nowrap;
-}
-.lic-cc0 { color: var(--cyan); }
-.lic-cb  { color: var(--warn); }
-.lic-sa  { color: var(--warn); }
-.lic-mit { color: var(--vio); }
-
-blockquote.attr {
-  margin: 12px 0; padding: 14px 16px;
-  background: var(--bg-panel); border: 1px solid var(--line); border-left: 3px solid var(--warn);
-  border-radius: 10px; font-size: var(--fs-micro); color: var(--ink-mid);
-  font-family: var(--mono); line-height: 1.65;
-  /* 等宽字体排长 URL 时默认不换行 → 320px 视口溢出，必须显式允许任意位置断行 */
-  overflow-wrap: anywhere;
-}
-blockquote.attr p { margin-bottom: 10px; font-size: var(--fs-micro); overflow-wrap: anywhere; }
-blockquote.attr p:last-child { margin-bottom: 0; }
 
 /* 全站地图：十站路线图（2026-11-20） */
 .sm-figure { margin: var(--sp-5) 0 var(--sp-4); }
