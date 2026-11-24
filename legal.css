@@ -22,6 +22,30 @@
    权重更高、把它盖掉，于是 legal 的主标字距 -0.92px vs 其余站 -1.288px。 */
 .legal-head h1 { font-weight: 800; }
 .legal-head .sub { color: var(--ink-mid); font-size: var(--fs-micro); margin-top: 8px; }
+
+/* 关于页的蒲公英只做页头配图，不改正文版式。 */
+.about-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 160px;
+  gap: 24px;
+  align-items: end;
+}
+.about-head-copy { min-width: 0; }
+.about-head .sub { max-width: 82ch; }
+.about-mascot {
+  display: block;
+  width: 150px;
+  height: auto;
+  justify-self: end;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, .16));
+}
+html[data-theme="light"] .about-mascot {
+  filter: saturate(1.07) contrast(1.04) drop-shadow(0 14px 28px rgba(20, 16, 31, .12));
+}
+@media (max-width: 700px) {
+  .about-head { grid-template-columns: 1fr; gap: 10px; }
+  .about-mascot { width: 108px; justify-self: start; margin-top: 4px; }
+}
 .toc-legal {
   margin: 22px 0 0; padding: 16px 18px;
   border: 1px solid var(--line); border-radius: 14px; background: var(--bg-panel);
