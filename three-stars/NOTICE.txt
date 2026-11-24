@@ -1,30 +1,30 @@
 NOTICE — three-stars teaching package / 三颗星教学包
-Copyright © 2026 Specul（投机取巧）. All rights reserved, unless noted otherwise.
+Copyright © 2026 Specul（投机取巧）. Content is CC BY 4.0; code is MIT, as stated
+below.
 
 1. 许可口径 / Licence terms
-   本包内由本站创作的文案、代码与样式（index.html 的正文、game.js、game.css、
-   asset-ledger.json、manifest.json、README.txt、NOTICE.txt）适用 Specul 站点条款：
-   本站未对其单独授予复制、改编、再分发或商业使用许可。正常链接与单句引用欢迎，引用请注明
-   「specul.com」并附法律页链接；整篇转载或商业使用请先联系本站。
-   The site-authored text, code and styles in this package are released
-   under the Specul site terms:
-   no separate licence is granted for copying, adapting, redistributing or
-   commercial use. Links and
-   single-sentence quotation are welcome with credit to "specul.com" and a
-   link to the legal page;
-   full republication or commercial use needs contact first.
+   本包内由本站创作的文案（index.html 正文、project.json、README.txt、NOTICE.txt）
+   按 CC BY 4.0 授权：可复制、修改、再分发与商业使用，只需注明「specul.com」、
+   链回许可并说明是否修改。
+   本包内的代码与样式（game.js、game.css、site.css、asset-ledger.json、
+   manifest.json）按 MIT 授权：可复制、修改、再分发与商业使用，保留版权与许可文本。
+   Site-authored copy (index.html prose, project.json, README.txt,
+   NOTICE.txt)
+   is licensed under CC BY 4.0: copy, adapt, redistribute and use
+   commercially
+   with credit to "specul.com", a link to the licence and a note of changes.
+   Code and styles (game.js, game.css, site.css, asset-ledger.json,
+   manifest.json) are licensed under MIT: copy, adapt, redistribute and use
+   commercially, retaining the copyright and licence text.
    条款原文 / Terms: https://specul.com/legal.html#s1
 
 2. AI 参与不改变授权范围 / AI involvement does not change the scope of rights
-   本包的文件由 AI 起草、由本站按文件与实际行为逐项核对后收录。本站没有因为「由 AI 生成」
-   就给任何条目套用 CC BY 4.0 或 MIT；台账的许可列与上面第 1 条一致，另附机读版
-   asset-ledger.json。
+   本包的文件由 AI 起草、由本站按文件与实际行为逐项核对后收录。AI 生成本身不产生额外许可，
+   授权以上面第 1 条为准；台账的许可列与上面第 1 条一致，另附机读版 asset-ledger.json。
    Files here were drafted by AI and included after this site checked them
-   against the files and
-   their behaviour. Nothing was re-labelled CC BY 4.0 or MIT merely because
-   a model produced it;
-   the ledger's licence column matches section 1 above (machine-readable:
-   asset-ledger.json).
+   against the files and their behaviour. AI generation creates no extra
+   licence; section 1 above controls. The ledger's licence column matches
+   section 1 above (machine-readable: asset-ledger.json).
 
 3. 第三方素材 / Third-party material
    无。本包不含图片、音频、3D 模型、字体文件或第三方运行时代码，因此没有第三方许可或署名义务。
@@ -37,13 +37,16 @@ Copyright © 2026 Specul（投机取巧）. All rights reserved, unless noted ot
    embedded.
 
 4. 品牌资产 / Brand assets
-   brand.css、brand.js 与其中的名称、图标归 Specul 所有，随包复制只为让样例离线也能打开。
-   这不构成再分发许可，也不授予任何商标权（商标条款见法律页第 9 节）。
-   brand.css, brand.js and the names and marks inside them belong to Specul.
-   They are copied in only
-   so the sample opens offline; that grants no redistribution licence and no
-   trademark rights
-   (trademark terms: section 9 of the legal page).
+   brand.css 与 brand.js 的代码和样式按 MIT 授权；其中的名称、图标与品牌标识归 Specul 所有，
+   不随 MIT、CC BY 4.0 或本包分发而授予任何商标权（商标条款见法律页第 9 节）。
+   随包复制 brand.css / brand.js 是为了让样例离线也能打开。
+   The code and styles in brand.css and brand.js are MIT-licensed. The
+   names,
+   logos and brand marks inside them belong to Specul and are not licensed
+   as
+   trademarks by MIT, CC BY 4.0 or this package (trademark terms: section 9
+   of
+   the legal page). They are copied in so the sample opens offline.
 
 5. 隐私 / Privacy
    游戏不发出网络请求，不上传数据。浏览器存档与下载的 JSON 都留在读者本机；包内文件不含
@@ -64,8 +67,8 @@ Copyright © 2026 Specul（投机取巧）. All rights reserved, unless noted ot
 
 7. 核验范围 / Scope of checks
    2026-11-06 · 本站对这一份样例与这一个包完成清单式检查；范围与局限公布在
-   https://specul.com/topic-game.html 的「本站检查过什么」一节。
+   https://vg.specul.com/three-stars.html 的「本站检查过什么」一节。
    2026-11-06 - this site ran a checklist over this sample and this package;
    the scope and its limits
    are published in the "What this site checked" section of
-   https://specul.com/topic-game.html
+   https://vg.specul.com/three-stars.html.

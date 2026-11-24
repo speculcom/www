@@ -1,0 +1,36 @@
+Specul content licence — Creative Commons Attribution 4.0 International (CC BY 4.0)
+Copyright (c) 2026 Specul (投机取巧)
+
+Scope
+Unless a page says otherwise, original text, explanations, table compilations,
+charts and site-made screenshots published on specul.com and its subdomains
+(learn, tools, models, demos, oss, hardware, papers, chain and nav) are licensed
+under CC BY 4.0.
+
+You are free to:
+- share — copy and redistribute the content in any medium or format;
+- adapt — remix, transform and build upon the content for any purpose,
+  including commercial use.
+
+Under the following terms:
+- attribution — give appropriate credit to specul.com, link to this licence,
+  and indicate whether changes were made;
+- no additional restrictions — do not apply legal terms or technological
+  measures that legally restrict others from doing anything the licence permits.
+
+Attribution example:
+"Content from specul.com, licensed under CC BY 4.0. Changes were made."
+Link: https://specul.com/legal.html
+Licence: https://creativecommons.org/licenses/by/4.0/
+
+Excluded from this content licence
+- Third-party product names, trademarks, logos and brand assets.
+- Third-party product interfaces, screenshots, quoted text and embedded works.
+- Third-party datasets and material whose own licence or terms say otherwise.
+- The names and marks “Specul” and “投机取巧”, and the site's logo.
+- Source code, which is licensed separately under MIT (see LICENSE.txt).
+
+The legal code of CC BY 4.0 is at:
+https://creativecommons.org/licenses/by/4.0/legalcode
+This file is a plain-language statement of scope; the linked legal code controls
+the licence terms.

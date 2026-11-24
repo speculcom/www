@@ -3,12 +3,12 @@
   "released": "2026-11-06",
   "verified": "2026-11-06",
   "scope": [
-    "下表逐项写明来源、用途与再分发权利。素材由 AI 起草不自动改变授权范围：本站没有因为「AI 生成」就给任何条目套 CC BY 或 MIT。例外只可能写在条目自己的许可列里，目前实测没有例外。",
-    "Each row states origin, purpose and redistribution rights. AI drafting does not change the scope of rights: nothing here is labelled CC BY or MIT merely because a model produced it. An exception could only appear in the licence column of that row; the current ledger has none."
+    "下表逐项写明来源、用途与再分发权利。素材由 AI 起草不改变本站的许可口径：代码按 MIT，本站原创文案与教学图按 CC BY 4.0；条目自带第三方许可或属于品牌资产的，按该条目的许可列执行。",
+    "Each row states origin, purpose and redistribution rights. AI drafting does not change the site's licensing: code is MIT, original teaching copy and diagrams are CC BY 4.0; rows carrying a third-party licence or brand assets follow that row's licence column."
   ],
   "terms": [
-    "许可口径与法律页第 1 节一致：除非另有注明，内容由 Specul 自行创作并保留所有权利，本站未对文案与设计单独授予复制、改编、再分发或商业使用许可。正常链接与单句引用欢迎，整篇转载或商业使用请先联系本站。",
-    "The licence wording follows section 1 of the legal page: unless noted otherwise the content is created by Specul and all rights are reserved — no separate licence is granted for copying, adapting, redistributing or commercial use. Links and single-sentence quotation are welcome; full republication or commercial use needs contact first."
+    "许可口径与法律页第 1 节一致：本站原创代码 MIT；文字、表格与本站自制图按 CC BY 4.0，使用时注明 specul.com 并链回许可。品牌名称与标识不在授权内。",
+    "The licence wording follows section 1 of the legal page: original code is MIT; text, tables and site-made diagrams are CC BY 4.0 with credit to specul.com and a link to the licence. Brand names and marks are not licensed."
   ],
   "licenceTerms": "https://specul.com/legal.html#s1",
   "privacy": "https://specul.com/legal.html#s8",
@@ -29,12 +29,12 @@
         "Board rendering, keyboard and touch input, pause, versioned saves and file import/export; no network calls"
       ],
       "licence": [
-        "Specul 站点条款（法律页第 1 节）",
-        "Specul site terms (legal page, section 1)"
+        "MIT（法律页第 1 节）",
+        "MIT (legal page, section 1)"
       ],
       "redistribution": [
-        "未另行授予再分发或商业使用许可；可链接、可引用",
-        "No separate redistribution or commercial licence; linking and quotation allowed"
+        "允许复制、修改、再分发与商业使用；保留版权与许可文本",
+        "Copying, adaptation, redistribution and commercial use allowed; keep the copyright and licence text"
       ]
     },
     {
@@ -49,12 +49,12 @@
         "Board grid, direction buttons, stage toolbar and print rules"
       ],
       "licence": [
-        "Specul 站点条款（法律页第 1 节）",
-        "Specul site terms (legal page, section 1)"
+        "MIT（法律页第 1 节）",
+        "MIT (legal page, section 1)"
       ],
       "redistribution": [
-        "未另行授予再分发许可",
-        "No separate redistribution licence"
+        "允许复制、修改、再分发与商业使用；保留版权与许可文本",
+        "Copying, adaptation, redistribution and commercial use allowed; keep the copyright and licence text"
       ]
     },
     {
@@ -69,12 +69,12 @@
         "The six stages' what / code / check / failure text, inlined into the page at build time"
       ],
       "licence": [
-        "Specul 站点条款（法律页第 1 节）",
-        "Specul site terms (legal page, section 1)"
+        "CC BY 4.0（法律页第 1 节）",
+        "CC BY 4.0 (legal page, section 1)"
       ],
       "redistribution": [
-        "未另行授予再分发许可；引用请注明来源",
-        "No separate redistribution licence; credit the source when quoting"
+        "允许复制、修改、再分发与商业使用；注明 specul.com、链回许可并说明修改",
+        "Copying, adaptation, redistribution and commercial use allowed; credit specul.com, link to the licence and note changes"
       ]
     },
     {
@@ -89,12 +89,12 @@
         "Carries the stage explanations, the playable game, the download notes and the asset ledger"
       ],
       "licence": [
-        "Specul 站点条款（法律页第 1 节）",
-        "Specul site terms (legal page, section 1)"
+        "文案 CC BY 4.0；页面代码 MIT",
+        "Copy CC BY 4.0; page code MIT"
       ],
       "redistribution": [
-        "未另行授予再分发许可",
-        "No separate redistribution licence"
+        "文案与代码均可复制、修改、再分发与商业使用；分别按 CC BY 4.0 署名、MIT 保留许可文本",
+        "Copy and code may be copied, adapted, redistributed and used commercially; credit under CC BY 4.0 and keep the MIT notice respectively"
       ]
     },
     {
@@ -109,12 +109,12 @@
         "Site shell, theme and language switching, the type and colour tokens"
       ],
       "licence": [
-        "Specul 站点条款（法律页第 1 节）；品牌标识另受第 9 节商标条款约束",
-        "Specul site terms (legal page, section 1); the marks themselves fall under section 9 on trademarks"
+        "代码与样式 MIT；名称、标识与图标不在商标授权内",
+        "Code and styles MIT; names, marks and logos are outside the trademark licence"
       ],
       "redistribution": [
-        "随包复制只为让样例离线可开；不授予再分发或商业使用许可，也不授予商标权",
-        "Copied into the package only so the sample opens offline; no redistribution, commercial or trademark licence is granted"
+        "代码与样式可再分发；品牌名称、标识与图标不授权",
+        "Code and styles may be redistributed; brand names, marks and logos are not licensed"
       ]
     },
     {
@@ -129,12 +129,12 @@
         "Panels, tables and body rhythm for the vg site"
       ],
       "licence": [
-        "Specul 站点条款（法律页第 1 节）",
-        "Specul site terms (legal page, section 1)"
+        "MIT（法律页第 1 节）",
+        "MIT (legal page, section 1)"
       ],
       "redistribution": [
-        "未另行授予再分发许可",
-        "No separate redistribution licence"
+        "允许复制、修改、再分发与商业使用；保留版权与许可文本",
+        "Copying, adaptation, redistribution and commercial use allowed; keep the copyright and licence text"
       ]
     },
     {
@@ -209,12 +209,12 @@
         "Generates three-stars.zip and the hash manifest"
       ],
       "licence": [
-        "Specul 站点条款（法律页第 1 节）",
-        "Specul site terms (legal page, section 1)"
+        "MIT（法律页第 1 节）",
+        "MIT (legal page, section 1)"
       ],
       "redistribution": [
-        "属于构建工具，不随下载包分发；未另行授予再分发许可",
-        "A build tool; not shipped inside the download and not separately licensed"
+        "构建工具；允许复制、修改与再分发，保留版权与许可文本",
+        "A build tool; copying, adaptation and redistribution allowed with the copyright and licence text retained"
       ]
     },
     {

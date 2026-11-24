@@ -1,5 +1,5 @@
 three-stars —— 三颗星，一扇门 / Three stars, one door
-Released 2026-11-06 · Specul · https://specul.com/topic-game.html
+Released 2026-11-06 · Specul · https://vg.specul.com/three-stars.html
 
 WHAT THIS IS / 这是什么
 本站编写的浏览器小游戏与六阶段连续教学样例：收齐三颗星后走到 E。
