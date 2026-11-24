@@ -849,7 +849,7 @@ body.brand-ambient {
   .hm-time-links a { justify-content: space-between; }
   .hm-route { padding: 16px; }
   .hm-latest a { grid-template-columns: 72px minmax(0, 1fr); }
-  .hm-latest a small { grid-column: 2; }
+  .hm-latest a small { grid-column: 2; white-space: normal; overflow-wrap: anywhere; }
   .hm-final { padding: 20px; }
   .hm-final-acts { flex-direction: column; align-items: stretch; }
   .hm-final-acts a { text-align: center; }

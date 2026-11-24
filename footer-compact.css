@@ -83,7 +83,7 @@
   font-weight: 700;
 }
 .site-footer.foot-single .sep {
-  color: var(--line-strong);
+  color: var(--ink-mid);
   font-size: 11px;
   line-height: 1;
 }

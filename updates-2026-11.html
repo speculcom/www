@@ -19,8 +19,8 @@
   <meta name="theme-color" content="#16121f" />
   <link rel="icon" type="image/png" href="assets/brand/dandelion-favicon-site.png" />
   <link rel="apple-touch-icon" href="assets/brand/dandelion-apple-touch-site.png" />
-  <script src="brand.js?v=775a6f0ca8a6"></script>
-  <link rel="stylesheet" href="brand.css?v=775a6f0ca8a6" />
+  <script src="brand.js?v=e1ea0c16e2de"></script>
+  <link rel="stylesheet" href="brand.css?v=e1ea0c16e2de" />
   <link rel="stylesheet" href="site.css" />
   <style>
 .u26-hero{padding:24px 0 14px}
@@ -79,12 +79,13 @@
 .u26-chain b{display:block;font-size:11px;letter-spacing:.05em;color:var(--cyan)}
 .u26-chain span{display:block;margin-top:4px;font-size:13px;line-height:1.4;color:var(--ink)}
 .nf-grid{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:clamp(24px,5vw,56px);align-items:center}
-.nf-art{opacity:.95}
+.nf-art{opacity:1}
 .nf-art svg{display:block;width:100%;height:auto}
+.nf-art img{display:block;width:100%;height:auto;filter:drop-shadow(0 18px 32px rgba(0,0,0,.18))}
+html[data-theme="light"] .nf-art img{filter:saturate(1.07) contrast(1.04) drop-shadow(0 18px 32px rgba(20,16,31,.12))}
 @media(max-width:900px){.u26-card{grid-column:span 12}.u26-two{grid-template-columns:1fr}.u26-row{grid-template-columns:70px 1fr}.u26-row a{display:none}.u26-map{grid-template-columns:1fr}.u26-chain{grid-template-columns:1fr 1fr}.u26-chain div:nth-child(2)::after{content:none}.nf-grid{grid-template-columns:1fr}.nf-art{max-width:200px;margin:8px auto 0}}
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"2026 年 11 月更新中枢 | 投机取巧","description":"2026 年 11 月全站更新：新模型、新硬件、论文、协议与本站内容改动，每条都能点回官方来源；按月归档，方便回查当月发生了什么。","url":"https://specul.com/updates-2026-11.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
-  <link rel="stylesheet" href="footer-compact.css?v=20261124e" />
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -282,16 +283,16 @@
       </div></section>
     
   </main>
-      <footer class="site-footer foot-single">
+        <footer class="site-footer foot-single">
     <div class="container foot-line">
       <div class="foot-brand">
         <span class="foot-brand-main">
           <span class="brand-dot" aria-hidden="true"></span>
           <span class="foot-copy"><span data-zh>投机取巧 · specul.com</span><span data-en>Specul · specul.com</span></span>
         </span>
-        <span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh>内容 CC BY 4.0</span><span data-en>Content CC BY 4.0</span></a><span class="sep" aria-hidden="true">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh>代码 MIT</span><span data-en>Code MIT</span></a></span>
+        <span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh>内容 CC BY 4.0</span><span data-en>Content CC BY 4.0</span></a><span class="sep" aria-hidden="true">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh>代码 MIT</span><span data-en>Code MIT</span></a><span class="sep" aria-hidden="true">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a></span>
       </div>
-      <nav class="foot-sites" aria-label="站内导航">
+      <nav class="foot-sites" aria-label="Footer site links">
         <a class="site-link" href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a><span class="sep site-sep" aria-hidden="true">·</span>
         <a class="site-link" href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a><span class="sep site-sep" aria-hidden="true">·</span>
         <a class="site-link" href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a><span class="sep site-sep" aria-hidden="true">·</span>
@@ -303,8 +304,9 @@
         <a class="site-link" href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a><span class="sep site-sep" aria-hidden="true">·</span>
         <a class="site-link" href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
       </nav>
-      <nav class="foot-legal" aria-label="法律与纠错">
+      <nav class="foot-legal" aria-label="Legal and corrections">
         <a href="https://specul.com/legal.html"><span data-zh>法律</span><span data-en>Legal</span></a><span class="sep" aria-hidden="true">·</span>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私</span><span data-en>Privacy</span></a><span class="sep" aria-hidden="true">·</span>
         <a href="https://specul.com/correct.html"><span data-zh>纠错</span><span data-en>Corrections</span></a>
       </nav>
     </div>
