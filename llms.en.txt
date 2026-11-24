@@ -53,7 +53,7 @@ Cloud compute: 26 providers across general cloud, GPU specialists, serverless an
 375 runnable HTML works from 31 models, with source and original prompts linked; no ranking and no copying of unlicensed files.
 
 ### OSS — https://oss.specul.com/
-135 AI open-source repositories in 7 scenes: agent frameworks, RAG and knowledge, local inference, multimodal visual, speech and audio, evaluation and observability, training and fine-tuning.
+136 AI open-source repositories in 7 scenes: agent frameworks, RAG and knowledge, local inference, multimodal visual, speech and audio, evaluation and observability, training and fine-tuning.
 Each card states licence, language, star snapshot, last push, what it suits and what it does not.
 **No star ranking, no security endorsement, no legal judgement for you**; GitHub facts are 2026-11-19 / 2026-11-20 snapshots, labelled per card.
 
