@@ -1,6 +1,9 @@
 .search-page { padding-block: var(--section-pad); }
 .search-page h1 { font-size: var(--fs-3xl); margin-bottom: var(--sp-4); }
 .search-page > p { max-width: 75ch; color: var(--ink-mid); }
+.search-examples { font-size: var(--fs-sm); line-height: 1.9; }
+.search-examples a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.search-examples a:hover { color: var(--brand); }
 .search-form { display: grid; grid-template-columns: minmax(0,3fr) minmax(0,1fr) auto auto; align-items: end; gap: var(--sp-3); margin-block: var(--sp-5); }
 .search-form label { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
 .search-form input,.search-form select { width: 100%; min-width: 0; font: inherit; padding: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); color: var(--ink); }

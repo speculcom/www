@@ -29,7 +29,7 @@
    meta.append(text('span',tr(...labels[e.site])+(e.kind==='resource'?tr(' · 站外资源',' · External resource'):'')));
    li.append(meta);
    const summary=tr(e.summaryZh,e.summaryEn);if(summary)li.append(text('p',summary));list.append(li);}
-  status.textContent=matches.length?tr(`找到 ${matches.length} 项，已显示 ${Math.min(limit,matches.length)} 项。`,`Found ${matches.length} records; showing ${Math.min(limit,matches.length)}.`):tr('没有匹配。试试产品名、任务词，或取消站点与主题域筛选。','No matches. Try a product name, task phrase or clear the site and topic filters.');
+  status.textContent=matches.length?tr(`找到 ${matches.length} 项，已显示 ${Math.min(limit,matches.length)} 项。`,`Found ${matches.length} records; showing ${Math.min(limit,matches.length)}.`):tr('没有匹配。换一个说法试试：会议纪要、显存、3D 资产、安全评审，或取消站点与主题域筛选。','No matches. Try another phrase: meeting notes, VRAM, 3D asset, safety review, or clear the site and topic filters.');
   more.hidden=matches.length<=limit;more.textContent=tr('再显示 40 项','Show 40 more');refreshFacets();updateUrl();
  }
  form.addEventListener('submit',e=>{e.preventDefault();render();});q.addEventListener('input',()=>render());scope.addEventListener('change',()=>render());
