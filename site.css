@@ -441,6 +441,9 @@ html[data-theme="light"] body.brand-ambient {
 .xp-task-k { font-size: 15px; font-weight: 750; line-height: 1.45; }
 .xp-task-d { color: var(--ink-mid); font-size: 13px; line-height: 1.6; }
 .xp-task-go { margin-top: auto; color: var(--brand); font-size: 12px; font-weight: 750; }
+@media (min-width: 1180px) {
+  .xp-tasks { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
 @media (max-width: 900px) {
   .xp-tasks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
