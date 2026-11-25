@@ -13,8 +13,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 59836,
-      "sha256": "d1e843b48479e85334af5a5c00c4e1017d0f8b81d36f97870490a86c8dbcce3a"
+      "bytes": 62982,
+      "sha256": "49cc1fc517a9a1e9611dfce9f3653658c1e8c8c247c24d233e265b306ca0bb28"
     },
     {
       "path": "game.js",
@@ -28,8 +28,8 @@
     },
     {
       "path": "brand.css",
-      "bytes": 53850,
-      "sha256": "c37a722e0540586d5663af1dbb627de021f3c3b55d8bac085b2f25fac5bd9a90"
+      "bytes": 71554,
+      "sha256": "73313a50d39d3809e3192230cbfd2e3e7d213705408a59d845e616958a483ad3"
     },
     {
       "path": "brand.js",
