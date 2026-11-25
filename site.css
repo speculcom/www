@@ -424,6 +424,30 @@ html[data-theme="light"] body.brand-ambient {
 .domain-src span { display: block; margin-top: 3px; color: var(--ink-dim); }
 .domain-back { margin: 26px 0 0; font-size: 14px; }
 .domain-back a { color: var(--ink-mid); }
+/* 领域页与主题索引共用的清单；不依赖 .domain-prose 的上下文。 */
+.domain-list { margin: 18px 0; padding-left: 22px; list-style: disc; }
+.domain-list li { margin: 8px 0; line-height: 1.75; }
+.domain-list a { color: var(--ink); font-weight: 650; text-decoration: none; border-bottom: 1px solid transparent; }
+.domain-list a:hover { color: var(--brand); border-bottom-color: var(--brand); }
+/* 主题索引卡片。此前只有 .xp-task 标记、没有样式，12 条路线会被浏览器排成一整段文字。 */
+.xp-tasks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 8px 0 0; }
+.xp-task { position: relative; display: flex; flex-direction: column; gap: 7px; min-height: 132px;
+  padding: 18px 18px 15px 20px; border: 1px solid var(--line); border-radius: 16px;
+  background: var(--panel); color: var(--ink); text-decoration: none;
+  transition: transform .15s ease, border-color .15s ease; }
+.xp-task::before { content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px;
+  border-radius: 0 3px 3px 0; background: var(--brand); }
+.xp-task:hover { border-color: var(--brand); transform: translateY(-2px); }
+.xp-task-k { font-size: 15px; font-weight: 750; line-height: 1.45; }
+.xp-task-d { color: var(--ink-mid); font-size: 13px; line-height: 1.6; }
+.xp-task-go { margin-top: auto; color: var(--brand); font-size: 12px; font-weight: 750; }
+@media (max-width: 900px) {
+  .xp-tasks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .xp-tasks { grid-template-columns: 1fr; }
+  .xp-task { min-height: 0; }
+}
 @media (max-width: 560px) {
   .domain-prose { font-size: 15px; }
   .domain-prose h2 { font-size: 21px; margin-top: 30px; }

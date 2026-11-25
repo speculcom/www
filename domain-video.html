@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#16121f" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>AI 视频：先写清验收标准，再选模型 · Specul</title>
+  <meta name="description" content="视频不是一张会动的图。交付物包含时长、画幅、叙事、镜头连续性、声音、字幕、版权与可重做性。先写脚本和分镜，再决定用文生视频、图生视频还是编辑；否则只会在「看起来还行」的片段里反复抽卡，最后拼不成一条能发的片子。" />
+  <link rel="canonical" href="https://specul.com/domain-video.html" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Specul" />
+  <meta property="og:url" content="https://specul.com/domain-video.html" />
+  <meta property="og:title" content="AI 视频：先写清验收标准，再选模型" />
+  <meta property="og:description" content="视频不是一张会动的图。交付物包含时长、画幅、叙事、镜头连续性、声音、字幕、版权与可重做性。先写脚本和分镜，再决定用文生视频、图生视频还是编辑；否则只会在「看起来还行」的片段里反复抽卡，最后拼不成一条能发的片子。" />
+  <link rel="icon" type="image/png" href="assets/brand/dandelion-favicon-site.png" />
+  <link rel="apple-touch-icon" href="assets/brand/dandelion-apple-touch-site.png" />
+  <script src="brand.js?v=37d1072be69b"></script>
+  <link rel="stylesheet" href="brand.css?v=37d1072be69b" />
+  <link rel="stylesheet" href="site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI 视频：先写清验收标准，再选模型","description":"视频不是一张会动的图。交付物包含时长、画幅、叙事、镜头连续性、声音、字幕、版权与可重做性。先写脚本和分镜，再决定用文生视频、图生视频还是编辑；否则只会在「看起来还行」的片段里反复抽卡，最后拼不成一条能发的片子。","url":"https://specul.com/domain-video.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+</head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+
+<!-- SPECUL:HEADER:START -->
+  <header class="site-header">
+    <div class="container site-bar">
+      <a class="brand" href="https://specul.com/" title="投机取巧">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
+          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="站点导航">
+        <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
+        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
+        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
+        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
+        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
+        <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
+        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
+        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
+        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
+      </nav>
+      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+      <span class="nav-tools">
+        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
+      </span>
+      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="nav-scrim"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
+    <div class="nav-drawer-h">
+      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
+      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
+      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
+    </div>
+    <nav class="nav-drawer-list">
+      <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-drawer-foot">
+      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
+    </div>
+  </aside>
+<!-- SPECUL:HEADER:END -->
+
+<main id="main">
+<section class="hp-sec tight">
+    <div class="hp-c">
+      <p class="kicker"><span data-zh>领域深度 · AI 视频</span><span data-en>Field guide · AI video</span></p>
+      <h1><span data-zh>AI 视频：先写清验收标准，再选模型</span><span data-en>AI video: write the acceptance criteria before choosing a model</span></h1>
+      <p class="domain-lead"><span data-zh>视频不是一张会动的图。交付物包含时长、画幅、叙事、镜头连续性、声音、字幕、版权与可重做性。先写脚本和分镜，再决定用文生视频、图生视频还是编辑；否则只会在「看起来还行」的片段里反复抽卡，最后拼不成一条能发的片子。</span><span data-en>Video is not a still image that moves. The deliverable includes duration, aspect ratio, narrative, shot continuity, sound, captions, rights and repeatability. Write the script and shot list before choosing text-to-video, image-to-video or editing. Otherwise you keep rolling for clips that “look okay” and still cannot assemble a releasable film.</span></p>
+      <p class="domain-meta"><span data-zh>本页是 Specul 的 AI 视频制作判断框架，不是模型榜单。模型能力、价格与输出许可以所链页面和原始来源为准。</span><span data-en>This is Specul’s decision framework for AI video production, not a model leaderboard. Capabilities, prices and output licences remain with the linked pages and original sources.</span></p>
+    </div>
+  </section>
+  <section class="hp-sec tight">
+    <div class="hp-c domain-prose">
+      
+      <div class="domain-callout domain-thesis"><span data-zh>先定片子的交付标准与镜头表，再选生成方式；单段 demo 不等于成片。</span><span data-en>Fix the delivery spec and shot list first, then choose the generation method. A single demo clip is not a finished film.</span></div>
+      <nav class="domain-toc" aria-label="本文目录" data-ui-aria-label-zh="本文目录" data-ui-aria-label-en="Contents">
+        <b><span data-zh>本文目录</span><span data-en>Contents</span></b>
+        <ol><li><a href="#brief"><span data-zh>1 · 先写交付标准：一条片子要被谁、在哪里、怎么看</span><span data-en>1 · Write the delivery spec: who watches it, where and how</span></a></li><li><a href="#script"><span data-zh>2 · 脚本与分镜：把「我想讲的」拆成可生成的镜头</span><span data-en>2 · Script and shot list: turn the idea into generatable shots</span></a></li><li><a href="#generate"><span data-zh>3 · 生成方式：文生、图生、编辑各管一段</span><span data-en>3 · Generation modes: text, image and editing each own a stage</span></a></li><li><a href="#sound"><span data-zh>4 · 声音：观众对「不像」的容忍度，比对画面低</span><span data-en>4 · Sound: audiences tolerate “wrong” picture less than wrong sound</span></a></li><li><a href="#edit"><span data-zh>5 · 剪辑与一致性：生成镜头，不生成整片</span><span data-en>5 · Editing and consistency: generate shots, not the whole film</span></a></li><li><a href="#cost"><span data-zh>6 · 成本：按「成片秒」算，不按「生成次数」算</span><span data-en>6 · Cost: count approved seconds, not generation calls</span></a></li><li><a href="#rights"><span data-zh>7 · 版权与平台：画面、声音、字体、肖像要分开清</span><span data-en>7 · Rights and platforms: clear image, sound, fonts and likeness separately</span></a></li><li><a href="#fail"><span data-zh>8 · 失败分支：按镜头修，不要整片重抽</span><span data-en>8 · Failure branches: fix the shot, not the whole film</span></a></li><li><a href="#path"><span data-zh>9 · 最小落地路径</span><span data-en>9 · A minimum path to production</span></a></li></ol>
+      </nav>
+      <section class="domain-section" id="brief">
+      <h2><span data-zh>1 · 先写交付标准：一条片子要被谁、在哪里、怎么看</span><span data-en>1 · Write the delivery spec: who watches it, where and how</span></h2>
+      <p><span data-zh>在写提示词之前，先把交付标准写在一张纸上：时长、画幅、分辨率、平台、是否需要字幕、是否有音乐、截止时间、谁审片。标准不同，工具链就不同。竖屏 15 秒和横屏 3 分钟不是同一个问题。</span><span data-en>Before writing a prompt, put the delivery spec on one page: duration, aspect ratio, resolution, platform, captions, music, deadline and who approves. Different specs need different pipelines. A 15-second vertical clip and a three-minute horizontal film are not the same problem.</span></p><p><span data-zh>还要写清「不能接受什么」：人脸不像、口型不对、文字乱码、物理错误、品牌元素缺失、音乐版权不明。把不可接受项提前列出，审片时才有共同语言，而不是每个人凭感觉说「怪怪的」。</span><span data-en>Also write what is unacceptable: wrong likeness, bad lip sync, garbled text, broken physics, missing brand elements, unclear music rights. Listing unacceptable outcomes in advance gives reviewers a shared language instead of everyone saying “it feels off”.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh>交付项</span><span data-en>Deliverable</span></th><th><span data-zh>要写清</span><span data-en>Specify</span></th><th><span data-zh>影响</span><span data-en>Affects</span></th></tr></thead><tbody><tr><td><span data-zh>时长</span><span data-en>Duration</span></td><td><span data-zh>成片秒数、镜头数、是否含片头片尾</span><span data-en>Final seconds, shot count, titles</span></td><td><span data-zh>生成方式、成本、剪辑复杂度</span><span data-en>Generation method, cost, edit complexity</span></td></tr><tr><td><span data-zh>画幅与分辨率</span><span data-en>Aspect and resolution</span></td><td><span data-zh>竖屏 / 横屏 / 方屏，最终像素</span><span data-en>Vertical / horizontal / square, final pixels</span></td><td><span data-zh>构图、模型输入、放大需求</span><span data-en>Composition, model input, upscaling</span></td></tr><tr><td><span data-zh>叙事</span><span data-en>Narrative</span></td><td><span data-zh>一句话故事、情绪、关键转折</span><span data-en>One-sentence story, mood, turn</span></td><td><span data-zh>分镜、镜头时长、配音</span><span data-en>Shot list, shot length, voice</span></td></tr><tr><td><span data-zh>声音</span><span data-en>Sound</span></td><td><span data-zh>人声、音乐、音效、字幕</span><span data-en>Voice, music, SFX, captions</span></td><td><span data-zh>工具链、授权、后期</span><span data-en>Toolchain, rights, post</span></td></tr><tr><td><span data-zh>平台与合规</span><span data-en>Platform and compliance</span></td><td><span data-zh>发布渠道、品牌规范、披露要求</span><span data-en>Channel, brand rules, disclosure</span></td><td><span data-zh>画幅、水印、素材许可</span><span data-en>Aspect, watermark, asset licences</span></td></tr></tbody></table></div>
+    </section>
+<section class="domain-section" id="script">
+      <h2><span data-zh>2 · 脚本与分镜：把「我想讲的」拆成可生成的镜头</span><span data-en>2 · Script and shot list: turn the idea into generatable shots</span></h2>
+      <p><span data-zh>先写一句话故事，再拆镜头。每个镜头只承担一个叙事任务：交代地点、展示动作、给出反应、完成转折。一个镜头里塞三个动作，生成模型很难保持连贯，剪辑时也没有可用的替代镜头。</span><span data-en>Write a one-sentence story, then break it into shots. Each shot carries one narrative job: establish a place, show an action, give a reaction, deliver a turn. A shot with three actions is hard for a generation model to keep coherent and leaves no alternate takes for editing.</span></p><p><span data-zh>分镜表至少要有：镜号、画面、动作、镜头运动、时长、声音、参考图。参考图不是「风格板」越多越好；每个角色、场景和关键道具，最好有一张稳定的主参考，再准备少量角度参考。参考越乱，角色越容易漂移。</span><span data-en>A shot list needs at least: shot number, image, action, camera movement, duration, sound and reference. More style boards is not better. Each character, location and key prop should have one stable master reference plus a few angle references. Messier references make characters drift more.</span></p><p><span data-zh>先做关键帧，再做视频。关键帧是成本最低的确认点：构图、角色、服装、光线、文字位置都能在这一步改。直接文生视频，等于把构图、表演、运镜和时序一次性押注，失败后很难知道该改哪一项。</span><span data-en>Make keyframes before video. Keyframes are the cheapest confirmation point: composition, character, wardrobe, lighting and text placement can all be fixed there. Going straight to text-to-video bets composition, performance, camera and timing all at once; when it fails, you cannot tell what to change.</span></p><div class="domain-callout"><span data-zh>判断句：如果分镜表上写不出「这个镜头要让观众知道什么」，这个镜头大概率可以删。</span><span data-en>Rule of thumb: if the shot list cannot say what the audience should learn from a shot, that shot can probably be cut.</span></div>
+    </section>
+<section class="domain-section" id="generate">
+      <h2><span data-zh>3 · 生成方式：文生、图生、编辑各管一段</span><span data-en>3 · Generation modes: text, image and editing each own a stage</span></h2>
+      <p><span data-zh>文生视频适合探索概念和气氛，控制力弱；图生视频适合从已确认的关键帧出发，保持构图和角色；视频编辑适合改已有素材的局部，而不是从零生成。把三者串起来，比找一个「什么都能做」的模型更现实。</span><span data-en>Text-to-video is good for exploring concepts and mood but offers weak control. Image-to-video starts from an approved keyframe and preserves composition and character. Video editing changes parts of existing footage rather than generating from scratch. Chaining the three is more realistic than finding one model that does everything.</span></p><p><span data-zh>选模型时不要只看演示片。要核对：支持多长镜头、什么画幅、是否带音频、是否支持首尾帧、是否支持参考图、输出分辨率、商用条款、是否有水印。演示片通常只展示最好的一条，不展示失败率和重试成本。</span><span data-en>Do not choose a model from its demo reel alone. Check supported shot length, aspect ratios, audio, first/last frame, reference images, output resolution, commercial terms and watermarking. Demos show the best take, not the failure rate or retry cost.</span></p><p><span data-zh>把「生成」当成采样，不是一次成片。同一个镜头生成多条，按构图、动作、稳定性、可用时长筛选，再决定补拍或换模型。接受「多条里选一条」的流程，比追求「一条就完美」更可控。</span><span data-en>Treat generation as sampling, not one-shot filmmaking. Generate several takes per shot, select by composition, action, stability and usable duration, then decide whether to regenerate or switch models. Accepting “choose one from many” is more controllable than chasing a perfect first take.</span></p>
+    </section>
+<section class="domain-section" id="sound">
+      <h2><span data-zh>4 · 声音：观众对「不像」的容忍度，比对画面低</span><span data-en>4 · Sound: audiences tolerate “wrong” picture less than wrong sound</span></h2>
+      <p><span data-zh>一条片子的可信度，很大一部分来自声音。人声、环境声、音乐和音效要分开处理：人声要能听清，音乐不能压过解说，音效要和动作对齐。先把声音做成时间轴，再谈混音。</span><span data-en>A film’s credibility comes largely from sound. Treat voice, ambience, music and effects separately: voice must be intelligible, music must not overpower narration, effects must align with action. Build sound on the timeline before mixing.</span></p><p><span data-zh>AI 配音要核对发音、断句、情绪和口型。短句比长句稳，先分段生成再拼；多语言版本要重新审听，不要假设字幕翻译等于配音。音乐和音效同样要核对授权范围：商用、改编、平台分发是不是都覆盖。</span><span data-en>For AI voice, check pronunciation, phrasing, emotion and lip sync. Short lines are more stable; generate in segments and assemble. For multilingual versions, re-listen rather than assuming subtitles equal dubbing. Music and SFX also need licence checks: commercial use, adaptation and platform distribution.</span></p><p><span data-zh>如果片子没有对白，声音也不能省。环境底噪、动作音效和音乐决定了画面「有没有重量」。完全静音的 AI 视频，很容易显得像幻灯片。</span><span data-en>If the film has no dialogue, sound still cannot be skipped. Ambience, action sounds and music give images weight. A completely silent AI video easily feels like a slideshow.</span></p>
+    </section>
+<section class="domain-section" id="edit">
+      <h2><span data-zh>5 · 剪辑与一致性：生成镜头，不生成整片</span><span data-en>5 · Editing and consistency: generate shots, not the whole film</span></h2>
+      <p><span data-zh>把整片拆成镜头，是为了让失败局部化。一个镜头坏了，只重做那一段；整片一次生成，失败就得全部重来。剪辑阶段还要处理节奏、转场、色彩和字幕，这些通常比多生成一条更重要。</span><span data-en>Breaking the film into shots localises failure. If one shot breaks, redo only that segment; generate the whole film at once and a failure forces a full restart. Editing also handles rhythm, transitions, colour and captions, often more important than one more generation.</span></p><p><span data-zh>一致性靠三件事：稳定参考、稳定构图、稳定描述。角色服装、发型、场景光线、镜头焦段都要写进镜头表；不要在每个提示词里换同义词。生成模型对描述变化很敏感，统一词汇能减少漂移。</span><span data-en>Consistency comes from three things: stable references, stable composition and stable descriptions. Wardrobe, hair, lighting and focal length belong in the shot list; do not swap synonyms in every prompt. Generation models are sensitive to wording changes; a consistent vocabulary reduces drift.</span></p><p><span data-zh>输出规格要一次定好：分辨率、帧率、色彩空间、字幕安全区。后期再改画幅会重新构图，可能把关键动作裁掉。先按最终平台做构图，再生成。</span><span data-en>Fix output specs early: resolution, frame rate, colour space and caption-safe area. Changing aspect ratio in post recomposes the image and may crop key action. Compose for the final platform before generating.</span></p>
+    </section>
+<section class="domain-section" id="cost">
+      <h2><span data-zh>6 · 成本：按「成片秒」算，不按「生成次数」算</span><span data-en>6 · Cost: count approved seconds, not generation calls</span></h2>
+      <p><span data-zh>视频成本最容易算错的地方，是把「生成一次」当「成片一秒」。真实成本包括：每条镜头的多次生成、失败重试、放大、存储、配音、音乐、剪辑和审片时间。分母应该是审片通过的成片秒数，不是生成总时长。</span><span data-en>The easiest video cost mistake is treating one generation as one finished second. Real cost includes multiple takes per shot, failed retries, upscaling, storage, voice, music, editing and review time. The denominator should be approved finished seconds, not generated seconds.</span></p><p><span data-zh>一个可用的算式：总成本 = 生成次数 × 单次成本 + 放大与存储 + 声音与音乐 + 剪辑人力 + 审片与返工。再除以成片秒数，得到「每秒成片成本」。这个数字才能和外包、实拍或其他工具比较。</span><span data-en>A usable formula: total cost = generation calls × cost per call + upscaling and storage + sound and music + editing labour + review and rework. Divide by approved finished seconds to get cost per finished second. Only then can you compare with outsourcing, live action or another tool.</span></p><p><span data-zh>先做 15 秒样片，再决定要不要做 3 分钟。样片能暴露角色漂移、口型、文字、音乐和审片分歧；直接做长片，返工成本会成倍放大。</span><span data-en>Make a 15-second sample before committing to three minutes. The sample exposes character drift, lip sync, text, music and review disagreements; going straight to a long film multiplies rework.</span></p>
+    </section>
+<section class="domain-section" id="rights">
+      <h2><span data-zh>7 · 版权与平台：画面、声音、字体、肖像要分开清</span><span data-en>7 · Rights and platforms: clear image, sound, fonts and likeness separately</span></h2>
+      <p><span data-zh>AI 生成不等于没有版权问题。要分开核对：输入素材是否允许用于生成；模型输出条款是否允许商用；音乐、配音、字体、品牌元素是否有独立授权；是否使用真实人物肖像或声音；平台是否要求标注 AI 生成。</span><span data-en>AI generation does not mean no rights issues. Check separately: whether input assets may be used for generation; whether the model’s output terms allow commercial use; whether music, voice, fonts and brand elements have independent licences; whether real likeness or voice is used; whether the platform requires AI disclosure.</span></p><p><span data-zh>「模型说可以商用」不等于「这条片子可以商用」。模型条款管的是输出，不管输入素材、音乐、肖像和平台规则。四类权利要分别留证：来源、许可、范围、期限。</span><span data-en>“The model says commercial use is allowed” does not mean “this film is cleared”. Model terms cover outputs, not input assets, music, likeness or platform rules. Keep evidence for four things separately: source, licence, scope and term.</span></p><p><span data-zh>发布前做一次清单：输入素材来源、输出条款、音乐许可、字体许可、肖像/声音授权、平台披露、水印。任何一项写「不知道」，就先别发。</span><span data-en>Before publishing, run a checklist: input asset sources, output terms, music licence, font licence, likeness/voice permission, platform disclosure and watermark. If any item says “unknown”, do not publish yet.</span></p><div class="domain-callout"><span data-zh>判断句：如果一条片子只能证明「画面是 AI 生成的」，不能证明「声音、字体、肖像和输入素材都清过」，它还不算可商用交付。</span><span data-en>Rule of thumb: if a film can prove only that the picture was AI-generated, not that sound, fonts, likeness and input assets are cleared, it is not a commercial deliverable.</span></div>
+    </section>
+<section class="domain-section" id="fail">
+      <h2><span data-zh>8 · 失败分支：按镜头修，不要整片重抽</span><span data-en>8 · Failure branches: fix the shot, not the whole film</span></h2>
+      <p><span data-zh>视频失败通常可以定位到镜头级：角色漂移、动作断裂、文字乱码、口型不对、物理错误、风格不统一。先判断是参考问题、提示词问题、模型能力问题还是后期问题，再决定重做哪一段。</span><span data-en>Video failures usually localise to a shot: character drift, broken action, garbled text, bad lip sync, physics errors, style mismatch. Decide whether it is a reference, prompt, model-capability or post issue, then redo that segment.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh>现象</span><span data-en>Symptom</span></th><th><span data-zh>先改什么</span><span data-en>Change first</span></th><th><span data-zh>不要做什么</span><span data-en>Do not</span></th></tr></thead><tbody><tr><td><span data-zh>角色不像</span><span data-en>Character drift</span></td><td><span data-zh>主参考、服装/发型描述、首帧</span><span data-en>Master reference, wardrobe/hair description, first frame</span></td><td><span data-zh>整段重写提示词</span><span data-en>Rewrite the whole prompt</span></td></tr><tr><td><span data-zh>动作断裂</span><span data-en>Broken action</span></td><td><span data-zh>拆镜头、缩短单镜头、换首尾帧</span><span data-en>Split the shot, shorten it, change first/last frame</span></td><td><span data-zh>加大动作描述</span><span data-en>Add more action text</span></td></tr><tr><td><span data-zh>文字乱码</span><span data-en>Garbled text</span></td><td><span data-zh>后期贴字，或改为无文字构图</span><span data-en>Add text in post or compose without text</span></td><td><span data-zh>让模型反复生成文字</span><span data-en>Ask the model to regenerate text repeatedly</span></td></tr><tr><td><span data-zh>口型不对</span><span data-en>Bad lip sync</span></td><td><span data-zh>分段配音、对齐、换镜头</span><span data-en>Segment voice, align, change shot</span></td><td><span data-zh>整片重新配音</span><span data-en>Redub the whole film</span></td></tr><tr><td><span data-zh>风格不统一</span><span data-en>Style mismatch</span></td><td><span data-zh>统一参考、色彩和镜头词汇</span><span data-en>Unify references, colour and shot vocabulary</span></td><td><span data-zh>每段换模型</span><span data-en>Switch models every segment</span></td></tr></tbody></table></div>
+    </section>
+<section class="domain-section" id="path">
+      <h2><span data-zh>9 · 最小落地路径</span><span data-en>9 · A minimum path to production</span></h2>
+      <p><span data-zh>先做 15 秒、3 个镜头、带声音的样片。样片通过审片，再扩到 60 秒；不要一上来做长片。</span><span data-en>Make a 15-second, three-shot sample with sound. If it passes review, extend to 60 seconds; do not start with a long film.</span></p><ul class="domain-list"><li><span data-zh>写交付标准与不可接受项。</span><span data-en>Write the delivery spec and unacceptable outcomes.</span></li><li><span data-zh>写一句话故事与分镜表，每个镜头只做一件事。</span><span data-en>Write a one-sentence story and shot list; one job per shot.</span></li><li><span data-zh>做关键帧，先确认构图、角色、服装、光线。</span><span data-en>Make keyframes; approve composition, character, wardrobe and lighting.</span></li><li><span data-zh>选生成方式：文生探索，图生锁定，编辑修局部。</span><span data-en>Choose the mode: text to explore, image to lock, editing to fix locally.</span></li><li><span data-zh>每个镜头生成多条，按稳定性与可用时长筛选。</span><span data-en>Generate multiple takes per shot; select by stability and usable duration.</span></li><li><span data-zh>先做声音时间轴，再做混音与字幕。</span><span data-en>Build the sound timeline before mixing and captions.</span></li><li><span data-zh>按成片秒算成本，保留重试与返工预算。</span><span data-en>Cost by finished seconds; budget retries and rework.</span></li><li><span data-zh>清四类权利，做平台披露，留回滚素材。</span><span data-en>Clear four rights classes, add platform disclosure, keep source assets for revisions.</span></li></ul><div class="domain-callout"><span data-zh>四个常见误区：只写提示词不写分镜；一条生成当整片；忽略声音与授权；把模型演示片当交付标准。</span><span data-en>Four common mistakes: prompts without a shot list; one generation as the whole film; ignoring sound and rights; treating a model demo as the delivery standard.</span></div>
+    </section>
+      <section class="domain-section" id="sources">
+        <h2><span data-zh>来源与延伸阅读</span><span data-en>Sources and further reading</span></h2>
+        <p><span data-zh>以下链接用于核对事实、许可证与官方口径。外部页面可能更新；引用时以原文与核验日为准。</span><span data-en>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</span></p>
+        <ul class="domain-src"><li><a href="https://tools.specul.com/mcp/guides/playbook-60s-video.html" rel="noopener"><span data-zh>工具站 · 60 秒视频流程</span><span data-en>Tools · 60-second video playbook</span></a><span><span data-zh>从脚本、分镜、生成到剪辑的 60 秒流程。</span><span data-en>A 60-second workflow from script and shots to generation and editing.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/compare-media-tools.html" rel="noopener"><span data-zh>工具站 · 媒体工具对照</span><span data-en>Tools · Media tool comparison</span></a><span><span data-zh>生成、编辑、配音与后期工具的边界。</span><span data-en>Boundaries between generation, editing, voice and post tools.</span></span></li><li><a href="https://tools.specul.com/video/" rel="noopener"><span data-zh>工具站 · 视频分类</span><span data-en>Tools · Video</span></a><span><span data-zh>视频生成与后期工具档案。</span><span data-en>Dossiers on video generation and post-production tools.</span></span></li><li><a href="https://demos.specul.com/2026.html" rel="noopener"><span data-zh>作品站 · 2026 作品</span><span data-en>Demos · 2026 works</span></a><span><span data-zh>同批提示词在不同模型下的结果，便于对照。</span><span data-en>Results from the same prompt family across models, for comparison.</span></span></li><li><a href="https://specul.com/legal.html" rel="noopener"><span data-zh>主站 · 法律与许可</span><span data-en>Specul · Legal and licences</span></a><span><span data-zh>输出、素材、音乐、字体与平台披露的边界。</span><span data-en>Boundaries for outputs, assets, music, fonts and platform disclosure.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/cost-calculator.html" rel="noopener"><span data-zh>工具站 · 成本计算器</span><span data-en>Tools · Cost calculator</span></a><span><span data-zh>把生成、重试、放大与人力放进同一张账。</span><span data-en>Put generation, retries, upscaling and labour into one ledger.</span></span></li><li><a href="https://learn.specul.com/term/%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" rel="noopener"><span data-zh>学 AI · 视频生成</span><span data-en>Learn · Video generation</span></a><span><span data-zh>视频生成的概念、能力边界与常见术语。</span><span data-en>Concepts, capability boundaries and terms for video generation.</span></span></li></ul>
+      </section>
+      <p class="domain-back"><a href="https://specul.com/"><span data-zh>← 回到首页</span><span data-en>← Back to home</span></a></p>
+    </div>
+  </section>
+</main>
+
+<!-- SPECUL:FOOTER:START -->
+  <footer class="site-footer foot-single">
+    <div class="container foot-line">
+      <div class="foot-brand">
+        <span class="foot-brand-main">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="foot-copy"><span data-zh>投机取巧 · specul.com</span><span data-en>Specul · specul.com</span></span>
+        </span>
+        <span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh>内容 CC BY 4.0</span><span data-en>Content CC BY 4.0</span></a><span class="sep" aria-hidden="true">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh>代码 MIT</span><span data-en>Code MIT</span></a><span class="sep" aria-hidden="true">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a></span>
+      </div>
+      <nav class="foot-sites" aria-label="Footer site links">
+        <a class="site-link" href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a><span class="sep site-sep" aria-hidden="true">·</span>
+        <a class="site-link" href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a><span class="sep site-sep" aria-hidden="true">·</span>
+        <a class="site-link" href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a><span class="sep site-sep" aria-hidden="true">·</span>
+        <a class="site-link" href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a><span class="sep site-sep" aria-hidden="true">·</span>
+        <a class="site-link" href="https://demos.specul.com/"><span data-zh>演示</span><span data-en>Demos</span></a><span class="sep site-sep" aria-hidden="true">·</span>
+        <a class="site-link" href="https://oss.specul.com/"><span data-zh>开源</span><span data-en>OSS</span></a><span class="sep site-sep" aria-hidden="true">·</span>
+        <a class="site-link" href="https://hardware.specul.com/"><span data-zh>算力</span><span data-en>Compute</span></a><span class="sep site-sep" aria-hidden="true">·</span>
+        <a class="site-link" href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a><span class="sep site-sep" aria-hidden="true">·</span>
+        <a class="site-link" href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a><span class="sep site-sep" aria-hidden="true">·</span>
+        <a class="site-link" href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
+      </nav>
+      <nav class="foot-legal" aria-label="Legal and corrections">
+        <a href="https://specul.com/legal.html"><span data-zh>法律</span><span data-en>Legal</span></a><span class="sep" aria-hidden="true">·</span>
+        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私</span><span data-en>Privacy</span></a><span class="sep" aria-hidden="true">·</span>
+        <a href="https://specul.com/correct.html"><span data-zh>纠错</span><span data-en>Corrections</span></a>
+      </nav>
+    </div>
+  </footer>
+<!-- SPECUL:FOOTER:END -->
+
+<!-- SPECUL:TABBAR:START -->
+<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
+    <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
+    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
+    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
+    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
+    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
+    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
+    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
+    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
+    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
+    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+
+</body>
+</html>
