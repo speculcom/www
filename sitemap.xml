@@ -34,6 +34,7 @@
   <url><loc>https://specul.com/topic-eval.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://specul.com/topics.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://specul.com/three-stars.html</loc><lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://specul.com/updates.html</loc><lastmod>2026-11-26</lastmod></url>
   <url><loc>https://specul.com/updates-2026-11.html</loc><lastmod>2026-11-19</lastmod></url>
   <url><loc>https://specul.com/about.html</loc><lastmod>2026-11-22</lastmod><priority>0.4</priority></url>
   <url><loc>https://specul.com/map.html</loc><lastmod>2026-11-22</lastmod><priority>0.4</priority></url>
@@ -92,5 +93,6 @@
   <url><loc>https://specul.com/en/topic-speech.html</loc></url>
   <url><loc>https://specul.com/en/topic-video.html</loc></url>
   <url><loc>https://specul.com/en/topics.html</loc></url>
+  <url><loc>https://specul.com/en/updates.html</loc></url>
   <url><loc>https://specul.com/en/updates-2026-11.html</loc></url>
 </urlset>

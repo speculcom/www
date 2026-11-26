@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Latest updates across Specul: 57 changes, newest first</title>
+<meta content="Not just six. All 57 updates across the sites, newest first; a real work thumbnail when one exists, plain text when it does not." name="description"/>
+<link href="https://specul.com/en/updates.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="website" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/updates.html" property="og:url"/>
+<meta content="Latest updates across Specul: 57 changes, newest first" property="og:title"/>
+<meta content="Not just six. All 57 updates across the sites, newest first; a real work thumbnail when one exists, plain text when it does not." property="og:description"/>
+<meta content="https://specul.com/home-shots/og-home.jpg?v=20261123d" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Specul 更新档案" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Latest updates across Specul: 57 changes, newest first" name="twitter:title"/>
+<meta content="Not just six. All 57 updates across the sites, newest first; a real work thumbnail when one exists, plain text when it does not." name="twitter:description"/>
+<meta content="https://specul.com/home-shots/og-home.jpg?v=20261123d" name="twitter:image"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/updates.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Latest updates across Specul","url":"https://specul.com/en/updates.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Latest updates across Specul","url":"https://specul.com/en/updates.html"},"description":"Not just six. All 57 updates across the sites, newest first; a real work thumbnail when one exists, plain text when it does not."}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><link href="https://specul.com/updates.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/updates.html" hreflang="en" rel="alternate"/><link href="https://specul.com/updates.html" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row upd-page">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/updates.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<main id="main">
+<section class="upd-hero">
+<div class="container">
+<p class="upd-kicker">Update archive</p>
+<h1>Latest updates</h1>
+<p class="upd-deck">Not just six. All 57 updates across the sites, newest first; a real work thumbnail when one exists, plain text when it does not.</p>
+<div class="upd-hero-stats">
+<span><b>57</b> entries</span>
+<span><b>10</b> months</span>
+<span><b>19</b> real work images</span>
+</div>
+</div>
+</section>
+<section class="upd-body">
+<div class="container">
+<p class="upd-note"><b class="upd-visible">57</b> visible; images are real work thumbnails, never uniform generated covers.</p>
+<div aria-label="Filter updates by site" class="upd-filterbar" role="group">
+<button aria-pressed="true" class="upd-filter is-on" data-filter-site="all" type="button">All<b>57</b></button>
+<button aria-pressed="false" class="upd-filter" data-filter-site="models" type="button">Models<b>16</b></button>
+<button aria-pressed="false" class="upd-filter" data-filter-site="hardware" type="button">Compute<b>9</b></button>
+<button aria-pressed="false" class="upd-filter" data-filter-site="tools" type="button">Tools<b>6</b></button>
+<button aria-pressed="false" class="upd-filter" data-filter-site="chain" type="button">Chain<b>5</b></button>
+<button aria-pressed="false" class="upd-filter" data-filter-site="papers" type="button">Papers<b>6</b></button>
+<button aria-pressed="false" class="upd-filter" data-filter-site="demos" type="button">Works<b>11</b></button>
+<button aria-pressed="false" class="upd-filter" data-filter-site="site" type="button">Hub<b>4</b></button>
+</div>
+<div class="upd-groups">
+<section class="upd-group" data-month="2026-11"><header class="upd-group-head"><h2>November 2026</h2><span class="upd-group-n"><b>31</b> items</span></header><div class="upd-list">
+<a class="upd-row has-img" data-site="demos" href="https://demos.specul.com/en/2026.html#demos-2026-11-video-models"><span class="upd-meta"><span class="upd-date">11-26</span><span class="upd-site upd-site-demos">Works</span></span><span class="upd-copy"><b>Three new video demos: long-form avatar, 480B audio-video, 30-second Flash</b><small>This round adds no hosted HTML pieces, only official demo entries: LongCat-Video-Avatar 1.6 for identity and lip stability beyond ten minutes;</small></span><img alt="Work thumbnail: Three new video demos: long-form avatar, 480B audio-video, 30-second Flash" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/demos-2026-11-video-models.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="hardware" href="https://hardware.specul.com/en/weiyun-1000pro.html"><span class="upd-meta"><span class="upd-date">11-26</span><span class="upd-site upd-site-hardware">Compute</span></span><span class="upd-copy"><b>Weiyun 1000Pro / 1000Ultra: 800B / 3.2T on one machine</b><small>Official product pages are live: 1000Pro reaches up to 13 PFLOPS with optional GPUs, 1.28 TB memory, under 1 kW inference power, 2U, up to 800B parame…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="site" href="https://specul.com/en/updates-2026-11.html#models"><span class="upd-meta"><span class="upd-date">11-25</span><span class="upd-site upd-site-site">Hub</span></span><span class="upd-copy"><b>Site-wide stale-claim review</b><small>Retired Opal, corrected the Hy4 licence and pricing and the Kimi K3.1 Pro weights; kept the history and changed only claims that no longer hold.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="models" href="https://models.specul.com/en/2026.html#ernie-5-5-flash-preview"><span class="upd-meta"><span class="upd-date">11-25</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>ERNIE 5.5 Flash Preview: 280B / 14B active, Apache-2.0</b><small>Baidu published preview weights on 25 November: 280B total, 14B active per token, 512 routed experts with top-10 plus one shared, a 1,048,576-token co…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="site" href="https://specul.com/en/updates-2026-11.html#site"><span class="upd-meta"><span class="upd-date">11-24</span><span class="upd-site upd-site-site">Hub</span></span><span class="upd-copy"><b>Timeline order unified + seven content updates</b><small>All timelines now run newest-first; added GLM-5.4, Hy4, Claude Ship, Genie 4, PFN L2000, two papers, LoopForge and Algorand x402.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="models" href="https://models.specul.com/en/2026.html#magi-2"><span class="upd-meta"><span class="upd-date">11-24</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>MAGI-2: a 480B video model with 30-second 1080p native audio-video</b><small>Sand.ai launched a 480B flagship video model: 480B total, about 28B active, roughly 4T pre-training tokens.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="models" href="https://models.specul.com/en/2026.html#seedance-2-5-flash"><span class="upd-meta"><span class="upd-date">11-24</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>Seedance 2.5 Flash: 30 seconds, multi-reference, about 34% cheaper</b><small>Volcano Ark’s 24 November docs confirm Seedance 2.5 Flash is generally available: 30-second clips, 480p/720p, up to 10 images + 5 videos + 5 audio cli…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="chain" href="https://chain.specul.com/en/2026.html#algorand-x402"><span class="upd-meta"><span class="upd-date">11-23</span><span class="upd-site upd-site-chain">Chain</span></span><span class="upd-copy"><b>Algorand x402: atomic and sponsored transactions</b><small>Algorand has extended its x402 support from the February technical integration to atomic and sponsored transactions: multiple actions settle together…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="tools" href="https://tools.specul.com/en/2026.html#claude-ship"><span class="upd-meta"><span class="upd-date">11-23</span><span class="upd-site upd-site-tools">Tools</span></span><span class="upd-copy"><b>Claude Ship: agents review, fix and approve PRs</b><small>Anthropic splits code delivery into three agents: Code Review is GA and reads changes in context with adversarial verification;</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="models" href="https://models.specul.com/en/2026.html#glm-5-4"><span class="upd-meta"><span class="upd-date">11-23</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>GLM-5.4: the first Loop Transformer flagship</b><small>Z.ai runs 28 layers of its 750B base through two loops, trading repeated compute for reasoning depth without adding parameters;</small></span><img alt="Work thumbnail: GLM-5.4: the first Loop Transformer flagship" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/glm-5-4.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="models" href="https://models.specul.com/en/2026.html#ling-3-2-air"><span class="upd-meta"><span class="upd-date">11-23</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>Ling-3.2-air: 124B / 5.5B active, 256K multimodal</b><small>Ant’s inclusionAI released Ling-3.2-air: 124B total, 5.5B active per token, 35 KDA layers plus 7 gated MLA layers, 512 routed experts with 8 active, 2…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="models" href="https://models.specul.com/en/2026.html#tencent-hy4"><span class="upd-meta"><span class="upd-date">11-20</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>Tencent Hy4: 770B / 49B active, weights open</b><small>Hy4 was announced 2026-11-04 and open-sourced 2026-11-20: a 770B-total, 49B-active MoE with over one million tokens of context and first-time visual u…</small></span><img alt="Work thumbnail: Tencent Hy4: 770B / 49B active, weights open" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/tencent-hy4.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="models" href="https://models.specul.com/en/2026.html#inkling-2-mini"><span class="upd-meta"><span class="upd-date">11-20</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>Inkling 2 Mini: 26.4B MoE / 3.4B active</b><small>Thinking Machines Lab’s local multimodal node: 26.4B total, 3.4B active (about 5.4B effective through looping), a 24-layer looped MoE, 1M context, tex…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="site" href="https://oss.specul.com/en/"><span class="upd-meta"><span class="upd-date">11-19</span><span class="upd-site upd-site-site">Hub</span></span><span class="upd-copy"><b>OSS site + four in-site sections</b><small>OSS became its own site: 136 repositories and 7 scenes; data, evals, cloud compute and Skills moved into their own sections.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="papers" href="https://papers.specul.com/en/2026.html#edit-based-training"><span class="upd-meta"><span class="upd-date">11-19</span><span class="upd-site upd-site-papers">Papers</span></span><span class="upd-copy"><b>Edit-based training: supervise only the first failure</b><small>Instead of imitating a full reasoning trajectory or rewarding the whole completion, an editor locates the first point of failure and supervises only a…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="tools" href="https://tools.specul.com/en/2026.html#replit-missions"><span class="upd-meta"><span class="upd-date">11-19</span><span class="upd-site upd-site-tools">Tools</span></span><span class="upd-copy"><b>Replit Missions: give an agent swarm a goal</b><small>You define the outcome, budget and boundaries; Missions coordinates a swarm of agents to plan, build, test and iterate.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="site" href="https://specul.com/en/updates-2026-11.html#site"><span class="upd-meta"><span class="upd-date">11-18</span><span class="upd-site upd-site-site">Hub</span></span><span class="upd-copy"><b>New visualizations + 2026 pages</b><small>Nine homepage charts, eight 2026 supplement pages and ten 404 pages; the homepage separates 'use directly' from 'build your own'.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="demos" href="https://demos.specul.com/en/2026.html#demos-genie-4"><span class="upd-meta"><span class="upd-date">11-18</span><span class="upd-site upd-site-demos">Works</span></span><span class="upd-copy"><b>Genie 4: edit a world live in the browser</b><small>Google DeepMind opened Genie 4 to eligible Google AI Ultra subscribers: change weather, add characters or move the camera in a running world with natu…</small></span><img alt="Work thumbnail: Genie 4: edit a world live in the browser" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/demos-genie-4.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="papers" href="https://papers.specul.com/en/2026.html#llm-target-formulation"><span class="upd-meta"><span class="upd-date">11-18</span><span class="upd-site upd-site-papers">Papers</span></span><span class="upd-copy"><b>Do LLMs formulate the right prediction target?</b><small>The paper asks whether LLMs correctly formulate prediction problems in child welfare, healthcare and employment, focusing on decision dependency: past…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="hardware" href="https://hardware.specul.com/en/2026.html#pfn-mn-core-l2000"><span class="upd-meta"><span class="upd-date">11-17</span><span class="upd-site upd-site-hardware">Compute</span></span><span class="upd-copy"><b>PFN MN-Core L2000: targeting double the memory bandwidth</b><small>PFN and SEMIFIVE are co-developing the L2000 series, the next generation of AI inference chips, targeting more than twice the memory bandwidth of L100…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="models" href="https://models.specul.com/en/2026.html#longcat-video-avatar-1-6"><span class="upd-meta"><span class="upd-date">11-13</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>LongCat-Video-Avatar 1.6: 10+ minutes, MIT weights</b><small>Meituan LongCat released 1.6 weights: audio-driven single- and multi-person avatars, speech + text/image-to-video and video continuation.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="hardware" href="https://hardware.specul.com/en/2026.html#axelera-titania"><span class="upd-meta"><span class="upd-date">11-12</span><span class="upd-site upd-site-hardware">Compute</span></span><span class="upd-copy"><b>Axelera Titania: 2.5 PF FP8 / 128GB LPDDR6</b><small>A datacenter-class AIPU: two third-generation D-IMC chiplets in one SiP, 400W, 2.5 PFLOPS FP8; 128GB LPDDR6 at 2.45TB/s with 128MB shared SRAM;</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="hardware" href="https://hardware.specul.com/en/2026.html#amd-mi450x"><span class="upd-meta"><span class="upd-date">11-12</span><span class="upd-site upd-site-hardware">Compute</span></span><span class="upd-copy"><b>AMD MI450X: 288GB HBM4 / 23.3TB/s</b><small>Same CDNA5 and 23.3TB/s as MI455X, but 288GB (eight HBM4 stacks); MXFP4 40.3 PFLOPS; launched 2026-11-12.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="models" href="https://models.specul.com/en/2026.html#arete-27b"><span class="upd-meta"><span class="upd-date">11-06</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>Nous Arete-27B: an Apache-2.0 retune of Qwen3.8-27B</b><small>Not a new architecture, and not a “17B”: a 27B dense SFT of Qwen3.8-27B with a frozen vision encoder, trained on roughly 52.8M tokens at 64k context.</small></span><img alt="Work thumbnail: Nous Arete-27B: an Apache-2.0 retune of Qwen3.8-27B" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/arete-27b.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="models" href="https://models.specul.com/en/2026.html#inkling-2-small"><span class="upd-meta"><span class="upd-date">11-05</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>Inkling 2 Small: 594B MoE / 17B active</b><small>Thinking Machines Lab’s 2026 open-weight flagship: 594B total, 17B active per token, 48 decoder-only layers, 384 experts with 8 active, 1M context, te…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="demos" href="https://demos.specul.com/en/2026.html#demos-2026-11-seven-models"><span class="upd-meta"><span class="upd-date">2026-11</span><span class="upd-site upd-site-demos">Works</span></span><span class="upd-copy"><b>Five pieces each from seven models: GLM-5.3, Qwen3.8-Max, MiniMax M3.1, Gemini 4 Argon, DeepSeek V4.1, Step 5, Ornith 1.5</b><small>Five self-contained HTML pieces from each of seven 100-piece collections, 35 in total: 5 tools/interfaces, 12 content/visual, 8 interaction, 10 data v…</small></span><img alt="Work thumbnail: Five pieces each from seven models: GLM-5.3, Qwen3.8-Max, MiniMax M3.1, Gemini 4 Argon, DeepSeek V4.1, Step 5, Ornith 1.5" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/demos-2026-11-seven-models.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="demos" href="https://demos.specul.com/en/2026.html#demos-2026-11-three-more-models"><span class="upd-meta"><span class="upd-date">2026-11</span><span class="upd-site upd-site-demos">Works</span></span><span class="upd-copy"><b>Five more pieces each from Claude Opus 5.5, GPT-6.2 Astra and Gemini 4 Neon</b><small>Five pieces from each of three same-structure 100-piece single-file HTML collections, 15 in total: five content/visual, five data visualisation, three…</small></span><img alt="Work thumbnail: Five more pieces each from Claude Opus 5.5, GPT-6.2 Astra and Gemini 4 Neon" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/demos-2026-11-three-more-models.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="demos" href="https://demos.specul.com/en/2026.html#demos-2026-11-five-more-models"><span class="upd-meta"><span class="upd-date">2026-11</span><span class="upd-site upd-site-demos">Works</span></span><span class="upd-copy"><b>Five more models: GPT-6.1 Terra, Grok 4.7, Claude Haiku 5.5, MiMo V2.6 Pro and Hy4 flash</b><small>Five pieces each from four 100-piece single-file HTML collections that were previously absent, plus four more from Hy4 flash: 24 in total — eight cont…</small></span><img alt="Work thumbnail: Five more models: GPT-6.1 Terra, Grok 4.7, Claude Haiku 5.5, MiMo V2.6 Pro and Hy4 flash" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/demos-2026-11-five-more-models.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="demos" href="https://demos.specul.com/en/2026.html#demos-2026-11-six-more-models"><span class="upd-meta"><span class="upd-date">2026-11</span><span class="upd-site upd-site-demos">Works</span></span><span class="upd-copy"><b>Six more models: GPT-6 Astra, Claude Fable 5.1, Claude Sonnet 5.5, Muse Spark 1.3, Ox Alpha and Qwen3.8-27B</b><small>Five pieces each from six previously unlisted 100-piece single-file HTML collections: 30 in total — twelve content/visual, eight interaction, three ed…</small></span><img alt="Work thumbnail: Six more models: GPT-6 Astra, Claude Fable 5.1, Claude Sonnet 5.5, Muse Spark 1.3, Ox Alpha and Qwen3.8-27B" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/demos-2026-11-six-more-models.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="demos" href="https://demos.specul.com/en/2026.html#demos-2026-11-models"><span class="upd-meta"><span class="upd-date">2026-11</span><span class="upd-site upd-site-demos">Works</span></span><span class="upd-copy"><b>2026-11 official model demos: 3D, video and work</b><small>Kimi K3.1 Pro on 3D and long-horizon code, Gemini Omni 1.2 Flash on 15-second video and multi-turn editing, and Hy4 flash on 150+ tok/s everyday work.…</small></span><img alt="Work thumbnail: 2026-11 official model demos: 3D, video and work" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/demos-2026-11-models.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="tools" href="https://tools.specul.com/en/2026.html#ag-ui"><span class="upd-meta"><span class="upd-date">2026-11</span><span class="upd-site upd-site-tools">Tools</span></span><span class="upd-copy"><b>AG-UI 1.0: an event stream from agent to user</b><small>One ordered event stream carrying tokens, tool calls, shared state and interrupts to the frontend; HTTP + SSE, with RunAgentInput and typed events.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+</div></section>
+<section class="upd-group" data-month="2026-10"><header class="upd-group-head"><h2>October 2026</h2><span class="upd-group-n"><b>5</b> items</span></header><div class="upd-list">
+<a class="upd-row" data-site="papers" href="https://papers.specul.com/en/2026.html#jepa-prh"><span class="upd-meta"><span class="upd-date">10-29</span><span class="upd-site upd-site-papers">Papers</span></span><span class="upd-copy"><b>JEPA-PRH: cross-modal alignment from a 109M text JEPA</b><small>A 109M-parameter text JEPA aligns with image encoders better than every language model the authors evaluated, up to 72B;</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="models" href="https://models.specul.com/en/2026.html#mistral-large-4"><span class="upd-meta"><span class="upd-date">10-29</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>Mistral Large 4: 1.05T total / 49B active</b><small>A European open-weight flagship: 1T-class natively multimodal MoE, 1M context, 128 routed experts (4 active per token plus 1 shared), 160+ languages;</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="tools" href="https://tools.specul.com/en/2026.html#agent-skills"><span class="upd-meta"><span class="upd-date">10-22</span><span class="upd-site upd-site-tools">Tools</span></span><span class="upd-copy"><b>Agent Skills: a folder is a capability</b><small>Released in December 2025 and donated to the AAIF on 2026-10-22; a reusable capability described by SKILL.md plus scripts/assets, loaded on demand, wi…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="models" href="https://models.specul.com/en/2026.html#muse-spark-open"><span class="upd-meta"><span class="upd-date">10-15</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>Meta Muse Spark Open: 816B / 42B active</b><small>A new flagship on Meta’s Muse line, aimed at coding agents doing multi-file refactoring and long debugging;</small></span><img alt="Work thumbnail: Meta Muse Spark Open: 816B / 42B active" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/muse-spark-open.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="papers" href="https://papers.specul.com/en/2026.html#byteification"><span class="upd-meta"><span class="upd-date">10-07</span><span class="upd-site upd-site-papers">Papers</span></span><span class="upd-copy"><b>Byteification: retrofitting subword models to bytes</b><small>Converts an existing subword LLM to byte level with 49.1B tokens, less than 1% of a typical pretraining budget;</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+</div></section>
+<section class="upd-group" data-month="2026-09"><header class="upd-group-head"><h2>September 2026</h2><span class="upd-group-n"><b>2</b> items</span></header><div class="upd-list">
+<a class="upd-row has-img" data-site="models" href="https://models.specul.com/en/2026.html#mimo-v2-6"><span class="upd-meta"><span class="upd-date">09-22</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>Xiaomi MiMo-V2.6: Pro / Flash line</b><small>Pro and Flash launched together with open weights; Pro scores 46.32 on the AA Intelligence Index, with 1M context and native omni-modality (text / ima…</small></span><img alt="Work thumbnail: Xiaomi MiMo-V2.6: Pro / Flash line" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/mimo-v2-6.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="models" href="https://models.specul.com/en/2026.html#deepseek-v4-1-flash"><span class="upd-meta"><span class="upd-date">09-10</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>DeepSeek V4.1 Flash: 552B MoE, much smaller KV cache</b><small>552B MoE with a causal encoder–decoder architecture; 8B active on the input side and 16B on the output side; native multimodality;</small></span><img alt="Work thumbnail: DeepSeek V4.1 Flash: 552B MoE, much smaller KV cache" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/deepseek-v4-1-flash.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+</div></section>
+<section class="upd-group" data-month="2026-08"><header class="upd-group-head"><h2>August 2026</h2><span class="upd-group-n"><b>1</b> items</span></header><div class="upd-list">
+<a class="upd-row has-img" data-site="models" href="https://models.specul.com/en/2026.html#glm-5-3"><span class="upd-meta"><span class="upd-date">08-14</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>GLM-5.3: post-training scaling on the same base</b><small>Post-training scaling on the same GLM-5.2 base, 1M context, officially positioned for coding and cybersecurity; weights opened two weeks later.</small></span><img alt="Work thumbnail: GLM-5.3: post-training scaling on the same base" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/glm-5-3.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+</div></section>
+<section class="upd-group" data-month="2026-07"><header class="upd-group-head"><h2>July 2026</h2><span class="upd-group-n"><b>3</b> items</span></header><div class="upd-list">
+<a class="upd-row" data-site="tools" href="https://tools.specul.com/en/2026.html#mcp-stateless"><span class="upd-meta"><span class="upd-date">07-28</span><span class="upd-site upd-site-tools">Tools</span></span><span class="upd-copy"><b>Next MCP: stateless core + extensions</b><small>The 2026-07-28 spec candidate removes protocol-level sessions from the core in favour of stateless requests;</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="models" href="https://models.specul.com/en/2026.html#kimi-k3-date"><span class="upd-meta"><span class="upd-date">07-27</span><span class="upd-site upd-site-models">Models</span></span><span class="upd-copy"><b>Kimi K3: open-weights date corrected to 2026-07-27</b><small>The older card dated Kimi K3 to June 2026; the official page says 2026-07-27. This round corrects the family card and the charts.</small></span><img alt="Work thumbnail: Kimi K3: open-weights date corrected to 2026-07-27" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/kimi-k3-date.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="hardware" href="https://hardware.specul.com/en/2026.html#amd-mi455x"><span class="upd-meta"><span class="upd-date">07-23</span><span class="upd-site upd-site-hardware">Compute</span></span><span class="upd-copy"><b>AMD MI455X: 432GB HBM4 / 23.3TB/s</b><small>Per GPU: 432GB HBM4 (12 stacks), 23.3TB/s, 320B transistors; OCP MXFP4 40.3 PFLOPS, FP8 20.1 PFLOPS; UALoE 3.6TB/s; direct liquid cooling.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+</div></section>
+<section class="upd-group" data-month="2026-04"><header class="upd-group-head"><h2>April 2026</h2><span class="upd-group-n"><b>2</b> items</span></header><div class="upd-list">
+<a class="upd-row" data-site="chain" href="https://chain.specul.com/en/2026.html#ap2"><span class="upd-meta"><span class="upd-date">04-28</span><span class="upd-site upd-site-chain">Chain</span></span><span class="upd-copy"><b>AP2: v0.2 and donation to the FIDO Alliance</b><small>Google donated AP2 to FIDO and released v0.2 with Human Not Present autonomous payments;</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="hardware" href="https://hardware.specul.com/en/2026.html#google-tpu7x"><span class="upd-meta"><span class="upd-date">04-22</span><span class="upd-site upd-site-hardware">Compute</span></span><span class="upd-copy"><b>Google TPU7x (Ironwood): 192GiB / 7.38TB/s</b><small>Seventh-generation TPU: 192GiB HBM3E per chip, about 7.38TB/s, 4614 TFLOPS FP8 / 2307 TFLOPS BF16; 9,216 chips per pod; ICI 1.2TB/s;</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+</div></section>
+<section class="upd-group" data-month="2026-01"><header class="upd-group-head"><h2>January 2026</h2><span class="upd-group-n"><b>2</b> items</span></header><div class="upd-list">
+<a class="upd-row" data-site="chain" href="https://chain.specul.com/en/2026.html#erc-8004"><span class="upd-meta"><span class="upd-date">01-29</span><span class="upd-site upd-site-chain">Chain</span></span><span class="upd-copy"><b>ERC-8004: Trustless Agents goes mainnet</b><small>Three singleton registries: Identity (ERC-721 + agent-card JSON with A2A / MCP endpoints), Reputation and Validation; integrates with x402 payments;</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="tools" href="https://tools.specul.com/en/2026.html#mcp-apps"><span class="upd-meta"><span class="upd-date">01-26</span><span class="upd-site upd-site-tools">Tools</span></span><span class="upd-copy"><b>MCP Apps: a tool can return a UI</b><small>SEP-1865 is final: a tool result can carry a ui:// resource, the client renders it in a sandboxed iframe and receives interactions over JSON-RPC;</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+</div></section>
+<section class="upd-group" data-month="2026"><header class="upd-group-head"><h2>2026</h2><span class="upd-group-n"><b>9</b> items</span></header><div class="upd-list">
+<a class="upd-row has-img" data-site="demos" href="https://demos.specul.com/en/2026.html#demos-gpt-6-2"><span class="upd-meta"><span class="upd-date">2026</span><span class="upd-site upd-site-demos">Works</span></span><span class="upd-copy"><b>GPT-6.2 Sol: 100 HTML visual studies</b><small>One hundred web pieces from one model: interaction 23, data 27, content 26, tools 14, model demos 10.</small></span><img alt="Work thumbnail: GPT-6.2 Sol: 100 HTML visual studies" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/demos-gpt-6-2.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="demos" href="https://demos.specul.com/en/2026.html#demos-fable-5-2"><span class="upd-meta"><span class="upd-date">2026</span><span class="upd-site upd-site-demos">Works</span></span><span class="upd-copy"><b>Claude Fable 5.2: 86 interaction and visual experiments</b><small>Of 86 pieces, 57 are interaction, 24 data visualisation, two content/visual and three tools/interfaces;</small></span><img alt="Work thumbnail: Claude Fable 5.2: 86 interaction and visual experiments" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/demos-fable-5-2.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="demos" href="https://demos.specul.com/en/2026.html#demos-opus-5-5"><span class="upd-meta"><span class="upd-date">2026</span><span class="upd-site upd-site-demos">Works</span></span><span class="upd-copy"><b>Claude Opus 5.5: one B6 code-animation sample</b><small>The Claude Opus 5.5 take on the same B6 prompt. Compare it with the DeepSeek V4.1-Flash version;</small></span><img alt="Work thumbnail: Claude Opus 5.5: one B6 code-animation sample" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/demos-opus-5-5.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row has-img" data-site="demos" href="https://demos.specul.com/en/2026.html#demos-deepseek-v4-1"><span class="upd-meta"><span class="upd-date">2026</span><span class="upd-site upd-site-demos">Works</span></span><span class="upd-copy"><b>DeepSeek V4.1-Flash: B6 and X7 code animations</b><small>B6 shares its prompt with Opus; X7 came from a single line. Both run here under a free-share licence.</small></span><img alt="Work thumbnail: DeepSeek V4.1-Flash: B6 and X7 code animations" class="upd-thumb" decoding="async" height="58" loading="lazy" src="/assets/updates/demos-deepseek-v4-1.webp" width="104"/><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="papers" href="https://papers.specul.com/en/2026.html#recognition-refusal"><span class="upd-meta"><span class="upd-date">2026</span><span class="upd-site upd-site-papers">Papers</span></span><span class="upd-copy"><b>Recognition–refusal misalignment: knowing it is unanswerable, yet answering</b><small>The paper finds a linear direction in hidden states separating answerable from structurally impossible math/code prompts;</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="papers" href="https://papers.specul.com/en/2026.html#abstain-r1"><span class="upd-meta"><span class="upd-date">2026</span><span class="upd-site upd-site-papers">Papers</span></span><span class="upd-copy"><b>Abstain-R1: calibrated abstention at 3B</b><small>Trains a 3B model with a clarification-aware RLVR reward, improving abstention and clarification on unanswerable queries while preserving answerable-q…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="hardware" href="https://hardware.specul.com/en/2026.html#nvidia-rubin"><span class="upd-meta"><span class="upd-date">2026</span><span class="upd-site upd-site-hardware">Compute</span></span><span class="upd-copy"><b>NVIDIA Rubin: 288GB HBM4 / 22TB/s</b><small>Per GPU: 288GB HBM4 (12-Hi stacks), 22TB/s, 336B transistors, 224 SM / 896 Tensor Cores; up to 50 PFLOPS NVFP4 inference; NVLink 6 at 3.6TB/s.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="hardware" href="https://hardware.specul.com/en/2026.html#nvidia-b300"><span class="upd-meta"><span class="upd-date">2026</span><span class="upd-site upd-site-hardware">Compute</span></span><span class="upd-copy"><b>NVIDIA B300: 288GB HBM3e / 8TB/s</b><small>Blackwell Ultra per GPU: 288GB HBM3e, 8TB/s, 15 PFLOPS dense NVFP4, 160 SM / 640 Tensor Cores, up to 1,400W.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+<a class="upd-row" data-site="hardware" href="https://hardware.specul.com/en/2026.html#amd-helios"><span class="upd-meta"><span class="upd-date">2026</span><span class="upd-site upd-site-hardware">Compute</span></span><span class="upd-copy"><b>AMD Helios: 72× MI455X, 31TB HBM4</b><small>Rack-scale system: 72 MI455X or MI450X GPUs, 31TB HBM4, 1.4 EF FP8 / 2.9 EF FP4; not a per-GPU spec.</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+</div></section>
+<section class="upd-group" data-month="2025-10"><header class="upd-group-head"><h2>October 2025</h2><span class="upd-group-n"><b>1</b> items</span></header><div class="upd-list">
+<a class="upd-row" data-site="chain" href="https://chain.specul.com/en/2026.html#visa-mastercard-agent-payments"><span class="upd-meta"><span class="upd-date">2025-10</span><span class="upd-site upd-site-chain">Chain</span></span><span class="upd-copy"><b>Visa TAP + Mastercard Agent Pay: card networks put agent payments into live merchants</b><small>Visa released TAP on 14 October 2025: Web Bot Auth HTTP signatures let merchants distinguish browsing from paying, with live European purchases across…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+</div></section>
+<section class="upd-group" data-month="2021-09"><header class="upd-group-head"><h2>September 2021</h2><span class="upd-group-n"><b>1</b> items</span></header><div class="upd-list">
+<a class="upd-row" data-site="chain" href="https://chain.specul.com/en/2026.html#erc-4337"><span class="upd-meta"><span class="upd-date">2021-09</span><span class="upd-site upd-site-chain">Chain</span></span><span class="upd-copy"><b>ERC-4337: account abstraction without consensus changes</b><small>UserOperation + a separate mempool + Bundler + EntryPoint + Paymaster; custom signatures, batching and sponsored gas without touching the consensus la…</small></span><span aria-hidden="true" class="upd-arrow">→</span></a>
+</div></section>
+</div>
+<p class="upd-end">Monthly log <a href="/en/updates-2026-11.html">2026-11</a>; site map <a href="/en/map.html">map.html</a>。</p>
+</div>
+</section>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+<script>
+(function () {
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.upd-filter'));
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.upd-row'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.upd-group'));
+  var visible = document.querySelector('.upd-visible');
+  function apply(site) {
+    var shown = 0;
+    rows.forEach(function (row) {
+      var keep = site === 'all' || row.getAttribute('data-site') === site;
+      row.hidden = !keep;
+      if (keep) shown += 1;
+    });
+    groups.forEach(function (group) {
+      var n = group.querySelectorAll('.upd-row:not([hidden])').length;
+      group.hidden = n === 0;
+      var num = group.querySelector('.upd-group-n b');
+      if (num) num.textContent = String(n);
+    });
+    if (visible) visible.textContent = String(shown);
+    buttons.forEach(function (button) {
+      var on = button.getAttribute('data-filter-site') === site;
+      button.classList.toggle('is-on', on);
+      button.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      apply(button.getAttribute('data-filter-site') || 'all');
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -27,6 +27,7 @@
 <script src="brand.js?v=37d1072be69b"></script>
 <link href="brand.css?v=37d1072be69b" rel="stylesheet"/>
 <link href="home.css?v=20261124c" rel="stylesheet"/>
+<link href="home-news.css?v=20261126a" rel="stylesheet"/>
 <!-- B5（2026-10-09）：结构性数据。枢纽站声明自己是什么、以及由哪几个站组成 ——
        这是「站群」这件事唯一能被机器读到的地方；hasPart 让搜索引擎知道十站是一个整体。 -->
 <script type="application/ld+json">
@@ -167,6 +168,16 @@
 </aside>
 </div>
 </section>
+<section aria-label="最近更新" class="hm-news-sec" data-ui-aria-label-en="Latest updates" data-ui-aria-label-zh="最近更新" id="latest"><div class="hm-c container"><div class="hm-news-grid">
+<a class="hm-news-item" href="https://hardware.specul.com/weiyun-1000pro.html"><span class="hm-news-date">11-26</span><span class="hm-news-site hm-news-site-hardware"><span data-zh="">硬件</span><span data-en="">Compute</span></span><b><span data-zh="">威云 1000Pro / 1000Ultra：单机 800B / 3.2T</span><span data-en="">Weiyun 1000Pro / 1000Ultra: 800B / 3.2T on one machine</span></b><span aria-hidden="true" class="hm-news-arrow">→</span></a>
+<a class="hm-news-item" href="https://demos.specul.com/2026.html#demos-2026-11-video-models"><span class="hm-news-date">11-26</span><span class="hm-news-site hm-news-site-demos"><span data-zh="">作品</span><span data-en="">Works</span></span><b><span data-zh="">三条新视频演示：数字人长视频、480B 音画、30 秒 Flash</span><span data-en="">Three new video demos: long-form avatar, 480B audio-video, 30-second Flash</span></b><span aria-hidden="true" class="hm-news-arrow">→</span></a>
+<a class="hm-news-item" href="https://models.specul.com/2026.html#ernie-5-5-flash-preview"><span class="hm-news-date">11-25</span><span class="hm-news-site hm-news-site-models"><span data-zh="">模型</span><span data-en="">Models</span></span><b><span data-zh="">文心 5.5 Flash Preview：280B / 14B 激活，Apache-2.0</span><span data-en="">ERNIE 5.5 Flash Preview: 280B / 14B active, Apache-2.0</span></b><span aria-hidden="true" class="hm-news-arrow">→</span></a>
+<a class="hm-news-item" href="https://models.specul.com/2026.html#magi-2"><span class="hm-news-date">11-24</span><span class="hm-news-site hm-news-site-models"><span data-zh="">模型</span><span data-en="">Models</span></span><b><span data-zh="">MAGI-2：480B 视频模型，30 秒 1080p 原生音画</span><span data-en="">MAGI-2: a 480B video model with 30-second 1080p native audio-video</span></b><span aria-hidden="true" class="hm-news-arrow">→</span></a>
+<a class="hm-news-item" href="https://tools.specul.com/2026.html#claude-ship"><span class="hm-news-date">11-23</span><span class="hm-news-site hm-news-site-tools"><span data-zh="">工具</span><span data-en="">Tools</span></span><b><span data-zh="">Claude Ship：让 Agent 审 PR、修问题、批准合并</span><span data-en="">Claude Ship: agents review, fix and approve PRs</span></b><span aria-hidden="true" class="hm-news-arrow">→</span></a>
+<a class="hm-news-item" href="https://chain.specul.com/2026.html#algorand-x402"><span class="hm-news-date">11-23</span><span class="hm-news-site hm-news-site-chain"><span data-zh="">链</span><span data-en="">Chain</span></span><b><span data-zh="">Algorand x402：原子交易 + 赞助交易</span><span data-en="">Algorand x402: atomic and sponsored transactions</span></b><span aria-hidden="true" class="hm-news-arrow">→</span></a>
+</div>
+<p class="hm-news-more"><a href="updates.html"><span data-zh="">查看更多最新内容</span><span data-en="">More recent updates</span><span aria-hidden="true">→</span></a></p>
+</div></section>
 <section aria-labelledby="shows-title" class="hm-shows">
 <div class="hm-c container">
 <header class="hm-shows-head">
@@ -397,21 +408,8 @@
 </div>
 </div>
 </section>
-<section class="hm-sec" id="latest">
+<section class="hm-sec">
 <div class="hm-c container">
-<header class="hm-head hm-head-single">
-<div>
-<h2><span data-zh="">最近更新的六页</span><span data-en="">Six recently updated pages</span></h2>
-</div>
-</header>
-<div class="hm-latest">
-<a href="https://models.specul.com/2026.html"><span><span data-zh="">模型</span><span data-en="">Models</span></span><b><span data-zh="">GLM-5.4：750B 基座，28 层循环两遍</span><span data-en="">GLM-5.4: 750B base, 28 layers looped twice</span></b><small><span data-zh="">权重与 API 还没放，先看它主张什么</span><span data-en="">No weights or API yet; see what it claims</span></small></a>
-<a href="https://tools.specul.com/2026.html"><span><span data-zh="">工具</span><span data-en="">Tools</span></span><b><span data-zh="">Claude Ship：Agent 审 PR、修问题、批准合并</span><span data-en="">Claude Ship: agents review, fix and approve PRs</span></b><small><span data-zh="">批准权按仓库策略走，默认不放开</span><span data-en="">Approval is opt-in and policy-bound</span></small></a>
-<a href="https://chain.specul.com/2026.html"><span><span data-zh="">链</span><span data-en="">Chain</span></span><b><span data-zh="">Algorand x402：原子交易与赞助交易</span><span data-en="">Algorand x402: atomic and sponsored transactions</span></b><small><span data-zh="">原子分组是账本能力，不是新跨链标准</span><span data-en="">Native grouping, not a new cross-chain spec</span></small></a>
-<a href="https://demos.specul.com/2026.html"><span><span data-zh="">作品</span><span data-en="">Demos</span></span><b><span data-zh="">Genie 4：在浏览器里实时改一个世界</span><span data-en="">Genie 4: edit a world live in the browser</span></b><small><span data-zh="">只有 AI Ultra 能用，开发接口未开</span><span data-en="">Ultra only; no developer API yet</span></small></a>
-<a href="https://oss.specul.com/repos/loopforge.html"><span><span data-zh="">开源库</span><span data-en="">OSS</span></span><b><span data-zh="">LoopForge：把 coding agent 交付写成 SOP</span><span data-en="">LoopForge: coding-agent delivery as SOPs</span></b><small><span data-zh="">Go / MIT，可自托管；先跑 Local</span><span data-en="">Go / MIT, self-hosted; start with Local</span></small></a>
-<a href="https://hardware.specul.com/2026.html"><span><span data-zh="">硬件</span><span data-en="">Hardware</span></span><b><span data-zh="">PFN MN-Core L2000：内存带宽目标翻倍</span><span data-en="">PFN MN-Core L2000: double-bandwidth target</span></b><small><span data-zh="">2027Q1 才 tape-out，不是现在能买</span><span data-en="">Tape-out in 2027Q1, not buyable now</span></small></a>
-</div>
 <p class="hm-footnote">
 <a href="topics.html"><span data-zh="">全部 16 个主题</span><span data-en="">All 16 topics</span></a>
 <a href="updates-2026-11.html"><span data-zh="">2026 更新</span><span data-en="">2026 updates</span></a>
