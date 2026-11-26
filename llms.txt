@@ -26,7 +26,7 @@ Specul 不是单一导航站，而是一组**按层分工**的图谱站：
 每词能回到原始出处，**未知就写未知**，不给总分排名。
 
 ### Agent 图谱 — https://tools.specul.com/
-282 份档案，分 12 个大类（coding 42、chat 23、image 15、video 14、audio 17、research 11、office 15、automation 24、framework 43、mcp 32、runner 21、safety 25），按 8 个固定维度横向对比。
+283 份档案，分 12 个大类（coding 42、chat 23、image 15、video 14、audio 18、research 11、office 15、automation 24、framework 43、mcp 32、runner 21、safety 25），按 8 个固定维度横向对比。
 固定八维对比（工具分区另加传输 / 认证 / 范围三维）。
 Skills：12 条官方与社区技能索引，另 4 页讲清「是什么、结构、怎么写怎么测、怎么审第三方」 — https://tools.specul.com/skills/
 提示词：6 篇方法指南 + 24 个可抄案例，含完整 prompt、检查点与失败分支 — https://tools.specul.com/prompts/
