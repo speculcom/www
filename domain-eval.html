@@ -1,237 +1,231 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="theme-color" content="#16121f" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>评测：这个分数到底能说明什么 · Specul</title>
-  <meta name="description" content="榜单上 82 分，你的业务里却答错一半。问题通常不在模型，而在评测没有回答你的决策问题：题集从哪来、评分器凭什么、环境是否一样、失败样本有没有看。先写清楚“这个分数要帮谁做什么决定”，再选题集。" />
-  <link rel="canonical" href="https://specul.com/domain-eval.html" />
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="Specul" />
-  <meta property="og:url" content="https://specul.com/domain-eval.html" />
-  <meta property="og:title" content="评测：这个分数到底能说明什么" />
-  <meta property="og:description" content="榜单上 82 分，你的业务里却答错一半。问题通常不在模型，而在评测没有回答你的决策问题：题集从哪来、评分器凭什么、环境是否一样、失败样本有没有看。先写清楚“这个分数要帮谁做什么决定”，再选题集。" />
-  <link rel="icon" type="image/png" href="assets/brand/dandelion-favicon-site.png" />
-  <link rel="apple-touch-icon" href="assets/brand/dandelion-apple-touch-site.png" />
-  <script src="brand.js?v=37d1072be69b"></script>
-  <link rel="stylesheet" href="brand.css?v=37d1072be69b" />
-  <link rel="stylesheet" href="site.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"评测：这个分数到底能说明什么","description":"榜单上 82 分，你的业务里却答错一半。问题通常不在模型，而在评测没有回答你的决策问题：题集从哪来、评分器凭什么、环境是否一样、失败样本有没有看。先写清楚“这个分数要帮谁做什么决定”，再选题集。","url":"https://specul.com/domain-eval.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
-</head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>评测：这个分数到底能说明什么 · Specul</title>
+<meta content="榜单上 82 分，你的业务里却答错一半。问题通常不在模型，而在评测没有回答你的决策问题：题集从哪来、评分器凭什么、环境是否一样、失败样本有没有看。先写清楚“这个分数要帮谁做什么决定”，再选题集。" name="description"/>
+<link href="https://specul.com/domain-eval.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="article" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/domain-eval.html" property="og:url"/>
+<meta content="评测：这个分数到底能说明什么" property="og:title"/>
+<meta content="榜单上 82 分，你的业务里却答错一半。问题通常不在模型，而在评测没有回答你的决策问题：题集从哪来、评分器凭什么、环境是否一样、失败样本有没有看。先写清楚“这个分数要帮谁做什么决定”，再选题集。" property="og:description"/>
+<link href="assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="brand.js?v=37d1072be69b"></script>
+<link href="brand.css?v=37d1072be69b" rel="stylesheet"/>
+<link href="site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"评测：这个分数到底能说明什么","description":"榜单上 82 分，你的业务里却答错一半。问题通常不在模型，而在评测没有回答你的决策问题：题集从哪来、评分器凭什么、环境是否一样、失败样本有没有看。先写清楚“这个分数要帮谁做什么决定”，再选题集。","url":"https://specul.com/domain-eval.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+<link href="https://specul.com/domain-eval.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/domain-eval.html" hreflang="en" rel="alternate"/><link href="https://specul.com/domain-eval.html" hreflang="x-default" rel="alternate"/></head>
 <body class="brand-ambient has-tabbar has-tabbar-1row">
-
 <!-- SPECUL:HEADER:START -->
-  <header class="site-header">
-    <div class="container site-bar">
-      <a class="brand" href="https://specul.com/" title="投机取巧">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span class="brand-text">
-          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
-          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="站点导航">
-        <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
-        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
-        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
-        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
-        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
-        <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
-        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
-        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
-      </nav>
-      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" data-en-name="Speculative Speculation" data-zh-name="投机取巧" id="markName">投机取巧</span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation" id="markSub">Speculative Speculation</span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span data-zh="">作品演示</span><span data-en="">Playground</span></a>
+<a href="https://oss.specul.com/"><span data-zh="">开源库</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span data-zh="">硬件算力</span><span data-en="">Compute</span></a>
+<a href="https://papers.specul.com/"><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></a>
+<a href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a href="https://nav.specul.com/"><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
            （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
            链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
-      <span class="nav-tools">
-        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
-        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
-      </span>
-      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+<span class="nav-tools">
+<a aria-label="搜索" class="icon-btn" data-ui-aria-label-en="Search" data-ui-aria-label-zh="搜索" data-ui-title-en="Search all sites" data-ui-title-zh="搜索全站" href="https://specul.com/search.html" title="搜索全站"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="Switch to English" class="icon-btn" href="/en/domain-eval.html" hreflang="en" id="langBtn" lang="en" title="Switch to English">EN</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
            行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
-      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
-        <i></i><i></i><i></i>
-      </button>
-    </div>
-  </header>
-  <div class="nav-scrim"></div>
-  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
-    <div class="nav-drawer-h">
-      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
-      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
-    </div>
-    <nav class="nav-drawer-list">
-      <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
-    </nav>
-    <div class="nav-drawer-foot">
-      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
-      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
-    </div>
-  </aside>
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name"><span data-zh="">投机取巧</span><span data-en="">Speculative Speculation</span></span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation">Speculative Speculation</span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/"><span><span data-zh="">首页</span><span data-en="">Home</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/"><span><span data-zh="">学 AI</span><span data-en="">Learn</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/"><span><span data-zh="">工具</span><span data-en="">Tools</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/"><span><span data-zh="">模型</span><span data-en="">Models</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/"><span><span data-zh="">作品演示</span><span data-en="">Playground</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/"><span><span data-zh="">开源库</span><span data-en="">OSS</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/"><span><span data-zh="">硬件算力</span><span data-en="">Compute</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/"><span><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/"><span><span data-zh="">链</span><span data-en="">Chain</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/"><span><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p><span data-zh="">内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en="">Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+<nav><a href="https://specul.com/legal.html"><span data-zh="">法律条款</span><span data-en="">Legal terms</span></a></nav>
+</div>
+</aside>
 <!-- SPECUL:HEADER:END -->
-
 <main id="main">
 <section class="hp-sec tight">
-    <div class="hp-c">
-      <nav class="domain-crumb" aria-label="面包屑">
-        <a href="/"><span data-zh>首页</span><span data-en>Home</span></a>
-        <span aria-hidden="true">/</span>
-        <a href="topics.html"><span data-zh>主题索引</span><span data-en>Topics</span></a>
-        <span aria-hidden="true">/</span>
-        <span><span data-zh>领域深读</span><span data-en>Field guide</span></span>
-      </nav>
-      <p class="kicker"><span data-zh>领域深度 · 评测</span><span data-en>Field guide · Evaluation</span></p>
-      <h1><span data-zh>评测：这个分数到底能说明什么</span><span data-en>Evaluation: what does this score actually tell you?</span></h1>
-      <p class="domain-lead"><span data-zh>榜单上 82 分，你的业务里却答错一半。问题通常不在模型，而在评测没有回答你的决策问题：题集从哪来、评分器凭什么、环境是否一样、失败样本有没有看。先写清楚“这个分数要帮谁做什么决定”，再选题集。</span><span data-en>The leaderboard says 82, but half the answers are wrong in your business. The problem is usually not the model. The evaluation never answered your decision question: where the items came from, who scored them, whether the environment matched, and which failures were inspected. Write the decision first; choose the item set second.</span></p>
-      <p class="domain-readmeta">
-        <span><b><span data-zh>适合谁</span><span data-en>For</span></b> <span data-zh>要在两个模型、两个版本或两条提示词之间做选择的人</span><span data-en>Anyone choosing between two models, versions or prompts</span></span>
-        <span><b><span data-zh>读完能拿到</span><span data-en>You leave with</span></b> <span data-zh>一条能复跑的最小评测流程，和一张读分时先看什么的清单</span><span data-en>A minimum re-runnable evaluation and a checklist for reading scores</span></span>
-        <span><b><span data-zh>大概多久</span><span data-en>Time</span></b> <span data-zh>先读 12 分钟；搭第一条评测约 1 天</span><span data-en>12 minutes to read; about a day for the first evaluation</span></span>
-        <span class="domain-verified"><span data-zh>最后核对 2026-11-25</span><span data-en>Last checked 25 Nov 2026</span></span>
-      </p>
-      <p class="domain-meta"><span data-zh>本页是 Specul 的评测判断框架，不发布榜单，也不替读者下「哪个模型最好」的结论。题集、评分器与原始结果以所链页面和来源为准。</span><span data-en>This is Specul’s evaluation framework. It publishes no leaderboard and does not conclude which model is best. Item sets, scorers and raw results remain with the linked pages and sources.</span></p>
-    </div>
-  </section>
-  <section class="hp-sec tight">
-    <div class="hp-c domain-prose">
-      <div class="domain-quick">
-        <b><span data-zh>如果你只有 5 分钟</span><span data-en>If you only have five minutes</span></b>
-        <ol><li><span data-zh>分数只能回答它实际测过的问题。</span><span data-en>A score only answers the question the test actually asked.</span></li><li><span data-zh>先防泄漏，再谈题集规模。</span><span data-en>Prevent leakage before scaling the item set.</span></li><li><span data-zh>最终答案对，不代表 Agent 的过程对。</span><span data-en>A correct final answer does not mean the agent’s process was correct.</span></li></ol>
-        <p><span data-zh>完整版从下面开始；表格是查的时候用，不用背。</span><span data-en>The full guide starts below. Use the tables for reference; you do not need to memorise them.</span></p>
-      </div>
-      <div class="domain-case">
-        <b><span data-zh>拿一个具体活走一遍</span><span data-en>One concrete job</span></b>
-        <p><span data-zh>假设一个具体活：两个客服模型二选一。你要的不是“谁更聪明”，而是“谁能在一周内把转人工率降 5 个百分点，且不答错退款政策”。先把这个决策写成题集。</span><span data-en>Take one concrete job: choose between two support models. The question is not “which is smarter”, but “which can cut handoffs by five points in a week without getting refund policy wrong”. Turn that into the item set.</span></p>
-      </div>
-      
-      <div class="domain-callout domain-thesis"><span data-zh>先写清决策问题，再选题集与指标。不能复跑的分数只当线索，不当结论。</span><span data-en>Write the decision question first, then choose the item set and metric. A score that cannot be reproduced is a lead, not a conclusion.</span></div>
-      <nav class="domain-toc" id="domain-toc" aria-label="本文目录" data-ui-aria-label-zh="本文目录" data-ui-aria-label-en="Contents">
-        <b><span data-zh>本文目录</span><span data-en>Contents</span></b>
-        <ol><li><a href="#question"><span data-zh>1 · 先定决策问题：这个分数要帮谁做什么决定</span><span data-en>1 · Fix the decision question: whose decision does this score support</span></a></li><li><a href="#suite"><span data-zh>2 · 题集：先防泄漏，再谈规模</span><span data-en>2 · Item set: prevent leakage before scaling</span></a></li><li><a href="#scorer"><span data-zh>3 · 评分器：谁在打分，凭什么</span><span data-en>3 · Scorer: who scores, and on what basis</span></a></li><li><a href="#agent"><span data-zh>4 · Agent 评测：最终答案对，不代表过程对</span><span data-en>4 · Agent evaluation: a correct final answer does not mean a correct process</span></a></li><li><a href="#run"><span data-zh>5 · 复跑：把模型、版本、环境和成本一起记录</span><span data-en>5 · Reproduction: record model, version, environment and cost together</span></a></li><li><a href="#read"><span data-zh>6 · 读榜：先看测什么，再看谁在测</span><span data-en>6 · Reading a leaderboard: what is measured, then who measured it</span></a></li><li><a href="#gate"><span data-zh>7 · 发布门禁：把评测变成能执行的阈值</span><span data-en>7 · Release gate: turn evaluation into an executable threshold</span></a></li><li><a href="#fail"><span data-zh>8 · 失败分支：分数好看时，先怀疑题集</span><span data-en>8 · Failure branches: when scores look good, suspect the item set first</span></a></li><li><a href="#path"><span data-zh>9 · 最小落地路径</span><span data-en>9 · A minimum path to a usable evaluation</span></a></li></ol>
-      </nav>
-      <section class="domain-section" id="question">
-      <h2><span data-zh>1 · 先定决策问题：这个分数要帮谁做什么决定</span><span data-en>1 · Fix the decision question: whose decision does this score support</span></h2>
-      <p><span data-zh>同一个模型，选型、验收、回归和对外沟通需要不同的证据。选型关心「在候选之间怎么选」。验收关心「是否达到上线门槛」。回归关心「这次改动有没有变差」。对外沟通关心「能不能用一句话解释，同时不误导」。先定问题，才知道该测什么。</span><span data-en>The same model needs different evidence for selection, acceptance, regression and external communication. Selection asks how to choose among candidates; acceptance asks whether a launch threshold is met; regression asks whether a change made things worse; communication asks for a one-line explanation that does not mislead. Fix the question before deciding what to measure.</span></p><p><span data-zh>把决策写成一句话：「在 X 任务、Y 约束下，从 A/B/C 中选一个，错误代价是 Z」。这句话会直接决定题集分布、评分器和可接受阈值。写不出这句话，评测很容易变成「把能跑的 benchmark 都跑一遍」。</span><span data-en>Write the decision as one sentence: “Under task X and constraint Y, choose one of A/B/C, where the cost of error is Z.” That sentence determines item distribution, scorer and acceptable threshold. Without it, evaluation becomes “run every benchmark we can”.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh>决策</span><span data-en>Decision</span></th><th><span data-zh>需要的证据</span><span data-en>Evidence needed</span></th><th><span data-zh>不需要的</span><span data-en>Not needed</span></th></tr></thead><tbody><tr><td><span data-zh>选型</span><span data-en>Selection</span><span class="cell-label" aria-hidden="true"><span data-zh>决策</span><span data-en>Decision</span></span></td><td><span data-zh>候选在同一题集上的分布、失败样本、成本</span><span data-en>Candidate distribution on one item set, failures, cost</span><span class="cell-label" aria-hidden="true"><span data-zh>需要的证据</span><span data-en>Evidence needed</span></span></td><td><span data-zh>一个与任务无关的总分</span><span data-en>An unrelated total score</span><span class="cell-label" aria-hidden="true"><span data-zh>不需要的</span><span data-en>Not needed</span></span></td></tr><tr><td><span data-zh>验收</span><span data-en>Acceptance</span><span class="cell-label" aria-hidden="true"><span data-zh>决策</span><span data-en>Decision</span></span></td><td><span data-zh>门槛、置信区间、关键失败类别</span><span data-en>Threshold, confidence interval, critical failure classes</span><span class="cell-label" aria-hidden="true"><span data-zh>需要的证据</span><span data-en>Evidence needed</span></span></td><td><span data-zh>所有模型的横向排名</span><span data-en>A cross-model ranking</span><span class="cell-label" aria-hidden="true"><span data-zh>不需要的</span><span data-en>Not needed</span></span></td></tr><tr><td><span data-zh>回归</span><span data-en>Regression</span><span class="cell-label" aria-hidden="true"><span data-zh>决策</span><span data-en>Decision</span></span></td><td><span data-zh>同一题集的前后对比、版本与配置</span><span data-en>Before/after on the same item set, versions and configuration</span><span class="cell-label" aria-hidden="true"><span data-zh>需要的证据</span><span data-en>Evidence needed</span></span></td><td><span data-zh>换题集后的新高分</span><span data-en>A new high score on a new item set</span><span class="cell-label" aria-hidden="true"><span data-zh>不需要的</span><span data-en>Not needed</span></span></td></tr><tr><td><span data-zh>对外沟通</span><span data-en>Communication</span><span class="cell-label" aria-hidden="true"><span data-zh>决策</span><span data-en>Decision</span></span></td><td><span data-zh>测了什么、没测什么、谁测的、何时</span><span data-en>What was measured, what was not, by whom, when</span><span class="cell-label" aria-hidden="true"><span data-zh>需要的证据</span><span data-en>Evidence needed</span></span></td><td><span data-zh>“最强”或“第一”</span><span data-en>“Best” or “number one”</span><span class="cell-label" aria-hidden="true"><span data-zh>不需要的</span><span data-en>Not needed</span></span></td></tr></tbody></table></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<div class="hp-c">
+<nav aria-label="面包屑" class="domain-crumb">
+<a href="/"><span data-zh="">首页</span><span data-en="">Home</span></a>
+<span aria-hidden="true">/</span>
+<a href="topics.html"><span data-zh="">主题索引</span><span data-en="">Topics</span></a>
+<span aria-hidden="true">/</span>
+<span><span data-zh="">领域深读</span><span data-en="">Field guide</span></span>
+</nav>
+<p class="kicker"><span data-zh="">领域深度 · 评测</span><span data-en="">Field guide · Evaluation</span></p>
+<h1><span data-zh="">评测：这个分数到底能说明什么</span><span data-en="">Evaluation: what does this score actually tell you?</span></h1>
+<p class="domain-lead"><span data-zh="">榜单上 82 分，你的业务里却答错一半。问题通常不在模型，而在评测没有回答你的决策问题：题集从哪来、评分器凭什么、环境是否一样、失败样本有没有看。先写清楚“这个分数要帮谁做什么决定”，再选题集。</span><span data-en="">The leaderboard says 82, but half the answers are wrong in your business. The problem is usually not the model. The evaluation never answered your decision question: where the items came from, who scored them, whether the environment matched, and which failures were inspected. Write the decision first; choose the item set second.</span></p>
+<p class="domain-readmeta">
+<span><b><span data-zh="">适合谁</span><span data-en="">For</span></b> <span data-zh="">要在两个模型、两个版本或两条提示词之间做选择的人</span><span data-en="">Anyone choosing between two models, versions or prompts</span></span>
+<span><b><span data-zh="">读完能拿到</span><span data-en="">You leave with</span></b> <span data-zh="">一条能复跑的最小评测流程，和一张读分时先看什么的清单</span><span data-en="">A minimum re-runnable evaluation and a checklist for reading scores</span></span>
+<span><b><span data-zh="">大概多久</span><span data-en="">Time</span></b> <span data-zh="">先读 12 分钟；搭第一条评测约 1 天</span><span data-en="">12 minutes to read; about a day for the first evaluation</span></span>
+<span class="domain-verified"><span data-zh="">最后核对 2026-11-25</span><span data-en="">Last checked 25 Nov 2026</span></span>
+</p>
+<p class="domain-meta"><span data-zh="">本页是 Specul 的评测判断框架，不发布榜单，也不替读者下「哪个模型最好」的结论。题集、评分器与原始结果以所链页面和来源为准。</span><span data-en="">This is Specul’s evaluation framework. It publishes no leaderboard and does not conclude which model is best. Item sets, scorers and raw results remain with the linked pages and sources.</span></p>
+</div>
+</section>
+<section class="hp-sec tight">
+<div class="hp-c domain-prose">
+<div class="domain-quick">
+<b><span data-zh="">如果你只有 5 分钟</span><span data-en="">If you only have five minutes</span></b>
+<ol><li><span data-zh="">分数只能回答它实际测过的问题。</span><span data-en="">A score only answers the question the test actually asked.</span></li><li><span data-zh="">先防泄漏，再谈题集规模。</span><span data-en="">Prevent leakage before scaling the item set.</span></li><li><span data-zh="">最终答案对，不代表 Agent 的过程对。</span><span data-en="">A correct final answer does not mean the agent’s process was correct.</span></li></ol>
+<p><span data-zh="">完整版从下面开始；表格是查的时候用，不用背。</span><span data-en="">The full guide starts below. Use the tables for reference; you do not need to memorise them.</span></p>
+</div>
+<div class="domain-case">
+<b><span data-zh="">拿一个具体活走一遍</span><span data-en="">One concrete job</span></b>
+<p><span data-zh="">假设一个具体活：两个客服模型二选一。你要的不是“谁更聪明”，而是“谁能在一周内把转人工率降 5 个百分点，且不答错退款政策”。先把这个决策写成题集。</span><span data-en="">Take one concrete job: choose between two support models. The question is not “which is smarter”, but “which can cut handoffs by five points in a week without getting refund policy wrong”. Turn that into the item set.</span></p>
+</div>
+<div class="domain-callout domain-thesis"><span data-zh="">先写清决策问题，再选题集与指标。不能复跑的分数只当线索，不当结论。</span><span data-en="">Write the decision question first, then choose the item set and metric. A score that cannot be reproduced is a lead, not a conclusion.</span></div>
+<nav aria-label="本文目录" class="domain-toc" data-ui-aria-label-en="Contents" data-ui-aria-label-zh="本文目录" id="domain-toc">
+<b><span data-zh="">本文目录</span><span data-en="">Contents</span></b>
+<ol><li><a href="#question"><span data-zh="">1 · 先定决策问题：这个分数要帮谁做什么决定</span><span data-en="">1 · Fix the decision question: whose decision does this score support</span></a></li><li><a href="#suite"><span data-zh="">2 · 题集：先防泄漏，再谈规模</span><span data-en="">2 · Item set: prevent leakage before scaling</span></a></li><li><a href="#scorer"><span data-zh="">3 · 评分器：谁在打分，凭什么</span><span data-en="">3 · Scorer: who scores, and on what basis</span></a></li><li><a href="#agent"><span data-zh="">4 · Agent 评测：最终答案对，不代表过程对</span><span data-en="">4 · Agent evaluation: a correct final answer does not mean a correct process</span></a></li><li><a href="#run"><span data-zh="">5 · 复跑：把模型、版本、环境和成本一起记录</span><span data-en="">5 · Reproduction: record model, version, environment and cost together</span></a></li><li><a href="#read"><span data-zh="">6 · 读榜：先看测什么，再看谁在测</span><span data-en="">6 · Reading a leaderboard: what is measured, then who measured it</span></a></li><li><a href="#gate"><span data-zh="">7 · 发布门禁：把评测变成能执行的阈值</span><span data-en="">7 · Release gate: turn evaluation into an executable threshold</span></a></li><li><a href="#fail"><span data-zh="">8 · 失败分支：分数好看时，先怀疑题集</span><span data-en="">8 · Failure branches: when scores look good, suspect the item set first</span></a></li><li><a href="#path"><span data-zh="">9 · 最小落地路径</span><span data-en="">9 · A minimum path to a usable evaluation</span></a></li></ol>
+</nav>
+<section class="domain-section" id="question">
+<h2><span data-zh="">1 · 先定决策问题：这个分数要帮谁做什么决定</span><span data-en="">1 · Fix the decision question: whose decision does this score support</span></h2>
+<p><span data-zh="">同一个模型，选型、验收、回归和对外沟通需要不同的证据。选型关心「在候选之间怎么选」。验收关心「是否达到上线门槛」。回归关心「这次改动有没有变差」。对外沟通关心「能不能用一句话解释，同时不误导」。先定问题，才知道该测什么。</span><span data-en="">The same model needs different evidence for selection, acceptance, regression and external communication. Selection asks how to choose among candidates; acceptance asks whether a launch threshold is met; regression asks whether a change made things worse; communication asks for a one-line explanation that does not mislead. Fix the question before deciding what to measure.</span></p><p><span data-zh="">把决策写成一句话：「在 X 任务、Y 约束下，从 A/B/C 中选一个，错误代价是 Z」。这句话会直接决定题集分布、评分器和可接受阈值。写不出这句话，评测很容易变成「把能跑的 benchmark 都跑一遍」。</span><span data-en="">Write the decision as one sentence: “Under task X and constraint Y, choose one of A/B/C, where the cost of error is Z.” That sentence determines item distribution, scorer and acceptable threshold. Without it, evaluation becomes “run every benchmark we can”.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh="">决策</span><span data-en="">Decision</span></th><th><span data-zh="">需要的证据</span><span data-en="">Evidence needed</span></th><th><span data-zh="">不需要的</span><span data-en="">Not needed</span></th></tr></thead><tbody><tr><td><span data-zh="">选型</span><span data-en="">Selection</span><span aria-hidden="true" class="cell-label"><span data-zh="">决策</span><span data-en="">Decision</span></span></td><td><span data-zh="">候选在同一题集上的分布、失败样本、成本</span><span data-en="">Candidate distribution on one item set, failures, cost</span><span aria-hidden="true" class="cell-label"><span data-zh="">需要的证据</span><span data-en="">Evidence needed</span></span></td><td><span data-zh="">一个与任务无关的总分</span><span data-en="">An unrelated total score</span><span aria-hidden="true" class="cell-label"><span data-zh="">不需要的</span><span data-en="">Not needed</span></span></td></tr><tr><td><span data-zh="">验收</span><span data-en="">Acceptance</span><span aria-hidden="true" class="cell-label"><span data-zh="">决策</span><span data-en="">Decision</span></span></td><td><span data-zh="">门槛、置信区间、关键失败类别</span><span data-en="">Threshold, confidence interval, critical failure classes</span><span aria-hidden="true" class="cell-label"><span data-zh="">需要的证据</span><span data-en="">Evidence needed</span></span></td><td><span data-zh="">所有模型的横向排名</span><span data-en="">A cross-model ranking</span><span aria-hidden="true" class="cell-label"><span data-zh="">不需要的</span><span data-en="">Not needed</span></span></td></tr><tr><td><span data-zh="">回归</span><span data-en="">Regression</span><span aria-hidden="true" class="cell-label"><span data-zh="">决策</span><span data-en="">Decision</span></span></td><td><span data-zh="">同一题集的前后对比、版本与配置</span><span data-en="">Before/after on the same item set, versions and configuration</span><span aria-hidden="true" class="cell-label"><span data-zh="">需要的证据</span><span data-en="">Evidence needed</span></span></td><td><span data-zh="">换题集后的新高分</span><span data-en="">A new high score on a new item set</span><span aria-hidden="true" class="cell-label"><span data-zh="">不需要的</span><span data-en="">Not needed</span></span></td></tr><tr><td><span data-zh="">对外沟通</span><span data-en="">Communication</span><span aria-hidden="true" class="cell-label"><span data-zh="">决策</span><span data-en="">Decision</span></span></td><td><span data-zh="">测了什么、没测什么、谁测的、何时</span><span data-en="">What was measured, what was not, by whom, when</span><span aria-hidden="true" class="cell-label"><span data-zh="">需要的证据</span><span data-en="">Evidence needed</span></span></td><td><span data-zh="">“最强”或“第一”</span><span data-en="">“Best” or “number one”</span><span aria-hidden="true" class="cell-label"><span data-zh="">不需要的</span><span data-en="">Not needed</span></span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="suite">
-      <h2><span data-zh>2 · 题集：先防泄漏，再谈规模</span><span data-en>2 · Item set: prevent leakage before scaling</span></h2>
-      <p><span data-zh>题集不是越大越好。先看它是否覆盖你的任务分布：正常输入、边界输入、失败输入、恶意输入各占多少。再看是否泄漏：题目、答案或近似变体是否出现在训练数据里。一个被泄漏的题集，分数再高也不能说明泛化。</span><span data-en>Bigger is not better. First check coverage of your task distribution: normal, edge, failure and adversarial inputs. Then check leakage: did the questions, answers or near variants appear in training data. A leaked item set cannot demonstrate generalisation, however high the score.</span></p><p><span data-zh>题集要版本化。每次加题、删题、改评分规则，都要留下版本号和变更说明。否则前后分数不可比。公开题集适合做外部参照，私有题集适合做真实验收。两者不要混成一个总分。</span><span data-en>Version the item set. Every addition, removal or scoring change needs a version and changelog; otherwise before/after scores are not comparable. Public sets are useful external references; private sets are useful for real acceptance. Do not merge them into one total score.</span></p><p><span data-zh>保留「不会做」的样本。只收藏模型答对的题，会制造一个虚假的高分世界。失败样本、拒答样本和争议样本，才是下一轮改进的入口。</span><span data-en>Keep the items the model cannot do. A collection of only solved items creates a false high-scoring world. Failures, refusals and disputed items are the entry point for the next iteration.</span></p>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">2 · 题集：先防泄漏，再谈规模</span><span data-en="">2 · Item set: prevent leakage before scaling</span></h2>
+<p><span data-zh="">题集不是越大越好。先看它是否覆盖你的任务分布：正常输入、边界输入、失败输入、恶意输入各占多少。再看是否泄漏：题目、答案或近似变体是否出现在训练数据里。一个被泄漏的题集，分数再高也不能说明泛化。</span><span data-en="">Bigger is not better. First check coverage of your task distribution: normal, edge, failure and adversarial inputs. Then check leakage: did the questions, answers or near variants appear in training data. A leaked item set cannot demonstrate generalisation, however high the score.</span></p><p><span data-zh="">题集要版本化。每次加题、删题、改评分规则，都要留下版本号和变更说明。否则前后分数不可比。公开题集适合做外部参照，私有题集适合做真实验收。两者不要混成一个总分。</span><span data-en="">Version the item set. Every addition, removal or scoring change needs a version and changelog; otherwise before/after scores are not comparable. Public sets are useful external references; private sets are useful for real acceptance. Do not merge them into one total score.</span></p><p><span data-zh="">保留「不会做」的样本。只收藏模型答对的题，会制造一个虚假的高分世界。失败样本、拒答样本和争议样本，才是下一轮改进的入口。</span><span data-en="">Keep the items the model cannot do. A collection of only solved items creates a false high-scoring world. Failures, refusals and disputed items are the entry point for the next iteration.</span></p>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="scorer">
-      <h2><span data-zh>3 · 评分器：谁在打分，凭什么</span><span data-en>3 · Scorer: who scores, and on what basis</span></h2>
-      <p><span data-zh>评分器有四类：精确匹配、规则检查、模型评审、人工评审。精确匹配便宜但脆。规则检查可解释但覆盖窄。模型评审能处理开放性但会漂移。人工评审最可靠但最贵。选择评分器，本质是在成本、覆盖和可信度之间取舍。</span><span data-en>There are four scorer types: exact match, rule checks, model judges and human review. Exact match is cheap but brittle; rules are explainable but narrow; model judges handle open-ended output but drift; human review is most reliable but costly. Choosing a scorer is a trade-off among cost, coverage and trust.</span></p><p><span data-zh>用模型评审时，要固定评审提示、评审模型、温度和顺序，抽查它与人工判断的一致性。评审模型也会偏爱长答案、格式漂亮或与自己风格相近的输出。这些偏差要在题集里专门放对照样本。</span><span data-en>When using a model judge, fix the judge prompt, judge model, temperature and order, and sample its agreement with human judgement. Judges also favour long answers, polished formatting or outputs similar to their own style; place control samples in the set to expose these biases.</span></p><p><span data-zh>评分规则要能解释「为什么扣分」。只给一个总分，无法指导改进。至少要能定位到事实错误、遗漏、格式、引用、越权或安全违规。评分器的输出，应该能直接变成下一轮的修改项。</span><span data-en>Scoring rules must explain why points were lost. A total score cannot guide improvement; it should locate factual errors, omissions, format, citations, permission violations or safety breaches. Scorer output should become the next iteration’s fix list.</span></p><div class="domain-callout"><span data-zh>判断句：如果评分器的结果无法解释，也无法复跑，它只是一个意见，不是评测。</span><span data-en>Rule of thumb: if a scorer’s result cannot be explained or reproduced, it is an opinion, not an evaluation.</span></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">3 · 评分器：谁在打分，凭什么</span><span data-en="">3 · Scorer: who scores, and on what basis</span></h2>
+<p><span data-zh="">评分器有四类：精确匹配、规则检查、模型评审、人工评审。精确匹配便宜但脆。规则检查可解释但覆盖窄。模型评审能处理开放性但会漂移。人工评审最可靠但最贵。选择评分器，本质是在成本、覆盖和可信度之间取舍。</span><span data-en="">There are four scorer types: exact match, rule checks, model judges and human review. Exact match is cheap but brittle; rules are explainable but narrow; model judges handle open-ended output but drift; human review is most reliable but costly. Choosing a scorer is a trade-off among cost, coverage and trust.</span></p><p><span data-zh="">用模型评审时，要固定评审提示、评审模型、温度和顺序，抽查它与人工判断的一致性。评审模型也会偏爱长答案、格式漂亮或与自己风格相近的输出。这些偏差要在题集里专门放对照样本。</span><span data-en="">When using a model judge, fix the judge prompt, judge model, temperature and order, and sample its agreement with human judgement. Judges also favour long answers, polished formatting or outputs similar to their own style; place control samples in the set to expose these biases.</span></p><p><span data-zh="">评分规则要能解释「为什么扣分」。只给一个总分，无法指导改进。至少要能定位到事实错误、遗漏、格式、引用、越权或安全违规。评分器的输出，应该能直接变成下一轮的修改项。</span><span data-en="">Scoring rules must explain why points were lost. A total score cannot guide improvement; it should locate factual errors, omissions, format, citations, permission violations or safety breaches. Scorer output should become the next iteration’s fix list.</span></p><div class="domain-callout"><span data-zh="">判断句：如果评分器的结果无法解释，也无法复跑，它只是一个意见，不是评测。</span><span data-en="">Rule of thumb: if a scorer’s result cannot be explained or reproduced, it is an opinion, not an evaluation.</span></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="agent">
-      <h2><span data-zh>4 · Agent 评测：最终答案对，不代表过程对</span><span data-en>4 · Agent evaluation: a correct final answer does not mean a correct process</span></h2>
-      <p><span data-zh>Agent 的评测要同时看结果和轨迹：任务是否完成、步骤是否必要、工具参数是否正确、是否越权、是否重复写入、失败时是否安全退出。一个最终答案正确但读了不该读的数据的 Agent，不能算通过。</span><span data-en>Agent evaluation must look at both outcome and trajectory: whether the task completed, steps were necessary, tool arguments were correct, permissions were exceeded, writes were duplicated and failures exited safely. An agent with a correct final answer that read data it should not have read has not passed.</span></p><p><span data-zh>环境要固定：同一套工具、同一份数据、同一个预算、同一个网络条件。否则「成功率」可能只是环境差异。还要记录随机性：同一任务重复跑多次，结果是否稳定，失败是否集中在某类输入。</span><span data-en>Fix the environment: same tools, same data, same budget, same network conditions. Otherwise a “success rate” may just reflect environment differences. Record randomness too: run the same task repeatedly and see whether results are stable and failures cluster in certain input types.</span></p><p><span data-zh>安全评测要单独做：提示注入、越权工具调用、数据外泄、成本失控、无限循环。不要用「正常任务成功率」代替安全结论。两者测的是不同的东西。</span><span data-en>Evaluate safety separately: prompt injection, unauthorised tool calls, data exfiltration, runaway cost, infinite loops. Do not substitute normal-task success rate for a safety conclusion; they measure different things.</span></p>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">4 · Agent 评测：最终答案对，不代表过程对</span><span data-en="">4 · Agent evaluation: a correct final answer does not mean a correct process</span></h2>
+<p><span data-zh="">Agent 的评测要同时看结果和轨迹：任务是否完成、步骤是否必要、工具参数是否正确、是否越权、是否重复写入、失败时是否安全退出。一个最终答案正确但读了不该读的数据的 Agent，不能算通过。</span><span data-en="">Agent evaluation must look at both outcome and trajectory: whether the task completed, steps were necessary, tool arguments were correct, permissions were exceeded, writes were duplicated and failures exited safely. An agent with a correct final answer that read data it should not have read has not passed.</span></p><p><span data-zh="">环境要固定：同一套工具、同一份数据、同一个预算、同一个网络条件。否则「成功率」可能只是环境差异。还要记录随机性：同一任务重复跑多次，结果是否稳定，失败是否集中在某类输入。</span><span data-en="">Fix the environment: same tools, same data, same budget, same network conditions. Otherwise a “success rate” may just reflect environment differences. Record randomness too: run the same task repeatedly and see whether results are stable and failures cluster in certain input types.</span></p><p><span data-zh="">安全评测要单独做：提示注入、越权工具调用、数据外泄、成本失控、无限循环。不要用「正常任务成功率」代替安全结论。两者测的是不同的东西。</span><span data-en="">Evaluate safety separately: prompt injection, unauthorised tool calls, data exfiltration, runaway cost, infinite loops. Do not substitute normal-task success rate for a safety conclusion; they measure different things.</span></p>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="run">
-      <h2><span data-zh>5 · 复跑：把模型、版本、环境和成本一起记录</span><span data-en>5 · Reproduction: record model, version, environment and cost together</span></h2>
-      <p><span data-zh>一个可复跑的评测，至少记录：模型与版本、量化、运行时、硬件、题集版本、评分器版本、温度、最大输出、重试策略、运行日期。少一项，别人就无法判断分数为什么不同。</span><span data-en>A reproducible evaluation records at least: model and version, quantization, runtime, hardware, item-set version, scorer version, temperature, max output, retry policy and run date. Miss one and others cannot tell why scores differ.</span></p><p><span data-zh>成本也是评测结果的一部分。同一题集，一个模型答得更准但贵三倍、慢五倍，决策结论可能完全不同。记录 token、调用次数、工具费用、人工复核时间和失败重试，才能做真正的比较。</span><span data-en>Cost is part of the result. On the same item set, a model that is more accurate but three times more expensive and five times slower may lead to a different decision. Record tokens, calls, tool fees, human review time and retries to make a real comparison.</span></p><p><span data-zh>保存原始输出，不只保存分数。分数会随评分器版本变化，原始输出可以在以后用新规则重判。只存分数，等于把过去锁死。</span><span data-en>Keep raw outputs, not just scores. Scores change with scorer versions; raw outputs can be re-judged under new rules later. Storing only scores locks the past.</span></p>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">5 · 复跑：把模型、版本、环境和成本一起记录</span><span data-en="">5 · Reproduction: record model, version, environment and cost together</span></h2>
+<p><span data-zh="">一个可复跑的评测，至少记录：模型与版本、量化、运行时、硬件、题集版本、评分器版本、温度、最大输出、重试策略、运行日期。少一项，别人就无法判断分数为什么不同。</span><span data-en="">A reproducible evaluation records at least: model and version, quantization, runtime, hardware, item-set version, scorer version, temperature, max output, retry policy and run date. Miss one and others cannot tell why scores differ.</span></p><p><span data-zh="">成本也是评测结果的一部分。同一题集，一个模型答得更准但贵三倍、慢五倍，决策结论可能完全不同。记录 token、调用次数、工具费用、人工复核时间和失败重试，才能做真正的比较。</span><span data-en="">Cost is part of the result. On the same item set, a model that is more accurate but three times more expensive and five times slower may lead to a different decision. Record tokens, calls, tool fees, human review time and retries to make a real comparison.</span></p><p><span data-zh="">保存原始输出，不只保存分数。分数会随评分器版本变化，原始输出可以在以后用新规则重判。只存分数，等于把过去锁死。</span><span data-en="">Keep raw outputs, not just scores. Scores change with scorer versions; raw outputs can be re-judged under new rules later. Storing only scores locks the past.</span></p>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="read">
-      <h2><span data-zh>6 · 读榜：先看测什么，再看谁在测</span><span data-en>6 · Reading a leaderboard: what is measured, then who measured it</span></h2>
-      <p><span data-zh>读榜先问四个问题：测了什么任务。题集是否公开。谁出资或执行。分数有没有置信区间。一个没有说明题集和评分器的第一名，只能当广告，不能当证据。</span><span data-en>Ask four questions when reading a leaderboard: what task was measured; is the item set public; who funded or ran it; does the score have a confidence interval. A number one without item set and scorer detail is advertising, not evidence.</span></p><p><span data-zh>注意「总分」的陷阱。把不同能力加权成一个数字，权重由谁定、为什么这样定，往往不透明。你的任务可能只用到其中一项能力，总分却把它淹没了。按能力拆开看，比看总分更接近决策。</span><span data-en>Beware the total-score trap. Combining different capabilities into one number hides who chose the weights and why. Your task may use only one capability, yet the total drowns it. Reading capabilities separately is closer to a decision.</span></p><p><span data-zh>榜单是线索，不是结论。看到高分，回到原始论文、题集和失败样本。看到低分，也先确认是不是题集不匹配、版本不同或运行配置不公平。不要用一个名次替代自己的复跑。</span><span data-en>A leaderboard is a lead, not a conclusion. On a high score, return to the paper, item set and failure cases; on a low score, check for mismatched sets, different versions or unfair run configurations. Do not replace your own reproduction with a rank.</span></p>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">6 · 读榜：先看测什么，再看谁在测</span><span data-en="">6 · Reading a leaderboard: what is measured, then who measured it</span></h2>
+<p><span data-zh="">读榜先问四个问题：测了什么任务。题集是否公开。谁出资或执行。分数有没有置信区间。一个没有说明题集和评分器的第一名，只能当广告，不能当证据。</span><span data-en="">Ask four questions when reading a leaderboard: what task was measured; is the item set public; who funded or ran it; does the score have a confidence interval. A number one without item set and scorer detail is advertising, not evidence.</span></p><p><span data-zh="">注意「总分」的陷阱。把不同能力加权成一个数字，权重由谁定、为什么这样定，往往不透明。你的任务可能只用到其中一项能力，总分却把它淹没了。按能力拆开看，比看总分更接近决策。</span><span data-en="">Beware the total-score trap. Combining different capabilities into one number hides who chose the weights and why. Your task may use only one capability, yet the total drowns it. Reading capabilities separately is closer to a decision.</span></p><p><span data-zh="">榜单是线索，不是结论。看到高分，回到原始论文、题集和失败样本。看到低分，也先确认是不是题集不匹配、版本不同或运行配置不公平。不要用一个名次替代自己的复跑。</span><span data-en="">A leaderboard is a lead, not a conclusion. On a high score, return to the paper, item set and failure cases; on a low score, check for mismatched sets, different versions or unfair run configurations. Do not replace your own reproduction with a rank.</span></p>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="gate">
-      <h2><span data-zh>7 · 发布门禁：把评测变成能执行的阈值</span><span data-en>7 · Release gate: turn evaluation into an executable threshold</span></h2>
-      <p><span data-zh>评测要进入发布流程，不能停留在报告里。先定基线：当前版本在固定题集上的分数、成本、时延和安全违规率。再定门槛：低于什么值不允许发布，哪些关键失败一票否决。</span><span data-en>Evaluation must enter the release process, not stay in a report. Set a baseline first: current version’s score, cost, latency and safety-violation rate on a fixed item set. Then set gates: below what value release is blocked, and which critical failures are vetoes.</span></p><p><span data-zh>门禁要能自动跑，也要能人工复核。自动跑保证每次改动都被同一套标准检查。人工复核处理评分器无法判断的争议样本。只自动或只人工，都会留下盲区。</span><span data-en>Gates should run automatically and allow human review. Automation ensures every change is checked against the same standard; human review handles disputed samples the scorer cannot judge. Automation alone or humans alone both leave blind spots.</span></p><p><span data-zh>上线后继续跑：用真实流量抽样，监控失败类别和成本漂移。发布不是评测的终点，而是分布变化的起点。没有上线后的回归评测，前面的分数很快会过期。</span><span data-en>Keep running after launch: sample real traffic and monitor failure classes and cost drift. Release is not the end of evaluation but the start of distribution change. Without post-launch regression evaluation, earlier scores expire quickly.</span></p><div class="domain-callout"><span data-zh>判断句：如果评测结果不能阻止一次发布，它就不是门禁，只是周报。</span><span data-en>Rule of thumb: if an evaluation result cannot block a release, it is a weekly report, not a gate.</span></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">7 · 发布门禁：把评测变成能执行的阈值</span><span data-en="">7 · Release gate: turn evaluation into an executable threshold</span></h2>
+<p><span data-zh="">评测要进入发布流程，不能停留在报告里。先定基线：当前版本在固定题集上的分数、成本、时延和安全违规率。再定门槛：低于什么值不允许发布，哪些关键失败一票否决。</span><span data-en="">Evaluation must enter the release process, not stay in a report. Set a baseline first: current version’s score, cost, latency and safety-violation rate on a fixed item set. Then set gates: below what value release is blocked, and which critical failures are vetoes.</span></p><p><span data-zh="">门禁要能自动跑，也要能人工复核。自动跑保证每次改动都被同一套标准检查。人工复核处理评分器无法判断的争议样本。只自动或只人工，都会留下盲区。</span><span data-en="">Gates should run automatically and allow human review. Automation ensures every change is checked against the same standard; human review handles disputed samples the scorer cannot judge. Automation alone or humans alone both leave blind spots.</span></p><p><span data-zh="">上线后继续跑：用真实流量抽样，监控失败类别和成本漂移。发布不是评测的终点，而是分布变化的起点。没有上线后的回归评测，前面的分数很快会过期。</span><span data-en="">Keep running after launch: sample real traffic and monitor failure classes and cost drift. Release is not the end of evaluation but the start of distribution change. Without post-launch regression evaluation, earlier scores expire quickly.</span></p><div class="domain-callout"><span data-zh="">判断句：如果评测结果不能阻止一次发布，它就不是门禁，只是周报。</span><span data-en="">Rule of thumb: if an evaluation result cannot block a release, it is a weekly report, not a gate.</span></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="fail">
-      <h2><span data-zh>8 · 失败分支：分数好看时，先怀疑题集</span><span data-en>8 · Failure branches: when scores look good, suspect the item set first</span></h2>
-      <p><span data-zh>评测最常见的失败不是「模型太差」，而是「题目太容易」「答案泄漏」「评分器偏好」。分数异常高时，先查这三件事，再庆祝。</span><span data-en>The most common evaluation failure is not a weak model but easy items, answer leakage or scorer bias. When a score looks unusually high, check these three before celebrating.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh>现象</span><span data-en>Symptom</span></th><th><span data-zh>先查什么</span><span data-en>Check first</span></th><th><span data-zh>常见处理</span><span data-en>Common fix</span></th></tr></thead><tbody><tr><td><span data-zh>分数异常高</span><span data-en>Unusually high score</span><span class="cell-label" aria-hidden="true"><span data-zh>现象</span><span data-en>Symptom</span></span></td><td><span data-zh>题集泄漏、题目太简单、评分器偏好</span><span data-en>Leakage, easy items, scorer bias</span><span class="cell-label" aria-hidden="true"><span data-zh>先查什么</span><span data-en>Check first</span></span></td><td><span data-zh>换私有题集，加对照样本</span><span data-en>Use a private set; add controls</span><span class="cell-label" aria-hidden="true"><span data-zh>常见处理</span><span data-en>Common fix</span></span></td></tr><tr><td><span data-zh>分数波动大</span><span data-en>High variance</span><span class="cell-label" aria-hidden="true"><span data-zh>现象</span><span data-en>Symptom</span></span></td><td><span data-zh>样本太小、温度、运行环境</span><span data-en>Small sample, temperature, environment</span><span class="cell-label" aria-hidden="true"><span data-zh>先查什么</span><span data-en>Check first</span></span></td><td><span data-zh>扩样本，固定配置，重复跑</span><span data-en>Expand sample, fix configuration, repeat</span><span class="cell-label" aria-hidden="true"><span data-zh>常见处理</span><span data-en>Common fix</span></span></td></tr><tr><td><span data-zh>评委不一致</span><span data-en>Judge disagreement</span><span class="cell-label" aria-hidden="true"><span data-zh>现象</span><span data-en>Symptom</span></span></td><td><span data-zh>评审提示、顺序、模型偏好</span><span data-en>Judge prompt, order, model bias</span><span class="cell-label" aria-hidden="true"><span data-zh>先查什么</span><span data-en>Check first</span></span></td><td><span data-zh>人工抽查，固定顺序，校准</span><span data-en>Human audit, fixed order, calibration</span><span class="cell-label" aria-hidden="true"><span data-zh>常见处理</span><span data-en>Common fix</span></span></td></tr><tr><td><span data-zh>只报平均</span><span data-en>Only averages</span><span class="cell-label" aria-hidden="true"><span data-zh>现象</span><span data-en>Symptom</span></span></td><td><span data-zh>长尾失败被平均掩盖</span><span data-en>Tail failures hidden by averages</span><span class="cell-label" aria-hidden="true"><span data-zh>先查什么</span><span data-en>Check first</span></span></td><td><span data-zh>按类别拆开，单列关键失败</span><span data-en>Break down by class; list critical failures</span><span class="cell-label" aria-hidden="true"><span data-zh>常见处理</span><span data-en>Common fix</span></span></td></tr><tr><td><span data-zh>上线后变差</span><span data-en>Degrades after launch</span><span class="cell-label" aria-hidden="true"><span data-zh>现象</span><span data-en>Symptom</span></span></td><td><span data-zh>真实分布漂移、成本/时延约束</span><span data-en>Distribution drift, cost/latency constraints</span><span class="cell-label" aria-hidden="true"><span data-zh>先查什么</span><span data-en>Check first</span></span></td><td><span data-zh>线上抽样回归，设漂移告警</span><span data-en>Sample online, alert on drift</span><span class="cell-label" aria-hidden="true"><span data-zh>常见处理</span><span data-en>Common fix</span></span></td></tr></tbody></table></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">8 · 失败分支：分数好看时，先怀疑题集</span><span data-en="">8 · Failure branches: when scores look good, suspect the item set first</span></h2>
+<p><span data-zh="">评测最常见的失败不是「模型太差」，而是「题目太容易」「答案泄漏」「评分器偏好」。分数异常高时，先查这三件事，再庆祝。</span><span data-en="">The most common evaluation failure is not a weak model but easy items, answer leakage or scorer bias. When a score looks unusually high, check these three before celebrating.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh="">现象</span><span data-en="">Symptom</span></th><th><span data-zh="">先查什么</span><span data-en="">Check first</span></th><th><span data-zh="">常见处理</span><span data-en="">Common fix</span></th></tr></thead><tbody><tr><td><span data-zh="">分数异常高</span><span data-en="">Unusually high score</span><span aria-hidden="true" class="cell-label"><span data-zh="">现象</span><span data-en="">Symptom</span></span></td><td><span data-zh="">题集泄漏、题目太简单、评分器偏好</span><span data-en="">Leakage, easy items, scorer bias</span><span aria-hidden="true" class="cell-label"><span data-zh="">先查什么</span><span data-en="">Check first</span></span></td><td><span data-zh="">换私有题集，加对照样本</span><span data-en="">Use a private set; add controls</span><span aria-hidden="true" class="cell-label"><span data-zh="">常见处理</span><span data-en="">Common fix</span></span></td></tr><tr><td><span data-zh="">分数波动大</span><span data-en="">High variance</span><span aria-hidden="true" class="cell-label"><span data-zh="">现象</span><span data-en="">Symptom</span></span></td><td><span data-zh="">样本太小、温度、运行环境</span><span data-en="">Small sample, temperature, environment</span><span aria-hidden="true" class="cell-label"><span data-zh="">先查什么</span><span data-en="">Check first</span></span></td><td><span data-zh="">扩样本，固定配置，重复跑</span><span data-en="">Expand sample, fix configuration, repeat</span><span aria-hidden="true" class="cell-label"><span data-zh="">常见处理</span><span data-en="">Common fix</span></span></td></tr><tr><td><span data-zh="">评委不一致</span><span data-en="">Judge disagreement</span><span aria-hidden="true" class="cell-label"><span data-zh="">现象</span><span data-en="">Symptom</span></span></td><td><span data-zh="">评审提示、顺序、模型偏好</span><span data-en="">Judge prompt, order, model bias</span><span aria-hidden="true" class="cell-label"><span data-zh="">先查什么</span><span data-en="">Check first</span></span></td><td><span data-zh="">人工抽查，固定顺序，校准</span><span data-en="">Human audit, fixed order, calibration</span><span aria-hidden="true" class="cell-label"><span data-zh="">常见处理</span><span data-en="">Common fix</span></span></td></tr><tr><td><span data-zh="">只报平均</span><span data-en="">Only averages</span><span aria-hidden="true" class="cell-label"><span data-zh="">现象</span><span data-en="">Symptom</span></span></td><td><span data-zh="">长尾失败被平均掩盖</span><span data-en="">Tail failures hidden by averages</span><span aria-hidden="true" class="cell-label"><span data-zh="">先查什么</span><span data-en="">Check first</span></span></td><td><span data-zh="">按类别拆开，单列关键失败</span><span data-en="">Break down by class; list critical failures</span><span aria-hidden="true" class="cell-label"><span data-zh="">常见处理</span><span data-en="">Common fix</span></span></td></tr><tr><td><span data-zh="">上线后变差</span><span data-en="">Degrades after launch</span><span aria-hidden="true" class="cell-label"><span data-zh="">现象</span><span data-en="">Symptom</span></span></td><td><span data-zh="">真实分布漂移、成本/时延约束</span><span data-en="">Distribution drift, cost/latency constraints</span><span aria-hidden="true" class="cell-label"><span data-zh="">先查什么</span><span data-en="">Check first</span></span></td><td><span data-zh="">线上抽样回归，设漂移告警</span><span data-en="">Sample online, alert on drift</span><span aria-hidden="true" class="cell-label"><span data-zh="">常见处理</span><span data-en="">Common fix</span></span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="path">
-      <h2><span data-zh>9 · 最小落地路径</span><span data-en>9 · A minimum path to a usable evaluation</span></h2>
-      <p><span data-zh>先做 30–50 条自己的题，不要等一个完美题集。小规模也能暴露问题，关键是题要来自真实任务，并且失败样本要保留。</span><span data-en>Start with 30–50 of your own items; do not wait for a perfect set. A small set can expose problems if the items come from real tasks and failures are kept.</span></p><ul class="domain-list"><li><span data-zh>写一句决策问题：选什么、受什么约束、错误代价是什么。</span><span data-en>Write one decision question: what to choose, under what constraint, at what cost of error.</span></li><li><span data-zh>从真实任务抽题，覆盖正常、边界、失败、恶意输入。</span><span data-en>Sample from real tasks across normal, edge, failure and adversarial inputs.</span></li><li><span data-zh>定评分器：精确、规则、模型评审或人工，写清理由。</span><span data-en>Choose a scorer: exact, rules, model judge or human; state why.</span></li><li><span data-zh>固定模型、版本、环境、温度、重试和预算。</span><span data-en>Fix model, version, environment, temperature, retries and budget.</span></li><li><span data-zh>保存原始输出、分数、成本和失败类别。</span><span data-en>Keep raw outputs, scores, cost and failure classes.</span></li><li><span data-zh>用人工抽查校准评分器，记录不一致样本。</span><span data-en>Calibrate the scorer with human audits; record disagreements.</span></li><li><span data-zh>把门槛写进发布流程，关键失败一票否决。</span><span data-en>Put thresholds into the release process; critical failures veto.</span></li><li><span data-zh>上线后抽样复跑，监控分布漂移与成本漂移。</span><span data-en>Sample and rerun after launch; monitor distribution and cost drift.</span></li></ul><div class="domain-callout"><span data-zh>四个常见误区：把榜单当结论。只报平均分。只看最终答案不看轨迹。评测不能阻止发布。</span><span data-en>Four common mistakes: treating a leaderboard as a conclusion; reporting only averages; judging only final answers, not trajectories; evaluation that cannot block a release.</span></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
-      <section class="domain-section" id="sources">
-        <h2><span data-zh>来源与延伸阅读</span><span data-en>Sources and further reading</span></h2>
-        <p><span data-zh>以下链接用于核对事实、许可证与官方口径。外部页面可能更新；引用时以原文与核验日为准。</span><span data-en>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</span></p>
-        <ul class="domain-src"><li><a href="https://models.specul.com/evals/guides/read-leaderboard.html" rel="noopener"><span data-zh>模型站 · 读榜指南</span><span data-en>Models · Read a leaderboard</span></a><span><span data-zh>题集、评分器、置信区间与榜单边界。</span><span data-en>Item sets, scorers, confidence intervals and leaderboard limits.</span></span></li><li><a href="https://models.specul.com/evals/guides/eval-contamination.html" rel="noopener"><span data-zh>模型站 · 评测污染</span><span data-en>Models · Eval contamination</span></a><span><span data-zh>题集泄漏、近似变体与训练数据污染。</span><span data-en>Item leakage, near variants and training-data contamination.</span></span></li><li><a href="https://models.specul.com/evals/guides/agent-eval.html" rel="noopener"><span data-zh>模型站 · Agent 评测</span><span data-en>Models · Agent evaluation</span></a><span><span data-zh>任务、轨迹、工具与安全评测。</span><span data-en>Task, trajectory, tool and safety evaluation.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/evaluation.html" rel="noopener"><span data-zh>工具站 · 评测</span><span data-en>Tools · Evaluation</span></a><span><span data-zh>评测工具、评分器与运行框架。</span><span data-en>Evaluation tools, scorers and run frameworks.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/how-to-build-a-minimal-eval-pipeline.html" rel="noopener"><span data-zh>工具站 · 最小评测流程</span><span data-en>Tools · Minimal eval pipeline</span></a><span><span data-zh>从题集到复跑的最小流程。</span><span data-en>A minimum pipeline from item set to reproduction.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/how-to-wire-evals-into-release.html" rel="noopener"><span data-zh>工具站 · 评测接入发布</span><span data-en>Tools · Wire evals into release</span></a><span><span data-zh>把评测变成发布门禁的步骤。</span><span data-en>Steps to turn evaluation into a release gate.</span></span></li><li><a href="https://learn.specul.com/term/%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E7%9A%84%E5%B1%80%E9%99%90/" rel="noopener"><span data-zh>学 AI · 模型评测的局限</span><span data-en>Learn · Limits of model evaluation</span></a><span><span data-zh>评测、基准与评分器的概念页。</span><span data-en>Concept page on evaluation, benchmarks and scorers.</span></span></li></ul>
-      </section>
-      <section class="domain-next">
-        <h2><span data-zh>下一步</span><span data-en>Next</span></h2>
-        <ul><li><a href="topic-eval.html"><span data-zh>回到“评测模型与智能体”路线</span><span data-en>Back to the evaluation route</span></a></li><li><a href="domain-agent.html"><span data-zh>下一步：把 Agent 轨迹也纳入评测</span><span data-en>Next: include agent trajectories</span></a></li><li><a href="topics.html"><span data-zh>看其他 15 条主题路线</span><span data-en>Browse the other 15 topic routes</span></a></li></ul>
-        <p><span data-zh>如果你照着做时卡住了，先回到对应主题路线，不要从头重读。</span><span data-en>If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</span></p>
-      </section>
-      <p class="domain-back"><a href="https://specul.com/"><span data-zh>← 回到首页</span><span data-en>← Back to home</span></a> <span aria-hidden="true">·</span> <a href="correct.html"><span data-zh>发现错误？提交纠错</span><span data-en>Spot an error? Send a correction</span></a></p>
-    </div>
-  </section>
+<h2><span data-zh="">9 · 最小落地路径</span><span data-en="">9 · A minimum path to a usable evaluation</span></h2>
+<p><span data-zh="">先做 30–50 条自己的题，不要等一个完美题集。小规模也能暴露问题，关键是题要来自真实任务，并且失败样本要保留。</span><span data-en="">Start with 30–50 of your own items; do not wait for a perfect set. A small set can expose problems if the items come from real tasks and failures are kept.</span></p><ul class="domain-list"><li><span data-zh="">写一句决策问题：选什么、受什么约束、错误代价是什么。</span><span data-en="">Write one decision question: what to choose, under what constraint, at what cost of error.</span></li><li><span data-zh="">从真实任务抽题，覆盖正常、边界、失败、恶意输入。</span><span data-en="">Sample from real tasks across normal, edge, failure and adversarial inputs.</span></li><li><span data-zh="">定评分器：精确、规则、模型评审或人工，写清理由。</span><span data-en="">Choose a scorer: exact, rules, model judge or human; state why.</span></li><li><span data-zh="">固定模型、版本、环境、温度、重试和预算。</span><span data-en="">Fix model, version, environment, temperature, retries and budget.</span></li><li><span data-zh="">保存原始输出、分数、成本和失败类别。</span><span data-en="">Keep raw outputs, scores, cost and failure classes.</span></li><li><span data-zh="">用人工抽查校准评分器，记录不一致样本。</span><span data-en="">Calibrate the scorer with human audits; record disagreements.</span></li><li><span data-zh="">把门槛写进发布流程，关键失败一票否决。</span><span data-en="">Put thresholds into the release process; critical failures veto.</span></li><li><span data-zh="">上线后抽样复跑，监控分布漂移与成本漂移。</span><span data-en="">Sample and rerun after launch; monitor distribution and cost drift.</span></li></ul><div class="domain-callout"><span data-zh="">四个常见误区：把榜单当结论。只报平均分。只看最终答案不看轨迹。评测不能阻止发布。</span><span data-en="">Four common mistakes: treating a leaderboard as a conclusion; reporting only averages; judging only final answers, not trajectories; evaluation that cannot block a release.</span></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
+<section class="domain-section" id="sources">
+<h2><span data-zh="">来源与延伸阅读</span><span data-en="">Sources and further reading</span></h2>
+<p><span data-zh="">以下链接用于核对事实、许可证与官方口径。外部页面可能更新；引用时以原文与核验日为准。</span><span data-en="">These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</span></p>
+<ul class="domain-src"><li><a href="https://models.specul.com/evals/guides/read-leaderboard.html" rel="noopener"><span data-zh="">模型站 · 读榜指南</span><span data-en="">Models · Read a leaderboard</span></a><span><span data-zh="">题集、评分器、置信区间与榜单边界。</span><span data-en="">Item sets, scorers, confidence intervals and leaderboard limits.</span></span></li><li><a href="https://models.specul.com/evals/guides/eval-contamination.html" rel="noopener"><span data-zh="">模型站 · 评测污染</span><span data-en="">Models · Eval contamination</span></a><span><span data-zh="">题集泄漏、近似变体与训练数据污染。</span><span data-en="">Item leakage, near variants and training-data contamination.</span></span></li><li><a href="https://models.specul.com/evals/guides/agent-eval.html" rel="noopener"><span data-zh="">模型站 · Agent 评测</span><span data-en="">Models · Agent evaluation</span></a><span><span data-zh="">任务、轨迹、工具与安全评测。</span><span data-en="">Task, trajectory, tool and safety evaluation.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/evaluation.html" rel="noopener"><span data-zh="">工具站 · 评测</span><span data-en="">Tools · Evaluation</span></a><span><span data-zh="">评测工具、评分器与运行框架。</span><span data-en="">Evaluation tools, scorers and run frameworks.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/how-to-build-a-minimal-eval-pipeline.html" rel="noopener"><span data-zh="">工具站 · 最小评测流程</span><span data-en="">Tools · Minimal eval pipeline</span></a><span><span data-zh="">从题集到复跑的最小流程。</span><span data-en="">A minimum pipeline from item set to reproduction.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/how-to-wire-evals-into-release.html" rel="noopener"><span data-zh="">工具站 · 评测接入发布</span><span data-en="">Tools · Wire evals into release</span></a><span><span data-zh="">把评测变成发布门禁的步骤。</span><span data-en="">Steps to turn evaluation into a release gate.</span></span></li><li><a href="https://learn.specul.com/term/%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E7%9A%84%E5%B1%80%E9%99%90/" rel="noopener"><span data-zh="">学 AI · 模型评测的局限</span><span data-en="">Learn · Limits of model evaluation</span></a><span><span data-zh="">评测、基准与评分器的概念页。</span><span data-en="">Concept page on evaluation, benchmarks and scorers.</span></span></li></ul>
+</section>
+<section class="domain-next">
+<h2><span data-zh="">下一步</span><span data-en="">Next</span></h2>
+<ul><li><a href="topic-eval.html"><span data-zh="">回到“评测模型与智能体”路线</span><span data-en="">Back to the evaluation route</span></a></li><li><a href="domain-agent.html"><span data-zh="">下一步：把 Agent 轨迹也纳入评测</span><span data-en="">Next: include agent trajectories</span></a></li><li><a href="topics.html"><span data-zh="">看其他 15 条主题路线</span><span data-en="">Browse the other 15 topic routes</span></a></li></ul>
+<p><span data-zh="">如果你照着做时卡住了，先回到对应主题路线，不要从头重读。</span><span data-en="">If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</span></p>
+</section>
+<p class="domain-back"><a href="https://specul.com/"><span data-zh="">← 回到首页</span><span data-en="">← Back to home</span></a> <span aria-hidden="true">·</span> <a href="correct.html"><span data-zh="">发现错误？提交纠错</span><span data-en="">Spot an error? Send a correction</span></a></p>
+</div>
+</section>
 </main>
-
 <!-- SPECUL:FOOTER:START -->
-  <footer class="site-footer foot-single">
-    <div class="container foot-line">
-      <div class="foot-brand">
-        <span class="foot-brand-main">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="foot-copy"><span data-zh>投机取巧 · specul.com</span><span data-en>Specul · specul.com</span></span>
-        </span>
-        <span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh>内容 CC BY 4.0</span><span data-en>Content CC BY 4.0</span></a><span class="sep" aria-hidden="true">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh>代码 MIT</span><span data-en>Code MIT</span></a><span class="sep" aria-hidden="true">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a></span>
-      </div>
-      <nav class="foot-sites" aria-label="Footer site links">
-        <a class="site-link" href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://demos.specul.com/"><span data-zh>演示</span><span data-en>Demos</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://oss.specul.com/"><span data-zh>开源</span><span data-en>OSS</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://hardware.specul.com/"><span data-zh>算力</span><span data-en>Compute</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-      </nav>
-      <nav class="foot-legal" aria-label="Legal and corrections">
-        <a href="https://specul.com/legal.html"><span data-zh>法律</span><span data-en>Legal</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私</span><span data-en>Privacy</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/correct.html"><span data-zh>纠错</span><span data-en>Corrections</span></a>
-      </nav>
-    </div>
-  </footer>
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy"><span data-zh="">投机取巧 · specul.com</span><span data-en="">Specul · specul.com</span></span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh="">内容 CC BY 4.0</span><span data-en="">Content CC BY 4.0</span></a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh="">代码 MIT</span><span data-en="">Code MIT</span></a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank"><span data-zh="">源码</span><span data-en="">Source</span></a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/"><span data-zh="">演示</span><span data-en="">Demos</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/"><span data-zh="">开源</span><span data-en="">OSS</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/"><span data-zh="">算力</span><span data-en="">Compute</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/"><span data-zh="">论文</span><span data-en="">Papers</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/"><span data-zh="">导航</span><span data-en="">Directory</span></a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/legal.html"><span data-zh="">法律</span><span data-en="">Legal</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/legal.html#s8"><span data-zh="">隐私</span><span data-en="">Privacy</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/correct.html"><span data-zh="">纠错</span><span data-en="">Corrections</span></a>
+</nav>
+</div>
+</footer>
 <!-- SPECUL:FOOTER:END -->
-
 <!-- SPECUL:TABBAR:START -->
-<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
-    <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
-    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
-    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
-    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
-    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
-    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
-    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
-    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
-    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
-    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/"><span aria-hidden="true" class="ti">◎</span><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span aria-hidden="true" class="ti">▤</span><span data-zh="">学AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span aria-hidden="true" class="ti">◈</span><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span aria-hidden="true" class="ti">▦</span><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span aria-hidden="true" class="ti">▷</span><span data-zh="">演示</span><span data-en="">Demos</span></a>
+<a href="https://oss.specul.com/"><span aria-hidden="true" class="ti">▧</span><span data-zh="">开源</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span aria-hidden="true" class="ti">▣</span><span data-zh="">算力</span><span data-en="">Chips</span></a>
+<a href="https://papers.specul.com/"><span aria-hidden="true" class="ti">▥</span><span data-zh="">论文</span><span data-en="">Papers</span></a>
+<a href="https://chain.specul.com/"><span aria-hidden="true" class="ti">◇</span><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a data-nav-group="external" href="https://nav.specul.com/"><span aria-hidden="true" class="ti">↗</span><span data-zh="">导航</span><span data-en="">Nav</span></a>
 </nav>
 <!-- SPECUL:TABBAR:END -->
-
 </body>
 </html>

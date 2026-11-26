@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Speech and voice: from a recording to a usable voice chain…</title>
+<meta content="You feed a meeting recording to a model. The notes lose names, break sentences in the wrong place and merge two speakers. Speech is not one model; it is…" name="description"/>
+<link href="https://specul.com/en/domain-speech.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="article" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/domain-speech.html" property="og:url"/>
+<meta content="Speech and voice: from a recording to a usable voice chain…" property="og:title"/>
+<meta content="You feed a meeting recording to a model. The notes lose names, break sentences in the wrong place and merge two speakers. Speech is not one model; it is…" property="og:description"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"语音与配音：从录音到一条能用的语音链路","description":"You feed a meeting recording to a model. The notes lose names, break sentences in the wrong place and merge two speakers. Speech is not one model; it is…","url":"https://specul.com/en/domain-speech.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Speech and voice: from a recording to a usable voice chain…","url":"https://specul.com/en/domain-speech.html"}}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><meta content="Speech and voice: from a recording to a usable voice chain…" name="twitter:title"/><meta content="You feed a meeting recording to a model. The notes lose names, break sentences in the wrong place and merge two speakers. Speech is not one model; it is…" name="twitter:description"/><link href="https://specul.com/domain-speech.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/domain-speech.html" hreflang="en" rel="alternate"/><link href="https://specul.com/domain-speech.html" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/domain-speech.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<main id="main">
+<section class="hp-sec tight">
+<div class="hp-c">
+<nav aria-label="面包屑" class="domain-crumb">
+<a href="/en/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/en/topics.html">Topics</a>
+<span aria-hidden="true">/</span>
+<span>Field guide</span>
+</nav>
+<p class="kicker">Field guide · Speech and voice</p>
+<h1>Speech and voice: from a recording to a usable voice chain</h1>
+<p class="domain-lead">You feed a meeting recording to a model. The notes lose names, break sentences in the wrong place and merge two speakers. Speech is not one model; it is a chain: capture, denoise, segmentation, recognition, rewriting, synthesis and playback. Decide whether you need transcription, real-time dialogue or voice-over before chasing a human-sounding voice.</p>
+<p class="domain-readmeta">
+<span><b>For</b> Anyone building meeting transcription, a voice assistant or voice-over</span>
+<span><b>You leave with</b> A chain map, a latency budget and one scenario that runs end to end</span>
+<span><b>Time</b> 12 minutes to read; about half a day to get one chain running</span>
+<span class="domain-verified">Last checked 25 Nov 2026</span>
+</p>
+<p class="domain-meta">This is Specul’s decision framework for speech chains, not a ranking of microphones, models or products. Sample rates, latency, licences and prices remain with the linked pages and original sources.</p>
+</div>
+</section>
+<section class="hp-sec tight">
+<div class="hp-c domain-prose">
+<div class="domain-quick">
+<b>If you only have five minutes</b>
+<ol><li>Separate the scenario first: transcription, real-time dialogue and voice-over have different requirements.</li><li>Real-time latency is five stages added together, not one model’s fault.</li><li>For voice cloning, settle consent, labelling and use before chasing similarity.</li></ol>
+<p>The full guide starts below. Use the tables for reference; you do not need to memorise them.</p>
+</div>
+<div class="domain-case">
+<b>One concrete job</b>
+<p>Take one concrete job: turn a one-hour Chinese meeting into notes with speakers, timestamps and action items, within ten minutes, with no real-time requirement. Choose the chain for that scenario.</p>
+</div>
+<div class="domain-callout domain-thesis">Define the use case first — transcription, real-time conversation or dubbing — then fix sample rate, latency and evaluation. One WER or MOS figure does not transfer across use cases.</div>
+<nav aria-label="Contents" class="domain-toc" id="domain-toc">
+<b>Contents</b>
+<ol><li><a href="#chain">1 · Six stages in one speech chain</a></li><li><a href="#scenario">2 · Separate three use cases: transcription, real-time talk, dubbing</a></li><li><a href="#capture">3 · Capture and front end: clean input before model talk</a></li><li><a href="#latency">4 · Real-time talk: latency is five segments added together</a></li><li><a href="#models">5 · Models and formats: ASR, TTS and cloning are different jobs</a></li><li><a href="#eval">6 · Evaluation: what WER, CER, MOS and RTF actually answer</a></li><li><a href="#rights">7 · Rights in a voice: consent, labelling, use</a></li><li><a href="#fail">8 · Failure branches: symptom first, then the chain</a></li><li><a href="#path">9 · A minimum path to a working speech chain</a></li></ol>
+</nav>
+<section class="domain-section" id="chain">
+<h2>1 · Six stages in one speech chain</h2>
+<p>Draw the chain so failures have a location. Capture turns an acoustic wave into digital audio through the microphone, gain, sampling and encoding. The front end suppresses noise, cancels echo and endpoints. Recognition turns audio into timestamped text. The dialogue layer decides the reply. Synthesis turns text back into audio. Playback adds buffering and the device. Each stage can fail alone, and later stages amplify earlier errors.</p><p>The most common misdiagnosis is “the model is bad”. In practice, a sample-rate mismatch degrades recognition across the board; echo cancellation that also suppresses near-end speech drops words; early endpointing cuts the last word; a short playback buffer causes glitches. Log each stage’s input, output, timestamp and error code before deciding to replace the model.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Stage</th><th>What it owns</th><th>Check first</th></tr></thead><tbody><tr><td>Capture<span aria-hidden="true" class="cell-label">Stage</span></td><td>Sample rate, gain, channels, device<span aria-hidden="true" class="cell-label">What it owns</span></td><td>Clipping, mono/stereo, shared timestamps<span aria-hidden="true" class="cell-label">Check first</span></td></tr><tr><td>Front end<span aria-hidden="true" class="cell-label">Stage</span></td><td>Noise suppression, echo cancellation, endpointing<span aria-hidden="true" class="cell-label">What it owns</span></td><td>Near-end speech suppressed, words cut by endpointing<span aria-hidden="true" class="cell-label">Check first</span></td></tr><tr><td>Recognition<span aria-hidden="true" class="cell-label">Stage</span></td><td>Audio to text and timestamps<span aria-hidden="true" class="cell-label">What it owns</span></td><td>Sample rate, language, hotwords, confidence<span aria-hidden="true" class="cell-label">Check first</span></td></tr><tr><td>Dialogue<span aria-hidden="true" class="cell-label">Stage</span></td><td>Intent, context, tool calls<span aria-hidden="true" class="cell-label">What it owns</span></td><td>Treating a recognition error as user intent<span aria-hidden="true" class="cell-label">Check first</span></td></tr><tr><td>Synthesis<span aria-hidden="true" class="cell-label">Stage</span></td><td>Text to audio<span aria-hidden="true" class="cell-label">What it owns</span></td><td>Polyphones, numbers, names, speaking rate<span aria-hidden="true" class="cell-label">Check first</span></td></tr><tr><td>Playback<span aria-hidden="true" class="cell-label">Stage</span></td><td>Buffering, device, echo reference<span aria-hidden="true" class="cell-label">What it owns</span></td><td>Underrun, latency, closed-loop reference<span aria-hidden="true" class="cell-label">Check first</span></td></tr></tbody></table></div><div class="domain-callout">Rule of thumb: if the same symptom survives a model swap, fix the chain before trying another model.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="scenario">
+<h2>2 · Separate three use cases: transcription, real-time talk, dubbing</h2>
+<p>Transcription wants verbatim accuracy, editability and searchability; it can wait for the whole file and tolerate seconds of delay. Real-time conversation wants natural turns, barge-in and stable latency; slightly lower accuracy is acceptable if the reply is timely. Dubbing wants voice, emotion and lip or duration match; both text and audio are constrained by the script. The model, front end and evaluation table differ across the three.</p><p>Write the use case as constraints, not adjectives. “Natural” is not a constraint. “Telephone bandwidth, single speaker, Mandarin, end-to-end under 800 ms, barge-in allowed, every turn reversible” is. Without constraints, acceptance collapses into subjective impression.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Use case</th><th>Primary goal</th><th>What can be traded</th><th>Acceptance evidence</th></tr></thead><tbody><tr><td>Transcription<span aria-hidden="true" class="cell-label">Use case</span></td><td>Word accuracy, timestamps, search<span aria-hidden="true" class="cell-label">Primary goal</span></td><td>Seconds of delay, offline batch<span aria-hidden="true" class="cell-label">What can be traded</span></td><td>Timestamped text, entity table, human audit<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td></tr><tr><td>Real-time talk<span aria-hidden="true" class="cell-label">Use case</span></td><td>Stable latency, barge-in, natural turns<span aria-hidden="true" class="cell-label">Primary goal</span></td><td>A few word errors, shorter replies<span aria-hidden="true" class="cell-label">What can be traded</span></td><td>P50/P95 latency, barge-in success, session completion<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td></tr><tr><td>Dubbing<span aria-hidden="true" class="cell-label">Use case</span></td><td>Voice, emotion, duration or lip sync<span aria-hidden="true" class="cell-label">Primary goal</span></td><td>Generation time, some prosody<span aria-hidden="true" class="cell-label">What can be traded</span></td><td>Blind listening, duration delta, lip error<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="capture">
+<h2>3 · Capture and front end: clean input before model talk</h2>
+<p>Recognition models commonly take 16 kHz mono audio, while telephony may be 8 kHz; synthesis and music delivery often use 24 kHz, 44.1 kHz or 48 kHz. Feeding 48 kHz stereo into an interface that expects 16 kHz mono may error or be resampled incorrectly: it “runs”, but word error rises. Fix sample rate, bit depth, channels and byte order before model choice.</p><p>The front end is not “more denoising is better”. Aggressive suppression eats consonants and word endings. Echo cancellation needs a reference signal; a wrong reference treats the user’s own voice as echo. Automatic gain raises noise in silence and keeps triggering endpointing. For every front-end module, compare recognition output and subjective listening on the same real recording, not just a clean waveform.</p><ul class="domain-list"><li>Fix the capture chain: same microphone, gain and sample rate; rule out device differences first.</li><li>Keep raw audio: store before and after the front end so failures can be traced to suppression or recognition.</li><li>Timestamp every stage against one clock so end-to-end latency is computable.</li><li>Alert on clipping, long silence and missing reference signals; put them in the log.</li></ul>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="latency">
+<h2>4 · Real-time talk: latency is five segments added together</h2>
+<p>End-to-end latency in real-time speech has at least five parts: capture buffer, endpointing wait, network round trip, model inference and playback buffer. Optimising inference alone moves one segment. The “lag” users feel often comes from endpointing and playback buffering, not slow GPUs.</p><p>Set a budget before choosing a design. Conversational speech often aims at a few hundred milliseconds of added end-to-end latency; the exact target depends on the use case: support calls tolerate more, barge-in conversation less. Record P50, P95 and worst case separately. An average alone hides the worst interactions.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Segment</th><th>Common source</th><th>Fix first</th></tr></thead><tbody><tr><td>Capture buffer<span aria-hidden="true" class="cell-label">Segment</span></td><td>Block size, driver, Bluetooth<span aria-hidden="true" class="cell-label">Common source</span></td><td>Shorter blocks, wired device<span aria-hidden="true" class="cell-label">Fix first</span></td></tr><tr><td>Endpointing<span aria-hidden="true" class="cell-label">Segment</span></td><td>Silence threshold, semantic endpointing<span aria-hidden="true" class="cell-label">Common source</span></td><td>Tune threshold, use interim results<span aria-hidden="true" class="cell-label">Fix first</span></td></tr><tr><td>Network<span aria-hidden="true" class="cell-label">Segment</span></td><td>Round trip, jitter, retransmission<span aria-hidden="true" class="cell-label">Common source</span></td><td>Nearby endpoint, UDP/QUIC, jitter buffer<span aria-hidden="true" class="cell-label">Fix first</span></td></tr><tr><td>Inference<span aria-hidden="true" class="cell-label">Segment</span></td><td>Model size, batching, queueing<span aria-hidden="true" class="cell-label">Common source</span></td><td>Streaming, smaller model, reserved capacity<span aria-hidden="true" class="cell-label">Fix first</span></td></tr><tr><td>Playback<span aria-hidden="true" class="cell-label">Segment</span></td><td>Buffer, device, echo reference<span aria-hidden="true" class="cell-label">Common source</span></td><td>Adaptive buffer, device calibration<span aria-hidden="true" class="cell-label">Fix first</span></td></tr></tbody></table></div><div class="domain-callout">A practical acceptance test: have a user barge in 20 times on a real network and record the time from speech onset to playback stop. That is closer to experience than a model-only latency figure.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="models">
+<h2>5 · Models and formats: ASR, TTS and cloning are different jobs</h2>
+<p>ASR turns audio into text and cares about word error, timestamps, speaker separation, hotwords and language coverage. TTS turns text into audio and cares about naturalness, pronunciation, prosody, timbre and control. Voice cloning or conversion cares about timbre similarity and identity consent, usually with reference audio from the same speaker. They can be chained, but not accepted with one metric.</p><p>Format is part of delivery. Use uncompressed or lightly compressed PCM/WAV in the processing chain to avoid generation loss; use a low-latency codec such as Opus for transport; transcode to AAC for players or platforms. Record sample rate, bit depth, channels and bitrate at every transcode. “It plays” is not “no quality loss”.</p><div class="domain-facts"><p><b>Recognition</b><br/><em>Input</em>: Audio + language/hotwords<br/><em>Output</em>: Text + timestamps + confidence<br/><em>Primary metric</em>: WER/CER, entity accuracy</p><p><b>Synthesis</b><br/><em>Input</em>: Text + voice/style<br/><em>Output</em>: Audio<br/><em>Primary metric</em>: MOS/blind preference, pronunciation errors</p><p><b>Voice cloning</b><br/><em>Input</em>: Reference audio + text<br/><em>Output</em>: Audio in the same voice<br/><em>Primary metric</em>: Speaker similarity, consent and misuse controls</p><p><b>Diarisation</b><br/><em>Input</em>: Multi-speaker audio<br/><em>Output</em>: Speaker segments<br/><em>Primary metric</em>: Segment accuracy, overlapping speech</p></div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="eval">
+<h2>6 · Evaluation: what WER, CER, MOS and RTF actually answer</h2>
+<p>WER counts word errors; Chinese commonly uses CER (character error rate). Neither equals “the meaning is right”. One wrong name, product, amount or date may barely move WER while the task fails. The evaluation table needs overall word/character error, entity accuracy, punctuation and segmentation, timestamp drift, and the raw failure samples.</p><p>MOS is a subjective listening score, usually 1–5 from listeners. It suits naturalness and audio quality, not intelligibility alone. RTF (real-time factor) compares processing time to audio duration and suits the question “can it run in real time”; it does not capture latency distribution or barge-in. Each metric answers only what it measured.</p><div class="domain-facts"><p><b>WER/CER</b><br/><em>Question</em>: How many words/characters are wrong<br/><em>What it cannot answer</em>: Whether meaning is usable, whether entities are wrong</p><p><b>Entity accuracy</b><br/><em>Question</em>: Names, amounts, dates correct<br/><em>What it cannot answer</em>: Overall fluency</p><p><b>MOS</b><br/><em>Question</em>: How natural it sounds<br/><em>What it cannot answer</em>: Intelligibility, acceptable latency</p><p><b>RTF</b><br/><em>Question</em>: Whether processing beats real time<br/><em>What it cannot answer</em>: P95 latency, barge-in experience</p><p><b>Speaker similarity</b><br/><em>Question</em>: Whether it sounds like the target voice<br/><em>What it cannot answer</em>: Consent, misuse risk</p></div><div class="domain-callout">Include real failures: accents, fast speech, overlapping speakers, background music, telephone bandwidth, names and code-switching. A high score on clean recordings does not predict the real scene.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="rights">
+<h2>7 · Rights in a voice: consent, labelling, use</h2>
+<p>The first gate in voice cloning is consent, not technology. Whose voice, for what content, for how long, and whether it can be withdrawn must be written before recording reference audio. Public figures, minors and customer call recordings carry extra consent and privacy requirements. This page is not legal advice; qualified people must apply local rules.</p><p>The second gate is labelling and use. Synthetic speech in support calls, audiobooks, ads, news or public statements faces different platform rules and disclosure duties; some contexts require an explicit “AI-generated” label, others forbid it. Also limit misuse: restrict access to reference audio, watermark or attach content credentials to output, keep generation logs and prepare a takedown path.</p><div class="domain-callout">Rule of thumb: a voice without a consent and use record does not enter production. “It can be cloned” is not “it may be cloned”.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="fail">
+<h2>8 · Failure branches: symptom first, then the chain</h2>
+<p>Speech failures rarely have one cause. The table below starts from the symptom the user hears or sees, not from a model name. Change one variable at a time and rerun on the same recording; otherwise you cannot tell what helped.</p><div class="domain-facts"><p><b>Transcript is bad throughout</b><br/><em>Suspect first</em>: Sample-rate/channel mismatch, wrong language<br/><em>Check</em>: Read the required format; rerun on raw audio</p><p><b>First word clipped</b><br/><em>Suspect first</em>: Insufficient pre-roll, short capture buffer<br/><em>Check</em>: Add 300–500 ms pre-roll and retest</p><p><b>Bot interrupts</b><br/><em>Suspect first</em>: Endpointing too short, semantic false positive<br/><em>Check</em>: Inspect endpoint timestamps and silence</p><p><b>Latency spikes</b><br/><em>Suspect first</em>: Jitter, inference queueing, playback underrun<br/><em>Check</em>: Instrument each stage; P50/P95/worst</p><p><b>TTS mispronounces</b><br/><em>Suspect first</em>: Text normalisation, polyphones, markup<br/><em>Check</em>: Inspect text and phonemes/markup</p><p><b>Clone rejected or off</b><br/><em>Suspect first</em>: Reference quality, consent, similarity<br/><em>Check</em>: Use clean reference; check consent and similarity</p><p><b>Echo or howling</b><br/><em>Suspect first</em>: Wrong reference, excessive gain, device coupling<br/><em>Check</em>: Run a loopback test, mute stages</p><p><b>No response after silence</b><br/><em>Suspect first</em>: VAD not triggered, session timeout, dropped queue<br/><em>Check</em>: Inspect VAD events and session state</p></div><div class="domain-callout">Do not make “try another model” the first debugging step. Confirm format, timestamps, endpointing and playback first.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="path">
+<h2>9 · A minimum path to a working speech chain</h2>
+<p>Build one narrow, reproducible chain first; do not start with telephony, support or full duplex. Use ten real recordings and one fixed text to connect capture, recognition, synthesis and playback. Keep input, output, timestamps and failure reason at every stage.</p><ul class="domain-list"><li>Write the use case and constraints: transcription, real-time talk or dubbing; language, bandwidth, latency, barge-in.</li><li>Fix the capture chain: same device, sample rate, gain and channels; keep raw audio.</li><li>Run ten real samples: at least one each of quiet, noise, accent, fast speech and overlapping speakers.</li><li>Do offline transcription before streaming; single speaker before diarisation.</li><li>Timestamp each stage and compute P50/P95/worst latency, not only the mean.</li><li>Build 30–50 of your own items: character errors, entities, segmentation, names, numbers, refusals.</li><li>Add fallback: ask the user to confirm low-confidence recognition; fall back to text when synthesis fails.</li><li>Keep logs and replay: reconstruct capture, recognition, synthesis and playback for one session.</li></ul><div class="domain-callout">Done means real samples transcribe reliably, latency is explainable, failures fall back, and every stage is logged — not that the voice sounds human.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="sources">
+<h2>Sources and further reading</h2>
+<p>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</p>
+<ul class="domain-src"><li><a href="https://arxiv.org/abs/2212.04356" rel="noopener">Whisper paper</a><span>The Whisper paper on multilingual recognition, weak supervision and task formatting; versions and performance remain with the official repository.</span></li><li><a href="https://learn.microsoft.com/en-us/azure/ai-services/speech-service/" rel="noopener">Azure AI Speech</a><span>Official entry for speech recognition, synthesis, translation and speaker recognition; regions and quotas remain with the console.</span></li><li><a href="https://docs.nvidia.com/deeplearning/riva/user-guide/docs/overview.html" rel="noopener">NVIDIA Riva</a><span>ASR/TTS services and deployment docs for real-time speech; hardware and latency figures remain official.</span></li><li><a href="https://www.itu.int/rec/T-REC-P.800/en" rel="noopener">ITU-T P.800</a><span>Reference for subjective speech-quality testing, including listening tests and the limits of MOS; this page does not replace the formal specification.</span></li><li><a href="https://learn.specul.com/en/term/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/" rel="noopener">Learn · Speech recognition</a><span>Concept page on recognition, acoustic models and language models.</span></li><li><a href="https://tools.specul.com/en/collection-realtime.html" rel="noopener">Tools · Real-time speech agents</a><span>Five latency points in a real-time speech chain, with tool notes.</span></li><li><a href="https://tools.specul.com/en/audio/" rel="noopener">Tools · Audio</a><span>Task-based audio tool dossiers; not a quality ranking.</span></li><li><a href="https://specul.com/en/legal.html#s7" rel="noopener">Specul · Third-party assets</a><span>Site notes on the asset register, third-party content and attribution.</span></li></ul>
+</section>
+<section class="domain-next">
+<h2>Next</h2>
+<ul><li><a href="/en/topic-speech.html">Back to the speech route</a></li><li><a href="/en/domain-video.html">Next: put the voice into a finished video</a></li><li><a href="/en/topics.html">Browse the other 15 topic routes</a></li></ul>
+<p>If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</p>
+</section>
+<p class="domain-back"><a href="https://specul.com/en/">← Back to home</a> <span aria-hidden="true">·</span> <a href="/en/correct.html">Spot an error? Send a correction</a></p>
+</div>
+</section>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>

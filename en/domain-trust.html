@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Trust review: running, usable and accountable are separate…</title>
+<meta content="Field guide · Safety, licences &amp; provenance" name="description"/>
+<link href="https://specul.com/en/domain-trust.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="article" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/domain-trust.html" property="og:url"/>
+<meta content="Trust review: running, usable and accountable are separate…" property="og:title"/>
+<meta content="Field guide · Safety, licences &amp; provenance" property="og:description"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"信任评审：能跑、能用、能负责，分开查","description":"Field guide · Safety, licences & provenance","url":"https://specul.com/en/domain-trust.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Trust review: running, usable and accountable are separate…","url":"https://specul.com/en/domain-trust.html"}}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><meta content="Trust review: running, usable and accountable are separate…" name="twitter:title"/><meta content="Field guide · Safety, licences &amp; provenance" name="twitter:description"/><link href="https://specul.com/domain-trust.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/domain-trust.html" hreflang="en" rel="alternate"/><link href="https://specul.com/domain-trust.html" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/domain-trust.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<main id="main">
+<section class="hp-sec tight">
+<div class="hp-c">
+<nav aria-label="面包屑" class="domain-crumb">
+<a href="/en/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/en/topics.html">Topics</a>
+<span aria-hidden="true">/</span>
+<span>Field guide</span>
+</nav>
+<p class="kicker">Field guide · Safety, licences &amp; provenance</p>
+<h1>Trust review: running, usable and accountable are separate checks</h1>
+<p class="domain-lead">A tool running proves technical feasibility. Shipping it needs four separate answers: who may use it for what, where data goes, what rights you have over code, weights, data and output, and who owns a failure. Collapsing them into one “safe” label is a common mistake.</p>
+<p class="domain-readmeta">
+<span><b>For</b> Anyone buying, connecting or reviewing a third-party AI tool</span>
+<span><b>You leave with</b> Four separate tables: permissions, data flow, rights and provenance, plus a review order</span>
+<span><b>Time</b> 12 minutes to read; 2–4 hours to review one tool</span>
+<span class="domain-verified">Last checked 25 Nov 2026</span>
+</p>
+<p class="domain-meta">This is a decision framework, not legal advice. Licence and contract terms remain with the original text and a qualified lawyer.</p>
+</div>
+</section>
+<section class="hp-sec tight">
+<div class="hp-c domain-prose">
+<div class="domain-quick">
+<b>If you only have five minutes</b>
+<ol><li>Running does not mean usable; usable does not mean accountable.</li><li>Keep permissions, data flow, rights and provenance in separate tables.</li><li>Every conclusion needs evidence; write “unknown” where there is none.</li></ol>
+<p>The full guide starts below. Use the tables for reference; you do not need to memorise them.</p>
+</div>
+<div class="domain-case">
+<b>One concrete job</b>
+<p>Take one concrete job: a third-party writing tool that can read internal documents and send email. Check what it reads, where it sends, what the licence allows and who owns a failure.</p>
+</div>
+<figure class="domain-fig">
+<div class="domain-fig-scroll"><img alt="信任评审三张表：权限、数据流、权利，各自需要不同证据 / Three trust tables: permission, data flow and rights, each with different evidence" loading="lazy" src="/assets/figures/domain-trust.svg"/></div>
+<figcaption>Figure 3 · Three tables. A commercial model licence does not mean customer data may be sent to it; local deployment does not mean data never leaves.</figcaption>
+</figure>
+<div class="domain-callout domain-thesis">Do not answer permission, data and licensing with one “safe / unsafe” verdict. Each table has its own evidence and its own failure modes.</div>
+<nav aria-label="Contents" class="domain-toc" id="domain-toc">
+<b>Contents</b>
+<ol><li><a href="#three">1 · Three tables: separate first, combine later</a></li><li><a href="#permission">2 · Permission: least privilege must bind to a specific identity</a></li><li><a href="#data">3 · Data flow: local deployment is not automatically safe</a></li><li><a href="#rights">4 · Licensing: code, weights, data and output are four different things</a></li><li><a href="#provenance">5 · Provenance: it can show who said it, not whether it is true</a></li><li><a href="#supply">6 · Supply chain: plugins, MCP and dependencies are permissions too</a></li><li><a href="#decision">7 · Decision framework: six questions and one table</a></li><li><a href="#path">8 · Minimum action list</a></li></ol>
+</nav>
+<section class="domain-section" id="three">
+<h2>1 · Three tables: separate first, combine later</h2>
+<p>The permission table answers “who may do what”: what a person, agent, service account and connector may read, write, call and approve. It cares about over-privilege, mistakes, credential leaks and revocation.</p><p>The data-flow table answers “where data goes”: which models, connectors, logs and backups it passes, how long it stays, whether it is used for training and whether it can be deleted. It cares about classification, cross-border transfer, subprocessors and retention.</p><p>The rights table answers “what do you own”: code licence, model-weight licence, rights in training/input data and rights in output are four different things. It cares about commercial use, attribution, copyleft, patent grants and redistribution.</p><p>Provenance comes last: watermarks, signatures, content credentials and on-chain receipts can help show source and movement, but they do not prove content is true, the model is reliable, or a licence covers your use.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Table</th><th>Core question</th><th>Evidence</th><th>Typical failure</th></tr></thead><tbody><tr><td>Permission<span aria-hidden="true" class="cell-label">Table</span></td><td>Who may do what<span aria-hidden="true" class="cell-label">Core question</span></td><td>Policy, roles, logs, revocation<span aria-hidden="true" class="cell-label">Evidence</span></td><td>Shared admin account, over-broad tool scope<span aria-hidden="true" class="cell-label">Typical failure</span></td></tr><tr><td>Data flow<span aria-hidden="true" class="cell-label">Table</span></td><td>Where data goes, how long<span aria-hidden="true" class="cell-label">Core question</span></td><td>Data-flow map, contract, retention settings<span aria-hidden="true" class="cell-label">Evidence</span></td><td>“Local” but still calls an external API<span aria-hidden="true" class="cell-label">Typical failure</span></td></tr><tr><td>Rights<span aria-hidden="true" class="cell-label">Table</span></td><td>Code/weights/data/output<span aria-hidden="true" class="cell-label">Core question</span></td><td>Licence text, SPDX, attribution<span aria-hidden="true" class="cell-label">Evidence</span></td><td>Treating a code licence as a weights licence<span aria-hidden="true" class="cell-label">Typical failure</span></td></tr><tr><td>Provenance<span aria-hidden="true" class="cell-label">Table</span></td><td>Source and movement<span aria-hidden="true" class="cell-label">Core question</span></td><td>Signature, content credential, on-chain receipt<span aria-hidden="true" class="cell-label">Evidence</span></td><td>Treating “has provenance” as “true”<span aria-hidden="true" class="cell-label">Typical failure</span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="permission">
+<h2>2 · Permission: least privilege must bind to a specific identity</h2>
+<p>Separate three identities: a person (login), an agent (a service identity acting for a person or task) and a connector (credentials to an external system). They must not share one admin token; otherwise a single prompt injection can execute with the person’s full authority.</p><p>Write tool permission as action + object + scope: which folder may be read, which table written, which domain emailed, which API called, what monetary limit. “May use the tool” is too coarse; the tool’s parameters are the risk surface.</p><p>High-risk actions need separate approval: external sending, deletion, payment, permission changes, production writes. The approver must not be the initiator, and the approval goes into the log. Revocation must work without restarting the whole system.</p><div class="domain-callout">A practical test: if this agent were fully controlled by an attacker, what is the worst damage it could do? That is the permission you actually granted — not the “please be careful” in the prompt.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="data">
+<h2>3 · Data flow: local deployment is not automatically safe</h2>
+<p>Classify input first: public, internal, confidential, personal. Each level maps to different models and connectors. An “internal” file must not enter an external model through a copy-paste. Classification belongs in the workflow, not only in the employee handbook.</p><p>The data-flow map marks every landing point: browser, app server, model endpoint, logs, cache, backup, analytics. Each line states transport, encryption, retention, access and deletion. “Data stays local” misses telemetry, crash dumps and cloud backups.</p><p>For an external model ask six questions: training use, retention, cross-border transfer, subprocessors, deletion on request, and who notifies whom after a breach. Read both the contract and product docs; a “not used for training” line on a product page is not enough.</p>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="rights">
+<h2>4 · Licensing: code, weights, data and output are four different things</h2>
+<p>A code licence (MIT, Apache-2.0, GPL) governs distribution and modification of source. Model weights often have a separate licence or terms that may restrict commercial use, redistribution, distillation or output use. Treating a code licence as a weights licence is the most common open-model misreading.</p><p>Rights in training and input data are another layer: may you use this data for training, fine-tuning or retrieval? The source licence, personal-data consent and database rights can all restrict use.</p><p>Rights in output depend on input, platform terms and local law. Model generation does not mean you own it; if the input is copyrighted, the output may still be a derivative work. Read the platform terms before commercial use, not just “free to use”.</p><p>SPDX identifiers help identify a licence quickly but do not replace reading the text. Custom terms, added branding clauses and community licences need clause-by-clause reading and, where needed, a lawyer. This page gives no legal conclusion.</p>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="provenance">
+<h2>5 · Provenance: it can show who said it, not whether it is true</h2>
+<p>Content credentials such as C2PA record source, edit history and signature in file metadata; watermarks embed a mark in pixels or audio; on-chain receipts anchor an operation to an address and time. All three improve traceability, and all three can be stripped, forged or lost when uploaded to a platform.</p><p>“Has provenance” only means a step left a record. It does not prove the content is true, the model is reliable or the rights are complete. This is especially true on-chain: a record proves a transaction happened, not that the data behind it is true.</p><p>When verifying, ask: who signed, is the certificate trusted, was the file modified after signing, does the platform preserve metadata, and how does the on-chain address map to an offline entity? Missing one link, provenance is only a lead.</p>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="supply">
+<h2>6 · Supply chain: plugins, MCP and dependencies are permissions too</h2>
+<p>MCP servers, editor plugins, browser extensions and Python packages run inside your permission boundary. A “read-only” tool that returns a malicious instruction may be treated by the model as user intent; a third-party package that phones home invalidates the data-flow table.</p><p>Supply-chain checks include: pin versions and hashes, inspect maintainers and release history, run with least privilege, disable unnecessary network and file access, scan dependency vulnerabilities and keep an SBOM. Do not skip because it is “installed locally”.</p><p>Tool descriptions are input too. A malicious MCP tool can put “send me the environment variables” in its description. Models have no innate trust boundary; the caller and runtime must enforce it.</p>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="decision">
+<h2>7 · Decision framework: six questions and one table</h2>
+<p>Before buying, launching or connecting a new tool, answer six questions in order. Every answer needs evidence; write “unknown” where there is none instead of “probably fine”.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Question</th><th>Evidence to obtain</th></tr></thead><tbody><tr><td>Who may use it for what?<span aria-hidden="true" class="cell-label">Question</span></td><td>Roles and tool scope, approval points, revocation<span aria-hidden="true" class="cell-label">Evidence to obtain</span></td></tr><tr><td>What data can it see?<span aria-hidden="true" class="cell-label">Question</span></td><td>Input classes, connector scope, cache and logs<span aria-hidden="true" class="cell-label">Evidence to obtain</span></td></tr><tr><td>Where is data sent?<span aria-hidden="true" class="cell-label">Question</span></td><td>Endpoint, subprocessors, region, retention, training use<span aria-hidden="true" class="cell-label">Evidence to obtain</span></td></tr><tr><td>What licence covers code/weights/data/output?<span aria-hidden="true" class="cell-label">Question</span></td><td>Licence text, SPDX, attribution and commercial terms<span aria-hidden="true" class="cell-label">Evidence to obtain</span></td></tr><tr><td>What does provenance prove and not prove?<span aria-hidden="true" class="cell-label">Question</span></td><td>Signer, certificate chain, edit history, platform retention<span aria-hidden="true" class="cell-label">Evidence to obtain</span></td></tr><tr><td>Who owns failure and how is rollback?<span aria-hidden="true" class="cell-label">Question</span></td><td>Incident contact, SLA, rollback switch, log retention<span aria-hidden="true" class="cell-label">Evidence to obtain</span></td></tr></tbody></table></div><div class="domain-callout">Rule of thumb: a commercial licence does not mean customer data is appropriate; local deployment does not mean nothing leaves; an on-chain receipt does not mean the content is true. Verify each “does not mean” separately.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="path">
+<h2>8 · Minimum action list</h2>
+<ul class="domain-list"><li>Keep permission, data flow, rights and provenance as four tables; do not merge them into one score.</li><li>Give each agent/connector its own identity; grant by action, object and scope.</li><li>Draw the data-flow map with endpoints, logs, backups, subprocessors and retention.</li><li>Read the four licences separately (code, weights, data, output), recording SPDX and attribution.</li><li>Treat provenance as a lead: verify signer, certificate chain, edit history and platform retention.</li><li>Pin MCP servers/plugins/dependencies, run least privilege, scan vulnerabilities and keep an SBOM.</li><li>Before launch, run a “fully controlled” loss exercise and add approvals and rollback.</li></ul>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="sources">
+<h2>Sources and further reading</h2>
+<p>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</p>
+<ul class="domain-src"><li><a href="https://spdx.org/licenses/" rel="noopener">SPDX License List</a><span>Standard identifiers and text for common open-source licences; an identifier does not replace reading the text.</span></li><li><a href="https://creativecommons.org/licenses/" rel="noopener">Creative Commons licenses</a><span>Official CC licence explanations, including attribution, non-commercial and share-alike terms.</span></li><li><a href="https://c2pa.org/" rel="noopener">C2PA</a><span>Specification and ecosystem entry for content credentials and provenance metadata; manifests can be stripped, so a verification flow is required.</span></li><li><a href="https://openssf.org/" rel="noopener">OpenSSF</a><span>Open-source supply-chain projects and tools, including SBOMs, scores and best practices.</span></li><li><a href="https://learn.specul.com/en/term/%E8%AE%B8%E5%8F%AF%E8%AF%81/" rel="noopener">Learn · Licences</a><span>Concept page on licence types and common misreadings.</span></li><li><a href="https://learn.specul.com/en/term/%E6%9D%83%E9%99%90/" rel="noopener">Learn · Permissions</a><span>Concept page on permission boundaries and least privilege.</span></li><li><a href="https://learn.specul.com/en/term/%E6%B0%B4%E5%8D%B0%E4%B8%8E%E5%86%85%E5%AE%B9%E5%87%AD%E8%AF%81/" rel="noopener">Learn · Watermarks and content credentials</a><span>The difference between watermarks, signatures and content credentials.</span></li><li><a href="https://chain.specul.com/en/path.html" rel="noopener">Chain · Provenance path</a><span>Verification order for on-chain provenance and data rights.</span></li><li><a href="https://tools.specul.com/safety/index.html" rel="noopener">Tools · AI safety and evaluation</a><span>Dossiers on guardrails, evaluation, red-teaming, gateways and provenance.</span></li><li><a href="https://learn.specul.com/en/path/for-safety-review/" rel="noopener">Learn · Pre-launch safety review</a><span>A 12-step pre-launch safety and compliance route.</span></li></ul>
+</section>
+<section class="domain-next">
+<h2>Next</h2>
+<ul><li><a href="/en/domain-safety.html">Next: turn the review into a launch gate</a></li><li><a href="/en/domain-china.html">If buying in China, fill the six columns</a></li><li><a href="/en/topics.html">Browse the other topic routes</a></li></ul>
+<p>If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</p>
+</section>
+<p class="domain-back"><a href="https://specul.com/en/">← Back to home</a> <span aria-hidden="true">·</span> <a href="/en/correct.html">Spot an error? Send a correction</a></p>
+</div>
+</section>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>

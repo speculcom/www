@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>AI safety and compliance: from data flow to a launch gate…</title>
+<meta content="Many teams add “do not leak user data” to a support bot and call safety done. When something goes wrong, the problem is rarely that sentence. It is which…" name="description"/>
+<link href="https://specul.com/en/domain-safety.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="article" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/domain-safety.html" property="og:url"/>
+<meta content="AI safety and compliance: from data flow to a launch gate…" property="og:title"/>
+<meta content="Many teams add “do not leak user data” to a support bot and call safety done. When something goes wrong, the problem is rarely that sentence. It is which…" property="og:description"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI 安全与合规：从数据流到上线门禁","description":"Many teams add “do not leak user data” to a support bot and call safety done. When something goes wrong, the problem is rarely that sentence. It is which…","url":"https://specul.com/en/domain-safety.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"AI safety and compliance: from data flow to a launch gate…","url":"https://specul.com/en/domain-safety.html"}}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><meta content="AI safety and compliance: from data flow to a launch gate…" name="twitter:title"/><meta content="Many teams add “do not leak user data” to a support bot and call safety done. When something goes wrong, the problem is rarely that sentence. It is which…" name="twitter:description"/><link href="https://specul.com/domain-safety.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/domain-safety.html" hreflang="en" rel="alternate"/><link href="https://specul.com/domain-safety.html" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/domain-safety.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<main id="main">
+<section class="hp-sec tight">
+<div class="hp-c">
+<nav aria-label="面包屑" class="domain-crumb">
+<a href="/en/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/en/topics.html">Topics</a>
+<span aria-hidden="true">/</span>
+<span>Field guide</span>
+</nav>
+<p class="kicker">Field guide · Safety and compliance</p>
+<h1>AI safety and compliance: from data flow to a launch gate</h1>
+<p class="domain-lead">Many teams add “do not leak user data” to a support bot and call safety done. When something goes wrong, the problem is rarely that sentence. It is which orders the bot can read, who it can send what to, and how long the logs keep it. Draw the assets and data flow before talking about guardrails.</p>
+<p class="domain-readmeta">
+<span><b>For</b> Anyone connecting an AI feature to real business and facing review</span>
+<span><b>You leave with</b> A data-flow map, a permission table and a pre-launch evidence checklist</span>
+<span><b>Time</b> 15 minutes to read; about a day for a minimum review</span>
+<span class="domain-verified">Last checked 25 Nov 2026</span>
+</p>
+<p class="domain-meta">This is Specul’s defensive safety and compliance framework, not legal advice or a tutorial in penetration, attack or evasion. Specific obligations, licences and compliance conclusions remain with applicable law, regulator interpretations, contracts and original sources.</p>
+</div>
+</section>
+<section class="hp-sec tight">
+<div class="hp-c domain-prose">
+<div class="domain-quick">
+<b>If you only have five minutes</b>
+<ol><li>Name the assets first: people, data, money, availability, reputation and legal exposure.</li><li>Map where data enters, who touches it, where it is stored and who can still read it.</li><li>Guardrails sit at four layers: input, output, retrieval and tools. Each layer needs a test.</li></ol>
+<p>The full guide starts below. Use the tables for reference; you do not need to memorise them.</p>
+</div>
+<div class="domain-case">
+<b>One concrete job</b>
+<p>Take one concrete job: a knowledge-base bot inside Feishu that can read contracts, send messages and look up customer orders. Draw the data flow first, then decide which tools are off by default.</p>
+</div>
+<div class="domain-callout domain-thesis">Safety that does not reach data flow, permissions and evidence is a slogan; evaluation that cannot rerun is an opinion.</div>
+<nav aria-label="Contents" class="domain-toc" id="domain-toc">
+<b>Contents</b>
+<ol><li><a href="#asset">1 · Define what to protect: people, data, money, availability, reputation, legal exposure</a></li><li><a href="#flow">2 · Draw the data flow: where data enters, who sees it, where it rests, who can still read it</a></li><li><a href="#threat">3 · Threat model: enumerate by scenario, not by model quality</a></li><li><a href="#permission">4 · Permissions and tools: deny by default, open one scope at a time</a></li><li><a href="#guardrail">5 · Guardrails: input, output, retrieval and tools each have limits</a></li><li><a href="#eval">6 · Evaluation and red teaming: a rerunnable set, not a one-off demo</a></li><li><a href="#monitor">7 · Monitoring, logs and incident response: detect before containing</a></li><li><a href="#vendor">8 · Vendors and model changes: check capability and obligation separately</a></li><li><a href="#rules">9 · Compliance: rules, evidence and owners in three columns, not “should be fine”</a></li><li><a href="#gate">10 · Release gate: risk tier, evidence list, sign-off and rollback</a></li><li><a href="#fail">11 · Failure branches: contain first, locate second, explain last</a></li><li><a href="#path">12 · A minimum path: from protected asset to rollback-ready launch</a></li></ol>
+</nav>
+<section class="domain-section" id="asset">
+<h2>1 · Define what to protect: people, data, money, availability, reputation, legal exposure</h2>
+<p>“AI safety” is too broad to accept. List the assets: users’ physical and psychological safety, personal and commercial data, accounts and funds, service availability, brand reputation, legal and contractual obligations. Each has different harms, exposure and evidence. Writing only “prevent harmful content” misses data exfiltration, tool overreach, account takeover and outage.</p><p>Write each asset as a testable sentence: “the support agent must not read another tenant’s orders”, “generated output must not execute a shell”, “unreviewed model output must not enter outbound email”. The more specific, the easier to design permissions, evaluation and alerts.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Asset</th><th>Harm</th><th>Exposure</th><th>Evidence</th></tr></thead><tbody><tr><td>People<span aria-hidden="true" class="cell-label">Asset</span></td><td>Harassment, discrimination, self-harm inducement, privacy<span aria-hidden="true" class="cell-label">Harm</span></td><td>Dialogue, recommendation, generation, avatars<span aria-hidden="true" class="cell-label">Exposure</span></td><td>Red-team samples, human review, incident log<span aria-hidden="true" class="cell-label">Evidence</span></td></tr><tr><td>Data<span aria-hidden="true" class="cell-label">Asset</span></td><td>Personal data, trade secrets, training-data leak<span aria-hidden="true" class="cell-label">Harm</span></td><td>Retrieval, tools, logs, caches, third parties<span aria-hidden="true" class="cell-label">Exposure</span></td><td>Data-flow map, access logs, DLP tests<span aria-hidden="true" class="cell-label">Evidence</span></td></tr><tr><td>Money / accounts<span aria-hidden="true" class="cell-label">Asset</span></td><td>Fraud, unauthorised transactions, quota abuse<span aria-hidden="true" class="cell-label">Harm</span></td><td>Payment tools, API keys, session takeover<span aria-hidden="true" class="cell-label">Exposure</span></td><td>Approval records, limits, reconciliation<span aria-hidden="true" class="cell-label">Evidence</span></td></tr><tr><td>Availability<span aria-hidden="true" class="cell-label">Asset</span></td><td>Outage, runaway cost, resource exhaustion<span aria-hidden="true" class="cell-label">Harm</span></td><td>Long context, batch calls, retry storms<span aria-hidden="true" class="cell-label">Exposure</span></td><td>Load test, rate limits, cost curve<span aria-hidden="true" class="cell-label">Evidence</span></td></tr><tr><td>Reputation<span aria-hidden="true" class="cell-label">Asset</span></td><td>Wrong answers, brand offence, synthetic-media controversy<span aria-hidden="true" class="cell-label">Harm</span></td><td>Publication, social media, avatars<span aria-hidden="true" class="cell-label">Exposure</span></td><td>Pre-release review, labelling, withdrawal log<span aria-hidden="true" class="cell-label">Evidence</span></td></tr><tr><td>Legal / contract<span aria-hidden="true" class="cell-label">Asset</span></td><td>Licence, privacy, sector rules or client contract breach<span aria-hidden="true" class="cell-label">Harm</span></td><td>Data sources, model terms, transfer, retention<span aria-hidden="true" class="cell-label">Exposure</span></td><td>Rule register, contracts, audit evidence<span aria-hidden="true" class="cell-label">Evidence</span></td></tr></tbody></table></div><div class="domain-callout">If the asset cannot be written as one testable sentence, the guardrail has no acceptance criterion.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="flow">
+<h2>2 · Draw the data flow: where data enters, who sees it, where it rests, who can still read it</h2>
+<p>Draw one map: user input → application → model/retrieval → tools/third parties → logs/caches → output. Label every arrow with data type, trust boundary, encryption, retention and owner. Without it, permissions, redaction, retention and cross-border transfer are guesswork.</p><p>A trust boundary is not just “internal / external”. Model output entering tool arguments, retrieval results entering prompts, logs entering analytics and subprocessors touching data are all boundaries. At each crossing ask again: does this data still need to be kept in full, who may read it, and for how long?</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Stage</th><th>Data</th><th>Boundary question</th><th>Record</th></tr></thead><tbody><tr><td>Input<span aria-hidden="true" class="cell-label">Stage</span></td><td>User text, files, audio, images<span aria-hidden="true" class="cell-label">Data</span></td><td>Personal data, secrets, minors<span aria-hidden="true" class="cell-label">Boundary question</span></td><td>Purpose, notice, retention<span aria-hidden="true" class="cell-label">Record</span></td></tr><tr><td>Application<span aria-hidden="true" class="cell-label">Stage</span></td><td>Session, user ID, permissions, config<span aria-hidden="true" class="cell-label">Data</span></td><td>Who can read, cross-tenant access<span aria-hidden="true" class="cell-label">Boundary question</span></td><td>Tenant isolation, least privilege<span aria-hidden="true" class="cell-label">Record</span></td></tr><tr><td>Model / retrieval<span aria-hidden="true" class="cell-label">Stage</span></td><td>Prompts, context, knowledge chunks<span aria-hidden="true" class="cell-label">Data</span></td><td>Over-permissioned documents, cache residue<span aria-hidden="true" class="cell-label">Boundary question</span></td><td>Retrieval filtering, context clearing<span aria-hidden="true" class="cell-label">Record</span></td></tr><tr><td>Tools / third parties<span aria-hidden="true" class="cell-label">Stage</span></td><td>Arguments, results, credentials, callbacks<span aria-hidden="true" class="cell-label">Data</span></td><td>Tool scope, egress, subprocessors<span aria-hidden="true" class="cell-label">Boundary question</span></td><td>Per-tool scope, approval, audit<span aria-hidden="true" class="cell-label">Record</span></td></tr><tr><td>Logs / caches<span aria-hidden="true" class="cell-label">Stage</span></td><td>Raw text, summaries, errors, metrics<span aria-hidden="true" class="cell-label">Data</span></td><td>Secondary retention of sensitive data<span aria-hidden="true" class="cell-label">Boundary question</span></td><td>Redaction, access control, retention<span aria-hidden="true" class="cell-label">Record</span></td></tr><tr><td>Output<span aria-hidden="true" class="cell-label">Stage</span></td><td>Answers, files, images, actions<span aria-hidden="true" class="cell-label">Data</span></td><td>Direct execution, publication, outbound<span aria-hidden="true" class="cell-label">Boundary question</span></td><td>Human confirmation, citation, labelling<span aria-hidden="true" class="cell-label">Record</span></td></tr></tbody></table></div><div class="domain-callout">At every trust boundary, ask again whether the data still needs to be kept in full.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="threat">
+<h2>3 · Threat model: enumerate by scenario, not by model quality</h2>
+<p>A threat model says who, through which entry point, wants what, under which conditions. Prompt injection, tool abuse, data exfiltration, insecure output, supply chain, resource exhaustion, overreliance and privacy inference are scenario problems, not one line about “the model not being safe enough”. A stronger model does not fix tool permissions or egress boundaries.</p><p>Pair each threat with an observable indicator, a mitigation and a way to know it failed. A mitigation without detection is an assumption; detection without an indicator drowns in alerts.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Threat</th><th>Scenario</th><th>Indicator</th><th>Mitigation and detection</th></tr></thead><tbody><tr><td>Prompt injection<span aria-hidden="true" class="cell-label">Threat</span></td><td>Web pages, documents, email or tool results enter the prompt<span aria-hidden="true" class="cell-label">Scenario</span></td><td>Instruction-like text hits, out-of-scope tool calls<span aria-hidden="true" class="cell-label">Indicator</span></td><td>Source marking, instruction isolation, tool allowlist; log triggers<span aria-hidden="true" class="cell-label">Mitigation and detection</span></td></tr><tr><td>Tool abuse<span aria-hidden="true" class="cell-label">Threat</span></td><td>Model can message, mutate data, pay or execute code<span aria-hidden="true" class="cell-label">Scenario</span></td><td>High-privilege calls, unusual arguments, rate<span aria-hidden="true" class="cell-label">Indicator</span></td><td>Least privilege, human confirmation, quotas; audit each call<span aria-hidden="true" class="cell-label">Mitigation and detection</span></td></tr><tr><td>Data exfiltration<span aria-hidden="true" class="cell-label">Threat</span></td><td>Retrieval, logs, errors, third-party callbacks<span aria-hidden="true" class="cell-label">Scenario</span></td><td>Sensitive fields in output, logs or egress<span aria-hidden="true" class="cell-label">Indicator</span></td><td>Field-level redaction, egress allowlist, DLP alerts<span aria-hidden="true" class="cell-label">Mitigation and detection</span></td></tr><tr><td>Insecure output<span aria-hidden="true" class="cell-label">Threat</span></td><td>Generated code, commands, config or HTML executed directly<span aria-hidden="true" class="cell-label">Scenario</span></td><td>Unescaped output, dangerous arguments, excess privilege<span aria-hidden="true" class="cell-label">Indicator</span></td><td>Sandbox, escaping, static checks, human review<span aria-hidden="true" class="cell-label">Mitigation and detection</span></td></tr><tr><td>Supply chain<span aria-hidden="true" class="cell-label">Threat</span></td><td>Unknown model, plugin, dependency or dataset<span aria-hidden="true" class="cell-label">Scenario</span></td><td>Version drift, permission growth, missing provenance<span aria-hidden="true" class="cell-label">Indicator</span></td><td>Version pinning, signature checks, licence and provenance manifest<span aria-hidden="true" class="cell-label">Mitigation and detection</span></td></tr><tr><td>Resource exhaustion<span aria-hidden="true" class="cell-label">Threat</span></td><td>Long context, batch requests, retry storms<span aria-hidden="true" class="cell-label">Scenario</span></td><td>Cost curve, queue latency, error rate<span aria-hidden="true" class="cell-label">Indicator</span></td><td>Quotas, timeouts, backoff, circuit breaker; cost alerts<span aria-hidden="true" class="cell-label">Mitigation and detection</span></td></tr><tr><td>Overreliance<span aria-hidden="true" class="cell-label">Threat</span></td><td>Users treat output as fact or professional advice<span aria-hidden="true" class="cell-label">Scenario</span></td><td>No citations, no confirmation, correction rate<span aria-hidden="true" class="cell-label">Indicator</span></td><td>Citations, confidence cues, human confirmation, domain limits<span aria-hidden="true" class="cell-label">Mitigation and detection</span></td></tr><tr><td>Privacy inference<span aria-hidden="true" class="cell-label">Threat</span></td><td>Model infers personal attributes from public or semi-public data<span aria-hidden="true" class="cell-label">Scenario</span></td><td>Sensitive-attribute inference, re-identification<span aria-hidden="true" class="cell-label">Indicator</span></td><td>Use limits, output filters, no-inference list<span aria-hidden="true" class="cell-label">Mitigation and detection</span></td></tr></tbody></table></div><div class="domain-callout">Every threat needs an indicator, a mitigation and a detection. Missing one leaves an assumption.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="permission">
+<h2>4 · Permissions and tools: deny by default, open one scope at a time</h2>
+<p>Agent risk sits less in what it says than in what it can do. File access, messaging, database mutation, payment, code execution and intranet access each need separate authorisation, quota and audit. Deny by default, open the minimum scope per task: read-only before write, draft before send, sandbox before production.</p><p>High-risk actions need human confirmation that shows the exact arguments, impact and reversibility, not a generic “agree” button. Secrets do not enter prompts, logs or model context. Tool credentials are isolated per user, session and task, and revoked when the task ends.</p><div class="domain-facts"><p><b>Deny by default</b><br/><em>How</em>: Tool list off by default; request per task<br/><em>Acceptance</em>: No extra tools on a new task</p><p><b>Least scope</b><br/><em>How</em>: Read-only, one directory, one recipient, one quota<br/><em>Acceptance</em>: Out-of-scope calls rejected and logged</p><p><b>Human confirmation</b><br/><em>How</em>: Show arguments, impact and reversibility<br/><em>Acceptance</em>: Record traces to the exact action</p><p><b>Sandbox</b><br/><em>How</em>: Code, file parsing and browser in isolation<br/><em>Acceptance</em>: Cannot read host credentials or roam the network</p><p><b>Egress allowlist</b><br/><em>How</em>: Only necessary domains and protocols<br/><em>Acceptance</em>: Unknown domains blocked and alerted</p><p><b>Credential isolation</b><br/><em>How</em>: Short-lived tokens, per session, revoked after task<br/><em>Acceptance</em>: No plaintext secrets in logs or context</p><p><b>Quotas and breaker</b><br/><em>How</em>: Limit calls and spend per user, task and time<br/><em>Acceptance</em>: Automatic stop on abnormal spikes</p></div><div class="domain-callout">Deny by default and open one scope at a time: read-only before write, draft before send.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="guardrail">
+<h2>5 · Guardrails: input, output, retrieval and tools each have limits</h2>
+<p>A guardrail is not one classifier. Input checks intent and source; retrieval filters permission and freshness; output checks schema, escaping, citations and sensitive data; tools validate arguments and scope. Each layer must state what it blocks and what it does not, or it will kill legitimate requests or leave bypasses to the next layer.</p><p>Classifiers have false positives and false negatives and cannot be the only gate. High-risk cases combine rules, human review, quotas and audit; low-risk cases must not be blocked indefinitely, or users learn to bypass. Acceptance measures block rate, false-positive rate, latency and explainable records together.</p><div class="domain-facts"><p><b>Input</b><br/><em>Blocks</em>: Clearly disallowed intent, oversized input, suspicious files<br/><em>Does not block</em>: Paraphrase, multi-turn inducement<br/><em>Acceptance</em>: Block rate, false positives, latency</p><p><b>Retrieval</b><br/><em>Blocks</em>: Over-permissioned documents, stale versions, unauthorised sources<br/><em>Does not block</em>: Wrong facts inside an authorised document<br/><em>Acceptance</em>: Permission hits, citation resolves to source</p><p><b>Output</b><br/><em>Blocks</em>: Sensitive fields, unescaped code, uncited claims<br/><em>Does not block</em>: Tone, metaphor, contextual misleading<br/><em>Acceptance</em>: Schema pass, DLP hits, citation rate</p><p><b>Tools</b><br/><em>Blocks</em>: Out-of-scope arguments, dangerous commands, unknown domains<br/><em>Does not block</em>: Malicious content returned by a tool<br/><em>Acceptance</em>: Rejection log, sandbox, human confirmation</p></div><div class="domain-callout">A guardrail must state what it blocks and what it does not. “Safer” is not an acceptance criterion.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="eval">
+<h2>6 · Evaluation and red teaming: a rerunnable set, not a one-off demo</h2>
+<p>Safety evaluation needs an item set, scorer, thresholds and rerun records. Items cover normal, boundary, adversarial, multilingual, multi-turn and tool scenarios. The scorer can be rules, humans or a model, but its agreement must be known. Thresholds separate “must block”, “may warn” and “allowed”. A few successful demos is not an evaluation.</p><p>Red teaming looks for how the system fails in the real chain, not for a pile of prompts. Record entry point, permissions, model version, tool config, expected and actual result. After a fix, rerun the same item to confirm it is not a different model happening to block it.</p><div class="domain-facts"><p><b>Item set</b><br/><em>Write</em>: Normal, boundary, adversarial, multi-turn, multilingual, tool<br/><em>Acceptance</em>: Minimum sample size and source per class</p><p><b>Scorer</b><br/><em>Write</em>: Rules, human or model-assisted; criteria<br/><em>Acceptance</em>: Agreement measurable, disputes adjudicable</p><p><b>Threshold</b><br/><em>Write</em>: Must block, may warn, allowed<br/><em>Acceptance</em>: Threshold tied to risk tier</p><p><b>Red team</b><br/><em>Write</em>: Entry, permissions, config, real chain<br/><em>Acceptance</em>: Findings reproducible, fixes rerunnable</p><p><b>Regression</b><br/><em>Write</em>: Rerun on every model, prompt or tool change<br/><em>Acceptance</em>: No score drop, old issues do not return</p><p><b>Record</b><br/><em>Write</em>: Version, date, samples, results, owner<br/><em>Acceptance</em>: Trace to the same item and config</p></div><div class="domain-callout">Red teaming is not collecting prompts; it is finding reproducible failures in the real chain.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="monitor">
+<h2>7 · Monitoring, logs and incident response: detect before containing</h2>
+<p>Logs must answer who, when, which model, which tool, which data, which action and what result. But logs are also sensitive: raw text, prompts and tool arguments may contain personal or confidential data. Redact, restrict access, set retention and limit who can read them.</p><p>Incident response needs severity, containment, evidence, notification and review. First be able to disable one tool, model or tenant; then investigate. Preserve evidence before cleaning up, and write notification audiences and deadlines into the runbook. Without a kill switch and rollback, monitoring only watches the incident grow.</p><div class="domain-facts"><p><b>Log fields</b><br/><em>Minimum</em>: User/tenant, model version, tool, argument summary, result, latency<br/><em>Acceptance</em>: Reconstruct one full call</p><p><b>Redaction</b><br/><em>Minimum</em>: Personal data, secrets, confidential data in prompts and arguments<br/><em>Acceptance</em>: Sampled logs contain no plaintext sensitive fields</p><p><b>Alerting</b><br/><em>Minimum</em>: Scope violations, unusual egress, cost spikes, error rate<br/><em>Acceptance</em>: Threshold, owner, noise control</p><p><b>Containment</b><br/><em>Minimum</em>: Disable per tool, model or tenant<br/><em>Acceptance</em>: One action works, rollback available</p><p><b>Evidence</b><br/><em>Minimum</em>: Timeline, versions, calls, affected scope<br/><em>Acceptance</em>: Exportable, reviewable</p><p><b>Notification / review</b><br/><em>Minimum</em>: Regulator, client, user, internal<br/><em>Acceptance</em>: Audiences and deadlines in the runbook</p></div><div class="domain-callout">Without a kill switch and rollback, monitoring only watches the incident grow.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="vendor">
+<h2>8 · Vendors and model changes: check capability and obligation separately</h2>
+<p>A model vendor is not only a capability provider but also a data processor, subprocessor and continuity party. Check residency and transfer, logging and training use, subprocessor list, security certifications, model-version change notice, service levels, exit and data export. A good capability evaluation does not replace contract and data-processing terms.</p><p>A model upgrade changes output, cost and failure modes. On every version change, rerun the safety set, regress the business evaluation, check pricing and quotas, then decide. Do not skip the release gate because “the new model is stronger”.</p><div class="domain-facts"><p><b>Residency / transfer</b><br/><em>Look for</em>: Region, storage, backup, transfer path<br/><em>What does not substitute</em>: One line saying “global service”</p><p><b>Training use</b><br/><em>Look for</em>: Whether customer data trains the model, whether it can be disabled<br/><em>What does not substitute</em>: A privacy-policy summary</p><p><b>Subprocessors</b><br/><em>Look for</em>: List, change notice, responsibility chain<br/><em>What does not substitute</em>: One main contract</p><p><b>Security evidence</b><br/><em>Look for</em>: Certifications, audit reports, vulnerability response<br/><em>What does not substitute</em>: A badge on the product page</p><p><b>Version change</b><br/><em>Look for</em>: Notice period, deprecation, rollback<br/><em>What does not substitute</em>: “Automatic upgrade”</p><p><b>Exit / export</b><br/><em>Look for</em>: Export format, deadline, deletion proof<br/><em>What does not substitute</em>: A verbal promise</p></div><div class="domain-callout">A capability evaluation does not replace contract and data-processing terms; every model upgrade reruns the gate.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="rules">
+<h2>9 · Compliance: rules, evidence and owners in three columns, not “should be fine”</h2>
+<p>Compliance is not one universal checklist. Register applicable rules: statutes, regulator interpretations, sector norms, client contracts, platform terms and internal policy. For each, write scope, obligation, evidence, owner and review date. Different jurisdictions and sectors may apply at once; when they conflict, seek professional advice rather than concluding on this page.</p><p>Evidence must be independently reviewable: policy versions, training records, review minutes, log samples, contract clauses, test reports. “Compliant” without evidence is nothing in an audit. Rules change; when the review date arrives, check again rather than reusing one conclusion for three years.</p><div class="domain-facts"><p><b>Rule</b><br/><em>Write</em>: Name, clause, scope, effective date<br/><em>Example</em>: A sector privacy rule applies to support chats</p><p><b>Obligation</b><br/><em>Write</em>: Must do, must not do, must notify, must retain<br/><em>Example</em>: Keep authorisation records and support deletion</p><p><b>Evidence</b><br/><em>Write</em>: Documents, logs, tests, contracts, minutes<br/><em>Example</em>: Quarterly permission audit and samples</p><p><b>Owner</b><br/><em>Write</em>: Who maintains, signs and reviews<br/><em>Example</em>: Security owner plus business owner</p><p><b>Review date</b><br/><em>Write</em>: Next check and trigger<br/><em>Example</em>: Rule change, model upgrade, incident</p></div><div class="domain-callout">Write three columns: rule, evidence and owner. “Compliant” alone is no evidence.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="gate">
+<h2>10 · Release gate: risk tier, evidence list, sign-off and rollback</h2>
+<p>A release gate is not a nod from the security team. Tier the risk first: public-facing, personal data, ability to spend money, mutate data or execute code, minors, sector regulation. The tier determines evidence, signatories, rollout scope and rollback conditions.</p><p>The gate may allow a conditional launch, but conditions must be specific, checkable and time-bound: internal only, read-only, 50 manual samples daily, review in two weeks. Do not bypass with “launch first” or replace a fix with a permanent exception.</p><div class="domain-facts"><p><b>Low</b><br/><em>Typical case</em>: Internal draft, read-only, no personal data<br/><em>Minimum evidence</em>: Basic evaluation, usage limits<br/><em>Rollout</em>: Small scope, kill switch</p><p><b>Medium</b><br/><em>Typical case</em>: External users, limited tools, possible personal data<br/><em>Minimum evidence</em>: Safety set, permission audit, logs and rollback<br/><em>Rollout</em>: Canary, quotas, human sampling</p><p><b>High</b><br/><em>Typical case</em>: Payment, data mutation, code execution, minors, regulated<br/><em>Minimum evidence</em>: Red team, human review, contract/DPA, incident drill<br/><em>Rollout</em>: Small traffic, per-action confirmation, strong monitoring</p><p><b>Blocked</b><br/><em>Typical case</em>: Unmitigable high harm, unclear licence, no rollback<br/><em>Minimum evidence</em>: Do not ship<br/><em>Rollout</em>: Redesign or change scope</p></div><div class="domain-callout">Conditional launch is allowed when conditions are specific, checkable and time-bound; permanent exceptions are not.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="fail">
+<h2>11 · Failure branches: contain first, locate second, explain last</h2>
+<p>The expensive part of a safety incident is not that something failed, but that it was detected and not stopped. Contain by tool, model, tenant or entry point first, then preserve evidence, scope impact and notify owners. Do not spend the containment window explaining that “the model does this sometimes”.</p><div class="domain-facts"><p><b>Out-of-scope tool call</b><br/><em>First action</em>: Disable the tool or session<br/><em>Then check</em>: Permission config, arguments, call chain<br/><em>Do not</em>: Let the agent retry</p><p><b>Sensitive data in output</b><br/><em>First action</em>: Stop output or recall the message<br/><em>Then check</em>: Retrieval permission, logs, caches<br/><em>Do not</em>: Only edit the prompt</p><p><b>Cost spike</b><br/><em>First action</em>: Quota or circuit breaker<br/><em>Then check</em>: Retries, batching, long context<br/><em>Do not</em>: Optimise the model first</p><p><b>Regression after model change</b><br/><em>First action</em>: Roll back the version<br/><em>Then check</em>: Item set, config, pricing<br/><em>Do not</em>: Accept the new version</p><p><b>Licence or compliance challenge</b><br/><em>First action</em>: Remove the data or feature<br/><em>Then check</em>: Source, terms, contract<br/><em>Do not</em>: Issue a statement before evidence</p><p><b>Alert flood</b><br/><em>First action</em>: Reduce noise, tier, assign owner<br/><em>Then check</em>: Threshold, duplicates, root cause<br/><em>Do not</em>: Turn all alerts off</p></div><div class="domain-callout">Contain, then locate, then explain. Reverse the order and the incident grows.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="path">
+<h2>12 · A minimum path: from protected asset to rollback-ready launch</h2>
+<p>This path fits an AI feature that uses tools, reads data or ships externally. Each step leaves evidence before the next begins.</p><ul class="domain-list"><li>List protected assets: people, data, money, availability, reputation, legal duty; write one testable sentence each.</li><li>Draw the data flow: input, application, model/retrieval, tools/third parties, logs/caches, output; mark trust boundaries.</li><li>Write the threat model: who, entry, goal, conditions; pair each threat with an indicator and detection.</li><li>Set permissions: deny by default, per-tool least scope, human confirmation, quotas, sandbox, egress allowlist.</li><li>Build guardrails across input, retrieval, output and tools; state what is blocked, what is not, false positives and latency.</li><li>Build evaluation: item set, scorer, thresholds, red team, regression and records.</li><li>Connect monitoring: log fields, redaction, alerts, kill switch, rollback and incident runbook.</li><li>Check vendors and rules: residency, training use, subprocessors, contracts, applicable rules and evidence.</li><li>Pass the release gate: risk tier, evidence list, sign-off, canary scope, rollback conditions.</li><li>Rerun after launch: model/prompt/tool changes, alert review, permission audit, rule review dates.</li></ul><div class="domain-callout">The minimum path is not the fastest launch; it is the shortest loop that can contain, rerun and roll back.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="sources">
+<h2>Sources and further reading</h2>
+<p>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</p>
+<ul class="domain-src"><li><a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="noopener">NIST AI Risk Management Framework</a><span>A framework for AI risk identification, governance, mapping and evidence; not a sector compliance conclusion.</span></li><li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf" rel="noopener">NIST AI 600-1 · Generative AI risks</a><span>A lifecycle-oriented list of trust, safety and misuse risks for generative AI.</span></li><li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" rel="noopener">OWASP · LLM Top 10</a><span>Application-level risk categories including prompt injection, data leakage, tool abuse and supply chain.</span></li><li><a href="https://atlas.mitre.org/" rel="noopener">MITRE ATLAS</a><span>A matrix of attack techniques and cases against AI systems; use for threat modelling and red-team comparison.</span></li><li><a href="https://incidentdatabase.ai/" rel="noopener">AI Incident Database</a><span>Documented AI incidents and failures for review and scenario comparison.</span></li><li><a href="https://saif.google/secure-ai-framework" rel="noopener">Google · Secure AI Framework</a><span>Six principles and a risk map for secure AI system design.</span></li><li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" rel="noopener">EU AI Act · Official text</a><span>The EU AI Act’s articles and obligation structure; application needs professional interpretation.</span></li><li><a href="https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm" rel="noopener">China · Interim Measures for Generative AI Services</a><span>The scope, obligations and regulatory basis for generative AI services in China.</span></li><li><a href="https://arxiv.org/abs/2302.12173" rel="noopener">Not what you’ve signed up for · Prompt injection</a><span>How prompt injection conflates application and model boundaries; a reference for defensive design.</span></li></ul>
+</section>
+<section class="domain-next">
+<h2>Next</h2>
+<ul><li><a href="/en/topic-safety.html">Back to the safety route</a></li><li><a href="/en/domain-data.html">Next: complete provenance and deletion</a></li><li><a href="/en/topics.html">Browse the other 15 topic routes</a></li></ul>
+<p>If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</p>
+</section>
+<p class="domain-back"><a href="https://specul.com/en/">← Back to home</a> <span aria-hidden="true">·</span> <a href="/en/correct.html">Spot an error? Send a correction</a></p>
+</div>
+</section>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>

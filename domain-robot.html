@@ -1,240 +1,235 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="theme-color" content="#16121f" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>机器人与具身：先跑通一个能重复的动作 · Specul</title>
-  <meta name="description" content="视频里的人形机器人会叠衣服，你买回一台，连把方块放进盒子都要重调。机器人不是“一个大模型”，而是本体、传感器、控制栈、策略、仿真和评测一起工作。先让一个动作在真实环境里重复 100 次，再谈人形和通用。" />
-  <link rel="canonical" href="https://specul.com/domain-robot.html" />
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="Specul" />
-  <meta property="og:url" content="https://specul.com/domain-robot.html" />
-  <meta property="og:title" content="机器人与具身：先跑通一个能重复的动作" />
-  <meta property="og:description" content="视频里的人形机器人会叠衣服，你买回一台，连把方块放进盒子都要重调。机器人不是“一个大模型”，而是本体、传感器、控制栈、策略、仿真和评测一起工作。先让一个动作在真实环境里重复 100 次，再谈人形和通用。" />
-  <link rel="icon" type="image/png" href="assets/brand/dandelion-favicon-site.png" />
-  <link rel="apple-touch-icon" href="assets/brand/dandelion-apple-touch-site.png" />
-  <script src="brand.js?v=37d1072be69b"></script>
-  <link rel="stylesheet" href="brand.css?v=37d1072be69b" />
-  <link rel="stylesheet" href="site.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"机器人与具身：先跑通一个能重复的动作","description":"视频里的人形机器人会叠衣服，你买回一台，连把方块放进盒子都要重调。机器人不是“一个大模型”，而是本体、传感器、控制栈、策略、仿真和评测一起工作。先让一个动作在真实环境里重复 100 次，再谈人形和通用。","url":"https://specul.com/domain-robot.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
-</head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>机器人与具身：先跑通一个能重复的动作 · Specul</title>
+<meta content="视频里的人形机器人会叠衣服，你买回一台，连把方块放进盒子都要重调。机器人不是“一个大模型”，而是本体、传感器、控制栈、策略、仿真和评测一起工作。先让一个动作在真实环境里重复 100 次，再谈人形和通用。" name="description"/>
+<link href="https://specul.com/domain-robot.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="article" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/domain-robot.html" property="og:url"/>
+<meta content="机器人与具身：先跑通一个能重复的动作" property="og:title"/>
+<meta content="视频里的人形机器人会叠衣服，你买回一台，连把方块放进盒子都要重调。机器人不是“一个大模型”，而是本体、传感器、控制栈、策略、仿真和评测一起工作。先让一个动作在真实环境里重复 100 次，再谈人形和通用。" property="og:description"/>
+<link href="assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="brand.js?v=37d1072be69b"></script>
+<link href="brand.css?v=37d1072be69b" rel="stylesheet"/>
+<link href="site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"机器人与具身：先跑通一个能重复的动作","description":"视频里的人形机器人会叠衣服，你买回一台，连把方块放进盒子都要重调。机器人不是“一个大模型”，而是本体、传感器、控制栈、策略、仿真和评测一起工作。先让一个动作在真实环境里重复 100 次，再谈人形和通用。","url":"https://specul.com/domain-robot.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+<link href="https://specul.com/domain-robot.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/domain-robot.html" hreflang="en" rel="alternate"/><link href="https://specul.com/domain-robot.html" hreflang="x-default" rel="alternate"/></head>
 <body class="brand-ambient has-tabbar has-tabbar-1row">
-
 <!-- SPECUL:HEADER:START -->
-  <header class="site-header">
-    <div class="container site-bar">
-      <a class="brand" href="https://specul.com/" title="投机取巧">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span class="brand-text">
-          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
-          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="站点导航">
-        <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
-        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
-        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
-        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
-        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
-        <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
-        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
-        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
-      </nav>
-      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" data-en-name="Speculative Speculation" data-zh-name="投机取巧" id="markName">投机取巧</span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation" id="markSub">Speculative Speculation</span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span data-zh="">作品演示</span><span data-en="">Playground</span></a>
+<a href="https://oss.specul.com/"><span data-zh="">开源库</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span data-zh="">硬件算力</span><span data-en="">Compute</span></a>
+<a href="https://papers.specul.com/"><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></a>
+<a href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a href="https://nav.specul.com/"><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
            （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
            链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
-      <span class="nav-tools">
-        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
-        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
-      </span>
-      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+<span class="nav-tools">
+<a aria-label="搜索" class="icon-btn" data-ui-aria-label-en="Search" data-ui-aria-label-zh="搜索" data-ui-title-en="Search all sites" data-ui-title-zh="搜索全站" href="https://specul.com/search.html" title="搜索全站"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="Switch to English" class="icon-btn" href="/en/domain-robot.html" hreflang="en" id="langBtn" lang="en" title="Switch to English">EN</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
            行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
-      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
-        <i></i><i></i><i></i>
-      </button>
-    </div>
-  </header>
-  <div class="nav-scrim"></div>
-  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
-    <div class="nav-drawer-h">
-      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
-      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
-    </div>
-    <nav class="nav-drawer-list">
-      <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
-    </nav>
-    <div class="nav-drawer-foot">
-      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
-      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
-    </div>
-  </aside>
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name"><span data-zh="">投机取巧</span><span data-en="">Speculative Speculation</span></span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation">Speculative Speculation</span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/"><span><span data-zh="">首页</span><span data-en="">Home</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/"><span><span data-zh="">学 AI</span><span data-en="">Learn</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/"><span><span data-zh="">工具</span><span data-en="">Tools</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/"><span><span data-zh="">模型</span><span data-en="">Models</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/"><span><span data-zh="">作品演示</span><span data-en="">Playground</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/"><span><span data-zh="">开源库</span><span data-en="">OSS</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/"><span><span data-zh="">硬件算力</span><span data-en="">Compute</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/"><span><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/"><span><span data-zh="">链</span><span data-en="">Chain</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/"><span><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p><span data-zh="">内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en="">Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+<nav><a href="https://specul.com/legal.html"><span data-zh="">法律条款</span><span data-en="">Legal terms</span></a></nav>
+</div>
+</aside>
 <!-- SPECUL:HEADER:END -->
-
 <main id="main">
 <section class="hp-sec tight">
-    <div class="hp-c">
-      <nav class="domain-crumb" aria-label="面包屑">
-        <a href="/"><span data-zh>首页</span><span data-en>Home</span></a>
-        <span aria-hidden="true">/</span>
-        <a href="topics.html"><span data-zh>主题索引</span><span data-en>Topics</span></a>
-        <span aria-hidden="true">/</span>
-        <span><span data-zh>领域深读</span><span data-en>Field guide</span></span>
-      </nav>
-      <p class="kicker"><span data-zh>领域深度 · 机器人与具身</span><span data-en>Field guide · Robotics &amp; embodied AI</span></p>
-      <h1><span data-zh>机器人与具身：先跑通一个能重复的动作</span><span data-en>Robotics and embodied AI: make one action repeatable first</span></h1>
-      <p class="domain-lead"><span data-zh>视频里的人形机器人会叠衣服，你买回一台，连把方块放进盒子都要重调。机器人不是“一个大模型”，而是本体、传感器、控制栈、策略、仿真和评测一起工作。先让一个动作在真实环境里重复 100 次，再谈人形和通用。</span><span data-en>The humanoid in the video folds laundry. Yours cannot put a block in a box without retuning. A robot is not one large model; body, sensors, control stack, policy, simulation and evaluation work together. Make one action repeat 100 times in the real world before talking about humanoids or generality.</span></p>
-      <p class="domain-readmeta">
-        <span><b><span data-zh>适合谁</span><span data-en>For</span></b> <span data-zh>要做机器人 demo、实验或小批量落地的人</span><span data-en>Anyone building a robot demo, experiment or small deployment</span></span>
-        <span><b><span data-zh>读完能拿到</span><span data-en>You leave with</span></b> <span data-zh>一张本体与传感器清单，和一条“仿真到真机”的最小闭环</span><span data-en>A body-and-sensor checklist and a minimum sim-to-real loop</span></span>
-        <span><b><span data-zh>大概多久</span><span data-en>Time</span></b> <span data-zh>先读 12 分钟；跑通一个动作约 1–2 周</span><span data-en>12 minutes to read; 1–2 weeks to make one action repeatable</span></span>
-        <span class="domain-verified"><span data-zh>最后核对 2026-11-25</span><span data-en>Last checked 25 Nov 2026</span></span>
-      </p>
-      <p class="domain-meta"><span data-zh>本页是 Specul 的领域判断与决策框架，不是产品评测；具体规格与许可以所链页面和原始来源为准。</span><span data-en>This is Specul’s field judgment and decision framework, not a product review. Specifications and licences remain with the linked pages and original sources.</span></p>
-    </div>
-  </section>
-  <section class="hp-sec tight">
-    <div class="hp-c domain-prose">
-      <div class="domain-quick">
-        <b><span data-zh>如果你只有 5 分钟</span><span data-en>If you only have five minutes</span></b>
-        <ol><li><span data-zh>先定一个动作、一个物体、一个成功判定。</span><span data-en>Fix one action, one object and one success test.</span></li><li><span data-zh>仿真能加速，但不能替代真机上的 100 次重复。</span><span data-en>Simulation speeds things up; it does not replace 100 real-world repeats.</span></li><li><span data-zh>先记录失败，再谈泛化。</span><span data-en>Record failures before talking about generalisation.</span></li></ol>
-        <p><span data-zh>完整版从下面开始；表格是查的时候用，不用背。</span><span data-en>The full guide starts below. Use the tables for reference; you do not need to memorise them.</span></p>
-      </div>
-      <div class="domain-case">
-        <b><span data-zh>拿一个具体活走一遍</span><span data-en>One concrete job</span></b>
-        <p><span data-zh>假设一个具体活：让机械臂把桌上的方块放进盒子，允许 3 次里成功 2 次，先把这条跑通，不碰人形。</span><span data-en>Take one concrete job: a arm picks a block and puts it in a box, succeeding twice out of three attempts. Get that working before touching a humanoid.</span></p>
-      </div>
-      <figure class="domain-fig">
-        <div class="domain-fig-scroll"><img src="assets/figures/domain-robot.svg" alt="机器人四层闭环：任务与安全、感知与策略、控制与中间件、本体与传感器 / Four-layer robot loop: task and safety, perception and policy, control and middleware, body and sensors" loading="lazy" /></div>
-        <figcaption><span data-zh>图 1 · 四层闭环。越往下越要求确定性，越往上越允许概率性；不要把云端大模型直接塞进实时控制环。</span><span data-en>Figure 1 · Four loops. Determinism increases toward the bottom, probability toward the top. Do not put a slow cloud model directly inside the real-time control loop.</span></figcaption>
-      </figure>
-      <div class="domain-callout domain-thesis"><span data-zh>先用固定工位、固定任务把闭环跑通，再谈开放环境与人形。人形是形态选择，不是能力证明。</span><span data-en>Close the loop on a fixed workstation and a fixed task first. A humanoid is a form-factor choice, not proof of capability.</span></div>
-      <nav class="domain-toc" id="domain-toc" aria-label="本文目录" data-ui-aria-label-zh="本文目录" data-ui-aria-label-en="Contents">
-        <b><span data-zh>本文目录</span><span data-en>Contents</span></b>
-        <ol><li><a href="#layers"><span data-zh>1 · 把四层拆开，不要混成一个「机器人模型」</span><span data-en>1 · Separate four layers instead of one “robot model”</span></a></li><li><a href="#body"><span data-zh>2 · 本体：先选任务，不要先选人形</span><span data-en>2 · Body: choose the task before the humanoid</span></a></li><li><a href="#sensors"><span data-zh>3 · 传感器与时序：先问「什么时候拍的」，再问「看到了什么」</span><span data-en>3 · Sensors and timing: ask “when was this captured” before “what is in it”</span></a></li><li><a href="#control"><span data-zh>4 · 控制与中间件：实时性不是「跑得快」，是「每次都在截止时间前」</span><span data-en>4 · Control and middleware: real time means meeting every deadline, not running fast</span></a></li><li><a href="#policy"><span data-zh>5 · 模型与策略：VLA 是接口，不是魔法</span><span data-en>5 · Models and policies: VLA is an interface, not magic</span></a></li><li><a href="#eval"><span data-zh>6 · 仿真与评测：先证明「会失败」，再证明「能成功」</span><span data-en>6 · Simulation and evaluation: prove it can fail before proving it can succeed</span></a></li><li><a href="#safety"><span data-zh>7 · 安全与合规：标准是底线，风险评估才是起点</span><span data-en>7 · Safety and compliance: standards are a floor, risk assessment is the start</span></a></li><li><a href="#path"><span data-zh>8 · 最小落地路径</span><span data-en>8 · A minimum path to deployment</span></a></li><li><a href="#mistakes"><span data-zh>9 · 四个常见误区</span><span data-en>9 · Four common mistakes</span></a></li></ol>
-      </nav>
-      <section class="domain-section" id="layers">
-      <h2><span data-zh>1 · 把四层拆开，不要混成一个「机器人模型」</span><span data-en>1 · Separate four layers instead of one “robot model”</span></h2>
-      <p><span data-zh>本体与传感器层负责「现在在哪、周围有什么、关节受多大力」。控制与中间件层负责「按时、按安全边界把动作发出去」。感知与策略层负责「根据看到的东西决定下一步」。任务与安全层负责「这件事该不该做、做到什么程度必须停」。</span><span data-en>The body and sensor layer answers “where am I, what is around me and how much force is at each joint”. The control and middleware layer sends actions on time and within safety limits. The perception and policy layer decides the next action from what is sensed. The task and safety layer decides whether the task should run at all, and when to stop.</span></p><p><span data-zh>大模型通常落在感知 / 策略层，或者更上面的任务层。它输出的是「意图、动作片段或坐标」，不是电机电流。把云端推理直接接进 100–1000 Hz 的控制环，延迟和抖动会先于智能把系统搞坏。</span><span data-en>A large model usually sits in the perception/policy layer, or above it in the task layer. It outputs intents, action chunks or coordinates — not motor current. Putting cloud inference directly into a 100–1000 Hz control loop makes latency and jitter break the system before intelligence matters.</span></p><p><span data-zh>一个可用的分层判据：如果某段逻辑失败时必须「立刻停机」，它属于控制 / 安全层。如果失败时可以「停下来等人确认」，它可以放在策略 / 任务层。</span><span data-en>A useful test: if a failure must trigger an immediate stop, the logic belongs in control/safety; if a failure can pause for a human decision, it can live in policy/task.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh>层</span><span data-en>Layer</span></th><th><span data-zh>回答的问题</span><span data-en>Question</span></th><th><span data-zh>典型组件</span><span data-en>Typical components</span></th></tr></thead><tbody><tr><td><span data-zh>任务与安全</span><span data-en>Task &amp; safety</span><span class="cell-label" aria-hidden="true"><span data-zh>层</span><span data-en>Layer</span></span></td><td><span data-zh>做什么、何时停、谁批准</span><span data-en>What to do, when to stop, who approves</span><span class="cell-label" aria-hidden="true"><span data-zh>回答的问题</span><span data-en>Question</span></span></td><td><span data-zh>任务编排、权限、急停、风险评估</span><span data-en>Task orchestration, permissions, e-stop, risk assessment</span><span class="cell-label" aria-hidden="true"><span data-zh>典型组件</span><span data-en>Typical components</span></span></td></tr><tr><td><span data-zh>感知与策略</span><span data-en>Perception &amp; policy</span><span class="cell-label" aria-hidden="true"><span data-zh>层</span><span data-en>Layer</span></span></td><td><span data-zh>看到什么、下一步做什么</span><span data-en>What is sensed, what to do next</span><span class="cell-label" aria-hidden="true"><span data-zh>回答的问题</span><span data-en>Question</span></span></td><td><span data-zh>视觉 / 深度 / 力觉、VLA、模仿学习策略</span><span data-en>Vision/depth/force, VLA, imitation policies</span><span class="cell-label" aria-hidden="true"><span data-zh>典型组件</span><span data-en>Typical components</span></span></td></tr><tr><td><span data-zh>控制与中间件</span><span data-en>Control &amp; middleware</span><span class="cell-label" aria-hidden="true"><span data-zh>层</span><span data-en>Layer</span></span></td><td><span data-zh>怎样按时、稳定地执行</span><span data-en>How to execute on time and stably</span><span class="cell-label" aria-hidden="true"><span data-zh>回答的问题</span><span data-en>Question</span></span></td><td><span data-zh>ROS 2、DDS、PLC、EtherCAT、watchdog</span><span data-en>ROS 2, DDS, PLC, EtherCAT, watchdog</span><span class="cell-label" aria-hidden="true"><span data-zh>典型组件</span><span data-en>Typical components</span></span></td></tr><tr><td><span data-zh>本体与传感器</span><span data-en>Body &amp; sensors</span><span class="cell-label" aria-hidden="true"><span data-zh>层</span><span data-en>Layer</span></span></td><td><span data-zh>物理上能做什么</span><span data-en>What is physically possible</span><span class="cell-label" aria-hidden="true"><span data-zh>回答的问题</span><span data-en>Question</span></span></td><td><span data-zh>关节、电机、编码器、相机、IMU、力传感器</span><span data-en>Joints, motors, encoders, cameras, IMUs, force sensors</span><span class="cell-label" aria-hidden="true"><span data-zh>典型组件</span><span data-en>Typical components</span></span></td></tr></tbody></table></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<div class="hp-c">
+<nav aria-label="面包屑" class="domain-crumb">
+<a href="/"><span data-zh="">首页</span><span data-en="">Home</span></a>
+<span aria-hidden="true">/</span>
+<a href="topics.html"><span data-zh="">主题索引</span><span data-en="">Topics</span></a>
+<span aria-hidden="true">/</span>
+<span><span data-zh="">领域深读</span><span data-en="">Field guide</span></span>
+</nav>
+<p class="kicker"><span data-zh="">领域深度 · 机器人与具身</span><span data-en="">Field guide · Robotics &amp; embodied AI</span></p>
+<h1><span data-zh="">机器人与具身：先跑通一个能重复的动作</span><span data-en="">Robotics and embodied AI: make one action repeatable first</span></h1>
+<p class="domain-lead"><span data-zh="">视频里的人形机器人会叠衣服，你买回一台，连把方块放进盒子都要重调。机器人不是“一个大模型”，而是本体、传感器、控制栈、策略、仿真和评测一起工作。先让一个动作在真实环境里重复 100 次，再谈人形和通用。</span><span data-en="">The humanoid in the video folds laundry. Yours cannot put a block in a box without retuning. A robot is not one large model; body, sensors, control stack, policy, simulation and evaluation work together. Make one action repeat 100 times in the real world before talking about humanoids or generality.</span></p>
+<p class="domain-readmeta">
+<span><b><span data-zh="">适合谁</span><span data-en="">For</span></b> <span data-zh="">要做机器人 demo、实验或小批量落地的人</span><span data-en="">Anyone building a robot demo, experiment or small deployment</span></span>
+<span><b><span data-zh="">读完能拿到</span><span data-en="">You leave with</span></b> <span data-zh="">一张本体与传感器清单，和一条“仿真到真机”的最小闭环</span><span data-en="">A body-and-sensor checklist and a minimum sim-to-real loop</span></span>
+<span><b><span data-zh="">大概多久</span><span data-en="">Time</span></b> <span data-zh="">先读 12 分钟；跑通一个动作约 1–2 周</span><span data-en="">12 minutes to read; 1–2 weeks to make one action repeatable</span></span>
+<span class="domain-verified"><span data-zh="">最后核对 2026-11-25</span><span data-en="">Last checked 25 Nov 2026</span></span>
+</p>
+<p class="domain-meta"><span data-zh="">本页是 Specul 的领域判断与决策框架，不是产品评测；具体规格与许可以所链页面和原始来源为准。</span><span data-en="">This is Specul’s field judgment and decision framework, not a product review. Specifications and licences remain with the linked pages and original sources.</span></p>
+</div>
+</section>
+<section class="hp-sec tight">
+<div class="hp-c domain-prose">
+<div class="domain-quick">
+<b><span data-zh="">如果你只有 5 分钟</span><span data-en="">If you only have five minutes</span></b>
+<ol><li><span data-zh="">先定一个动作、一个物体、一个成功判定。</span><span data-en="">Fix one action, one object and one success test.</span></li><li><span data-zh="">仿真能加速，但不能替代真机上的 100 次重复。</span><span data-en="">Simulation speeds things up; it does not replace 100 real-world repeats.</span></li><li><span data-zh="">先记录失败，再谈泛化。</span><span data-en="">Record failures before talking about generalisation.</span></li></ol>
+<p><span data-zh="">完整版从下面开始；表格是查的时候用，不用背。</span><span data-en="">The full guide starts below. Use the tables for reference; you do not need to memorise them.</span></p>
+</div>
+<div class="domain-case">
+<b><span data-zh="">拿一个具体活走一遍</span><span data-en="">One concrete job</span></b>
+<p><span data-zh="">假设一个具体活：让机械臂把桌上的方块放进盒子，允许 3 次里成功 2 次，先把这条跑通，不碰人形。</span><span data-en="">Take one concrete job: a arm picks a block and puts it in a box, succeeding twice out of three attempts. Get that working before touching a humanoid.</span></p>
+</div>
+<figure class="domain-fig">
+<div class="domain-fig-scroll"><img alt="机器人四层闭环：任务与安全、感知与策略、控制与中间件、本体与传感器 / Four-layer robot loop: task and safety, perception and policy, control and middleware, body and sensors" loading="lazy" src="assets/figures/domain-robot.svg"/></div>
+<figcaption><span data-zh="">图 1 · 四层闭环。越往下越要求确定性，越往上越允许概率性；不要把云端大模型直接塞进实时控制环。</span><span data-en="">Figure 1 · Four loops. Determinism increases toward the bottom, probability toward the top. Do not put a slow cloud model directly inside the real-time control loop.</span></figcaption>
+</figure>
+<div class="domain-callout domain-thesis"><span data-zh="">先用固定工位、固定任务把闭环跑通，再谈开放环境与人形。人形是形态选择，不是能力证明。</span><span data-en="">Close the loop on a fixed workstation and a fixed task first. A humanoid is a form-factor choice, not proof of capability.</span></div>
+<nav aria-label="本文目录" class="domain-toc" data-ui-aria-label-en="Contents" data-ui-aria-label-zh="本文目录" id="domain-toc">
+<b><span data-zh="">本文目录</span><span data-en="">Contents</span></b>
+<ol><li><a href="#layers"><span data-zh="">1 · 把四层拆开，不要混成一个「机器人模型」</span><span data-en="">1 · Separate four layers instead of one “robot model”</span></a></li><li><a href="#body"><span data-zh="">2 · 本体：先选任务，不要先选人形</span><span data-en="">2 · Body: choose the task before the humanoid</span></a></li><li><a href="#sensors"><span data-zh="">3 · 传感器与时序：先问「什么时候拍的」，再问「看到了什么」</span><span data-en="">3 · Sensors and timing: ask “when was this captured” before “what is in it”</span></a></li><li><a href="#control"><span data-zh="">4 · 控制与中间件：实时性不是「跑得快」，是「每次都在截止时间前」</span><span data-en="">4 · Control and middleware: real time means meeting every deadline, not running fast</span></a></li><li><a href="#policy"><span data-zh="">5 · 模型与策略：VLA 是接口，不是魔法</span><span data-en="">5 · Models and policies: VLA is an interface, not magic</span></a></li><li><a href="#eval"><span data-zh="">6 · 仿真与评测：先证明「会失败」，再证明「能成功」</span><span data-en="">6 · Simulation and evaluation: prove it can fail before proving it can succeed</span></a></li><li><a href="#safety"><span data-zh="">7 · 安全与合规：标准是底线，风险评估才是起点</span><span data-en="">7 · Safety and compliance: standards are a floor, risk assessment is the start</span></a></li><li><a href="#path"><span data-zh="">8 · 最小落地路径</span><span data-en="">8 · A minimum path to deployment</span></a></li><li><a href="#mistakes"><span data-zh="">9 · 四个常见误区</span><span data-en="">9 · Four common mistakes</span></a></li></ol>
+</nav>
+<section class="domain-section" id="layers">
+<h2><span data-zh="">1 · 把四层拆开，不要混成一个「机器人模型」</span><span data-en="">1 · Separate four layers instead of one “robot model”</span></h2>
+<p><span data-zh="">本体与传感器层负责「现在在哪、周围有什么、关节受多大力」。控制与中间件层负责「按时、按安全边界把动作发出去」。感知与策略层负责「根据看到的东西决定下一步」。任务与安全层负责「这件事该不该做、做到什么程度必须停」。</span><span data-en="">The body and sensor layer answers “where am I, what is around me and how much force is at each joint”. The control and middleware layer sends actions on time and within safety limits. The perception and policy layer decides the next action from what is sensed. The task and safety layer decides whether the task should run at all, and when to stop.</span></p><p><span data-zh="">大模型通常落在感知 / 策略层，或者更上面的任务层。它输出的是「意图、动作片段或坐标」，不是电机电流。把云端推理直接接进 100–1000 Hz 的控制环，延迟和抖动会先于智能把系统搞坏。</span><span data-en="">A large model usually sits in the perception/policy layer, or above it in the task layer. It outputs intents, action chunks or coordinates — not motor current. Putting cloud inference directly into a 100–1000 Hz control loop makes latency and jitter break the system before intelligence matters.</span></p><p><span data-zh="">一个可用的分层判据：如果某段逻辑失败时必须「立刻停机」，它属于控制 / 安全层。如果失败时可以「停下来等人确认」，它可以放在策略 / 任务层。</span><span data-en="">A useful test: if a failure must trigger an immediate stop, the logic belongs in control/safety; if a failure can pause for a human decision, it can live in policy/task.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh="">层</span><span data-en="">Layer</span></th><th><span data-zh="">回答的问题</span><span data-en="">Question</span></th><th><span data-zh="">典型组件</span><span data-en="">Typical components</span></th></tr></thead><tbody><tr><td><span data-zh="">任务与安全</span><span data-en="">Task &amp; safety</span><span aria-hidden="true" class="cell-label"><span data-zh="">层</span><span data-en="">Layer</span></span></td><td><span data-zh="">做什么、何时停、谁批准</span><span data-en="">What to do, when to stop, who approves</span><span aria-hidden="true" class="cell-label"><span data-zh="">回答的问题</span><span data-en="">Question</span></span></td><td><span data-zh="">任务编排、权限、急停、风险评估</span><span data-en="">Task orchestration, permissions, e-stop, risk assessment</span><span aria-hidden="true" class="cell-label"><span data-zh="">典型组件</span><span data-en="">Typical components</span></span></td></tr><tr><td><span data-zh="">感知与策略</span><span data-en="">Perception &amp; policy</span><span aria-hidden="true" class="cell-label"><span data-zh="">层</span><span data-en="">Layer</span></span></td><td><span data-zh="">看到什么、下一步做什么</span><span data-en="">What is sensed, what to do next</span><span aria-hidden="true" class="cell-label"><span data-zh="">回答的问题</span><span data-en="">Question</span></span></td><td><span data-zh="">视觉 / 深度 / 力觉、VLA、模仿学习策略</span><span data-en="">Vision/depth/force, VLA, imitation policies</span><span aria-hidden="true" class="cell-label"><span data-zh="">典型组件</span><span data-en="">Typical components</span></span></td></tr><tr><td><span data-zh="">控制与中间件</span><span data-en="">Control &amp; middleware</span><span aria-hidden="true" class="cell-label"><span data-zh="">层</span><span data-en="">Layer</span></span></td><td><span data-zh="">怎样按时、稳定地执行</span><span data-en="">How to execute on time and stably</span><span aria-hidden="true" class="cell-label"><span data-zh="">回答的问题</span><span data-en="">Question</span></span></td><td><span data-zh="">ROS 2、DDS、PLC、EtherCAT、watchdog</span><span data-en="">ROS 2, DDS, PLC, EtherCAT, watchdog</span><span aria-hidden="true" class="cell-label"><span data-zh="">典型组件</span><span data-en="">Typical components</span></span></td></tr><tr><td><span data-zh="">本体与传感器</span><span data-en="">Body &amp; sensors</span><span aria-hidden="true" class="cell-label"><span data-zh="">层</span><span data-en="">Layer</span></span></td><td><span data-zh="">物理上能做什么</span><span data-en="">What is physically possible</span><span aria-hidden="true" class="cell-label"><span data-zh="">回答的问题</span><span data-en="">Question</span></span></td><td><span data-zh="">关节、电机、编码器、相机、IMU、力传感器</span><span data-en="">Joints, motors, encoders, cameras, IMUs, force sensors</span><span aria-hidden="true" class="cell-label"><span data-zh="">典型组件</span><span data-en="">Typical components</span></span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="body">
-      <h2><span data-zh>2 · 本体：先选任务，不要先选人形</span><span data-en>2 · Body: choose the task before the humanoid</span></h2>
-      <p><span data-zh>轮式底盘、固定机械臂、协作机械臂和足式人形是四种不同的工程问题。固定工位的机械臂最容易把「精度、重复性、安全围栏」做扎实。轮式底盘适合平坦地面的巡检与搬运。足式适合台阶、碎石等非结构化地形，但控制、能耗与跌倒风险都会上一个量级。</span><span data-en>A wheeled base, a fixed arm, a collaborative arm and a legged humanoid are four different engineering problems. A fixed arm makes precision, repeatability and fencing easiest. A wheeled base suits inspection and transport on flat floors. Legs suit steps and rubble, but control, energy and fall risk jump by an order of magnitude.</span></p><p><span data-zh>选本体时先写清四件事：要拿多重的物体（payload）、要够到多远（reach）、一次任务要跑多久（battery / duty cycle）、失败时会不会碰到人（safety distance）。这四项写不清，形态讨论就只是审美。</span><span data-en>Write down four things before choosing a body: payload, reach, battery/duty cycle and the safety distance to people when something fails. Without these four, the form-factor debate is aesthetics.</span></p><p><span data-zh>人形的价值在「为人类环境设计的环境」里——门把手、楼梯、工具。它的代价是自由度多、控制难、重心高、跌倒后果重。除非任务真的需要人类环境中的通用操作，否则先做专用形态更稳。</span><span data-en>A humanoid earns its keep in environments designed for humans — door handles, stairs, tools. The price is more degrees of freedom, harder control, a higher centre of gravity and worse fall consequences. Unless the task truly needs general operation in a human environment, a dedicated form is the safer first build.</span></p><div class="domain-callout"><span data-zh>判断句：如果任务能在固定围栏里完成，优先机械臂 / 固定底盘。人形只在「必须使用为人设计的空间与工具」时才变成刚需。</span><span data-en>Rule of thumb: if the task can be done inside a fixed fence, prefer an arm or a fixed base. A humanoid becomes necessary only when the space and tools were designed for humans.</span></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">2 · 本体：先选任务，不要先选人形</span><span data-en="">2 · Body: choose the task before the humanoid</span></h2>
+<p><span data-zh="">轮式底盘、固定机械臂、协作机械臂和足式人形是四种不同的工程问题。固定工位的机械臂最容易把「精度、重复性、安全围栏」做扎实。轮式底盘适合平坦地面的巡检与搬运。足式适合台阶、碎石等非结构化地形，但控制、能耗与跌倒风险都会上一个量级。</span><span data-en="">A wheeled base, a fixed arm, a collaborative arm and a legged humanoid are four different engineering problems. A fixed arm makes precision, repeatability and fencing easiest. A wheeled base suits inspection and transport on flat floors. Legs suit steps and rubble, but control, energy and fall risk jump by an order of magnitude.</span></p><p><span data-zh="">选本体时先写清四件事：要拿多重的物体（payload）、要够到多远（reach）、一次任务要跑多久（battery / duty cycle）、失败时会不会碰到人（safety distance）。这四项写不清，形态讨论就只是审美。</span><span data-en="">Write down four things before choosing a body: payload, reach, battery/duty cycle and the safety distance to people when something fails. Without these four, the form-factor debate is aesthetics.</span></p><p><span data-zh="">人形的价值在「为人类环境设计的环境」里——门把手、楼梯、工具。它的代价是自由度多、控制难、重心高、跌倒后果重。除非任务真的需要人类环境中的通用操作，否则先做专用形态更稳。</span><span data-en="">A humanoid earns its keep in environments designed for humans — door handles, stairs, tools. The price is more degrees of freedom, harder control, a higher centre of gravity and worse fall consequences. Unless the task truly needs general operation in a human environment, a dedicated form is the safer first build.</span></p><div class="domain-callout"><span data-zh="">判断句：如果任务能在固定围栏里完成，优先机械臂 / 固定底盘。人形只在「必须使用为人设计的空间与工具」时才变成刚需。</span><span data-en="">Rule of thumb: if the task can be done inside a fixed fence, prefer an arm or a fixed base. A humanoid becomes necessary only when the space and tools were designed for humans.</span></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="sensors">
-      <h2><span data-zh>3 · 传感器与时序：先问「什么时候拍的」，再问「看到了什么」</span><span data-en>3 · Sensors and timing: ask “when was this captured” before “what is in it”</span></h2>
-      <p><span data-zh>机器人常见的传感器组合是 RGB 相机、深度相机、IMU、关节编码器和力 / 力矩传感器。每一路都有自己的时间戳、帧率和延迟。不做时间同步，融合出来的状态就是错的。一个 30 fps 的相机已经意味着 33 ms 的采样间隔，控制环却可能在 10 ms 内跑完一轮。</span><span data-en>A typical robot carries RGB and depth cameras, an IMU, joint encoders and force/torque sensors. Each stream has its own timestamp, rate and latency. Without time synchronisation, the fused state is wrong. A 30 fps camera already means a 33 ms sample interval, while the control loop may complete a cycle in 10 ms.</span></p><p><span data-zh>先做三件事：给每路数据打同一时钟源的时间戳。标定相机内参、外参和手眼关系。把「丢帧、过期、越界」当成一等失败，而不是让模型猜。深度相机在反光、透明和强光下会失效，力传感器在碰撞和装配时会饱和——这些都要在采集阶段记录。</span><span data-en>Do three things first: timestamp every stream against a shared clock; calibrate camera intrinsics, extrinsics and hand-eye geometry; treat dropped, stale and out-of-range data as first-class failures instead of asking the model to guess. Depth cameras fail on reflective, transparent and bright surfaces; force sensors saturate in collisions and assembly. Record these at collection time.</span></p><p><span data-zh>验收时不要只看「识别率」。要看端到端延迟分布（P50 / P95 / 最坏）、丢帧率、重新标定后的漂移，以及传感器失效时系统是否进入安全状态。</span><span data-en>Do not accept a system on recognition accuracy alone. Check end-to-end latency (P50 / P95 / worst case), dropped-frame rate, drift after recalibration, and whether the system enters a safe state when a sensor fails.</span></p>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">3 · 传感器与时序：先问「什么时候拍的」，再问「看到了什么」</span><span data-en="">3 · Sensors and timing: ask “when was this captured” before “what is in it”</span></h2>
+<p><span data-zh="">机器人常见的传感器组合是 RGB 相机、深度相机、IMU、关节编码器和力 / 力矩传感器。每一路都有自己的时间戳、帧率和延迟。不做时间同步，融合出来的状态就是错的。一个 30 fps 的相机已经意味着 33 ms 的采样间隔，控制环却可能在 10 ms 内跑完一轮。</span><span data-en="">A typical robot carries RGB and depth cameras, an IMU, joint encoders and force/torque sensors. Each stream has its own timestamp, rate and latency. Without time synchronisation, the fused state is wrong. A 30 fps camera already means a 33 ms sample interval, while the control loop may complete a cycle in 10 ms.</span></p><p><span data-zh="">先做三件事：给每路数据打同一时钟源的时间戳。标定相机内参、外参和手眼关系。把「丢帧、过期、越界」当成一等失败，而不是让模型猜。深度相机在反光、透明和强光下会失效，力传感器在碰撞和装配时会饱和——这些都要在采集阶段记录。</span><span data-en="">Do three things first: timestamp every stream against a shared clock; calibrate camera intrinsics, extrinsics and hand-eye geometry; treat dropped, stale and out-of-range data as first-class failures instead of asking the model to guess. Depth cameras fail on reflective, transparent and bright surfaces; force sensors saturate in collisions and assembly. Record these at collection time.</span></p><p><span data-zh="">验收时不要只看「识别率」。要看端到端延迟分布（P50 / P95 / 最坏）、丢帧率、重新标定后的漂移，以及传感器失效时系统是否进入安全状态。</span><span data-en="">Do not accept a system on recognition accuracy alone. Check end-to-end latency (P50 / P95 / worst case), dropped-frame rate, drift after recalibration, and whether the system enters a safe state when a sensor fails.</span></p>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="control">
-      <h2><span data-zh>4 · 控制与中间件：实时性不是「跑得快」，是「每次都在截止时间前」</span><span data-en>4 · Control and middleware: real time means meeting every deadline, not running fast</span></h2>
-      <p><span data-zh>ROS 2 提供发布 / 订阅、服务、动作、参数、生命周期和 QoS。它适合把感知、规划、记录和可视化连起来。但 QoS 配错（例如 reliable 队列堆积）、回调里做重活、或者让垃圾回收/网络抖动进入控制路径，都会让「实时」变成口号。</span><span data-en>ROS 2 provides publish/subscribe, services, actions, parameters, lifecycle and QoS. It is good for connecting perception, planning, logging and visualisation. But wrong QoS (for example a growing reliable queue), heavy work inside callbacks, or garbage collection and network jitter on the control path turn “real time” into a slogan.</span></p><p><span data-zh>硬实时的那一段通常交给 PLC、运动控制器或 EtherCAT 从站。ROS 2 负责上层编排和状态发布。急停必须是独立的安全链，不能依赖同一台通用计算机上的一个 Python 进程。</span><span data-en>The hard-real-time segment usually belongs to a PLC, motion controller or EtherCAT slave; ROS 2 handles orchestration and state publishing above it. The emergency stop must be an independent safety chain, not a Python process on the same general-purpose computer.</span></p><p><span data-zh>最低验收：看门狗能检测主循环停摆。通信中断时执行器进入预设安全位。日志能回放「指令—状态—动作」的时间线。没有回放，故障就只能靠猜。</span><span data-en>Minimum acceptance: a watchdog detects a stalled main loop; actuators go to a defined safe state when communication drops; logs can replay the command–state–action timeline. Without replay, failures are guessed.</span></p>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">4 · 控制与中间件：实时性不是「跑得快」，是「每次都在截止时间前」</span><span data-en="">4 · Control and middleware: real time means meeting every deadline, not running fast</span></h2>
+<p><span data-zh="">ROS 2 提供发布 / 订阅、服务、动作、参数、生命周期和 QoS。它适合把感知、规划、记录和可视化连起来。但 QoS 配错（例如 reliable 队列堆积）、回调里做重活、或者让垃圾回收/网络抖动进入控制路径，都会让「实时」变成口号。</span><span data-en="">ROS 2 provides publish/subscribe, services, actions, parameters, lifecycle and QoS. It is good for connecting perception, planning, logging and visualisation. But wrong QoS (for example a growing reliable queue), heavy work inside callbacks, or garbage collection and network jitter on the control path turn “real time” into a slogan.</span></p><p><span data-zh="">硬实时的那一段通常交给 PLC、运动控制器或 EtherCAT 从站。ROS 2 负责上层编排和状态发布。急停必须是独立的安全链，不能依赖同一台通用计算机上的一个 Python 进程。</span><span data-en="">The hard-real-time segment usually belongs to a PLC, motion controller or EtherCAT slave; ROS 2 handles orchestration and state publishing above it. The emergency stop must be an independent safety chain, not a Python process on the same general-purpose computer.</span></p><p><span data-zh="">最低验收：看门狗能检测主循环停摆。通信中断时执行器进入预设安全位。日志能回放「指令—状态—动作」的时间线。没有回放，故障就只能靠猜。</span><span data-en="">Minimum acceptance: a watchdog detects a stalled main loop; actuators go to a defined safe state when communication drops; logs can replay the command–state–action timeline. Without replay, failures are guessed.</span></p>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="policy">
-      <h2><span data-zh>5 · 模型与策略：VLA 是接口，不是魔法</span><span data-en>5 · Models and policies: VLA is an interface, not magic</span></h2>
-      <p><span data-zh>VLA（视觉—语言—动作）模型把图像、指令和动作片段接在一起。它擅长把「把红色方块放到托盘左边」这类指令映射成动作序列，但它不保证物理可行性、不保证安全，也不保证跨场景泛化。策略输出必须经过运动学、碰撞和力限的安全过滤，才能下发。</span><span data-en>A VLA (vision–language–action) model connects images, instructions and action chunks. It is good at mapping instructions such as “put the red block left of the tray” to action sequences, but it does not guarantee physical feasibility, safety or generalisation to a new scene. Policy output must pass kinematic, collision and force-limit safety filters before it reaches the actuators.</span></p><p><span data-zh>数据是比模型更常见的瓶颈。真实机器人采集慢、贵、难以覆盖失败。仿真能扩大覆盖，但会引入渲染与物理的偏差。模仿学习适合有专家示范的固定任务。强化学习适合能大量试错且有可靠仿真的场景。两者都不能替代现场验收。</span><span data-en>Data is a more common bottleneck than the model. Real-robot collection is slow and expensive and rarely covers failures; simulation widens coverage but introduces rendering and physics gaps. Imitation suits fixed tasks with expert demonstrations; reinforcement learning suits settings where trial and error is cheap and simulation is trustworthy. Neither replaces on-site acceptance.</span></p><p><span data-zh>一个务实的选择顺序：固定任务 + 手工基线 → 加入感知辅助 → 加入学习策略 → 保留安全过滤与回退。不要一步跳到「端到端大模型控整机」。</span><span data-en>A pragmatic order: fixed task with a hand-coded baseline → add perception assistance → add a learned policy → keep safety filters and fallback. Do not jump straight to “end-to-end large model controls the whole machine”.</span></p>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">5 · 模型与策略：VLA 是接口，不是魔法</span><span data-en="">5 · Models and policies: VLA is an interface, not magic</span></h2>
+<p><span data-zh="">VLA（视觉—语言—动作）模型把图像、指令和动作片段接在一起。它擅长把「把红色方块放到托盘左边」这类指令映射成动作序列，但它不保证物理可行性、不保证安全，也不保证跨场景泛化。策略输出必须经过运动学、碰撞和力限的安全过滤，才能下发。</span><span data-en="">A VLA (vision–language–action) model connects images, instructions and action chunks. It is good at mapping instructions such as “put the red block left of the tray” to action sequences, but it does not guarantee physical feasibility, safety or generalisation to a new scene. Policy output must pass kinematic, collision and force-limit safety filters before it reaches the actuators.</span></p><p><span data-zh="">数据是比模型更常见的瓶颈。真实机器人采集慢、贵、难以覆盖失败。仿真能扩大覆盖，但会引入渲染与物理的偏差。模仿学习适合有专家示范的固定任务。强化学习适合能大量试错且有可靠仿真的场景。两者都不能替代现场验收。</span><span data-en="">Data is a more common bottleneck than the model. Real-robot collection is slow and expensive and rarely covers failures; simulation widens coverage but introduces rendering and physics gaps. Imitation suits fixed tasks with expert demonstrations; reinforcement learning suits settings where trial and error is cheap and simulation is trustworthy. Neither replaces on-site acceptance.</span></p><p><span data-zh="">一个务实的选择顺序：固定任务 + 手工基线 → 加入感知辅助 → 加入学习策略 → 保留安全过滤与回退。不要一步跳到「端到端大模型控整机」。</span><span data-en="">A pragmatic order: fixed task with a hand-coded baseline → add perception assistance → add a learned policy → keep safety filters and fallback. Do not jump straight to “end-to-end large model controls the whole machine”.</span></p>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="eval">
-      <h2><span data-zh>6 · 仿真与评测：先证明「会失败」，再证明「能成功」</span><span data-en>6 · Simulation and evaluation: prove it can fail before proving it can succeed</span></h2>
-      <p><span data-zh>Isaac Sim、Gazebo、Webots 都能做场景、传感器和物理仿真，但它们的价值不是「跑起来好看」，而是能在受控条件下重复失败：光照变化、遮挡、反光、传感器噪声、物体滑移、通信延迟、急停触发。</span><span data-en>Isaac Sim, Gazebo and Webots can model scenes, sensors and physics. Their value is not a good-looking demo; it is repeatable failure under controlled conditions: lighting changes, occlusion, reflections, sensor noise, slipping objects, communication delay and e-stop triggers.</span></p><p><span data-zh>评测表至少要有：任务成功率与置信区间、平均 / 最坏完成时间、人工接管次数、碰撞 / 越界次数、恢复时间、以及每条失败的环境与日志。只报一个「成功率 95%」而不说样本、场景和失败定义，等于没报。</span><span data-en>An evaluation table needs: success rate with confidence interval, mean and worst completion time, human takeovers, collisions and boundary violations, recovery time, and the environment plus log for each failure. A bare “95% success” without sample size, scenes and failure definition is not a result.</span></p><p><span data-zh>仿真通过只是允许上真机的门票。真机验收要单独做：限速、限力、围栏、急停、人员进入检测，以及「模型输出越界时执行器怎么办」。</span><span data-en>Passing simulation is only a ticket to the real machine. Real-machine acceptance is separate: speed and force limits, fencing, e-stop, human-presence detection, and what the actuator does when the model output goes out of bounds.</span></p><div class="domain-callout"><span data-zh>本页的判断：演示视频证明不了机器人能力。能复现的失败清单、接管记录和安全状态，才是可验收的证据。</span><span data-en>Specul’s judgment: a demo video does not prove robot capability. A reproducible failure list, takeover records and safe-state behaviour are the evidence that can be accepted.</span></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">6 · 仿真与评测：先证明「会失败」，再证明「能成功」</span><span data-en="">6 · Simulation and evaluation: prove it can fail before proving it can succeed</span></h2>
+<p><span data-zh="">Isaac Sim、Gazebo、Webots 都能做场景、传感器和物理仿真，但它们的价值不是「跑起来好看」，而是能在受控条件下重复失败：光照变化、遮挡、反光、传感器噪声、物体滑移、通信延迟、急停触发。</span><span data-en="">Isaac Sim, Gazebo and Webots can model scenes, sensors and physics. Their value is not a good-looking demo; it is repeatable failure under controlled conditions: lighting changes, occlusion, reflections, sensor noise, slipping objects, communication delay and e-stop triggers.</span></p><p><span data-zh="">评测表至少要有：任务成功率与置信区间、平均 / 最坏完成时间、人工接管次数、碰撞 / 越界次数、恢复时间、以及每条失败的环境与日志。只报一个「成功率 95%」而不说样本、场景和失败定义，等于没报。</span><span data-en="">An evaluation table needs: success rate with confidence interval, mean and worst completion time, human takeovers, collisions and boundary violations, recovery time, and the environment plus log for each failure. A bare “95% success” without sample size, scenes and failure definition is not a result.</span></p><p><span data-zh="">仿真通过只是允许上真机的门票。真机验收要单独做：限速、限力、围栏、急停、人员进入检测，以及「模型输出越界时执行器怎么办」。</span><span data-en="">Passing simulation is only a ticket to the real machine. Real-machine acceptance is separate: speed and force limits, fencing, e-stop, human-presence detection, and what the actuator does when the model output goes out of bounds.</span></p><div class="domain-callout"><span data-zh="">本页的判断：演示视频证明不了机器人能力。能复现的失败清单、接管记录和安全状态，才是可验收的证据。</span><span data-en="">Specul’s judgment: a demo video does not prove robot capability. A reproducible failure list, takeover records and safe-state behaviour are the evidence that can be accepted.</span></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="safety">
-      <h2><span data-zh>7 · 安全与合规：标准是底线，风险评估才是起点</span><span data-en>7 · Safety and compliance: standards are a floor, risk assessment is the start</span></h2>
-      <p><span data-zh>工业机器人通常要按 ISO 10218 系列做风险评估，协作场景还会涉及 ISO/TS 15066 的力与速度限制。具体适用条款、验收方式和当地法规要求，必须由有资质的安全人员结合现场确定。本页不替代安全评审，也不给合规结论。</span><span data-en>Industrial robots are commonly assessed against the ISO 10218 series; collaborative settings also involve the force and speed limits in ISO/TS 15066. The applicable clauses, acceptance method and local legal requirements must be fixed on site by qualified safety people. This page does not replace a safety review or give a compliance conclusion.</span></p><p><span data-zh>工程上先把三层保护分开：本体的物理限位与急停、控制层的速度 / 力 / 空间限制、任务层的权限与人工确认。任何一层被绕过，都不算「有安全」。</span><span data-en>Separate three protection layers in engineering: physical limits and e-stop on the body; speed, force and workspace limits in control; permissions and human confirmation in the task layer. If any layer can be bypassed, the system is not safe.</span></p><p><span data-zh>上线后仍要管理变更：换模型、换相机、换夹具、换地面、换任务，都可能让原来的风险评估失效。每次变更都要重新跑一遍受限场景与急停测试。</span><span data-en>Manage change after launch: a new model, camera, gripper, floor or task can invalidate the original risk assessment. Re-run the restricted scenarios and e-stop tests for every change.</span></p>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">7 · 安全与合规：标准是底线，风险评估才是起点</span><span data-en="">7 · Safety and compliance: standards are a floor, risk assessment is the start</span></h2>
+<p><span data-zh="">工业机器人通常要按 ISO 10218 系列做风险评估，协作场景还会涉及 ISO/TS 15066 的力与速度限制。具体适用条款、验收方式和当地法规要求，必须由有资质的安全人员结合现场确定。本页不替代安全评审，也不给合规结论。</span><span data-en="">Industrial robots are commonly assessed against the ISO 10218 series; collaborative settings also involve the force and speed limits in ISO/TS 15066. The applicable clauses, acceptance method and local legal requirements must be fixed on site by qualified safety people. This page does not replace a safety review or give a compliance conclusion.</span></p><p><span data-zh="">工程上先把三层保护分开：本体的物理限位与急停、控制层的速度 / 力 / 空间限制、任务层的权限与人工确认。任何一层被绕过，都不算「有安全」。</span><span data-en="">Separate three protection layers in engineering: physical limits and e-stop on the body; speed, force and workspace limits in control; permissions and human confirmation in the task layer. If any layer can be bypassed, the system is not safe.</span></p><p><span data-zh="">上线后仍要管理变更：换模型、换相机、换夹具、换地面、换任务，都可能让原来的风险评估失效。每次变更都要重新跑一遍受限场景与急停测试。</span><span data-en="">Manage change after launch: a new model, camera, gripper, floor or task can invalidate the original risk assessment. Re-run the restricted scenarios and e-stop tests for every change.</span></p>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="path">
-      <h2><span data-zh>8 · 最小落地路径</span><span data-en>8 · A minimum path to deployment</span></h2>
-      <ul class="domain-list"><li><span data-zh>写清一个任务：输入物体、目标位置、成功标准、允许的失败方式。</span><span data-en>Write one task: input object, target location, success criterion and allowed failure modes.</span></li><li><span data-zh>搭一个手工基线：固定轨迹或遥操作，先证明机械与传感器能完成任务。</span><span data-en>Build a hand-coded baseline: a fixed trajectory or teleoperation that proves the mechanics and sensors can do the task.</span></li><li><span data-zh>把时间同步、标定、丢帧和失效检测做进采集与回放。</span><span data-en>Put time sync, calibration, dropped-frame and failure detection into collection and replay.</span></li><li><span data-zh>在仿真里跑失败矩阵，记录每条失败的环境与日志。</span><span data-en>Run a failure matrix in simulation, recording the environment and log for each failure.</span></li><li><span data-zh>上真机，限速限力，围栏与急停独立。每次只改一个变量。</span><span data-en>Move to the real machine with speed/force limits and independent fencing and e-stop; change one variable at a time.</span></li><li><span data-zh>让操作员参与验收：接管次数、恢复时间、误报与漏报都要记。</span><span data-en>Include operators in acceptance: takeovers, recovery time, false positives and misses all count.</span></li><li><span data-zh>把模型输出经过安全过滤，定义越界、超时、通信中断时的回退动作。</span><span data-en>Pass model output through a safety filter and define fallback on out-of-bounds, timeout and communication loss.</span></li><li><span data-zh>变更即复评：模型、传感器、夹具、场地、任务任一变化，重跑受限场景。</span><span data-en>Re-assess on change: any model, sensor, gripper, site or task change triggers the restricted scenarios again.</span></li></ul>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">8 · 最小落地路径</span><span data-en="">8 · A minimum path to deployment</span></h2>
+<ul class="domain-list"><li><span data-zh="">写清一个任务：输入物体、目标位置、成功标准、允许的失败方式。</span><span data-en="">Write one task: input object, target location, success criterion and allowed failure modes.</span></li><li><span data-zh="">搭一个手工基线：固定轨迹或遥操作，先证明机械与传感器能完成任务。</span><span data-en="">Build a hand-coded baseline: a fixed trajectory or teleoperation that proves the mechanics and sensors can do the task.</span></li><li><span data-zh="">把时间同步、标定、丢帧和失效检测做进采集与回放。</span><span data-en="">Put time sync, calibration, dropped-frame and failure detection into collection and replay.</span></li><li><span data-zh="">在仿真里跑失败矩阵，记录每条失败的环境与日志。</span><span data-en="">Run a failure matrix in simulation, recording the environment and log for each failure.</span></li><li><span data-zh="">上真机，限速限力，围栏与急停独立。每次只改一个变量。</span><span data-en="">Move to the real machine with speed/force limits and independent fencing and e-stop; change one variable at a time.</span></li><li><span data-zh="">让操作员参与验收：接管次数、恢复时间、误报与漏报都要记。</span><span data-en="">Include operators in acceptance: takeovers, recovery time, false positives and misses all count.</span></li><li><span data-zh="">把模型输出经过安全过滤，定义越界、超时、通信中断时的回退动作。</span><span data-en="">Pass model output through a safety filter and define fallback on out-of-bounds, timeout and communication loss.</span></li><li><span data-zh="">变更即复评：模型、传感器、夹具、场地、任务任一变化，重跑受限场景。</span><span data-en="">Re-assess on change: any model, sensor, gripper, site or task change triggers the restricted scenarios again.</span></li></ul>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="mistakes">
-      <h2><span data-zh>9 · 四个常见误区</span><span data-en>9 · Four common mistakes</span></h2>
-      <ul class="domain-list"><li><span data-zh>「先做人形，再找场景」：形态先行会让自由度、成本和跌倒风险同时上升。</span><span data-en>“Build a humanoid, then find a use”: form-first raises degrees of freedom, cost and fall risk at the same time.</span></li><li><span data-zh>「演示视频就是能力」：视频剪掉了失败、接管和环境搭建，不能替代评测表。</span><span data-en>“The demo video is the capability”: it edits out failures, takeovers and setup, and cannot replace an evaluation table.</span></li><li><span data-zh>「大模型直接控电机」：把概率输出放进硬实时环，延迟与越界都没有安全边界。</span><span data-en>“Let the large model drive the motors”: probabilistic output in a hard-real-time loop has no safe bound on latency or out-of-range actions.</span></li><li><span data-zh>「仿真过了就能上线」：仿真缺少真实摩擦、反光、磨损、人员行为和急停链路。</span><span data-en>“Simulation passed, so it can ship”: simulation misses real friction, reflections, wear, human behaviour and the e-stop chain.</span></li></ul>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
-      <section class="domain-section" id="sources">
-        <h2><span data-zh>来源与延伸阅读</span><span data-en>Sources and further reading</span></h2>
-        <p><span data-zh>以下链接用于核对事实、许可证与官方口径。外部页面可能更新；引用时以原文与核验日为准。</span><span data-en>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</span></p>
-        <ul class="domain-src"><li><a href="https://docs.ros.org/en/rolling/" rel="noopener"><span data-zh>ROS 2 Documentation</span><span data-en>ROS 2 Documentation</span></a><span><span data-zh>ROS 2 的发布 / 订阅、QoS、生命周期与实时性说明；版本以官方文档为准。</span><span data-en>ROS 2 publish/subscribe, QoS, lifecycle and real-time notes; the official docs define the current version.</span></span></li><li><a href="https://github.com/ros2/ros2" rel="noopener"><span data-zh>ROS 2 repository</span><span data-en>ROS 2 repository</span></a><span><span data-zh>ROS 2 源码与发行版入口，用于核对中间件实现与版本。</span><span data-en>Source and distribution entry point for checking middleware implementations and releases.</span></span></li><li><a href="https://docs.isaacsim.omniverse.nvidia.com/" rel="noopener"><span data-zh>NVIDIA Isaac Sim documentation</span><span data-en>NVIDIA Isaac Sim documentation</span></a><span><span data-zh>仿真场景、传感器与物理能力的官方说明；不把它当作真机安全证明。</span><span data-en>Official notes on scenes, sensors and physics; not a substitute for real-machine safety proof.</span></span></li><li><a href="https://www.iso.org/standard/51330.html" rel="noopener"><span data-zh>ISO 10218-1</span><span data-en>ISO 10218-1</span></a><span><span data-zh>工业机器人安全要求的标准入口；适用条款需由有资质人员确认。</span><span data-en>Entry point for industrial robot safety requirements; qualified people must confirm applicability.</span></span></li><li><a href="https://www.iso.org/standard/62996.html" rel="noopener"><span data-zh>ISO/TS 15066</span><span data-en>ISO/TS 15066</span></a><span><span data-zh>协作机器人力与速度限制的标准入口；本页只作延伸阅读。</span><span data-en>Entry point for collaborative robot force and speed limits; further reading only.</span></span></li><li><a href="https://learn.specul.com/term/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="noopener"><span data-zh>学 AI · 机器人中间件</span><span data-en>Learn · Robot middleware</span></a><span><span data-zh>本站对机器人中间件与通信层的概念解释。</span><span data-en>Specul’s concept page on robot middleware and the communication layer.</span></span></li><li><a href="https://learn.specul.com/term/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%AD%96%E7%95%A5/" rel="noopener"><span data-zh>学 AI · 机器人策略</span><span data-en>Learn · Robot policies</span></a><span><span data-zh>策略、模仿学习与部署边界的概念页。</span><span data-en>Concept page on policies, imitation learning and deployment boundaries.</span></span></li><li><a href="https://learn.specul.com/term/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/" rel="noopener"><span data-zh>学 AI · 具身智能</span><span data-en>Learn · Embodied intelligence</span></a><span><span data-zh>具身智能与纯文本智能的区别。</span><span data-en>The difference between embodied and text-only intelligence.</span></span></li><li><a href="https://hardware.specul.com/path.html" rel="noopener"><span data-zh>硬件算力 · 选型路径</span><span data-en>Compute · selection path</span></a><span><span data-zh>本体、边缘算力与传感器的硬件门槛。</span><span data-en>Hardware thresholds for bodies, edge compute and sensors.</span></span></li><li><a href="https://nav.specul.com/?cat=robot#dir" rel="noopener"><span data-zh>AI 导航 · 机器人类目</span><span data-en>AI Directory · Robotics</span></a><span><span data-zh>机器人与具身相关的站外 AI 网站目录，不是本站评测。</span><span data-en>AI Directory of robotics and embodied-AI sites; not a Specul review.</span></span></li></ul>
-      </section>
-      <section class="domain-next">
-        <h2><span data-zh>下一步</span><span data-en>Next</span></h2>
-        <ul><li><a href="topic-robot.html"><span data-zh>回到“用 AI 做机器人”路线</span><span data-en>Back to the robotics route</span></a></li><li><a href="domain-local.html"><span data-zh>下一步：算清边缘设备的算力</span><span data-en>Next: budget the edge compute</span></a></li><li><a href="topics.html"><span data-zh>看其他 15 条主题路线</span><span data-en>Browse the other 15 topic routes</span></a></li></ul>
-        <p><span data-zh>如果你照着做时卡住了，先回到对应主题路线，不要从头重读。</span><span data-en>If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</span></p>
-      </section>
-      <p class="domain-back"><a href="https://specul.com/"><span data-zh>← 回到首页</span><span data-en>← Back to home</span></a> <span aria-hidden="true">·</span> <a href="correct.html"><span data-zh>发现错误？提交纠错</span><span data-en>Spot an error? Send a correction</span></a></p>
-    </div>
-  </section>
+<h2><span data-zh="">9 · 四个常见误区</span><span data-en="">9 · Four common mistakes</span></h2>
+<ul class="domain-list"><li><span data-zh="">「先做人形，再找场景」：形态先行会让自由度、成本和跌倒风险同时上升。</span><span data-en="">“Build a humanoid, then find a use”: form-first raises degrees of freedom, cost and fall risk at the same time.</span></li><li><span data-zh="">「演示视频就是能力」：视频剪掉了失败、接管和环境搭建，不能替代评测表。</span><span data-en="">“The demo video is the capability”: it edits out failures, takeovers and setup, and cannot replace an evaluation table.</span></li><li><span data-zh="">「大模型直接控电机」：把概率输出放进硬实时环，延迟与越界都没有安全边界。</span><span data-en="">“Let the large model drive the motors”: probabilistic output in a hard-real-time loop has no safe bound on latency or out-of-range actions.</span></li><li><span data-zh="">「仿真过了就能上线」：仿真缺少真实摩擦、反光、磨损、人员行为和急停链路。</span><span data-en="">“Simulation passed, so it can ship”: simulation misses real friction, reflections, wear, human behaviour and the e-stop chain.</span></li></ul>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
+<section class="domain-section" id="sources">
+<h2><span data-zh="">来源与延伸阅读</span><span data-en="">Sources and further reading</span></h2>
+<p><span data-zh="">以下链接用于核对事实、许可证与官方口径。外部页面可能更新；引用时以原文与核验日为准。</span><span data-en="">These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</span></p>
+<ul class="domain-src"><li><a href="https://docs.ros.org/en/rolling/" rel="noopener"><span data-zh="">ROS 2 Documentation</span><span data-en="">ROS 2 Documentation</span></a><span><span data-zh="">ROS 2 的发布 / 订阅、QoS、生命周期与实时性说明；版本以官方文档为准。</span><span data-en="">ROS 2 publish/subscribe, QoS, lifecycle and real-time notes; the official docs define the current version.</span></span></li><li><a href="https://github.com/ros2/ros2" rel="noopener"><span data-zh="">ROS 2 repository</span><span data-en="">ROS 2 repository</span></a><span><span data-zh="">ROS 2 源码与发行版入口，用于核对中间件实现与版本。</span><span data-en="">Source and distribution entry point for checking middleware implementations and releases.</span></span></li><li><a href="https://docs.isaacsim.omniverse.nvidia.com/" rel="noopener"><span data-zh="">NVIDIA Isaac Sim documentation</span><span data-en="">NVIDIA Isaac Sim documentation</span></a><span><span data-zh="">仿真场景、传感器与物理能力的官方说明；不把它当作真机安全证明。</span><span data-en="">Official notes on scenes, sensors and physics; not a substitute for real-machine safety proof.</span></span></li><li><a href="https://www.iso.org/standard/51330.html" rel="noopener"><span data-zh="">ISO 10218-1</span><span data-en="">ISO 10218-1</span></a><span><span data-zh="">工业机器人安全要求的标准入口；适用条款需由有资质人员确认。</span><span data-en="">Entry point for industrial robot safety requirements; qualified people must confirm applicability.</span></span></li><li><a href="https://www.iso.org/standard/62996.html" rel="noopener"><span data-zh="">ISO/TS 15066</span><span data-en="">ISO/TS 15066</span></a><span><span data-zh="">协作机器人力与速度限制的标准入口；本页只作延伸阅读。</span><span data-en="">Entry point for collaborative robot force and speed limits; further reading only.</span></span></li><li><a href="https://learn.specul.com/term/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="noopener"><span data-zh="">学 AI · 机器人中间件</span><span data-en="">Learn · Robot middleware</span></a><span><span data-zh="">本站对机器人中间件与通信层的概念解释。</span><span data-en="">Specul’s concept page on robot middleware and the communication layer.</span></span></li><li><a href="https://learn.specul.com/term/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%AD%96%E7%95%A5/" rel="noopener"><span data-zh="">学 AI · 机器人策略</span><span data-en="">Learn · Robot policies</span></a><span><span data-zh="">策略、模仿学习与部署边界的概念页。</span><span data-en="">Concept page on policies, imitation learning and deployment boundaries.</span></span></li><li><a href="https://learn.specul.com/term/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/" rel="noopener"><span data-zh="">学 AI · 具身智能</span><span data-en="">Learn · Embodied intelligence</span></a><span><span data-zh="">具身智能与纯文本智能的区别。</span><span data-en="">The difference between embodied and text-only intelligence.</span></span></li><li><a href="https://hardware.specul.com/path.html" rel="noopener"><span data-zh="">硬件算力 · 选型路径</span><span data-en="">Compute · selection path</span></a><span><span data-zh="">本体、边缘算力与传感器的硬件门槛。</span><span data-en="">Hardware thresholds for bodies, edge compute and sensors.</span></span></li><li><a href="https://nav.specul.com/?cat=robot#dir" rel="noopener"><span data-zh="">AI 导航 · 机器人类目</span><span data-en="">AI Directory · Robotics</span></a><span><span data-zh="">机器人与具身相关的站外 AI 网站目录，不是本站评测。</span><span data-en="">AI Directory of robotics and embodied-AI sites; not a Specul review.</span></span></li></ul>
+</section>
+<section class="domain-next">
+<h2><span data-zh="">下一步</span><span data-en="">Next</span></h2>
+<ul><li><a href="topic-robot.html"><span data-zh="">回到“用 AI 做机器人”路线</span><span data-en="">Back to the robotics route</span></a></li><li><a href="domain-local.html"><span data-zh="">下一步：算清边缘设备的算力</span><span data-en="">Next: budget the edge compute</span></a></li><li><a href="topics.html"><span data-zh="">看其他 15 条主题路线</span><span data-en="">Browse the other 15 topic routes</span></a></li></ul>
+<p><span data-zh="">如果你照着做时卡住了，先回到对应主题路线，不要从头重读。</span><span data-en="">If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</span></p>
+</section>
+<p class="domain-back"><a href="https://specul.com/"><span data-zh="">← 回到首页</span><span data-en="">← Back to home</span></a> <span aria-hidden="true">·</span> <a href="correct.html"><span data-zh="">发现错误？提交纠错</span><span data-en="">Spot an error? Send a correction</span></a></p>
+</div>
+</section>
 </main>
-
 <!-- SPECUL:FOOTER:START -->
-  <footer class="site-footer foot-single">
-    <div class="container foot-line">
-      <div class="foot-brand">
-        <span class="foot-brand-main">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="foot-copy"><span data-zh>投机取巧 · specul.com</span><span data-en>Specul · specul.com</span></span>
-        </span>
-        <span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh>内容 CC BY 4.0</span><span data-en>Content CC BY 4.0</span></a><span class="sep" aria-hidden="true">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh>代码 MIT</span><span data-en>Code MIT</span></a><span class="sep" aria-hidden="true">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a></span>
-      </div>
-      <nav class="foot-sites" aria-label="Footer site links">
-        <a class="site-link" href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://demos.specul.com/"><span data-zh>演示</span><span data-en>Demos</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://oss.specul.com/"><span data-zh>开源</span><span data-en>OSS</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://hardware.specul.com/"><span data-zh>算力</span><span data-en>Compute</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-      </nav>
-      <nav class="foot-legal" aria-label="Legal and corrections">
-        <a href="https://specul.com/legal.html"><span data-zh>法律</span><span data-en>Legal</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私</span><span data-en>Privacy</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/correct.html"><span data-zh>纠错</span><span data-en>Corrections</span></a>
-      </nav>
-    </div>
-  </footer>
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy"><span data-zh="">投机取巧 · specul.com</span><span data-en="">Specul · specul.com</span></span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh="">内容 CC BY 4.0</span><span data-en="">Content CC BY 4.0</span></a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh="">代码 MIT</span><span data-en="">Code MIT</span></a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank"><span data-zh="">源码</span><span data-en="">Source</span></a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/"><span data-zh="">演示</span><span data-en="">Demos</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/"><span data-zh="">开源</span><span data-en="">OSS</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/"><span data-zh="">算力</span><span data-en="">Compute</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/"><span data-zh="">论文</span><span data-en="">Papers</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/"><span data-zh="">导航</span><span data-en="">Directory</span></a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/legal.html"><span data-zh="">法律</span><span data-en="">Legal</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/legal.html#s8"><span data-zh="">隐私</span><span data-en="">Privacy</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/correct.html"><span data-zh="">纠错</span><span data-en="">Corrections</span></a>
+</nav>
+</div>
+</footer>
 <!-- SPECUL:FOOTER:END -->
-
 <!-- SPECUL:TABBAR:START -->
-<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
-    <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
-    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
-    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
-    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
-    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
-    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
-    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
-    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
-    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
-    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/"><span aria-hidden="true" class="ti">◎</span><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span aria-hidden="true" class="ti">▤</span><span data-zh="">学AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span aria-hidden="true" class="ti">◈</span><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span aria-hidden="true" class="ti">▦</span><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span aria-hidden="true" class="ti">▷</span><span data-zh="">演示</span><span data-en="">Demos</span></a>
+<a href="https://oss.specul.com/"><span aria-hidden="true" class="ti">▧</span><span data-zh="">开源</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span aria-hidden="true" class="ti">▣</span><span data-zh="">算力</span><span data-en="">Chips</span></a>
+<a href="https://papers.specul.com/"><span aria-hidden="true" class="ti">▥</span><span data-zh="">论文</span><span data-en="">Papers</span></a>
+<a href="https://chain.specul.com/"><span aria-hidden="true" class="ti">◇</span><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a data-nav-group="external" href="https://nav.specul.com/"><span aria-hidden="true" class="ti">↗</span><span data-zh="">导航</span><span data-en="">Nav</span></a>
 </nav>
 <!-- SPECUL:TABBAR:END -->
-
 </body>
 </html>

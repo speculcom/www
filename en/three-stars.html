@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Three stars, one door: complete one game step by step |…</title>
+<meta content="This site-authored browser game asks you to collect three stars and reach E. Explore its loop, pause, saves, touch controls, resizing and publication.…" name="description"/>
+<link href="https://specul.com/en/three-stars.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/three-stars.html" property="og:url"/>
+<meta content="Three stars, one door: complete one game step by step |…" property="og:title"/>
+<meta content="This site-authored browser game asks you to collect three stars and reach E. Explore its loop, pause, saves, touch controls, resizing and publication.…" property="og:description"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="zh_CN" property="og:locale:alternate"/>
+<meta content="#16121f" name="theme-color"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<link href="/three-stars/game.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Three stars, one door: complete one game step by step |…","url":"https://specul.com/en/three-stars.html","description":"This site-authored browser game asks you to collect three stars and reach E. Explore its loop, pause, saves, touch controls, resizing and publication.…","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Three stars, one door: complete one game step by step |…","url":"https://specul.com/en/three-stars.html"},"mainEntity":{"@type":"Game","name":"Three stars, one door: complete one game step by step |…","description":"This site-authored browser game asks you to collect three stars and reach E. Explore its loop, pause, saves, touch controls, resizing and publication.…"}}</script>
+<meta content="Three stars, one door: complete one game step by step |…" name="twitter:title"/><meta content="This site-authored browser game asks you to collect three stars and reach E. Explore its loop, pause, saves, touch controls, resizing and publication.…" name="twitter:description"/><link href="https://specul.com/three-stars.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/three-stars.html" hreflang="en" rel="alternate"/><link href="https://specul.com/three-stars.html" hreflang="x-default" rel="alternate"/></head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<a class="t-skip" href="#main">Skip to main content</a>
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/three-stars.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<main id="main">
+<div class="container game-project">
+<p class="kicker"><a href="./learn.html">Learning path</a> · Worked project</p>
+<h1 class="t-hero">Three stars, one door: complete one game step by step</h1>
+<p class="lede">This site-authored browser game asks you to collect three stars and reach E. Explore its loop, pause, saves, touch controls, resizing and publication. Code checks concern this example only, not engines or AI products.</p>
+<div class="panel term-meta">
+<p class="t-lead"><strong>What this is</strong>: a browser game written for this site with a six-stage teaching sequence. The same sample gains pause, versioned saves, touch controls, resizing and release checks — the code and the prose change together.</p>
+<p class="t-sm"><strong>Scope of the checks</strong>: the section "What this site checked" covers this sample and this package only. It is not an engine evaluation and not an AI-product evaluation, and it supports no pass-rate or accuracy claim.</p>
+<p class="t-sm"><strong>Where the data goes</strong>: no account, no backend, no network call. Saves go only to your own browser (key <code>specul-three-stars-v1</code>) and the exported JSON stays on your machine. Every example value on this page is fictional.</p>
+<p class="t-xs muted">Related pages: <a href="./s2-核心循环.html">the core loop</a> · <a href="./存档与离线行为.html">saves and offline behaviour</a> · <a href="./s5-导出发布.html">export and ship</a> · <a href="./ai-资产台账.html">the AI asset ledger</a></p>
+</div>
+<div class="panel">
+<h2 id="stages">The six stages</h2>
+<p class="t-sm mb-3">The six sections below are the full teaching text, written into the HTML at build time — they read fine with scripting off. Use the workbench’s stage selector to try each one.</p>
+<ol class="stage-list">
+<li><a href="#stage-1">1 · Establish the core loop</a></li>
+<li><a href="#stage-2">2 · Pause and restart</a></li>
+<li><a href="#stage-3">3 · Versioned saves and fallback</a></li>
+<li><a href="#stage-4">4 · Share movement between touch and keyboard</a></li>
+<li><a href="#stage-5">5 · Resize the view without resetting state</a></li>
+<li><a href="#stage-6">6 · Package, replay and check publication</a></li>
+</ol>
+</div>
+<section class="star-workbench" id="three-stars">
+<h2 id="workbench-title">The game itself: a 7×5 board, three stars, one door</h2>
+<p class="t-sm">Arrows or WASD move. Step on ★ to collect a star; reaching E only completes the round after all three. The stage selector below decides which controls appear — those controls are the six lessons.</p>
+<div class="star-tools">
+<label>Stage (decides which controls show)
+<select aria-label="Teaching stage" id="game-stage">
+<option value="1">Stage 1 · Establish the core loop</option>
+<option value="2">Stage 2 · Pause and restart</option>
+<option value="3">Stage 3 · Versioned saves and fallback</option>
+<option value="4">Stage 4 · Share movement between touch and keyboard</option>
+<option value="5">Stage 5 · Resize the view without resetting state</option>
+<option value="6">Stage 6 · Package, replay and check publication</option>
+</select>
+</label>
+<button hidden="" id="game-pause" type="button">Pause</button>
+<button id="game-restart" type="button">Restart</button>
+</div>
+<div class="star-tools" hidden="" id="game-viewport-controls">
+<label>Board width (a display exercise; saved coordinates stay grid coordinates)
+<select aria-label="Board width" id="game-viewport">
+<option value="default">Default width</option>
+<option value="narrow">Narrow board</option>
+</select>
+</label>
+</div>
+<div aria-label="Three-star board: use arrows or WASD to move" class="star-grid" id="game-board" role="grid" tabindex="0"></div>
+<p aria-live="polite" class="t-sm" id="game-status" role="status">Position 1,1 · Stars 0/3 · Moves 0. Collect three stars, then reach E.</p>
+<div class="star-touch" hidden="" id="game-touch">
+<button aria-label="Move up" data-move="up" type="button">▲</button>
+<button aria-label="Move left" data-move="left" type="button">◀</button>
+<button aria-label="Move down" data-move="down" type="button">▼</button>
+<button aria-label="Move right" data-move="right" type="button">▶</button>
+</div>
+<div hidden="" id="game-save-controls">
+<div class="star-tools">
+<button id="game-save" type="button">Save in this browser</button>
+<button id="game-load" type="button">Load browser save</button>
+<button id="game-delete-save" type="button">Delete this project’s save</button>
+<button id="game-export" type="button">Download save file</button>
+<label>Import save file
+<input accept=".json,application/json" id="game-import" type="file"/>
+</label>
+</div>
+<p class="t-xs" id="game-storage">No project save yet. Saving stays in this browser and origin; it is not uploaded.</p>
+</div>
+<div class="star-publish" hidden="" id="game-publish-checks">
+<h3>Stage 6 · tick these before you ship</h3>
+<label><input type="checkbox"/><span>Unpacked and opened on <strong>someone else’s machine</strong>, not only your own</span></label>
+<label><input type="checkbox"/><span>Played the extracted files: movement, pause, saves, import and export</span></label>
+<label><input type="checkbox"/><span>Every ledger row’s origin and redistribution right can be named on the spot</span></label>
+<label><input type="checkbox"/><span>Path case and relative paths checked (works locally does not mean works served)</span></label>
+<label><input type="checkbox"/><span>Target browsers, a narrow screen and storage behaviour under the protocol you ship were confirmed</span></label>
+</div>
+<p class="t-xs">The board is drawn by <code>./three-stars/game.js</code>, copied at build time; its styles are the sibling <code>game.css</code>. Neither is hand-written into the page.</p>
+</section>
+<noscript>
+<div class="panel is-slim">
+<p class="t-sm">Scripting is off: the board above stays empty and the buttons do nothing — the grid needs scripting to be drawn. The six stages, their code, the checks, the asset ledger and the package notes are in the page text and need no script. To play this round, open the <a href="https://specul.com/en/three-stars.html">online page</a> and allow scripting.</p>
+</div>
+</noscript>
+<div class="panel game-stages">
+<section id="stage-1">
+<h3>Stage 1 · Establish the core loop</h3>
+<p class="t-sm"><strong>What changes here</strong>: Keep level, position, collected stars and moves separate. Arrows/WASD update state before repainting. Walls do not add moves; reaching the exit completes the game only after collecting all stars.</p>
+<p class="t-sm"><strong>Where the code sits</strong></p>
+<pre class="code"><code>state = { x: 1, y: 1, moves: 0, collected: [] };
+// Input -&gt; legal move -&gt; update state -&gt; render
+// Completion is derived from position and collected stars.</code></pre>
+<p class="t-sm"><strong>How to check it actually holds</strong></p>
+<ul>
+<li>Move left into a wall: position and moves stay unchanged. Count each star once. Reaching E before collecting all stars does not complete the game.</li>
+</ul>
+<p class="t-sm"><strong>Where to look when it does not</strong></p>
+<ul>
+<li>For out-of-bounds moves, duplicate stars or wall moves being counted, inspect coordinates, legal moves and update order. Do not treat UI text as the state store.</li>
+</ul>
+<p class="t-sm"><a href="#stage-2">→ Next stage: Pause and restart</a></p>
+</section>
+<section id="stage-2">
+<h3>Stage 2 · Pause and restart</h3>
+<p class="t-sm"><strong>What changes here</strong>: Pause is independent of level/progress. A hidden page pauses; returning requires explicit resume. Restart resets the board without deleting a browser save.</p>
+<p class="t-sm"><strong>Where the code sits</strong></p>
+<pre class="code"><code>if (paused) return;
+// On visibilitychange: if document.hidden, pause.
+// Restart creates a fresh state; it does not call localStorage.clear().</code></pre>
+<p class="t-sm"><strong>How to check it actually holds</strong></p>
+<ul>
+<li>Moves stay unchanged while paused and work after resume. A hidden/returned page remains paused. Restart restores the initial position and zero stars.</li>
+</ul>
+<p class="t-sm"><strong>Where to look when it does not</strong></p>
+<ul>
+<li>If movement bypasses pause, route every input through one guard. If restart deletes saves, separate current-board reset from deleting this project’s saved data.</li>
+</ul>
+<p class="t-sm"><a href="#stage-3">→ Next stage: Versioned saves and fallback</a></p>
+</section>
+<section id="stage-3">
+<h3>Stage 3 · Versioned saves and fallback</h3>
+<p class="t-sm"><strong>What changes here</strong>: Save only level ID, schema version, coordinates, moves and collected items. Validate fields, position and level; derive completion rather than trusting a flag. Storage-blocked play still works with JSON download/import. Saves are not uploaded.</p>
+<p class="t-sm"><strong>Where the code sits</strong></p>
+<pre class="code"><code>{ schema: 1, level: 'three-stars-1', x, y, moves, collected }
+// Parse -&gt; validate -&gt; replace state. Invalid saves keep the current board.
+// Browser save and file import are separate explicit actions.</code></pre>
+<p class="t-sm"><strong>How to check it actually holds</strong></p>
+<ul>
+<li>Save after moving, reload the page and load to restore position/stars. Export/import should agree. Reject wrong versions, wall positions, duplicate stars and oversized files while preserving the board.</li>
+</ul>
+<p class="t-sm"><strong>Where to look when it does not</strong></p>
+<ul>
+<li>localStorage depends on origin and browser policy; file:// behavior is not guaranteed. Retain an unreadable file rather than clearing all browser storage. This example accepts version 1 only and does not pretend to migrate it.</li>
+</ul>
+<p class="t-sm"><a href="#stage-4">→ Next stage: Share movement between touch and keyboard</a></p>
+</section>
+<section id="stage-4">
+<h3>Stage 4 · Share movement between touch and keyboard</h3>
+<p class="t-sm"><strong>What changes here</strong>: Directional buttons call the same move function as keyboard input. Keep usable targets/focus. Capture arrows only while the board has focus; do not block page scrolling or zooming.</p>
+<p class="t-sm"><strong>Where the code sits</strong></p>
+<pre class="code"><code>button.addEventListener('click', () =&gt; move(dx, dy));
+// Direction buttons: touch-action: manipulation.
+// Keyboard handling belongs to the focusable board, not the whole document.</code></pre>
+<p class="t-sm"><strong>How to check it actually holds</strong></p>
+<ul>
+<li>The same route through buttons/arrows yields the same state. Both honor pause. Tab enters/exits the board and controls without a focus trap.</li>
+</ul>
+<p class="t-sm"><strong>Where to look when it does not</strong></p>
+<ul>
+<li>For touch-only wall/pause bypasses, inspect the shared move path. For lost zooming, check whole-page touch-action:none or unconditional event prevention.</li>
+</ul>
+<p class="t-sm"><a href="#stage-5">→ Next stage: Resize the view without resetting state</a></p>
+</section>
+<section id="stage-5">
+<h3>Stage 5 · Resize the view without resetting state</h3>
+<p class="t-sm"><strong>What changes here</strong>: Use seven flexible columns within the container. Store coordinates in state, not screen pixels. The narrow-board option is a display exercise; every stage retains basic narrow-screen usability.</p>
+<p class="t-sm"><strong>Where the code sits</strong></p>
+<pre class="code"><code>grid-template-columns: repeat(7, minmax(0, 1fr));
+// Layout changes do not recreate initial game state.
+// Saved coordinates remain grid coordinates.</code></pre>
+<p class="t-sm"><strong>How to check it actually holds</strong></p>
+<ul>
+<li>After moving, switch board width or resize/orient the window without losing position, stars or moves. Check 320px widths, long English text and controls, not only the presence of a scrollbar.</li>
+</ul>
+<p class="t-sm"><strong>Where to look when it does not</strong></p>
+<ul>
+<li>If resize restarts play, inspect state resets in layout handlers. If loads shift cells, distinguish pixel and grid coordinates.</li>
+</ul>
+<p class="t-sm"><a href="#stage-6">→ Next stage: Package, replay and check publication</a></p>
+</section>
+<section id="stage-6">
+<h3>Stage 6 · Package, replay and check publication</h3>
+<p class="t-sm"><strong>What changes here</strong>: The download includes HTML, scripts, styles, brand assets, an asset ledger and hashes. The game itself has no network calls/backend; site/document links need connectivity. For your own publication, check code/asset rights, paths/case, HTTPS and target browsers.</p>
+<p class="t-sm"><strong>Where the code sits</strong></p>
+<pre class="code"><code>index.html + game.js + game.css + brand.js + brand.css
+asset-ledger.json + manifest.json + README.txt + NOTICE.txt
+// Extract, serve on localhost, then test the actual packaged files.</code></pre>
+<p class="t-sm"><strong>How to check it actually holds</strong></p>
+<ul>
+<li>Play the extracted package, then check pause, saves, blocked storage, keyboard and touch. Inspect the ledger and every published file; one successful page load is not a complete release check.</li>
+</ul>
+<p class="t-sm"><strong>Where to look when it does not</strong></p>
+<ul>
+<li>For missing files, check case and relative paths. For lost saves, check origin/protocol and browser policy. The sample download grants no separate redistribution licence; check site terms before republishing copied content.</li>
+</ul>
+<p class="t-sm">This is the last stage. Tick the release list in the workbench above, then check the package files against the next section.</p>
+</section>
+</div>
+<div class="panel" id="ledger">
+<h2>Asset and licensing ledger</h2>
+<p class="t-sm">Each row states origin, purpose and redistribution rights. AI drafting does not change the site's licensing: code is MIT, original teaching copy and diagrams are CC BY 4.0; rows carrying a third-party licence or brand assets follow that row's licence column.</p>
+<p class="t-sm">The licence wording follows section 1 of the legal page: original code is MIT; text, tables and site-made diagrams are CC BY 4.0 with credit to specul.com and a link to the licence. Brand names and marks are not licensed. <a href="https://specul.com/en/legal.html#s1" rel="noopener" target="_blank">section 1 of the legal page</a> · <a href="https://specul.com/en/legal.html#s8" rel="noopener" target="_blank">section 8 on privacy and local storage</a></p>
+<div class="table-wrap">
+<table class="src">
+<thead><tr>
+<th>Item</th>
+<th>Origin</th>
+<th>Role</th>
+<th>Licence</th>
+<th>Redistribution</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><b>game.js (game logic and board rendering)</b></td>
+<td>Source file projects/three-stars/game.js in this repository; drafted by AI and checked file-by-file against its actual behaviour before inclusion</td>
+<td>Board rendering, keyboard and touch input, pause, versioned saves and file import/export; no network calls</td>
+<td>MIT (legal page, section 1)</td>
+<td>Copying, adaptation, redistribution and commercial use allowed; keep the copyright and licence text</td>
+</tr>
+<tr>
+<td><b>game.css (workbench styles)</b></td>
+<td>Source file projects/three-stars/game.css in this repository; it uses only brand.css tokens and declares no raw colour values</td>
+<td>Board grid, direction buttons, stage toolbar and print rules</td>
+<td>MIT (legal page, section 1)</td>
+<td>Copying, adaptation, redistribution and commercial use allowed; keep the copyright and licence text</td>
+</tr>
+<tr>
+<td><b>project.json (the six-stage teaching copy)</b></td>
+<td>Teaching copy authored for this site (the Chinese and English fields are revised in the same pass)</td>
+<td>The six stages' what / code / check / failure text, inlined into the page at build time</td>
+<td>CC BY 4.0 (legal page, section 1)</td>
+<td>Copying, adaptation, redistribution and commercial use allowed; credit specul.com, link to the licence and note changes</td>
+</tr>
+<tr>
+<td><b>three-stars.html (page copy and ledger)</b></td>
+<td>Authored for this site; each ledger row points at a source path in this repository or at a shared brand asset</td>
+<td>Carries the stage explanations, the playable game, the download notes and the asset ledger</td>
+<td>Copy CC BY 4.0; page code MIT</td>
+<td>Copy and code may be copied, adapted, redistributed and used commercially; credit under CC BY 4.0 and keep the MIT notice respectively</td>
+</tr>
+<tr>
+<td><b>brand.css · brand.js (shared site-brand assets)</b></td>
+<td>Truth sources are www.specul/brand.css and www.specul/brand.js; this repository keeps a vendored copy and the build ships that same content</td>
+<td>Site shell, theme and language switching, the type and colour tokens</td>
+<td>Code and styles MIT; names, marks and logos are outside the trademark licence</td>
+<td>Code and styles may be redistributed; brand names, marks and logos are not licensed</td>
+</tr>
+<tr>
+<td><b>site.css (content-layer typography)</b></td>
+<td>Assembled at build time from _sites/_template/site.css plus _data/game/css/vg.css</td>
+<td>Panels, tables and body rhythm for the vg site</td>
+<td>MIT (legal page, section 1)</td>
+<td>Copying, adaptation, redistribution and commercial use allowed; keep the copyright and licence text</td>
+</tr>
+<tr>
+<td><b>Fonts · none embedded</b></td>
+<td>No font file is packaged; the page uses fonts already on the reader's system, and ★ ● · E are text characters</td>
+<td>Text and symbol rendering</td>
+<td>No redistribution involved</td>
+<td>No font redistribution duty; if your own project embeds a font, check that font's licence separately (see the font licensing term)</td>
+</tr>
+<tr>
+<td><b>Images · audio · 3D · none of these</b></td>
+<td>The project contains no images, audio, 3D models or generated media</td>
+<td>-</td>
+<td>Not applicable</td>
+<td>No third-party asset obligations; and do not treat 'no assets here' as a precedent for using assets freely</td>
+</tr>
+<tr>
+<td><b>Third-party runtime code · none</b></td>
+<td>No npm dependencies, no CDN, no framework; game.js is the only page script</td>
+<td>-</td>
+<td>Not applicable</td>
+<td>No third-party notice obligations</td>
+</tr>
+<tr>
+<td><b>zip.mjs (build-time packer, not shipped inside the archive)</b></td>
+<td>Source file projects/three-stars/zip.mjs: a hand-written stored-ZIP and CRC32 writer used at build time</td>
+<td>Generates three-stars.zip and the hash manifest</td>
+<td>MIT (legal page, section 1)</td>
+<td>A build tool; copying, adaptation and redistribution allowed with the copyright and licence text retained</td>
+</tr>
+<tr>
+<td><b>Save JSON · local data; every sample value is fictional</b></td>
+<td>Exported locally by the player (three-stars-save.json); every example value shown by this site is fictional</td>
+<td>Level id, schema version, position, move count and collected stars</td>
+<td>The data stays on the machine that exported it</td>
+<td>Nothing is uploaded and it carries no account or identifier; privacy terms are in section 8 of the legal page</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="t-xs">Nature: checked row by row against the files and their behaviour on 2026-11-06. This is not legal advice and does not replace reading the upstream terms.</p>
+</div>
+<div class="panel" id="package">
+<h2>The downloadable package</h2>
+<p class="t-sm"><a download="" href="/three-stars/three-stars.zip">→ Download the package three-stars.zip</a> · 201,666 B · <span class="t-xs">archive SHA-256</span> <code>b8bc716a9f6d68378cbcde9efff88e9bffa10cb1b94be19bd2e68668d5eff92d</code></p>
+<p class="t-sm">Per-file bytes and hashes inside the package (the same list ships inside the archive, so you can compare entry by entry after extracting):</p>
+<div class="table-wrap">
+<table class="src">
+<thead><tr>
+<th>File</th>
+<th>Bytes</th>
+<th>SHA-256</th>
+</tr></thead>
+<tbody>
+<tr><td><code>index.html</code></td><td>62,982</td><td class="t-xs"><code>49cc1fc517a9a1e9611dfce9f3653658c1e8c8c247c24d233e265b306ca0bb28</code></td></tr>
+<tr><td><code>game.js</code></td><td>8,926</td><td class="t-xs"><code>12e55c061f4be11baf9082b32d0cae5ee0b077a05debd8afe8b918414c25edc2</code></td></tr>
+<tr><td><code>game.css</code></td><td>2,814</td><td class="t-xs"><code>246c64c0a83fa9173e47837d8c02aa09a02d6bbb46c7438d78aea29d1fc14587</code></td></tr>
+<tr><td><code>brand.css</code></td><td>71,554</td><td class="t-xs"><code>73313a50d39d3809e3192230cbfd2e3e7d213705408a59d845e616958a483ad3</code></td></tr>
+<tr><td><code>brand.js</code></td><td>11,114</td><td class="t-xs"><code>7d2eae5991c4bae72eb687f8372aa77d228475324cada2fe3a34d1f3eba60579</code></td></tr>
+<tr><td><code>site.css</code></td><td>20,508</td><td class="t-xs"><code>47da36b5b9377085f68f85be297e7a233f65fda526ca3520ffbd1eb8e246fbeb</code></td></tr>
+<tr><td><code>asset-ledger.json</code></td><td>11,195</td><td class="t-xs"><code>fdc791368e40cc890f858f2c45637b180c8c59345aca958c377d653902d72088</code></td></tr>
+<tr><td><code>README.txt</code></td><td>4,954</td><td class="t-xs"><code>616e842e23c65116838a665f1c9469c2cb9774482989f67affe708522655fc53</code></td></tr>
+<tr><td><code>NOTICE.txt</code></td><td>4,404</td><td class="t-xs"><code>644e725541642b9f153a4335cba648f9d35bea63c35a75280e348d911431f8c4</code></td></tr>
+</tbody>
+</table>
+</div>
+<p class="t-sm">How to open: extract and double-click <code>index.html</code> and it plays — styles, scripts and brand assets are inside and nothing is requested. For a full check, also serve the folder over a local static server: localStorage under <code>file://</code> is not governed like a site origin, so that item has to be re-tested under the protocol you actually ship on.</p>
+<p class="t-sm">Independent checks: this site extracted and verified the archive with separate tooling (CRC, byte-for-byte file comparison, opening it offline). The conclusions and their limits are in the next section.</p>
+<p class="t-xs">Machine-readable ledger: <a href="/three-stars/asset-ledger.json">asset-ledger.json</a> · hash manifest: <a href="/three-stars/manifest.json">manifest.json</a> · package notes: <a href="/three-stars/README.txt">README.txt</a> · licence text: <a href="/three-stars/NOTICE.txt">NOTICE.txt</a></p>
+</div>
+<div class="panel" id="checked">
+<h2>What this site checked · and did not</h2>
+<p class="t-sm mb-3">Verified on 2026-11-06, scoped to this sample and this package only; every line below was run in a browser, not merely read off the code.</p>
+<ul class="t-sm">
+<li>Collected all three stars from the start and reached the exit with matching position, star count, moves and completion; a wall move adds none.</li>
+<li>Invalid imports rejected: a wrong schema version, a wall coordinate, duplicate stars and an oversized file each leave the board unchanged.</li>
+<li>Play stays complete when browser storage is denied, with the download/import route offered instead.</li>
+<li>Keyboard and on-screen buttons share one move path; neither moves while paused; Tab enters and leaves the board and the controls.</li>
+<li>A 320px narrow screen, taps, both themes and both languages pass; resizing the window or switching board width keeps the state.</li>
+<li>With scripting off the six stages stay fully readable — the teaching text is static HTML inlined at build time, not injected by JS.</li>
+<li>The package: extracted with an independent tool, compared byte-for-byte against its sources, CRC-checked, and opened offline without a server.</li>
+</ul>
+<p class="t-sm">Not covered: other browsers and real devices, storage policy on other origins or protocols, how the feel holds up over a long session, and any judgement of an engine or an AI product. This site runs no benchmarks and publishes no pass rate or accuracy figure.</p>
+</div>
+<div class="panel is-slim">
+<h2>What this sample does not claim</h2>
+<ul class="t-sm">
+<li>It proves nothing about an engine or an AI product; it describes this 7×5 sample’s own code behaviour</li>
+<li>No pass rate, accuracy or first-try figure</li>
+<li>The download is licensed under CC BY 4.0 for copy and MIT for code and styles; brand names and marks are excluded (see the ledger above and section 1 of the legal page)</li>
+</ul>
+<p><a href="./learn.html">← Back to the learning path</a> · <a href="./demos.html">the showcase</a> · <a href="/en/method.html">the build order</a> · <a href="./index.html">Home</a></p>
+</div>
+</div>
+<script src="/three-stars/game.js"></script>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>

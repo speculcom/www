@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>安全与合规，按顺序找资料 · 主题路线 — Specul</title>
-  <meta name="description" content="安全不是加一句「请勿有害」：先定威胁模型，再看评测与事件记录，然后落到权限、数据与日志。合规也不是一张清单，而是把适用法规、证据与责任人分开写清。" />
-  <link rel="canonical" href="https://specul.com/topic-safety.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="安全与合规，按顺序找资料 · 主题路线" />
-  <meta property="og:url" content="https://specul.com/topic-safety.html" />
-  <meta property="og:title" content="安全与合规，按顺序找资料 · 主题路线 — Specul" />
-  <meta property="og:description" content="安全不是加一句「请勿有害」：先定威胁模型，再看评测与事件记录，然后落到权限、数据与日志。合规也不是一张清单，而是把适用法规、证据与责任人分开写清。" />
-  <meta property="og:locale" content="zh_CN" />
-  <meta property="og:locale:alternate" content="en_US" />
-  <link rel="alternate" hreflang="zh-CN" href="https://specul.com/topic-safety.html" />
-  <link rel="alternate" hreflang="en" href="https://specul.com/topic-safety.html?lang=en" />
-  <link rel="alternate" hreflang="x-default" href="https://specul.com/topic-safety.html" />
-  <meta name="theme-color" content="#16121f" />
-  <link rel="icon" type="image/png" href="assets/brand/dandelion-favicon-site.png" />
-  <link rel="apple-touch-icon" href="assets/brand/dandelion-apple-touch-site.png" />
-  <script src="brand.js?v=37d1072be69b"></script>
-  <link rel="stylesheet" href="brand.css?v=37d1072be69b" />
-  <link rel="stylesheet" href="site.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"安全与合规，按顺序找资料 · 主题路线 — Specul","description":"安全不是加一句「请勿有害」：先定威胁模型，再看评测与事件记录，然后落到权限、数据与日志。合规也不是一张清单，而是把适用法规、证据与责任人分开写清。","url":"https://specul.com/topic-safety.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>安全与合规，按顺序找资料 · 主题路线 — Specul</title>
+<meta content="安全不是加一句「请勿有害」：先定威胁模型，再看评测与事件记录，然后落到权限、数据与日志。合规也不是一张清单，而是把适用法规、证据与责任人分开写清。" name="description"/>
+<link href="https://specul.com/topic-safety.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="安全与合规，按顺序找资料 · 主题路线" property="og:site_name"/>
+<meta content="https://specul.com/topic-safety.html" property="og:url"/>
+<meta content="安全与合规，按顺序找资料 · 主题路线 — Specul" property="og:title"/>
+<meta content="安全不是加一句「请勿有害」：先定威胁模型，再看评测与事件记录，然后落到权限、数据与日志。合规也不是一张清单，而是把适用法规、证据与责任人分开写清。" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="en_US" property="og:locale:alternate"/>
+<meta content="#16121f" name="theme-color"/>
+<link href="assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="brand.js?v=37d1072be69b"></script>
+<link href="brand.css?v=37d1072be69b" rel="stylesheet"/>
+<link href="site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"安全与合规，按顺序找资料 · 主题路线 — Specul","description":"安全不是加一句「请勿有害」：先定威胁模型，再看评测与事件记录，然后落到权限、数据与日志。合规也不是一张清单，而是把适用法规、证据与责任人分开写清。","url":"https://specul.com/topic-safety.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+<link href="https://specul.com/topic-safety.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/topic-safety.html" hreflang="en" rel="alternate"/><link href="https://specul.com/topic-safety.html" hreflang="x-default" rel="alternate"/></head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
      而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
@@ -32,147 +29,147 @@
      ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
      （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
 <body class="brand-ambient has-tabbar has-tabbar-1row">
-  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
-  <header class="site-header">
-    <div class="container site-bar">
-      <a class="brand" href="https://specul.com/" title="投机取巧">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span class="brand-text">
-          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
-          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="站点导航">
-        <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
-        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
-        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
-        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
-        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
-        <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
-        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
-        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
-      </nav>
-      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+<a class="t-skip" href="#main"><span data-zh="">跳到主要内容</span><span data-en="">Skip to main content</span></a>
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" data-en-name="Speculative Speculation" data-zh-name="投机取巧" id="markName">投机取巧</span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation" id="markSub">Speculative Speculation</span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span data-zh="">作品演示</span><span data-en="">Playground</span></a>
+<a href="https://oss.specul.com/"><span data-zh="">开源库</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span data-zh="">硬件算力</span><span data-en="">Compute</span></a>
+<a href="https://papers.specul.com/"><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></a>
+<a href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a href="https://nav.specul.com/"><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
            （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
            链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
-      <span class="nav-tools">
-        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
-        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
-      </span>
-      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+<span class="nav-tools">
+<a aria-label="搜索" class="icon-btn" data-ui-aria-label-en="Search" data-ui-aria-label-zh="搜索" data-ui-title-en="Search all sites" data-ui-title-zh="搜索全站" href="https://specul.com/search.html" title="搜索全站"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="Switch to English" class="icon-btn" href="/en/topic-safety.html" hreflang="en" id="langBtn" lang="en" title="Switch to English">EN</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
            行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
-      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
-        <i></i><i></i><i></i>
-      </button>
-    </div>
-  </header>
-  <div class="nav-scrim"></div>
-  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
-    <div class="nav-drawer-h">
-      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
-      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
-    </div>
-    <nav class="nav-drawer-list">
-      <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
-    </nav>
-    <div class="nav-drawer-foot">
-      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
-      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
-    </div>
-  </aside>
-  <main id="main">
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name"><span data-zh="">投机取巧</span><span data-en="">Speculative Speculation</span></span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation">Speculative Speculation</span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/"><span><span data-zh="">首页</span><span data-en="">Home</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/"><span><span data-zh="">学 AI</span><span data-en="">Learn</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/"><span><span data-zh="">工具</span><span data-en="">Tools</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/"><span><span data-zh="">模型</span><span data-en="">Models</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/"><span><span data-zh="">作品演示</span><span data-en="">Playground</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/"><span><span data-zh="">开源库</span><span data-en="">OSS</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/"><span><span data-zh="">硬件算力</span><span data-en="">Compute</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/"><span><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/"><span><span data-zh="">链</span><span data-en="">Chain</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/"><span><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p><span data-zh="">内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en="">Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+<nav><a href="https://specul.com/legal.html"><span data-zh="">法律条款</span><span data-en="">Legal terms</span></a></nav>
+</div>
+</aside>
+<main id="main">
 <section class="hp-sec tight">
-    <div class="hp-c">
-      <p class="kicker"><span data-zh>主题路线</span><span data-en>Topic route</span></p>
-      <h1><span data-zh>安全与合规，按顺序找资料</span><span data-en>Safety and compliance: resources in order</span></h1>
-      <p class="hp-line"><span data-zh>安全不是加一句「请勿有害」：先定威胁模型，再看评测与事件记录，然后落到权限、数据与日志。合规也不是一张清单，而是把适用法规、证据与责任人分开写清。</span><span data-en>Safety is not one added sentence: define the threat model, look at evaluations and incident records, then implement permissions, data handling and logs. Compliance is not one checklist either; separate the applicable rules, the evidence and the owner.</span></p>
-      <p class="topic-readmeta">
-        <span><b><span data-zh>适合谁</span><span data-en>For</span></b> <span data-zh>要把 AI 功能接进真实业务、需要过评审的人</span><span data-en>People connecting AI to real business and facing review</span></span>
-        <span><b><span data-zh>读完能拿到</span><span data-en>You leave with</span></b> <span data-zh>一张数据流图和一张上线前证据清单</span><span data-en>A data-flow map and a pre-launch evidence checklist</span></span>
-        <span><b><span data-zh>大概多久</span><span data-en>Time</span></b> <span data-zh>15 分钟浏览；做一次最小评审约 1 天</span><span data-en>15 minutes to browse; about a day for a minimum review</span></span>
-      </p>
-      <p class="hp-line"><span data-zh>路线顺序不代表推荐排名；没有实测的能力对比、成本降幅与成功率，站群一律写未知。</span><span data-en>Route order is not a ranking; where no measured comparison, cost reduction or success rate exists, the sites record it as unknown.</span></p>
-      <div class="domain-callout"><a href="domain-safety.html"><b><span data-zh>先读领域长文：保护对象、数据流、威胁、权限、护栏、评测与门禁</span><span data-en>Read the field guide first: assets, data flow, threats, permissions, guardrails, evaluation and gate</span></b> →</a></div>
-    </div>
-  </section>
-  <section class="hp-sec tight" id="start">
-    <div class="hp-c">
-      <h2 class="hp-h2"><span data-zh>先做什么</span><span data-en>Where to start</span></h2>
-      <div class="hp-picker"><a class="hp-pq" href="https://learn.specul.com/path/for-safety-review/"><span class="qq"><b><span data-zh>1 · 安全评审路线：威胁、评测、红队与上线门禁</span><span data-en>1 · Safety-review route: threats, evaluation, red teaming, release gates</span></b></span><span class="to"><span data-zh>→ 打开</span><span data-en>→ Open</span></span></a><a class="hp-pq" href="https://nav.specul.com/#cat-safety"><span class="qq"><b><span data-zh>2 · 导航安全类：框架、事件库、评测机构与政策原文</span><span data-en>2 · Safety category: frameworks, incident databases, evaluators, policy texts</span></b></span><span class="to"><span data-zh>→ 打开</span><span data-en>→ Open</span></span></a><a class="hp-pq" href="https://specul.com/domain-trust.html"><span class="qq"><b><span data-zh>3 · 信任与授权：谁能用、能用什么、留下什么证据</span><span data-en>3 · Trust and rights: who may use what, and what evidence remains</span></b></span><span class="to"><span data-zh>→ 打开</span><span data-en>→ Open</span></span></a></div>
-    </div>
-  </section>
-  <section class="hp-sec tight" id="steps">
-    <div class="hp-c">
-      <h2 class="hp-h2"><span data-zh>按环节找全站资料</span><span data-en>Find material by stage</span></h2>
-      <div class="tp-sec"><div class="tp-lab"><span data-zh>定威胁与评测</span><span data-en>Define threats and evaluate</span></div><ul class="fx-list"><li><a href="https://nav.specul.com/#cat-safety"><span data-zh>NIST AI RMF、OWASP LLM Top 10、MITRE ATLAS、AI Incident Database</span><span data-en>NIST AI RMF, OWASP LLM Top 10, MITRE ATLAS, AI Incident Database</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh>评测卡的污染、复现与「分数不能横比」说明</span><span data-en>Benchmark cards on contamination, reproduction and non-comparability</span></a></li><li><a href="https://papers.specul.com/"><span data-zh>可解释性与智能体失败分析：探针、参数分解与边界</span><span data-en>Interpretability and agent-failure analysis: probes, parameter decomposition, limits</span></a></li></ul></div>
-<div class="tp-sec"><div class="tp-lab"><span data-zh>落到权限与数据</span><span data-en>Turn it into permissions and data rules</span></div><ul class="fx-list"><li><a href="https://specul.com/domain-trust.html"><span data-zh>身份、权限、数据、许可与凭证的判断框架</span><span data-en>A framework for identity, permission, data, licence and credentials</span></a></li><li><a href="https://chain.specul.com/"><span data-zh>支付与数据权利类目：可审计的授权与结算</span><span data-en>Payments and data-rights categories: auditable authorisation and settlement</span></a></li><li><a href="https://tools.specul.com/safety/"><span data-zh>安全与护栏工具：输入过滤、输出审查、红队</span><span data-en>Safety and guardrail tools: input filtering, output review, red teaming</span></a></li></ul></div>
-<div class="tp-sec"><div class="tp-lab"><span data-zh>写清责任与证据</span><span data-en>Write down owners and evidence</span></div><ul class="fx-list"><li><a href="https://learn.specul.com/path/for-managers/"><span data-zh>管理者路线：谁签字、谁复核、出问题怎么追</span><span data-en>Manager route: who signs, who reviews, how incidents are traced</span></a></li><li><a href="https://learn.specul.com/path/for-safety-review/"><span data-zh>评审清单与上线门禁</span><span data-en>Review checklist and release gates</span></a></li></ul></div>
-    </div>
-  </section>
-  <section class="hp-sec tight" id="boundary">
-    <div class="hp-c">
-      <h2 class="hp-h2"><span data-zh>边界</span><span data-en>Boundary</span></h2>
-      <p class="hp-line"><span data-zh>本站不是法律意见，也不替任何组织做合规结论；法规原文、监管解释与合同条款优先。安全评测分数只在对应威胁模型与测试集下成立，不能拿一个基准证明「整体安全」。</span><span data-en>This is not legal advice and does not issue a compliance conclusion for any organisation; statutes, regulator interpretations and contracts govern. Safety scores hold only for their threat model and test set; one benchmark cannot prove “safe overall”.</span></p>
-      <p class="hp-line"><a href="topics.html"><span data-zh>← 回主题索引</span><span data-en>← Back to topic index</span></a> · <a href="index.html"><span data-zh>回首页</span><span data-en>Home</span></a></p>
-    </div>
-  </section>
-  <p class="t-sm" style="margin:12px 0 0;color:var(--ink-faint);font-size:12px"><span data-zh>页面更新 2026-11-25</span><span data-en>Page updated 2026-11-25</span></p>
-  </main>
-        <footer class="site-footer foot-single">
-    <div class="container foot-line">
-      <div class="foot-brand">
-        <span class="foot-brand-main">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="foot-copy"><span data-zh>投机取巧 · specul.com</span><span data-en>Specul · specul.com</span></span>
-        </span>
-        <span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh>内容 CC BY 4.0</span><span data-en>Content CC BY 4.0</span></a><span class="sep" aria-hidden="true">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh>代码 MIT</span><span data-en>Code MIT</span></a><span class="sep" aria-hidden="true">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a></span>
-      </div>
-      <nav class="foot-sites" aria-label="Footer site links">
-        <a class="site-link" href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://demos.specul.com/"><span data-zh>演示</span><span data-en>Demos</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://oss.specul.com/"><span data-zh>开源</span><span data-en>OSS</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://hardware.specul.com/"><span data-zh>算力</span><span data-en>Compute</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-      </nav>
-      <nav class="foot-legal" aria-label="Legal and corrections">
-        <a href="https://specul.com/legal.html"><span data-zh>法律</span><span data-en>Legal</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私</span><span data-en>Privacy</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/correct.html"><span data-zh>纠错</span><span data-en>Corrections</span></a>
-      </nav>
-    </div>
-  </footer>
-<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
-    <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
-    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
-    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
-    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
-    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
-    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
-    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
-    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
-    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
-    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+<div class="hp-c">
+<p class="kicker"><span data-zh="">主题路线</span><span data-en="">Topic route</span></p>
+<h1><span data-zh="">安全与合规，按顺序找资料</span><span data-en="">Safety and compliance: resources in order</span></h1>
+<p class="hp-line"><span data-zh="">安全不是加一句「请勿有害」：先定威胁模型，再看评测与事件记录，然后落到权限、数据与日志。合规也不是一张清单，而是把适用法规、证据与责任人分开写清。</span><span data-en="">Safety is not one added sentence: define the threat model, look at evaluations and incident records, then implement permissions, data handling and logs. Compliance is not one checklist either; separate the applicable rules, the evidence and the owner.</span></p>
+<p class="topic-readmeta">
+<span><b><span data-zh="">适合谁</span><span data-en="">For</span></b> <span data-zh="">要把 AI 功能接进真实业务、需要过评审的人</span><span data-en="">People connecting AI to real business and facing review</span></span>
+<span><b><span data-zh="">读完能拿到</span><span data-en="">You leave with</span></b> <span data-zh="">一张数据流图和一张上线前证据清单</span><span data-en="">A data-flow map and a pre-launch evidence checklist</span></span>
+<span><b><span data-zh="">大概多久</span><span data-en="">Time</span></b> <span data-zh="">15 分钟浏览；做一次最小评审约 1 天</span><span data-en="">15 minutes to browse; about a day for a minimum review</span></span>
+</p>
+<p class="hp-line"><span data-zh="">路线顺序不代表推荐排名；没有实测的能力对比、成本降幅与成功率，站群一律写未知。</span><span data-en="">Route order is not a ranking; where no measured comparison, cost reduction or success rate exists, the sites record it as unknown.</span></p>
+<div class="domain-callout"><a href="domain-safety.html"><b><span data-zh="">先读领域长文：保护对象、数据流、威胁、权限、护栏、评测与门禁</span><span data-en="">Read the field guide first: assets, data flow, threats, permissions, guardrails, evaluation and gate</span></b> →</a></div>
+</div>
+</section>
+<section class="hp-sec tight" id="start">
+<div class="hp-c">
+<h2 class="hp-h2"><span data-zh="">先做什么</span><span data-en="">Where to start</span></h2>
+<div class="hp-picker"><a class="hp-pq" href="https://learn.specul.com/path/for-safety-review/"><span class="qq"><b><span data-zh="">1 · 安全评审路线：威胁、评测、红队与上线门禁</span><span data-en="">1 · Safety-review route: threats, evaluation, red teaming, release gates</span></b></span><span class="to"><span data-zh="">→ 打开</span><span data-en="">→ Open</span></span></a><a class="hp-pq" href="https://nav.specul.com/#cat-safety"><span class="qq"><b><span data-zh="">2 · 导航安全类：框架、事件库、评测机构与政策原文</span><span data-en="">2 · Safety category: frameworks, incident databases, evaluators, policy texts</span></b></span><span class="to"><span data-zh="">→ 打开</span><span data-en="">→ Open</span></span></a><a class="hp-pq" href="https://specul.com/domain-trust.html"><span class="qq"><b><span data-zh="">3 · 信任与授权：谁能用、能用什么、留下什么证据</span><span data-en="">3 · Trust and rights: who may use what, and what evidence remains</span></b></span><span class="to"><span data-zh="">→ 打开</span><span data-en="">→ Open</span></span></a></div>
+</div>
+</section>
+<section class="hp-sec tight" id="steps">
+<div class="hp-c">
+<h2 class="hp-h2"><span data-zh="">按环节找全站资料</span><span data-en="">Find material by stage</span></h2>
+<div class="tp-sec"><div class="tp-lab"><span data-zh="">定威胁与评测</span><span data-en="">Define threats and evaluate</span></div><ul class="fx-list"><li><a href="https://nav.specul.com/#cat-safety"><span data-zh="">NIST AI RMF、OWASP LLM Top 10、MITRE ATLAS、AI Incident Database</span><span data-en="">NIST AI RMF, OWASP LLM Top 10, MITRE ATLAS, AI Incident Database</span></a></li><li><a href="https://models.specul.com/evals/"><span data-zh="">评测卡的污染、复现与「分数不能横比」说明</span><span data-en="">Benchmark cards on contamination, reproduction and non-comparability</span></a></li><li><a href="https://papers.specul.com/"><span data-zh="">可解释性与智能体失败分析：探针、参数分解与边界</span><span data-en="">Interpretability and agent-failure analysis: probes, parameter decomposition, limits</span></a></li></ul></div>
+<div class="tp-sec"><div class="tp-lab"><span data-zh="">落到权限与数据</span><span data-en="">Turn it into permissions and data rules</span></div><ul class="fx-list"><li><a href="https://specul.com/domain-trust.html"><span data-zh="">身份、权限、数据、许可与凭证的判断框架</span><span data-en="">A framework for identity, permission, data, licence and credentials</span></a></li><li><a href="https://chain.specul.com/"><span data-zh="">支付与数据权利类目：可审计的授权与结算</span><span data-en="">Payments and data-rights categories: auditable authorisation and settlement</span></a></li><li><a href="https://tools.specul.com/safety/"><span data-zh="">安全与护栏工具：输入过滤、输出审查、红队</span><span data-en="">Safety and guardrail tools: input filtering, output review, red teaming</span></a></li></ul></div>
+<div class="tp-sec"><div class="tp-lab"><span data-zh="">写清责任与证据</span><span data-en="">Write down owners and evidence</span></div><ul class="fx-list"><li><a href="https://learn.specul.com/path/for-managers/"><span data-zh="">管理者路线：谁签字、谁复核、出问题怎么追</span><span data-en="">Manager route: who signs, who reviews, how incidents are traced</span></a></li><li><a href="https://learn.specul.com/path/for-safety-review/"><span data-zh="">评审清单与上线门禁</span><span data-en="">Review checklist and release gates</span></a></li></ul></div>
+</div>
+</section>
+<section class="hp-sec tight" id="boundary">
+<div class="hp-c">
+<h2 class="hp-h2"><span data-zh="">边界</span><span data-en="">Boundary</span></h2>
+<p class="hp-line"><span data-zh="">本站不是法律意见，也不替任何组织做合规结论；法规原文、监管解释与合同条款优先。安全评测分数只在对应威胁模型与测试集下成立，不能拿一个基准证明「整体安全」。</span><span data-en="">This is not legal advice and does not issue a compliance conclusion for any organisation; statutes, regulator interpretations and contracts govern. Safety scores hold only for their threat model and test set; one benchmark cannot prove “safe overall”.</span></p>
+<p class="hp-line"><a href="topics.html"><span data-zh="">← 回主题索引</span><span data-en="">← Back to topic index</span></a> · <a href="index.html"><span data-zh="">回首页</span><span data-en="">Home</span></a></p>
+</div>
+</section>
+<p class="t-sm" style="margin:12px 0 0;color:var(--ink-faint);font-size:12px"><span data-zh="">页面更新 2026-11-25</span><span data-en="">Page updated 2026-11-25</span></p>
+</main>
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy"><span data-zh="">投机取巧 · specul.com</span><span data-en="">Specul · specul.com</span></span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh="">内容 CC BY 4.0</span><span data-en="">Content CC BY 4.0</span></a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh="">代码 MIT</span><span data-en="">Code MIT</span></a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank"><span data-zh="">源码</span><span data-en="">Source</span></a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/"><span data-zh="">演示</span><span data-en="">Demos</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/"><span data-zh="">开源</span><span data-en="">OSS</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/"><span data-zh="">算力</span><span data-en="">Compute</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/"><span data-zh="">论文</span><span data-en="">Papers</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/"><span data-zh="">导航</span><span data-en="">Directory</span></a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/legal.html"><span data-zh="">法律</span><span data-en="">Legal</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/legal.html#s8"><span data-zh="">隐私</span><span data-en="">Privacy</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/correct.html"><span data-zh="">纠错</span><span data-en="">Corrections</span></a>
+</nav>
+</div>
+</footer>
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/"><span aria-hidden="true" class="ti">◎</span><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span aria-hidden="true" class="ti">▤</span><span data-zh="">学AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span aria-hidden="true" class="ti">◈</span><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span aria-hidden="true" class="ti">▦</span><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span aria-hidden="true" class="ti">▷</span><span data-zh="">演示</span><span data-en="">Demos</span></a>
+<a href="https://oss.specul.com/"><span aria-hidden="true" class="ti">▧</span><span data-zh="">开源</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span aria-hidden="true" class="ti">▣</span><span data-zh="">算力</span><span data-en="">Chips</span></a>
+<a href="https://papers.specul.com/"><span aria-hidden="true" class="ti">▥</span><span data-zh="">论文</span><span data-en="">Papers</span></a>
+<a href="https://chain.specul.com/"><span aria-hidden="true" class="ti">◇</span><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a data-nav-group="external" href="https://nav.specul.com/"><span aria-hidden="true" class="ti">↗</span><span data-zh="">导航</span><span data-en="">Nav</span></a>
 </nav>
 </body>
 </html>

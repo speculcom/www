@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>3D and digital humans: resources in order | Specul</title>
+<meta content="3D and digital humans share three constraints: usable geometry, natural rigging and motion, and enough rendering and real-time performance. Fix the…" name="description"/>
+<link href="https://specul.com/en/topic-3d.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/topic-3d.html" property="og:url"/>
+<meta content="3D and digital humans: resources in order | Specul" property="og:title"/>
+<meta content="3D and digital humans share three constraints: usable geometry, natural rigging and motion, and enough rendering and real-time performance. Fix the…" property="og:description"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="zh_CN" property="og:locale:alternate"/>
+<meta content="#16121f" name="theme-color"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"3D and digital humans: resources in order | Specul","description":"3D and digital humans share three constraints: usable geometry, natural rigging and motion, and enough rendering and real-time performance. Fix the…","url":"https://specul.com/en/topic-3d.html","inLanguage":"en","isPartOf":{"@type":"WebSite","url":"https://specul.com/en/topic-3d.html"}}</script>
+<meta content="3D and digital humans: resources in order | Specul" name="twitter:title"/><meta content="3D and digital humans share three constraints: usable geometry, natural rigging and motion, and enough rendering and real-time performance. Fix the…" name="twitter:description"/><link href="https://specul.com/topic-3d.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/topic-3d.html" hreflang="en" rel="alternate"/><link href="https://specul.com/topic-3d.html" hreflang="x-default" rel="alternate"/></head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<a class="t-skip" href="#main">Skip to main content</a>
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/topic-3d.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<main id="main">
+<section class="hp-sec tight">
+<div class="hp-c">
+<p class="kicker">Topic route</p>
+<h1>3D and digital humans: resources in order</h1>
+<p class="hp-line">3D and digital humans share three constraints: usable geometry, natural rigging and motion, and enough rendering and real-time performance. Fix the deliverable first (still, interactive model, short video, real-time avatar), then choose the generation path and pipeline.</p>
+<p class="topic-readmeta">
+<span><b>For</b> People handing a 3D asset to a game, film, shop or digital-human project</span>
+<span><b>You leave with</b> An asset that imports, animates and holds the target frame rate</span>
+<span><b>Time</b> 15 minutes to browse; 1–3 days for one asset</span>
+</p>
+<p class="hp-line">Route order is not a ranking; where no measured comparison, cost reduction or success rate exists, the sites record it as unknown.</p>
+<div class="domain-callout"><a href="/en/domain-3d.html"><b>Read the field guide first: deliverable, geometry, topology, materials, rig, real time and export</b> →</a></div>
+</div>
+</section>
+<section class="hp-sec tight" id="start">
+<div class="hp-c">
+<h2 class="hp-h2">Where to start</h2>
+<div class="hp-picker"><a class="hp-pq" href="https://tools.specul.com/en/video/"><span class="qq"><b>1 · Video and 3D tools: generate, drive, edit, export</b></span><span class="to">→ Open</span></a><a class="hp-pq" href="https://learn.specul.com/en/path/for-creators/"><span class="qq"><b>2 · Creator route: from assets to a finished piece</b></span><span class="to">→ Open</span></a><a class="hp-pq" href="https://models.specul.com/en/guides/multimodal-memory.html"><span class="qq"><b>3 · Memory and latency basis for multimodal work</b></span><span class="to">→ Open</span></a></div>
+</div>
+</section>
+<section class="hp-sec tight" id="steps">
+<div class="hp-c">
+<h2 class="hp-h2">Find material by stage</h2>
+<div class="tp-sec"><div class="tp-lab">Geometry and generation</div><ul class="fx-list"><li><a href="https://oss.specul.com/en/">Open-source 3D generation and reconstruction: licence, first run, alternatives</a></li><li><a href="https://models.specul.com/en/">Open families with image/video input and quantisation tiers</a></li><li><a href="https://demos.specul.com/en/">3D and avatar showcases: topology, textures and motion boundaries</a></li></ul></div>
+<div class="tp-sec"><div class="tp-lab">Rigging, motion and real time</div><ul class="fx-list"><li><a href="https://tools.specul.com/en/video/">Talking-head, face swap, motion driving and real-time avatar tools</a></li><li><a href="https://hardware.specul.com/en/use-cases.html">Workstations and edge hardware by use case: render, inference, real time</a></li><li><a href="https://papers.specul.com/en/">Robotics and generative-media papers: VLA, video diffusion, 3D representation</a></li></ul></div>
+<div class="tp-sec"><div class="tp-lab">Delivery and rights</div><ul class="fx-list"><li><a href="https://specul.com/en/domain-trust.html">Rights around likeness, voice, trademark and synthetic media</a></li><li><a href="https://learn.specul.com/en/">Deep-synthesis labelling and platform rules</a></li></ul></div>
+</div>
+</section>
+<section class="hp-sec tight" id="boundary">
+<div class="hp-c">
+<h2 class="hp-h2">Boundary</h2>
+<p class="hp-line">No controlled comparison of geometry accuracy, rigging quality or real-time frame rate across 3D/avatar pipelines has been run; a showcase proves an output exists, not that it is production-ready. Topology, UVs, materials and driving stability must be re-tested on your assets.</p>
+<p class="hp-line"><a href="/en/topics.html">← Back to topic index</a> · <a href="index.html">Home</a></p>
+</div>
+</section>
+<p class="t-sm" style="margin:12px 0 0;color:var(--ink-faint);font-size:12px">Page updated 2026-11-25</p>
+</main>
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Legal | Specul</title>
+<meta content="Legal" name="description"/>
+<link href="https://specul.com/en/legal.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/legal.html" property="og:url"/>
+<meta content="Legal | Specul" property="og:title"/>
+<meta content="Legal" property="og:description"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/legal.css" rel="stylesheet"/>
+<!-- B5（2026-10-09）：法律页的结构性数据。用 WebPage（不是 WebSite）——
+       它是站群里的一个子页，不是站点本身。 -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Legal | Specul","url":"https://specul.com/en/legal.html","description":"Legal","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Legal | Specul","url":"https://specul.com/en/legal.html"},"dateModified":"2026-11-24"}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><meta content="Legal | Specul" name="twitter:title"/><meta content="Legal" name="twitter:description"/><link href="https://specul.com/legal.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/legal.html" hreflang="en" rel="alternate"/><link href="https://specul.com/legal.html" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/legal.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<!-- 窄屏抽屉：2026-10-10 随底部 tab bar 一起补上。
+       之前 legal 页只有顶栏那 6 个链接，没有汉堡/抽屉，窄屏上点不开站内导航。
+       标记与样式/行为全部来自共享 brand.css / brand.js，这里只出结构。 -->
+<a class="t-skip" href="#main">Skip to main content</a>
+<main class="container" id="main">
+<div class="legal-head">
+<h1>Legal</h1>
+
+Last updated: 24 November 2026 · Specul · applies to specul.com, learn.specul.com, tools.specul.com, models.specul.com, demos.specul.com, oss.specul.com, hardware.specul.com, papers.specul.com, chain.specul.com and nav.specul.com
+</div>
+<div class="toc-legal">
+Contents
+<ol>
+<li>Content and code licences</li>
+<li>Third-party content and links</li>
+<li>Disclaimer</li>
+<li>Privacy and local storage</li>
+<li>Trademarks</li>
+<li>Governing law and changes</li>
+<li>Contact and takedown</li>
+</ol>
+</div>
+<section id="s1">
+
+1. Content and code licences
+
+
+        Unless a page says otherwise, original <strong>text, explanations, tables, charts and site-made screenshots</strong>
+        are licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a>:
+        you may copy, adapt, redistribute and use them commercially, provided you credit <strong>specul.com</strong>, link to the licence and indicate changes.
+        The site's own source code (HTML / CSS / JS and build scripts) is licensed under <strong>MIT</strong>.
+      
+
+
+        Excluded: <strong>third-party product names, trademarks, marks, product interfaces and screenshots, quoted text, embedded works and third-party datasets</strong>
+        are not relicensed here and remain with their owners. The names and marks “Specul” and “投机取巧” are outside both the content and code licences.
+        Keep the original author, source and licence notice when republishing.
+      
+
+
+        Licence texts: <a href="/LICENSE-CONTENT.txt">content licence (CC BY 4.0)</a> ·
+        <a href="/LICENSE.txt">code licence (MIT)</a>.
+      
+<div class="card-note">
+<strong>Suggested credit</strong>: content from specul.com, used under CC BY 4.0; note any changes. Code from specul.com, used under MIT with the licence text retained.
+</div>
+</section>
+<section id="s7">
+
+2. Third-party content and links
+
+
+        Third-party sites, tools and resources linked here are operated by their owners. Links are provided for convenience and imply no endorsement or warranty of their content, accuracy, security or legality; their terms and privacy practices remain theirs.
+      
+
+
+        Product screenshots, interface images, data and names are used for identification, commentary and explanation. Rights remain with their owners; citation grants this site no licence and implies no partnership, endorsement or affiliation.
+        The <code>demos.specul.com</code> player opens the author's page through a sandboxed iframe and does not copy or rehost third-party works; if the author removes the page or the iframe fails, the player shows a failure state.
+      
+
+
+        Published pages ship no third-party runtime components. Development and verification use <strong>Playwright</strong> (Apache-2.0, copyright Microsoft and contributors), which runs locally and is not included in user-facing pages.
+      
+</section>
+<section id="s6">
+
+3. Disclaimer
+
+
+        Content and demos are provided <strong>“as is”</strong> for general information and demonstration only, and are not investment, legal, accounting, medical or other professional advice.
+        Model capabilities, prices, licences and hardware specs follow the official pages on the stated date and may change; vendor claims and official benchmarks are not independent measurements.
+      
+
+
+        To the maximum extent permitted by law, Specul is not liable for indirect, incidental or consequential losses arising from use of this site's content or demos, including lost profits, lost data or business interruption. Liability that law does not allow to be excluded is not limited by this section.
+      
+
+
+        “Speculative” here refers to <strong>speculative strategy</strong> in AI and product method, not gambling, insider trading or unlawful finance. Fictional scenes and characters in the demos are unrelated to any real person, organisation, country or event.
+      
+</section>
+<section id="s8">
+
+4. Privacy and local storage
+
+
+<li><strong>Local preferences</strong>: the sites use browser <code>localStorage</code> for <code>specul-lang</code> (Chinese/English) and <code>specul-theme</code> (light/dark); the in-site game may also store volume, keys or local progress. A first-party <code>specul-ui</code> cookie shares language and theme across specul.com subdomains for one year (SameSite=Lax, Secure). These values contain no identifier, are not used for tracking, and can be cleared in the browser.</li>
+<li><strong>No accounts, no analytics</strong>: there is no account system, login, advertising or third-party analytics script; only ordinary access logs processed by the server/CDN to serve requests exist.</li>
+<li><strong>No selling</strong>: personal information is not sold and no user profiles are built.</li>
+</section>
+<section id="s9">
+
+5. Trademarks
+
+
+        “投机取巧”, “Specul” and related marks are brand assets used by this site and are <strong>not licensed with the content licence (CC BY 4.0) or the code licence (MIT)</strong>.
+      
+
+
+        Third-party product names and trademarks mentioned here belong to their respective owners and are used for identification and commentary only; no endorsement, partnership or affiliation is implied.
+      
+</section>
+<section id="s10">
+
+6. Governing law and changes
+
+
+        This page may be updated; the version published here is current. It is governed by the <strong>laws of the People's Republic of China</strong> (excluding conflict-of-law rules). If a clause is held invalid or unenforceable, the remaining clauses stay in effect.
+      
+</section>
+<section id="s11">
+
+7. Contact and takedown
+
+
+        For copyright, licensing or takedown matters, use the <a href="https://specul.com/en/correct.html">correction page</a> to draft a note, then post it to the
+        <a href="https://github.com/speculcom/ai-handbook/issues" rel="noopener" target="_blank">speculcom/ai-handbook issue tracker</a> with “legal / takedown” in the title.
+        State the page or file concerned and your basis of rights; after verification we will correct the credit, replace the asset or remove the content.
+      
+</section>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- 底部 tab bar（手机端 App 式固定导航）—— 与首页同一份标记，legal 页也保留。 -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>

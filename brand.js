@@ -1,11 +1,16 @@
 /* Specul shared runtime. Run before styles to apply preferences before paint.
- * URL > domain preference cookie > localStorage > browser/system preference.
- * The cookie contains only UI choices; no identifiers or external requests. */
+ * Language is decided by the path: /en/... is English, everything else is Chinese.
+ * Site home pages may auto-show English when the browser prefers English and the
+ * visitor has not chosen Chinese before; deep pages stay on their URL language.
+ * No ?lang= or ?theme= is written into links or the address bar.
+ */
 (function () {
   'use strict';
   if (window.Specul) return;
   var root = document.documentElement;
-  var params = new URLSearchParams(location.search);
+  var path = location.pathname;
+  var isEnPath = /^\/en(?:\/|$)/.test(path);
+  var isHome = path === '/' || path === '/index.html';
   var cookieEnabled = /(^|\.)specul\.com$/.test(location.hostname) && location.protocol === 'https:';
   var validLang = function (v) { return /^(zh|en)$/.test(v || ''); };
   var validTheme = function (v) { return /^(light|dark)$/.test(v || ''); };
@@ -19,41 +24,30 @@
   function browserLang() { return /^zh\b/i.test((navigator.languages || [navigator.language])[0] || 'zh') ? 'zh' : 'en'; }
   function systemTheme() { return window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
   var common = cookieEnabled ? shared() : {};
-  var returning = false;
-  try { returning = performance.getEntriesByType('navigation')[0].type === 'back_forward'; } catch (_) {}
-  // History URLs record the previous choice, not a fresh request to override it.
-  var lang = (returning ? [common.lang, stored('specul-lang'), params.get('lang'), browserLang()] : [params.get('lang'), common.lang, stored('specul-lang'), browserLang()]).find(validLang);
-  var theme = (returning ? [common.theme, stored('specul-theme'), params.get('theme'), systemTheme()] : [params.get('theme'), common.theme, stored('specul-theme'), systemTheme()]).find(validTheme);
-  function persist() {
-    try { localStorage.setItem('specul-lang', lang); localStorage.setItem('specul-theme', theme); } catch (_) {}
+  var chosen = common.lang || stored('specul-lang');
+  var lang = isEnPath ? 'en' : (isHome && (chosen ? chosen === 'en' : browserLang() === 'en') ? 'en' : 'zh');
+  var theme = (common.theme || stored('specul-theme') || systemTheme());
+  function rememberLang(value) {
+    if (!validLang(value)) return;
+    try { localStorage.setItem('specul-lang', value); } catch (_) {}
+    if (cookieEnabled) try { document.cookie = 'specul-ui=' + value + '.' + theme + '; Domain=specul.com; Path=/; Max-Age=31536000; SameSite=Lax; Secure'; } catch (_) {}
+  }
+  function persistTheme() {
+    try { localStorage.setItem('specul-theme', theme); } catch (_) {}
     if (cookieEnabled) try { document.cookie = 'specul-ui=' + lang + '.' + theme + '; Domain=specul.com; Path=/; Max-Age=31536000; SameSite=Lax; Secure'; } catch (_) {}
   }
   function paint() {
-    root.lang = lang === 'en' ? 'en' : 'zh-CN'; root.dataset.lang = lang;
+    root.lang = lang === 'en' ? 'en' : 'zh-CN';
+    root.dataset.lang = lang;
     if (theme === 'light') root.dataset.theme = 'light'; else root.removeAttribute('data-theme');
     root.style.colorScheme = theme;
   }
-  paint(); persist(); root.classList.add('js-on'); root.dataset.speculBoot = document.readyState;
-  function syncLink(a) {
-    var raw = a.getAttribute('href');
-    if (!raw || raw[0] === '#' || a.hasAttribute('download')) return;
-    var url; try { url = new URL(raw, location.href); } catch (_) { return; }
-    if (!/^https?:$/.test(url.protocol) || !/(^|\.)specul\.com$/.test(url.hostname)) return;
-    if (url.origin === location.origin && !url.searchParams.has('lang') && !url.searchParams.has('theme')) return;
-    url.searchParams.set('lang', lang); url.searchParams.set('theme', theme);
-    if (a.href !== url.href) a.href = url.href;
-  }
-  function syncLinks() { document.querySelectorAll('a[href]').forEach(syncLink); }
-  function syncAddress() {
-    var url = new URL(location.href);
-    if (!url.searchParams.has('lang') && !url.searchParams.has('theme')) return;
-    url.searchParams.set('lang', lang); url.searchParams.set('theme', theme);
-    try { history.replaceState(history.state, '', url); } catch (_) {}
-  }
+  paint(); persistTheme(); root.classList.add('js-on'); root.dataset.speculBoot = document.readyState;
   function labels() {
     var en = lang === 'en', button = document.getElementById('langBtn');
     if (button) {
-      button.textContent = en ? '中' : 'EN'; button.title = en ? 'Switch to Chinese' : '切换到英文';
+      button.textContent = en ? '中' : 'EN';
+      button.title = en ? 'Switch to Chinese' : '切换到英文';
       button.setAttribute('aria-label', button.title);
     }
     button = document.getElementById('themeBtn');
@@ -94,31 +88,31 @@
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = getComputedStyle(root).getPropertyValue('--bg').trim();
   }
-  function update(nextLang, nextTheme, save) {
-    if (validLang(nextLang)) lang = nextLang;
-    if (validTheme(nextTheme)) theme = nextTheme;
-    paint(); if (save !== false) persist(); labels(); syncAddress(); syncLinks();
+  function updateTheme(nextTheme) {
+    if (!validTheme(nextTheme)) return;
+    theme = nextTheme; paint(); persistTheme(); labels();
     document.dispatchEvent(new CustomEvent('specul:preferences', { detail: { lang: lang, theme: theme } }));
   }
   window.Specul = Object.freeze({
     get lang() { return lang; }, get theme() { return theme; },
-    setLanguage: function (value) { update(value, theme); }, setTheme: function (value) { update(lang, value); }, syncLinks: syncLinks
+    setLanguage: function (value) {
+      var btn = document.getElementById('langBtn');
+      if (btn && btn.tagName === 'A' && btn.href) { rememberLang(value); location.href = btn.href; }
+    },
+    setTheme: function (value) { updateTheme(value); },
+    syncLinks: function () {}
   });
   function init() {
-    labels(); syncLinks();
+    labels();
     var langButton = document.getElementById('langBtn'), themeButton = document.getElementById('themeBtn');
-    if (langButton) langButton.addEventListener('click', function () { update(lang === 'en' ? 'zh' : 'en', theme); });
-    if (themeButton) themeButton.addEventListener('click', function () { update(lang, theme === 'light' ? 'dark' : 'light'); });
-    ['click', 'auxclick', 'contextmenu', 'pointerdown'].forEach(function (type) {
-      document.addEventListener(type, function (event) { var a = event.target.closest && event.target.closest('a[href]'); if (a) syncLink(a); }, true);
-    });
+    if (langButton && langButton.tagName === 'A') {
+      langButton.addEventListener('click', function () {
+        rememberLang(lang === 'en' ? 'zh' : 'en');
+      });
+    }
+    if (themeButton) themeButton.addEventListener('click', function () { updateTheme(theme === 'light' ? 'dark' : 'light'); });
     window.addEventListener('storage', function (e) {
-      if (e.key === 'specul-lang' || e.key === 'specul-theme') update(stored('specul-lang'), stored('specul-theme'), false);
-    });
-    window.addEventListener('pageshow', function (e) {
-      if (!e.persisted) return;
-      var state = cookieEnabled ? shared() : {};
-      update(state.lang || stored('specul-lang'), state.theme || stored('specul-theme'), false);
+      if (e.key === 'specul-theme') updateTheme(stored('specul-theme'));
     });
     setupDrawer();
   }

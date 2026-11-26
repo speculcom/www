@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Learn · Use · Pick · Run | Specul</title>
+<meta content="Got a job on your desk? Say the result you want, and go straight to the page that helps." name="description"/>
+<link href="https://specul.com/en/" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="website" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/" property="og:url"/>
+<meta content="Learn · Use · Pick · Run | Specul" property="og:title"/>
+<meta content="Got a job on your desk? Say the result you want, and go straight to the page that helps." property="og:description"/>
+<meta content="https://specul.com/home-shots/og-home.jpg?v=20261123d" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Specul 首页预览：一个搜索框、一组任务入口和三件作品图。" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Learn · Use · Pick · Run | Specul" name="twitter:title"/>
+<meta content="Got a job on your desk? Say the result you want, and go straight to the page that helps." name="twitter:description"/>
+<meta content="https://specul.com/home-shots/og-home.jpg?v=20261123d" name="twitter:image"/>
+<meta content="Specul 首页预览：一个搜索框、一组任务入口和三件作品图。" name="twitter:image:alt"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/home.css" rel="stylesheet"/>
+<!-- B5（2026-10-09）：结构性数据。枢纽站声明自己是什么、以及由哪几个站组成 ——
+       这是「站群」这件事唯一能被机器读到的地方；hasPart 让搜索引擎知道十站是一个整体。 -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Learn · Use · Pick · Run | Specul","url":"https://specul.com/en/","description":"Got a job on your desk? Say the result you want, and go straight to the page that helps.","inLanguage":"en","hasPart":[{"@type":"WebSite","name":"Learn · Use · Pick · Run | Specul","url":"https://specul.com/en/"},{"@type":"WebSite","name":"Learn · Use · Pick · Run | Specul","url":"https://specul.com/en/"},{"@type":"WebSite","name":"Learn · Use · Pick · Run | Specul","url":"https://specul.com/en/"},{"@type":"WebSite","name":"Learn · Use · Pick · Run | Specul","url":"https://specul.com/en/"},{"@type":"WebSite","name":"Learn · Use · Pick · Run | Specul","url":"https://specul.com/en/"},{"@type":"WebSite","name":"Learn · Use · Pick · Run | Specul","url":"https://specul.com/en/"},{"@type":"WebSite","name":"Learn · Use · Pick · Run | Specul","url":"https://specul.com/en/"},{"@type":"WebSite","name":"Learn · Use · Pick · Run | Specul","url":"https://specul.com/en/"},{"@type":"WebSite","name":"Learn · Use · Pick · Run | Specul","url":"https://specul.com/en/"}]}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><link href="https://specul.com/" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/" hreflang="en" rel="alternate"/><link href="https://specul.com/" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<main id="main">
+<section class="hm-hero">
+<div class="hm-c hm-hero-grid">
+<div>
+<h1>Learn · Use · Pick · Run</h1>
+<p class="hm-deck">Got a job on your desk? Say the result you want, and go straight to the page that helps.</p>
+<form action="/en/search.html" class="hm-search" method="get" role="search">
+<label class="sr-only" for="home-q">Search all sites</label>
+<input autocomplete="off" id="home-q" maxlength="300" name="q" placeholder="What are you trying to do? e.g. turn a meeting recording into notes" type="search"/>
+<button type="submit">Search all sites</button>
+</form>
+<nav aria-label="Quick entry points" class="hm-chips">
+<b>Start by</b>
+<a href="#levels">I'm new</a>
+<a href="#artifacts">I have a task</a>
+<a href="#time">Ten minutes</a>
+<a href="#routes">Follow a path</a>
+<a href="/en/search.html?q=RTX%205090">Check hardware</a>
+<a href="#latest">What's new</a>
+</nav>
+<p class="hm-stats">
+<span><b>300</b> terms</span>
+<span><b>282</b> tool profiles</span>
+<span><b>375</b> works</span>
+<span><b>110</b> papers</span>
+<span><b>72</b> hardware profiles</span>
+</p>
+</div>
+<aside aria-label="Fast starts" class="hm-start">
+<header>
+<b>Can't choose? Try these</b>
+</header>
+<a href="https://learn.specul.com/en/path/quick-start/">
+<i>01</i>
+<span><b>30 minutes: get the big picture</b><small>Learn · start with the map</small></span>
+<span aria-hidden="true">→</span>
+</a>
+<a href="https://tools.specul.com/en/mcp/guides/playbook-meeting-notes.html">
+<i>02</i>
+<span><b>Something is due today</b><small>Tools · minutes, tables, long docs</small></span>
+<span aria-hidden="true">→</span>
+</a>
+<a href="https://demos.specul.com/en/2026.html">
+<i>03</i>
+<span><b>See what people made</b><small>Demos · 375 works you can open</small></span>
+<span aria-hidden="true">→</span>
+</a>
+</aside>
+</div>
+</section>
+<section aria-labelledby="shows-title" class="hm-shows">
+<div class="hm-c container">
+<header class="hm-shows-head">
+<div>
+<h2 id="shows-title">Things people made with AI</h2>
+</div>
+<p>Three change on every load; open one for the work, model and prompt.</p>
+</header>
+<div class="hm-show-grid" id="homeShows">
+<a class="hm-show" href="https://demos.specul.com/en/works/claude-fable-5-2-016-vector-lunar-descent.html">
+<img alt="Descent — a vector lander preview" decoding="async" height="540" loading="eager" src="/home-shots/show-lunar-lander.webp" width="960"/>
+<span class="hm-show-cap"><small>Claude Fable 5.2</small><b>Descent — a vector lander</b></span>
+</a>
+<a class="hm-show" href="https://demos.specul.com/en/works/claude-fable-5-2-019-bauhaus-drum-machine.html">
+<img alt="Rhythmus — a Bauhaus drum machine preview" decoding="async" height="540" loading="eager" src="/home-shots/show-drum-machine.webp" width="960"/>
+<span class="hm-show-cap"><small>Claude Fable 5.2</small><b>Rhythmus — a Bauhaus drum machine</b></span>
+</a>
+<a class="hm-show" href="https://demos.specul.com/en/works/2026-11-kimi-k3-1-pro-3d.html">
+<img alt="Kimi K3.1 Pro 3D work preview" decoding="async" height="540" loading="eager" src="/home-shots/show-kimi-3d.webp" width="960"/>
+<span class="hm-show-cap"><small>Kimi K3.1 Pro</small><b>Text to a 3D world</b></span>
+</a>
+</div>
+<p class="hm-shows-foot"><a href="https://demos.specul.com/en/">All 375 works →</a></p>
+</div>
+</section>
+<section class="hm-sec" id="levels">
+<div class="hm-c container">
+<header class="hm-head">
+<div>
+<h2>Start from what you already know</h2>
+</div>
+<p class="hm-dek">Four levels. Pick the one that matches you.</p>
+</header>
+<div class="hm-levels">
+<article class="hm-level">
+<div class="hm-level-top"><span>01</span><span>Just starting</span></div>
+<h3>Get the big picture first</h3>
+<p>No memorising. Spend 30 minutes on the whole picture, then look up terms as they come up.</p>
+<ul class="hm-links">
+<li><a href="https://learn.specul.com/en/path/quick-start/">30-minute start<span aria-hidden="true">→</span></a></li>
+<li><a href="https://learn.specul.com/en/atlas/">The AI landscape<span aria-hidden="true">→</span></a></li>
+<li><a href="https://learn.specul.com/en/aliases/">Several names for one thing<span aria-hidden="true">→</span></a></li>
+</ul>
+</article>
+<article class="hm-level">
+<div class="hm-level-top"><span>02</span><span>Used it a little</span></div>
+<h3>Turn scattered use into steps that work every time</h3>
+<p>You can use a chat box, but results vary. Write down the task and what done looks like before choosing a tool.</p>
+<ul class="hm-links">
+<li><a href="https://learn.specul.com/en/path/for-office/">Office and writing<span aria-hidden="true">→</span></a></li>
+<li><a href="https://tools.specul.com/en/mcp/guides/playbook-meeting-notes.html">How to do meeting notes<span aria-hidden="true">→</span></a></li>
+<li><a href="https://tools.specul.com/en/mcp/guides/selftest-20.html">20-question check<span aria-hidden="true">→</span></a></li>
+</ul>
+</article>
+<article class="hm-level">
+<div class="hm-level-top"><span>03</span><span>Can write code</span></div>
+<h3>From “it runs” to “I can hand it over”</h3>
+<p>Installing is only the start. VRAM, quantisation, concurrency, failure rate and the bill belong together.</p>
+<ul class="hm-links">
+<li><a href="https://learn.specul.com/en/path/for-builders/">Builder path<span aria-hidden="true">→</span></a></li>
+<li><a href="https://models.specul.com/en/guides/edge-deployment.html">Run models at the edge<span aria-hidden="true">→</span></a></li>
+<li><a href="https://models.specul.com/en/evals/guides/agent-eval.html">How to test an agent<span aria-hidden="true">→</span></a></li>
+</ul>
+</article>
+<article class="hm-level">
+<div class="hm-level-top"><span>04</span><span>Research, selection or review</span></div>
+<h3>Check the evidence before the conclusion</h3>
+<p>A leaderboard is one score. Read the paper, the test method, the licence, the price and the failure modes together.</p>
+<ul class="hm-links">
+<li><a href="https://learn.specul.com/en/path/for-researchers/">Researcher path<span aria-hidden="true">→</span></a></li>
+<li><a href="https://papers.specul.com/en/path.html">How the methods evolved<span aria-hidden="true">→</span></a></li>
+<li><a href="https://models.specul.com/en/evals/guides/eval-contamination.html">Is the benchmark contaminated<span aria-hidden="true">→</span></a></li>
+<li><a href="https://specul.com/en/domain-trust.html">Can it be used commercially<span aria-hidden="true">→</span></a></li>
+</ul>
+</article>
+</div>
+</div>
+</section>
+<section class="hm-sec" id="artifacts">
+<div class="hm-c container">
+<header class="hm-head">
+<div>
+<h2>Start with what you have</h2>
+</div>
+<p class="hm-dek">Eight cards, two entries each: understand first, then act.</p>
+</header>
+<div class="hm-artifacts">
+<article class="hm-tile">
+<span class="hm-tile-k">A term</span>
+<b>You don't follow it, but don't want a definition</b>
+<p>See where it sits on the map, then compare the common names.</p>
+<div class="hm-tile-foot"><a href="https://learn.specul.com/en/atlas/">See the map →</a><a href="https://learn.specul.com/en/aliases/">Compare names →</a></div>
+</article>
+<article class="hm-tile">
+<span class="hm-tile-k">A task</span>
+<b>Due today</b>
+<p>Meeting notes, table merges, long-document review, PDF to table. Find steps you can follow first.</p>
+<div class="hm-tile-foot"><a href="https://tools.specul.com/en/mcp/guides/playbook-meeting-notes.html">Meeting notes →</a><a href="https://tools.specul.com/en/office/">Office tools →</a></div>
+</article>
+<article class="hm-tile">
+<span class="hm-tile-k">A model</span>
+<b>Choosing, but the spec sheet is long</b>
+<p>Start with the 2026 open-weight picture. Then check the family page for specs, licence and whether the weights are actually out.</p>
+<div class="hm-tile-foot"><a href="https://models.specul.com/en/2026.html">2026 model map →</a><a href="https://models.specul.com/en/families/thinkingmachines/">Inkling specs →</a></div>
+</article>
+<article class="hm-tile">
+<span class="hm-tile-k">A card / a machine</span>
+<b>Buying or renting</b>
+<p>Work out how much VRAM you need, then compare three years of buying and renting. Do not start with the model name.</p>
+<div class="hm-tile-foot"><a href="https://hardware.specul.com/en/path.html">Work out VRAM →</a><a href="https://hardware.specul.com/en/tco.html">Three-year cost →</a></div>
+</article>
+<article class="hm-tile">
+<span class="hm-tile-k">A work</span>
+<b>See the result, then the method</b>
+<p>All 375 works open. After one, go back to its prompt and tools.</p>
+<div class="hm-tile-foot"><a href="https://demos.specul.com/en/">See all 375 works →</a><a href="https://demos.specul.com/en/prompts.html">See prompts →</a></div>
+</article>
+<article class="hm-tile">
+<span class="hm-tile-k">A paper</span>
+<b>Not starting from a second-hand summary</b>
+<p>See what it builds on, then read the abstract and limits. A press release is not a paper.</p>
+<div class="hm-tile-foot"><a href="https://papers.specul.com/en/path.html">How methods evolved →</a><a href="https://papers.specul.com/en/2026.html">Four 2026 papers →</a></div>
+</article>
+<article class="hm-tile">
+<span class="hm-tile-k">A system</span>
+<b>Wiring an agent into a project</b>
+<p>Framework, runner, memory, permissions. Decide who owns each layer before choosing a repo.</p>
+<div class="hm-tile-foot"><a href="https://tools.specul.com/en/mcp/guides/compare-agent-frameworks.html">Choose a framework →</a><a href="https://tools.specul.com/en/mcp/guides/compare-local-runners.html">Choose a local runner →</a></div>
+</article>
+<article class="hm-tile">
+<span class="hm-tile-k">A chain question</span>
+<b>Identity, payments or credentials?</b>
+<p>Separate accounts, identity, payments and card networks, then see what a protocol actually does.</p>
+<div class="hm-tile-foot"><a href="https://chain.specul.com/en/path.html">Separate the four layers →</a><a href="https://chain.specul.com/en/2026.html">2026 four layers →</a></div>
+</article>
+</div>
+</div>
+</section>
+<section class="hm-sec" id="time">
+<div class="hm-c container">
+<header class="hm-head">
+<div>
+<h2>Ten minutes, half an hour, or an afternoon</h2>
+</div>
+<p class="hm-dek">Pick the row that matches your time.</p>
+</header>
+<div class="hm-time">
+<div class="hm-time-row">
+<b>10 minutes<span>One point only</span></b>
+<div class="hm-time-links">
+<a href="https://learn.specul.com/en/term/RAG%EF%BC%88%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%EF%BC%89/">What RAG is<em>Learn</em></a>
+<a href="https://demos.specul.com/en/2026.html">One work from 2026<em>Demos</em></a>
+<a href="https://hardware.specul.com/en/nvidia-geforce-rtx-5090.html">Check the RTX 5090<em>Hardware</em></a>
+</div>
+</div>
+<div class="hm-time-row">
+<b>30 minutes<span>Finish one short path</span></b>
+<div class="hm-time-links">
+<a href="https://learn.specul.com/en/path/quick-start/">Take the 30-minute start<em>Learn</em></a>
+<a href="https://tools.specul.com/en/mcp/guides/selftest-20.html">Take the 20-question check<em>Tools</em></a>
+<a href="https://models.specul.com/en/evals/guides/read-leaderboard.html">Read one leaderboard<em>Models</em></a>
+</div>
+</div>
+<div class="hm-time-row">
+<b>One afternoon<span>Reach a checkable result</span></b>
+<div class="hm-time-links">
+<a href="https://specul.com/en/topic-local.html">Run a model locally: full path<em>Topic</em></a>
+<a href="https://tools.specul.com/en/mcp/guides/playbook-local-model.html">Follow the steps once<em>Tools</em></a>
+<a href="https://hardware.specul.com/en/tco.html">Work out the three-year cost<em>Hardware</em></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="hm-sec" id="routes">
+<div class="hm-c container">
+<header class="hm-head">
+<div>
+<h2>Four paths, one task to the next</h2>
+</div>
+<p class="hm-dek">Four steps each. Finish, then decide whether to go deeper.</p>
+</header>
+<div class="hm-routes">
+<article class="hm-route">
+<header><span>Work</span></header>
+<h3>Turn a recording into minutes you can send</h3>
+<p>The result goes to other people. It needs actions, owners and quotes you can check.</p>
+<div class="hm-steps">
+<a class="hm-step" href="https://learn.specul.com/en/path/for-office/"><i>1</i><span><b>See how this work is usually done</b><small>Do not start with a transcription tool</small></span><span>Learn</span></a>
+<a class="hm-step" href="https://tools.specul.com/en/mcp/guides/playbook-meeting-notes.html"><i>2</i><span><b>Run the steps once</b><small>Input, steps and checks are written down</small></span><span>Tools</span></a>
+<a class="hm-step" href="https://tools.specul.com/en/office/"><i>3</i><span><b>Then choose by budget and access</b><small>Transcription, minutes and collaboration are separate</small></span><span>Tools</span></a>
+<a class="hm-step" href="https://specul.com/en/topic-office.html"><i>4</i><span><b>Return to the full path</b><small>Tools, process and checks together</small></span><span>Topic</span></a>
+</div>
+</article>
+<article class="hm-route">
+<header><span>Engineering</span></header>
+<h3>Run a model locally without blowing VRAM</h3>
+<p>For offline use, lower cost, or just checking whether it runs at all.</p>
+<div class="hm-steps">
+<a class="hm-step" href="https://models.specul.com/en/guides/edge-deployment.html"><i>1</i><span><b>See how edge differs from a desktop GPU</b><small>Edge is not a smaller desktop card</small></span><span>Models</span></a>
+<a class="hm-step" href="https://hardware.specul.com/en/path.html"><i>2</i><span><b>Work back from VRAM</b><small>Set context and concurrency first</small></span><span>Hardware</span></a>
+<a class="hm-step" href="https://oss.specul.com/en/repos/llama-cpp.html"><i>3</i><span><b>Take a repo that actually runs</b><small>Check licence, backends and quant support</small></span><span>OSS</span></a>
+<a class="hm-step" href="https://tools.specul.com/en/mcp/guides/compare-local-runners.html"><i>4</i><span><b>Then choose a local runner</b><small>Ollama / LM Studio / llama.cpp / vLLM</small></span><span>Tools</span></a>
+</div>
+</article>
+<article class="hm-route">
+<header><span>Works</span></header>
+<h3>Make a work you can publish</h3>
+<p>Start from the result, then work back to prompts, tools and asset rights.</p>
+<div class="hm-steps">
+<a class="hm-step" href="https://demos.specul.com/en/2026.html"><i>1</i><span><b>See this year's works</b><small>One prompt family, different model takes</small></span><span>Demos</span></a>
+<a class="hm-step" href="https://tools.specul.com/en/image/"><i>2</i><span><b>Pick the image or video tools</b><small>Delivery first, then generation and post</small></span><span>Tools</span></a>
+<a class="hm-step" href="https://learn.specul.com/en/path/for-creators/"><i>3</i><span><b>Add process and asset rights</b><small>Assets, style, commercial limits</small></span><span>Learn</span></a>
+<a class="hm-step" href="https://demos.specul.com/en/prompts.html"><i>4</i><span><b>Break down the prompt index</b><small>See how others make the ask clear</small></span><span>Demos</span></a>
+</div>
+</article>
+<article class="hm-route">
+<header><span>Selection</span></header>
+<h3>Choose a model after counting cost and limits</h3>
+<p>For deciding between models, cards or cloud services.</p>
+<div class="hm-steps">
+<a class="hm-step" href="https://models.specul.com/en/2026.html"><i>1</i><span><b>Start with 2026 open weights</b><small>Nine releases, no popularity ranking</small></span><span>Models</span></a>
+<a class="hm-step" href="https://papers.specul.com/en/path.html"><i>2</i><span><b>Match methods and evidence</b><small>Separate paper claims from vendor claims</small></span><span>Papers</span></a>
+<a class="hm-step" href="https://hardware.specul.com/en/tco.html"><i>3</i><span><b>Run the three-year buy-versus-rent sum</b><small>Include storage, egress and idle time</small></span><span>Hardware</span></a>
+<a class="hm-step" href="https://models.specul.com/en/evals/guides/read-leaderboard.html"><i>4</i><span><b>Read the leaderboard last</b><small>What is measured, then who measured it</small></span><span>Models</span></a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="hm-sec" id="latest">
+<div class="hm-c container">
+<header class="hm-head hm-head-single">
+<div>
+<h2>Six recently updated pages</h2>
+</div>
+</header>
+<div class="hm-latest">
+<a href="https://models.specul.com/en/2026.html"><span>Models</span><b>GLM-5.4: 750B base, 28 layers looped twice</b><small>No weights or API yet; see what it claims</small></a>
+<a href="https://tools.specul.com/en/2026.html"><span>Tools</span><b>Claude Ship: agents review, fix and approve PRs</b><small>Approval is opt-in and policy-bound</small></a>
+<a href="https://chain.specul.com/en/2026.html"><span>Chain</span><b>Algorand x402: atomic and sponsored transactions</b><small>Native grouping, not a new cross-chain spec</small></a>
+<a href="https://demos.specul.com/en/2026.html"><span>Demos</span><b>Genie 4: edit a world live in the browser</b><small>Ultra only; no developer API yet</small></a>
+<a href="https://oss.specul.com/en/repos/loopforge.html"><span>OSS</span><b>LoopForge: coding-agent delivery as SOPs</b><small>Go / MIT, self-hosted; start with Local</small></a>
+<a href="https://hardware.specul.com/en/2026.html"><span>Hardware</span><b>PFN MN-Core L2000: double-bandwidth target</b><small>Tape-out in 2027Q1, not buyable now</small></a>
+</div>
+<p class="hm-footnote">
+<a href="/en/topics.html">All 16 topics</a>
+<a href="/en/updates-2026-11.html">2026 updates</a>
+<a href="/en/map.html">Site map</a>
+<a href="/en/about.html">How this site is made</a>
+<a href="/en/method.html">How content is chosen</a>
+</p>
+<div class="hm-final">
+<div>
+<h2>Still not sure where to click?</h2>
+<p>Search in plain words. The 2,454 entries include pages, cards and off-site links. Or pick one of 16 topics.</p>
+</div>
+<div class="hm-final-acts">
+<a href="/en/search.html">Search all →</a>
+<a href="/en/topics.html">16 topics</a>
+<a href="/en/map.html">Site map</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<script defer="" src="/home-shows.js"></script>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+<script>
+/* ⚠ 2026-10-10：原先这里有一段「语言桥接」内联脚本，专门处理 #markSub
+   （中文态显示英文副名、英文态清空）—— 因为那时 brand.js 只认 #markName。
+   现在这段逻辑已**搬进共享的 brand.js**（applyLang 里），
+   六站与手机抽屉行为一致，所以这里整段删除 ✓
+   留着它就是两份配方 —— 改一处忘一处就会重影。 */
+
+/* 汉堡抽屉：顶部菜单与底部 tab bar 并存，两条路都能到六个站。
+   Esc / 点遮罩 / 点关闭键 / 点导航项都收起；打开时锁 body 滚动。 */
+
+</script>
+</body>
+</html>

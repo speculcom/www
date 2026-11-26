@@ -1,232 +1,226 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="theme-color" content="#16121f" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>智能体：先写清它能做什么、不能做什么 · Specul</title>
-  <meta name="description" content="你让智能体“帮我处理工单”，它真的去查了订单、改了地址、发了一封邮件。演示时看起来很聪明，上线后问题才出现：它凭什么改地址？出错谁负责？能不能回放？先把任务、权限、状态和停止条件写清楚，再谈多智能体。" />
-  <link rel="canonical" href="https://specul.com/domain-agent.html" />
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="Specul" />
-  <meta property="og:url" content="https://specul.com/domain-agent.html" />
-  <meta property="og:title" content="智能体：先写清它能做什么、不能做什么" />
-  <meta property="og:description" content="你让智能体“帮我处理工单”，它真的去查了订单、改了地址、发了一封邮件。演示时看起来很聪明，上线后问题才出现：它凭什么改地址？出错谁负责？能不能回放？先把任务、权限、状态和停止条件写清楚，再谈多智能体。" />
-  <link rel="icon" type="image/png" href="assets/brand/dandelion-favicon-site.png" />
-  <link rel="apple-touch-icon" href="assets/brand/dandelion-apple-touch-site.png" />
-  <script src="brand.js?v=37d1072be69b"></script>
-  <link rel="stylesheet" href="brand.css?v=37d1072be69b" />
-  <link rel="stylesheet" href="site.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"智能体：先写清它能做什么、不能做什么","description":"你让智能体“帮我处理工单”，它真的去查了订单、改了地址、发了一封邮件。演示时看起来很聪明，上线后问题才出现：它凭什么改地址？出错谁负责？能不能回放？先把任务、权限、状态和停止条件写清楚，再谈多智能体。","url":"https://specul.com/domain-agent.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
-</head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>智能体：先写清它能做什么、不能做什么 · Specul</title>
+<meta content="你让智能体“帮我处理工单”，它真的去查了订单、改了地址、发了一封邮件。演示时看起来很聪明，上线后问题才出现：它凭什么改地址？出错谁负责？能不能回放？先把任务、权限、状态和停止条件写清楚，再谈多智能体。" name="description"/>
+<link href="https://specul.com/domain-agent.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="article" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/domain-agent.html" property="og:url"/>
+<meta content="智能体：先写清它能做什么、不能做什么" property="og:title"/>
+<meta content="你让智能体“帮我处理工单”，它真的去查了订单、改了地址、发了一封邮件。演示时看起来很聪明，上线后问题才出现：它凭什么改地址？出错谁负责？能不能回放？先把任务、权限、状态和停止条件写清楚，再谈多智能体。" property="og:description"/>
+<link href="assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="brand.js?v=37d1072be69b"></script>
+<link href="brand.css?v=37d1072be69b" rel="stylesheet"/>
+<link href="site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"智能体：先写清它能做什么、不能做什么","description":"你让智能体“帮我处理工单”，它真的去查了订单、改了地址、发了一封邮件。演示时看起来很聪明，上线后问题才出现：它凭什么改地址？出错谁负责？能不能回放？先把任务、权限、状态和停止条件写清楚，再谈多智能体。","url":"https://specul.com/domain-agent.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","name":"Specul","url":"https://specul.com/"}}</script>
+<link href="https://specul.com/domain-agent.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/domain-agent.html" hreflang="en" rel="alternate"/><link href="https://specul.com/domain-agent.html" hreflang="x-default" rel="alternate"/></head>
 <body class="brand-ambient has-tabbar has-tabbar-1row">
-
 <!-- SPECUL:HEADER:START -->
-  <header class="site-header">
-    <div class="container site-bar">
-      <a class="brand" href="https://specul.com/" title="投机取巧">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span class="brand-text">
-          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
-          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="站点导航">
-        <a href="https://specul.com/" aria-current="page"><span data-zh>首页</span><span data-en>Home</span></a>
-        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
-        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
-        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
-        <a href="https://oss.specul.com/"><span data-zh>开源库</span><span data-en>OSS</span></a>
-        <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
-        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
-        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
-      </nav>
-      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" data-en-name="Speculative Speculation" data-zh-name="投机取巧" id="markName">投机取巧</span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation" id="markSub">Speculative Speculation</span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span data-zh="">作品演示</span><span data-en="">Playground</span></a>
+<a href="https://oss.specul.com/"><span data-zh="">开源库</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span data-zh="">硬件算力</span><span data-en="">Compute</span></a>
+<a href="https://papers.specul.com/"><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></a>
+<a href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a href="https://nav.specul.com/"><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
            （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
            链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
-      <span class="nav-tools">
-        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
-        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
-      </span>
-      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+<span class="nav-tools">
+<a aria-label="搜索" class="icon-btn" data-ui-aria-label-en="Search" data-ui-aria-label-zh="搜索" data-ui-title-en="Search all sites" data-ui-title-zh="搜索全站" href="https://specul.com/search.html" title="搜索全站"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="Switch to English" class="icon-btn" href="/en/domain-agent.html" hreflang="en" id="langBtn" lang="en" title="Switch to English">EN</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
            行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
-      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
-        <i></i><i></i><i></i>
-      </button>
-    </div>
-  </header>
-  <div class="nav-scrim"></div>
-  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
-    <div class="nav-drawer-h">
-      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
-      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
-    </div>
-    <nav class="nav-drawer-list">
-      <a href="https://specul.com/" aria-current="page"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://oss.specul.com/"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
-    </nav>
-    <div class="nav-drawer-foot">
-      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
-      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
-    </div>
-  </aside>
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name"><span data-zh="">投机取巧</span><span data-en="">Speculative Speculation</span></span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation">Speculative Speculation</span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/"><span><span data-zh="">首页</span><span data-en="">Home</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/"><span><span data-zh="">学 AI</span><span data-en="">Learn</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/"><span><span data-zh="">工具</span><span data-en="">Tools</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/"><span><span data-zh="">模型</span><span data-en="">Models</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/"><span><span data-zh="">作品演示</span><span data-en="">Playground</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/"><span><span data-zh="">开源库</span><span data-en="">OSS</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/"><span><span data-zh="">硬件算力</span><span data-en="">Compute</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/"><span><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/"><span><span data-zh="">链</span><span data-en="">Chain</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/"><span><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p><span data-zh="">内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en="">Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+<nav><a href="https://specul.com/legal.html"><span data-zh="">法律条款</span><span data-en="">Legal terms</span></a></nav>
+</div>
+</aside>
 <!-- SPECUL:HEADER:END -->
-
 <main id="main">
 <section class="hp-sec tight">
-    <div class="hp-c">
-      <nav class="domain-crumb" aria-label="面包屑">
-        <a href="/"><span data-zh>首页</span><span data-en>Home</span></a>
-        <span aria-hidden="true">/</span>
-        <a href="topics.html"><span data-zh>主题索引</span><span data-en>Topics</span></a>
-        <span aria-hidden="true">/</span>
-        <span><span data-zh>领域深读</span><span data-en>Field guide</span></span>
-      </nav>
-      <p class="kicker"><span data-zh>领域深度 · 智能体</span><span data-en>Field guide · Agents</span></p>
-      <h1><span data-zh>智能体：先写清它能做什么、不能做什么</span><span data-en>Agents: write down what it may and may not do</span></h1>
-      <p class="domain-lead"><span data-zh>你让智能体“帮我处理工单”，它真的去查了订单、改了地址、发了一封邮件。演示时看起来很聪明，上线后问题才出现：它凭什么改地址？出错谁负责？能不能回放？先把任务、权限、状态和停止条件写清楚，再谈多智能体。</span><span data-en>You ask an agent to “handle the ticket”. It looks up the order, changes the address and sends an email. In a demo that looks smart. In production the questions arrive: who allowed the address change, who owns the mistake, and can we replay it? Write the task, permissions, state and stop conditions before talking about multi-agent systems.</span></p>
-      <p class="domain-readmeta">
-        <span><b><span data-zh>适合谁</span><span data-en>For</span></b> <span data-zh>要把一个聊天机器人变成能办事的流程的人</span><span data-en>Anyone turning a chatbot into a process that actually does work</span></span>
-        <span><b><span data-zh>读完能拿到</span><span data-en>You leave with</span></b> <span data-zh>一张任务边界卡、一张工具权限表，和一条能回放的单任务流程</span><span data-en>A task-boundary card, a tool-permission table and one replayable single-task flow</span></span>
-        <span><b><span data-zh>大概多久</span><span data-en>Time</span></b> <span data-zh>先读 12 分钟；做第一条流程约半天</span><span data-en>12 minutes to read; about half a day for the first flow</span></span>
-        <span class="domain-verified"><span data-zh>最后核对 2026-11-25</span><span data-en>Last checked 25 Nov 2026</span></span>
-      </p>
-      <p class="domain-meta"><span data-zh>本页是 Specul 的智能体判断框架，不是框架或产品的排名。工具能力、许可与安全边界以所链页面和原始来源为准。</span><span data-en>This is Specul’s decision framework for agents, not a ranking of frameworks or products. Tool capabilities, licences and safety boundaries remain with the linked pages and original sources.</span></p>
-    </div>
-  </section>
-  <section class="hp-sec tight">
-    <div class="hp-c domain-prose">
-      <div class="domain-quick">
-        <b><span data-zh>如果你只有 5 分钟</span><span data-en>If you only have five minutes</span></b>
-        <ol><li><span data-zh>智能体 = 模型 + 工具 + 状态 + 循环 + 权限，少一个都不算。</span><span data-en>An agent is model + tools + state + loop + permissions. Miss one and it is not one.</span></li><li><span data-zh>先限定一件事、一个负责人、一个完成定义。</span><span data-en>Start with one job, one owner and one definition of done.</span></li><li><span data-zh>能调用不等于该调用。每个工具单独开权限。</span><span data-en>Being able to call a tool is not permission to call it. Grant each tool separately.</span></li></ol>
-        <p><span data-zh>完整版从下面开始；表格是查的时候用，不用背。</span><span data-en>The full guide starts below. Use the tables for reference; you do not need to memorise them.</span></p>
-      </div>
-      <div class="domain-case">
-        <b><span data-zh>拿一个具体活走一遍</span><span data-en>One concrete job</span></b>
-        <p><span data-zh>假设一个具体活：每天从工单系统取 20 张单，判断是否退款，写回复，但发信前必须有人点确认。这条流程要能停、能查、能回放。</span><span data-en>Take one concrete job: pull 20 tickets a day, decide whether to refund, draft a reply, but require a human click before sending. The flow must stop, be auditable and replayable.</span></p>
-      </div>
-      
-      <div class="domain-callout domain-thesis"><span data-zh>先做单任务、可回放、可审批的 Agent。多 Agent 是复杂度，不是能力证明。</span><span data-en>Build a single-task, replayable, approvable agent first. Multi-agent is complexity, not proof of capability.</span></div>
-      <nav class="domain-toc" id="domain-toc" aria-label="本文目录" data-ui-aria-label-zh="本文目录" data-ui-aria-label-en="Contents">
-        <b><span data-zh>本文目录</span><span data-en>Contents</span></b>
-        <ol><li><a href="#anatomy"><span data-zh>1 · 五个部件：模型、工具、状态、循环、权限</span><span data-en>1 · Five parts: model, tools, state, loop, permissions</span></a></li><li><a href="#scope"><span data-zh>2 · 任务边界：一件事、一个负责人、一个完成定义</span><span data-en>2 · Task boundary: one job, one owner, one definition of done</span></a></li><li><a href="#tools"><span data-zh>3 · 工具与权限：能调用不等于该调用</span><span data-en>3 · Tools and permissions: can call does not mean should call</span></a></li><li><a href="#state"><span data-zh>4 · 状态与记忆：先能回放，再谈长期记忆</span><span data-en>4 · State and memory: replay first, long-term memory later</span></a></li><li><a href="#loop"><span data-zh>5 · 控制循环：继续、重试、停止都要有上限</span><span data-en>5 · Control loop: continuing, retrying and stopping all need limits</span></a></li><li><a href="#eval"><span data-zh>6 · 评测：看任务、轨迹、工具和安全，不只看最终一句话</span><span data-en>6 · Evaluation: task, trajectory, tools and safety, not just the final sentence</span></a></li><li><a href="#fail"><span data-zh>7 · 失败分支：先让系统停得住</span><span data-en>7 · Failure branches: make the system able to stop</span></a></li><li><a href="#path"><span data-zh>8 · 最小落地路径</span><span data-en>8 · A minimum path to deployment</span></a></li></ol>
-      </nav>
-      <section class="domain-section" id="anatomy">
-      <h2><span data-zh>1 · 五个部件：模型、工具、状态、循环、权限</span><span data-en>1 · Five parts: model, tools, state, loop, permissions</span></h2>
-      <p><span data-zh>模型负责提出下一步，工具负责改变外部世界，状态负责记住之前发生了什么，控制循环负责在合适的时候继续或停止，权限负责决定哪些动作根本不能做。五者缺一，智能体就会退化成「会调用函数的聊天」。</span><span data-en>The model proposes the next step, tools change the outside world, state remembers what happened, the control loop decides whether to continue or stop, and permissions decide which actions are forbidden. Remove one and the agent collapses into a chatbot that calls functions.</span></p><p><span data-zh>最容易被忽略的是权限。模型可以「想」做任何事，但系统只能让它「做」被明确授权的动作。把权限写在提示词里不算权限。权限必须由运行时代码、身份系统或审批流程执行。</span><span data-en>Permissions are the most overlooked part. A model may think about anything, but the system may only let it do explicitly authorised actions. Writing permissions in a prompt is not permission; they must be enforced by runtime code, an identity system or an approval flow.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh>部件</span><span data-en>Part</span></th><th><span data-zh>回答的问题</span><span data-en>Question</span></th><th><span data-zh>常见失败</span><span data-en>Common failure</span></th></tr></thead><tbody><tr><td><span data-zh>模型</span><span data-en>Model</span><span class="cell-label" aria-hidden="true"><span data-zh>部件</span><span data-en>Part</span></span></td><td><span data-zh>下一步做什么</span><span data-en>What next</span><span class="cell-label" aria-hidden="true"><span data-zh>回答的问题</span><span data-en>Question</span></span></td><td><span data-zh>只会说，不会停</span><span data-en>Talks but does not stop</span><span class="cell-label" aria-hidden="true"><span data-zh>常见失败</span><span data-en>Common failure</span></span></td></tr><tr><td><span data-zh>工具</span><span data-en>Tools</span><span class="cell-label" aria-hidden="true"><span data-zh>部件</span><span data-en>Part</span></span></td><td><span data-zh>怎样改变外部世界</span><span data-en>How to change the outside world</span><span class="cell-label" aria-hidden="true"><span data-zh>回答的问题</span><span data-en>Question</span></span></td><td><span data-zh>参数错、权限过大、返回不可信</span><span data-en>Wrong arguments, excessive permission, untrusted returns</span><span class="cell-label" aria-hidden="true"><span data-zh>常见失败</span><span data-en>Common failure</span></span></td></tr><tr><td><span data-zh>状态</span><span data-en>State</span><span class="cell-label" aria-hidden="true"><span data-zh>部件</span><span data-en>Part</span></span></td><td><span data-zh>之前发生了什么</span><span data-en>What happened before</span><span class="cell-label" aria-hidden="true"><span data-zh>回答的问题</span><span data-en>Question</span></span></td><td><span data-zh>把旧状态当现在，或什么都没有记</span><span data-en>Stale state or no state at all</span><span class="cell-label" aria-hidden="true"><span data-zh>常见失败</span><span data-en>Common failure</span></span></td></tr><tr><td><span data-zh>循环</span><span data-en>Loop</span><span class="cell-label" aria-hidden="true"><span data-zh>部件</span><span data-en>Part</span></span></td><td><span data-zh>什么时候继续、重试、停止</span><span data-en>When to continue, retry or stop</span><span class="cell-label" aria-hidden="true"><span data-zh>回答的问题</span><span data-en>Question</span></span></td><td><span data-zh>无限循环、重复写入、成本失控</span><span data-en>Infinite loops, duplicate writes, runaway cost</span><span class="cell-label" aria-hidden="true"><span data-zh>常见失败</span><span data-en>Common failure</span></span></td></tr><tr><td><span data-zh>权限</span><span data-en>Permissions</span><span class="cell-label" aria-hidden="true"><span data-zh>部件</span><span data-en>Part</span></span></td><td><span data-zh>哪些动作绝对不许做</span><span data-en>Which actions are forbidden</span><span class="cell-label" aria-hidden="true"><span data-zh>回答的问题</span><span data-en>Question</span></span></td><td><span data-zh>提示词约束被绕过</span><span data-en>Prompt-level constraints bypassed</span><span class="cell-label" aria-hidden="true"><span data-zh>常见失败</span><span data-en>Common failure</span></span></td></tr></tbody></table></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<div class="hp-c">
+<nav aria-label="面包屑" class="domain-crumb">
+<a href="/"><span data-zh="">首页</span><span data-en="">Home</span></a>
+<span aria-hidden="true">/</span>
+<a href="topics.html"><span data-zh="">主题索引</span><span data-en="">Topics</span></a>
+<span aria-hidden="true">/</span>
+<span><span data-zh="">领域深读</span><span data-en="">Field guide</span></span>
+</nav>
+<p class="kicker"><span data-zh="">领域深度 · 智能体</span><span data-en="">Field guide · Agents</span></p>
+<h1><span data-zh="">智能体：先写清它能做什么、不能做什么</span><span data-en="">Agents: write down what it may and may not do</span></h1>
+<p class="domain-lead"><span data-zh="">你让智能体“帮我处理工单”，它真的去查了订单、改了地址、发了一封邮件。演示时看起来很聪明，上线后问题才出现：它凭什么改地址？出错谁负责？能不能回放？先把任务、权限、状态和停止条件写清楚，再谈多智能体。</span><span data-en="">You ask an agent to “handle the ticket”. It looks up the order, changes the address and sends an email. In a demo that looks smart. In production the questions arrive: who allowed the address change, who owns the mistake, and can we replay it? Write the task, permissions, state and stop conditions before talking about multi-agent systems.</span></p>
+<p class="domain-readmeta">
+<span><b><span data-zh="">适合谁</span><span data-en="">For</span></b> <span data-zh="">要把一个聊天机器人变成能办事的流程的人</span><span data-en="">Anyone turning a chatbot into a process that actually does work</span></span>
+<span><b><span data-zh="">读完能拿到</span><span data-en="">You leave with</span></b> <span data-zh="">一张任务边界卡、一张工具权限表，和一条能回放的单任务流程</span><span data-en="">A task-boundary card, a tool-permission table and one replayable single-task flow</span></span>
+<span><b><span data-zh="">大概多久</span><span data-en="">Time</span></b> <span data-zh="">先读 12 分钟；做第一条流程约半天</span><span data-en="">12 minutes to read; about half a day for the first flow</span></span>
+<span class="domain-verified"><span data-zh="">最后核对 2026-11-25</span><span data-en="">Last checked 25 Nov 2026</span></span>
+</p>
+<p class="domain-meta"><span data-zh="">本页是 Specul 的智能体判断框架，不是框架或产品的排名。工具能力、许可与安全边界以所链页面和原始来源为准。</span><span data-en="">This is Specul’s decision framework for agents, not a ranking of frameworks or products. Tool capabilities, licences and safety boundaries remain with the linked pages and original sources.</span></p>
+</div>
+</section>
+<section class="hp-sec tight">
+<div class="hp-c domain-prose">
+<div class="domain-quick">
+<b><span data-zh="">如果你只有 5 分钟</span><span data-en="">If you only have five minutes</span></b>
+<ol><li><span data-zh="">智能体 = 模型 + 工具 + 状态 + 循环 + 权限，少一个都不算。</span><span data-en="">An agent is model + tools + state + loop + permissions. Miss one and it is not one.</span></li><li><span data-zh="">先限定一件事、一个负责人、一个完成定义。</span><span data-en="">Start with one job, one owner and one definition of done.</span></li><li><span data-zh="">能调用不等于该调用。每个工具单独开权限。</span><span data-en="">Being able to call a tool is not permission to call it. Grant each tool separately.</span></li></ol>
+<p><span data-zh="">完整版从下面开始；表格是查的时候用，不用背。</span><span data-en="">The full guide starts below. Use the tables for reference; you do not need to memorise them.</span></p>
+</div>
+<div class="domain-case">
+<b><span data-zh="">拿一个具体活走一遍</span><span data-en="">One concrete job</span></b>
+<p><span data-zh="">假设一个具体活：每天从工单系统取 20 张单，判断是否退款，写回复，但发信前必须有人点确认。这条流程要能停、能查、能回放。</span><span data-en="">Take one concrete job: pull 20 tickets a day, decide whether to refund, draft a reply, but require a human click before sending. The flow must stop, be auditable and replayable.</span></p>
+</div>
+<div class="domain-callout domain-thesis"><span data-zh="">先做单任务、可回放、可审批的 Agent。多 Agent 是复杂度，不是能力证明。</span><span data-en="">Build a single-task, replayable, approvable agent first. Multi-agent is complexity, not proof of capability.</span></div>
+<nav aria-label="本文目录" class="domain-toc" data-ui-aria-label-en="Contents" data-ui-aria-label-zh="本文目录" id="domain-toc">
+<b><span data-zh="">本文目录</span><span data-en="">Contents</span></b>
+<ol><li><a href="#anatomy"><span data-zh="">1 · 五个部件：模型、工具、状态、循环、权限</span><span data-en="">1 · Five parts: model, tools, state, loop, permissions</span></a></li><li><a href="#scope"><span data-zh="">2 · 任务边界：一件事、一个负责人、一个完成定义</span><span data-en="">2 · Task boundary: one job, one owner, one definition of done</span></a></li><li><a href="#tools"><span data-zh="">3 · 工具与权限：能调用不等于该调用</span><span data-en="">3 · Tools and permissions: can call does not mean should call</span></a></li><li><a href="#state"><span data-zh="">4 · 状态与记忆：先能回放，再谈长期记忆</span><span data-en="">4 · State and memory: replay first, long-term memory later</span></a></li><li><a href="#loop"><span data-zh="">5 · 控制循环：继续、重试、停止都要有上限</span><span data-en="">5 · Control loop: continuing, retrying and stopping all need limits</span></a></li><li><a href="#eval"><span data-zh="">6 · 评测：看任务、轨迹、工具和安全，不只看最终一句话</span><span data-en="">6 · Evaluation: task, trajectory, tools and safety, not just the final sentence</span></a></li><li><a href="#fail"><span data-zh="">7 · 失败分支：先让系统停得住</span><span data-en="">7 · Failure branches: make the system able to stop</span></a></li><li><a href="#path"><span data-zh="">8 · 最小落地路径</span><span data-en="">8 · A minimum path to deployment</span></a></li></ol>
+</nav>
+<section class="domain-section" id="anatomy">
+<h2><span data-zh="">1 · 五个部件：模型、工具、状态、循环、权限</span><span data-en="">1 · Five parts: model, tools, state, loop, permissions</span></h2>
+<p><span data-zh="">模型负责提出下一步，工具负责改变外部世界，状态负责记住之前发生了什么，控制循环负责在合适的时候继续或停止，权限负责决定哪些动作根本不能做。五者缺一，智能体就会退化成「会调用函数的聊天」。</span><span data-en="">The model proposes the next step, tools change the outside world, state remembers what happened, the control loop decides whether to continue or stop, and permissions decide which actions are forbidden. Remove one and the agent collapses into a chatbot that calls functions.</span></p><p><span data-zh="">最容易被忽略的是权限。模型可以「想」做任何事，但系统只能让它「做」被明确授权的动作。把权限写在提示词里不算权限。权限必须由运行时代码、身份系统或审批流程执行。</span><span data-en="">Permissions are the most overlooked part. A model may think about anything, but the system may only let it do explicitly authorised actions. Writing permissions in a prompt is not permission; they must be enforced by runtime code, an identity system or an approval flow.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh="">部件</span><span data-en="">Part</span></th><th><span data-zh="">回答的问题</span><span data-en="">Question</span></th><th><span data-zh="">常见失败</span><span data-en="">Common failure</span></th></tr></thead><tbody><tr><td><span data-zh="">模型</span><span data-en="">Model</span><span aria-hidden="true" class="cell-label"><span data-zh="">部件</span><span data-en="">Part</span></span></td><td><span data-zh="">下一步做什么</span><span data-en="">What next</span><span aria-hidden="true" class="cell-label"><span data-zh="">回答的问题</span><span data-en="">Question</span></span></td><td><span data-zh="">只会说，不会停</span><span data-en="">Talks but does not stop</span><span aria-hidden="true" class="cell-label"><span data-zh="">常见失败</span><span data-en="">Common failure</span></span></td></tr><tr><td><span data-zh="">工具</span><span data-en="">Tools</span><span aria-hidden="true" class="cell-label"><span data-zh="">部件</span><span data-en="">Part</span></span></td><td><span data-zh="">怎样改变外部世界</span><span data-en="">How to change the outside world</span><span aria-hidden="true" class="cell-label"><span data-zh="">回答的问题</span><span data-en="">Question</span></span></td><td><span data-zh="">参数错、权限过大、返回不可信</span><span data-en="">Wrong arguments, excessive permission, untrusted returns</span><span aria-hidden="true" class="cell-label"><span data-zh="">常见失败</span><span data-en="">Common failure</span></span></td></tr><tr><td><span data-zh="">状态</span><span data-en="">State</span><span aria-hidden="true" class="cell-label"><span data-zh="">部件</span><span data-en="">Part</span></span></td><td><span data-zh="">之前发生了什么</span><span data-en="">What happened before</span><span aria-hidden="true" class="cell-label"><span data-zh="">回答的问题</span><span data-en="">Question</span></span></td><td><span data-zh="">把旧状态当现在，或什么都没有记</span><span data-en="">Stale state or no state at all</span><span aria-hidden="true" class="cell-label"><span data-zh="">常见失败</span><span data-en="">Common failure</span></span></td></tr><tr><td><span data-zh="">循环</span><span data-en="">Loop</span><span aria-hidden="true" class="cell-label"><span data-zh="">部件</span><span data-en="">Part</span></span></td><td><span data-zh="">什么时候继续、重试、停止</span><span data-en="">When to continue, retry or stop</span><span aria-hidden="true" class="cell-label"><span data-zh="">回答的问题</span><span data-en="">Question</span></span></td><td><span data-zh="">无限循环、重复写入、成本失控</span><span data-en="">Infinite loops, duplicate writes, runaway cost</span><span aria-hidden="true" class="cell-label"><span data-zh="">常见失败</span><span data-en="">Common failure</span></span></td></tr><tr><td><span data-zh="">权限</span><span data-en="">Permissions</span><span aria-hidden="true" class="cell-label"><span data-zh="">部件</span><span data-en="">Part</span></span></td><td><span data-zh="">哪些动作绝对不许做</span><span data-en="">Which actions are forbidden</span><span aria-hidden="true" class="cell-label"><span data-zh="">回答的问题</span><span data-en="">Question</span></span></td><td><span data-zh="">提示词约束被绕过</span><span data-en="">Prompt-level constraints bypassed</span><span aria-hidden="true" class="cell-label"><span data-zh="">常见失败</span><span data-en="">Common failure</span></span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="scope">
-      <h2><span data-zh>2 · 任务边界：一件事、一个负责人、一个完成定义</span><span data-en>2 · Task boundary: one job, one owner, one definition of done</span></h2>
-      <p><span data-zh>一个可上线的智能体，任务应该能用一句话说清：它读什么、做什么、产出什么、什么情况下停。任务越宽，越难判断它有没有做完，也越难限制它的副作用。</span><span data-en>A shippable agent should have a task describable in one sentence: what it reads, what it does, what it produces and when it stops. The broader the task, the harder it is to know whether it is done and to limit side effects.</span></p><p><span data-zh>每个任务要有一个人类负责人。负责人不是「出了问题再找的人」，而是事先定义完成标准、审批不可逆动作、决定什么时候停的人。没有负责人的智能体，出事时只会互相指认。</span><span data-en>Every task needs a human owner. The owner is not the person you call after something breaks; they define done criteria in advance, approve irreversible actions and decide when to stop. An agent without an owner produces blame, not accountability.</span></p><p><span data-zh>不可逆动作要单独列出：对外发送、付款、删除、发布、改权限、动生产数据。对这些动作，默认要人工确认。如果确实要自动执行，必须有额度、白名单、回滚和审计。</span><span data-en>List irreversible actions separately: sending externally, paying, deleting, publishing, changing permissions, touching production data. By default these require human confirmation. If they must be automated, they need limits, allowlists, rollback and audit.</span></p><div class="domain-callout"><span data-zh>判断句：如果一件事做完没有可观察的结果，也没有人能为结果负责，它还不适合交给智能体。</span><span data-en>Rule of thumb: if the work has no observable result and no one accountable for it, it is not ready for an agent.</span></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">2 · 任务边界：一件事、一个负责人、一个完成定义</span><span data-en="">2 · Task boundary: one job, one owner, one definition of done</span></h2>
+<p><span data-zh="">一个可上线的智能体，任务应该能用一句话说清：它读什么、做什么、产出什么、什么情况下停。任务越宽，越难判断它有没有做完，也越难限制它的副作用。</span><span data-en="">A shippable agent should have a task describable in one sentence: what it reads, what it does, what it produces and when it stops. The broader the task, the harder it is to know whether it is done and to limit side effects.</span></p><p><span data-zh="">每个任务要有一个人类负责人。负责人不是「出了问题再找的人」，而是事先定义完成标准、审批不可逆动作、决定什么时候停的人。没有负责人的智能体，出事时只会互相指认。</span><span data-en="">Every task needs a human owner. The owner is not the person you call after something breaks; they define done criteria in advance, approve irreversible actions and decide when to stop. An agent without an owner produces blame, not accountability.</span></p><p><span data-zh="">不可逆动作要单独列出：对外发送、付款、删除、发布、改权限、动生产数据。对这些动作，默认要人工确认。如果确实要自动执行，必须有额度、白名单、回滚和审计。</span><span data-en="">List irreversible actions separately: sending externally, paying, deleting, publishing, changing permissions, touching production data. By default these require human confirmation. If they must be automated, they need limits, allowlists, rollback and audit.</span></p><div class="domain-callout"><span data-zh="">判断句：如果一件事做完没有可观察的结果，也没有人能为结果负责，它还不适合交给智能体。</span><span data-en="">Rule of thumb: if the work has no observable result and no one accountable for it, it is not ready for an agent.</span></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="tools">
-      <h2><span data-zh>3 · 工具与权限：能调用不等于该调用</span><span data-en>3 · Tools and permissions: can call does not mean should call</span></h2>
-      <p><span data-zh>工具定义越模糊，模型越容易乱填参数。每个工具要写清：做什么、输入是什么、输出是什么、失败返回什么、是否幂等、是否会产生副作用。最好让工具在参数不合法时直接拒绝，而不是「猜一个」继续。</span><span data-en>The vaguer the tool definition, the more likely the model fills in wrong arguments. Each tool should state what it does, its input, its output, its failure return, whether it is idempotent and whether it has side effects. Tools should reject invalid arguments instead of guessing and continuing.</span></p><p><span data-zh>权限要按「身份 × 动作 × 对象 × 范围」授予。同一个智能体，读知识库和发外部邮件应该是两种权限。读一个项目和读所有项目也应该是两种权限。把工具权限收窄，比在提示词里写「不要乱来」有效得多。</span><span data-en>Grant permissions by identity × action × object × scope. For the same agent, reading a knowledge base and sending external email are different permissions; reading one project and reading all projects are different too. Narrow tool permissions is far more effective than writing “do not misbehave” in a prompt.</span></p><p><span data-zh>MCP、插件和第三方工具还是供应链。固定版本、核对来源、限制网络与文件访问、保留清单，和装一个依赖没有本质区别。工具越多，攻击面越大。先接一个真正需要的工具，比接十个「以后可能用得上」的更安全。</span><span data-en>MCP servers, plugins and third-party tools are also supply chain. Pin versions, verify sources, limit network and file access, keep an inventory — it is no different from adding a dependency. More tools mean more attack surface. Connect one tool you truly need before ten you might need later.</span></p>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">3 · 工具与权限：能调用不等于该调用</span><span data-en="">3 · Tools and permissions: can call does not mean should call</span></h2>
+<p><span data-zh="">工具定义越模糊，模型越容易乱填参数。每个工具要写清：做什么、输入是什么、输出是什么、失败返回什么、是否幂等、是否会产生副作用。最好让工具在参数不合法时直接拒绝，而不是「猜一个」继续。</span><span data-en="">The vaguer the tool definition, the more likely the model fills in wrong arguments. Each tool should state what it does, its input, its output, its failure return, whether it is idempotent and whether it has side effects. Tools should reject invalid arguments instead of guessing and continuing.</span></p><p><span data-zh="">权限要按「身份 × 动作 × 对象 × 范围」授予。同一个智能体，读知识库和发外部邮件应该是两种权限。读一个项目和读所有项目也应该是两种权限。把工具权限收窄，比在提示词里写「不要乱来」有效得多。</span><span data-en="">Grant permissions by identity × action × object × scope. For the same agent, reading a knowledge base and sending external email are different permissions; reading one project and reading all projects are different too. Narrow tool permissions is far more effective than writing “do not misbehave” in a prompt.</span></p><p><span data-zh="">MCP、插件和第三方工具还是供应链。固定版本、核对来源、限制网络与文件访问、保留清单，和装一个依赖没有本质区别。工具越多，攻击面越大。先接一个真正需要的工具，比接十个「以后可能用得上」的更安全。</span><span data-en="">MCP servers, plugins and third-party tools are also supply chain. Pin versions, verify sources, limit network and file access, keep an inventory — it is no different from adding a dependency. More tools mean more attack surface. Connect one tool you truly need before ten you might need later.</span></p>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="state">
-      <h2><span data-zh>4 · 状态与记忆：先能回放，再谈长期记忆</span><span data-en>4 · State and memory: replay first, long-term memory later</span></h2>
-      <p><span data-zh>状态不是「把聊天记录全塞进上下文」。至少要区分：本次任务的临时状态、跨任务的长期记忆、外部系统的真实状态。三者混在一起，智能体会把旧结论当现在，把猜出来的东西当事实。</span><span data-en>State is not stuffing the whole chat history into context. Separate at least: temporary state for this task, long-term memory across tasks, and the real state of external systems. Mix them and the agent treats old conclusions as current and guesses as facts.</span></p><p><span data-zh>先做可回放：记录每一步的输入、模型输出、工具调用、工具返回、审批和最终结果。回放不是为了「看日志」，而是为了在失败时判断是哪一步错了，以及能不能用同一输入复现。没有回放，评测和审计都无从谈起。</span><span data-en>Build replay first: record each step’s input, model output, tool call, tool return, approval and final result. Replay is not for “looking at logs”; it is for identifying which step failed and whether the same input reproduces. Without replay, evaluation and audit are impossible.</span></p><p><span data-zh>长期记忆要有写入规则、过期规则和删除规则。什么值得记、记多久、谁能读、如何纠错，都要在写入前想清楚。把所有对话永久向量化，既贵又容易把错误固化。</span><span data-en>Long-term memory needs write rules, expiry rules and deletion rules. Decide what is worth remembering, for how long, who can read it and how to correct it before writing. Permanently vectorising every conversation is expensive and freezes mistakes.</span></p>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">4 · 状态与记忆：先能回放，再谈长期记忆</span><span data-en="">4 · State and memory: replay first, long-term memory later</span></h2>
+<p><span data-zh="">状态不是「把聊天记录全塞进上下文」。至少要区分：本次任务的临时状态、跨任务的长期记忆、外部系统的真实状态。三者混在一起，智能体会把旧结论当现在，把猜出来的东西当事实。</span><span data-en="">State is not stuffing the whole chat history into context. Separate at least: temporary state for this task, long-term memory across tasks, and the real state of external systems. Mix them and the agent treats old conclusions as current and guesses as facts.</span></p><p><span data-zh="">先做可回放：记录每一步的输入、模型输出、工具调用、工具返回、审批和最终结果。回放不是为了「看日志」，而是为了在失败时判断是哪一步错了，以及能不能用同一输入复现。没有回放，评测和审计都无从谈起。</span><span data-en="">Build replay first: record each step’s input, model output, tool call, tool return, approval and final result. Replay is not for “looking at logs”; it is for identifying which step failed and whether the same input reproduces. Without replay, evaluation and audit are impossible.</span></p><p><span data-zh="">长期记忆要有写入规则、过期规则和删除规则。什么值得记、记多久、谁能读、如何纠错，都要在写入前想清楚。把所有对话永久向量化，既贵又容易把错误固化。</span><span data-en="">Long-term memory needs write rules, expiry rules and deletion rules. Decide what is worth remembering, for how long, who can read it and how to correct it before writing. Permanently vectorising every conversation is expensive and freezes mistakes.</span></p>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="loop">
-      <h2><span data-zh>5 · 控制循环：继续、重试、停止都要有上限</span><span data-en>5 · Control loop: continuing, retrying and stopping all need limits</span></h2>
-      <p><span data-zh>一个健康的循环至少有四道闸：最大步数、最大时长、最大成本、最大重试次数。没有上限的循环，会在工具反复失败时不断重试，或在模型反复「再确认一下」时烧掉预算。</span><span data-en>A healthy loop has at least four gates: maximum steps, maximum duration, maximum cost and maximum retries. Without limits, a loop keeps retrying when a tool fails repeatedly, or burns budget while the model “checks once more”.</span></p><p><span data-zh>重试要区分可重试和不可重试。网络超时可以重试。参数错误、权限拒绝、对象不存在通常不该重试。写操作还要幂等：同一个动作重复执行，不能产生两封邮件、两笔付款或两条记录。</span><span data-en>Distinguish retryable from non-retryable failures. Network timeouts can be retried; invalid arguments, permission denials and missing objects usually should not. Write actions must be idempotent: repeating the same action must not create two emails, two payments or two records.</span></p><p><span data-zh>停止条件要显式：任务完成、达到上限、需要人工审批、出现安全违规、或证据不足。最危险的不是「不会做」，而是「不知道已经该停」。</span><span data-en>Stop conditions must be explicit: task done, limit reached, human approval needed, safety violation, or insufficient evidence. The most dangerous state is not “cannot do it” but “does not know it should stop”.</span></p>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">5 · 控制循环：继续、重试、停止都要有上限</span><span data-en="">5 · Control loop: continuing, retrying and stopping all need limits</span></h2>
+<p><span data-zh="">一个健康的循环至少有四道闸：最大步数、最大时长、最大成本、最大重试次数。没有上限的循环，会在工具反复失败时不断重试，或在模型反复「再确认一下」时烧掉预算。</span><span data-en="">A healthy loop has at least four gates: maximum steps, maximum duration, maximum cost and maximum retries. Without limits, a loop keeps retrying when a tool fails repeatedly, or burns budget while the model “checks once more”.</span></p><p><span data-zh="">重试要区分可重试和不可重试。网络超时可以重试。参数错误、权限拒绝、对象不存在通常不该重试。写操作还要幂等：同一个动作重复执行，不能产生两封邮件、两笔付款或两条记录。</span><span data-en="">Distinguish retryable from non-retryable failures. Network timeouts can be retried; invalid arguments, permission denials and missing objects usually should not. Write actions must be idempotent: repeating the same action must not create two emails, two payments or two records.</span></p><p><span data-zh="">停止条件要显式：任务完成、达到上限、需要人工审批、出现安全违规、或证据不足。最危险的不是「不会做」，而是「不知道已经该停」。</span><span data-en="">Stop conditions must be explicit: task done, limit reached, human approval needed, safety violation, or insufficient evidence. The most dangerous state is not “cannot do it” but “does not know it should stop”.</span></p>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="eval">
-      <h2><span data-zh>6 · 评测：看任务、轨迹、工具和安全，不只看最终一句话</span><span data-en>6 · Evaluation: task, trajectory, tools and safety, not just the final sentence</span></h2>
-      <p><span data-zh>智能体的评测不能只看最终答案。至少要记录：任务是否完成、步骤是否合理、工具调用是否正确、是否越权、成本多少、失败时是否安全退出。一个答案看起来对、但中间读了不该读的数据的 Agent，不能算通过。</span><span data-en>Agent evaluation cannot look only at the final answer. Record at least: whether the task was completed, whether the steps were reasonable, whether tool calls were correct, whether permissions were exceeded, the cost, and whether it exited safely on failure. An agent with a plausible answer that read data it should not have read has not passed.</span></p><p><span data-zh>先做固定任务集：同一批任务、同一套工具、同一环境、同一预算，重复跑。任务集要包含正常、边界、失败和恶意输入。只测顺风顺水的任务，上线后一定会在异常输入上出问题。</span><span data-en>Start with a fixed task set: same tasks, same tools, same environment, same budget, repeated. Include normal, edge, failure and adversarial inputs. Testing only happy paths guarantees trouble on abnormal inputs after launch.</span></p><p><span data-zh>上线前先影子运行：让 Agent 在真实输入上跑，但不执行副作用，只记录它会做什么。对比人工结果，统计「会做对」「会做错」「会越权」「会卡住」四类，再决定是否放权。</span><span data-en>Run in shadow mode before launch: let the agent process real inputs without side effects and record what it would do. Compare with human results across four buckets — would do right, would do wrong, would exceed permission, would get stuck — then decide how much authority to grant.</span></p><div class="domain-callout"><span data-zh>判断句：如果评测只报「成功率」，没有失败样本、越权样本和成本，它还不能支撑上线决定。</span><span data-en>Rule of thumb: if an evaluation reports only a success rate, without failure cases, permission violations and cost, it cannot support a launch decision.</span></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">6 · 评测：看任务、轨迹、工具和安全，不只看最终一句话</span><span data-en="">6 · Evaluation: task, trajectory, tools and safety, not just the final sentence</span></h2>
+<p><span data-zh="">智能体的评测不能只看最终答案。至少要记录：任务是否完成、步骤是否合理、工具调用是否正确、是否越权、成本多少、失败时是否安全退出。一个答案看起来对、但中间读了不该读的数据的 Agent，不能算通过。</span><span data-en="">Agent evaluation cannot look only at the final answer. Record at least: whether the task was completed, whether the steps were reasonable, whether tool calls were correct, whether permissions were exceeded, the cost, and whether it exited safely on failure. An agent with a plausible answer that read data it should not have read has not passed.</span></p><p><span data-zh="">先做固定任务集：同一批任务、同一套工具、同一环境、同一预算，重复跑。任务集要包含正常、边界、失败和恶意输入。只测顺风顺水的任务，上线后一定会在异常输入上出问题。</span><span data-en="">Start with a fixed task set: same tasks, same tools, same environment, same budget, repeated. Include normal, edge, failure and adversarial inputs. Testing only happy paths guarantees trouble on abnormal inputs after launch.</span></p><p><span data-zh="">上线前先影子运行：让 Agent 在真实输入上跑，但不执行副作用，只记录它会做什么。对比人工结果，统计「会做对」「会做错」「会越权」「会卡住」四类，再决定是否放权。</span><span data-en="">Run in shadow mode before launch: let the agent process real inputs without side effects and record what it would do. Compare with human results across four buckets — would do right, would do wrong, would exceed permission, would get stuck — then decide how much authority to grant.</span></p><div class="domain-callout"><span data-zh="">判断句：如果评测只报「成功率」，没有失败样本、越权样本和成本，它还不能支撑上线决定。</span><span data-en="">Rule of thumb: if an evaluation reports only a success rate, without failure cases, permission violations and cost, it cannot support a launch decision.</span></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="fail">
-      <h2><span data-zh>7 · 失败分支：先让系统停得住</span><span data-en>7 · Failure branches: make the system able to stop</span></h2>
-      <p><span data-zh>智能体的失败往往不是「答错一句」，而是「做错一件事」。失败分支要按副作用分级：只读的可以重试，写入的要先检查再补偿，不可逆的要人工介入。</span><span data-en>Agent failures are often not a wrong sentence but a wrong action. Grade failure branches by side effect: read-only can retry, writes need check-then-compensate, irreversible actions need a human.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh>失败</span><span data-en>Failure</span></th><th><span data-zh>先做什么</span><span data-en>First action</span></th><th><span data-zh>不要做什么</span><span data-en>Do not</span></th></tr></thead><tbody><tr><td><span data-zh>工具报错</span><span data-en>Tool error</span><span class="cell-label" aria-hidden="true"><span data-zh>失败</span><span data-en>Failure</span></span></td><td><span data-zh>分类：可重试 / 不可重试</span><span data-en>Classify: retryable / not</span><span class="cell-label" aria-hidden="true"><span data-zh>先做什么</span><span data-en>First action</span></span></td><td><span data-zh>无脑重试到上限</span><span data-en>Retry blindly to the limit</span><span class="cell-label" aria-hidden="true"><span data-zh>不要做什么</span><span data-en>Do not</span></span></td></tr><tr><td><span data-zh>循环重复</span><span data-en>Repeated loop</span><span class="cell-label" aria-hidden="true"><span data-zh>失败</span><span data-en>Failure</span></span></td><td><span data-zh>停、记录轨迹、回到上一步</span><span data-en>Stop, record the trace, return to the previous step</span><span class="cell-label" aria-hidden="true"><span data-zh>先做什么</span><span data-en>First action</span></span></td><td><span data-zh>继续加提示词让它「聪明点」</span><span data-en>Add more prompt text to make it “smarter”</span><span class="cell-label" aria-hidden="true"><span data-zh>不要做什么</span><span data-en>Do not</span></span></td></tr><tr><td><span data-zh>部分写入</span><span data-en>Partial write</span><span class="cell-label" aria-hidden="true"><span data-zh>失败</span><span data-en>Failure</span></span></td><td><span data-zh>查真实状态，补偿或回滚</span><span data-en>Check real state, compensate or roll back</span><span class="cell-label" aria-hidden="true"><span data-zh>先做什么</span><span data-en>First action</span></span></td><td><span data-zh>假设第一次没成功</span><span data-en>Assume the first write failed</span><span class="cell-label" aria-hidden="true"><span data-zh>不要做什么</span><span data-en>Do not</span></span></td></tr><tr><td><span data-zh>提示注入</span><span data-en>Prompt injection</span><span class="cell-label" aria-hidden="true"><span data-zh>失败</span><span data-en>Failure</span></span></td><td><span data-zh>隔离内容与指令，降权，人工复核</span><span data-en>Separate content from instructions, reduce privilege, review</span><span class="cell-label" aria-hidden="true"><span data-zh>先做什么</span><span data-en>First action</span></span></td><td><span data-zh>把网页内容当系统指令</span><span data-en>Treat web content as system instructions</span><span class="cell-label" aria-hidden="true"><span data-zh>不要做什么</span><span data-en>Do not</span></span></td></tr><tr><td><span data-zh>成本失控</span><span data-en>Runaway cost</span><span class="cell-label" aria-hidden="true"><span data-zh>失败</span><span data-en>Failure</span></span></td><td><span data-zh>触发预算闸，停止并报告</span><span data-en>Trigger the budget gate, stop and report</span><span class="cell-label" aria-hidden="true"><span data-zh>先做什么</span><span data-en>First action</span></span></td><td><span data-zh>先跑完再算账</span><span data-en>Finish first and count later</span><span class="cell-label" aria-hidden="true"><span data-zh>不要做什么</span><span data-en>Do not</span></span></td></tr></tbody></table></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
+<h2><span data-zh="">7 · 失败分支：先让系统停得住</span><span data-en="">7 · Failure branches: make the system able to stop</span></h2>
+<p><span data-zh="">智能体的失败往往不是「答错一句」，而是「做错一件事」。失败分支要按副作用分级：只读的可以重试，写入的要先检查再补偿，不可逆的要人工介入。</span><span data-en="">Agent failures are often not a wrong sentence but a wrong action. Grade failure branches by side effect: read-only can retry, writes need check-then-compensate, irreversible actions need a human.</span></p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th><span data-zh="">失败</span><span data-en="">Failure</span></th><th><span data-zh="">先做什么</span><span data-en="">First action</span></th><th><span data-zh="">不要做什么</span><span data-en="">Do not</span></th></tr></thead><tbody><tr><td><span data-zh="">工具报错</span><span data-en="">Tool error</span><span aria-hidden="true" class="cell-label"><span data-zh="">失败</span><span data-en="">Failure</span></span></td><td><span data-zh="">分类：可重试 / 不可重试</span><span data-en="">Classify: retryable / not</span><span aria-hidden="true" class="cell-label"><span data-zh="">先做什么</span><span data-en="">First action</span></span></td><td><span data-zh="">无脑重试到上限</span><span data-en="">Retry blindly to the limit</span><span aria-hidden="true" class="cell-label"><span data-zh="">不要做什么</span><span data-en="">Do not</span></span></td></tr><tr><td><span data-zh="">循环重复</span><span data-en="">Repeated loop</span><span aria-hidden="true" class="cell-label"><span data-zh="">失败</span><span data-en="">Failure</span></span></td><td><span data-zh="">停、记录轨迹、回到上一步</span><span data-en="">Stop, record the trace, return to the previous step</span><span aria-hidden="true" class="cell-label"><span data-zh="">先做什么</span><span data-en="">First action</span></span></td><td><span data-zh="">继续加提示词让它「聪明点」</span><span data-en="">Add more prompt text to make it “smarter”</span><span aria-hidden="true" class="cell-label"><span data-zh="">不要做什么</span><span data-en="">Do not</span></span></td></tr><tr><td><span data-zh="">部分写入</span><span data-en="">Partial write</span><span aria-hidden="true" class="cell-label"><span data-zh="">失败</span><span data-en="">Failure</span></span></td><td><span data-zh="">查真实状态，补偿或回滚</span><span data-en="">Check real state, compensate or roll back</span><span aria-hidden="true" class="cell-label"><span data-zh="">先做什么</span><span data-en="">First action</span></span></td><td><span data-zh="">假设第一次没成功</span><span data-en="">Assume the first write failed</span><span aria-hidden="true" class="cell-label"><span data-zh="">不要做什么</span><span data-en="">Do not</span></span></td></tr><tr><td><span data-zh="">提示注入</span><span data-en="">Prompt injection</span><span aria-hidden="true" class="cell-label"><span data-zh="">失败</span><span data-en="">Failure</span></span></td><td><span data-zh="">隔离内容与指令，降权，人工复核</span><span data-en="">Separate content from instructions, reduce privilege, review</span><span aria-hidden="true" class="cell-label"><span data-zh="">先做什么</span><span data-en="">First action</span></span></td><td><span data-zh="">把网页内容当系统指令</span><span data-en="">Treat web content as system instructions</span><span aria-hidden="true" class="cell-label"><span data-zh="">不要做什么</span><span data-en="">Do not</span></span></td></tr><tr><td><span data-zh="">成本失控</span><span data-en="">Runaway cost</span><span aria-hidden="true" class="cell-label"><span data-zh="">失败</span><span data-en="">Failure</span></span></td><td><span data-zh="">触发预算闸，停止并报告</span><span data-en="">Trigger the budget gate, stop and report</span><span aria-hidden="true" class="cell-label"><span data-zh="">先做什么</span><span data-en="">First action</span></span></td><td><span data-zh="">先跑完再算账</span><span data-en="">Finish first and count later</span><span aria-hidden="true" class="cell-label"><span data-zh="">不要做什么</span><span data-en="">Do not</span></span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
 <section class="domain-section" id="path">
-      <h2><span data-zh>8 · 最小落地路径</span><span data-en>8 · A minimum path to deployment</span></h2>
-      <p><span data-zh>先做一条只读、单任务、可回放的流程。跑稳后再逐个加工具、加写权限、加自动化。每加一个能力，都要重新跑同一套任务集。</span><span data-en>Start with one read-only, single-task, replayable process. After it is stable, add tools, write permissions and automation one at a time. Every added capability must rerun the same task set.</span></p><ul class="domain-list"><li><span data-zh>写清任务、输入、输出、完成标准和不可逆动作。</span><span data-en>Write the task, input, output, done criteria and irreversible actions.</span></li><li><span data-zh>只接一个必要工具，定义参数、返回、失败和幂等性。</span><span data-en>Connect one necessary tool; define arguments, returns, failures and idempotency.</span></li><li><span data-zh>用运行时强制权限，不把权限写进提示词。</span><span data-en>Enforce permissions in the runtime, not in the prompt.</span></li><li><span data-zh>记录每一步，先做到可回放。</span><span data-en>Record every step; make replay possible first.</span></li><li><span data-zh>加步数、时长、成本、重试四道闸。</span><span data-en>Add four gates: steps, duration, cost, retries.</span></li><li><span data-zh>用固定任务集测正常、边界、失败和恶意输入。</span><span data-en>Test normal, edge, failure and adversarial inputs on a fixed task set.</span></li><li><span data-zh>影子运行，对比人工结果与越权率。</span><span data-en>Run in shadow mode; compare with human results and permission-violation rate.</span></li><li><span data-zh>小范围放权，保留人工审批与一键停。</span><span data-en>Grant authority gradually; keep human approval and a stop button.</span></li></ul><div class="domain-callout"><span data-zh>四个常见误区：Agent 越多越好。自主等于不用审批。记忆就是向量数据库。演示能跑就等于能上线。</span><span data-en>Four common mistakes: more agents are better; autonomy means no approval; memory means a vector database; a working demo means ready to ship.</span></div>
-      <p class="domain-return"><a href="#domain-toc"><span data-zh>↑ 回到目录</span><span data-en>↑ Back to contents</span></a></p>
-    </section>
-      <section class="domain-section" id="sources">
-        <h2><span data-zh>来源与延伸阅读</span><span data-en>Sources and further reading</span></h2>
-        <p><span data-zh>以下链接用于核对事实、许可证与官方口径。外部页面可能更新；引用时以原文与核验日为准。</span><span data-en>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</span></p>
-        <ul class="domain-src"><li><a href="https://tools.specul.com/mcp/guides/playbook-service-agent.html" rel="noopener"><span data-zh>工具站 · 服务型 Agent 流程</span><span data-en>Tools · Service agent playbook</span></a><span><span data-zh>从任务边界到上线的服务型 Agent 步骤。</span><span data-en>Steps for a service agent from task boundary to launch.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/guardrails.html" rel="noopener"><span data-zh>工具站 · 护栏</span><span data-en>Tools · Guardrails</span></a><span><span data-zh>输入、输出、工具与运行时护栏的分层。</span><span data-en>Layers of input, output, tool and runtime guardrails.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/agent-memory.html" rel="noopener"><span data-zh>工具站 · Agent 记忆</span><span data-en>Tools · Agent memory</span></a><span><span data-zh>短期状态、长期记忆与检索的边界。</span><span data-en>Boundaries between short-term state, long-term memory and retrieval.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/orchestration.html" rel="noopener"><span data-zh>工具站 · 编排</span><span data-en>Tools · Orchestration</span></a><span><span data-zh>单 Agent、工作流与多 Agent 的选择。</span><span data-en>Choosing single-agent, workflow or multi-agent.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/failure-library.html" rel="noopener"><span data-zh>工具站 · 失败库</span><span data-en>Tools · Failure library</span></a><span><span data-zh>常见失败模式与排查顺序。</span><span data-en>Common failure modes and triage order.</span></span></li><li><a href="https://models.specul.com/evals/guides/agent-eval.html" rel="noopener"><span data-zh>模型站 · Agent 评测</span><span data-en>Models · Agent evaluation</span></a><span><span data-zh>任务、轨迹、工具与安全评测。</span><span data-en>Task, trajectory, tool and safety evaluation.</span></span></li><li><a href="https://oss.specul.com/scenes/agent-frameworks.html" rel="noopener"><span data-zh>开源库 · Agent 框架场景</span><span data-en>OSS · Agent frameworks</span></a><span><span data-zh>Agent 框架仓库与许可证入口。</span><span data-en>Agent framework repositories and licences.</span></span></li><li><a href="https://learn.specul.com/term/%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92/" rel="noopener"><span data-zh>学 AI · 工作流编排</span><span data-en>Learn · Workflow orchestration</span></a><span><span data-zh>编排、状态与失败恢复的概念页。</span><span data-en>Concept page on orchestration, state and recovery.</span></span></li></ul>
-      </section>
-      <section class="domain-next">
-        <h2><span data-zh>下一步</span><span data-en>Next</span></h2>
-        <ul><li><a href="topic-agent.html"><span data-zh>回到“搭智能体”路线</span><span data-en>Back to the agent route</span></a></li><li><a href="domain-safety.html"><span data-zh>下一步：把权限和证据补齐</span><span data-en>Next: complete permissions and evidence</span></a></li><li><a href="topics.html"><span data-zh>看其他 15 条主题路线</span><span data-en>Browse the other 15 topic routes</span></a></li></ul>
-        <p><span data-zh>如果你照着做时卡住了，先回到对应主题路线，不要从头重读。</span><span data-en>If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</span></p>
-      </section>
-      <p class="domain-back"><a href="https://specul.com/"><span data-zh>← 回到首页</span><span data-en>← Back to home</span></a> <span aria-hidden="true">·</span> <a href="correct.html"><span data-zh>发现错误？提交纠错</span><span data-en>Spot an error? Send a correction</span></a></p>
-    </div>
-  </section>
+<h2><span data-zh="">8 · 最小落地路径</span><span data-en="">8 · A minimum path to deployment</span></h2>
+<p><span data-zh="">先做一条只读、单任务、可回放的流程。跑稳后再逐个加工具、加写权限、加自动化。每加一个能力，都要重新跑同一套任务集。</span><span data-en="">Start with one read-only, single-task, replayable process. After it is stable, add tools, write permissions and automation one at a time. Every added capability must rerun the same task set.</span></p><ul class="domain-list"><li><span data-zh="">写清任务、输入、输出、完成标准和不可逆动作。</span><span data-en="">Write the task, input, output, done criteria and irreversible actions.</span></li><li><span data-zh="">只接一个必要工具，定义参数、返回、失败和幂等性。</span><span data-en="">Connect one necessary tool; define arguments, returns, failures and idempotency.</span></li><li><span data-zh="">用运行时强制权限，不把权限写进提示词。</span><span data-en="">Enforce permissions in the runtime, not in the prompt.</span></li><li><span data-zh="">记录每一步，先做到可回放。</span><span data-en="">Record every step; make replay possible first.</span></li><li><span data-zh="">加步数、时长、成本、重试四道闸。</span><span data-en="">Add four gates: steps, duration, cost, retries.</span></li><li><span data-zh="">用固定任务集测正常、边界、失败和恶意输入。</span><span data-en="">Test normal, edge, failure and adversarial inputs on a fixed task set.</span></li><li><span data-zh="">影子运行，对比人工结果与越权率。</span><span data-en="">Run in shadow mode; compare with human results and permission-violation rate.</span></li><li><span data-zh="">小范围放权，保留人工审批与一键停。</span><span data-en="">Grant authority gradually; keep human approval and a stop button.</span></li></ul><div class="domain-callout"><span data-zh="">四个常见误区：Agent 越多越好。自主等于不用审批。记忆就是向量数据库。演示能跑就等于能上线。</span><span data-en="">Four common mistakes: more agents are better; autonomy means no approval; memory means a vector database; a working demo means ready to ship.</span></div>
+<p class="domain-return"><a href="#domain-toc"><span data-zh="">↑ 回到目录</span><span data-en="">↑ Back to contents</span></a></p>
+</section>
+<section class="domain-section" id="sources">
+<h2><span data-zh="">来源与延伸阅读</span><span data-en="">Sources and further reading</span></h2>
+<p><span data-zh="">以下链接用于核对事实、许可证与官方口径。外部页面可能更新；引用时以原文与核验日为准。</span><span data-en="">These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</span></p>
+<ul class="domain-src"><li><a href="https://tools.specul.com/mcp/guides/playbook-service-agent.html" rel="noopener"><span data-zh="">工具站 · 服务型 Agent 流程</span><span data-en="">Tools · Service agent playbook</span></a><span><span data-zh="">从任务边界到上线的服务型 Agent 步骤。</span><span data-en="">Steps for a service agent from task boundary to launch.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/guardrails.html" rel="noopener"><span data-zh="">工具站 · 护栏</span><span data-en="">Tools · Guardrails</span></a><span><span data-zh="">输入、输出、工具与运行时护栏的分层。</span><span data-en="">Layers of input, output, tool and runtime guardrails.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/agent-memory.html" rel="noopener"><span data-zh="">工具站 · Agent 记忆</span><span data-en="">Tools · Agent memory</span></a><span><span data-zh="">短期状态、长期记忆与检索的边界。</span><span data-en="">Boundaries between short-term state, long-term memory and retrieval.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/orchestration.html" rel="noopener"><span data-zh="">工具站 · 编排</span><span data-en="">Tools · Orchestration</span></a><span><span data-zh="">单 Agent、工作流与多 Agent 的选择。</span><span data-en="">Choosing single-agent, workflow or multi-agent.</span></span></li><li><a href="https://tools.specul.com/mcp/guides/failure-library.html" rel="noopener"><span data-zh="">工具站 · 失败库</span><span data-en="">Tools · Failure library</span></a><span><span data-zh="">常见失败模式与排查顺序。</span><span data-en="">Common failure modes and triage order.</span></span></li><li><a href="https://models.specul.com/evals/guides/agent-eval.html" rel="noopener"><span data-zh="">模型站 · Agent 评测</span><span data-en="">Models · Agent evaluation</span></a><span><span data-zh="">任务、轨迹、工具与安全评测。</span><span data-en="">Task, trajectory, tool and safety evaluation.</span></span></li><li><a href="https://oss.specul.com/scenes/agent-frameworks.html" rel="noopener"><span data-zh="">开源库 · Agent 框架场景</span><span data-en="">OSS · Agent frameworks</span></a><span><span data-zh="">Agent 框架仓库与许可证入口。</span><span data-en="">Agent framework repositories and licences.</span></span></li><li><a href="https://learn.specul.com/term/%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%BC%96%E6%8E%92/" rel="noopener"><span data-zh="">学 AI · 工作流编排</span><span data-en="">Learn · Workflow orchestration</span></a><span><span data-zh="">编排、状态与失败恢复的概念页。</span><span data-en="">Concept page on orchestration, state and recovery.</span></span></li></ul>
+</section>
+<section class="domain-next">
+<h2><span data-zh="">下一步</span><span data-en="">Next</span></h2>
+<ul><li><a href="topic-agent.html"><span data-zh="">回到“搭智能体”路线</span><span data-en="">Back to the agent route</span></a></li><li><a href="domain-safety.html"><span data-zh="">下一步：把权限和证据补齐</span><span data-en="">Next: complete permissions and evidence</span></a></li><li><a href="topics.html"><span data-zh="">看其他 15 条主题路线</span><span data-en="">Browse the other 15 topic routes</span></a></li></ul>
+<p><span data-zh="">如果你照着做时卡住了，先回到对应主题路线，不要从头重读。</span><span data-en="">If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</span></p>
+</section>
+<p class="domain-back"><a href="https://specul.com/"><span data-zh="">← 回到首页</span><span data-en="">← Back to home</span></a> <span aria-hidden="true">·</span> <a href="correct.html"><span data-zh="">发现错误？提交纠错</span><span data-en="">Spot an error? Send a correction</span></a></p>
+</div>
+</section>
 </main>
-
 <!-- SPECUL:FOOTER:START -->
-  <footer class="site-footer foot-single">
-    <div class="container foot-line">
-      <div class="foot-brand">
-        <span class="foot-brand-main">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="foot-copy"><span data-zh>投机取巧 · specul.com</span><span data-en>Specul · specul.com</span></span>
-        </span>
-        <span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh>内容 CC BY 4.0</span><span data-en>Content CC BY 4.0</span></a><span class="sep" aria-hidden="true">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh>代码 MIT</span><span data-en>Code MIT</span></a><span class="sep" aria-hidden="true">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a></span>
-      </div>
-      <nav class="foot-sites" aria-label="Footer site links">
-        <a class="site-link" href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://demos.specul.com/"><span data-zh>演示</span><span data-en>Demos</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://oss.specul.com/"><span data-zh>开源</span><span data-en>OSS</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://hardware.specul.com/"><span data-zh>算力</span><span data-en>Compute</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-      </nav>
-      <nav class="foot-legal" aria-label="Legal and corrections">
-        <a href="https://specul.com/legal.html"><span data-zh>法律</span><span data-en>Legal</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私</span><span data-en>Privacy</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/correct.html"><span data-zh>纠错</span><span data-en>Corrections</span></a>
-      </nav>
-    </div>
-  </footer>
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy"><span data-zh="">投机取巧 · specul.com</span><span data-en="">Specul · specul.com</span></span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh="">内容 CC BY 4.0</span><span data-en="">Content CC BY 4.0</span></a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh="">代码 MIT</span><span data-en="">Code MIT</span></a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank"><span data-zh="">源码</span><span data-en="">Source</span></a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/"><span data-zh="">演示</span><span data-en="">Demos</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/"><span data-zh="">开源</span><span data-en="">OSS</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/"><span data-zh="">算力</span><span data-en="">Compute</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/"><span data-zh="">论文</span><span data-en="">Papers</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/"><span data-zh="">导航</span><span data-en="">Directory</span></a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/legal.html"><span data-zh="">法律</span><span data-en="">Legal</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/legal.html#s8"><span data-zh="">隐私</span><span data-en="">Privacy</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/correct.html"><span data-zh="">纠错</span><span data-en="">Corrections</span></a>
+</nav>
+</div>
+</footer>
 <!-- SPECUL:FOOTER:END -->
-
 <!-- SPECUL:TABBAR:START -->
-<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
-    <a href="https://specul.com/" aria-current="page"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
-    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
-    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
-    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
-    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
-    <a href="https://oss.specul.com/"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
-    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
-    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
-    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
-    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/"><span aria-hidden="true" class="ti">◎</span><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span aria-hidden="true" class="ti">▤</span><span data-zh="">学AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span aria-hidden="true" class="ti">◈</span><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span aria-hidden="true" class="ti">▦</span><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span aria-hidden="true" class="ti">▷</span><span data-zh="">演示</span><span data-en="">Demos</span></a>
+<a href="https://oss.specul.com/"><span aria-hidden="true" class="ti">▧</span><span data-zh="">开源</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span aria-hidden="true" class="ti">▣</span><span data-zh="">算力</span><span data-en="">Chips</span></a>
+<a href="https://papers.specul.com/"><span aria-hidden="true" class="ti">▥</span><span data-zh="">论文</span><span data-en="">Papers</span></a>
+<a href="https://chain.specul.com/"><span aria-hidden="true" class="ti">◇</span><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a data-nav-group="external" href="https://nav.specul.com/"><span aria-hidden="true" class="ti">↗</span><span data-zh="">导航</span><span data-en="">Nav</span></a>
 </nav>
 <!-- SPECUL:TABBAR:END -->
-
 </body>
 </html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Safety and compliance: resources in order | Specul</title>
+<meta content="Safety is not one added sentence: define the threat model, look at evaluations and incident records, then implement permissions, data handling and logs.…" name="description"/>
+<link href="https://specul.com/en/topic-safety.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/topic-safety.html" property="og:url"/>
+<meta content="Safety and compliance: resources in order | Specul" property="og:title"/>
+<meta content="Safety is not one added sentence: define the threat model, look at evaluations and incident records, then implement permissions, data handling and logs.…" property="og:description"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="zh_CN" property="og:locale:alternate"/>
+<meta content="#16121f" name="theme-color"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Safety and compliance: resources in order | Specul","description":"Safety is not one added sentence: define the threat model, look at evaluations and incident records, then implement permissions, data handling and logs.…","url":"https://specul.com/en/topic-safety.html","inLanguage":"en","isPartOf":{"@type":"WebSite","url":"https://specul.com/en/topic-safety.html"}}</script>
+<meta content="Safety and compliance: resources in order | Specul" name="twitter:title"/><meta content="Safety is not one added sentence: define the threat model, look at evaluations and incident records, then implement permissions, data handling and logs.…" name="twitter:description"/><link href="https://specul.com/topic-safety.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/topic-safety.html" hreflang="en" rel="alternate"/><link href="https://specul.com/topic-safety.html" hreflang="x-default" rel="alternate"/></head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<a class="t-skip" href="#main">Skip to main content</a>
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/topic-safety.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<main id="main">
+<section class="hp-sec tight">
+<div class="hp-c">
+<p class="kicker">Topic route</p>
+<h1>Safety and compliance: resources in order</h1>
+<p class="hp-line">Safety is not one added sentence: define the threat model, look at evaluations and incident records, then implement permissions, data handling and logs. Compliance is not one checklist either; separate the applicable rules, the evidence and the owner.</p>
+<p class="topic-readmeta">
+<span><b>For</b> People connecting AI to real business and facing review</span>
+<span><b>You leave with</b> A data-flow map and a pre-launch evidence checklist</span>
+<span><b>Time</b> 15 minutes to browse; about a day for a minimum review</span>
+</p>
+<p class="hp-line">Route order is not a ranking; where no measured comparison, cost reduction or success rate exists, the sites record it as unknown.</p>
+<div class="domain-callout"><a href="/en/domain-safety.html"><b>Read the field guide first: assets, data flow, threats, permissions, guardrails, evaluation and gate</b> →</a></div>
+</div>
+</section>
+<section class="hp-sec tight" id="start">
+<div class="hp-c">
+<h2 class="hp-h2">Where to start</h2>
+<div class="hp-picker"><a class="hp-pq" href="https://learn.specul.com/en/path/for-safety-review/"><span class="qq"><b>1 · Safety-review route: threats, evaluation, red teaming, release gates</b></span><span class="to">→ Open</span></a><a class="hp-pq" href="https://nav.specul.com/en/#cat-safety"><span class="qq"><b>2 · Safety category: frameworks, incident databases, evaluators, policy texts</b></span><span class="to">→ Open</span></a><a class="hp-pq" href="https://specul.com/en/domain-trust.html"><span class="qq"><b>3 · Trust and rights: who may use what, and what evidence remains</b></span><span class="to">→ Open</span></a></div>
+</div>
+</section>
+<section class="hp-sec tight" id="steps">
+<div class="hp-c">
+<h2 class="hp-h2">Find material by stage</h2>
+<div class="tp-sec"><div class="tp-lab">Define threats and evaluate</div><ul class="fx-list"><li><a href="https://nav.specul.com/en/#cat-safety">NIST AI RMF, OWASP LLM Top 10, MITRE ATLAS, AI Incident Database</a></li><li><a href="https://models.specul.com/en/evals/">Benchmark cards on contamination, reproduction and non-comparability</a></li><li><a href="https://papers.specul.com/en/">Interpretability and agent-failure analysis: probes, parameter decomposition, limits</a></li></ul></div>
+<div class="tp-sec"><div class="tp-lab">Turn it into permissions and data rules</div><ul class="fx-list"><li><a href="https://specul.com/en/domain-trust.html">A framework for identity, permission, data, licence and credentials</a></li><li><a href="https://chain.specul.com/en/">Payments and data-rights categories: auditable authorisation and settlement</a></li><li><a href="https://tools.specul.com/en/safety/">Safety and guardrail tools: input filtering, output review, red teaming</a></li></ul></div>
+<div class="tp-sec"><div class="tp-lab">Write down owners and evidence</div><ul class="fx-list"><li><a href="https://learn.specul.com/en/path/for-managers/">Manager route: who signs, who reviews, how incidents are traced</a></li><li><a href="https://learn.specul.com/en/path/for-safety-review/">Review checklist and release gates</a></li></ul></div>
+</div>
+</section>
+<section class="hp-sec tight" id="boundary">
+<div class="hp-c">
+<h2 class="hp-h2">Boundary</h2>
+<p class="hp-line">This is not legal advice and does not issue a compliance conclusion for any organisation; statutes, regulator interpretations and contracts govern. Safety scores hold only for their threat model and test set; one benchmark cannot prove “safe overall”.</p>
+<p class="hp-line"><a href="/en/topics.html">← Back to topic index</a> · <a href="index.html">Home</a></p>
+</div>
+</section>
+<p class="t-sm" style="margin:12px 0 0;color:var(--ink-faint);font-size:12px">Page updated 2026-11-25</p>
+</main>
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+</body>
+</html>

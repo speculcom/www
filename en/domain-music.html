@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Music generation: from a style brief to audio you can…</title>
+<meta content="You type “warm, cinematic, piano” and get a lovely 30 seconds. The ad needs 15 seconds, a vocal, a seamless loop and commercial clearance. Fix the…" name="description"/>
+<link href="https://specul.com/en/domain-music.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="article" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/domain-music.html" property="og:url"/>
+<meta content="Music generation: from a style brief to audio you can…" property="og:title"/>
+<meta content="You type “warm, cinematic, piano” and get a lovely 30 seconds. The ad needs 15 seconds, a vocal, a seamless loop and commercial clearance. Fix the…" property="og:description"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"音乐生成：从风格描述到能发布的音频","description":"You type “warm, cinematic, piano” and get a lovely 30 seconds. The ad needs 15 seconds, a vocal, a seamless loop and commercial clearance. Fix the…","url":"https://specul.com/en/domain-music.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Music generation: from a style brief to audio you can…","url":"https://specul.com/en/domain-music.html"}}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><meta content="Music generation: from a style brief to audio you can…" name="twitter:title"/><meta content="You type “warm, cinematic, piano” and get a lovely 30 seconds. The ad needs 15 seconds, a vocal, a seamless loop and commercial clearance. Fix the…" name="twitter:description"/><link href="https://specul.com/domain-music.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/domain-music.html" hreflang="en" rel="alternate"/><link href="https://specul.com/domain-music.html" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/domain-music.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<main id="main">
+<section class="hp-sec tight">
+<div class="hp-c">
+<nav aria-label="面包屑" class="domain-crumb">
+<a href="/en/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/en/topics.html">Topics</a>
+<span aria-hidden="true">/</span>
+<span>Field guide</span>
+</nav>
+<p class="kicker">Field guide · Music and audio</p>
+<h1>Music generation: from a style brief to audio you can release</h1>
+<p class="domain-lead">You type “warm, cinematic, piano” and get a lovely 30 seconds. The ad needs 15 seconds, a vocal, a seamless loop and commercial clearance. Fix the deliverable first: a song, stems, a loop, a sound effect or a voice-over. Once that is fixed, tools and acceptance mean something.</p>
+<p class="domain-readmeta">
+<span><b>For</b> Anyone scoring a video, ad, game or podcast</span>
+<span><b>You leave with</b> A music delivery sheet, a structure timeline and a path from generation to mixing</span>
+<span><b>Time</b> 10 minutes to read; 2–4 hours for a 15-second ad cue</span>
+<span class="domain-verified">Last checked 25 Nov 2026</span>
+</p>
+<p class="domain-meta">This is Specul’s decision framework for music production, not a ranking of models or platforms, and not legal advice. Loudness, licences and platform rules remain with the original texts and official documentation.</p>
+</div>
+</section>
+<section class="hp-sec tight">
+<div class="hp-c domain-prose">
+<div class="domain-quick">
+<b>If you only have five minutes</b>
+<ol><li>Fix the deliverable: song, stems, loop, sound effect or voice-over.</li><li>Turn style into parameters: instruments, tempo, mood, length and exclusions.</li><li>Commercial use depends on four rights: training data, voice, samples and lyrics.</li></ol>
+<p>The full guide starts below. Use the tables for reference; you do not need to memorise them.</p>
+</div>
+<div class="domain-case">
+<b>One concrete job</b>
+<p>Take one concrete job: a 15-second coffee ad, light piano, loopable, no vocal, commercially cleared and loudness-matched to the platform. Put those five lines in the delivery sheet.</p>
+</div>
+<div class="domain-callout domain-thesis">Write the deliverable first — finished track, stems, sound effect or voiceover — then fix structure, mixing and rights. A demo audio file is not a finished delivery.</div>
+<nav aria-label="Contents" class="domain-toc" id="domain-toc">
+<b>Contents</b>
+<ol><li><a href="#deliverable">1 · The deliverable decides the toolchain</a></li><li><a href="#brief">2 · Turn style into executable parameters</a></li><li><a href="#generate">3 · Generation routes: text, MIDI, audio reference and singing</a></li><li><a href="#structure">4 · Structure and lyrics: align to a timeline first</a></li><li><a href="#mix">5 · Mixing and mastering: loudness, dynamics and stems</a></li><li><a href="#rights">6 · Rights: training data, voice, samples and lyrics</a></li><li><a href="#cost">7 · Cost: per finished minute, not per call</a></li><li><a href="#fail">8 · Failure branches: listen to the symptom, then locate the stage</a></li><li><a href="#path">9 · A minimum path to a finished track</a></li></ol>
+</nav>
+<section class="domain-section" id="deliverable">
+<h2>1 · The deliverable decides the toolchain</h2>
+<p>“Make a song” can mean five different things: a streaming master, editable stems, a short-video loop, a game sound effect, or an ad voiceover. A master needs loudness and delivery; stems need separate instrument outputs, phase and naming; a loop must be seamless and tileable; a sound effect must be short, clean and loopable; a voiceover must match lip or duration. Without a deliverable, every later choice reworks.</p><p>Write a delivery sheet first: duration, sample rate, channels, format, loudness target, whether stems are needed, lyric language, rights scope and deadline. It constrains the generation tool and becomes the handoff to mixing, legal and the platform.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Deliverable</th><th>Key spec</th><th>Acceptance evidence</th></tr></thead><tbody><tr><td>Streaming master<span aria-hidden="true" class="cell-label">Deliverable</span></td><td>Duration, sample rate, loudness, true peak<span aria-hidden="true" class="cell-label">Key spec</span></td><td>Master file, loudness report, platform upload accepted<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td></tr><tr><td>Stems<span aria-hidden="true" class="cell-label">Deliverable</span></td><td>Separate tracks, naming, phase, same sample rate<span aria-hidden="true" class="cell-label">Key spec</span></td><td>Per-track listen, remix consistency, no missing stem<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td></tr><tr><td>Short-video loop<span aria-hidden="true" class="cell-label">Deliverable</span></td><td>Seamless, tileable, duration fit<span aria-hidden="true" class="cell-label">Key spec</span></td><td>Ten loops without a jump, platform trim accepted<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td></tr><tr><td>Game SFX<span aria-hidden="true" class="cell-label">Deliverable</span></td><td>Short, clean, loopable, trigger latency<span aria-hidden="true" class="cell-label">Key spec</span></td><td>In-engine trigger test, no pop<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td></tr><tr><td>Ad voiceover<span aria-hidden="true" class="cell-label">Deliverable</span></td><td>Lip/duration, tone, consent<span aria-hidden="true" class="cell-label">Key spec</span></td><td>Aligned to picture, blind listen passed, consent record<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="brief">
+<h2>2 · Turn style into executable parameters</h2>
+<p>“Epic”, “healing” and “cyber” are not parameters. Break them into executable items: duration, number of sections, bars per section, tempo, time signature, key, instrumentation, voice type, language, emotional arc, reference tracks and forbidden elements. A generator may not understand all of them, but arranging, mixing and acceptance need them.</p><p>Use reference tracks to describe direction, not to request a copy. “Similar rhythmic density and instrumentation” is acceptable; a copyrighted melody, lyric or voice is not a template. The more specific the reference, the more important it is to record source and rights status, so “style reference” does not slide into “infringing sample”.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Parameter</th><th>Write it as</th><th>Why</th></tr></thead><tbody><tr><td>Duration<span aria-hidden="true" class="cell-label">Parameter</span></td><td>Seconds or bars<span aria-hidden="true" class="cell-label">Write it as</span></td><td>Sets generation segments and loop points<span aria-hidden="true" class="cell-label">Why</span></td></tr><tr><td>Structure<span aria-hidden="true" class="cell-label">Parameter</span></td><td>Intro/verse/chorus/bridge with bar counts<span aria-hidden="true" class="cell-label">Write it as</span></td><td>Avoid post-hoc cutting<span aria-hidden="true" class="cell-label">Why</span></td></tr><tr><td>Rhythm<span aria-hidden="true" class="cell-label">Parameter</span></td><td>BPM, time signature, groove<span aria-hidden="true" class="cell-label">Write it as</span></td><td>Affects performance and mixing<span aria-hidden="true" class="cell-label">Why</span></td></tr><tr><td>Instrumentation<span aria-hidden="true" class="cell-label">Parameter</span></td><td>Instruments, ranges, solo/ensemble<span aria-hidden="true" class="cell-label">Write it as</span></td><td>Sets stems and timbre<span aria-hidden="true" class="cell-label">Why</span></td></tr><tr><td>Voice<span aria-hidden="true" class="cell-label">Parameter</span></td><td>Type, language, timbre, emotion<span aria-hidden="true" class="cell-label">Write it as</span></td><td>Sets TTS/singing voice and consent<span aria-hidden="true" class="cell-label">Why</span></td></tr><tr><td>Exclusions<span aria-hidden="true" class="cell-label">Parameter</span></td><td>Unwanted instruments, words, styles<span aria-hidden="true" class="cell-label">Write it as</span></td><td>Less rework and rights risk<span aria-hidden="true" class="cell-label">Why</span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="generate">
+<h2>3 · Generation routes: text, MIDI, audio reference and singing</h2>
+<p>Text-to-music is good for quickly exploring instrumentation and mood, but weaker on exact bars, lyric alignment and editability. MIDI/DAW is good for fixing rhythm and structure before filling with instruments or generation. Audio-to-audio suits style transfer, continuation or variation, but inherits the source’s flaws and rights. Singing synthesis suits known lyrics and melody, but needs extra work on pronunciation, breath and emotion.</p><p>The usual order: fix structure and duration, decide which sections must stay editable, then choose the route. An ad song that will be revised bar by bar should start in MIDI/DAW with generated fills; one-off ambient music can start from text; a brand track with a named singer needs voice rights settled before generation.</p><div class="domain-callout">Rule of thumb: if delivery is bar-accurate, put structure into MIDI/DAW first. Text-only generation is better for drafts and mood exploration than for a final master.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="structure">
+<h2>4 · Structure and lyrics: align to a timeline first</h2>
+<p>Music is time-based; structure must land on bars and seconds. Draw a timeline first: 0–8 s intro, 8–24 s verse, 24–40 s chorus; then align lyric lines to bars. Generators often drift at section boundaries, so either generate in segments and assemble, or align in a DAW afterwards. Do not expect one pass to land exactly.</p><p>Proofread lyrics separately: polyphones, names, numbers, rhyme, syllable count and language switches. Singing synthesis also needs stress, pauses and breath; otherwise every word is right and it still does not sound like a song. If a model wrote the lyrics, check facts and rights before recording or synthesis.</p><ul class="domain-list"><li>Write the timeline first: start/end seconds, bars, key and tempo for each section.</li><li>Align lyrics line by line with stress, pauses and breath.</li><li>Generate in segments: intro, verse, chorus and bridge separately, then assemble.</li><li>Keep dry vocals and accompaniment for remixing, language changes or lyric edits.</li></ul>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="mix">
+<h2>5 · Mixing and mastering: loudness, dynamics and stems</h2>
+<p>Before delivery, align at least three things: sample rate and bit depth (commonly 44.1 kHz or 48 kHz, 24-bit), channels and phase, loudness and true peak. Streaming platforms normalise loudness again; many use around -14 LUFS as a reference, but the exact target is platform-specific. Push the master too hot and the platform turns it down, often reducing dynamics.</p><p>Stem delivery needs naming, track order, gain and phase. Export each instrument separately; do not fake stems by duplicating a full mix with muted regions. Check for missing or duplicate tracks, sample-rate mismatch and DC offset. A little noise and breath often sounds more real than absolute cleanliness, but do not use noise to hide generation artefacts.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Check</th><th>Target</th><th>Common error</th></tr></thead><tbody><tr><td>Sample rate/bit depth<span aria-hidden="true" class="cell-label">Check</span></td><td>Consistent chain, stated on delivery<span aria-hidden="true" class="cell-label">Target</span></td><td>48 kHz generation, 44.1 kHz backing<span aria-hidden="true" class="cell-label">Common error</span></td></tr><tr><td>Loudness<span aria-hidden="true" class="cell-label">Check</span></td><td>Follow platform spec, leave true-peak headroom<span aria-hidden="true" class="cell-label">Target</span></td><td>Pushing blindly to 0 dBFS<span aria-hidden="true" class="cell-label">Common error</span></td></tr><tr><td>Phase<span aria-hidden="true" class="cell-label">Check</span></td><td>No cancellation when summed<span aria-hidden="true" class="cell-label">Target</span></td><td>Stereo processing cancels in mono<span aria-hidden="true" class="cell-label">Common error</span></td></tr><tr><td>Stems<span aria-hidden="true" class="cell-label">Check</span></td><td>Separate, consistently named<span aria-hidden="true" class="cell-label">Target</span></td><td>Duplicate, missing or silent stems<span aria-hidden="true" class="cell-label">Common error</span></td></tr><tr><td>Noise<span aria-hidden="true" class="cell-label">Check</span></td><td>Keep natural noise, do not mask artefacts<span aria-hidden="true" class="cell-label">Target</span></td><td>Noise used to hide generated pops<span aria-hidden="true" class="cell-label">Common error</span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="rights">
+<h2>6 · Rights: training data, voice, samples and lyrics</h2>
+<p>A generated track involves four layers of rights: model and service terms, training data and style sources, rights in input material (reference audio, samples, lyrics), and the permitted use of output audio. They are not the same thing. A commercial model licence does not mean a reference track may be used for training or sampling; owning the output does not mean lyrics or voice likeness are free to use.</p><p>Voice is high-risk input. Using a real singer, voice actor or public figure needs consent, use, duration and a withdrawal mechanism. Using a platform voice library requires reading the permitted release channels. Model-written lyrics still need originality checks and fact review. Samples and covers involve separate recording and composition rights; changing a few notes does not bypass them.</p><div class="domain-callout">Rule of thumb: write a rights table for whose voice, whose lyrics and whose reference track before generating. Material with unclear rights does not enter the chain.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="cost">
+<h2>7 · Cost: per finished minute, not per call</h2>
+<p>Generation calls are one cost line. Add retries, segmented generation, stem export, mixing and mastering, lyric proofreading, voice licensing, platform review and rework. Use “per finished track” or “per finished minute” as the denominator so the number is comparable with outsourcing, library music or in-house work.</p><p>A recomputable formula: cost per finished minute = (generation calls + retries + storage + licences) / finished minutes + mixing minutes × labour rate + rework. The denominator counts only accepted finished minutes, not every draft. If licensing or labour dominates, settle those before optimising model price.</p>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="fail">
+<h2>8 · Failure branches: listen to the symptom, then locate the stage</h2>
+<p>Music failures are often not “the model cannot”. They sit in structure, alignment, mixing or rights. Work backwards from what you hear and do not change five parameters at once. Keep the raw generation, DAW project and master so before/after can be compared.</p><div class="domain-facts"><p><b>Sections wrong length</b><br/><em>Suspect first</em>: Generation drift, unlocked timeline<br/><em>Check</em>: Regenerate by bars or cut in DAW</p><p><b>Chorus does not land</b><br/><em>Suspect first</em>: No energy lift, repeated instrumentation<br/><em>Check</em>: Inspect instrumentation and dynamics per section</p><p><b>Lyrics wrong or swallowed</b><br/><em>Suspect first</em>: Polyphones, syllable count, stress markup<br/><em>Check</em>: Proofread text and phonemes line by line</p><p><b>Voice sounds robotic</b><br/><em>Suspect first</em>: Synthesis model, prosody, breath, mix<br/><em>Check</em>: Blind-listen dry vocal; change reference or model</p><p><b>Pops, clipping, phase cancellation</b><br/><em>Suspect first</em>: Gain staging, true peak, stereo processing<br/><em>Check</em>: Inspect waveform and mono fold-down</p><p><b>Platform rejects upload</b><br/><em>Suspect first</em>: Loudness, format, rights flags, metadata<br/><em>Check</em>: Check each platform delivery rule</p></div><div class="domain-callout">Listen to the dry vocal, then the backing, then the master. Separating the three layers shows whether the problem is generation, performance or mixing.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="path">
+<h2>9 · A minimum path to a finished track</h2>
+<p>Make a 30-second proof first to validate style, structure and voice, then extend to the full track. Settle the master and stems after the proof passes, so a full production does not reveal a wrong direction.</p><ul class="domain-list"><li>Write the delivery sheet: track, stems, loop, SFX or voiceover; duration, format, loudness, rights.</li><li>Write a one-page brief: structure, bars, tempo, key, instrumentation, voice, exclusions, references.</li><li>Make a 30-second proof: validate style and structure before generating the full track.</li><li>Choose the route: text, MIDI/DAW, audio reference or singing synthesis; mark editable sections.</li><li>Align lyrics and timeline: proofread line by line, mark stress, pauses and breath.</li><li>Mix and master: align sample rate, phase, loudness and true peak.</li><li>Build the rights table: model, references, samples, lyrics and voice, item by item.</li><li>Deliver master, stems, loudness report and rights record before uploading.</li></ul><div class="domain-callout">Done means structure lands, lyrics are correct, the mix is deliverable, rights are traceable and the platform accepts it — not merely that a song was generated.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="sources">
+<h2>Sources and further reading</h2>
+<p>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</p>
+<ul class="domain-src"><li><a href="https://arxiv.org/abs/2306.00891" rel="noopener">MusicGen paper</a><span>Paper on text-to-music, conditional generation, melody alignment and evaluation; models and licences remain with the official repository.</span></li><li><a href="https://arxiv.org/abs/2210.13438" rel="noopener">EnCodec paper</a><span>Paper on neural audio codecs, audio tokens, bitrate and reconstruction quality.</span></li><li><a href="https://www.itu.int/rec/R-REC-BS.1770/en" rel="noopener">ITU-R BS.1770</a><span>International recommendation for loudness and true-peak measurement; platform targets remain with their delivery specs.</span></li><li><a href="https://creativecommons.org/licenses/" rel="noopener">Creative Commons</a><span>Official CC licence explanations, including attribution, non-commercial and share-alike terms; they do not cover voice likeness or platform terms.</span></li><li><a href="https://learn.specul.com/en/term/%E6%96%87%E5%AD%97%E6%80%8E%E4%B9%88%E5%8F%98%E6%88%90%E5%A3%B0%E9%9F%B3/" rel="noopener">Learn · Text to speech</a><span>Concept page on speech synthesis, separating TTS, singing synthesis and voice cloning.</span></li><li><a href="https://tools.specul.com/en/audio/" rel="noopener">Tools · Audio</a><span>Task-based audio tool dossiers; not a quality ranking.</span></li><li><a href="https://tools.specul.com/en/mcp/guides/cost-calculator.html" rel="noopener">Tools · Cost calculator</a><span>Method page for estimating cost from calls, units and labour.</span></li><li><a href="https://specul.com/en/legal.html#s7" rel="noopener">Specul · Third-party assets</a><span>Site notes on the asset register, third-party content and attribution.</span></li></ul>
+</section>
+<section class="domain-next">
+<h2>Next</h2>
+<ul><li><a href="/en/topic-music.html">Back to the music route</a></li><li><a href="/en/domain-speech.html">Next: how voice-over fits in</a></li><li><a href="/en/topics.html">Browse the other 15 topic routes</a></li></ul>
+<p>If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</p>
+</section>
+<p class="domain-back"><a href="https://specul.com/en/">← Back to home</a> <span aria-hidden="true">·</span> <a href="/en/correct.html">Spot an error? Send a correction</a></p>
+</div>
+</section>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Local models: how big a model can your GPU actually run? |…</title>
+<meta content="You downloaded a model. The chat box opens, but the first question stalls, or the answer starts repeating halfway through. Before asking “how fast”, work…" name="description"/>
+<link href="https://specul.com/en/domain-local.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="article" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/domain-local.html" property="og:url"/>
+<meta content="Local models: how big a model can your GPU actually run? |…" property="og:title"/>
+<meta content="You downloaded a model. The chat box opens, but the first question stalls, or the answer starts repeating halfway through. Before asking “how fast”, work…" property="og:description"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"本地模型：你的显卡能跑多大的模型","description":"You downloaded a model. The chat box opens, but the first question stalls, or the answer starts repeating halfway through. Before asking “how fast”, work…","url":"https://specul.com/en/domain-local.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Local models: how big a model can your GPU actually run? |…","url":"https://specul.com/en/domain-local.html"}}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><meta content="Local models: how big a model can your GPU actually run? |…" name="twitter:title"/><meta content="You downloaded a model. The chat box opens, but the first question stalls, or the answer starts repeating halfway through. Before asking “how fast”, work…" name="twitter:description"/><link href="https://specul.com/domain-local.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/domain-local.html" hreflang="en" rel="alternate"/><link href="https://specul.com/domain-local.html" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/domain-local.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<main id="main">
+<section class="hp-sec tight">
+<div class="hp-c">
+<nav aria-label="面包屑" class="domain-crumb">
+<a href="/en/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/en/topics.html">Topics</a>
+<span aria-hidden="true">/</span>
+<span>Field guide</span>
+</nav>
+<p class="kicker">Field guide · Local models</p>
+<h1>Local models: how big a model can your GPU actually run?</h1>
+<p class="domain-lead">You downloaded a model. The chat box opens, but the first question stalls, or the answer starts repeating halfway through. Before asking “how fast”, work out memory, quantisation, cache and concurrency. If it does not run, speed means nothing.</p>
+<p class="domain-readmeta">
+<span><b>For</b> Anyone with a GPU who wants to run a model locally</span>
+<span><b>You leave with</b> A configuration sheet for “how large a model this machine can run”, plus a minimum start path</span>
+<span><b>Time</b> 10 minutes to read; 1–2 hours to follow</span>
+<span class="domain-verified">Last checked 25 Nov 2026</span>
+</p>
+<p class="domain-meta">This is Specul’s decision framework for local deployment, not a ranking of GPUs or models. Specifications, licences and prices remain with the linked pages and original sources.</p>
+</div>
+</section>
+<section class="hp-sec tight">
+<div class="hp-c domain-prose">
+<div class="domain-quick">
+<b>If you only have five minutes</b>
+<ol><li>Work out four ledgers first: weights, quantisation, KV cache and concurrency.</li><li>Define “it runs” as: it fits, it finishes the answer, and the speed is acceptable.</li><li>Get one user working before talking about a multi-user service.</li></ol>
+<p>The full guide starts below. Use the tables for reference; you do not need to memorise them.</p>
+</div>
+<div class="domain-case">
+<b>One concrete job</b>
+<p>Take one concrete job: a 24 GB GPU, a 30B model, 8,000 characters of input and at least 10 output tokens per second. First check whether it fits; then check whether it finishes.</p>
+</div>
+<div class="domain-callout domain-thesis">First make the same model, quantization and context reproduce reliably; then compare speed. A tokens-per-second figure without context length and concurrency is not comparable across machines.</div>
+<nav aria-label="Contents" class="domain-toc" id="domain-toc">
+<b>Contents</b>
+<ol><li><a href="#ledger">1 · Five ledgers: weights, quantization, KV cache, runtime, concurrency</a></li><li><a href="#fit">2 · Define “it runs”: four conditions that must all hold</a></li><li><a href="#runtime">3 · Runtime: a single-user tool and a multi-user service are different problems</a></li><li><a href="#hardware">4 · Hardware: capacity and bandwidth before model names</a></li><li><a href="#speed">5 · Speed: separate prefill from decode</a></li><li><a href="#cost">6 · Cost: include idle time, electricity and retries</a></li><li><a href="#fail">7 · Failure branches: symptom first, cause second</a></li><li><a href="#path">8 · A minimum path to deployment</a></li></ol>
+</nav>
+<section class="domain-section" id="ledger">
+<h2>1 · Five ledgers: weights, quantization, KV cache, runtime, concurrency</h2>
+<p>Weights are only the first ledger. An 8B model at 4-bit is roughly 4 GB of weights, but that does not mean the whole process occupies 4 GB. The runtime also needs graphs, temporary buffers and framework overhead; long contexts add KV cache. Treating weight size as memory requirement is the most common local-deployment underestimate.</p><p>The second ledger is quantization. 4-bit is not lossless compression: it trades accuracy, speed and memory. Different formats, calibration data and backend support produce different results. Confirm the runtime actually supports the format, then compare on your own task sample instead of trusting one perplexity number.</p><p>The third ledger is KV cache, which grows with context length and concurrency. The fourth is the runtime, which determines whether the same weights can be loaded, offloaded and batched efficiently. The fifth is concurrency: single-user speed is not production capacity. Count all five together; miss one and the system fails under pressure.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Ledger</th><th>What to calculate</th><th>Most often missed</th></tr></thead><tbody><tr><td>Weights<span aria-hidden="true" class="cell-label">Ledger</span></td><td>Parameters × bits per weight, plus loading headroom<span aria-hidden="true" class="cell-label">What to calculate</span></td><td>Treating parameter bytes as VRAM<span aria-hidden="true" class="cell-label">Most often missed</span></td></tr><tr><td>Quantization<span aria-hidden="true" class="cell-label">Ledger</span></td><td>Format, calibration, backend support, accuracy loss<span aria-hidden="true" class="cell-label">What to calculate</span></td><td>Assuming Q4 equals the original model<span aria-hidden="true" class="cell-label">Most often missed</span></td></tr><tr><td>KV cache<span aria-hidden="true" class="cell-label">Ledger</span></td><td>Layers, heads, context length, concurrency<span aria-hidden="true" class="cell-label">What to calculate</span></td><td>Estimating from a short chat only<span aria-hidden="true" class="cell-label">Most often missed</span></td></tr><tr><td>Runtime<span aria-hidden="true" class="cell-label">Ledger</span></td><td>Loading, offload, batching, graph overhead<span aria-hidden="true" class="cell-label">What to calculate</span></td><td>Treating framework overhead as zero<span aria-hidden="true" class="cell-label">Most often missed</span></td></tr><tr><td>Concurrency<span aria-hidden="true" class="cell-label">Ledger</span></td><td>Concurrent requests, batch size, queueing, timeouts<span aria-hidden="true" class="cell-label">What to calculate</span></td><td>Using single-user speed for production<span aria-hidden="true" class="cell-label">Most often missed</span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="fit">
+<h2>2 · Define “it runs”: four conditions that must all hold</h2>
+<p>“It runs” is not seeing the first sentence generated. It means four things at once: no VRAM overflow; the context fits; output is sane on your own sample; and time to first token plus total generation is acceptable. If one condition fails, the configuration is not ready for the next step.</p><p>Write a fixed sample first: same input, same question set, same context length, same quantization and same runtime. Change one variable at a time. Otherwise you cannot tell whether a slowdown comes from quantization, context, drivers or thermal throttling. This fixed sample also becomes the basis for cost and acceptance.</p><ul class="domain-list"><li>VRAM: leave enough headroom after loading so long-context and concurrency peaks do not overflow.</li><li>Context: system prompt, history, retrieved material and output budget all fit without silent truncation.</li><li>Quality: on your own task sample, key fields, citations and refusal behaviour do not visibly degrade.</li><li>Latency: time to first token and total generation meet the use case, not just the average.</li></ul><div class="domain-callout">Rule of thumb: if a configuration only survives one demo and cannot reproduce on the same input, it does not yet count as “running”.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="runtime">
+<h2>3 · Runtime: a single-user tool and a multi-user service are different problems</h2>
+<p>llama.cpp, LM Studio, Ollama and vLLM are often put in one comparison table, but they do not solve the same problem. The first group leans toward single-user desktop use, quick validation and model switching; vLLM-style servers target multi-user serving, continuous batching and throughput. Using a desktop tool for production concurrency, or a serving framework for a small local experiment, leads to the wrong conclusion.</p><p>Ask four questions before choosing a runtime: does it support the model format; does it support the target quantization; do you need full or partial GPU offload; do you need batching, concurrency and observability. If one answer is no, stop comparing speed and change the runtime or the format first.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Scenario</th><th>Better fit</th><th>Poor fit</th><th>Check first</th></tr></thead><tbody><tr><td>Desktop trials, model switching<span aria-hidden="true" class="cell-label">Scenario</span></td><td>LM Studio / Ollama-style tools<span aria-hidden="true" class="cell-label">Better fit</span></td><td>High-concurrency production<span aria-hidden="true" class="cell-label">Poor fit</span></td><td>Format, quantization, memory<span aria-hidden="true" class="cell-label">Check first</span></td></tr><tr><td>Single-machine tuning<span aria-hidden="true" class="cell-label">Scenario</span></td><td>llama.cpp-style backend<span aria-hidden="true" class="cell-label">Better fit</span></td><td>No command line at all<span aria-hidden="true" class="cell-label">Poor fit</span></td><td>Build flags, backend, offload layers<span aria-hidden="true" class="cell-label">Check first</span></td></tr><tr><td>Multi-user API serving<span aria-hidden="true" class="cell-label">Scenario</span></td><td>vLLM-style serving<span aria-hidden="true" class="cell-label">Better fit</span></td><td>Quick one-model trial<span aria-hidden="true" class="cell-label">Poor fit</span></td><td>Batching, concurrency, monitoring<span aria-hidden="true" class="cell-label">Check first</span></td></tr><tr><td>Offline or air-gapped<span aria-hidden="true" class="cell-label">Scenario</span></td><td>Runtime that loads weights locally<span aria-hidden="true" class="cell-label">Better fit</span></td><td>Cloud-only auth<span aria-hidden="true" class="cell-label">Poor fit</span></td><td>Licence, model files, update path<span aria-hidden="true" class="cell-label">Check first</span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="hardware">
+<h2>4 · Hardware: capacity and bandwidth before model names</h2>
+<p>Local inference is limited first by VRAM capacity, then by memory bandwidth and interconnect. Capacity decides whether it fits; bandwidth decides how long generation waits; interconnect decides whether multiple cards are actually faster. Comparing only TFLOPS or only VRAM misses half the problem.</p><p>Laptops, desktops and workstations are three different constraints. A laptop has power limits, cooling and direct-GPU-output support; a desktop has PSU, airflow and sustained load; a workstation adds ECC, lanes and remote management. Treating peak specifications as sustained capability is the most expensive mistake in local hardware selection.</p><p>Multiple GPUs are not automatically faster. When the model fits on one card, partitioning, communication and synchronisation can eat the gain. Go multi-GPU only when capacity must expand or throughput must rise. Measure one card before crossing cards.</p><div class="domain-callout">Rule of thumb: ask whether the model fits on the card before asking how fast the card runs it. Reverse the order and you may buy a high-scoring card that cannot hold the model.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="speed">
+<h2>5 · Speed: separate prefill from decode</h2>
+<p>Generation speed is not one number. Prefill processes the input and is usually more compute-bound; decode produces tokens one by one and is usually more memory-bandwidth-bound. Long prompts raise time to first token; long outputs raise total time; quantization and batching change the ratio. A single tokens-per-second figure merges two different bottlenecks.</p><p>To get a comparable number, record at least: model, quantization, context length, input length, output length, batch size, hardware, runtime version and thermal state. Miss one and the number is only a local reference, not a cross-machine conclusion.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Metric</th><th>Mainly affected by</th><th>How to measure</th><th>Do not use it for</th></tr></thead><tbody><tr><td>Time to first token<span aria-hidden="true" class="cell-label">Metric</span></td><td>Input length, prefill compute, batching<span aria-hidden="true" class="cell-label">Mainly affected by</span></td><td>Fixed input, repeat and take a distribution<span aria-hidden="true" class="cell-label">How to measure</span></td><td>Inferring long-chat experience<span aria-hidden="true" class="cell-label">Do not use it for</span></td></tr><tr><td>Decode speed<span aria-hidden="true" class="cell-label">Metric</span></td><td>Memory bandwidth, quantization, batch size<span aria-hidden="true" class="cell-label">Mainly affected by</span></td><td>Fixed output length, record inter-token intervals<span aria-hidden="true" class="cell-label">How to measure</span></td><td>Representing total generation time<span aria-hidden="true" class="cell-label">Do not use it for</span></td></tr><tr><td>End-to-end latency<span aria-hidden="true" class="cell-label">Metric</span></td><td>Input + output + queueing + retries<span aria-hidden="true" class="cell-label">Mainly affected by</span></td><td>Time from request to complete result<span aria-hidden="true" class="cell-label">How to measure</span></td><td>Representing throughput capacity<span aria-hidden="true" class="cell-label">Do not use it for</span></td></tr></tbody></table></div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="cost">
+<h2>6 · Cost: include idle time, electricity and retries</h2>
+<p>Local cost is not “GPU price divided by days used”. It includes hardware depreciation, electricity, cooling, operator time, model and dependency updates, retries and idle time. Counting only full-load hours makes local deployment look cheaper than it is.</p><p>When comparing with an API, put both on the same workload: same request count, same context, same retry rate, same availability requirement. API unit prices are visible; local labour, idle time and failure costs are not. The invisible part distorts budgets most.</p><p>A practical approach: calculate how many hours per day the machine must run and how much concurrency the peak must support. If it runs only two hours a day, idle hardware is expensive. If data cannot leave the premises, cost is not the only factor, but the premium still needs to be written down.</p>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="fail">
+<h2>7 · Failure branches: symptom first, cause second</h2>
+<p>Local deployment failures are rarely just “the model is bad”. OOM, context truncation, quantization degradation, backend mismatch, thermal throttling and driver issues can all look like “bad answers”. Triage by symptom to avoid mistaking an engineering problem for a model problem.</p><div class="domain-facts"><p><b>Fails on load</b><br/><em>Check first</em>: Format, quantization support, VRAM headroom<br/><em>Common fix</em>: Change format or lower quantization; reduce offload layers</p><p><b>Crashes after a while</b><br/><em>Check first</em>: Long-context KV, concurrency peak, thermals<br/><em>Common fix</em>: Cap context, cap concurrency, improve cooling</p><p><b>Irrelevant or repetitive output</b><br/><em>Check first</em>: Quantization degradation, template, sampling<br/><em>Common fix</em>: Change quant tier, fix template, reduce randomness</p><p><b>Slows down as chat grows</b><br/><em>Check first</em>: Context growth, cache recomputation<br/><em>Common fix</em>: Trim history, enable cache, summarise in segments</p><p><b>Sudden slowdown</b><br/><em>Check first</em>: Power limit, temperature, driver, background load<br/><em>Common fix</em>: Check temperature and power, roll back driver, isolate load</p></div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="path">
+<h2>8 · A minimum path to deployment</h2>
+<p>Do not buy a card before choosing a model, and do not install a 70B model and then improvise. Follow the order below; if a step fails, stop there instead of stacking unknowns.</p><ul class="domain-list"><li>Write the task: what goes in, what comes out, whether retries are allowed, whether data may leave the premises.</li><li>Pick one model and one quantization tier; get the minimum configuration running before chasing the largest model.</li><li>Test four things on a fixed sample: no overflow, enough context, acceptable quality, acceptable latency.</li><li>Record model, quantization, context, batch size, hardware, runtime version and thermal state.</li><li>Measure again under real concurrency; if queueing or timeouts appear, limit load before buying hardware.</li><li>Run a three-year sum: depreciation, electricity, operations, retries, idle time, against the same workload on an API.</li><li>Write failure branches: overflow, truncation, throttling and quantization degradation, and who decides each.</li><li>Keep a rollback before launch: previous model, quantization, runtime and configuration, restorable in one step.</li></ul><div class="domain-callout">Four common mistakes: looking only at parameter count; treating Q4 as lossless; using single-user tokens/s as production capacity; treating peak specs as sustained capability.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="sources">
+<h2>Sources and further reading</h2>
+<p>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</p>
+<ul class="domain-src"><li><a href="https://models.specul.com/en/guides/gpu-cost-math.html" rel="noopener">Models · GPU cost math</a><span>Formulas for weights, KV cache, concurrency and cost.</span></li><li><a href="https://models.specul.com/en/guides/quant-tier-precision.html" rel="noopener">Models · Quantization tiers</a><span>Common quantization tiers, accuracy and scope.</span></li><li><a href="https://tools.specul.com/en/mcp/guides/playbook-local-model.html" rel="noopener">Tools · Local model playbook</a><span>Steps from model choice to a working local run.</span></li><li><a href="https://tools.specul.com/en/mcp/guides/compare-local-runners.html" rel="noopener">Tools · Local runner comparison</a><span>Boundaries between llama.cpp, Ollama, LM Studio and vLLM.</span></li><li><a href="https://hardware.specul.com/en/path.html" rel="noopener">Hardware · Selection path</a><span>Work back from VRAM, bandwidth, power and use case.</span></li><li><a href="https://oss.specul.com/en/scenes/local-inference.html" rel="noopener">OSS · Local inference</a><span>Repositories and licences for local inference.</span></li><li><a href="https://learn.specul.com/en/term/%E6%98%BE%E5%AD%98/" rel="noopener">Learn · VRAM</a><span>Concept page on VRAM, bandwidth and capacity.</span></li></ul>
+</section>
+<section class="domain-next">
+<h2>Next</h2>
+<ul><li><a href="/en/topic-local.html">Back to the local-model route</a></li><li><a href="/en/domain-eval.html">Next: prove that it actually works</a></li><li><a href="/en/topics.html">Browse the other 15 topic routes</a></li></ul>
+<p>If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</p>
+</section>
+<p class="domain-back"><a href="https://specul.com/en/">← Back to home</a> <span aria-hidden="true">·</span> <a href="/en/correct.html">Spot an error? Send a correction</a></p>
+</div>
+</section>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>

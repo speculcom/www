@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Data and datasets: from a pile of files to trainable…</title>
+<meta content="You pull 200,000 conversations from a shared drive and call it “enough data”. Training starts and the problems appear: some customers never consented…" name="description"/>
+<link href="https://specul.com/en/domain-data.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="article" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/domain-data.html" property="og:url"/>
+<meta content="Data and datasets: from a pile of files to trainable…" property="og:title"/>
+<meta content="You pull 200,000 conversations from a shared drive and call it “enough data”. Training starts and the problems appear: some customers never consented…" property="og:description"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"数据与语料：从一堆文件到能训练的语料","description":"You pull 200,000 conversations from a shared drive and call it “enough data”. Training starts and the problems appear: some customers never consented…","url":"https://specul.com/en/domain-data.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Data and datasets: from a pile of files to trainable…","url":"https://specul.com/en/domain-data.html"}}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><meta content="Data and datasets: from a pile of files to trainable…" name="twitter:title"/><meta content="You pull 200,000 conversations from a shared drive and call it “enough data”. Training starts and the problems appear: some customers never consented…" name="twitter:description"/><link href="https://specul.com/domain-data.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/domain-data.html" hreflang="en" rel="alternate"/><link href="https://specul.com/domain-data.html" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/domain-data.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<main id="main">
+<section class="hp-sec tight">
+<div class="hp-c">
+<nav aria-label="面包屑" class="domain-crumb">
+<a href="/en/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/en/topics.html">Topics</a>
+<span aria-hidden="true">/</span>
+<span>Field guide</span>
+</nav>
+<p class="kicker">Field guide · Data and datasets</p>
+<h1>Data and datasets: from a pile of files to trainable material</h1>
+<p class="domain-lead">You pull 200,000 conversations from a shared drive and call it “enough data”. Training starts and the problems appear: some customers never consented, some fields contain phone numbers, train and test share the same samples, and nobody can delete a bad batch cleanly. Whether data is usable is not a size question. It has to answer: where it came from, why you may use it, how it was processed, how to reproduce it and how to delete it.</p>
+<p class="domain-readmeta">
+<span><b>For</b> Anyone cleaning, labelling, splitting or preparing training data</span>
+<span><b>You leave with</b> A data card, a rights checklist and a path from the use sentence to a reproducible version</span>
+<span><b>Time</b> 12 minutes to read; about a day for a small batch</span>
+<span class="domain-verified">Last checked 25 Nov 2026</span>
+</p>
+<p class="domain-meta">This is Specul’s data-production framework, not legal advice or a ranking of datasets or licences. Specific use, licensing and compliance conclusions remain with the authorisation documents, contracts, applicable law and original sources.</p>
+</div>
+</section>
+<section class="hp-sec tight">
+<div class="hp-c domain-prose">
+<div class="domain-quick">
+<b>If you only have five minutes</b>
+<ol><li>Write the use sentence first: what exactly is this data training?</li><li>Check copyright, contract, privacy and likeness separately; do not collapse them into “licensed”.</li><li>Split train, validation and test by source, not just randomly.</li></ol>
+<p>The full guide starts below. Use the tables for reference; you do not need to memorise them.</p>
+</div>
+<div class="domain-case">
+<b>One concrete job</b>
+<p>Take one concrete job: 2,000 support conversations to train a ticket classifier with three labels: refund, shipping and product. Write the source, licence, fields, split and deletion method first.</p>
+</div>
+<div class="domain-callout domain-thesis">Whether a record is usable is not a matter of size. It must answer where it came from, on what basis it is used, how it was processed, how it reproduces and how it can be removed.</div>
+<nav aria-label="Contents" class="domain-toc" id="domain-toc">
+<b>Contents</b>
+<ol><li><a href="#purpose">1 · Fix the purpose: pretraining, fine-tuning, preference, evaluation and RAG need different data</a></li><li><a href="#rights">2 · Rights are not one column: copyright, contract, privacy and likeness are separate</a></li><li><a href="#provenance">3 · Provenance: every batch must trace to a version, a date and a licence</a></li><li><a href="#clean">4 · Cleaning: define what to keep before how hard to filter</a></li><li><a href="#label">5 · Labelling: guideline, pilot, double annotation, adjudication, drift</a></li><li><a href="#split">6 · Splits and contamination: train, validation and test are not a random cut</a></li><li><a href="#version">7 · Versions and reproduction: lock data, code, config and environment together</a></li><li><a href="#privacy">8 · Privacy and deletion: minimise first, then discuss deletion</a></li><li><a href="#cost">9 · Cost: price usable examples, not downloaded volume</a></li><li><a href="#fail">10 · Failure branches: stop the batch, locate the cause, do not train first</a></li><li><a href="#path">11 · A minimum path: from purpose sentence to reproducible dataset card</a></li></ol>
+</nav>
+<section class="domain-section" id="purpose">
+<h2>1 · Fix the purpose: pretraining, fine-tuning, preference, evaluation and RAG need different data</h2>
+<p>“Not enough data” can mean five different problems: pretraining lacks scale and diversity, fine-tuning lacks task examples, preference data lacks paired comparisons, evaluation lacks discrimination, RAG lacks retrievable and citable documents. Their minimum fields, quality bars and risks differ completely. Fine-tuning on an evaluation set or building RAG from raw web text only reveals the mismatch at the end.</p><p>Write the purpose as an input–output–judgement sentence. For example: “given a customer-support dialogue, output the issue category and whether to escalate; a human judges against 12 labels.” Without input, output and judgement, annotators improvise and quality cannot reproduce.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Purpose</th><th>Minimum fields</th><th>Quality bar</th><th>Main risk</th></tr></thead><tbody><tr><td>Pretraining / continued pretraining<span aria-hidden="true" class="cell-label">Purpose</span></td><td>Text or image-text, source, licence, language, date<span aria-hidden="true" class="cell-label">Minimum fields</span></td><td>Scale, deduplication, language coverage, low-quality filtering<span aria-hidden="true" class="cell-label">Quality bar</span></td><td>Copyright, privacy, contamination, long-tail removal<span aria-hidden="true" class="cell-label">Main risk</span></td></tr><tr><td>Supervised fine-tuning<span aria-hidden="true" class="cell-label">Purpose</span></td><td>Instruction, input, expected output, rationale or label<span aria-hidden="true" class="cell-label">Minimum fields</span></td><td>Task coverage, answer consistency, difficulty tiers<span aria-hidden="true" class="cell-label">Quality bar</span></td><td>Label drift, short answers, templating<span aria-hidden="true" class="cell-label">Main risk</span></td></tr><tr><td>Preference / alignment<span aria-hidden="true" class="cell-label">Purpose</span></td><td>Two responses to one prompt, preference direction, rationale<span aria-hidden="true" class="cell-label">Minimum fields</span></td><td>Valid contrast, position debiasing, annotator agreement<span aria-hidden="true" class="cell-label">Quality bar</span></td><td>Preferring longer answers, cultural bias<span aria-hidden="true" class="cell-label">Main risk</span></td></tr><tr><td>Evaluation / benchmark<span aria-hidden="true" class="cell-label">Purpose</span></td><td>Item, reference answer or scorer, difficulty, source<span aria-hidden="true" class="cell-label">Minimum fields</span></td><td>Discrimination, contamination check, reproducible scoring<span aria-hidden="true" class="cell-label">Quality bar</span></td><td>Train-set leakage, scorer drift<span aria-hidden="true" class="cell-label">Main risk</span></td></tr><tr><td>RAG / knowledge base<span aria-hidden="true" class="cell-label">Purpose</span></td><td>Document, chunk, date, permission, citation anchor<span aria-hidden="true" class="cell-label">Minimum fields</span></td><td>Retrievable, fresh, correctly permissioned, citable to source<span aria-hidden="true" class="cell-label">Quality bar</span></td><td>Stale, over-permissioned, chunks that break meaning<span aria-hidden="true" class="cell-label">Main risk</span></td></tr><tr><td>Multimodal<span aria-hidden="true" class="cell-label">Purpose</span></td><td>Image/audio/video, caption, alignment, licence<span aria-hidden="true" class="cell-label">Minimum fields</span></td><td>Resolution, duration, alignment accuracy, scene coverage<span aria-hidden="true" class="cell-label">Quality bar</span></td><td>Likeness, voice, trademark, synthetic media<span aria-hidden="true" class="cell-label">Main risk</span></td></tr></tbody></table></div><div class="domain-callout">If the purpose is not written as input–output–judgement, labelling and evaluation both fall back to intuition.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="rights">
+<h2>2 · Rights are not one column: copyright, contract, privacy and likeness are separate</h2>
+<p>“Publicly accessible” does not mean “may be trained on, commercialised and redistributed”. Web content may be copyrighted, databases may carry compilation rights, platform terms may restrict crawling and redistribution, personal data is constrained by privacy rules, and real people and voices raise likeness and personality rights. Each layer needs its own check; one “CC” or “public” label cannot cover them.</p><p>This page gives a checking order, not a legal conclusion for any use. Licences and use remain with authorisation documents, contracts, platform terms and applicable law. When unsure, stop using the batch before training, not after.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Rights layer</th><th>Question</th><th>Document to read</th><th>What does not substitute</th></tr></thead><tbody><tr><td>Copyright<span aria-hidden="true" class="cell-label">Rights layer</span></td><td>Is the text, image, audio or code protected; are copying, adaptation and commercial use allowed<span aria-hidden="true" class="cell-label">Question</span></td><td>Licence, authorisation, source page<span aria-hidden="true" class="cell-label">Document to read</span></td><td>“Publicly visible” or “credit given”<span aria-hidden="true" class="cell-label">What does not substitute</span></td></tr><tr><td>Database / compilation<span aria-hidden="true" class="cell-label">Rights layer</span></td><td>Are bulk extraction, reorganisation and redistribution restricted<span aria-hidden="true" class="cell-label">Question</span></td><td>Platform terms, database licence<span aria-hidden="true" class="cell-label">Document to read</span></td><td>A licence for individual records<span aria-hidden="true" class="cell-label">What does not substitute</span></td></tr><tr><td>Contract / platform terms<span aria-hidden="true" class="cell-label">Rights layer</span></td><td>Do the API, crawler, download, cache and redistribution terms allow it<span aria-hidden="true" class="cell-label">Question</span></td><td>Terms of service, API terms, signed contract<span aria-hidden="true" class="cell-label">Document to read</span></td><td>Technical accessibility<span aria-hidden="true" class="cell-label">What does not substitute</span></td></tr><tr><td>Personal data<span aria-hidden="true" class="cell-label">Rights layer</span></td><td>Does it contain identity, contact, health, location or biometric data<span aria-hidden="true" class="cell-label">Question</span></td><td>Privacy notice, consent record, deletion mechanism<span aria-hidden="true" class="cell-label">Document to read</span></td><td>A verbal claim that it is anonymised<span aria-hidden="true" class="cell-label">What does not substitute</span></td></tr><tr><td>Likeness / voice / personality<span aria-hidden="true" class="cell-label">Rights layer</span></td><td>Is a real face, voice, name or persona identifiable; use, duration, territory<span aria-hidden="true" class="cell-label">Question</span></td><td>Likeness or voice release, consent, withdrawal terms<span aria-hidden="true" class="cell-label">Document to read</span></td><td>Buying one photograph<span aria-hidden="true" class="cell-label">What does not substitute</span></td></tr><tr><td>Confidentiality / transfer<span aria-hidden="true" class="cell-label">Rights layer</span></td><td>Are client data, internal documents and cross-border transfer allowed<span aria-hidden="true" class="cell-label">Question</span></td><td>NDA, transfer assessment<span aria-hidden="true" class="cell-label">Document to read</span></td><td>“Internal use first”<span aria-hidden="true" class="cell-label">What does not substitute</span></td></tr></tbody></table></div><div class="domain-callout">Publicly accessible is not the same as trainable, commercialisable and redistributable; check the three separately.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="provenance">
+<h2>3 · Provenance: every batch must trace to a version, a date and a licence</h2>
+<p>Provenance is not “the data came from the internet”. It needs at least a source URL or dataset identifier, retrieval time, HTTP status, licence snapshot, content hash, collector and parameters. Pages change, licences change and accounts disappear; without a snapshot, you cannot prove what was obtained six months later.</p><p>Store provenance separately from content: the data table holds content and hashes, the manifest holds source and licence, the log holds the collection process. Removing or replacing a record then does not require rewriting the table, and audits can filter problem batches by source, licence or date.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Field</th><th>Why it is needed</th><th>If missing</th></tr></thead><tbody><tr><td>Source URL / dataset ID<span aria-hidden="true" class="cell-label">Field</span></td><td>Return to the original page or version<span aria-hidden="true" class="cell-label">Why it is needed</span></td><td>Cannot recheck licence or content<span aria-hidden="true" class="cell-label">If missing</span></td></tr><tr><td>Retrieval time and status<span aria-hidden="true" class="cell-label">Field</span></td><td>Distinguish normal pages, redirects, 404s and paywalls<span aria-hidden="true" class="cell-label">Why it is needed</span></td><td>Error pages become training text<span aria-hidden="true" class="cell-label">If missing</span></td></tr><tr><td>Licence snapshot<span aria-hidden="true" class="cell-label">Field</span></td><td>Prove which terms applied then<span aria-hidden="true" class="cell-label">Why it is needed</span></td><td>Cannot explain after terms change<span aria-hidden="true" class="cell-label">If missing</span></td></tr><tr><td>Consent / authorisation<span aria-hidden="true" class="cell-label">Field</span></td><td>Basis for real people, clients and internal data<span aria-hidden="true" class="cell-label">Why it is needed</span></td><td>Cannot prove the basis for use<span aria-hidden="true" class="cell-label">If missing</span></td></tr><tr><td>Content hash<span aria-hidden="true" class="cell-label">Field</span></td><td>Deduplication, version comparison, deletion tracking<span aria-hidden="true" class="cell-label">Why it is needed</span></td><td>One edit makes location impossible<span aria-hidden="true" class="cell-label">If missing</span></td></tr><tr><td>Collector and parameters<span aria-hidden="true" class="cell-label">Field</span></td><td>Reproduce the same batch<span aria-hidden="true" class="cell-label">Why it is needed</span></td><td>Different person or script yields different data<span aria-hidden="true" class="cell-label">If missing</span></td></tr><tr><td>Deletion / withdrawal record<span aria-hidden="true" class="cell-label">Field</span></td><td>Remove from training sets, indexes and caches<span aria-hidden="true" class="cell-label">Why it is needed</span></td><td>Data remains after rights are withdrawn<span aria-hidden="true" class="cell-label">If missing</span></td></tr></tbody></table></div><div class="domain-callout">Data without a provenance snapshot is a liability, not an asset.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="clean">
+<h2>4 · Cleaning: define what to keep before how hard to filter</h2>
+<p>Cleaning is not “make the data clean”; it is “make the retained data answer the purpose”. Fix encoding, boilerplate, navigation, duplicates, garbled text and mixed languages first. Handle personal data, toxicity, adult content and privacy leaks according to purpose and rules. Long-tail languages and minority expression must not be wiped out by one quality score.</p><p>Every filter needs sampled evidence: how much was removed, which records, why and what it did to the target distribution. “Two terabytes after cleaning” means nothing without saying what was lost between three and two.</p><div class="domain-facts"><p><b>Encoding and format</b><br/><em>What to do</em>: Normalise UTF-8, line endings, strip HTML, extract PDF text<br/><em>Evidence</em>: Parse-failure rate, sampled text</p><p><b>Boilerplate and navigation</b><br/><em>What to do</em>: Remove headers, menus, ads and repeated notices<br/><em>Evidence</em>: Template hit rate, residual sample</p><p><b>Language identification</b><br/><em>What to do</em>: Label primary language and mixed-language ratio<br/><em>Evidence</em>: Confusion matrix, short-text audit</p><p><b>Personal data</b><br/><em>What to do</em>: Detect names, phones, emails, IDs, addresses, biometrics<br/><em>Evidence</em>: Recall, false-positive rate, redaction log</p><p><b>Deduplication</b><br/><em>What to do</em>: Exact hashes plus near-duplicate detection<br/><em>Evidence</em>: Duplicate rate, samples of removed clusters</p><p><b>Quality filtering</b><br/><em>What to do</em>: Length, symbol ratio, repetition, perplexity, classifier score<br/><em>Evidence</em>: Retention by threshold, distribution shift</p><p><b>Safety filtering</b><br/><em>What to do</em>: Handle toxicity, adult, illegal and leaked content by purpose<br/><em>Evidence</em>: Hit types, human review, appeal path</p></div><div class="domain-callout">Stronger filtering is not better. Write what must be kept before what must be removed.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="label">
+<h2>5 · Labelling: guideline, pilot, double annotation, adjudication, drift</h2>
+<p>Annotation quality is not “find smarter people”; it is “make two people reach the same judgement on the same item”. Write the guideline with boundary cases, counterexamples, required fields and forbidden inferences. Pilot 30–50 items, measure agreement and disputes, then double-annotate, adjudicate and audit. Scaling first only produces unexplainable labels.</p><p>Agreement metrics must fit the task: kappa or alpha for categories, ICC for continuous scales, Kendall’s tau for rankings. When agreement is low, revise the guideline and samples before blaming annotators. Keep a gold set and rerun it whenever annotators, model pre-labelling or guidelines change.</p><div class="domain-facts"><p><b>Guideline</b><br/><em>Output</em>: Boundary cases, counterexamples, fields, decision tree<br/><em>Acceptance</em>: A newcomer can label ten items independently</p><p><b>Pilot</b><br/><em>Output</em>: 30–50 items covering hard cases<br/><em>Acceptance</em>: Disagreement hotspots documented</p><p><b>Double annotation</b><br/><em>Output</em>: At least two independent labels per item<br/><em>Acceptance</em>: Agreement reaches the preset threshold</p><p><b>Adjudication</b><br/><em>Output</em>: A third person or rule resolves disputes<br/><em>Acceptance</em>: Rationale is traceable</p><p><b>Gold set</b><br/><em>Output</em>: Fixed, held out, boundary-heavy<br/><em>Acceptance</em>: Reruns after annotator or pre-label changes</p><p><b>Drift check</b><br/><em>Output</em>: Stratified audit by time, source and difficulty<br/><em>Acceptance</em>: Distribution drift alerts</p></div><div class="domain-callout">Annotation is not a headcount problem. First make two people reach the same judgement on the same item.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="split">
+<h2>6 · Splits and contamination: train, validation and test are not a random cut</h2>
+<p>A random split lets the same entity, template or near-duplicate text appear in both training and test. Group by entity, time, source or user first, then split within groups; check near-duplicates across sets; compare public benchmarks at n-gram and item level. Otherwise a higher score only proves the model has seen the test.</p><p>Lock the test set: lock the file, the scorer and the preprocessing. Looking at it after every tuning run turns it into a validation set. Keep a holdout that never participated in selection, even if it is smaller.</p><div class="domain-facts"><p><b>Group by entity</b><br/><em>Use when</em>: Multiple samples per person, product or document<br/><em>Guard against</em>: Same entity across sets</p><p><b>Split by time</b><br/><em>Use when</em>: News, dialogue, transactions, logs<br/><em>Guard against</em>: Future leaking into past, distribution shift</p><p><b>Split by source</b><br/><em>Use when</em>: Multiple sites, vendors or devices<br/><em>Guard against</em>: Source-specific templates mistaken for capability</p><p><b>Split by user</b><br/><em>Use when</em>: Recommendation, personalisation, dialogue<br/><em>Guard against</em>: Same user behaviour across sets</p><p><b>Near-duplicate check</b><br/><em>Use when</em>: Web, code, papers, lyrics<br/><em>Guard against</em>: Paraphrase, translation, template variants</p><p><b>Benchmark contamination</b><br/><em>Use when</em>: Using public benchmarks<br/><em>Guard against</em>: Items, answers or rationales in training</p></div><div class="domain-callout">A random cut is not a split. Group by entity, time or source first.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="version">
+<h2>7 · Versions and reproduction: lock data, code, config and environment together</h2>
+<p>Storing only the “final data” does not reproduce. Keep data hashes and manifests, cleaning and labelling code, split config, random seeds, dependency versions, hardware environment, licence snapshots and a changelog. A dataset card states purpose, sources, fields, size, languages, time range, known biases, prohibited uses and contact.</p><p>Do not version by date alone. A short data hash plus config version distinguishes two batches on the same day; every rebuild produces a new hash and old versions stay read-only. Dataset cards and model cards should reference each other, or a model incident cannot be traced back to training data.</p><div class="domain-facts"><p><b>Data content</b><br/><em>Record</em>: Per-file SHA-256 plus manifest hash<br/><em>Reproduction use</em>: Confirm the same batch</p><p><b>Cleaning / labelling code</b><br/><em>Record</em>: Git commit plus command<br/><em>Reproduction use</em>: Rerun the same processing</p><p><b>Split config</b><br/><em>Record</em>: Entity/time fields, ratios, seed<br/><em>Reproduction use</em>: Rebuild the same train/test sets</p><p><b>Dependencies and environment</b><br/><em>Record</em>: Lockfile, CUDA/driver, hardware<br/><em>Reproduction use</em>: Explain speed and numeric differences</p><p><b>Licence snapshot</b><br/><em>Record</em>: Terms text, date, source<br/><em>Reproduction use</em>: Prove the basis at the time</p><p><b>Changelog</b><br/><em>Record</em>: Adds, removes, edits, reason, impact<br/><em>Reproduction use</em>: Audit and rollback</p><p><b>Dataset card</b><br/><em>Record</em>: Purpose, sources, fields, biases, prohibited uses<br/><em>Reproduction use</em>: Boundary note for users</p></div><div class="domain-callout">A data version that cannot be reproduced is not a version.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="privacy">
+<h2>8 · Privacy and deletion: minimise first, then discuss deletion</h2>
+<p>Personal data is not just names and phone numbers. Location traces, device IDs, chat context, faces, voiceprints, medical records and support logs can all identify someone. Minimise first: do not collect, store or transfer fields you do not need; for what remains, redact, restrict access, encrypt and set retention.</p><p>Deletion must propagate to training sets, indexes, caches, backups and derived data. There is no general guarantee that model weights “forget” a record; what you can do is stop further use, record provenance, remove it from retrieval, remove it from fine-tuning data and state the limit in the model card. Do not treat one retraining run as proof of deletion.</p><ul class="domain-list"><li>Minimise by field: do not collect, store or send fields the purpose does not need.</li><li>Handle direct and quasi-identifiers separately: names, phones, IDs, device IDs, location and time combinations can re-identify.</li><li>Separate access: annotation, training, evaluation and audit see different scopes; least privilege by default.</li><li>Put retention and deletion into contracts and a runbook; do not rely on someone remembering to delete.</li><li>State in the dataset and model cards that full forgetting is not guaranteed; separate retrieval-layer and fine-tuning-layer deletion paths.</li></ul><div class="domain-callout">Minimise before discussing deletion; there is no general guarantee of forgetting inside model weights.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="cost">
+<h2>9 · Cost: price usable examples, not downloaded volume</h2>
+<p>The most underestimated data costs are labour and rework. Download and storage are cheap; cleaning, labelling, QA, legal review and rework are not. A batch cut from three terabytes to two may yield only a few hundred thousand usable records. Quote and schedule per accepted usable example, with annotation rounds, rework rate and review time written in.</p><p>Split cost into one-off and ongoing: one-off covers collection, cleaning, labelling and evaluation-set construction; ongoing covers refresh, deduplication, drift monitoring, deletion requests and licence review. Counting only the one-off leaves maintenance to surprise you after launch.</p><div class="domain-facts"><p><b>Acquisition / licensing</b><br/><em>Unit</em>: Batch / contract<br/><em>Why it runs away</em>: Scattered sources, term-by-term negotiation<br/><em>Control</em>: Source list and priority first</p><p><b>Storage / transfer</b><br/><em>Unit</em>: GB per month<br/><em>Why it runs away</em>: Keeping raw, intermediate and derived copies<br/><em>Control</em>: Tiered storage and retention</p><p><b>Cleaning</b><br/><em>Unit</em>: Hours per 10k records<br/><em>Why it runs away</em>: Rules change repeatedly without sampling<br/><em>Control</em>: Pilot on a small batch before scaling</p><p><b>Labelling</b><br/><em>Unit</em>: Items per round<br/><em>Why it runs away</em>: Unclear guideline, double annotation becomes many<br/><em>Control</em>: Pilot and agreement threshold</p><p><b>QA</b><br/><em>Unit</em>: Audit rate<br/><em>Why it runs away</em>: Totals checked without stratification<br/><em>Control</em>: Stratify by source, difficulty and time</p><p><b>Rework</b><br/><em>Unit</em>: Rounds per batch<br/><em>Why it runs away</em>: Acceptance criteria change late<br/><em>Control</em>: Acceptance table plus change order</p><p><b>Legal / compliance</b><br/><em>Unit</em>: Review per batch<br/><em>Why it runs away</em>: Only after an incident<br/><em>Control</em>: Check by rights layer before launch</p></div><div class="domain-callout">Cost per usable example; downloaded volume is not throughput.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="fail">
+<h2>10 · Failure branches: stop the batch, locate the cause, do not train first</h2>
+<p>Once a data problem enters training, the fix cost multiplies. When a licence is unclear, provenance is broken, labels drift, test data leaks or personal data appears, isolate the batch first, then locate whether the cause is collection, cleaning, labelling, splitting or versioning. Do not trade a temporary schedule gain for “train one version and see”.</p><div class="domain-facts"><p><b>Unclear licence</b><br/><em>Check first</em>: Source, terms snapshot, scope<br/><em>Likely cause</em>: URL saved without terms<br/><em>Fix</em>: Stop the batch; add authorisation or replace</p><p><b>Many duplicates</b><br/><em>Check first</em>: Exact/near-duplicate rate, source concentration<br/><em>Likely cause</em>: Syndication, template copying<br/><em>Fix</em>: Deduplicate clusters, keep representatives</p><p><b>Label drift</b><br/><em>Check first</em>: Guideline version, annotator, time<br/><em>Likely cause</em>: Guideline changed without relabelling<br/><em>Fix</em>: Rerun gold set, rework under new guideline</p><p><b>Suspiciously high score</b><br/><em>Check first</em>: Train/test overlap, near-duplicates, benchmark contamination<br/><em>Likely cause</em>: Random split or leaked items<br/><em>Fix</em>: Rebuild grouped splits, decontaminate, retest</p><p><b>Personal data present</b><br/><em>Check first</em>: Fields, detector recall, human audit<br/><em>Likely cause</em>: Regex-only redaction<br/><em>Fix</em>: Isolate, redact, re-audit, log deletion</p><p><b>Severe class imbalance</b><br/><em>Check first</em>: Distribution by source and difficulty<br/><em>Likely cause</em>: Cleaning removed the minority class<br/><em>Fix</em>: Stratify, resample or reweight</p><p><b>Source page gone</b><br/><em>Check first</em>: Snapshot, hash, mirror<br/><em>Likely cause</em>: Only the URL was stored<br/><em>Fix</em>: Check the snapshot; remove if unverifiable</p></div><div class="domain-callout">Isolate the batch first. Training one version only writes the problem into the weights.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="path">
+<h2>11 · A minimum path: from purpose sentence to reproducible dataset card</h2>
+<p>This path fits a batch intended for fine-tuning, evaluation or RAG. Each step leaves evidence before the next begins.</p><ul class="domain-list"><li>Write the purpose sentence: input, output, judgement, use case and what it will not do.</li><li>List sources and rights: source, terms, authorisation, consent, territory, duration and prohibited uses.</li><li>Build provenance: URL/ID, retrieval time, status, licence snapshot, hash and collection parameters.</li><li>Pilot cleaning: encoding, boilerplate, language, PII, deduplication, quality and safety filtering; record retention.</li><li>Write the labelling guideline and pilot 30–50 items: boundary cases, counterexamples, agreement, disputes.</li><li>Annotate and adjudicate: double annotation, gold set, audit, drift log.</li><li>Grouped splits and contamination checks: entity/time/source groups, near-duplicate and benchmark comparison.</li><li>Lock versions: data hash, code, config, seed, environment, licence snapshot, changelog.</li><li>Write the dataset card and deliver: purpose, sources, fields, size, biases, prohibited uses and deletion path.</li><li>Monitor after launch: duplicate rate, distribution drift, source failure, deletion requests, licence changes.</li></ul><div class="domain-callout">The minimum path is not the fastest path; it is the shortest reproducible, auditable and deletable loop.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="sources">
+<h2>Sources and further reading</h2>
+<p>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</p>
+<ul class="domain-src"><li><a href="https://arxiv.org/abs/1803.09010" rel="noopener">Datasheets for Datasets</a><span>Motivation, composition, collection, processing, uses and maintenance that a dataset should document.</span></li><li><a href="https://arxiv.org/abs/1810.03993" rel="noopener">Model Cards for Model Reporting</a><span>How model cards record intended use, performance, limitations and ethical considerations; cross-reference with dataset cards.</span></li><li><a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="noopener">NIST AI Risk Management Framework</a><span>A framework for data governance, risk identification and evidence; not a compliance conclusion for a sector.</span></li><li><a href="https://commoncrawl.org/terms-of-use" rel="noopener">Common Crawl · Terms of Use</a><span>Terms boundaries for crawling and using web corpora; read before collection.</span></li><li><a href="https://creativecommons.org/licenses/" rel="noopener">Creative Commons · Licences</a><span>Attribution, commercial use, adaptation and redistribution conditions across CC licences.</span></li><li><a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-122.pdf" rel="noopener">NIST SP 800-122 · PII guide</a><span>Reference for identifying, classifying and protecting personally identifiable information.</span></li><li><a href="https://aclanthology.org/W18-0506/" rel="noopener">Data Statements for NLP</a><span>Recording speakers, language varieties, collection context and bias for language data.</span></li><li><a href="https://arxiv.org/abs/2107.06499" rel="noopener">Deduplicating Training Data Makes Language Models Better</a><span>How training-data deduplication affects memorisation, leakage and training efficiency.</span></li></ul>
+</section>
+<section class="domain-next">
+<h2>Next</h2>
+<ul><li><a href="/en/topic-data.html">Back to the data route</a></li><li><a href="/en/domain-safety.html">Next: connect privacy and launch gates</a></li><li><a href="/en/topics.html">Browse the other 15 topic routes</a></li></ul>
+<p>If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</p>
+</section>
+<p class="domain-back"><a href="https://specul.com/en/">← Back to home</a> <span aria-hidden="true">·</span> <a href="/en/correct.html">Spot an error? Send a correction</a></p>
+</div>
+</section>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>

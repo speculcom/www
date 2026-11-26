@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Write code with AI: resources in order | Specul</title>
+<meta content="This page does not restate concepts or rank tools. It puts published material into the order in which code gets written, and says what to check…" name="description"/>
+<link href="https://specul.com/en/topic-code.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="website" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/topic-code.html" property="og:url"/>
+<meta content="Write code with AI: resources in order | Specul" property="og:title"/>
+<meta content="This page does not restate concepts or rank tools. It puts published material into the order in which code gets written, and says what to check…" property="og:description"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Write code with AI: resources in order | Specul","url":"https://specul.com/en/topic-code.html","description":"This page does not restate concepts or rank tools. It puts published material into the order in which code gets written, and says what to check…","inLanguage":"en","isPartOf":{"@type":"WebSite","url":"https://specul.com/en/topic-code.html"}}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><meta content="Write code with AI: resources in order | Specul" name="twitter:title"/><meta content="This page does not restate concepts or rank tools. It puts published material into the order in which code gets written, and says what to check…" name="twitter:description"/><link href="https://specul.com/topic-code.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/topic-code.html" hreflang="en" rel="alternate"/><link href="https://specul.com/topic-code.html" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/topic-code.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<main id="main">
+<section class="hp-sec tight">
+<div class="hp-c">
+<p class="kicker">Topic route</p>
+<h1>Write code with AI: resources in order</h1>
+<p class="hp-line">This page does not restate concepts or rank tools. It puts published material into the order in which code gets written, and says what to check afterwards. Conditions, sources and scope stay on the linked pages.</p>
+<p class="topic-readmeta">
+<span><b>For</b> People already writing code who want AI in the editor, terminal or CI</span>
+<span><b>You leave with</b> A route from completion to review that you can check</span>
+<span><b>Time</b> 10 minutes to browse; 1–2 hours to follow</span>
+</p>
+<p class="hp-line">Where the sites record no measured comparison, cost reduction or success rate, this page does not add one.</p>
+</div>
+</section>
+<section class="hp-sec tight" id="start">
+<div class="hp-c">
+<h2 class="hp-h2">Where to start</h2>
+<div class="hp-picker">
+<a class="hp-pq" href="https://learn.specul.com/en/path/for-builders/"><span class="qq"><b>1 · Scope and first steps</b></span><span class="to">→ Builder route, 14 steps</span></a>
+<a class="hp-pq" href="https://tools.specul.com/en/coding/"><span class="qq"><b>2 · Compare coding tools on eight axes</b></span><span class="to">→ Tools: coding</span></a>
+<a class="hp-pq" href="https://models.specul.com/en/guides/pre-flight-checks.html"><span class="qq"><b>3 · Pre-flight checks before running</b></span><span class="to">→ Models: pre-flight checks</span></a>
+</div>
+</div>
+</section>
+<section class="hp-sec tight" id="material">
+<div class="hp-c">
+<h2 class="hp-h2">Find material by stage</h2>
+<div class="hp-picker">
+<a class="hp-pq" href="https://tools.specul.com/en/mcp/guides/compare-coding-agents.html"><span class="qq"><b>Choosing a coding agent: conditions</b></span><span class="to">→ Tool comparison</span></a>
+<a class="hp-pq" href="https://nav.specul.com/en/?cat=coding#dir"><span class="qq"><b>Other coding sites: filter the directory</b></span><span class="to">→ Directory: coding</span></a>
+<a class="hp-pq" href="https://tools.specul.com/en/mcp/guides/playbook-fix-a-bug.html"><span class="qq"><b>Bring generated code into the project</b></span><span class="to">→ Six steps and checks</span></a>
+<a class="hp-pq" href="https://tools.specul.com/en/mcp/guides/failure-library.html"><span class="qq"><b>Common failure branches</b></span><span class="to">→ Failure library</span></a>
+<a class="hp-pq" href="https://learn.specul.com/en/path/for-eval-builders/"><span class="qq"><b>Set up a re-runnable evaluation flow</b></span><span class="to">→ 11-step route</span></a>
+</div>
+</div>
+</section>
+<section class="hp-sec tight" id="check">
+<div class="hp-c">
+<h2 class="hp-h2">How to check the result</h2>
+<div class="hp-picker">
+<a class="hp-pq" href="https://tools.specul.com/en/mcp/guides/evaluation.html"><span class="qq"><b>What an evaluation does and does not show</b></span><span class="to">→ Evaluation notes</span></a>
+<a class="hp-pq" href="https://tools.specul.com/en/mcp/guides/toolkit-worksheets.html"><span class="qq"><b>Fillable worksheets and records</b></span><span class="to">→ Worksheet toolkit</span></a>
+<a class="hp-pq" href="https://demos.specul.com/en/compare.html"><span class="qq"><b>Runtime and licence comparison</b></span><span class="to">→ Comparison page</span></a>
+<a class="hp-pq" href="https://specul.com/en/legal.html#s7"><span class="qq"><b>Third-party assets and attribution</b></span><span class="to">→ Legal: asset register</span></a>
+</div>
+</div>
+</section>
+<section class="hp-sec tight" id="scope">
+<div class="hp-c">
+<h2 class="hp-h2">Scope of this page</h2>
+<p class="hp-line">This page gives order, links and checkpoints only. Tool selection belongs to the tools site, definitions to the learning site, models and memory to the models site, listings to the directory, and work plus licences to the playground and legal pages. Link order is not a ranking.</p>
+<p class="hp-line">Search the whole site by task phrase when something is missing, or use the correction draft page to assemble a note about a source or fact. <a href="https://specul.com/en/search.html">Site search</a> · <a href="https://specul.com/en/correct.html">Correction draft</a></p>
+</div>
+</section>
+<section class="hp-sec tight" id="other-topics">
+<div class="hp-c">
+<h2 class="hp-h2">Other topics</h2>
+<p class="hp-line"><a href="/en/topic-video.html">Make video with AI</a> · <a href="/en/topic-music.html">Make music with AI</a> · <a href="/en/topic-research.html">Do research with AI</a> · <a href="/en/topic-office.html">Handle office work with AI</a> · <a href="/en/topic-robot.html">Build robots with AI</a> · <a href="/en/topic-prompts.html">Write prompts and workflows</a> · <a href="/en/topic-agent.html">Build AI agents</a> · <a href="/en/topic-local.html">Run models locally</a> · <a href="/en/topic-speech.html">Build speech and voice</a> · <a href="/en/topic-eval.html">Evaluate models and agents</a> · <a href="/en/topic-game.html">Make games with AI</a> · <a href="/en/topic-image.html">Make images with AI</a> · <a href="/en/topic-3d.html">Make 3D with AI</a> · <a href="/en/topic-data.html">Prepare and curate data</a> · <a href="/en/topic-safety.html">AI safety and compliance</a></p>
+<p class="hp-line"><a href="/en/topics.html">All topics</a> · <a href="/en/">← Back to home</a> · <a href="https://specul.com/en/search.html">Site search</a></p>
+</div>
+</section>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>

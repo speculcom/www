@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Site map | Specul</title>
+<meta content="Ten sites, their entry points, current scale and the three pages to open first. Start here when you are lost." name="description"/>
+<link href="https://specul.com/en/map.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/map.html" property="og:url"/>
+<meta content="Site map | Specul" property="og:title"/>
+<meta content="Ten sites, their entry points, current scale and the three pages to open first. Start here when you are lost." property="og:description"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/legal.css" rel="stylesheet"/>
+<!-- B5（2026-10-09）：法律页的结构性数据。用 WebPage（不是 WebSite）——
+       它是站群里的一个子页，不是站点本身。 -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Site map | Specul","url":"https://specul.com/en/map.html","description":"Ten sites, their entry points, current scale and the three pages to open first. Start here when you are lost.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Site map | Specul","url":"https://specul.com/en/map.html"},"dateModified":"2026-11-19"}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><meta content="Site map | Specul" name="twitter:title"/><meta content="Ten sites, their entry points, current scale and the three pages to open first. Start here when you are lost." name="twitter:description"/><link href="https://specul.com/map.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/map.html" hreflang="en" rel="alternate"/><link href="https://specul.com/map.html" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/map.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<!-- 窄屏抽屉：2026-10-10 随底部 tab bar 一起补上。
+       之前 legal 页只有顶栏那 6 个链接，没有汉堡/抽屉，窄屏上点不开站内导航。
+       标记与样式/行为全部来自共享 brand.css / brand.js，这里只出结构。 -->
+<a class="t-skip" href="#main">Skip to main content</a>
+<main class="container" id="main">
+<div class="legal-head">
+<h1>Site map</h1>
+<p class="sub">Ten sites, their entry points, current scale and the three pages to open first. Start here when you are lost.</p>
+</div>
+<figure class="sm-figure">
+<svg aria-label="How the ten sites fit together" class="sm-svg" role="img" viewbox="0 0 1120 330" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="sm-arrow" markerheight="8" markerwidth="8" orient="auto" refx="7" refy="4"><path d="M0,0 L8,4 L0,8 Z" fill="var(--line)"></path></marker></defs>
+<rect fill="var(--bg-panel)" height="250" rx="16" stroke="var(--line)" width="254" x="12" y="20"></rect>
+<rect fill="var(--cat-violet)" height="5" rx="2.5" width="254" x="12" y="20"></rect>
+<rect fill="var(--bg-panel)" height="250" rx="16" stroke="var(--line)" width="254" x="290" y="20"></rect>
+<rect fill="var(--cat-blue)" height="5" rx="2.5" width="254" x="290" y="20"></rect>
+<rect fill="var(--bg-panel)" height="250" rx="16" stroke="var(--line)" width="254" x="568" y="20"></rect>
+<rect fill="var(--cat-teal)" height="5" rx="2.5" width="254" x="568" y="20"></rect>
+<rect fill="var(--bg-panel)" height="250" rx="16" stroke="var(--line)" width="254" x="846" y="20"></rect>
+<rect fill="var(--cat-amber)" height="5" rx="2.5" width="254" x="846" y="20"></rect>
+<line marker-end="url(#sm-arrow)" stroke="var(--line)" stroke-width="1.5" x1="266" x2="282" y1="150" y2="150"></line>
+<line marker-end="url(#sm-arrow)" stroke="var(--line)" stroke-width="1.5" x1="544" x2="560" y1="150" y2="150"></line>
+<line marker-end="url(#sm-arrow)" stroke="var(--line)" stroke-width="1.5" x1="822" x2="838" y1="150" y2="150"></line>
+<g class="sm-zh">
+<text fill="var(--ink)" font-size="16" font-weight="800" x="30" y="58">1 · 搞懂</text>
+<text fill="var(--ink-dim)" font-size="11" x="30" y="78">先有词，再谈选</text>
+<rect fill="var(--bg)" height="124" rx="12" stroke="var(--line)" width="230" x="24" y="126"></rect>
+<text fill="var(--ink)" font-size="17" font-weight="800" x="42" y="158">学 AI</text>
+<text fill="var(--ink-dim)" font-size="11" x="42" y="180">名词、原理、学习顺序</text>
+<text fill="var(--ink-dim)" font-size="11" x="42" y="210">300 个词条 · 111 篇指南</text>
+<text fill="var(--ink-dim)" font-size="11" x="42" y="232">16 条学习路径</text>
+<text fill="var(--ink)" font-size="16" font-weight="800" x="308" y="58">2 · 选</text>
+<text fill="var(--ink-dim)" font-size="11" x="308" y="78">拿一个具体任务去比</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="302" y="100"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="320" y="134">工具</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="302" y="170"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="320" y="204">模型</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="302" y="240"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="320" y="274">硬件算力</text>
+<text fill="var(--ink)" font-size="16" font-weight="800" x="586" y="58">3 · 深读</text>
+<text fill="var(--ink-dim)" font-size="11" x="586" y="78">看原文，不看二手结论</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="580" y="100"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="598" y="134">AI 论文</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="580" y="170"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="598" y="204">开源库</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="580" y="240"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="598" y="274">链</text>
+<text fill="var(--ink)" font-size="16" font-weight="800" x="864" y="58">4 · 验证</text>
+<text fill="var(--ink-dim)" font-size="11" x="864" y="78">做出来，再回头核对</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="858" y="100"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="876" y="134">作品演示</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="858" y="170"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="876" y="204">AI 导航</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="858" y="240"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="876" y="274">本站</text>
+</g>
+<g class="sm-en">
+<text fill="var(--ink)" font-size="16" font-weight="800" x="30" y="58">1 · Understand</text>
+<text fill="var(--ink-dim)" font-size="11" x="30" y="78">Words first, choices later</text>
+<rect fill="var(--bg)" height="124" rx="12" stroke="var(--line)" width="230" x="24" y="126"></rect>
+<text fill="var(--ink)" font-size="17" font-weight="800" x="42" y="158">Learn</text>
+<text fill="var(--ink-dim)" font-size="11" x="42" y="180">Terms, principles, reading order</text>
+<text fill="var(--ink-dim)" font-size="11" x="42" y="210">300 terms · 111 guides</text>
+<text fill="var(--ink-dim)" font-size="11" x="42" y="232">16 learning paths</text>
+<text fill="var(--ink)" font-size="16" font-weight="800" x="308" y="58">2 · Choose</text>
+<text fill="var(--ink-dim)" font-size="11" x="308" y="78">Compare against one real task</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="302" y="100"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="320" y="134">Tools</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="302" y="170"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="320" y="204">Models</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="302" y="240"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="320" y="274">Compute</text>
+<text fill="var(--ink)" font-size="16" font-weight="800" x="586" y="58">3 · Go deeper</text>
+<text fill="var(--ink-dim)" font-size="11" x="586" y="78">Read the source, not a summary</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="580" y="100"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="598" y="134">Papers</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="580" y="170"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="598" y="204">OSS</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="580" y="240"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="598" y="274">Chain</text>
+<text fill="var(--ink)" font-size="16" font-weight="800" x="864" y="58">4 · Check</text>
+<text fill="var(--ink-dim)" font-size="11" x="864" y="78">Build it, then check again</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="858" y="100"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="876" y="134">Playground</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="858" y="170"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="876" y="204">Directory</text>
+<rect fill="var(--bg)" height="58" rx="12" stroke="var(--line)" width="230" x="858" y="240"></rect>
+<text fill="var(--ink)" font-size="15" font-weight="800" x="876" y="274">Hub</text>
+</g>
+</svg>
+<figcaption>The ten sites are not ten islands: understand, choose, read the source, then check with real work and the directory. The arrows are a common order, not a rule.</figcaption>
+</figure>
+<section>
+<h2>Content sites</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Site</th><th>Scale</th><th>First three pages</th></tr></thead>
+<tbody>
+<tr><td><a href="https://learn.specul.com/en/">Learn</a></td><td>300 terms · 111 guides · 16 routes</td><td><a href="https://learn.specul.com/en/path/quick-start/">Half-hour primer</a> · <a href="https://learn.specul.com/en/path/for-office/">Office and writing route</a> · <a href="https://learn.specul.com/en/atlas/">AI timeline and atlas</a></td></tr>
+<tr><td><a href="https://tools.specul.com/en/">Tools</a></td><td>282 profiles · 12 categories · 78 guides · 12 Skills</td><td><a href="https://tools.specul.com/en/office/">Office and writing</a> · <a href="https://tools.specul.com/en/coding/">AI coding</a> · <a href="https://tools.specul.com/en/skills/">Skills</a></td></tr>
+<tr><td><a href="https://models.specul.com/en/">Models</a></td><td>21 families · 40 datasets · 40 evals · 18 guides</td><td><a href="https://models.specul.com/en/data/">Datasets</a> · <a href="https://models.specul.com/en/evals/">Evaluations</a> · <a href="https://models.specul.com/en/">Guides</a></td></tr>
+<tr><td><a href="https://demos.specul.com/en/">Playground</a></td><td>375 pieces · 32 source groups · 31 models</td><td><a href="https://demos.specul.com/en/prompts.html">Office prompt lab</a> · <a href="https://demos.specul.com/en/works/data-teacher-lab-001-lesson-plan.html">Data and teaching lab</a> · <a href="https://demos.specul.com/en/2026.html">2026 additions</a></td></tr>
+<tr><td><a href="https://oss.specul.com/en/">OSS</a></td><td>136 repos · 7 scenes</td><td><a href="https://oss.specul.com/en/scenes/agent-frameworks.html">Agent frameworks</a> · <a href="https://oss.specul.com/en/scenes/rag-knowledge.html">RAG and knowledge</a> · <a href="https://oss.specul.com/en/scenes/local-inference.html">Local inference</a></td></tr>
+<tr><td><a href="https://hardware.specul.com/en/">Compute</a></td><td>72 profiles: 42 accelerators · 8 clouds · 8 systems · 8 edge · 3 sensors · 3 robot bodies</td><td><a href="https://hardware.specul.com/en/cloud/">Cloud compute</a> · <a href="https://hardware.specul.com/en/cloud/guides/billing-modes.html">Selection guides</a> · <a href="https://hardware.specul.com/en/">Accelerator index</a></td></tr>
+<tr><td><a href="https://papers.specul.com/en/">AI Papers</a></td><td>110 papers · 14 lineages</td><td><a href="https://papers.specul.com/en/">Method lineages</a> · <a href="https://papers.specul.com/en/">Paper index</a> · <a href="https://papers.specul.com/en/">Agents and tools</a></td></tr>
+<tr><td><a href="https://chain.specul.com/en/">Chain</a></td><td>46 profiles · 6 categories</td><td><a href="https://chain.specul.com/en/">Intersection index</a> · <a href="https://chain.specul.com/en/">Verifiable inference</a> · <a href="https://chain.specul.com/en/">Provenance and credentials</a></td></tr>
+</tbody>
+</table></div>
+</section>
+<section>
+<h2>Pages by site</h2>
+<figure class="sm-figure">
+<svg aria-label="Pages by content site" class="sm-svg" role="img" viewbox="-12 0 1132 360" xmlns="http://www.w3.org/2000/svg">
+<g class="sm-zh">
+<text fill="var(--ink-dim)" font-size="13" x="0" y="22">八个内容站的页数。AI 导航与全站搜索单位不同，不放在同一根轴上。</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="58">学 AI</text>
+<rect fill="var(--cat-teal)" height="18" opacity=".85" rx="7" width="800" x="170" y="46"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="986" y="60">424 页</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="90">工具</text>
+<rect fill="var(--cat-amber)" height="18" opacity=".85" rx="7" width="700" x="170" y="78"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="886" y="92">371 页</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="122">作品演示</text>
+<rect fill="var(--cat-rose)" height="18" opacity=".85" rx="7" width="436" x="170" y="110"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="622" y="124">231 页</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="154">模型</text>
+<rect fill="var(--cat-violet)" height="18" opacity=".85" rx="7" width="291" x="170" y="142"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="477" y="156">154 页</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="186">开源库</text>
+<rect fill="var(--cat-teal)" height="18" opacity=".85" rx="7" width="181" x="170" y="174"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="367" y="188">96 页</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="218">硬件算力</text>
+<rect fill="var(--cat-lime)" height="18" opacity=".85" rx="7" width="126" x="170" y="206"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="312" y="220">67 页</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="250">AI 论文</text>
+<rect fill="var(--cat-rose)" height="18" opacity=".85" rx="7" width="121" x="170" y="238"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="307" y="252">64 页</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="282">链</text>
+<rect fill="var(--cat-violet)" height="18" opacity=".85" rx="7" width="74" x="170" y="270"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="260" y="284">39 页</text>
+<text fill="var(--ink-dim)" font-size="12" x="0" y="330">数字来自 2026-11-20 构建产物；站点页数含详情页、索引页与站内指南。</text>
+</g>
+<g class="sm-en">
+<text fill="var(--ink-dim)" font-size="13" x="0" y="22">Pages in eight content sites. AI Directory and search use different units, so they are not on this axis.</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="58">Learn</text>
+<rect fill="var(--cat-teal)" height="18" opacity=".85" rx="7" width="800" x="170" y="46"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="986" y="60">424 pages</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="90">Tools</text>
+<rect fill="var(--cat-amber)" height="18" opacity=".85" rx="7" width="700" x="170" y="78"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="886" y="92">371 pages</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="122">Demos</text>
+<rect fill="var(--cat-rose)" height="18" opacity=".85" rx="7" width="436" x="170" y="110"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="622" y="124">231 pages</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="154">Models</text>
+<rect fill="var(--cat-violet)" height="18" opacity=".85" rx="7" width="291" x="170" y="142"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="477" y="156">154 pages</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="186">OSS</text>
+<rect fill="var(--cat-teal)" height="18" opacity=".85" rx="7" width="181" x="170" y="174"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="367" y="188">96 pages</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="218">Compute</text>
+<rect fill="var(--cat-lime)" height="18" opacity=".85" rx="7" width="126" x="170" y="206"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="312" y="220">67 pages</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="250">Papers</text>
+<rect fill="var(--cat-rose)" height="18" opacity=".85" rx="7" width="121" x="170" y="238"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="307" y="252">64 pages</text>
+<text fill="var(--ink)" font-size="13" font-weight="700" x="0" y="282">Chain</text>
+<rect fill="var(--cat-violet)" height="18" opacity=".85" rx="7" width="74" x="170" y="270"></rect>
+<text fill="var(--ink)" font-size="12" font-weight="700" x="260" y="284">39 pages</text>
+<text fill="var(--ink-dim)" font-size="12" x="0" y="330">Counts come from the 2026-11-20 build output; each site total includes detail, index and guide pages.</text>
+</g>
+</svg>
+<figcaption>Measured in pages, not entries: one page can hold several cards. Use it for scale, not for quality.</figcaption>
+</figure>
+</section>
+<section>
+<h2>Navigation and entry points</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Site</th><th>Purpose</th><th>Entry</th></tr></thead>
+<tbody>
+<tr><td>AI Directory</td><td>816 entries, 633 on-site, in 12 categories, with search and filters.</td><td><a href="https://nav.specul.com/en/">nav.specul.com</a></td></tr>
+<tr><td>Hub home</td><td>Ten site entry points, 16 topic pages, corrections and search.</td><td><a href="https://specul.com/en/">specul.com</a></td></tr>
+<tr><td>Corrections</td><td>Found an error? Generate a correction draft you can send.</td><td><a href="https://specul.com/en/correct.html">correct.html</a></td></tr>
+<tr><td>Search</td><td>Search 2,454 records across pages, profile cards and directory entries.</td><td><a href="https://specul.com/en/search.html">search.html</a></td></tr>
+<tr><td>Legal and privacy</td><td>Content CC BY 4.0, code MIT, third-party content, disclaimers and local-storage notes.</td><td><a href="https://specul.com/en/legal.html">legal.html</a></td></tr>
+</tbody>
+</table></div>
+</section>
+<section>
+<h2>Topic pages</h2>
+<p>If you would rather browse by task than by site, start here:
+<a href="https://specul.com/en/topics.html">All 16 topics</a> ·
+      <a href="https://specul.com/en/topic-office.html">Office</a> ·
+      <a href="https://specul.com/en/topic-code.html">Code</a> ·
+      <a href="https://specul.com/en/topic-research.html">Research</a> ·
+      <a href="https://specul.com/en/topic-video.html">Video</a> ·
+      <a href="https://specul.com/en/topic-music.html">Music</a> ·
+      <a href="https://specul.com/en/topic-robot.html">Robotics</a> ·
+      <a href="https://specul.com/en/topic-game.html">Games</a> ·
+      <a href="https://specul.com/en/topic-prompts.html">Prompts</a> ·
+      <a href="https://specul.com/en/topic-agent.html">Agents</a> ·
+      <a href="https://specul.com/en/topic-local.html">Local models</a> ·
+      <a href="https://specul.com/en/topic-speech.html">Speech and dubbing</a> ·
+      <a href="https://specul.com/en/topic-eval.html">Evaluation</a>.</p>
+</section>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- 底部 tab bar（手机端 App 式固定导航）—— 与首页同一份标记，legal 页也保留。 -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>

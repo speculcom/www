@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="#16121f" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>3D and digital humans: from concept art to an asset that…</title>
+<meta content="You have a 3D model that looks good. Do not deliver it yet. Import it into Unity and the scale may be wrong; rig it and the elbow collapses; put it on a…" name="description"/>
+<link href="https://specul.com/en/domain-3d.html" rel="canonical"/>
+<link href="/sitemap.xml" rel="sitemap" type="application/xml"/>
+<meta content="article" property="og:type"/>
+<meta content="Specul" property="og:site_name"/>
+<meta content="https://specul.com/en/domain-3d.html" property="og:url"/>
+<meta content="3D and digital humans: from concept art to an asset that…" property="og:title"/>
+<meta content="You have a 3D model that looks good. Do not deliver it yet. Import it into Unity and the scale may be wrong; rig it and the elbow collapses; put it on a…" property="og:description"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"3D 与数字人：从概念图到能进引擎的资产","description":"You have a 3D model that looks good. Do not deliver it yet. Import it into Unity and the scale may be wrong; rig it and the elbow collapses; put it on a…","url":"https://specul.com/en/domain-3d.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"3D and digital humans: from concept art to an asset that…","url":"https://specul.com/en/domain-3d.html"}}</script>
+<meta content="en_US" property="og:locale"/><meta content="zh_CN" property="og:locale:alternate"/><meta content="3D and digital humans: from concept art to an asset that…" name="twitter:title"/><meta content="You have a 3D model that looks good. Do not deliver it yet. Import it into Unity and the scale may be wrong; rig it and the elbow collapses; put it on a…" name="twitter:description"/><link href="https://specul.com/domain-3d.html" hreflang="zh-CN" rel="alternate"/><link href="https://specul.com/en/domain-3d.html" hreflang="en" rel="alternate"/><link href="https://specul.com/domain-3d.html" hreflang="x-default" rel="alternate"/></head>
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<!-- SPECUL:HEADER:START -->
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a aria-current="page" href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/domain-3d.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a aria-current="page" href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<!-- SPECUL:HEADER:END -->
+<main id="main">
+<section class="hp-sec tight">
+<div class="hp-c">
+<nav aria-label="面包屑" class="domain-crumb">
+<a href="/en/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/en/topics.html">Topics</a>
+<span aria-hidden="true">/</span>
+<span>Field guide</span>
+</nav>
+<p class="kicker">Field guide · 3D and digital humans</p>
+<h1>3D and digital humans: from concept art to an asset that imports</h1>
+<p class="domain-lead">You have a 3D model that looks good. Do not deliver it yet. Import it into Unity and the scale may be wrong; rig it and the elbow collapses; put it on a phone and the frame rate halves. Three things decide whether it works: it imports, it animates, and it runs. Write where it will be used before deciding which steps AI can generate and which need a human finish.</p>
+<p class="domain-readmeta">
+<span><b>For</b> Anyone handing a 3D asset to a game, film, shop or digital-human project</span>
+<span><b>You leave with</b> A deliverable-form table, an asset acceptance sheet and a path from concept to import</span>
+<span><b>Time</b> 15 minutes to read; 1–3 days for one importable asset</span>
+<span class="domain-verified">Last checked 25 Nov 2026</span>
+</p>
+<p class="domain-meta">This is Specul’s production framework for 3D, not a ranking of models, engines or assets. Formats, specifications, licences and prices remain with the linked pages and original sources.</p>
+</div>
+</section>
+<section class="hp-sec tight">
+<div class="hp-c domain-prose">
+<div class="domain-quick">
+<b>If you only have five minutes</b>
+<ol><li>Fix the deliverable first: still, interactive model, shot asset or real-time avatar.</li><li>Delivery means it imports into the target engine and plays at the target frame rate.</li><li>Generation is only the start; topology, rigging, materials and export need a human finish.</li></ol>
+<p>The full guide starts below. Use the tables for reference; you do not need to memorise them.</p>
+</div>
+<div class="domain-case">
+<b>One concrete job</b>
+<p>Take one concrete job: a coffee machine in Unity for a 12-second product shot, 60 fps on a phone, with a lid-opening animation and a brand-colour light strip. Write the acceptance sheet for that delivery.</p>
+</div>
+<div class="domain-callout domain-thesis">A deliverable imports into the target engine, runs at the target frame rate and passes the asset acceptance table. Generation only supplies the starting point.</div>
+<nav aria-label="Contents" class="domain-toc" id="domain-toc">
+<b>Contents</b>
+<ol><li><a href="#deliverable">1 · Four deliverables, four acceptance tables</a></li><li><a href="#source">2 · Where geometry comes from: generation, reconstruction, scanning, manual</a></li><li><a href="#topology">3 · Topology, UVs and normals: whether it can move and texture</a></li><li><a href="#material">4 · Materials and textures: fix the material model before resolution</a></li><li><a href="#rig">5 · Rigging and motion: weights cannot rescue bad topology</a></li><li><a href="#realtime">6 · Rendering and real time: lock the device and frame rate first</a></li><li><a href="#avatar">7 · Digital humans: face, lip sync, eyes and long-run stability</a></li><li><a href="#export">8 · Export and import: the format can be right and the scene still wrong</a></li><li><a href="#rights">9 · Rights: model, training data, reference and person are four layers</a></li><li><a href="#cost">10 · Cost: price accepted assets, not generation attempts</a></li><li><a href="#fail">11 · Failure branches: locate the stage before swapping tools</a></li><li><a href="#path">12 · A minimum path: from delivery sentence to accepted asset</a></li></ol>
+</nav>
+<section class="domain-section" id="deliverable">
+<h2>1 · Four deliverables, four acceptance tables</h2>
+<p>“Make a 3D model” is not a delivery spec. A still needs silhouette, material and lighting. An interactive model must import into an engine, support collision and fit a frame budget. A shot needs motion, camera and continuity. A real-time avatar needs lip sync, expression, latency and long-run stability. Their asset structure, polygon budget and acceptance evidence differ completely.</p><p>Write the deliverable as one checkable sentence: on which device, in which engine, at which frame rate, viewed from how close, moving how far, accepted by whom. If that sentence cannot be written, the argument about “whether this model is usable” will only start at the end.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Deliverable</th><th>Minimum asset</th><th>Acceptance evidence</th><th>Common mistake</th></tr></thead><tbody><tr><td>Still / concept<span aria-hidden="true" class="cell-label">Deliverable</span></td><td>Mesh or 2.5D, camera, lights<span aria-hidden="true" class="cell-label">Minimum asset</span></td><td>Silhouette, material, close-up detail<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td><td>Treating a render as a usable model<span aria-hidden="true" class="cell-label">Common mistake</span></td></tr><tr><td>Interactive model<span aria-hidden="true" class="cell-label">Deliverable</span></td><td>glTF or engine-native asset, collision, LOD<span aria-hidden="true" class="cell-label">Minimum asset</span></td><td>Imports, selects, holds target frame rate<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td><td>Only turntable-ready in the modelling tool<span aria-hidden="true" class="cell-label">Common mistake</span></td></tr><tr><td>Shot / short<span aria-hidden="true" class="cell-label">Deliverable</span></td><td>Animated mesh, camera, timeline<span aria-hidden="true" class="cell-label">Minimum asset</span></td><td>Deformation, motion, shot continuity<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td><td>Using a still to prove animation quality<span aria-hidden="true" class="cell-label">Common mistake</span></td></tr><tr><td>Real-time avatar<span aria-hidden="true" class="cell-label">Deliverable</span></td><td>Skeleton, expression, visemes, audio chain<span aria-hidden="true" class="cell-label">Minimum asset</span></td><td>Lip sync, blink, latency, continuous run<span aria-hidden="true" class="cell-label">Acceptance evidence</span></td><td>Using a demo clip to prove production readiness<span aria-hidden="true" class="cell-label">Common mistake</span></td></tr></tbody></table></div><div class="domain-callout">Rule of thumb: without a deliverable spec, every later argument about “accuracy” is unverifiable.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="source">
+<h2>2 · Where geometry comes from: generation, reconstruction, scanning, manual</h2>
+<p>Generative models are good at a first shape, not at guaranteeing topology, UVs, normals or part relationships. The usual failure is not “unrealistic” but an invented backside, fused parts, holes and colour baked into textures. Reconstruction and scanning capture a real object, but bring noise, missing surfaces and scale drift. Manual modelling is slowest, yet best for assets that must animate and be maintained.</p><p>Choose by “will this asset animate, enter an engine and be revised”, not by “which generator looks best”. Animated assets prioritise topology and rigging; single-image assets prioritise silhouette and material; real scenes prioritise scale and missing surfaces.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Source</th><th>Best for</th><th>Typical failure</th><th>Must add</th></tr></thead><tbody><tr><td>Text / image generation<span aria-hidden="true" class="cell-label">Source</span></td><td>Concepts, props, single objects<span aria-hidden="true" class="cell-label">Best for</span></td><td>Holes, floating parts, invented backside, baked-in colour<span aria-hidden="true" class="cell-label">Typical failure</span></td><td>Retopology, UVs, normals, scale check<span aria-hidden="true" class="cell-label">Must add</span></td></tr><tr><td>Multi-view reconstruction<span aria-hidden="true" class="cell-label">Source</span></td><td>Real objects and scenes<span aria-hidden="true" class="cell-label">Best for</span></td><td>Missing surfaces, texture seams, scale drift<span aria-hidden="true" class="cell-label">Typical failure</span></td><td>Hole filling, denoise, scale, UV layout<span aria-hidden="true" class="cell-label">Must add</span></td></tr><tr><td>Photogrammetry / scanning<span aria-hidden="true" class="cell-label">Source</span></td><td>Architecture, terrain, human heads<span aria-hidden="true" class="cell-label">Best for</span></td><td>High polygon count, noise, unusable hair and eyes<span aria-hidden="true" class="cell-label">Typical failure</span></td><td>Decimation, cleanup, retopology, separate eyes and expression<span aria-hidden="true" class="cell-label">Must add</span></td></tr><tr><td>Manual / procedural<span aria-hidden="true" class="cell-label">Source</span></td><td>Animation, reuse, long maintenance<span aria-hidden="true" class="cell-label">Best for</span></td><td>Long lead time, depends on modeller<span aria-hidden="true" class="cell-label">Typical failure</span></td><td>Asset spec, naming, versions and acceptance table<span aria-hidden="true" class="cell-label">Must add</span></td></tr></tbody></table></div><div class="domain-callout">Ask whether the geometry must animate or enter an engine before choosing a generation path.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="topology">
+<h2>3 · Topology, UVs and normals: whether it can move and texture</h2>
+<p>A dense generated mesh is not a valid topology. Non-manifold edges, loose parts and badly placed poles collapse under deformation, break simulation and fail slicing for printing. Overlapping UVs contaminate textures; inconsistent texel density blurs close-ups and wastes resolution at distance; mismatched normals and tangents create hard edges and black faces in an engine.</p><p>Use a fixed order: scale and orientation, then non-manifold edges and loose parts, then polygon count and edge flow, finally UVs, texel density, normals and tangents. Reverse the order and you will retopologise a wrongly scaled asset for nothing.</p><div class="domain-table-wrap"><table class="domain-table"><thead><tr><th>Check</th><th>Pass condition</th><th>How to test</th><th>Failure</th></tr></thead><tbody><tr><td>Scale and orientation<span aria-hidden="true" class="cell-label">Check</span></td><td>Units, axes and pivot match the target scene<span aria-hidden="true" class="cell-label">Pass condition</span></td><td>Import into an empty scene beside a known-size reference<span aria-hidden="true" class="cell-label">How to test</span></td><td>Too large or small, facing the wrong axis<span aria-hidden="true" class="cell-label">Failure</span></td></tr><tr><td>Non-manifold edges<span aria-hidden="true" class="cell-label">Check</span></td><td>Zero on assets that must be watertight<span aria-hidden="true" class="cell-label">Pass condition</span></td><td>Select non-manifold and boundary edges<span aria-hidden="true" class="cell-label">How to test</span></td><td>Collapse under rigging, simulation leaks, print failure<span aria-hidden="true" class="cell-label">Failure</span></td></tr><tr><td>Loose parts<span aria-hidden="true" class="cell-label">Check</span></td><td>Only intentional parts remain<span aria-hidden="true" class="cell-label">Pass condition</span></td><td>Inspect connected components<span aria-hidden="true" class="cell-label">How to test</span></td><td>Parts detach on animation, collision splits<span aria-hidden="true" class="cell-label">Failure</span></td></tr><tr><td>Polygon count and edge flow<span aria-hidden="true" class="cell-label">Check</span></td><td>Within platform budget, edge loops around joints<span aria-hidden="true" class="cell-label">Pass condition</span></td><td>Count triangles; bend to extremes<span aria-hidden="true" class="cell-label">How to test</span></td><td>Engine drops frames, elbows and knees collapse<span aria-hidden="true" class="cell-label">Failure</span></td></tr><tr><td>UVs and texel density<span aria-hidden="true" class="cell-label">Check</span></td><td>No overlap, seams hidden, density consistent<span aria-hidden="true" class="cell-label">Pass condition</span></td><td>UV checker; compare pixel density across regions<span aria-hidden="true" class="cell-label">How to test</span></td><td>Texture bleed, blurry close-ups, visible seams<span aria-hidden="true" class="cell-label">Failure</span></td></tr><tr><td>Normals and tangents<span aria-hidden="true" class="cell-label">Check</span></td><td>Consistent direction and tangent space<span aria-hidden="true" class="cell-label">Pass condition</span></td><td>glTF Validator; rotate lighting in engine<span aria-hidden="true" class="cell-label">How to test</span></td><td>Black faces, hard edges, inverted normal maps<span aria-hidden="true" class="cell-label">Failure</span></td></tr></tbody></table></div><div class="domain-callout">Treat a generated mesh as a blockout, not a deliverable.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="material">
+<h2>4 · Materials and textures: fix the material model before resolution</h2>
+<p>A PBR material is not “more texture maps”. Base colour carries albedo, roughness and metallic drive reflection, normal carries surface detail, AO carries occlusion, emissive carries emission and opacity carries transparency. Colour maps are usually read as sRGB, data maps as linear; treating roughness as a colour map throws off reflection across the asset.</p><p>Resolution follows viewing distance and texel density, not “bigger is better”. A 4K map on a fingernail is waste; a 512 map across a wall is blur. Transparency, double-sided surfaces, refraction and decals also change sorting and performance; judge them in the target engine, not only in the modelling tool.</p><div class="domain-facts"><p><b>Base colour</b><br/><em>What it controls</em>: Albedo and pattern<br/><em>Common error</em>: Baking shadows and highlights into colour<br/><em>Acceptance</em>: Correct under neutral light</p><p><b>Roughness / metallic</b><br/><em>What it controls</em>: Reflection sharpness and metal response<br/><em>Common error</em>: Read as sRGB, wrong channel packing<br/><em>Acceptance</em>: Same material reads consistently under different lights</p><p><b>Normal / tangent</b><br/><em>What it controls</em>: Surface detail and tangent space<br/><em>Common error</em>: Inverted normals, inconsistent tangents<br/><em>Acceptance</em>: No hard edges or black faces in close-up</p><p><b>AO / emissive</b><br/><em>What it controls</em>: Occlusion and emission<br/><em>Common error</em>: Overdone AO, blooming emission<br/><em>Acceptance</em>: Layered shadows, clean emission</p><p><b>Opacity / decal</b><br/><em>What it controls</em>: Transparency, decals and sorting<br/><em>Common error</em>: Wrong transparent sorting, double-sided artefacts<br/><em>Acceptance</em>: Check from multiple angles in the target engine</p></div><div class="domain-callout">More maps is not better. Fix the material model and texel density before deciding what to bake.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="rig">
+<h2>5 · Rigging and motion: weights cannot rescue bad topology</h2>
+<p>Rigging is not “add one skeleton”. A human needs shoulder, elbow, knee, spine and finger rotation axes; a face needs blendshapes or a bone set; a prop separates rigid and deformable parts; a scene separates static colliders from movable parts. Wrong joint placement, bone orientation or body proportions collapse under extreme poses no matter how carefully weights are painted.</p><p>Motion can be captured, keyframed, video-driven or retargeted. Each needs extreme-pose tests: arm raise, deep squat, torso twist, mouth open, eyes closed, fast head turn. A natural idle pose does not prove a rig.</p><div class="domain-facts"><p><b>Human character</b><br/><em>Minimum rig</em>: Spine, limbs, fingers, toes, eyes<br/><em>Motion source</em>: Keyframe, capture, retarget<br/><em>Acceptance</em>: Joints hold at extremes, feet do not slide</p><p><b>Face / avatar</b><br/><em>Minimum rig</em>: Jaw, lips, brows, lids, eyes<br/><em>Motion source</em>: Blendshapes, ARKit, audio drive<br/><em>Acceptance</em>: Lip sync, blink and expression do not overshoot</p><p><b>Quadruped / prop</b><br/><em>Minimum rig</em>: Spine, limbs, tail, movable parts<br/><em>Motion source</em>: Keyframe, capture, physics<br/><em>Acceptance</em>: No ground penetration, no detached parts</p><p><b>Scene / machine</b><br/><em>Minimum rig</em>: Hierarchy, pivots, constraints, collision<br/><em>Motion source</em>: Keyframes, blueprints or scripts<br/><em>Acceptance</em>: Correct opening, colliders follow</p></div><div class="domain-callout">Rig failures usually start in topology and joint placement, not in weight painting.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="realtime">
+<h2>6 · Rendering and real time: lock the device and frame rate first</h2>
+<p>Offline rendering trades time for quality; real time starts by fixing a frame budget. At 60 fps a frame is 16.7 ms, at 30 fps 33.3 ms and at 90 Hz XR 11.1 ms; that budget also pays for application logic, physics, animation, UI and audio. “It turns in the editor” does not prove the target device runs it.</p><p>Measure four numbers first: draw calls, triangles, texture memory and CPU/GPU time per frame. Then inspect overdraw, bone count for skinning, transparent materials and shader complexity. LOD is not a final optimisation; it is part of the asset spec, with polygon count, materials and switch distance written per level.</p><div class="domain-facts"><p><b>Desktop 60 fps</b><br/><em>Budget to write</em>: 16.7 ms per frame, keep 20–30% headroom<br/><em>Measure first</em>: CPU/GPU frame time, draw calls<br/><em>Typical bottleneck</em>: Shadows, transparency, post-processing</p><p><b>Mobile 30 fps</b><br/><em>Budget to write</em>: 33.3 ms per frame, heat and throttling<br/><em>Measure first</em>: Frame rate after ten minutes<br/><em>Typical bottleneck</em>: Texture bandwidth, skinning, overdraw</p><p><b>XR 90 Hz</b><br/><em>Budget to write</em>: 11.1 ms per frame, stereo<br/><em>Measure first</em>: Latency, reprojection, motion sickness<br/><em>Typical bottleneck</em>: Resolution, transparency, bone count</p><p><b>Web / WebGL</b><br/><em>Budget to write</em>: Download size, VRAM, first frame<br/><em>Measure first</em>: Load time, context loss<br/><em>Typical bottleneck</em>: Too many textures, shader compilation</p></div><div class="domain-callout">Lock the target device and frame rate before arguing polygon count and textures. An editor turntable is not a real-time acceptance test.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="avatar">
+<h2>7 · Digital humans: face, lip sync, eyes and long-run stability</h2>
+<p>Digital humans fail most often at the face. A good still can blink wrong, track eyes poorly, overshoot mouth shapes or make hair intersect the skin. Audio-driven lip sync must align phonemes, stress and pauses. A ten-second demo can be curated; ten minutes of speech exposes drift and fatigue.</p><p>Split the avatar into six acceptance layers: head, face, eyes, hair, body and voice. Head checks proportion and rotation; face checks expression range; eyes check gaze and blink; hair checks intersection and physics; body checks gesture and seated pose; voice checks lip sync, timbre and latency. Replacing any layer with “overall feel” causes rework at the client demo.</p><div class="domain-facts"><p><b>Head / proportion</b><br/><em>What to build</em>: Skull, features, neck-shoulder join<br/><em>Acceptance</em>: No intersection or deformation through rotation<br/><em>Risk</em>: Proportion breaks in close-up</p><p><b>Expression</b><br/><em>What to build</em>: Blendshape or bone set<br/><em>Acceptance</em>: Emotion and micro-expression do not overshoot<br/><em>Risk</em>: Mask-like expression</p><p><b>Eyes / blink</b><br/><em>What to build</em>: Gaze, pupil, lids<br/><em>Acceptance</em>: Follows camera, natural blink<br/><em>Risk</em>: Staring, mechanical blink</p><p><b>Hair / cloth</b><br/><em>What to build</em>: Hair strands, collision, cloth<br/><em>Acceptance</em>: No intersection on fast head turn<br/><em>Risk</em>: Intersects face, jitters</p><p><b>Lip sync / voice</b><br/><em>What to build</em>: Phonemes to visemes, stress, pauses<br/><em>Acceptance</em>: Long sentences stay aligned, latency measurable<br/><em>Risk</em>: Audio and video drift</p><p><b>Long run</b><br/><em>What to build</em>: Memory, heat, degradation<br/><em>Acceptance</em>: Thirty minutes without a crash<br/><em>Risk</em>: Slows down, VRAM leak</p></div><div class="domain-callout">A digital human is easiest to fake at the face. Check lip sync, blink, head turn and long-run stability first.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="export">
+<h2>8 · Export and import: the format can be right and the scene still wrong</h2>
+<p>glTF suits web and real time, USD suits film and scene assembly, FBX remains common for DCC exchange; each treats units, axes, materials, animation and skeletons differently. A successful export is not a successful import: scale can be off by 100, materials can drop, animation can be resampled and bone orientation can flip.</p><p>Accept in the target engine, not in the export dialog. After import, check scale, orientation, materials, animation, collision, LOD, naming and file size; keep a rollback-ready source asset and export record.</p><div class="domain-facts"><p><b>Units and scale</b><br/><em>Why</em>: DCC tools default to different units<br/><em>How to verify</em>: Place a known-size human or cube in an empty scene</p><p><b>Axes and facing</b><br/><em>Why</em>: Y-up / Z-up and forward axes differ<br/><em>How to verify</em>: View from four sides, check front and ground</p><p><b>Material conversion</b><br/><em>Why</em>: PBR channels may be simplified or dropped<br/><em>How to verify</em>: Compare each channel between source and target</p><p><b>Animation and frame rate</b><br/><em>Why</em>: Resampling changes timing<br/><em>How to verify</em>: Compare key poses and duration frame by frame</p><p><b>Collision and LOD</b><br/><em>Why</em>: Importers do not create them automatically<br/><em>How to verify</em>: Walk, collide and switch three LODs</p><p><b>Naming and manifest</b><br/><em>Why</em>: Assets get lost at scale<br/><em>How to verify</em>: Name by spec, attach source, textures and licence</p></div><div class="domain-callout">Export is not the last step. Import into the target engine and run it before calling the export successful.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="rights">
+<h2>9 · Rights: model, training data, reference and person are four layers</h2>
+<p>A 3D asset carries at least four rights layers: the model and service terms, training data and style sources, input references (photos, scans, other models), and permitted use of the output. A commercial model licence does not make a reference photo commercial; owning the output file does not make a real-person scan usable as an avatar; a CC0 model can be modified, but trademarks, characters or buildings inside it are not automatically free.</p><p>Real-person scans, digital humans and voice clones also need consent, scope, duration, withdrawal and labelling. Keep consent, references, generation logs, edit records and publication scope in one asset manifest; without it, you cannot prove the basis for use later.</p><ul class="domain-list"><li>Give every asset one manifest row: source, author, licence, references, consent, generation tool, edits and publication scope.</li><li>Separate personal use, commercial publication, retraining and redistribution; do not treat one permission as all uses.</li><li>Check likeness, voice, name, trademark, building exterior and character separately; one “CC0” conclusion cannot cover them all.</li><li>Label synthetic media according to platform and applicable rules; keep a withdrawal and takedown path.</li></ul><div class="domain-callout">Rights are not one line saying “commercial use allowed”. Separate use, territory, duration, labelling and evidence.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="cost">
+<h2>10 · Cost: price accepted assets, not generation attempts</h2>
+<p>The common costing error is treating one generation as one finished asset. Real cost includes generation attempts, cleanup and retopology, UVs and textures, rigging and motion, rendering and transcoding, storage and versions, acceptance and rework. More generations do not make an asset cheaper; they may only postpone the rework.</p><p>Quote per accepted asset or accepted shot second, and write rework rounds, source-file delivery, exclusivity and later revisions into the contract. Per-token, per-image or per-run pricing cannot cover the manual stages.</p><div class="domain-facts"><p><b>Generation attempts</b><br/><em>Unit</em>: Per run / batch<br/><em>Why it runs away</em>: Endless sampling without a stop rule<br/><em>Control</em>: Set a batch cap and pass criteria first</p><p><b>Cleanup and retopology</b><br/><em>Unit</em>: Hours per asset<br/><em>Why it runs away</em>: Generated mesh cannot animate directly<br/><em>Control</em>: Fix polygon, edge-flow and UV targets</p><p><b>Rig and motion</b><br/><em>Unit</em>: Hours per rig<br/><em>Why it runs away</em>: New skeleton per asset, retarget fails<br/><em>Control</em>: Reuse skeletons and naming rules</p><p><b>Textures and materials</b><br/><em>Unit</em>: Maps per material<br/><em>Why it runs away</em>: Unbudgeted 4K/8K, wrong packing<br/><em>Control</em>: Set resolution from texel density</p><p><b>Render and transcode</b><br/><em>Unit</em>: Frame / GPU hour<br/><em>Why it runs away</em>: Oversampling, re-render after fixes<br/><em>Control</em>: Test at low resolution first</p><p><b>Storage and versions</b><br/><em>Unit</em>: GB per version<br/><em>Why it runs away</em>: Full copies per version, duplicate textures<br/><em>Control</em>: Incremental versions and retention</p><p><b>Acceptance and rework</b><br/><em>Unit</em>: Rounds per asset<br/><em>Why it runs away</em>: Unclear criteria, verbal changes<br/><em>Control</em>: Acceptance table plus written round notes</p></div><div class="domain-callout">Quote per accepted asset, not per generation attempt.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="fail">
+<h2>11 · Failure branches: locate the stage before swapping tools</h2>
+<p>3D failures often surface after export, but the cause sits earlier. Locate the stage — geometry, material, rig, real time, export, rights — before deciding whether to fix the asset, the pipeline or the tool. Do not hide a scale or normal problem behind another generation.</p><div class="domain-facts"><p><b>Holes and floating parts</b><br/><em>Check first</em>: Non-manifold edges, connected components<br/><em>Likely cause</em>: Generation not cleaned<br/><em>Fix</em>: Fill, merge, retopologise</p><p><b>Wrong scale in engine</b><br/><em>Check first</em>: Units, axes, import settings<br/><em>Likely cause</em>: Source scene units differ<br/><em>Fix</em>: Unify units, recheck against reference</p><p><b>Collapses when bent</b><br/><em>Check first</em>: Joint placement, edge flow, weights<br/><em>Likely cause</em>: Topology unsuitable for deformation<br/><em>Fix</em>: Rebuild joint loops, then weights</p><p><b>Washed-out or bright material</b><br/><em>Check first</em>: Colour space, PBR channels<br/><em>Likely cause</em>: Wrong sRGB / linear assignment<br/><em>Fix</em>: Reset per channel, verify in engine</p><p><b>Frame drops</b><br/><em>Check first</em>: Draw calls, triangles, textures, skinning<br/><em>Likely cause</em>: No budget or missing LODs<br/><em>Fix</em>: Cut draw calls and textures first, then LOD</p><p><b>Lip-sync drift</b><br/><em>Check first</em>: Phonemes, visemes, frame rate, latency<br/><em>Likely cause</em>: Audio and video clocks differ<br/><em>Fix</em>: Align clocks, retest long sentences</p><p><b>Unclear rights</b><br/><em>Check first</em>: Model terms, references, consent<br/><em>Likely cause</em>: Generation logs without provenance<br/><em>Fix</em>: Complete the manifest, replace unusable assets</p></div><div class="domain-callout">Locate the stage before swapping tools. A new tool does not fix scale, topology or rights.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="path">
+<h2>12 · A minimum path: from delivery sentence to accepted asset</h2>
+<p>This path fits one asset that must enter an engine or appear in a shot. Each step leaves evidence before the next begins.</p><ul class="domain-list"><li>Write the delivery sentence: target device, engine, frame rate, viewing distance, motion range and acceptor.</li><li>Collect references and a rights manifest: photos, scans, model sources, licences, consent, trademark checks.</li><li>Choose the geometry source: generate, reconstruct, scan or model manually; start with a low-poly blockout.</li><li>Clean geometry: unify units, orientation and pivot, fill holes, remove loose parts, set the polygon budget.</li><li>Retopologise, unwrap, and fix normals and tangents around deformation and viewing distance.</li><li>Build materials and textures; accept each PBR channel, colour space and resolution budget.</li><li>Rig and animate: joints, weights, blendshapes, retargeting; run extreme-pose tests.</li><li>Export and import into the target engine: check scale, materials, animation, collision, LOD and frame rate.</li><li>Package the asset manifest: source files, textures, licences, consent, generation and edit records, acceptance table.</li><li>Deliver with a rollback: keep a reproducible version, record unresolved items and conditions for the next revision.</li></ul><div class="domain-callout">The minimum path is not the fastest path; it is the shortest reproducible, acceptable and rollback-ready loop.</div>
+<p class="domain-return"><a href="#domain-toc">↑ Back to contents</a></p>
+</section>
+<section class="domain-section" id="sources">
+<h2>Sources and further reading</h2>
+<p>These links are for checking facts, licences and official scope. External pages may change; cite the original text and check date.</p>
+<ul class="domain-src"><li><a href="https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html" rel="noopener">Khronos · glTF 2.0 specification</a><span>glTF 2.0 conventions for coordinates, materials, animation and compression; check before export.</span></li><li><a href="https://github.com/KhronosGroup/glTF-Validator" rel="noopener">Khronos · glTF Validator</a><span>The official validator for glTF structural errors, normals, materials and extension issues.</span></li><li><a href="https://docs.blender.org/manual/en/latest/modeling/meshes/retopology.html" rel="noopener">Blender Manual · Retopology</a><span>Retopology goals, edge flow and common practice; a reference for cleaning generated meshes before animation.</span></li><li><a href="https://docs.blender.org/manual/en/latest/modeling/meshes/uv/unwrapping/index.html" rel="noopener">Blender Manual · UV unwrapping</a><span>UV unwrapping, seams and texture-space basics.</span></li><li><a href="https://docs.blender.org/manual/en/latest/animation/armatures/skinning/index.html" rel="noopener">Blender Manual · Skinning</a><span>The workflow for bones, weights and skin deformation.</span></li><li><a href="https://openusd.org/release/index.html" rel="noopener">OpenUSD · Documentation</a><span>USD concepts for scene assembly, layering and asset exchange; a film-pipeline reference.</span></li><li><a href="https://polyhaven.com/license" rel="noopener">Poly Haven · Licence</a><span>Scope and exceptions of CC0 assets; not a licence for trademarks or real-person likeness.</span></li><li><a href="https://sketchfab.com/licenses" rel="noopener">Sketchfab · Licences</a><span>Download, modification and commercial boundaries across model licences.</span></li><li><a href="https://developer.apple.com/documentation/arkit/arfaceanchor/blendshapelocation" rel="noopener">Apple · ARKit blendshape locations</a><span>Names and semantics of facial blendshapes; a reference for avatar visemes and expression mapping.</span></li></ul>
+</section>
+<section class="domain-next">
+<h2>Next</h2>
+<ul><li><a href="/en/topic-3d.html">Back to the 3D route</a></li><li><a href="/en/domain-image.html">Next: fix the concept art and textures</a></li><li><a href="/en/topics.html">Browse the other 15 topic routes</a></li></ul>
+<p>If you get stuck while following it, go back to the matching route instead of rereading the whole guide.</p>
+</section>
+<p class="domain-back"><a href="https://specul.com/en/">← Back to home</a> <span aria-hidden="true">·</span> <a href="/en/correct.html">Spot an error? Send a correction</a></p>
+</div>
+</section>
+</main>
+<!-- SPECUL:FOOTER:START -->
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<!-- SPECUL:FOOTER:END -->
+<!-- SPECUL:TABBAR:START -->
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a aria-current="page" href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+<!-- SPECUL:TABBAR:END -->
+</body>
+</html>
